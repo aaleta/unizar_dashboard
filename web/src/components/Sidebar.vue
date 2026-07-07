@@ -19,15 +19,15 @@
                 <p>1º</p>
             </RouterLink>
 
-            <RouterLink to="/pagina2">
+            <RouterLink to="/secondYear">
                 <p>2º</p>
             </RouterLink>
 
-            <RouterLink to="/pagina3">
+            <RouterLink to="/thirdYear">
                 <p>3º</p>
             </RouterLink>
 
-            <RouterLink to="/pagina4">
+            <RouterLink to="/forthYear">
                 <p>4º</p>
             </RouterLink>
 

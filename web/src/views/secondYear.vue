@@ -1,8 +1,8 @@
 <script setup>
 import subjects from '../../../data/json/processed/AsignaturasClasificadasOptTronc.json'
 
-const coreSubjects = subjects.troncales["1"]
-const optionalSubjects = subjects.optativas["1"]
+const coreSubjects = subjects.troncales["2"]
+const optionalSubjects = subjects.optativas["2"]
 
 const getDashboardLink = (code) => {
   return `/dashboard/${code}`
