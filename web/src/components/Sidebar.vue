@@ -31,6 +31,10 @@
                 <p>4º</p>
             </RouterLink>
 
+            <RouterLink to="/Optional">
+                <p>Optativas</p>
+            </RouterLink>
+
         </nav>
 
     </aside>

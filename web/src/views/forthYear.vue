@@ -2,7 +2,7 @@
 import subjects from '../../../data/json/processed/AsignaturasClasificadasOptTronc.json'
 
 const coreSubjects = subjects.troncales["4"]
-const optionalSubjects = subjects.optativas["4"]
+
 
 const getDashboardLink = (code) => {
   return `/dashboard/${code}`
@@ -13,15 +13,15 @@ const getDashboardLink = (code) => {
   <main class="page">
 
     <header class="hero">
-      <h1>First Year</h1>
+      <h1>Cuarto</h1>
       <p>
-        Select a subject to access its dashboard and statistics.
+        Elige una asignatura para acceder al dashboard particular.
       </p>
     </header>
 
     <section class="section">
       <h2 class="section-title core-title">
-        Core Subjects
+        Troncales
       </h2>
 
       <div class="subjects-grid">
@@ -44,38 +44,6 @@ const getDashboardLink = (code) => {
           </RouterLink>
         </article>
       </div>
-    </section>
-
-    <section class="section" v-if="optionalSubjects.length">
-
-      <h2 class="section-title optional-title">
-        Optional Subjects
-      </h2>
-
-      <div class="subjects-grid">
-
-        <article
-          v-for="subject in optionalSubjects"
-          :key="subject.code"
-          class="subject-card optional"
-        >
-          <h3>{{ subject.name }}</h3>
-
-          <p class="code">
-            Code: {{ subject.code }}
-          </p>
-
-          <RouterLink
-            :to="getDashboardLink(subject.code)"
-            class="dashboard-button"
-          >
-            Open Dashboard →
-          </RouterLink>
-
-        </article>
-
-      </div>
-
     </section>
 
   </main>
@@ -127,11 +95,6 @@ const getDashboardLink = (code) => {
     color:#38bdf8;
 }
 
-.optional-title{
-
-    color:#f59e0b;
-}
-
 .subjects-grid{
 
     display:grid;
@@ -167,15 +130,6 @@ const getDashboardLink = (code) => {
         135deg,
         #0f4c81,
         #2563eb
-    );
-}
-
-.optional{
-
-    background:linear-gradient(
-        135deg,
-        #92400e,
-        #f59e0b
     );
 }
 

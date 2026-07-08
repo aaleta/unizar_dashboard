@@ -261,7 +261,7 @@
     },
     {
         "Curso Académico":"2024-2025",
-        "Curso":1,
+        "Curso":0,
         "Código":26909,
         "Asignatura":"Biología",
         "No pre":0,
@@ -281,7 +281,7 @@
     },
     {
         "Curso Académico":"2024-2025",
-        "Curso":1,
+        "Curso":0,
         "Código":26910,
         "Asignatura":"Geología",
         "No pre":0,
@@ -301,7 +301,7 @@
     },
     {
         "Curso Académico":"2024-2025",
-        "Curso":1,
+        "Curso":0,
         "Código":26958,
         "Asignatura":"Grafos y combinatoria",
         "No pre":6,
@@ -1361,7 +1361,7 @@
     },
     {
         "Curso Académico":"2023-2024",
-        "Curso":1,
+        "Curso":0,
         "Código":26909,
         "Asignatura":"Biología",
         "No pre":3,
@@ -1381,7 +1381,7 @@
     },
     {
         "Curso Académico":"2023-2024",
-        "Curso":1,
+        "Curso":0,
         "Código":26910,
         "Asignatura":"Geología",
         "No pre":0,
@@ -1401,7 +1401,7 @@
     },
     {
         "Curso Académico":"2023-2024",
-        "Curso":1,
+        "Curso":0,
         "Código":26958,
         "Asignatura":"Grafos y combinatoria",
         "No pre":7,
@@ -2381,7 +2381,7 @@
     },
     {
         "Curso Académico":"2022-2023",
-        "Curso":1,
+        "Curso":0,
         "Código":26909,
         "Asignatura":"Biología",
         "No pre":1,
@@ -2401,7 +2401,7 @@
     },
     {
         "Curso Académico":"2022-2023",
-        "Curso":1,
+        "Curso":0,
         "Código":26910,
         "Asignatura":"Geología",
         "No pre":2,
@@ -2421,7 +2421,7 @@
     },
     {
         "Curso Académico":"2022-2023",
-        "Curso":1,
+        "Curso":0,
         "Código":26958,
         "Asignatura":"Grafos y combinatoria",
         "No pre":1,
@@ -3441,7 +3441,7 @@
     },
     {
         "Curso Académico":"2021-2022",
-        "Curso":1,
+        "Curso":0,
         "Código":26909,
         "Asignatura":"Biología",
         "No pre":3,
@@ -3461,7 +3461,7 @@
     },
     {
         "Curso Académico":"2021-2022",
-        "Curso":1,
+        "Curso":0,
         "Código":26910,
         "Asignatura":"Geología",
         "No pre":2,
@@ -3481,7 +3481,7 @@
     },
     {
         "Curso Académico":"2021-2022",
-        "Curso":1,
+        "Curso":0,
         "Código":26958,
         "Asignatura":"Grafos y combinatoria",
         "No pre":3,
@@ -4521,7 +4521,7 @@
     },
     {
         "Curso Académico":"2020-2021",
-        "Curso":1,
+        "Curso":0,
         "Código":26909,
         "Asignatura":"Biología",
         "No pre":7,
@@ -4541,7 +4541,7 @@
     },
     {
         "Curso Académico":"2020-2021",
-        "Curso":1,
+        "Curso":0,
         "Código":26910,
         "Asignatura":"Geología",
         "No pre":1,
@@ -4561,7 +4561,7 @@
     },
     {
         "Curso Académico":"2020-2021",
-        "Curso":1,
+        "Curso":0,
         "Código":26958,
         "Asignatura":"Grafos y combinatoria",
         "No pre":4,
@@ -5561,7 +5561,7 @@
     },
     {
         "Curso Académico":"2019-2020",
-        "Curso":1,
+        "Curso":0,
         "Código":26909,
         "Asignatura":"Biología",
         "No pre":0,
@@ -5581,7 +5581,7 @@
     },
     {
         "Curso Académico":"2019-2020",
-        "Curso":1,
+        "Curso":0,
         "Código":26910,
         "Asignatura":"Geología",
         "No pre":1,
@@ -5601,7 +5601,7 @@
     },
     {
         "Curso Académico":"2019-2020",
-        "Curso":1,
+        "Curso":0,
         "Código":26958,
         "Asignatura":"Grafos y combinatoria",
         "No pre":2,
@@ -6661,7 +6661,7 @@
     },
     {
         "Curso Académico":"2018-2019",
-        "Curso":1,
+        "Curso":0,
         "Código":26909,
         "Asignatura":"Biología",
         "No pre":5,
@@ -6681,7 +6681,7 @@
     },
     {
         "Curso Académico":"2018-2019",
-        "Curso":1,
+        "Curso":0,
         "Código":26910,
         "Asignatura":"Geología",
         "No pre":0,
@@ -7661,7 +7661,7 @@
     },
     {
         "Curso Académico":"2017-2018",
-        "Curso":1,
+        "Curso":0,
         "Código":26909,
         "Asignatura":"Biología",
         "No pre":5,
@@ -7681,7 +7681,7 @@
     },
     {
         "Curso Académico":"2017-2018",
-        "Curso":1,
+        "Curso":0,
         "Código":26910,
         "Asignatura":"Geología",
         "No pre":2,
@@ -8681,7 +8681,7 @@
     },
     {
         "Curso Académico":"2016-2017",
-        "Curso":1,
+        "Curso":0,
         "Código":26909,
         "Asignatura":"Biología",
         "No pre":3,
@@ -8701,7 +8701,7 @@
     },
     {
         "Curso Académico":"2016-2017",
-        "Curso":1,
+        "Curso":0,
         "Código":26910,
         "Asignatura":"Geología",
         "No pre":0,
@@ -10061,7 +10061,7 @@
     },
     {
         "Curso Académico":"2015-2016",
-        "Curso":1,
+        "Curso":0,
         "Código":26909,
         "Asignatura":"Biología",
         "No pre":8,
@@ -10081,7 +10081,7 @@
     },
     {
         "Curso Académico":"2015-2016",
-        "Curso":1,
+        "Curso":0,
         "Código":26910,
         "Asignatura":"Geología",
         "No pre":3,
@@ -11061,7 +11061,7 @@
     },
     {
         "Curso Académico":"2014-2015",
-        "Curso":1,
+        "Curso":0,
         "Código":26909,
         "Asignatura":"Biología",
         "No pre":11,
@@ -11081,7 +11081,7 @@
     },
     {
         "Curso Académico":"2014-2015",
-        "Curso":1,
+        "Curso":0,
         "Código":26910,
         "Asignatura":"Geología",
         "No pre":1,
@@ -12061,7 +12061,7 @@
     },
     {
         "Curso Académico":"2013-2014",
-        "Curso":1,
+        "Curso":0,
         "Código":26909,
         "Asignatura":"Biología",
         "No pre":11,
@@ -12081,7 +12081,7 @@
     },
     {
         "Curso Académico":"2013-2014",
-        "Curso":1,
+        "Curso":0,
         "Código":26910,
         "Asignatura":"Geología",
         "No pre":9,

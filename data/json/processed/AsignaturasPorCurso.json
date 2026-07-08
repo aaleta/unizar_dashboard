@@ -17,6 +17,18 @@
             "name": "Orquesta Sinfónica Universitaria de Zaragoza. 24-25"
         },
         {
+            "code": 26909,
+            "name": "Biología"
+        },
+        {
+            "code": 26910,
+            "name": "Geología"
+        },
+        {
+            "code": 26958,
+            "name": "Grafos y combinatoria"
+        },
+        {
             "code": 26934,
             "name": "Física de la atmósfera"
         },
@@ -165,18 +177,6 @@
         {
             "code": 26908,
             "name": "Cálculo diferencial"
-        },
-        {
-            "code": 26909,
-            "name": "Biología"
-        },
-        {
-            "code": 26910,
-            "name": "Geología"
-        },
-        {
-            "code": 26958,
-            "name": "Grafos y combinatoria"
         }
     ],
     "2": [
