@@ -130,9 +130,151 @@
         ]
     },
     "optativas": {
-        "1": [],
-        "2": [],
+        "1": [
+            {
+                "code": 81413,
+                "name": "Introducción a la Inteligencia Artificial"
+            },
+            {
+                "code": 81482,
+                "name": "Enfoque multidisciplinar del hecho religioso (Sociología, Antropología, Psicología)"
+            },
+            {
+                "code": 81493,
+                "name": "Neurociencia para entender mejor el mundo"
+            },
+            {
+                "code": 81511,
+                "name": "Orquesta Sinfónica Universitaria de Zaragoza. 24-25"
+            },
+            {
+                "code": 26909,
+                "name": "Biología"
+            },
+            {
+                "code": 26910,
+                "name": "Geología"
+            },
+            {
+                "code": 26958,
+                "name": "Grafos y combinatoria"
+            },
+            {
+                "code": 81326,
+                "name": "Globalización. Reflexiones desde la Filosofía, la Economía y el Derecho"
+            },
+            {
+                "code": 81361,
+                "name": "Iniciación a la Investigación en Física de Astropartículas y de Altas Energías"
+            },
+            {
+                "code": 81292,
+                "name": "Día de la Materia Oscura"
+            },
+            {
+                "code": 81294,
+                "name": "El zoo de las partículas: De la relatividad a la teoría de campos clásica y cuántica"
+            },
+            {
+                "code": 81295,
+                "name": "Iniciación a la investigación en Física de Astropartículas y de Altas Energías"
+            },
+            {
+                "code": 81298,
+                "name": "Métodos geométricos en Física"
+            },
+            {
+                "code": 81251,
+                "name": "Gestión emocional y de estrés laboral y personal"
+            }
+        ],
+        "2": [
+            {
+                "code": 81413,
+                "name": "Introducción a la Inteligencia Artificial"
+            },
+            {
+                "code": 81482,
+                "name": "Enfoque multidisciplinar del hecho religioso (Sociología, Antropología, Psicología)"
+            },
+            {
+                "code": 81493,
+                "name": "Neurociencia para entender mejor el mundo"
+            },
+            {
+                "code": 81511,
+                "name": "Orquesta Sinfónica Universitaria de Zaragoza. 24-25"
+            },
+            {
+                "code": 26909,
+                "name": "Biología"
+            },
+            {
+                "code": 26910,
+                "name": "Geología"
+            },
+            {
+                "code": 26958,
+                "name": "Grafos y combinatoria"
+            },
+            {
+                "code": 81326,
+                "name": "Globalización. Reflexiones desde la Filosofía, la Economía y el Derecho"
+            },
+            {
+                "code": 81361,
+                "name": "Iniciación a la Investigación en Física de Astropartículas y de Altas Energías"
+            },
+            {
+                "code": 81292,
+                "name": "Día de la Materia Oscura"
+            },
+            {
+                "code": 81294,
+                "name": "El zoo de las partículas: De la relatividad a la teoría de campos clásica y cuántica"
+            },
+            {
+                "code": 81295,
+                "name": "Iniciación a la investigación en Física de Astropartículas y de Altas Energías"
+            },
+            {
+                "code": 81298,
+                "name": "Métodos geométricos en Física"
+            },
+            {
+                "code": 81251,
+                "name": "Gestión emocional y de estrés laboral y personal"
+            }
+        ],
         "3": [
+            {
+                "code": 81413,
+                "name": "Introducción a la Inteligencia Artificial"
+            },
+            {
+                "code": 81482,
+                "name": "Enfoque multidisciplinar del hecho religioso (Sociología, Antropología, Psicología)"
+            },
+            {
+                "code": 81493,
+                "name": "Neurociencia para entender mejor el mundo"
+            },
+            {
+                "code": 81511,
+                "name": "Orquesta Sinfónica Universitaria de Zaragoza. 24-25"
+            },
+            {
+                "code": 26909,
+                "name": "Biología"
+            },
+            {
+                "code": 26910,
+                "name": "Geología"
+            },
+            {
+                "code": 26958,
+                "name": "Grafos y combinatoria"
+            },
             {
                 "code": 26934,
                 "name": "Física de la atmósfera"
@@ -140,6 +282,34 @@
             {
                 "code": 26939,
                 "name": "Iluminación y colorimetría"
+            },
+            {
+                "code": 81326,
+                "name": "Globalización. Reflexiones desde la Filosofía, la Economía y el Derecho"
+            },
+            {
+                "code": 81361,
+                "name": "Iniciación a la Investigación en Física de Astropartículas y de Altas Energías"
+            },
+            {
+                "code": 81292,
+                "name": "Día de la Materia Oscura"
+            },
+            {
+                "code": 81294,
+                "name": "El zoo de las partículas: De la relatividad a la teoría de campos clásica y cuántica"
+            },
+            {
+                "code": 81295,
+                "name": "Iniciación a la investigación en Física de Astropartículas y de Altas Energías"
+            },
+            {
+                "code": 81298,
+                "name": "Métodos geométricos en Física"
+            },
+            {
+                "code": 81251,
+                "name": "Gestión emocional y de estrés laboral y personal"
             },
             {
                 "code": 26932,
@@ -219,6 +389,62 @@
             }
         ],
         "4": [
+            {
+                "code": 81413,
+                "name": "Introducción a la Inteligencia Artificial"
+            },
+            {
+                "code": 81482,
+                "name": "Enfoque multidisciplinar del hecho religioso (Sociología, Antropología, Psicología)"
+            },
+            {
+                "code": 81493,
+                "name": "Neurociencia para entender mejor el mundo"
+            },
+            {
+                "code": 81511,
+                "name": "Orquesta Sinfónica Universitaria de Zaragoza. 24-25"
+            },
+            {
+                "code": 26909,
+                "name": "Biología"
+            },
+            {
+                "code": 26910,
+                "name": "Geología"
+            },
+            {
+                "code": 26958,
+                "name": "Grafos y combinatoria"
+            },
+            {
+                "code": 81326,
+                "name": "Globalización. Reflexiones desde la Filosofía, la Economía y el Derecho"
+            },
+            {
+                "code": 81361,
+                "name": "Iniciación a la Investigación en Física de Astropartículas y de Altas Energías"
+            },
+            {
+                "code": 81292,
+                "name": "Día de la Materia Oscura"
+            },
+            {
+                "code": 81294,
+                "name": "El zoo de las partículas: De la relatividad a la teoría de campos clásica y cuántica"
+            },
+            {
+                "code": 81295,
+                "name": "Iniciación a la investigación en Física de Astropartículas y de Altas Energías"
+            },
+            {
+                "code": 81298,
+                "name": "Métodos geométricos en Física"
+            },
+            {
+                "code": 81251,
+                "name": "Gestión emocional y de estrés laboral y personal"
+            },
             {
                 "code": 26932,
                 "name": "Astronomía y astrofísica"

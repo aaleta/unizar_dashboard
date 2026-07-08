@@ -1,8 +1,8 @@
 import pandas as pd
-import json 
+import json
 from pathlib import Path
 
-#Se convierten los datos a json
+# Se convierten los datos a JSON
 df = pd.read_excel("../data/xlsx_csv/notas.xlsx")
 
 df.to_json(
@@ -21,17 +21,13 @@ df.to_json(
     indent=4
 )
 
-
-#Se procesan los datos 
+# Se procesan los datos
 
 input_file = Path("../data/json/NotasRaw.json")
 output_file = Path("../data/json/processed/AsignaturasPorCurso.json")
 
-
-
 with open(input_file, "r", encoding="utf-8") as f:
     data = json.load(f)
-
 
 subjects_by_course = {
     "0": [],
@@ -42,7 +38,6 @@ subjects_by_course = {
 }
 
 seen_subjects = set()
-
 
 for subject in data:
 
@@ -62,7 +57,6 @@ for subject in data:
 
     seen_subjects.add(key)
 
-
 with open(output_file, "w", encoding="utf-8") as f:
     json.dump(
         subjects_by_course,
@@ -74,14 +68,12 @@ with open(output_file, "w", encoding="utf-8") as f:
 input_file = Path("../data/json/processed/AsignaturasPorCurso.json")
 output_file = Path("../data/json/processed/AsignaturasClasificadasOptTronc.json")
 
-
 output_file.parent.mkdir(parents=True, exist_ok=True)
 
 with open(input_file, "r", encoding="utf-8") as f:
     subjects_by_course = json.load(f)
 
 subjects = {}
-
 
 for course, subject_list in subjects_by_course.items():
 
@@ -116,15 +108,22 @@ for code, subject in subjects.items():
 
     courses = set(subject["courses"])
 
-    if courses == {"0"}:
-        continue
-
-
     subject_data = {
         "code": code,
         "name": subject["name"]
     }
 
+    # Solo aparece en el curso 0:
+    # se añade como optativa de todos los cursos.
+    if courses == {"0"}:
+
+        for course in ["1", "2", "3", "4"]:
+            classified_subjects["optativas"][course].append(subject_data)
+
+        continue
+
+    # Aparece en el curso 0 y en otros:
+    # es optativa de esos cursos.
     if "0" in courses:
 
         for course in ["1", "2", "3", "4"]:
@@ -132,13 +131,14 @@ for code, subject in subjects.items():
             if course in courses:
                 classified_subjects["optativas"][course].append(subject_data)
 
+    # No aparece en el curso 0:
+    # es troncal de los cursos correspondientes.
     else:
 
         for course in ["1", "2", "3", "4"]:
 
             if course in courses:
                 classified_subjects["troncales"][course].append(subject_data)
-
 
 with open(output_file, "w", encoding="utf-8") as f:
     json.dump(
@@ -147,6 +147,3 @@ with open(output_file, "w", encoding="utf-8") as f:
         ensure_ascii=False,
         indent=4
     )
-
-
-

@@ -1,41 +1,112 @@
 <script setup>
-import { useRoute } from "vue-router";
-import DashboardHist from "@/components/Dashboard/DashboardHistogram.vue";
+    import { useRoute } from "vue-router";
+    import DashboardHist from "@/components/Dashboard/DashboardHistogram.vue";
+    import { computed } from "vue";
+    import notas from "../../../data/json/NotasRaw.json";
 
-const route = useRoute();
+    const route = useRoute();
 
-// Código de la asignatura obtenido de la URL
-const subjectCode = Number(route.params.code);
+    const subjectName = computed(() => {
+
+        const subject = notas.find(
+            item => item["Código"] === subjectCode
+        );
+
+        return subject
+            ? subject["Asignatura"].trim()
+            : `Asignatura ${subjectCode}`;
+
+    });
+
+    
+    // Código de la asignatura obtenido de la URL
+    const subjectCode = Number(route.params.code);
+
+    
+
+
 </script>
 
 <template>
 
-<div class="dashboard">
+<main class="page">
 
-    <h1>Dashboard asignatura {{ subjectCode }}</h1>
+    <header class="hero">
 
-    <DashboardHist
-        :subjectCode="subjectCode"
-    />
+        <h1>Dashboard {{ subjectName }}</h1>
 
-</div>
+        <p>
+            Estadísticas de la asignatura.
+        </p>
+
+    </header>
+
+    <section class="dashboard-grid">
+
+        <DashboardHist
+            :subjectCode="subjectCode"
+        />
+
+    </section>
+
+</main>
 
 </template>
 
 <style scoped>
 
-.dashboard{
+.page{
 
-    width: 100%;
-    min-height: 100vh;
-    padding: 30px;
-    background: #f4f6fa;
+    margin-left:90px;
+    padding:50px;
+
+    min-height:100vh;
+
+    background:#0f172a;
+
+    color:white;
 
 }
 
-.dashboard h1{
+.hero{
 
-    margin-bottom:30px;
+    margin-bottom:40px;
+
+}
+
+.hero h1{
+
+    font-size:2.8rem;
+
+    margin-bottom:10px;
+
+}
+
+.hero p{
+
+    color:#94a3b8;
+
+}
+
+.dashboard-grid{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:25px;
+
+}
+
+@media(max-width:768px){
+
+    .page{
+
+        margin-left:0;
+
+        padding:25px;
+
+    }
 
 }
 

@@ -15,6 +15,7 @@ import {
 import { Bar } from "vue-chartjs";
 
 import notas from "../../../../data/json/NotasRaw.json";
+import { callback } from "chart.js/helpers";
 
 ChartJS.register(
     CategoryScale,
@@ -83,11 +84,11 @@ const chartData = computed(()=>{
     return{
 
         labels:[
-            "No Presentados",
-            "Suspensos",
-            "Aprobados",
-            "Notables",
-            "Sobresalientes",
+            "No Pr",
+            "Susp",
+            "Apr",
+            "Not",
+            "Sob",
             "MH"
         ],
 
@@ -95,18 +96,31 @@ const chartData = computed(()=>{
 
             {
 
-                label:"Número de alumnos",
+                label:"Porcentaje",
 
                 data:[
 
-                    currentData.value["No pre"],
-                    currentData.value["Sus"],
-                    currentData.value["Apr"],
-                    currentData.value["Not"],
-                    currentData.value["Sob"],
-                    currentData.value["MH"]
+                    currentData.value["No pre %"],
+                    currentData.value["Sus %"],
+                    currentData.value["Apr %"],
+                    currentData.value["Not %"],
+                    currentData.value["Sob %"],
+                    currentData.value["MH %"]
 
-                ]
+                ],
+
+                backgroundColor:[
+                    "#64748b", // No presentados
+                    "#ef4444", // Suspensos
+                    "#22c55e", // Aprobados
+                    "#3b82f6", // Notables
+                    "#a855f7", // Sobresalientes
+                    "#facc15"  // MH
+                ],
+
+                borderRadius:8
+
+
 
             }
 
@@ -134,9 +148,35 @@ const chartOptions={
 
     scales:{
 
+        x:{
+
+            ticks:{
+                color:"#cbd5e1"
+            },
+
+            grid:{
+                display:false
+            }
+
+        },
+
         y:{
 
-            beginAtZero:true
+            beginAtZero:true,
+
+            max: 100,
+
+            ticks:{
+                color:"#94a3b8",
+
+                callback: function(value){
+                    return value + "%";
+                }
+            },
+
+            grid:{
+                color:"rgba(255,255,255,.08)"
+            }
 
         }
 
@@ -189,15 +229,32 @@ const chartOptions={
 
 .panel{
 
-    width:100%;
+    width:420px;
+    height:340px;
 
-    background:white;
+    padding:22px;
 
-    border-radius:15px;
+    background:#1e293b;
 
-    padding:25px;
+    border:1px solid rgba(255,255,255,.08);
 
-    box-shadow:0 4px 12px rgba(0,0,0,.08);
+    border-radius:18px;
+
+    box-shadow:
+        0 10px 25px rgba(0,0,0,.25);
+
+    transition:.25s;
+
+}
+
+.panel:hover{
+
+    transform:translateY(-4px);
+
+    border-color:#38bdf8;
+
+    box-shadow:
+        0 15px 35px rgba(0,0,0,.35);
 
 }
 
@@ -209,25 +266,51 @@ const chartOptions={
 
     align-items:center;
 
-    margin-bottom:20px;
+    margin-bottom:18px;
 
 }
 
 .panelHeader h2{
 
-    margin:0;
+    font-size:1rem;
 
-    font-size:22px;
+    font-weight:600;
+
+    color:white;
+
+    margin:0;
 
 }
 
 .panelHeader select{
 
-    padding:8px 12px;
+    background:#0f172a;
 
-    font-size:16px;
+    color:white;
 
-    border-radius:8px;
+    border:1px solid #334155;
+
+    border-radius:10px;
+
+    padding:8px 14px;
+
+    cursor:pointer;
+
+    transition:.2s;
+
+}
+
+.panelHeader select:hover{
+
+    border-color:#38bdf8;
+
+}
+
+.panelHeader select:focus{
+
+    outline:none;
+
+    border-color:#38bdf8;
 
 }
 
@@ -235,7 +318,7 @@ const chartOptions={
 
     width:100%;
 
-    height:450px;
+    height:250px;
 
 }
 
