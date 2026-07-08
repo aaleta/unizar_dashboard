@@ -1,6 +1,6 @@
 <script setup>
 
-import { ref, computed, watch } from "vue";
+import { computed } from "vue";
 
 import {
     Chart as ChartJS,
@@ -15,7 +15,6 @@ import {
 import { Bar } from "vue-chartjs";
 
 import notas from "../../../../data/json/NotasRaw.json";
-import { callback } from "chart.js/helpers";
 
 ChartJS.register(
     CategoryScale,
@@ -27,63 +26,55 @@ ChartJS.register(
 );
 
 const props = defineProps({
-    subjectCode:Number
-})
+    subjectCode: Number,
+    selectedYear: String
+});
 
 const subjectData = computed(() => {
 
     return notas.filter(
         item => item["Código"] === props.subjectCode
-    )
+    );
 
-})
+});
 
-const years = computed(() => {
-
-    return subjectData.value
-        .map(item => item["Curso Académico"])
-        .sort((a,b)=>b.localeCompare(a))
-
-})
-
-const selectedYear = ref("");
-
-watch(years,(value)=>{
-
-    if(value.length){
-
-        selectedYear.value=value[0];
-
-    }
-
-},{immediate:true})
-
-const currentData = computed(()=>{
+const currentData = computed(() => {
 
     return subjectData.value.find(
+        item => item["Curso Académico"] === props.selectedYear
+    );
 
-        item=>item["Curso Académico"]===selectedYear.value
+});
 
-    )
+const enrolledStudents = computed(() => {
 
-})
+    if (!currentData.value) return 0;
 
-const chartData = computed(()=>{
+    return (
+        currentData.value["No pre"] +
+        currentData.value["Sus"] +
+        currentData.value["Apr"] +
+        currentData.value["Not"] +
+        currentData.value["Sob"] +
+        currentData.value["MH"]
+    );
 
-    if(!currentData.value){
+});
 
-        return{
+const chartData = computed(() => {
 
-            labels:[],
-            datasets:[]
+    if (!currentData.value) {
 
-        }
+        return {
+            labels: [],
+            datasets: []
+        };
 
     }
 
-    return{
+    return {
 
-        labels:[
+        labels: [
             "No Pr",
             "Susp",
             "Apr",
@@ -92,97 +83,104 @@ const chartData = computed(()=>{
             "MH"
         ],
 
-        datasets:[
+        datasets: [
 
             {
 
-                label:"Porcentaje",
+                data: [
 
-                data:[
-
-                    currentData.value["No pre %"],
-                    currentData.value["Sus %"],
-                    currentData.value["Apr %"],
-                    currentData.value["Not %"],
-                    currentData.value["Sob %"],
-                    currentData.value["MH %"]
+                    Number(currentData.value["No pre %"]),
+                    Number(currentData.value["Sus %"]),
+                    Number(currentData.value["Apr %"]),
+                    Number(currentData.value["Not %"]),
+                    Number(currentData.value["Sob %"]),
+                    Number(currentData.value["MH %"])
 
                 ],
 
-                backgroundColor:[
-                    "#64748b", // No presentados
-                    "#ef4444", // Suspensos
-                    "#22c55e", // Aprobados
-                    "#3b82f6", // Notables
-                    "#a855f7", // Sobresalientes
-                    "#facc15"  // MH
+                backgroundColor: [
+                    "#64748b",
+                    "#ef4444",
+                    "#22c55e",
+                    "#3b82f6",
+                    "#a855f7",
+                    "#facc15"
                 ],
 
-                borderRadius:8
-
-
+                borderRadius: 8,
+                borderSkipped: false,
+                barPercentage: 0.7,
+                categoryPercentage: 0.7
 
             }
 
         ]
 
-    }
+    };
 
-})
+});
 
-const chartOptions={
+const chartOptions = {
 
-    responsive:true,
+    responsive: true,
 
-    maintainAspectRatio:false,
+    maintainAspectRatio: false,
 
-    plugins:{
+    plugins: {
 
-        legend:{
+        legend: {
 
-            display:false
+            display: false
 
         }
 
     },
 
-    scales:{
+    scales: {
 
-        x:{
+        x: {
 
-            ticks:{
-                color:"#cbd5e1"
+            ticks: {
+
+                color: "#cbd5e1"
+
             },
 
-            grid:{
-                display:false
+            grid: {
+
+                display: false
+
             }
 
         },
 
-        y:{
+        y: {
 
-            beginAtZero:true,
+            beginAtZero: true,
 
             max: 100,
 
-            ticks:{
-                color:"#94a3b8",
+            ticks: {
 
-                callback: function(value){
-                    return value + "%";
-                }
+                color: "#94a3b8",
+
+                stepSize: 10,
+
+                callback: value => `${value}%`
+
             },
 
-            grid:{
-                color:"rgba(255,255,255,.08)"
+            grid: {
+
+                color: "rgba(255,255,255,.08)"
+
             }
 
         }
 
     }
 
-}
+};
 
 </script>
 
@@ -194,21 +192,11 @@ const chartOptions={
 
         <h2>Distribución de calificaciones</h2>
 
-        <select
-            v-model="selectedYear"
-        >
+        <span class="year">
 
-            <option
-                v-for="year in years"
-                :key="year"
-                :value="year"
-            >
+            {{ props.selectedYear }}
 
-                {{year}}
-
-            </option>
-
-        </select>
+        </span>
 
     </div>
 
@@ -218,6 +206,14 @@ const chartOptions={
             :data="chartData"
             :options="chartOptions"
         />
+
+    </div>
+
+    <div class="panelFooter">
+
+        <span>Matriculados</span>
+
+        <strong>{{ enrolledStudents }}</strong>
 
     </div>
 
@@ -282,35 +278,13 @@ const chartOptions={
 
 }
 
-.panelHeader select{
+.year{
 
-    background:#0f172a;
+    color:#94a3b8;
 
-    color:white;
+    font-size:.9rem;
 
-    border:1px solid #334155;
-
-    border-radius:10px;
-
-    padding:8px 14px;
-
-    cursor:pointer;
-
-    transition:.2s;
-
-}
-
-.panelHeader select:hover{
-
-    border-color:#38bdf8;
-
-}
-
-.panelHeader select:focus{
-
-    outline:none;
-
-    border-color:#38bdf8;
+    font-weight:500;
 
 }
 
@@ -319,6 +293,36 @@ const chartOptions={
     width:100%;
 
     height:250px;
+
+}
+
+.panelFooter{
+
+    margin-top:12px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding-top:12px;
+
+    border-top:1px solid rgba(255,255,255,.08);
+
+    color:#cbd5e1;
+
+    font-size:.95rem;
+
+}
+
+.panelFooter strong{
+
+    color:white;
+
+    font-size:1.15rem;
+
+    font-weight:700;
 
 }
 

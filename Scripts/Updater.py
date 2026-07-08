@@ -2,7 +2,7 @@ import pandas as pd
 import json
 from pathlib import Path
 
-# Se convierten los datos a JSON
+# Conversion to Json
 df = pd.read_excel("../data/xlsx_csv/notas.xlsx")
 
 df.to_json(
@@ -21,7 +21,7 @@ df.to_json(
     indent=4
 )
 
-# Se procesan los datos
+# Treatment of data
 
 input_file = Path("../data/json/NotasRaw.json")
 output_file = Path("../data/json/processed/AsignaturasPorCurso.json")
@@ -113,8 +113,6 @@ for code, subject in subjects.items():
         "name": subject["name"]
     }
 
-    # Solo aparece en el curso 0:
-    # se añade como optativa de todos los cursos.
     if courses == {"0"}:
 
         for course in ["1", "2", "3", "4"]:
@@ -122,8 +120,6 @@ for code, subject in subjects.items():
 
         continue
 
-    # Aparece en el curso 0 y en otros:
-    # es optativa de esos cursos.
     if "0" in courses:
 
         for course in ["1", "2", "3", "4"]:
@@ -131,8 +127,6 @@ for code, subject in subjects.items():
             if course in courses:
                 classified_subjects["optativas"][course].append(subject_data)
 
-    # No aparece en el curso 0:
-    # es troncal de los cursos correspondientes.
     else:
 
         for course in ["1", "2", "3", "4"]:
@@ -147,3 +141,5 @@ with open(output_file, "w", encoding="utf-8") as f:
         ensure_ascii=False,
         indent=4
     )
+
+#Hasta aquí solo lee notas.xlsx

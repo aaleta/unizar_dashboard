@@ -1,29 +1,59 @@
 <script setup>
-    import { useRoute } from "vue-router";
-    import DashboardHist from "@/components/Dashboard/DashboardHistogram.vue";
-    import { computed } from "vue";
-    import notas from "../../../data/json/NotasRaw.json";
+import { ref, computed, watch } from "vue";
+import { useRoute } from "vue-router";
 
-    const route = useRoute();
+import DashboardHist from "@/components/Dashboard/DashboardHistogram.vue";
+import DashboardPassRate from "@/components/Dashboard/DashboardBar.vue";
 
-    const subjectName = computed(() => {
+import notas from "../../../data/json/NotasRaw.json";
 
-        const subject = notas.find(
-            item => item["Código"] === subjectCode
-        );
+const route = useRoute();
 
-        return subject
-            ? subject["Asignatura"].trim()
-            : `Asignatura ${subjectCode}`;
+const subjectCode = Number(route.params.code);
 
-    });
+// Nombre de la asignatura
+const subjectName = computed(() => {
 
-    
-    // Código de la asignatura obtenido de la URL
-    const subjectCode = Number(route.params.code);
+    const subject = notas.find(
+        item => item["Código"] === subjectCode
+    );
 
-    
+    return subject
+        ? subject["Asignatura"].trim()
+        : `Asignatura ${subjectCode}`;
 
+});
+
+// Datos de la asignatura
+const subjectData = computed(() => {
+
+    return notas.filter(
+        item => item["Código"] === subjectCode
+    );
+
+});
+
+// Años disponibles
+const years = computed(() => {
+
+    return subjectData.value
+        .map(item => item["Curso Académico"])
+        .sort((a, b) => b.localeCompare(a));
+
+});
+
+// Año seleccionado
+const selectedYear = ref("");
+
+watch(years, (newYears) => {
+
+    if (newYears.length > 0) {
+
+        selectedYear.value = newYears[0];
+
+    }
+
+}, { immediate: true });
 
 </script>
 
@@ -33,11 +63,30 @@
 
     <header class="hero">
 
-        <h1>Dashboard {{ subjectName }}</h1>
+        <div>
 
-        <p>
-            Estadísticas de la asignatura.
-        </p>
+            <h1>{{ subjectName }}</h1>
+
+            <p>
+                Estadísticas de la asignatura.
+            </p>
+
+        </div>
+
+        <select
+            v-model="selectedYear"
+            class="yearSelector"
+        >
+
+            <option
+                v-for="year in years"
+                :key="year"
+                :value="year"
+            >
+                {{ year }}
+            </option>
+
+        </select>
 
     </header>
 
@@ -45,6 +94,12 @@
 
         <DashboardHist
             :subjectCode="subjectCode"
+            :selectedYear="selectedYear"
+        />
+
+        <DashboardPassRate
+            :subjectCode="subjectCode"
+            :selectedYear="selectedYear"
         />
 
     </section>
@@ -70,6 +125,12 @@
 
 .hero{
 
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
     margin-bottom:40px;
 
 }
@@ -85,6 +146,32 @@
 .hero p{
 
     color:#94a3b8;
+
+}
+
+.yearSelector{
+
+    background:#1e293b;
+
+    color:white;
+
+    border:1px solid #334155;
+
+    border-radius:10px;
+
+    padding:10px 16px;
+
+    font-size:1rem;
+
+    cursor:pointer;
+
+}
+
+.yearSelector:focus{
+
+    outline:none;
+
+    border-color:#38bdf8;
 
 }
 
@@ -105,6 +192,16 @@
         margin-left:0;
 
         padding:25px;
+
+    }
+
+    .hero{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+        gap:20px;
 
     }
 
