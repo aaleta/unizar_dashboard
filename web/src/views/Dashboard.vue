@@ -4,6 +4,7 @@ import { useRoute } from "vue-router";
 
 import DashboardHist from "@/components/Dashboard/DashboardHistogram.vue";
 import DashboardPassRate from "@/components/Dashboard/DashboardBar.vue";
+import DashBoardNumStudents from "@/components/Dashboard/DashBoardNumStudents.vue";
 
 import notas from "../../../data/json/NotasRaw.json";
 
@@ -102,6 +103,11 @@ watch(years, (newYears) => {
             :selectedYear="selectedYear"
         />
 
+        <DashBoardNumStudents
+            :subjectCode="subjectCode"
+        />
+
+
     </section>
 
 </main>
@@ -151,7 +157,7 @@ watch(years, (newYears) => {
 
 .yearSelector{
 
-    background:#1e293b;
+    background:#285aff;
 
     color:white;
 
