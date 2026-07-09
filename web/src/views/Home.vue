@@ -9,8 +9,7 @@
             </h1>
 
             <p>
-                Acceda a la barra desplegable de la izquierda para
-                visualizar datos de distintas asignaturas del grado.
+                Aquí aparecerán las estadistícas globales
             </p>
 
         </section>
