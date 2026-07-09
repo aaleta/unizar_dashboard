@@ -16,5 +16,5 @@ export default defineConfig(({ mode }) => ({
     },
   },
 
-  base: '/unizar_dashboard.git/',
+  base: '/unizar_dashboard/',
 }))
