@@ -3,15 +3,12 @@
     <aside class="sidebar">
 
         <div class="logo">
-
             Menú
-
         </div>
 
         <nav>
 
             <RouterLink to="/">
-                
                 <p>Inicio</p>
             </RouterLink>
 
@@ -42,7 +39,6 @@
 </template>
 
 <script setup>
-
 </script>
 
 <style scoped>
@@ -52,65 +48,38 @@
     position:fixed;
 
     top:0;
-    left:-230px;
+    left:0;
 
-    width:250px;
+    width:220px;
     height:100vh;
 
     display:flex;
     flex-direction:column;
 
-    backdrop-filter:blur(20px);
-    -webkit-backdrop-filter:blur(20px);
-
     background:#111827;
 
     border-right:1px solid rgba(255,255,255,.08);
 
-    box-shadow:15px 0 40px rgba(0,0,0,.45);
+    box-shadow:8px 0 25px rgba(0,0,0,.35);
 
-    transition:.45s cubic-bezier(.22,1,.36,1);
-
-    z-index:9999;
-
-}
-
-/* Zona para detectar el ratón */
-
-.sidebar::before{
-
-    content:"";
-
-    position:absolute;
-
-    top:0;
-    right:-25px;
-
-    width:25px;
-    height:100%;
-
-}
-
-.sidebar:hover{
-
-    left:0;
+    z-index:1000;
 
 }
 
 .logo{
 
-    height:90px;
+    height:80px;
 
     display:flex;
     justify-content:center;
     align-items:center;
 
-    font-size:28px;
-    font-weight:700;
-
     color:white;
 
-    letter-spacing:3px;
+    font-size:1.6rem;
+    font-weight:700;
+
+    letter-spacing:2px;
 
     border-bottom:1px solid rgba(255,255,255,.08);
 
@@ -122,7 +91,9 @@ nav{
 
     flex-direction:column;
 
-    margin-top:25px;
+    gap:8px;
+
+    padding:20px 12px;
 
 }
 
@@ -132,29 +103,15 @@ nav a{
 
     align-items:center;
 
-    gap:18px;
+    padding:14px 18px;
 
-    margin:6px 15px;
-
-    padding:15px 20px;
-
-    border-radius:14px;
+    border-radius:12px;
 
     text-decoration:none;
 
-    color:#d6d6d6;
+    color:#d1d5db;
 
-    transition:.30s;
-
-    position:relative;
-
-    overflow:hidden;
-
-}
-
-nav a span{
-
-    font-size:22px;
+    transition:background .2s,color .2s;
 
 }
 
@@ -162,27 +119,9 @@ nav a p{
 
     margin:0;
 
-    font-size:17px;
+    font-size:1rem;
 
-}
-
-nav a::before{
-
-    content:"";
-
-    position:absolute;
-
-    left:0;
-    top:0;
-
-    width:5px;
-    height:100%;
-
-    background:#4fa9ff;
-
-    transform:scaleY(0);
-
-    transition:.25s;
+    font-weight:500;
 
 }
 
@@ -192,27 +131,53 @@ nav a:hover{
 
     color:white;
 
-    transform:translateX(8px);
-
-}
-
-nav a:hover::before{
-
-    transform:scaleY(1);
-
 }
 
 .router-link-active{
 
-    background:rgba(79,169,255,.15);
+    background:rgba(56,189,248,.18);
 
     color:white;
 
+    border-left:4px solid #38bdf8;
+
 }
 
-.router-link-active::before{
+@media(max-width:768px){
 
-    transform:scaleY(1);
+    .sidebar{
+
+        width:70px;
+
+    }
+
+    .logo{
+
+        font-size:1rem;
+
+        letter-spacing:0;
+
+    }
+
+    nav{
+
+        padding:15px 8px;
+
+    }
+
+    nav a{
+
+        justify-content:center;
+
+        padding:14px 8px;
+
+    }
+
+    nav a p{
+
+        font-size:.9rem;
+
+    }
 
 }
 

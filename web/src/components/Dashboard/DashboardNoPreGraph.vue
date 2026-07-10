@@ -31,84 +31,76 @@ const props = defineProps({
     subjectCode: Number
 });
 
-const subjectData = computed(() => {
-
-    return notas
+const subjectData = computed(() =>
+    notas
         .filter(item => item["Código"] === props.subjectCode)
         .sort((a, b) =>
             a["Curso Académico"].localeCompare(b["Curso Académico"])
-        );
+        )
+);
+
+const chartData = computed(() => {
+
+    const years = [];
+    const noPresentedPercentages = [];
+
+    subjectData.value.forEach(item => {
+
+        const enrolled =
+            item["No pre"] +
+            item["Sus"] +
+            item["Apr"] +
+            item["Not"] +
+            item["Sob"] +
+            item["MH"];
+
+        const percentage =
+            enrolled === 0
+                ? 0
+                : (item["No pre"] / enrolled) * 100;
+
+        years.push(item["Curso Académico"]);
+        noPresentedPercentages.push(percentage);
+
+    });
+
+    return {
+
+        labels: years,
+
+        datasets: [
+
+            {
+
+                label: "% No presentados",
+
+                data: noPresentedPercentages,
+
+                borderColor: "#64748b",
+
+                backgroundColor: "rgba(100,116,139,.15)",
+
+                pointBackgroundColor: "#64748b",
+
+                pointBorderColor: "#64748b",
+
+                pointRadius: 4,
+
+                pointHoverRadius: 6,
+
+                borderWidth: 3,
+
+                tension: .35,
+
+                fill: false
+
+            }
+
+        ]
+
+    };
 
 });
-
-const chartData = computed(() => ({
-
-    labels: subjectData.value.map(
-        item => item["Curso Académico"]
-    ),
-
-    datasets: [
-
-        // Matriculados
-        {
-
-            label: "Matriculados",
-
-            data: subjectData.value.map(item =>
-
-                item["No pre"] +
-                item["Sus"] +
-                item["Apr"] +
-                item["Not"] +
-                item["Sob"] +
-                item["MH"]
-
-            ),
-
-            borderColor: "#38bdf8",
-
-            backgroundColor: "rgba(56,189,248,.15)",
-
-            pointBackgroundColor: "#38bdf8",
-
-            pointRadius: 5,
-
-            borderWidth: 3,
-
-            tension: .3,
-
-            fill: false
-
-        },
-
-        // Suspensos
-        {
-
-            label: "Suspensos",
-
-            data: subjectData.value.map(
-                item => item["Sus"]
-            ),
-
-            borderColor: "#ef4444",
-
-            backgroundColor: "rgba(239,68,68,.15)",
-
-            pointBackgroundColor: "#ef4444",
-
-            pointRadius: 5,
-
-            borderWidth: 3,
-
-            tension: .3,
-
-            fill: false
-
-        }
-
-    ]
-
-}));
 
 const chartOptions = {
 
@@ -120,15 +112,16 @@ const chartOptions = {
 
         legend: {
 
-            display: true,
+            display: false
 
-            labels: {
+        },
 
-                color: "#cbd5e1",
+        tooltip: {
 
-                usePointStyle: true,
+            callbacks: {
 
-                pointStyle: "circle"
+                label: context =>
+                    context.parsed.y.toFixed(1) + "%"
 
             }
 
@@ -158,9 +151,13 @@ const chartOptions = {
 
             beginAtZero: true,
 
+            max: 100,
+
             ticks: {
 
-                color: "#94a3b8"
+                color: "#94a3b8",
+
+                callback: value => value + "%"
 
             },
 
@@ -184,7 +181,7 @@ const chartOptions = {
 
     <div class="panelHeader">
 
-        <h2>Evolución de matriculados y suspensos</h2>
+        <h2>Evolución del porcentaje de no presentados</h2>
 
     </div>
 
@@ -216,7 +213,8 @@ const chartOptions = {
 
     border-radius:18px;
 
-    box-shadow:0 10px 25px rgba(0,0,0,.25);
+    box-shadow:
+        0 10px 25px rgba(0,0,0,.25);
 
     transition:.25s;
 
@@ -228,7 +226,8 @@ const chartOptions = {
 
     border-color:#38bdf8;
 
-    box-shadow:0 15px 35px rgba(0,0,0,.35);
+    box-shadow:
+        0 15px 35px rgba(0,0,0,.35);
 
 }
 
@@ -254,7 +253,7 @@ const chartOptions = {
 
     width:100%;
 
-    height:270px;
+    height:260px;
 
 }
 

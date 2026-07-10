@@ -142,4 +142,84 @@ with open(output_file, "w", encoding="utf-8") as f:
         indent=4
     )
 
-#Hasta aquí solo lee notas.xlsx
+#Only read notas.xlsx
+
+
+
+#Dictionary of descriptions
+
+input_file = Path("../data/json/processed/AsignaturasPorCurso.json")
+
+output_file = Path("../data/json/processed/AsignaturasDescripcion.json")
+
+
+with open(input_file, "r", encoding="utf-8") as f:
+    subjects_by_course = json.load(f)
+
+
+if output_file.exists():
+
+    with open(output_file, "r", encoding="utf-8") as f:
+        descriptions = json.load(f)
+
+else:
+
+    descriptions = []
+
+
+existing_subjects = {
+
+    int(subject["code"]): subject
+
+    for subject in descriptions
+
+}
+
+
+seen = set()
+
+
+for course in subjects_by_course.values():
+
+    for subject in course:
+
+        code = int(subject["code"])
+
+        if code in seen:
+            continue
+
+        seen.add(code)
+
+        if code in existing_subjects:
+            continue
+
+        new_subject = {
+
+            "code": code,
+
+            "name": subject["name"],
+
+            "description": "Escriba aquí la descripción de la asignatura."
+
+        }
+
+        descriptions.append(new_subject)
+
+        existing_subjects[code] = new_subject
+
+descriptions.sort(key=lambda x: x["code"])
+
+with open(output_file, "w", encoding="utf-8") as f:
+
+    json.dump(
+
+        descriptions,
+
+        f,
+
+        ensure_ascii=False,
+
+        indent=4
+
+    )
+######

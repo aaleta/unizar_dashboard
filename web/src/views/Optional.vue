@@ -134,7 +134,9 @@ const getDashboardLink = (code) => {
 }
 
 .page{
-    margin-left:90px;
+    margin-left:220px;
+
+    width:calc(100% - 220px);
     padding:50px;
     min-height:100vh;
 
@@ -227,8 +229,9 @@ const getDashboardLink = (code) => {
 @media(max-width:768px){
 
     .page{
-        margin-left:0;
-        padding:25px;
+        margin-left:70px;
+
+      width:calc(100% - 70px);
     }
 
     .hero h1{

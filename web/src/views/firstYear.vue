@@ -52,7 +52,9 @@ const getDashboardLink = (code) => {
 <style scoped>
 
 .page{
-    margin-left:90px;
+    margin-left:220px;
+    width:calc(100% - 220px);
+   
     padding:50px;
     min-height:100vh;
 
@@ -175,9 +177,9 @@ const getDashboardLink = (code) => {
 
     .page{
 
-        margin-left:0;
+        margin-left:70px;
 
-        padding:25px;
+        width:calc(100% - 70px);
     }
 
     .hero h1{
