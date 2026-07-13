@@ -220,7 +220,7 @@ for course in subjects_by_course.values():
 
             "name": subject["name"],
 
-            "description": "Escriba aquí la descripción de la asignatura."
+            "description": "Aquí va la descripcion de la signatura."
 
         }
 

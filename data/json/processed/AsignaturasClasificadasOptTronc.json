@@ -36,6 +36,18 @@
             {
                 "code": 26908,
                 "name": "Cálculo diferencial"
+            },
+            {
+                "code": 26909,
+                "name": "Biología"
+            },
+            {
+                "code": 26910,
+                "name": "Geología"
+            },
+            {
+                "code": 26958,
+                "name": "Grafos y combinatoria"
             }
         ],
         "2": [
@@ -130,47 +142,9 @@
         ]
     },
     "optativas": {
-        "1": [
-            {
-                "code": 26909,
-                "name": "Biología"
-            },
-            {
-                "code": 26910,
-                "name": "Geología"
-            },
-            {
-                "code": 26958,
-                "name": "Grafos y combinatoria"
-            }
-        ],
-        "2": [
-            {
-                "code": 26909,
-                "name": "Biología"
-            },
-            {
-                "code": 26910,
-                "name": "Geología"
-            },
-            {
-                "code": 26958,
-                "name": "Grafos y combinatoria"
-            }
-        ],
+        "1": [],
+        "2": [],
         "3": [
-            {
-                "code": 26909,
-                "name": "Biología"
-            },
-            {
-                "code": 26910,
-                "name": "Geología"
-            },
-            {
-                "code": 26958,
-                "name": "Grafos y combinatoria"
-            },
             {
                 "code": 26934,
                 "name": "Física de la atmósfera"
@@ -257,18 +231,6 @@
             }
         ],
         "4": [
-            {
-                "code": 26909,
-                "name": "Biología"
-            },
-            {
-                "code": 26910,
-                "name": "Geología"
-            },
-            {
-                "code": 26958,
-                "name": "Grafos y combinatoria"
-            },
             {
                 "code": 26932,
                 "name": "Astronomía y astrofísica"

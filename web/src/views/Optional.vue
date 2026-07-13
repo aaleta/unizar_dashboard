@@ -1,6 +1,7 @@
 <script setup>
 import { ref, computed } from 'vue'
 import subjects from '../../../data/json/processed/AsignaturasClasificadasOptTronc.json'
+import OptEnrolled from '@/components/Dashboard/OptEnrolled.vue'
 
 //Merge the subjects from 3 and 4 and eliminates the duplicated subjects
 const optionalSubjects = [
@@ -39,7 +40,7 @@ const getDashboardLink = (code) => {
     <header class="hero">
       <h1>Asignaturas Optativas</h1>
       <p>
-        Busca o selecciona una asignatura para acceder a su dashboard.
+        Busca o selecciona una asignatura para acceder a su dashboard, en la parte inferior de la página encontrarás el ranking.
       </p>
     </header>
 
@@ -88,6 +89,8 @@ const getDashboardLink = (code) => {
       >
         No se ha encontrado ninguna asignatura.
       </p>
+
+    
 
     </section>
 
@@ -237,6 +240,42 @@ const getDashboardLink = (code) => {
     .hero h1{
         font-size:2.2rem;
     }
+
+}
+
+.button-container{
+
+    margin-bottom:35px;
+
+}
+
+.extra-button{
+
+    display:inline-block;
+
+    padding:12px 22px;
+
+    border-radius:12px;
+
+    background:#c084fc;
+
+    color:white;
+
+    font-weight:600;
+
+    text-decoration:none;
+
+    transition:.25s;
+
+}
+
+.extra-button:hover{
+
+    background:#a855f7;
+
+    transform:translateY(-2px);
+
+    box-shadow:0 8px 20px rgba(192,132,252,.35);
 
 }
 

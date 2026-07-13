@@ -1,3 +1,8 @@
+<script setup>
+    import OptEnrolled from '@/components/Dashboard/OptEnrolled.vue';
+</script>
+
+
 <template>
 
     <main class="home">
@@ -8,19 +13,16 @@
                 Dashboard Física Unizar
             </h1>
 
-            <p>
-                Aquí aparecerán las estadistícas globales
-            </p>
+            <div>
+                <OptEnrolled></OptEnrolled>
+                
+            </div>
 
         </section>
 
     </main>
 
 </template>
-
-<script setup>
-
-</script>
 
 <style scoped>
 
