@@ -1,6 +1,6 @@
 <script setup>
 
-import { computed } from "vue";
+import { ref, computed, watch } from "vue";
 
 import {
     Chart as ChartJS,
@@ -26,8 +26,7 @@ ChartJS.register(
 );
 
 const props = defineProps({
-    subjectCode: Number,
-    selectedYear: String
+    subjectCode: Number
 });
 
 const subjectData = computed(() => {
@@ -38,10 +37,30 @@ const subjectData = computed(() => {
 
 });
 
+const years = computed(() => {
+
+    return subjectData.value
+        .map(item => item["Curso Académico"])
+        .sort((a, b) => b.localeCompare(a));
+
+});
+
+const selectedYear = ref("");
+
+watch(years, (newYears) => {
+
+    if (newYears.length > 0) {
+
+        selectedYear.value = newYears[0];
+
+    }
+
+}, { immediate: true });
+
 const currentData = computed(() => {
 
     return subjectData.value.find(
-        item => item["Curso Académico"] === props.selectedYear
+        item => item["Curso Académico"] === selectedYear.value
     );
 
 });
@@ -192,11 +211,20 @@ const chartOptions = {
 
         <h2>Distribución de calificaciones</h2>
 
-        <span class="year">
+        <select
+            v-model="selectedYear"
+            class="yearSelector"
+        >
 
-            {{ props.selectedYear }}
+            <option
+                v-for="year in years"
+                :key="year"
+                :value="year"
+            >
+                {{ year }}
+            </option>
 
-        </span>
+        </select>
 
     </div>
 
@@ -278,13 +306,29 @@ const chartOptions = {
 
 }
 
-.year{
+.yearSelector{
 
-    color:#94a3b8;
+    background:#273358;
+
+    color:white;
+
+    border:1px solid #334155;
+
+    border-radius:10px;
+
+    padding:8px 12px;
 
     font-size:.9rem;
 
-    font-weight:500;
+    cursor:pointer;
+
+}
+
+.yearSelector:focus{
+
+    outline:none;
+
+    border-color:#38bdf8;
 
 }
 

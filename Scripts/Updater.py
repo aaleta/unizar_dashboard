@@ -104,34 +104,55 @@ classified_subjects = {
     }
 }
 
+
 for code, subject in subjects.items():
 
     courses = set(subject["courses"])
 
-    subject_data = {
-        "code": code,
-        "name": subject["name"]
+    academic_years = {
+
+        row["Curso Académico"]
+
+        for row in data
+
+        if row["Código"] == code
+
     }
 
-    if courses == {"0"}:
+    subject_data = {
 
-        for course in ["1", "2", "3", "4"]:
-            classified_subjects["optativas"][course].append(subject_data)
+        "code": code,
 
-        continue
+        "name": subject["name"]
+
+    }
+
 
     if "0" in courses:
 
-        for course in ["1", "2", "3", "4"]:
+        if len(academic_years) < 5:
+            continue
 
-            if course in courses:
+        if courses == {"0"}:
+
+            for course in ["1", "2", "3", "4"]:
+
                 classified_subjects["optativas"][course].append(subject_data)
+
+        else:
+
+            for course in ["1", "2", "3", "4"]:
+
+                if course in courses:
+
+                    classified_subjects["optativas"][course].append(subject_data)
 
     else:
 
         for course in ["1", "2", "3", "4"]:
 
             if course in courses:
+
                 classified_subjects["troncales"][course].append(subject_data)
 
 with open(output_file, "w", encoding="utf-8") as f:

@@ -4,60 +4,55 @@ import { computed } from "vue";
 import notas from "../../../../data/json/NotasRaw.json";
 
 const props = defineProps({
-    subjectCode: Number,
-    selectedYear: String
+    subjectCode: Number
 });
 
 const subjectData = computed(() =>
-    notas.filter(item => item["Código"] === props.subjectCode)
+    notas
+        .filter(item => item["Código"] === props.subjectCode)
+        .sort((a, b) =>
+            b["Curso Académico"].localeCompare(a["Curso Académico"])
+        )
+        .slice(0, 4)
 );
 
-const currentData = computed(() =>
-    subjectData.value.find(
-        item => item["Curso Académico"] === props.selectedYear
-    )
-);
+const yearsData = computed(() => {
 
-const approvedCount = computed(() => {
+    return subjectData.value.map(item => {
 
-    if (!currentData.value) return 0;
+        const approvedCount =
+            Number(item["Apr"]) +
+            Number(item["Not"]) +
+            Number(item["Sob"]) +
+            Number(item["MH"]);
 
-    return (
-        Number(currentData.value["Apr"]) +
-        Number(currentData.value["Not"]) +
-        Number(currentData.value["Sob"]) +
-        Number(currentData.value["MH"])
-    );
+        const failedCount =
+            Number(item["Sus"]);
 
-});
+        const totalEvaluated =
+            approvedCount + failedCount;
 
-const failedCount = computed(() => {
+        const approved =
+            totalEvaluated === 0
+                ? 0
+                : approvedCount * 100 / totalEvaluated;
 
-    if (!currentData.value) return 0;
+        const failed =
+            totalEvaluated === 0
+                ? 0
+                : failedCount * 100 / totalEvaluated;
 
-    return Number(currentData.value["Sus"]);
+        return {
 
-});
+            year: item["Curso Académico"],
 
-const totalEvaluated = computed(() => {
+            approved,
 
-    return approvedCount.value + failedCount.value;
+            failed
 
-});
+        };
 
-const approved = computed(() => {
-
-    if (totalEvaluated.value === 0) return 0;
-
-    return approvedCount.value * 100 / totalEvaluated.value;
-
-});
-
-const failed = computed(() => {
-
-    if (totalEvaluated.value === 0) return 0;
-
-    return failedCount.value * 100 / totalEvaluated.value;
+    });
 
 });
 
@@ -71,21 +66,37 @@ const failed = computed(() => {
 
         <h2>Aprobados vs Suspensos</h2>
 
-        <span class="year">{{ props.selectedYear }}</span>
-
     </div>
 
-    <div class="progressBar">
+    <div
+        v-for="year in yearsData"
+        :key="year.year"
+        class="yearRow"
+    >
 
-        <div
-            class="approved"
-            :style="{ width: approved + '%' }"
-        ></div>
+        <div class="yearHeader">
 
-        <div
-            class="failed"
-            :style="{ width: failed + '%' }"
-        ></div>
+            <span class="year">{{ year.year }}</span>
+
+            <span class="percentage">
+                {{ year.approved.toFixed(1) }}%
+            </span>
+
+        </div>
+
+        <div class="progressBar">
+
+            <div
+                class="approved"
+                :style="{ width: year.approved + '%' }"
+            ></div>
+
+            <div
+                class="failed"
+                :style="{ width: year.failed + '%' }"
+            ></div>
+
+        </div>
 
     </div>
 
@@ -97,8 +108,6 @@ const failed = computed(() => {
 
             Aprobados
 
-            <strong>{{ approved.toFixed(1) }}%</strong>
-
         </div>
 
         <div>
@@ -106,8 +115,6 @@ const failed = computed(() => {
             <span class="dot red"></span>
 
             Suspensos
-
-            <strong>{{ failed.toFixed(1) }}%</strong>
 
         </div>
 
@@ -122,7 +129,7 @@ const failed = computed(() => {
 .panel{
 
     width:420px;
-    height:220px;
+    height:300px;
 
     padding:22px;
 
@@ -138,13 +145,7 @@ const failed = computed(() => {
 
 .panelHeader{
 
-    display:flex;
-
-    justify-content:space-between;
-
-    align-items:center;
-
-    margin-bottom:30px;
+    margin-bottom:22px;
 
 }
 
@@ -154,15 +155,43 @@ const failed = computed(() => {
 
     font-size:1rem;
 
+    color:white;
+
+}
+
+.yearRow{
+
+    margin-bottom:18px;
+
+}
+
+.yearHeader{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:8px;
+
 }
 
 .year{
 
-    color:#94a3b8;
+    color:#cbd5e1;
 
     font-size:.9rem;
 
-    font-weight:500;
+    font-weight:600;
+
+}
+
+.percentage{
+
+    color:#94a3b8;
+
+    font-size:.85rem;
 
 }
 
@@ -172,9 +201,9 @@ const failed = computed(() => {
 
     overflow:hidden;
 
-    height:28px;
+    height:18px;
 
-    border-radius:14px;
+    border-radius:999px;
 
     background:#334155;
 
@@ -198,11 +227,15 @@ const failed = computed(() => {
 
 .legend{
 
-    margin-top:25px;
+    margin-top:22px;
 
     display:flex;
 
-    justify-content:space-between;
+    justify-content:space-around;
+
+    color:#cbd5e1;
+
+    font-size:.9rem;
 
 }
 
@@ -235,14 +268,6 @@ const failed = computed(() => {
 .red{
 
     background:#ef4444;
-
-}
-
-strong{
-
-    margin-left:5px;
-
-    color:white;
 
 }
 

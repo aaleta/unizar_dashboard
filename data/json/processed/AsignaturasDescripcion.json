@@ -1,327 +1,327 @@
 [
     {
-        "code": 81413,
-        "name": "Introducción a la Inteligencia Artificial",
-        "description": "Escriba aquí la descripción de la asignatura."
-    },
-    {
-        "code": 81482,
-        "name": "Enfoque multidisciplinar del hecho religioso (Sociología, Antropología, Psicología)",
-        "description": "Escriba aquí la descripción de la asignatura."
-    },
-    {
-        "code": 81493,
-        "name": "Neurociencia para entender mejor el mundo",
-        "description": "Escriba aquí la descripción de la asignatura."
-    },
-    {
-        "code": 81511,
-        "name": "Orquesta Sinfónica Universitaria de Zaragoza. 24-25",
-        "description": "Escriba aquí la descripción de la asignatura."
-    },
-    {
-        "code": 26909,
-        "name": "Biología",
-        "description": "Escriba aquí la descripción de la asignatura."
-    },
-    {
-        "code": 26910,
-        "name": "Geología",
-        "description": "Escriba aquí la descripción de la asignatura."
-    },
-    {
-        "code": 26958,
-        "name": "Grafos y combinatoria",
-        "description": "Escriba aquí la descripción de la asignatura."
-    },
-    {
-        "code": 26934,
-        "name": "Física de la atmósfera",
-        "description": "Escriba aquí la descripción de la asignatura."
-    },
-    {
-        "code": 26939,
-        "name": "Iluminación y colorimetría",
-        "description": "Escriba aquí la descripción de la asignatura."
-    },
-    {
-        "code": 81326,
-        "name": "Globalización. Reflexiones desde la Filosofía, la Economía y el Derecho",
-        "description": "Escriba aquí la descripción de la asignatura."
-    },
-    {
-        "code": 81361,
-        "name": "Iniciación a la Investigación en Física de Astropartículas y de Altas Energías",
-        "description": "Escriba aquí la descripción de la asignatura."
-    },
-    {
-        "code": 81292,
-        "name": "Día de la Materia Oscura",
-        "description": "Escriba aquí la descripción de la asignatura."
-    },
-    {
-        "code": 81294,
-        "name": "El zoo de las partículas: De la relatividad a la teoría de campos clásica y cuántica",
-        "description": "Escriba aquí la descripción de la asignatura."
-    },
-    {
-        "code": 81295,
-        "name": "Iniciación a la investigación en Física de Astropartículas y de Altas Energías",
-        "description": "Escriba aquí la descripción de la asignatura."
-    },
-    {
-        "code": 81298,
-        "name": "Métodos geométricos en Física",
-        "description": "Escriba aquí la descripción de la asignatura."
-    },
-    {
-        "code": 81251,
-        "name": "Gestión emocional y de estrés laboral y personal",
-        "description": "Escriba aquí la descripción de la asignatura."
-    },
-    {
-        "code": 26932,
-        "name": "Astronomía y astrofísica",
-        "description": "Escriba aquí la descripción de la asignatura."
-    },
-    {
-        "code": 26933,
-        "name": "Caos y sistemas dinámicos no lineales",
-        "description": "Escriba aquí la descripción de la asignatura."
-    },
-    {
-        "code": 26935,
-        "name": "Física de fluidos",
-        "description": "Escriba aquí la descripción de la asignatura."
-    },
-    {
-        "code": 26936,
-        "name": "Gestión empresarial y proyectos",
-        "description": "Escriba aquí la descripción de la asignatura."
-    },
-    {
-        "code": 26937,
-        "name": "Gravitación y cosmología",
-        "description": "Escriba aquí la descripción de la asignatura."
-    },
-    {
-        "code": 26938,
-        "name": "Historia de la ciencia",
-        "description": "Escriba aquí la descripción de la asignatura."
-    },
-    {
-        "code": 26940,
-        "name": "Láser y aplicaciones",
-        "description": "Escriba aquí la descripción de la asignatura."
-    },
-    {
-        "code": 26941,
-        "name": "Micro y nano sistemas",
-        "description": "Escriba aquí la descripción de la asignatura."
-    },
-    {
-        "code": 26942,
-        "name": "Microondas: propagación y antenas",
-        "description": "Escriba aquí la descripción de la asignatura."
-    },
-    {
-        "code": 26944,
-        "name": "Aplicaciones de la difracción y de la interferometría",
-        "description": "Escriba aquí la descripción de la asignatura."
-    },
-    {
-        "code": 26945,
-        "name": "Dispositivos y sistemas fotónicos",
-        "description": "Escriba aquí la descripción de la asignatura."
-    },
-    {
-        "code": 26946,
-        "name": "Dosimetría y radioprotección",
-        "description": "Escriba aquí la descripción de la asignatura."
-    },
-    {
-        "code": 26947,
-        "name": "Espectroscopia",
-        "description": "Escriba aquí la descripción de la asignatura."
-    },
-    {
-        "code": 26949,
-        "name": "Física biológica",
-        "description": "Escriba aquí la descripción de la asignatura."
-    },
-    {
-        "code": 26950,
-        "name": "Física de altas energías",
-        "description": "Escriba aquí la descripción de la asignatura."
-    },
-    {
-        "code": 26951,
-        "name": "Física y tecnología nuclear",
-        "description": "Escriba aquí la descripción de la asignatura."
-    },
-    {
-        "code": 26953,
-        "name": "Mecánica cuántica",
-        "description": "Escriba aquí la descripción de la asignatura."
-    },
-    {
-        "code": 26957,
-        "name": "Sistemas digitales",
-        "description": "Escriba aquí la descripción de la asignatura."
-    },
-    {
-        "code": 26952,
-        "name": "Geofísica",
-        "description": "Escriba aquí la descripción de la asignatura."
-    },
-    {
         "code": 26900,
         "name": "Fundamentos de física I",
-        "description": "Escriba aquí la descripción de la asignatura."
+        "description": "Aquí irá la guía docente y los profesores."
     },
     {
         "code": 26901,
         "name": "Química",
-        "description": "Escriba aquí la descripción de la asignatura."
+        "description": "Aquí irá la guía docente y los profesores."
     },
     {
         "code": 26902,
         "name": "Álgebra I",
-        "description": "Escriba aquí la descripción de la asignatura."
+        "description": "Aquí irá la guía docente y los profesores."
     },
     {
         "code": 26903,
         "name": "Análisis matemático",
-        "description": "Escriba aquí la descripción de la asignatura."
+        "description": "Aquí irá la guía docente y los profesores."
     },
     {
         "code": 26904,
         "name": "Informática",
-        "description": "Escriba aquí la descripción de la asignatura."
+        "description": "Aquí irá la guía docente y los profesores."
     },
     {
         "code": 26905,
         "name": "Fundamentos de física II",
-        "description": "Escriba aquí la descripción de la asignatura."
+        "description": "Aquí irá la guía docente y los profesores."
     },
     {
         "code": 26906,
         "name": "Laboratorio de física",
-        "description": "Escriba aquí la descripción de la asignatura."
+        "description": "Aquí irá la guía docente y los profesores."
     },
     {
         "code": 26907,
         "name": "Álgebra II",
-        "description": "Escriba aquí la descripción de la asignatura."
+        "description": "Aquí irá la guía docente y los profesores."
     },
     {
         "code": 26908,
         "name": "Cálculo diferencial",
-        "description": "Escriba aquí la descripción de la asignatura."
+        "description": "Aquí irá la guía docente y los profesores."
+    },
+    {
+        "code": 26909,
+        "name": "Biología",
+        "description": "Aquí irá la guía docente y los profesores."
+    },
+    {
+        "code": 26910,
+        "name": "Geología",
+        "description": "Aquí irá la guía docente y los profesores."
     },
     {
         "code": 26911,
         "name": "Técnicas físicas I",
-        "description": "Escriba aquí la descripción de la asignatura."
+        "description": "Aquí irá la guía docente y los profesores."
     },
     {
         "code": 26912,
         "name": "Mecánica clásica I",
-        "description": "Escriba aquí la descripción de la asignatura."
+        "description": "Aquí irá la guía docente y los profesores."
     },
     {
         "code": 26913,
         "name": "Cálculo integral y geometría",
-        "description": "Escriba aquí la descripción de la asignatura."
+        "description": "Aquí irá la guía docente y los profesores."
     },
     {
         "code": 26914,
         "name": "Ecuaciones diferenciales",
-        "description": "Escriba aquí la descripción de la asignatura."
+        "description": "Aquí irá la guía docente y los profesores."
     },
     {
         "code": 26915,
         "name": "Electromagnetismo",
-        "description": "Escriba aquí la descripción de la asignatura."
+        "description": "Aquí irá la guía docente y los profesores."
     },
     {
         "code": 26916,
         "name": "Mecánica clásica II",
-        "description": "Escriba aquí la descripción de la asignatura."
+        "description": "Aquí irá la guía docente y los profesores."
     },
     {
         "code": 26917,
         "name": "Métodos matemáticos para la física",
-        "description": "Escriba aquí la descripción de la asignatura."
+        "description": "Aquí irá la guía docente y los profesores."
     },
     {
         "code": 26918,
         "name": "Física computacional",
-        "description": "Escriba aquí la descripción de la asignatura."
+        "description": "Aquí irá la guía docente y los profesores."
     },
     {
         "code": 26919,
         "name": "Ondas electromagnéticas",
-        "description": "Escriba aquí la descripción de la asignatura."
+        "description": "Aquí irá la guía docente y los profesores."
     },
     {
         "code": 26920,
         "name": "Técnicas físicas II",
-        "description": "Escriba aquí la descripción de la asignatura."
+        "description": "Aquí irá la guía docente y los profesores."
     },
     {
         "code": 26921,
         "name": "Física cuántica I",
-        "description": "Escriba aquí la descripción de la asignatura."
+        "description": "Aquí irá la guía docente y los profesores."
     },
     {
         "code": 26922,
         "name": "Termodinámica",
-        "description": "Escriba aquí la descripción de la asignatura."
+        "description": "Aquí irá la guía docente y los profesores."
     },
     {
         "code": 26923,
         "name": "Óptica",
-        "description": "Escriba aquí la descripción de la asignatura."
+        "description": "Aquí irá la guía docente y los profesores."
     },
     {
         "code": 26924,
         "name": "Física cuántica II",
-        "description": "Escriba aquí la descripción de la asignatura."
+        "description": "Aquí irá la guía docente y los profesores."
     },
     {
         "code": 26925,
         "name": "Física estadística",
-        "description": "Escriba aquí la descripción de la asignatura."
+        "description": "Aquí irá la guía docente y los profesores."
     },
     {
         "code": 26926,
         "name": "Estado sólido I",
-        "description": "Escriba aquí la descripción de la asignatura."
+        "description": "Aquí irá la guía docente y los profesores."
     },
     {
         "code": 26927,
         "name": "Técnicas físicas III",
-        "description": "Escriba aquí la descripción de la asignatura."
+        "description": "Aquí irá la guía docente y los profesores."
     },
     {
         "code": 26928,
         "name": "Electrónica física",
-        "description": "Escriba aquí la descripción de la asignatura."
+        "description": "Aquí irá la guía docente y los profesores."
     },
     {
         "code": 26929,
         "name": "Física nuclear y partículas",
-        "description": "Escriba aquí la descripción de la asignatura."
+        "description": "Aquí irá la guía docente y los profesores."
     },
     {
         "code": 26930,
         "name": "Estado sólido II",
-        "description": "Escriba aquí la descripción de la asignatura."
+        "description": "Aquí irá la guía docente y los profesores."
     },
     {
         "code": 26931,
         "name": "Trabajo fin de Grado",
-        "description": "Escriba aquí la descripción de la asignatura."
+        "description": "Aquí irá la guía docente y los profesores."
+    },
+    {
+        "code": 26932,
+        "name": "Astronomía y astrofísica",
+        "description": "Aquí irá la guía docente y los profesores."
+    },
+    {
+        "code": 26933,
+        "name": "Caos y sistemas dinámicos no lineales",
+        "description": "Aquí irá la guía docente y los profesores."
+    },
+    {
+        "code": 26934,
+        "name": "Física de la atmósfera",
+        "description": "Aquí irá la guía docente y los profesores."
+    },
+    {
+        "code": 26935,
+        "name": "Física de fluidos",
+        "description": "Aquí irá la guía docente y los profesores."
+    },
+    {
+        "code": 26936,
+        "name": "Gestión empresarial y proyectos",
+        "description": "Aquí irá la guía docente y los profesores."
+    },
+    {
+        "code": 26937,
+        "name": "Gravitación y cosmología",
+        "description": "Aquí irá la guía docente y los profesores."
+    },
+    {
+        "code": 26938,
+        "name": "Historia de la ciencia",
+        "description": "Aquí irá la guía docente y los profesores."
+    },
+    {
+        "code": 26939,
+        "name": "Iluminación y colorimetría",
+        "description": "Aquí irá la guía docente y los profesores."
+    },
+    {
+        "code": 26940,
+        "name": "Láser y aplicaciones",
+        "description": "Aquí irá la guía docente y los profesores."
+    },
+    {
+        "code": 26941,
+        "name": "Micro y nano sistemas",
+        "description": "Aquí irá la guía docente y los profesores."
+    },
+    {
+        "code": 26942,
+        "name": "Microondas: propagación y antenas",
+        "description": "Aquí irá la guía docente y los profesores."
+    },
+    {
+        "code": 26944,
+        "name": "Aplicaciones de la difracción y de la interferometría",
+        "description": "Aquí irá la guía docente y los profesores."
+    },
+    {
+        "code": 26945,
+        "name": "Dispositivos y sistemas fotónicos",
+        "description": "Aquí irá la guía docente y los profesores."
+    },
+    {
+        "code": 26946,
+        "name": "Dosimetría y radioprotección",
+        "description": "Aquí irá la guía docente y los profesores."
+    },
+    {
+        "code": 26947,
+        "name": "Espectroscopia",
+        "description": "Aquí irá la guía docente y los profesores."
+    },
+    {
+        "code": 26949,
+        "name": "Física biológica",
+        "description": "Aquí irá la guía docente y los profesores."
+    },
+    {
+        "code": 26950,
+        "name": "Física de altas energías",
+        "description": "Aquí irá la guía docente y los profesores."
+    },
+    {
+        "code": 26951,
+        "name": "Física y tecnología nuclear",
+        "description": "Aquí irá la guía docente y los profesores."
+    },
+    {
+        "code": 26952,
+        "name": "Geofísica",
+        "description": "Aquí irá la guía docente y los profesores."
+    },
+    {
+        "code": 26953,
+        "name": "Mecánica cuántica",
+        "description": "Aquí irá la guía docente y los profesores."
+    },
+    {
+        "code": 26957,
+        "name": "Sistemas digitales",
+        "description": "Aquí irá la guía docente y los profesores."
+    },
+    {
+        "code": 26958,
+        "name": "Grafos y combinatoria",
+        "description": "Aquí irá la guía docente y los profesores."
+    },
+    {
+        "code": 81251,
+        "name": "Gestión emocional y de estrés laboral y personal",
+        "description": "Aquí irá la guía docente y los profesores."
+    },
+    {
+        "code": 81292,
+        "name": "Día de la Materia Oscura",
+        "description": "Aquí irá la guía docente y los profesores."
+    },
+    {
+        "code": 81294,
+        "name": "El zoo de las partículas: De la relatividad a la teoría de campos clásica y cuántica",
+        "description": "Aquí irá la guía docente y los profesores."
+    },
+    {
+        "code": 81295,
+        "name": "Iniciación a la investigación en Física de Astropartículas y de Altas Energías",
+        "description": "Aquí irá la guía docente y los profesores."
+    },
+    {
+        "code": 81298,
+        "name": "Métodos geométricos en Física",
+        "description": "Aquí irá la guía docente y los profesores."
+    },
+    {
+        "code": 81326,
+        "name": "Globalización. Reflexiones desde la Filosofía, la Economía y el Derecho",
+        "description": "Aquí irá la guía docente y los profesores."
+    },
+    {
+        "code": 81361,
+        "name": "Iniciación a la Investigación en Física de Astropartículas y de Altas Energías",
+        "description": "Aquí irá la guía docente y los profesores."
+    },
+    {
+        "code": 81413,
+        "name": "Introducción a la Inteligencia Artificial",
+        "description": "Aquí irá la guía docente y los profesores."
+    },
+    {
+        "code": 81482,
+        "name": "Enfoque multidisciplinar del hecho religioso (Sociología, Antropología, Psicología)",
+        "description": "Aquí irá la guía docente y los profesores."
+    },
+    {
+        "code": 81493,
+        "name": "Neurociencia para entender mejor el mundo",
+        "description": "Aquí irá la guía docente y los profesores."
+    },
+    {
+        "code": 81511,
+        "name": "Orquesta Sinfónica Universitaria de Zaragoza. 24-25",
+        "description": "Aquí irá la guía docente y los profesores."
     }
 ]

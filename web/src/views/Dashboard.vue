@@ -1,5 +1,6 @@
 <script setup>
-import { ref, computed, watch } from "vue";
+
+import { computed } from "vue";
 import { useRoute } from "vue-router";
 
 import DashboardHist from "@/components/Dashboard/DashboardHistogram.vue";
@@ -27,37 +28,6 @@ const subjectName = computed(() => {
 
 });
 
-// Datos de la asignatura
-const subjectData = computed(() => {
-
-    return notas.filter(
-        item => item["Código"] === subjectCode
-    );
-
-});
-
-// Años disponibles
-const years = computed(() => {
-
-    return subjectData.value
-        .map(item => item["Curso Académico"])
-        .sort((a, b) => b.localeCompare(a));
-
-});
-
-// Año seleccionado
-const selectedYear = ref("");
-
-watch(years, (newYears) => {
-
-    if (newYears.length > 0) {
-
-        selectedYear.value = newYears[0];
-
-    }
-
-}, { immediate: true });
-
 </script>
 
 <template>
@@ -76,33 +46,16 @@ watch(years, (newYears) => {
 
         </div>
 
-        <select
-            v-model="selectedYear"
-            class="yearSelector"
-        >
-
-            <option
-                v-for="year in years"
-                :key="year"
-                :value="year"
-            >
-                {{ year }}
-            </option>
-
-        </select>
-
     </header>
 
     <section class="dashboard-grid">
 
         <DashboardHist
             :subjectCode="subjectCode"
-            :selectedYear="selectedYear"
         />
 
         <DashboardPassRate
             :subjectCode="subjectCode"
-            :selectedYear="selectedYear"
         />
 
         <DashBoardSusp
@@ -130,6 +83,7 @@ watch(years, (newYears) => {
     margin-left:220px;
 
     width:calc(100% - 220px);
+
     padding:50px;
 
     min-height:100vh;
@@ -141,12 +95,6 @@ watch(years, (newYears) => {
 }
 
 .hero{
-
-    display:flex;
-
-    justify-content:space-between;
-
-    align-items:center;
 
     margin-bottom:40px;
 
@@ -166,32 +114,6 @@ watch(years, (newYears) => {
 
 }
 
-.yearSelector{
-
-    background:#285aff;
-
-    color:white;
-
-    border:1px solid #334155;
-
-    border-radius:10px;
-
-    padding:10px 16px;
-
-    font-size:1rem;
-
-    cursor:pointer;
-
-}
-
-.yearSelector:focus{
-
-    outline:none;
-
-    border-color:#38bdf8;
-
-}
-
 .dashboard-grid{
 
     display:flex;
@@ -208,17 +130,9 @@ watch(years, (newYears) => {
 
         margin-left:0;
 
+        width:100%;
+
         padding:25px;
-
-    }
-
-    .hero{
-
-        flex-direction:column;
-
-        align-items:flex-start;
-
-        gap:20px;
 
     }
 
