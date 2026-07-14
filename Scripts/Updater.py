@@ -21,7 +21,8 @@ df.to_json(
     indent=4
 )
 
-# Treatment of data
+# Treatment of data (this makes the files AsigPorCurs.json and AsigClasTroncOpt with the information of notasraw.json,
+# it overwrites the information of this files when executed)#########################################################
 
 input_file = Path("../data/json/NotasRaw.json")
 output_file = Path("../data/json/processed/AsignaturasPorCurso.json")
@@ -163,84 +164,159 @@ with open(output_file, "w", encoding="utf-8") as f:
         indent=4
     )
 
-#Only read notas.xlsx
+######################################################################################
 
 
 
-#Dictionary of descriptions
-
-input_file = Path("../data/json/processed/AsignaturasPorCurso.json")
-
-output_file = Path("../data/json/processed/AsignaturasDescripcion.json")
 
 
-with open(input_file, "r", encoding="utf-8") as f:
-    subjects_by_course = json.load(f)
+# Scraper of teachers and guides (it searchs in the web the teachers and guides of each subject each academic year and
+# writes it in Prof_Gu.json, you have to select the year that you want to apend)
+import requests
+from bs4 import BeautifulSoup
+import json
+import time
+import os 
 
+def obtener_datos_asignaturas():
+    resultados = []
+    
+    # Select the years that you want to search into
+    anhos = ["2026"] 
+    
+    id_inicio = 26900
+    id_fin = 26953
+    
+    headers = {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36'
+    }
 
-if output_file.exists():
+    for anho in anhos:
+        print(f"\n--- Consultando curso académico {anho}-{int(anho)+1} ---")
+        
+        estudio_id = f"{anho}0124" 
+        
+        for asig_id in range(id_inicio, id_fin + 1):
+            url = "https://estudios.unizar.es/estudio/asignatura"
+            params = {
+                'anyo_academico': anho,
+                'asignatura_id': asig_id,
+                'estudio_id': estudio_id,
+                'centro_id': '100',
+                'plan_id_nk': '447'
+            }
+            
+            try:
+                response = requests.get(url, params=params, headers=headers)
+                
+                if response.status_code == 200:
+                    soup = BeautifulSoup(response.content, 'html.parser')
+                    
+                    # Nombre de la asignatura
+                    h3_tag = soup.find('h3')
+                    nombre_asignatura = h3_tag.text.strip() if h3_tag else f"Asignatura_{asig_id}"
+                    
+                    profesores = []
+                    guia_docente_web = None
+                    guia_docente_pdf = None
+                    
+                    tabla = soup.find('table', id='w0')
+                    
+                    if tabla:
+                        filas = tabla.find_all('tr')
+                        for fila in filas:
+                            th = fila.find('th')
+                            td = fila.find('td')
+                            
+                            if th and td:
+                                th_texto = th.text.strip().lower()
+                                
+                                if 'profesores' in th_texto:
+                                    enlaces_profesores = td.find_all('a')
+                                    for a in enlaces_profesores:
+                                        nombre_prof = a.text.strip()
+                                        if nombre_prof:
+                                            profesores.append(nombre_prof)
+                                
+                                elif 'guia docente' in th_texto or 'guía docente' in th_texto:
+                                    enlaces_guia = td.find_all('a')
+                                    for a in enlaces_guia:
+                                        texto_enlace = a.text.strip().lower()
+                                        href = a.get('href')
+                                        if href:
+                                            href_limpio = href.strip().replace(" ", "")
+                                            
+                                            if 'web' in texto_enlace:
+                                                guia_docente_web = href_limpio
+                                            elif 'pdf' in texto_enlace:
+                                                guia_docente_pdf = href_limpio
+                    
+                    resultados.append({
+                        "anyo_academico": f"{anho}-{int(anho)+1}",
+                        "id_asignatura": asig_id,
+                        "asignatura": nombre_asignatura,
+                        "profesores": profesores if profesores else ["No asignados / No encontrados"],
+                        "guia_docente_web": guia_docente_web if guia_docente_web else "No disponible",
+                        "guia_docente_pdf": guia_docente_pdf if guia_docente_pdf else "No disponible"
+                    })
+                    print(f"Procesada: ID {asig_id} ({nombre_asignatura})")
+                
+                elif response.status_code == 404:
+                    print(f"La asignatura con ID {asig_id} no existe para el año {anho}.")
+                else:
+                    print(f"Error {response.status_code} al consultar la asignatura ID {asig_id}.")
+                    
+            except Exception as e:
+                print(f"Error procesando la asignatura con ID {asig_id}: {e}")
+            
+            time.sleep(1) 
 
-    with open(output_file, "r", encoding="utf-8") as f:
-        descriptions = json.load(f)
+    return resultados
 
-else:
-
-    descriptions = []
-
-
-existing_subjects = {
-
-    int(subject["code"]): subject
-
-    for subject in descriptions
-
-}
-
-
-seen = set()
-
-
-for course in subjects_by_course.values():
-
-    for subject in course:
-
-        code = int(subject["code"])
-
-        if code in seen:
-            continue
-
-        seen.add(code)
-
-        if code in existing_subjects:
-            continue
-
-        new_subject = {
-
-            "code": code,
-
-            "name": subject["name"],
-
-            "description": "Aquí va la descripcion de la signatura."
-
+def guardar_json(datos_nuevos, ruta):
+    try:
+        datos_finales = []
+        
+        if os.path.exists(ruta):
+            try:
+                with open(ruta, 'r', encoding='utf-8') as f:
+                    datos_finales = json.load(f)
+                    if not isinstance(datos_finales, list):
+                        datos_finales = []
+            except (json.JSONDecodeError, ValueError):
+                print(f"Advertencia: El archivo {ruta} estaba corrupto o vacío. Se creará uno nuevo.")
+                datos_finales = []
+        
+        #Avoid duplicates
+        diccionario_datos = {
+            (d["anyo_academico"], d["id_asignatura"]): d for d in datos_finales
         }
+        
+        #New data
+        for dato in datos_nuevos:
+            clave = (dato["anyo_academico"], dato["id_asignatura"])
+            diccionario_datos[clave] = dato  # Si ya existía, se sobreescribe con el más reciente
+            
+        
+        datos_finales = list(diccionario_datos.values())
+        
+        
+        with open(ruta, 'w', encoding='utf-8') as f:
+            json.dump(datos_finales, f, ensure_ascii=False, indent=4)
+            
+        print(f"\nProceso completado.")
+        print(f"- Registros nuevos/actualizados en esta tanda: {len(datos_nuevos)}")
+        print(f"- Total de asignaturas guardadas en el JSON: {len(datos_finales)}")
+        print(f"Archivo guardado en: {ruta}")
+        
+    except Exception as e:
+        print(f"Error al escribir el archivo JSON: {e}")
 
-        descriptions.append(new_subject)
-
-        existing_subjects[code] = new_subject
-
-descriptions.sort(key=lambda x: x["code"])
-
-with open(output_file, "w", encoding="utf-8") as f:
-
-    json.dump(
-
-        descriptions,
-
-        f,
-
-        ensure_ascii=False,
-
-        indent=4
-
-    )
-######
+if __name__ == "__main__":
+    ruta_salida = '../data/json/processed/Profesores_GuiasDoc.json'
+    
+    datos_completos = obtener_datos_asignaturas()
+    if datos_completos:
+        guardar_json(datos_completos, ruta_salida)
+    else:
+        print("\nNo se extrajeron datos nuevos para guardar.")

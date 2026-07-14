@@ -1,0 +1,585 @@
+[
+    {
+        "anyo_academico": "2026-2027",
+        "id_asignatura": 26900,
+        "asignatura": "Fundamentos de física I",
+        "profesores": [
+            "Luis Miguel García Vinuesa",
+            "Jesús Gómez Gardeñes"
+        ],
+        "guia_docente_web": "https://sia.unizar.es/doa/consultaPublica/look[conpub]MostrarPubGuiaDocAs?entradaPublica=true&idiomaPais=es.ES&_anoAcademico=2026&_codAsignatura=26900",
+        "guia_docente_pdf": "https://sia.unizar.es/documentos/doa/guiadocente/2026/26900_es.pdf"
+    },
+    {
+        "anyo_academico": "2026-2027",
+        "id_asignatura": 26901,
+        "asignatura": "Química",
+        "profesores": [
+            "José Ignacio García Peiro",
+            "María Eugenia Marqués López",
+            "José Muñoz Embid",
+            "Francisco Javier Sayago García",
+            "Inés Tejedor Ramos",
+            "Asier Urriolabeitia Rodrigo"
+        ],
+        "guia_docente_web": "https://sia.unizar.es/doa/consultaPublica/look[conpub]MostrarPubGuiaDocAs?entradaPublica=true&idiomaPais=es.ES&_anoAcademico=2026&_codAsignatura=26901",
+        "guia_docente_pdf": "https://sia.unizar.es/documentos/doa/guiadocente/2026/26901_es.pdf"
+    },
+    {
+        "anyo_academico": "2026-2027",
+        "id_asignatura": 26902,
+        "asignatura": "Álgebra I",
+        "profesores": [
+            "Fernando Montaner Frutos",
+            "Irene Paniello Alastruey"
+        ],
+        "guia_docente_web": "https://sia.unizar.es/doa/consultaPublica/look[conpub]MostrarPubGuiaDocAs?entradaPublica=true&idiomaPais=es.ES&_anoAcademico=2026&_codAsignatura=26902",
+        "guia_docente_pdf": "https://sia.unizar.es/documentos/doa/guiadocente/2026/26902_es.pdf"
+    },
+    {
+        "anyo_academico": "2026-2027",
+        "id_asignatura": 26903,
+        "asignatura": "Análisis matemático",
+        "profesores": [
+            "José Luis Dávila Albarrán"
+        ],
+        "guia_docente_web": "https://sia.unizar.es/doa/consultaPublica/look[conpub]MostrarPubGuiaDocAs?entradaPublica=true&idiomaPais=es.ES&_anoAcademico=2026&_codAsignatura=26903",
+        "guia_docente_pdf": "https://sia.unizar.es/documentos/doa/guiadocente/2026/26903_es.pdf"
+    },
+    {
+        "anyo_academico": "2026-2027",
+        "id_asignatura": 26904,
+        "asignatura": "Informática",
+        "profesores": [
+            "No asignados / No encontrados"
+        ],
+        "guia_docente_web": "https://sia.unizar.es/doa/consultaPublica/look[conpub]MostrarPubGuiaDocAs?entradaPublica=true&idiomaPais=es.ES&_anoAcademico=2026&_codAsignatura=26904",
+        "guia_docente_pdf": "https://sia.unizar.es/documentos/doa/guiadocente/2026/26904_es.pdf"
+    },
+    {
+        "anyo_academico": "2026-2027",
+        "id_asignatura": 26905,
+        "asignatura": "Fundamentos de física II",
+        "profesores": [
+            "Francisco Javier Salgado Remacha",
+            "Pascual Sevillano Reyes"
+        ],
+        "guia_docente_web": "https://sia.unizar.es/doa/consultaPublica/look[conpub]MostrarPubGuiaDocAs?entradaPublica=true&idiomaPais=es.ES&_anoAcademico=2026&_codAsignatura=26905",
+        "guia_docente_pdf": "https://sia.unizar.es/documentos/doa/guiadocente/2026/26905_es.pdf"
+    },
+    {
+        "anyo_academico": "2026-2027",
+        "id_asignatura": 26906,
+        "asignatura": "Laboratorio de física",
+        "profesores": [
+            "Enrique Carretero Chamarro"
+        ],
+        "guia_docente_web": "https://sia.unizar.es/doa/consultaPublica/look[conpub]MostrarPubGuiaDocAs?entradaPublica=true&idiomaPais=es.ES&_anoAcademico=2026&_codAsignatura=26906",
+        "guia_docente_pdf": "https://sia.unizar.es/documentos/doa/guiadocente/2026/26906_es.pdf"
+    },
+    {
+        "anyo_academico": "2026-2027",
+        "id_asignatura": 26907,
+        "asignatura": "Álgebra II",
+        "profesores": [
+            "Pierpaolo Bruscolini",
+            "Sergio Pérez Gaviro",
+            "Alejandro Tejedor Cubero"
+        ],
+        "guia_docente_web": "https://sia.unizar.es/doa/consultaPublica/look[conpub]MostrarPubGuiaDocAs?entradaPublica=true&idiomaPais=es.ES&_anoAcademico=2026&_codAsignatura=26907",
+        "guia_docente_pdf": "https://sia.unizar.es/documentos/doa/guiadocente/2026/26907_es.pdf"
+    },
+    {
+        "anyo_academico": "2026-2027",
+        "id_asignatura": 26908,
+        "asignatura": "Cálculo diferencial",
+        "profesores": [
+            "Jacobo Asorey Barreiro",
+            "Justo Javier López Sarrión"
+        ],
+        "guia_docente_web": "https://sia.unizar.es/doa/consultaPublica/look[conpub]MostrarPubGuiaDocAs?entradaPublica=true&idiomaPais=es.ES&_anoAcademico=2026&_codAsignatura=26908",
+        "guia_docente_pdf": "https://sia.unizar.es/documentos/doa/guiadocente/2026/26908_es.pdf"
+    },
+    {
+        "anyo_academico": "2026-2027",
+        "id_asignatura": 26909,
+        "asignatura": "Biología",
+        "profesores": [
+            "No asignados / No encontrados"
+        ],
+        "guia_docente_web": "https://sia.unizar.es/doa/consultaPublica/look[conpub]MostrarPubGuiaDocAs?entradaPublica=true&idiomaPais=es.ES&_anoAcademico=2026&_codAsignatura=26909",
+        "guia_docente_pdf": "https://sia.unizar.es/documentos/doa/guiadocente/2026/26909_es.pdf"
+    },
+    {
+        "anyo_academico": "2026-2027",
+        "id_asignatura": 26910,
+        "asignatura": "Geología",
+        "profesores": [
+            "No asignados / No encontrados"
+        ],
+        "guia_docente_web": "https://sia.unizar.es/doa/consultaPublica/look[conpub]MostrarPubGuiaDocAs?entradaPublica=true&idiomaPais=es.ES&_anoAcademico=2026&_codAsignatura=26910",
+        "guia_docente_pdf": "https://sia.unizar.es/documentos/doa/guiadocente/2026/26910_es.pdf"
+    },
+    {
+        "anyo_academico": "2026-2027",
+        "id_asignatura": 26911,
+        "asignatura": "Técnicas físicas I",
+        "profesores": [
+            "Concepción Aldea Chagoyen",
+            "Miguel García Bosque",
+            "Igor García Irastorza",
+            "Hector Gomez Maluenda"
+        ],
+        "guia_docente_web": "https://sia.unizar.es/doa/consultaPublica/look[conpub]MostrarPubGuiaDocAs?entradaPublica=true&idiomaPais=es.ES&_anoAcademico=2026&_codAsignatura=26911",
+        "guia_docente_pdf": "https://sia.unizar.es/documentos/doa/guiadocente/2026/26911_es.pdf"
+    },
+    {
+        "anyo_academico": "2026-2027",
+        "id_asignatura": 26912,
+        "asignatura": "Mecánica clásica I",
+        "profesores": [
+            "Jesús Mario Subías Domingo"
+        ],
+        "guia_docente_web": "https://sia.unizar.es/doa/consultaPublica/look[conpub]MostrarPubGuiaDocAs?entradaPublica=true&idiomaPais=es.ES&_anoAcademico=2026&_codAsignatura=26912",
+        "guia_docente_pdf": "https://sia.unizar.es/documentos/doa/guiadocente/2026/26912_es.pdf"
+    },
+    {
+        "anyo_academico": "2026-2027",
+        "id_asignatura": 26913,
+        "asignatura": "Cálculo integral y geometría",
+        "profesores": [
+            "Fernando Falceto Blecua",
+            "Eduardo Follana Adin"
+        ],
+        "guia_docente_web": "https://sia.unizar.es/doa/consultaPublica/look[conpub]MostrarPubGuiaDocAs?entradaPublica=true&idiomaPais=es.ES&_anoAcademico=2026&_codAsignatura=26913",
+        "guia_docente_pdf": "https://sia.unizar.es/documentos/doa/guiadocente/2026/26913_es.pdf"
+    },
+    {
+        "anyo_academico": "2026-2027",
+        "id_asignatura": 26914,
+        "asignatura": "Ecuaciones diferenciales",
+        "profesores": [
+            "Alberto Aleta Casas",
+            "Inés Cavero Peláez",
+            "Siannah Peñaranda Rivas"
+        ],
+        "guia_docente_web": "https://sia.unizar.es/doa/consultaPublica/look[conpub]MostrarPubGuiaDocAs?entradaPublica=true&idiomaPais=es.ES&_anoAcademico=2026&_codAsignatura=26914",
+        "guia_docente_pdf": "https://sia.unizar.es/documentos/doa/guiadocente/2026/26914_es.pdf"
+    },
+    {
+        "anyo_academico": "2026-2027",
+        "id_asignatura": 26915,
+        "asignatura": "Electromagnetismo",
+        "profesores": [
+            "Ignacio Lope Moratilla",
+            "Juan Pablo Martínez Jiménez"
+        ],
+        "guia_docente_web": "https://sia.unizar.es/doa/consultaPublica/look[conpub]MostrarPubGuiaDocAs?entradaPublica=true&idiomaPais=es.ES&_anoAcademico=2026&_codAsignatura=26915",
+        "guia_docente_pdf": "https://sia.unizar.es/documentos/doa/guiadocente/2026/26915_es.pdf"
+    },
+    {
+        "anyo_academico": "2026-2027",
+        "id_asignatura": 26916,
+        "asignatura": "Mecánica clásica II",
+        "profesores": [
+            "Francisco Javier Salgado Remacha",
+            "Ángel Sanz Felipe"
+        ],
+        "guia_docente_web": "https://sia.unizar.es/doa/consultaPublica/look[conpub]MostrarPubGuiaDocAs?entradaPublica=true&idiomaPais=es.ES&_anoAcademico=2026&_codAsignatura=26916",
+        "guia_docente_pdf": "https://sia.unizar.es/documentos/doa/guiadocente/2026/26916_es.pdf"
+    },
+    {
+        "anyo_academico": "2026-2027",
+        "id_asignatura": 26917,
+        "asignatura": "Métodos matemáticos para la física",
+        "profesores": [
+            "Víctor Arturo Gopar Sánchez"
+        ],
+        "guia_docente_web": "https://sia.unizar.es/doa/consultaPublica/look[conpub]MostrarPubGuiaDocAs?entradaPublica=true&idiomaPais=es.ES&_anoAcademico=2026&_codAsignatura=26917",
+        "guia_docente_pdf": "https://sia.unizar.es/documentos/doa/guiadocente/2026/26917_es.pdf"
+    },
+    {
+        "anyo_academico": "2026-2027",
+        "id_asignatura": 26918,
+        "asignatura": "Física computacional",
+        "profesores": [
+            "Alberto Aleta Casas",
+            "Yamir Moreno Vega",
+            "Alfonso Tarancón Lafita"
+        ],
+        "guia_docente_web": "https://sia.unizar.es/doa/consultaPublica/look[conpub]MostrarPubGuiaDocAs?entradaPublica=true&idiomaPais=es.ES&_anoAcademico=2026&_codAsignatura=26918",
+        "guia_docente_pdf": "https://sia.unizar.es/documentos/doa/guiadocente/2026/26918_es.pdf"
+    },
+    {
+        "anyo_academico": "2026-2027",
+        "id_asignatura": 26919,
+        "asignatura": "Ondas electromagnéticas",
+        "profesores": [
+            "Víctor Berdejo Arceiz",
+            "Sebastián Jarabo Lallana"
+        ],
+        "guia_docente_web": "https://sia.unizar.es/doa/consultaPublica/look[conpub]MostrarPubGuiaDocAs?entradaPublica=true&idiomaPais=es.ES&_anoAcademico=2026&_codAsignatura=26919",
+        "guia_docente_pdf": "https://sia.unizar.es/documentos/doa/guiadocente/2026/26919_es.pdf"
+    },
+    {
+        "anyo_academico": "2026-2027",
+        "id_asignatura": 26920,
+        "asignatura": "Técnicas físicas II",
+        "profesores": [
+            "Irene Calvo Almazán",
+            "Belén Teresa Calvo López",
+            "Jesús Jerónimo Clemente Gallardo",
+            "Theopisti Dafni",
+            "Miguel García Bosque",
+            "Fernando de León Pérez",
+            "Jesús Ignacio Martínez Martínez",
+            "Nicolás Jesús Medrano Marqués",
+            "Jesús Mario Subías Domingo"
+        ],
+        "guia_docente_web": "https://sia.unizar.es/doa/consultaPublica/look[conpub]MostrarPubGuiaDocAs?entradaPublica=true&idiomaPais=es.ES&_anoAcademico=2026&_codAsignatura=26920",
+        "guia_docente_pdf": "https://sia.unizar.es/documentos/doa/guiadocente/2026/26920_es.pdf"
+    },
+    {
+        "anyo_academico": "2026-2027",
+        "id_asignatura": 26921,
+        "asignatura": "Física cuántica I",
+        "profesores": [
+            "Irene Calvo Almazán",
+            "Alessandro Fiasconaro",
+            "Diego Gironés Magaña",
+            "Fernando de León Pérez"
+        ],
+        "guia_docente_web": "https://sia.unizar.es/doa/consultaPublica/look[conpub]MostrarPubGuiaDocAs?entradaPublica=true&idiomaPais=es.ES&_anoAcademico=2026&_codAsignatura=26921",
+        "guia_docente_pdf": "https://sia.unizar.es/documentos/doa/guiadocente/2026/26921_es.pdf"
+    },
+    {
+        "anyo_academico": "2026-2027",
+        "id_asignatura": 26922,
+        "asignatura": "Termodinámica",
+        "profesores": [
+            "Irene Calvo Almazán",
+            "Jesús Ignacio Martínez Martínez"
+        ],
+        "guia_docente_web": "https://sia.unizar.es/doa/consultaPublica/look[conpub]MostrarPubGuiaDocAs?entradaPublica=true&idiomaPais=es.ES&_anoAcademico=2026&_codAsignatura=26922",
+        "guia_docente_pdf": "https://sia.unizar.es/documentos/doa/guiadocente/2026/26922_es.pdf"
+    },
+    {
+        "anyo_academico": "2026-2027",
+        "id_asignatura": 26923,
+        "asignatura": "Óptica",
+        "profesores": [
+            "Sergio Gutiérrez Rodrigo",
+            "Sebastián Jarabo Lallana",
+            "Juan Antonio Vallés Brau"
+        ],
+        "guia_docente_web": "https://sia.unizar.es/doa/consultaPublica/look[conpub]MostrarPubGuiaDocAs?entradaPublica=true&idiomaPais=es.ES&_anoAcademico=2026&_codAsignatura=26923",
+        "guia_docente_pdf": "https://sia.unizar.es/documentos/doa/guiadocente/2026/26923_es.pdf"
+    },
+    {
+        "anyo_academico": "2026-2027",
+        "id_asignatura": 26924,
+        "asignatura": "Física cuántica II",
+        "profesores": [
+            "Juan Antonio García Pascual",
+            "Gloria Luzón Marco",
+            "María Lucía Martínez Pérez",
+            "Jorge Mario Puimedón Santolaria",
+            "Laura Seguí Iglesia"
+        ],
+        "guia_docente_web": "https://sia.unizar.es/doa/consultaPublica/look[conpub]MostrarPubGuiaDocAs?entradaPublica=true&idiomaPais=es.ES&_anoAcademico=2026&_codAsignatura=26924",
+        "guia_docente_pdf": "https://sia.unizar.es/documentos/doa/guiadocente/2026/26924_es.pdf"
+    },
+    {
+        "anyo_academico": "2026-2027",
+        "id_asignatura": 26925,
+        "asignatura": "Física estadística",
+        "profesores": [
+            "Irene Calvo Almazán",
+            "Jesús Gómez Gardeñes"
+        ],
+        "guia_docente_web": "https://sia.unizar.es/doa/consultaPublica/look[conpub]MostrarPubGuiaDocAs?entradaPublica=true&idiomaPais=es.ES&_anoAcademico=2026&_codAsignatura=26925",
+        "guia_docente_pdf": "https://sia.unizar.es/documentos/doa/guiadocente/2026/26925_es.pdf"
+    },
+    {
+        "anyo_academico": "2026-2027",
+        "id_asignatura": 26926,
+        "asignatura": "Estado sólido I",
+        "profesores": [
+            "María Belén Villacampa Naverac"
+        ],
+        "guia_docente_web": "https://sia.unizar.es/doa/consultaPublica/look[conpub]MostrarPubGuiaDocAs?entradaPublica=true&idiomaPais=es.ES&_anoAcademico=2026&_codAsignatura=26926",
+        "guia_docente_pdf": "https://sia.unizar.es/documentos/doa/guiadocente/2026/26926_es.pdf"
+    },
+    {
+        "anyo_academico": "2026-2027",
+        "id_asignatura": 26927,
+        "asignatura": "Técnicas físicas III",
+        "profesores": [
+            "Myriam Haydee Aguirre Yaccuzzi",
+            "Ana Belén Arauzo García",
+            "Agustin Hispanico Camón Lasheras",
+            "Jesús Carrete Montaña",
+            "Santiago Celma Pueyo",
+            "Jesús Jerónimo Clemente Gallardo",
+            "Marco Evangelisti Crespo",
+            "Alessandro Fiasconaro",
+            "Eduardo Follana Adin",
+            "Juan Antonio García Pascual",
+            "Sebastián Jarabo Lallana",
+            "Jesús Ignacio Martínez Martínez",
+            "María Lucía Martínez Pérez",
+            "Rosa Isabel Merino Rubio",
+            "Virginia Raquel Palero Díaz",
+            "Fernando Palos Mateo",
+            "Carlos Pobes Aranda",
+            "María Luisa Sarsa Sarsa",
+            "David Serrate Donoso",
+            "Pascual Sevillano Reyes",
+            "María Belén Villacampa Naverac"
+        ],
+        "guia_docente_web": "https://sia.unizar.es/doa/consultaPublica/look[conpub]MostrarPubGuiaDocAs?entradaPublica=true&idiomaPais=es.ES&_anoAcademico=2026&_codAsignatura=26927",
+        "guia_docente_pdf": "https://sia.unizar.es/documentos/doa/guiadocente/2026/26927_es.pdf"
+    },
+    {
+        "anyo_academico": "2026-2027",
+        "id_asignatura": 26928,
+        "asignatura": "Electrónica física",
+        "profesores": [
+            "Belén Teresa Calvo López",
+            "Nicolás Jesús Medrano Marqués"
+        ],
+        "guia_docente_web": "https://sia.unizar.es/doa/consultaPublica/look[conpub]MostrarPubGuiaDocAs?entradaPublica=true&idiomaPais=es.ES&_anoAcademico=2026&_codAsignatura=26928",
+        "guia_docente_pdf": "https://sia.unizar.es/documentos/doa/guiadocente/2026/26928_es.pdf"
+    },
+    {
+        "anyo_academico": "2026-2027",
+        "id_asignatura": 26929,
+        "asignatura": "Física nuclear y partículas",
+        "profesores": [
+            "Theopisti Dafni",
+            "Eduardo García Abancens"
+        ],
+        "guia_docente_web": "https://sia.unizar.es/doa/consultaPublica/look[conpub]MostrarPubGuiaDocAs?entradaPublica=true&idiomaPais=es.ES&_anoAcademico=2026&_codAsignatura=26929",
+        "guia_docente_pdf": "https://sia.unizar.es/documentos/doa/guiadocente/2026/26929_es.pdf"
+    },
+    {
+        "anyo_academico": "2026-2027",
+        "id_asignatura": 26930,
+        "asignatura": "Estado sólido II",
+        "profesores": [
+            "Luis Miguel García Vinuesa",
+            "Elisa Ibáñez Rodilla",
+            "Irene Lucas del Pozo"
+        ],
+        "guia_docente_web": "https://sia.unizar.es/doa/consultaPublica/look[conpub]MostrarPubGuiaDocAs?entradaPublica=true&idiomaPais=es.ES&_anoAcademico=2026&_codAsignatura=26930",
+        "guia_docente_pdf": "https://sia.unizar.es/documentos/doa/guiadocente/2026/26930_es.pdf"
+    },
+    {
+        "anyo_academico": "2026-2027",
+        "id_asignatura": 26931,
+        "asignatura": "Trabajo fin de Grado",
+        "profesores": [
+            "No asignados / No encontrados"
+        ],
+        "guia_docente_web": "https://sia.unizar.es/doa/consultaPublica/look[conpub]MostrarPubGuiaDocAs?entradaPublica=true&idiomaPais=es.ES&_anoAcademico=2026&_codAsignatura=26931",
+        "guia_docente_pdf": "https://sia.unizar.es/documentos/doa/guiadocente/2026/26931_es.pdf"
+    },
+    {
+        "anyo_academico": "2026-2027",
+        "id_asignatura": 26932,
+        "asignatura": "Astronomía y astrofísica",
+        "profesores": [
+            "Manuel Clemente Membrado Ibáñez"
+        ],
+        "guia_docente_web": "https://sia.unizar.es/doa/consultaPublica/look[conpub]MostrarPubGuiaDocAs?entradaPublica=true&idiomaPais=es.ES&_anoAcademico=2026&_codAsignatura=26932",
+        "guia_docente_pdf": "https://sia.unizar.es/documentos/doa/guiadocente/2026/26932_es.pdf"
+    },
+    {
+        "anyo_academico": "2026-2027",
+        "id_asignatura": 26933,
+        "asignatura": "Caos y sistemas dinámicos no lineales",
+        "profesores": [
+            "Jesús Gómez Gardeñes"
+        ],
+        "guia_docente_web": "https://sia.unizar.es/doa/consultaPublica/look[conpub]MostrarPubGuiaDocAs?entradaPublica=true&idiomaPais=es.ES&_anoAcademico=2026&_codAsignatura=26933",
+        "guia_docente_pdf": "https://sia.unizar.es/documentos/doa/guiadocente/2026/26933_es.pdf"
+    },
+    {
+        "anyo_academico": "2026-2027",
+        "id_asignatura": 26935,
+        "asignatura": "Física de fluidos",
+        "profesores": [
+            "María Pilar García Navarro",
+            "Mario Morales Hernández"
+        ],
+        "guia_docente_web": "https://sia.unizar.es/doa/consultaPublica/look[conpub]MostrarPubGuiaDocAs?entradaPublica=true&idiomaPais=es.ES&_anoAcademico=2026&_codAsignatura=26935",
+        "guia_docente_pdf": "https://sia.unizar.es/documentos/doa/guiadocente/2026/26935_es.pdf"
+    },
+    {
+        "anyo_academico": "2026-2027",
+        "id_asignatura": 26936,
+        "asignatura": "Gestión empresarial y proyectos",
+        "profesores": [
+            "Luis Francisco Casado Román",
+            "Daniel López Blesa",
+            "Ignacio Alfonso Sánchez Medalón"
+        ],
+        "guia_docente_web": "https://sia.unizar.es/doa/consultaPublica/look[conpub]MostrarPubGuiaDocAs?entradaPublica=true&idiomaPais=es.ES&_anoAcademico=2026&_codAsignatura=26936",
+        "guia_docente_pdf": "https://sia.unizar.es/documentos/doa/guiadocente/2026/26936_es.pdf"
+    },
+    {
+        "anyo_academico": "2026-2027",
+        "id_asignatura": 26937,
+        "asignatura": "Gravitación y cosmología",
+        "profesores": [
+            "Alejandro Marino Vaquero Avilés-Casco"
+        ],
+        "guia_docente_web": "https://sia.unizar.es/doa/consultaPublica/look[conpub]MostrarPubGuiaDocAs?entradaPublica=true&idiomaPais=es.ES&_anoAcademico=2026&_codAsignatura=26937",
+        "guia_docente_pdf": "https://sia.unizar.es/documentos/doa/guiadocente/2026/26937_es.pdf"
+    },
+    {
+        "anyo_academico": "2026-2027",
+        "id_asignatura": 26938,
+        "asignatura": "Historia de la ciencia",
+        "profesores": [
+            "José Manuel Carmona Martínez",
+            "Jesús Jerónimo Clemente Gallardo"
+        ],
+        "guia_docente_web": "https://sia.unizar.es/doa/consultaPublica/look[conpub]MostrarPubGuiaDocAs?entradaPublica=true&idiomaPais=es.ES&_anoAcademico=2026&_codAsignatura=26938",
+        "guia_docente_pdf": "https://sia.unizar.es/documentos/doa/guiadocente/2026/26938_es.pdf"
+    },
+    {
+        "anyo_academico": "2026-2027",
+        "id_asignatura": 26940,
+        "asignatura": "Láser y aplicaciones",
+        "profesores": [
+            "Sebastián Jarabo Lallana"
+        ],
+        "guia_docente_web": "https://sia.unizar.es/doa/consultaPublica/look[conpub]MostrarPubGuiaDocAs?entradaPublica=true&idiomaPais=es.ES&_anoAcademico=2026&_codAsignatura=26940",
+        "guia_docente_pdf": "https://sia.unizar.es/documentos/doa/guiadocente/2026/26940_es.pdf"
+    },
+    {
+        "anyo_academico": "2026-2027",
+        "id_asignatura": 26941,
+        "asignatura": "Micro y nano sistemas",
+        "profesores": [
+            "Santiago Celma Pueyo",
+            "Miguel García Bosque"
+        ],
+        "guia_docente_web": "https://sia.unizar.es/doa/consultaPublica/look[conpub]MostrarPubGuiaDocAs?entradaPublica=true&idiomaPais=es.ES&_anoAcademico=2026&_codAsignatura=26941",
+        "guia_docente_pdf": "https://sia.unizar.es/documentos/doa/guiadocente/2026/26941_es.pdf"
+    },
+    {
+        "anyo_academico": "2026-2027",
+        "id_asignatura": 26942,
+        "asignatura": "Microondas: propagación y antenas",
+        "profesores": [
+            "Juan Carlos Martín Alonso"
+        ],
+        "guia_docente_web": "https://sia.unizar.es/doa/consultaPublica/look[conpub]MostrarPubGuiaDocAs?entradaPublica=true&idiomaPais=es.ES&_anoAcademico=2026&_codAsignatura=26942",
+        "guia_docente_pdf": "https://sia.unizar.es/documentos/doa/guiadocente/2026/26942_es.pdf"
+    },
+    {
+        "anyo_academico": "2026-2027",
+        "id_asignatura": 26943,
+        "asignatura": "Prácticas externas",
+        "profesores": [
+            "No asignados / No encontrados"
+        ],
+        "guia_docente_web": "https://sia.unizar.es/doa/consultaPublica/look[conpub]MostrarPubGuiaDocAs?entradaPublica=true&idiomaPais=es.ES&_anoAcademico=2026&_codAsignatura=26943",
+        "guia_docente_pdf": "https://sia.unizar.es/documentos/doa/guiadocente/2026/26943_es.pdf"
+    },
+    {
+        "anyo_academico": "2026-2027",
+        "id_asignatura": 26944,
+        "asignatura": "Aplicaciones de la difracción y de la interferometría",
+        "profesores": [
+            "Víctor Berdejo Arceiz"
+        ],
+        "guia_docente_web": "https://sia.unizar.es/doa/consultaPublica/look[conpub]MostrarPubGuiaDocAs?entradaPublica=true&idiomaPais=es.ES&_anoAcademico=2026&_codAsignatura=26944",
+        "guia_docente_pdf": "https://sia.unizar.es/documentos/doa/guiadocente/2026/26944_es.pdf"
+    },
+    {
+        "anyo_academico": "2026-2027",
+        "id_asignatura": 26945,
+        "asignatura": "Dispositivos y sistemas fotónicos",
+        "profesores": [
+            "Sergio Gutiérrez Rodrigo",
+            "Jesús Mario Subías Domingo"
+        ],
+        "guia_docente_web": "https://sia.unizar.es/doa/consultaPublica/look[conpub]MostrarPubGuiaDocAs?entradaPublica=true&idiomaPais=es.ES&_anoAcademico=2026&_codAsignatura=26945",
+        "guia_docente_pdf": "https://sia.unizar.es/documentos/doa/guiadocente/2026/26945_es.pdf"
+    },
+    {
+        "anyo_academico": "2026-2027",
+        "id_asignatura": 26946,
+        "asignatura": "Dosimetría y radioprotección",
+        "profesores": [
+            "Jorge Mario Puimedón Santolaria"
+        ],
+        "guia_docente_web": "https://sia.unizar.es/doa/consultaPublica/look[conpub]MostrarPubGuiaDocAs?entradaPublica=true&idiomaPais=es.ES&_anoAcademico=2026&_codAsignatura=26946",
+        "guia_docente_pdf": "https://sia.unizar.es/documentos/doa/guiadocente/2026/26946_es.pdf"
+    },
+    {
+        "anyo_academico": "2026-2027",
+        "id_asignatura": 26947,
+        "asignatura": "Espectroscopia",
+        "profesores": [
+            "Jesús Ignacio Martínez Martínez",
+            "María Belén Villacampa Naverac"
+        ],
+        "guia_docente_web": "https://sia.unizar.es/doa/consultaPublica/look[conpub]MostrarPubGuiaDocAs?entradaPublica=true&idiomaPais=es.ES&_anoAcademico=2026&_codAsignatura=26947",
+        "guia_docente_pdf": "https://sia.unizar.es/documentos/doa/guiadocente/2026/26947_es.pdf"
+    },
+    {
+        "anyo_academico": "2026-2027",
+        "id_asignatura": 26949,
+        "asignatura": "Física biológica",
+        "profesores": [
+            "Alessandro Fiasconaro"
+        ],
+        "guia_docente_web": "https://sia.unizar.es/doa/consultaPublica/look[conpub]MostrarPubGuiaDocAs?entradaPublica=true&idiomaPais=es.ES&_anoAcademico=2026&_codAsignatura=26949",
+        "guia_docente_pdf": "https://sia.unizar.es/documentos/doa/guiadocente/2026/26949_es.pdf"
+    },
+    {
+        "anyo_academico": "2026-2027",
+        "id_asignatura": 26950,
+        "asignatura": "Física de altas energías",
+        "profesores": [
+            "Siannah Peñaranda Rivas"
+        ],
+        "guia_docente_web": "https://sia.unizar.es/doa/consultaPublica/look[conpub]MostrarPubGuiaDocAs?entradaPublica=true&idiomaPais=es.ES&_anoAcademico=2026&_codAsignatura=26950",
+        "guia_docente_pdf": "https://sia.unizar.es/documentos/doa/guiadocente/2026/26950_es.pdf"
+    },
+    {
+        "anyo_academico": "2026-2027",
+        "id_asignatura": 26951,
+        "asignatura": "Física y tecnología nuclear",
+        "profesores": [
+            "Theopisti Dafni",
+            "Eduardo García Abancens"
+        ],
+        "guia_docente_web": "https://sia.unizar.es/doa/consultaPublica/look[conpub]MostrarPubGuiaDocAs?entradaPublica=true&idiomaPais=es.ES&_anoAcademico=2026&_codAsignatura=26951",
+        "guia_docente_pdf": "https://sia.unizar.es/documentos/doa/guiadocente/2026/26951_es.pdf"
+    },
+    {
+        "anyo_academico": "2026-2027",
+        "id_asignatura": 26952,
+        "asignatura": "Geofísica",
+        "profesores": [
+            "Alejandro Tejedor Cubero"
+        ],
+        "guia_docente_web": "https://sia.unizar.es/doa/consultaPublica/look[conpub]MostrarPubGuiaDocAs?entradaPublica=true&idiomaPais=es.ES&_anoAcademico=2026&_codAsignatura=26952",
+        "guia_docente_pdf": "https://sia.unizar.es/documentos/doa/guiadocente/2026/26952_es.pdf"
+    },
+    {
+        "anyo_academico": "2026-2027",
+        "id_asignatura": 26953,
+        "asignatura": "Mecánica cuántica",
+        "profesores": [
+            "Jesús Jerónimo Clemente Gallardo"
+        ],
+        "guia_docente_web": "https://sia.unizar.es/doa/consultaPublica/look[conpub]MostrarPubGuiaDocAs?entradaPublica=true&idiomaPais=es.ES&_anoAcademico=2026&_codAsignatura=26953",
+        "guia_docente_pdf": "https://sia.unizar.es/documentos/doa/guiadocente/2026/26953_es.pdf"
+    }
+]

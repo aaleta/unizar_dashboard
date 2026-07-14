@@ -132,6 +132,11 @@ const mostFeared = computed(() => {
 
     margin:0;
 
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    text-align:center;
+
 }
 
 .panel:hover{
@@ -166,15 +171,21 @@ h3{
 
     font-size:1.35rem;
 
-    margin-bottom:18px;
+    margin:18px 0;
 
     line-height:1.4;
+
+    text-align:center;
 
 }
 
 .score{
 
-    display:inline-block;
+    display:inline-flex;
+
+    justify-content:center;
+
+    align-items:center;
 
     padding:10px 22px;
 
@@ -188,6 +199,8 @@ h3{
 
     font-weight:700;
 
+    margin-top:10px;
+
 }
 
 .description{
@@ -200,6 +213,10 @@ h3{
 
     font-size:.9rem;
 
+    text-align:center;
+
+    max-width:420px;
+
 }
 
 .description strong{
@@ -207,5 +224,4 @@ h3{
     color:white;
 
 }
-
 </style>

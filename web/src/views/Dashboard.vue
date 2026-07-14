@@ -84,9 +84,11 @@ const subjectName = computed(() => {
 
     width:calc(100% - 220px);
 
+    min-height:100vh;
+
     padding:50px;
 
-    min-height:100vh;
+    box-sizing:border-box;
 
     background:#0f172a;
 
@@ -96,7 +98,9 @@ const subjectName = computed(() => {
 
 .hero{
 
-    margin-bottom:40px;
+    max-width:1400px;
+
+    margin:0 auto 40px;
 
 }
 
@@ -120,7 +124,15 @@ const subjectName = computed(() => {
 
     flex-wrap:wrap;
 
+    justify-content:center;
+
+    align-items:flex-start;
+
     gap:25px;
+
+    max-width:1400px;
+
+    margin:0 auto;
 
 }
 
@@ -133,6 +145,24 @@ const subjectName = computed(() => {
         width:100%;
 
         padding:25px;
+
+    }
+
+    .hero{
+
+        margin-bottom:30px;
+
+    }
+
+    .hero h1{
+
+        font-size:2.2rem;
+
+    }
+
+    .dashboard-grid{
+
+        justify-content:center;
 
     }
 

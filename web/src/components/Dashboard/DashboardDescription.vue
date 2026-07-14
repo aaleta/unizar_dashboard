@@ -1,8 +1,8 @@
 <script setup>
 
-import { computed } from "vue";
+import { ref, computed, watch } from "vue";
 
-import descriptions from "../../../../data/json/processed/AsignaturasDescripcion.json";
+import asignaturas from "../../../../data/json/processed/Profesores_GuiasDoc.json";
 
 const props = defineProps({
 
@@ -10,17 +10,92 @@ const props = defineProps({
 
 });
 
-const description = computed(() => {
+// Datos de la asignatura
+const subjectData = computed(() => {
 
-    const subject = descriptions.find(
+    return asignaturas.filter(
 
-        item => item.code === props.subjectCode
+        item => Number(item.id_asignatura) === props.subjectCode
 
     );
 
-    return subject
-        ? subject.description
-        : "No hay descripción disponible para esta asignatura.";
+});
+
+// Años académicos disponibles
+const years = computed(() => {
+
+    return subjectData.value
+
+        .map(item => item.anyo_academico)
+
+        .sort((a, b) => b.localeCompare(a));
+
+});
+
+// Año seleccionado
+const selectedYear = ref("");
+
+watch(
+
+    years,
+
+    (newYears) => {
+
+        if (newYears.length > 0) {
+
+            selectedYear.value = newYears[0];
+
+        }
+
+    },
+
+    { immediate: true }
+
+);
+
+// Datos del año seleccionado
+const currentData = computed(() => {
+
+    return subjectData.value.find(
+
+        item => item.anyo_academico === selectedYear.value
+
+    );
+
+});
+
+// Profesores
+const professors = computed(() => {
+
+    if (!currentData.value) return [];
+
+    return currentData.value.profesores ?? [];
+
+});
+
+// Guía docente web
+const webGuide = computed(() => {
+
+    if (!currentData.value) return null;
+
+    const url = currentData.value.guia_docente_web;
+
+    return url && url !== "No disponible"
+        ? url
+        : null;
+
+});
+
+// Guía docente PDF
+const pdfGuide = computed(() => {
+
+    if (!currentData.value) return null;
+
+    const url = currentData.value.guia_docente_pdf;
+
+    return url && url !== "No disponible"
+        ? url
+        : null;
 
 });
 
@@ -32,15 +107,75 @@ const description = computed(() => {
 
     <div class="panelHeader">
 
-        <h2>Descripción de la asignatura</h2>
+        <h2>Información de la asignatura</h2>
+
+        <select
+            v-model="selectedYear"
+            class="yearSelector"
+        >
+
+            <option
+                v-for="year in years"
+                :key="year"
+                :value="year"
+            >
+                {{ year }}
+            </option>
+
+        </select>
 
     </div>
 
-    <p class="description">
+    <template v-if="currentData">
 
-        {{ description }}
+        <h3>Profesores</h3>
 
-    </p>
+        <ul class="teacherList">
+
+            <li
+                v-for="teacher in professors"
+                :key="teacher"
+            >
+                {{ teacher }}
+            </li>
+
+        </ul>
+
+        <h3>Guía docente</h3>
+
+        <div class="links">
+
+            <a
+                v-if="webGuide"
+                :href="webGuide"
+                target="_blank"
+                rel="noopener"
+            >
+                Ver guía docente
+            </a>
+
+            <a
+                v-if="pdfGuide"
+                :href="pdfGuide"
+                target="_blank"
+                rel="noopener"
+            >
+                Descargar PDF
+            </a>
+
+        </div>
+
+    </template>
+
+    <template v-else>
+
+        <p class="noData">
+
+            No hay información disponible para este curso académico.
+
+        </p>
+
+    </template>
 
 </div>
 
@@ -82,6 +217,12 @@ const description = computed(() => {
 
 .panelHeader{
 
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
     margin-bottom:18px;
 
 }
@@ -98,15 +239,103 @@ const description = computed(() => {
 
 }
 
-.description{
+.yearSelector{
 
-    color:#cbd5e1;
+    background:#273358;
 
-    line-height:1.7;
+    color:white;
+
+    border:1px solid #334155;
+
+    border-radius:10px;
+
+    padding:8px 12px;
+
+    font-size:.9rem;
+
+    cursor:pointer;
+
+}
+
+.yearSelector:focus{
+
+    outline:none;
+
+    border-color:#38bdf8;
+
+}
+
+h3{
+
+    margin:18px 0 10px;
+
+    color:white;
 
     font-size:.95rem;
 
-    text-align:justify;
+    font-weight:600;
+
+}
+
+.teacherList{
+
+    margin:0 0 24px;
+
+    padding-left:20px;
+
+    color:#cbd5e1;
+
+    line-height:1.8;
+
+}
+
+.teacherList li{
+
+    margin-bottom:4px;
+
+}
+
+.links{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:12px;
+
+    margin-top:10px;
+
+}
+
+.links a{
+
+    color:#38bdf8;
+
+    text-decoration:none;
+
+    font-weight:600;
+
+    transition:.2s;
+
+}
+
+.links a:hover{
+
+    color:#7dd3fc;
+
+    transform:translateX(4px);
+
+}
+
+.noData{
+
+    margin-top:30px;
+
+    color:#94a3b8;
+
+    font-style:italic;
+
+    text-align:center;
 
 }
 

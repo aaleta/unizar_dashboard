@@ -5,4 +5,6 @@ Structure:
 Class: 0 -> Optional subject of 1, 2, 3, 4
        1 etc -> Core subject of 1, 2, 3, 4
        0, 1 etc -> Optional subject of 1 etc
+
+Scraper: Before execution, select the years that you want to append to the json
        
