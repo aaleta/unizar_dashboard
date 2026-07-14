@@ -182,7 +182,7 @@ def obtener_datos_asignaturas():
     resultados = []
     
     # Select the years that you want to search into
-    anhos = ["2026"] 
+    anhos = ["2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025", "2026"] 
     
     id_inicio = 26900
     id_fin = 26953
@@ -203,7 +203,7 @@ def obtener_datos_asignaturas():
                 'asignatura_id': asig_id,
                 'estudio_id': estudio_id,
                 'centro_id': '100',
-                'plan_id_nk': '447'
+                'plan_id_nk': '447' #Plan selected (447 (extinted) or 719 (new plan))
             }
             
             try:
