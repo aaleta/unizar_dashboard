@@ -95,7 +95,7 @@ const bottomSubjects = computed(() =>
 
 <div class="panel">
 
-    <h2>Ranking de matriculación</h2>
+    <h2>Ranking de matriculación de optativas</h2>
 
     <h3 class="sectionTitle">
 
@@ -175,7 +175,8 @@ const bottomSubjects = computed(() =>
 
 .panel{
 
-    width:420px;
+    width:100%;
+    max-width:520px;
 
     padding:22px;
 
@@ -189,9 +190,9 @@ const bottomSubjects = computed(() =>
 
     transition:.25s;
 
-    margin-top: 20px;
+    box-sizing:border-box;
 
-    margin-left: 25%;
+    margin:0;
 
 }
 

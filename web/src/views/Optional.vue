@@ -1,7 +1,6 @@
 <script setup>
 import { ref, computed } from 'vue'
 import subjects from '../../../data/json/processed/AsignaturasClasificadasOptTronc.json'
-import OptEnrolled from '@/components/Dashboard/OptEnrolled.vue'
 
 //Merge the subjects from 3 and 4 and eliminates the duplicated subjects
 const optionalSubjects = [
@@ -100,10 +99,13 @@ const getDashboardLink = (code) => {
 <style scoped>
 
 .search-container{
+
     margin-bottom:30px;
+
 }
 
 .search-input{
+
     width:100%;
     max-width:500px;
 
@@ -117,129 +119,184 @@ const getDashboardLink = (code) => {
     font-size:1rem;
 
     background:#1e293b;
+
     color:white;
 
     transition:.2s;
+
+    box-sizing:border-box;
+
 }
 
 .search-input::placeholder{
+
     color:#94a3b8;
+
 }
 
 .search-input:focus{
+
     box-shadow:0 0 0 3px rgba(192,132,252,.35);
+
 }
 
 .no-results{
+
     margin-top:20px;
+
     color:#94a3b8;
+
     font-style:italic;
+
 }
 
 .page{
+
     margin-left:220px;
 
-    width:calc(100% - 220px);
-    padding:50px;
     min-height:100vh;
 
+    padding:50px;
+
+    box-sizing:border-box;
+
+    overflow-x:hidden;
+
     background:#0f172a;
+
     color:white;
+
 }
 
 .hero{
+
     margin-bottom:60px;
+
 }
 
 .hero h1{
+
     font-size:3rem;
+
     font-weight:700;
+
     margin-bottom:12px;
+
 }
 
 .hero p{
+
     color:#94a3b8;
+
     font-size:1.1rem;
+
 }
 
 .section{
+
     margin-bottom:60px;
+
 }
 
 .section-title{
+
     margin-bottom:25px;
+
     font-size:1.8rem;
+
     font-weight:600;
+
 }
 
 .optional-title{
+
     color:#c084fc;
+
 }
 
 .subjects-grid{
+
     display:grid;
-    grid-template-columns:
-        repeat(auto-fill,minmax(320px,1fr));
+
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+
     gap:25px;
+
+    width:100%;
+
 }
 
 .subject-card{
+
+    min-width:0;
+
     padding:25px;
+
     border-radius:18px;
+
     transition:.25s;
+
     backdrop-filter:blur(10px);
+
 }
 
 .subject-card:hover{
+
     transform:translateY(-6px);
-    box-shadow:
-        0 12px 30px rgba(0,0,0,.25);
+
+    box-shadow:0 12px 30px rgba(0,0,0,.25);
+
 }
 
 .optional{
+
     background:linear-gradient(
         135deg,
         #6d28d9,
         #9333ea
     );
+
 }
 
 .subject-card h3{
+
     font-size:1.15rem;
+
     margin-bottom:14px;
+
 }
 
 .code{
+
     opacity:.8;
+
     margin-bottom:25px;
+
 }
 
 .dashboard-button{
+
     display:inline-block;
+
     padding:10px 18px;
+
     border-radius:10px;
+
     background:white;
+
     color:#111827;
+
     font-weight:600;
+
     text-decoration:none;
+
     transition:.2s;
+
 }
 
 .dashboard-button:hover{
+
     transform:scale(1.05);
-}
-
-@media(max-width:768px){
-
-    .page{
-        margin-left:70px;
-
-      width:calc(100% - 70px);
-    }
-
-    .hero h1{
-        font-size:2.2rem;
-    }
 
 }
 
@@ -276,6 +333,30 @@ const getDashboardLink = (code) => {
     transform:translateY(-2px);
 
     box-shadow:0 8px 20px rgba(192,132,252,.35);
+
+}
+
+@media (max-width:768px){
+
+    .page{
+
+        margin-left:220px;
+
+        padding:25px;
+
+    }
+
+    .hero h1{
+
+        font-size:2.2rem;
+
+    }
+
+    .subjects-grid{
+
+        grid-template-columns:1fr;
+
+    }
 
 }
 

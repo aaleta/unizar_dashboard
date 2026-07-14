@@ -50,64 +50,85 @@ const getDashboardLink = (code) => {
 </template>
 
 <style scoped>
-
 .page{
+
     margin-left:220px;
 
-    width:calc(100% - 220px);
     padding:50px;
+
     min-height:100vh;
 
+    box-sizing:border-box;
+
+    overflow-x:hidden;
+
     background:#0f172a;
+
     color:white;
+
 }
 
 .hero{
+
     margin-bottom:60px;
+
 }
 
 .hero h1{
 
     font-size:3rem;
+
     font-weight:700;
 
     margin-bottom:12px;
+
 }
 
 .hero p{
 
     color:#94a3b8;
+
     font-size:1.1rem;
+
 }
 
 .section{
 
     margin-bottom:60px;
+
 }
 
 .section-title{
 
     margin-bottom:25px;
+
     font-size:1.8rem;
+
     font-weight:600;
+
 }
 
 .core-title{
 
     color:#38bdf8;
+
 }
 
 .subjects-grid{
 
     display:grid;
 
-    grid-template-columns:
-        repeat(auto-fill,minmax(320px,1fr));
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
 
     gap:25px;
+
+    width:100%;
+
 }
 
 .subject-card{
+
+    min-width:0;
 
     padding:25px;
 
@@ -116,14 +137,15 @@ const getDashboardLink = (code) => {
     transition:.25s;
 
     backdrop-filter:blur(10px);
+
 }
 
 .subject-card:hover{
 
     transform:translateY(-6px);
 
-    box-shadow:
-        0 12px 30px rgba(0,0,0,.25);
+    box-shadow:0 12px 30px rgba(0,0,0,.25);
+
 }
 
 .core{
@@ -133,6 +155,7 @@ const getDashboardLink = (code) => {
         #0f4c81,
         #2563eb
     );
+
 }
 
 .subject-card h3{
@@ -140,6 +163,7 @@ const getDashboardLink = (code) => {
     font-size:1.15rem;
 
     margin-bottom:14px;
+
 }
 
 .code{
@@ -147,6 +171,7 @@ const getDashboardLink = (code) => {
     opacity:.8;
 
     margin-bottom:25px;
+
 }
 
 .dashboard-button{
@@ -166,27 +191,36 @@ const getDashboardLink = (code) => {
     text-decoration:none;
 
     transition:.2s;
+
 }
 
 .dashboard-button:hover{
 
     transform:scale(1.05);
+
 }
 
 @media(max-width:768px){
 
     .page{
 
-        margin-left:70px;
+        margin-left:220px;
 
-        width:calc(100% - 70px);
+        padding:25px;
+
     }
 
     .hero h1{
 
         font-size:2.2rem;
+
+    }
+
+    .subjects-grid{
+
+        grid-template-columns:1fr;
+
     }
 
 }
-
 </style>
