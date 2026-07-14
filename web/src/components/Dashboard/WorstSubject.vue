@@ -5,7 +5,7 @@ import { computed } from "vue";
 import notas from "../../../../data/json/NotasRaw.json";
 import subjects from "../../../../data/json/processed/AsignaturasClasificadasOptTronc.json";
 
-// Todas las asignaturas troncales sin duplicados
+
 const allSubjects = [
     ...new Map(
         [
@@ -45,19 +45,59 @@ const mostFeared = computed(() => {
             lastThreeYears.includes(row["Curso Académico"])
         );
 
-        const fear = recentRows.reduce(
+        const totalEnrolled = recentRows.reduce(
 
-            (sum, row) =>
+    (sum, row) =>
 
-                sum +
+        sum +
 
-                Number(row["Sus %"]) +
+        Number(row["No pre"]) +
 
-                Number(row["No pre %"]),
+        Number(row["Sus"]) +
 
-            0
+        Number(row["Apr"]) +
 
-        ) / recentRows.length;
+        Number(row["Not"]) +
+
+        Number(row["Sob"]) +
+
+        Number(row["MH"]),
+
+    0
+
+);
+
+const fear = totalEnrolled === 0
+
+    ? 0
+
+    : recentRows.reduce(
+
+        (sum, row) => {
+
+            const enrolled =
+
+                Number(row["No pre"]) +
+
+                Number(row["Sus"]) +
+
+                Number(row["Apr"]) +
+
+                Number(row["Not"]) +
+
+                Number(row["Sob"]) +
+
+                Number(row["MH"]);
+
+            return sum +
+
+                (Number(row["Sus %"]) + Number(row["No pre %"])) * enrolled;
+
+        },
+
+        0
+
+    ) / totalEnrolled;
 
         return {
 
@@ -100,7 +140,7 @@ const mostFeared = computed(() => {
 
     <p class="description">
 
-        Media de <strong>Suspensos + No Presentados</strong>
+        Media ponderada de <strong>Suspensos + No Presentados</strong>
         durante los tres cursos académicos más recientes.
 
     </p>

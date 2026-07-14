@@ -52,19 +52,59 @@ const courseAverage = (course) => {
 
         if (recentRows.length === 0) return 0;
 
-        return recentRows.reduce(
+        const totalEnrolled = recentRows.reduce(
 
-            (sum, row) =>
+    (sum, row) =>
 
-                sum +
+        sum +
 
-                Number(row["Sus %"]) +
+        Number(row["No pre"]) +
 
-                Number(row["No pre %"]),
+        Number(row["Sus"]) +
 
-            0
+        Number(row["Apr"]) +
 
-        ) / recentRows.length;
+        Number(row["Not"]) +
+
+        Number(row["Sob"]) +
+
+        Number(row["MH"]),
+
+    0
+
+);
+
+if (totalEnrolled === 0) return 0;
+
+const weightedAverage = recentRows.reduce(
+
+    (sum, row) => {
+
+        const enrolled =
+
+            Number(row["No pre"]) +
+
+            Number(row["Sus"]) +
+
+            Number(row["Apr"]) +
+
+            Number(row["Not"]) +
+
+            Number(row["Sob"]) +
+
+            Number(row["MH"]);
+
+        return sum +
+
+            (Number(row["Sus %"]) + Number(row["No pre %"])) * enrolled;
+
+    },
+
+    0
+
+);
+
+return weightedAverage / totalEnrolled;
 
     });
 
@@ -225,7 +265,7 @@ const chartOptions = {
 
     <div class="footer">
 
-        *Media del porcentaje de suspensos y no presentados de las asignaturas troncales durante los tres cursos académicos más recientes.
+        *Media ponderada del porcentaje de suspensos y no presentados de las asignaturas troncales durante los tres cursos académicos más recientes.
 
     </div>
 
