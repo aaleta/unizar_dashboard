@@ -41,6 +41,13 @@ const getDashboardLink = (code) => {
       <p>
         Busca o selecciona una asignatura para acceder a su dashboard, en la parte inferior de la página encontrarás el ranking.
       </p>
+
+      <RouterLink
+            to="/dashboardGeneralOpts"
+            class="year-dashboard-button"
+        >
+            Accede al dashboard de optativas →
+        </RouterLink>
     </header>
 
     <section class="section">
@@ -252,7 +259,7 @@ const getDashboardLink = (code) => {
 
     background:linear-gradient(
         135deg,
-        #6d28d9,
+        #cb2ff6,
         #9333ea
     );
 
@@ -357,6 +364,40 @@ const getDashboardLink = (code) => {
         grid-template-columns:1fr;
 
     }
+
+}
+
+.year-dashboard-button{
+
+    display:inline-block;
+
+    margin-top:22px;
+
+    padding:14px 24px;
+
+    border-radius:14px;
+
+    background:#e62bf7;
+
+    color:white;
+
+    text-decoration:none;
+
+    font-weight:700;
+
+    transition:.25s;
+
+    box-shadow:0 8px 20px rgba(173, 49, 255, 0.25);
+
+}
+
+.year-dashboard-button:hover{
+
+    background:#a743dc;
+
+    transform:translateY(-2px);
+
+    box-shadow:0 12px 28px rgba(245, 56, 248, 0.35);
 
 }
 

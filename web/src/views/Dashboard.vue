@@ -7,6 +7,7 @@ import DashboardPassRate from "@/components/Dashboard/DashboardBar.vue";
 import DashBoardSusp from "@/components/Dashboard/DashBoardSusp.vue";
 import DashboardNoPreGraph from "@/components/Dashboard/DashboardNoPreGraph.vue";
 import DashboardHistDesc from "@/components/Dashboard/DashboardHistDesc.vue";
+import AreasGraph from "@/components/Dashboard/AreasGraph.vue";
 
 import notas from "../../../data/json/NotasRaw.json";
 
@@ -62,6 +63,10 @@ const subjectName = computed(() => {
         />
 
         <DashboardNoPreGraph
+            :subjectCode="subjectCode"
+        />
+
+        <AreasGraph
             :subjectCode="subjectCode"
         />
 

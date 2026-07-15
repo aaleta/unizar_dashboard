@@ -51,8 +51,14 @@ const router = createRouter({
       name: 'dashboardYear',
       component: () => import('@/views/DashboardYear.vue')
 
-    }
+    },
 
+    {
+      path: '/dashboardGeneralOpts',
+      name: 'dashboardGeneralOpts',
+      component: () => import('@/views/DashboardGeneralOpts.vue')
+
+    }
   ],
 })
 

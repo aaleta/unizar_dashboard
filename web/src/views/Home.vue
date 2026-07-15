@@ -1,8 +1,10 @@
 <script setup>
-import OptEnrolled from '@/components/Dashboard/OptEnrolled.vue';
-import YearsTroncComparation from '@/components/Dashboard/YearsTroncComparation.vue';
-import WorstSubject from '@/components/Dashboard/WorstSubject.vue';
-import AdmisionGrades from '@/components/Dashboard/AdmisionGrades.vue';
+
+import OptEnrolled from "@/components/Dashboard/OptEnrolled.vue";
+import YearsTroncComparation from "@/components/Dashboard/YearsTroncComparation.vue";
+import WorstSubject from "@/components/Dashboard/WorstSubject.vue";
+import AdmisionGrades from "@/components/Dashboard/AdmisionGrades.vue";
+
 </script>
 
 <template>
@@ -12,10 +14,15 @@ import AdmisionGrades from '@/components/Dashboard/AdmisionGrades.vue';
     <section class="hero">
 
         <h1>
-
             Dashboard Física Unizar
-
         </h1>
+
+        <p class="subtitle">
+            Datos actualizados al curso académico
+            <strong>2024-2025</strong>.
+            Todos los indicadores se han calculado a partir de la
+            información oficial publicada por la Universidad de Zaragoza.
+        </p>
 
         <div class="dashboardGrid">
 
@@ -67,11 +74,35 @@ import AdmisionGrades from '@/components/Dashboard/AdmisionGrades.vue';
 
     color:white;
 
-    margin-bottom:40px;
+    margin-bottom:18px;
 
     font-weight:700;
 
     letter-spacing:2px;
+
+}
+
+.subtitle{
+
+    max-width:900px;
+
+    margin:0 auto 45px;
+
+    text-align:center;
+
+    color:#94a3b8;
+
+    font-size:1.05rem;
+
+    line-height:1.7;
+
+}
+
+.subtitle strong{
+
+    color:white;
+
+    font-weight:600;
 
 }
 
@@ -99,7 +130,7 @@ import AdmisionGrades from '@/components/Dashboard/AdmisionGrades.vue';
 
     .home{
 
-        margin-left:70px;   
+        margin-left:70px;
 
         padding:20px;
 
@@ -115,7 +146,17 @@ import AdmisionGrades from '@/components/Dashboard/AdmisionGrades.vue';
 
         font-size:2rem;
 
+        margin-bottom:15px;
+
+    }
+
+    .subtitle{
+
+        font-size:.95rem;
+
         margin-bottom:30px;
+
+        padding:0 10px;
 
     }
 
