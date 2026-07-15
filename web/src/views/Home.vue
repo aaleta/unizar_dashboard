@@ -2,6 +2,7 @@
 import OptEnrolled from '@/components/Dashboard/OptEnrolled.vue';
 import YearsTroncComparation from '@/components/Dashboard/YearsTroncComparation.vue';
 import WorstSubject from '@/components/Dashboard/WorstSubject.vue';
+import AdmisionGrades from '@/components/Dashboard/AdmisionGrades.vue';
 </script>
 
 <template>
@@ -23,6 +24,8 @@ import WorstSubject from '@/components/Dashboard/WorstSubject.vue';
             <YearsTroncComparation />
 
             <WorstSubject />
+
+            <AdmisionGrades />
 
         </div>
 

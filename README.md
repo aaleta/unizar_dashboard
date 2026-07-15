@@ -14,3 +14,4 @@ Para actualizar la web: uv run ./Scripts/Updater.py
 Ultima actualizacion:
 Profesores (2026)
 Estadisticas asignaturas (2024)
+Notas de corte (2025)

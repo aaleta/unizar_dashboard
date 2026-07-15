@@ -21,6 +21,15 @@ df.to_json(
     indent=4
 )
 
+df = pd.read_excel("../data/xlsx_csv/Notas_de_corte.xlsx")
+
+df.to_json(
+    "../data/json/NotasDeCorteRaw.json",
+    orient="records",
+    force_ascii=False,
+    indent=4
+)
+
 # Treatment of data (this makes the files AsigPorCurs.json and AsigClasTroncOpt with the information of notasraw.json,
 # it overwrites the information of this files when executed)#########################################################
 
