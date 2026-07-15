@@ -182,10 +182,10 @@ def obtener_datos_asignaturas():
     resultados = []
     
     # Select the years that you want to search into
-    anhos = ["2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025", "2026"] 
+    anhos = [] 
     
     id_inicio = 26900
-    id_fin = 26953
+    id_fin = 26958
     
     headers = {
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36'
@@ -319,4 +319,4 @@ if __name__ == "__main__":
     if datos_completos:
         guardar_json(datos_completos, ruta_salida)
     else:
-        print("\nNo se extrajeron datos nuevos para guardar.")
+        print("\nNo se extrajeron datos nuevos para guardar en cuanto a profesores o guias docentes.")

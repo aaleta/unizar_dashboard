@@ -2852,9 +2852,9 @@
             "Sebastián Jarabo Lallana",
             "Fernando Luis Vitalla",
             "Jesús Ignacio Martínez Martínez",
+            "Maria Jose Martinez Perez",
             "Antonio Dionisio Martínez Pérez",
             "María Lucía Martínez Pérez",
-            "Maria Jose Martinez Perez",
             "Alodia Orera Utrilla",
             "Diego Fabián Paredes Páliz",
             "Siannah Peñaranda Rivas",
@@ -4309,8 +4309,8 @@
             "Sofía Teresa Blanco Ariño",
             "Pierpaolo Bruscolini",
             "Belén Teresa Calvo López",
-            "Enrique Carretero Chamarro",
             "Claudio Carretero Chamarro",
+            "Enrique Carretero Chamarro",
             "Susana Cebrian Guajardo",
             "Santiago Celma Pueyo",
             "Jesús Jerónimo Clemente Gallardo",
@@ -5688,8 +5688,8 @@
             "Belén Teresa Calvo López",
             "José Manuel Carmona Martínez",
             "Jesús Carrete Montaña",
-            "Claudio Carretero Chamarro",
             "Enrique Carretero Chamarro",
+            "Claudio Carretero Chamarro",
             "Inés Cavero Peláez",
             "Jesús Jerónimo Clemente Gallardo",
             "Iván Coarasa Casas",
@@ -5718,8 +5718,8 @@
             "Juan Carlos Martín Alonso",
             "Luis Martín Moreno",
             "Sergio Martínez Aranda",
-            "Maria Jose Martinez Perez",
             "María Lucía Martínez Pérez",
+            "Maria Jose Martinez Perez",
             "Nicolás Jesús Medrano Marqués",
             "Manuel Clemente Membrado Ibáñez",
             "Ángel Millán Escolano",
@@ -6662,5 +6662,206 @@
         ],
         "guia_docente_web": "https://sia.unizar.es/doa/consultaPublica/look[conpub]MostrarPubGuiaDocAs?entradaPublica=true&idiomaPais=es.ES&_anoAcademico=2025&_codAsignatura=26953",
         "guia_docente_pdf": "https://sia.unizar.es/documentos/doa/guiadocente/2025/26953_es.pdf"
+    },
+    {
+        "anyo_academico": "2017-2018",
+        "id_asignatura": 26957,
+        "asignatura": "Sistemas digitales",
+        "profesores": [
+            "JOSÉ MARTÍN BARQUILLAS PUEYO"
+        ],
+        "guia_docente_web": "https://sia.unizar.es/doa/consultaPublica/look[conpub]MostrarPubGuiaDocAs?entradaPublica=true&idiomaPais=es.ES&_anoAcademico=2017&_codAsignatura=26957",
+        "guia_docente_pdf": "https://sia.unizar.es/documentos/doa/guiadocente/2017/26957_es.pdf"
+    },
+    {
+        "anyo_academico": "2018-2019",
+        "id_asignatura": 26956,
+        "asignatura": "Sistemas de detección de radiación",
+        "profesores": [
+            "No asignados / No encontrados"
+        ],
+        "guia_docente_web": "https://sia.unizar.es/doa/consultaPublica/look[conpub]MostrarPubGuiaDocAs?entradaPublica=true&idiomaPais=es.ES&_anoAcademico=2018&_codAsignatura=26956",
+        "guia_docente_pdf": "https://sia.unizar.es/documentos/doa/guiadocente/2018/26956_es.pdf"
+    },
+    {
+        "anyo_academico": "2018-2019",
+        "id_asignatura": 26957,
+        "asignatura": "Sistemas digitales",
+        "profesores": [
+            "No asignados / No encontrados"
+        ],
+        "guia_docente_web": "https://sia.unizar.es/doa/consultaPublica/look[conpub]MostrarPubGuiaDocAs?entradaPublica=true&idiomaPais=es.ES&_anoAcademico=2018&_codAsignatura=26957",
+        "guia_docente_pdf": "https://sia.unizar.es/documentos/doa/guiadocente/2018/26957_es.pdf"
+    },
+    {
+        "anyo_academico": "2019-2020",
+        "id_asignatura": 26957,
+        "asignatura": "Sistemas digitales",
+        "profesores": [
+            "NICOLÁS JESÚS MEDRANO MARQUÉS"
+        ],
+        "guia_docente_web": "https://sia.unizar.es/doa/consultaPublica/look[conpub]MostrarPubGuiaDocAs?entradaPublica=true&idiomaPais=es.ES&_anoAcademico=2019&_codAsignatura=26957",
+        "guia_docente_pdf": "https://sia.unizar.es/documentos/doa/guiadocente/2019/26957_es.pdf"
+    },
+    {
+        "anyo_academico": "2019-2020",
+        "id_asignatura": 26958,
+        "asignatura": "Grafos y combinatoria",
+        "profesores": [
+            "ALFREDO MARTÍN GARCÍA OLAVERRI",
+            "FRANCISCO JAVIER TEJEL ALTARRIBA"
+        ],
+        "guia_docente_web": "https://sia.unizar.es/doa/consultaPublica/look[conpub]MostrarPubGuiaDocAs?entradaPublica=true&idiomaPais=es.ES&_anoAcademico=2019&_codAsignatura=26958",
+        "guia_docente_pdf": "https://sia.unizar.es/documentos/doa/guiadocente/2019/26958_es.pdf"
+    },
+    {
+        "anyo_academico": "2020-2021",
+        "id_asignatura": 26957,
+        "asignatura": "Sistemas digitales",
+        "profesores": [
+            "Nicolás Jesús Medrano Marqués"
+        ],
+        "guia_docente_web": "https://sia.unizar.es/doa/consultaPublica/look[conpub]MostrarPubGuiaDocAs?entradaPublica=true&idiomaPais=es.ES&_anoAcademico=2020&_codAsignatura=26957",
+        "guia_docente_pdf": "https://sia.unizar.es/documentos/doa/guiadocente/2020/26957_es.pdf"
+    },
+    {
+        "anyo_academico": "2020-2021",
+        "id_asignatura": 26958,
+        "asignatura": "Grafos y combinatoria",
+        "profesores": [
+            "Alfredo Martín García Olaverri",
+            "Francisco Javier Tejel Altarriba"
+        ],
+        "guia_docente_web": "https://sia.unizar.es/doa/consultaPublica/look[conpub]MostrarPubGuiaDocAs?entradaPublica=true&idiomaPais=es.ES&_anoAcademico=2020&_codAsignatura=26958",
+        "guia_docente_pdf": "https://sia.unizar.es/documentos/doa/guiadocente/2020/26958_es.pdf"
+    },
+    {
+        "anyo_academico": "2021-2022",
+        "id_asignatura": 26957,
+        "asignatura": "Sistemas digitales",
+        "profesores": [
+            "Daniel Enériz Orta",
+            "Nicolás Jesús Medrano Marqués"
+        ],
+        "guia_docente_web": "https://sia.unizar.es/doa/consultaPublica/look[conpub]MostrarPubGuiaDocAs?entradaPublica=true&idiomaPais=es.ES&_anoAcademico=2021&_codAsignatura=26957",
+        "guia_docente_pdf": "https://sia.unizar.es/documentos/doa/guiadocente/2021/26957_es.pdf"
+    },
+    {
+        "anyo_academico": "2021-2022",
+        "id_asignatura": 26958,
+        "asignatura": "Grafos y combinatoria",
+        "profesores": [
+            "Alfredo Martín García Olaverri",
+            "Francisco Javier Tejel Altarriba"
+        ],
+        "guia_docente_web": "https://sia.unizar.es/doa/consultaPublica/look[conpub]MostrarPubGuiaDocAs?entradaPublica=true&idiomaPais=es.ES&_anoAcademico=2021&_codAsignatura=26958",
+        "guia_docente_pdf": "https://sia.unizar.es/documentos/doa/guiadocente/2021/26958_es.pdf"
+    },
+    {
+        "anyo_academico": "2022-2023",
+        "id_asignatura": 26957,
+        "asignatura": "Sistemas digitales",
+        "profesores": [
+            "Daniel Enériz Orta",
+            "Nicolás Jesús Medrano Marqués"
+        ],
+        "guia_docente_web": "https://sia.unizar.es/doa/consultaPublica/look[conpub]MostrarPubGuiaDocAs?entradaPublica=true&idiomaPais=es.ES&_anoAcademico=2022&_codAsignatura=26957",
+        "guia_docente_pdf": "https://sia.unizar.es/documentos/doa/guiadocente/2022/26957_es.pdf"
+    },
+    {
+        "anyo_academico": "2022-2023",
+        "id_asignatura": 26958,
+        "asignatura": "Grafos y combinatoria",
+        "profesores": [
+            "Alfredo Martín García Olaverri",
+            "Francisco Javier Tejel Altarriba"
+        ],
+        "guia_docente_web": "https://sia.unizar.es/doa/consultaPublica/look[conpub]MostrarPubGuiaDocAs?entradaPublica=true&idiomaPais=es.ES&_anoAcademico=2022&_codAsignatura=26958",
+        "guia_docente_pdf": "https://sia.unizar.es/documentos/doa/guiadocente/2022/26958_es.pdf"
+    },
+    {
+        "anyo_academico": "2023-2024",
+        "id_asignatura": 26957,
+        "asignatura": "Sistemas digitales",
+        "profesores": [
+            "Daniel Enériz Orta",
+            "Nicolás Jesús Medrano Marqués"
+        ],
+        "guia_docente_web": "https://sia.unizar.es/doa/consultaPublica/look[conpub]MostrarPubGuiaDocAs?entradaPublica=true&idiomaPais=es.ES&_anoAcademico=2023&_codAsignatura=26957",
+        "guia_docente_pdf": "https://sia.unizar.es/documentos/doa/guiadocente/2023/26957_es.pdf"
+    },
+    {
+        "anyo_academico": "2023-2024",
+        "id_asignatura": 26958,
+        "asignatura": "Grafos y combinatoria",
+        "profesores": [
+            "Francisco Javier Tejel Altarriba"
+        ],
+        "guia_docente_web": "https://sia.unizar.es/doa/consultaPublica/look[conpub]MostrarPubGuiaDocAs?entradaPublica=true&idiomaPais=es.ES&_anoAcademico=2023&_codAsignatura=26958",
+        "guia_docente_pdf": "https://sia.unizar.es/documentos/doa/guiadocente/2023/26958_es.pdf"
+    },
+    {
+        "anyo_academico": "2024-2025",
+        "id_asignatura": 26957,
+        "asignatura": "Sistemas digitales",
+        "profesores": [
+            "Nicolás Jesús Medrano Marqués"
+        ],
+        "guia_docente_web": "https://sia.unizar.es/doa/consultaPublica/look[conpub]MostrarPubGuiaDocAs?entradaPublica=true&idiomaPais=es.ES&_anoAcademico=2024&_codAsignatura=26957",
+        "guia_docente_pdf": "https://sia.unizar.es/documentos/doa/guiadocente/2024/26957_es.pdf"
+    },
+    {
+        "anyo_academico": "2024-2025",
+        "id_asignatura": 26958,
+        "asignatura": "Grafos y combinatoria",
+        "profesores": [
+            "Pedro Mariano Mateo Collazos",
+            "Carmen Josefa Sangüesa Lafuente",
+            "Francisco Javier Tejel Altarriba"
+        ],
+        "guia_docente_web": "https://sia.unizar.es/doa/consultaPublica/look[conpub]MostrarPubGuiaDocAs?entradaPublica=true&idiomaPais=es.ES&_anoAcademico=2024&_codAsignatura=26958",
+        "guia_docente_pdf": "https://sia.unizar.es/documentos/doa/guiadocente/2024/26958_es.pdf"
+    },
+    {
+        "anyo_academico": "2025-2026",
+        "id_asignatura": 26957,
+        "asignatura": "Sistemas digitales",
+        "profesores": [
+            "Nicolás Jesús Medrano Marqués"
+        ],
+        "guia_docente_web": "https://sia.unizar.es/doa/consultaPublica/look[conpub]MostrarPubGuiaDocAs?entradaPublica=true&idiomaPais=es.ES&_anoAcademico=2025&_codAsignatura=26957",
+        "guia_docente_pdf": "https://sia.unizar.es/documentos/doa/guiadocente/2025/26957_es.pdf"
+    },
+    {
+        "anyo_academico": "2025-2026",
+        "id_asignatura": 26958,
+        "asignatura": "Grafos y combinatoria",
+        "profesores": [
+            "Silvia Álvarez Tena",
+            "Pedro Mariano Mateo Collazos",
+            "Francisco Javier Tejel Altarriba"
+        ],
+        "guia_docente_web": "https://sia.unizar.es/doa/consultaPublica/look[conpub]MostrarPubGuiaDocAs?entradaPublica=true&idiomaPais=es.ES&_anoAcademico=2025&_codAsignatura=26958",
+        "guia_docente_pdf": "https://sia.unizar.es/documentos/doa/guiadocente/2025/26958_es.pdf"
+    },
+    {
+        "anyo_academico": "2026-2027",
+        "id_asignatura": 26957,
+        "asignatura": "Sistemas digitales",
+        "profesores": [
+            "Nicolás Jesús Medrano Marqués"
+        ],
+        "guia_docente_web": "https://sia.unizar.es/doa/consultaPublica/look[conpub]MostrarPubGuiaDocAs?entradaPublica=true&idiomaPais=es.ES&_anoAcademico=2026&_codAsignatura=26957",
+        "guia_docente_pdf": "https://sia.unizar.es/documentos/doa/guiadocente/2026/26957_es.pdf"
+    },
+    {
+        "anyo_academico": "2026-2027",
+        "id_asignatura": 26958,
+        "asignatura": "Grafos y combinatoria",
+        "profesores": [
+            "No asignados / No encontrados"
+        ],
+        "guia_docente_web": "https://sia.unizar.es/doa/consultaPublica/look[conpub]MostrarPubGuiaDocAs?entradaPublica=true&idiomaPais=es.ES&_anoAcademico=2026&_codAsignatura=26958",
+        "guia_docente_pdf": "https://sia.unizar.es/documentos/doa/guiadocente/2026/26958_es.pdf"
     }
 ]

@@ -7,6 +7,10 @@ const coreSubjects = subjects.troncales["2"]
 const getDashboardLink = (code) => {
   return `/dashboard/${code}`
 }
+
+const getYearDashboardLink = (course) => {
+  return `/dashboardYear/${course}`
+}
 </script>
 
 <template>
@@ -17,6 +21,13 @@ const getDashboardLink = (code) => {
       <p>
         Elige una asignatura para acceder al dashboard particular.
       </p>
+
+      <RouterLink
+            :to="getYearDashboardLink(2)"
+            class="year-dashboard-button"
+        >
+            Accede al dashboard del curso →
+        </RouterLink>
     </header>
 
     <section class="section">
@@ -221,6 +232,40 @@ const getDashboardLink = (code) => {
         grid-template-columns:1fr;
 
     }
+
+}
+
+.year-dashboard-button{
+
+    display:inline-block;
+
+    margin-top:22px;
+
+    padding:14px 24px;
+
+    border-radius:14px;
+
+    background:#38bdf8;
+
+    color:white;
+
+    text-decoration:none;
+
+    font-weight:700;
+
+    transition:.25s;
+
+    box-shadow:0 8px 20px rgba(56,189,248,.25);
+
+}
+
+.year-dashboard-button:hover{
+
+    background:#0ea5e9;
+
+    transform:translateY(-2px);
+
+    box-shadow:0 12px 28px rgba(56,189,248,.35);
 
 }
 </style>

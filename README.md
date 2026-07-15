@@ -9,3 +9,8 @@ Los datos de la web se extraen todos de notas.xlsx menos los de informacion de l
 
 Para actualizar la web: uv run ./Scripts/Updater.py 
 --> ./web: npm run build, npm run deploy
+
+
+Ultima actualizacion:
+Profesores (2026)
+Estadisticas asignaturas (2024)

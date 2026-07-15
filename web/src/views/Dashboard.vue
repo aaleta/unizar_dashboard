@@ -3,11 +3,10 @@
 import { computed } from "vue";
 import { useRoute } from "vue-router";
 
-import DashboardHist from "@/components/Dashboard/DashboardHistogram.vue";
 import DashboardPassRate from "@/components/Dashboard/DashboardBar.vue";
 import DashBoardSusp from "@/components/Dashboard/DashBoardSusp.vue";
-import DashboardDescription from "@/components/Dashboard/DashboardDescription.vue";
 import DashboardNoPreGraph from "@/components/Dashboard/DashboardNoPreGraph.vue";
+import DashboardHistDesc from "@/components/Dashboard/DashboardHistDesc.vue";
 
 import notas from "../../../data/json/NotasRaw.json";
 
@@ -50,7 +49,7 @@ const subjectName = computed(() => {
 
     <section class="dashboard-grid">
 
-        <DashboardHist
+        <DashboardHistDesc
             :subjectCode="subjectCode"
         />
 
@@ -59,10 +58,6 @@ const subjectName = computed(() => {
         />
 
         <DashBoardSusp
-            :subjectCode="subjectCode"
-        />
-
-        <DashboardDescription
             :subjectCode="subjectCode"
         />
 
