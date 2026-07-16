@@ -111,7 +111,7 @@ nav a{
 
     color:#d1d5db;
 
-    transition:background .2s,color .2s;
+    transition:.2s;
 
 }
 
@@ -143,39 +143,82 @@ nav a:hover{
 
 }
 
-@media(max-width:768px){
+/* ========================= */
+/*          MÓVIL            */
+/* ========================= */
+
+@media (max-width:768px){
 
     .sidebar{
 
-        width:70px;
+        top:auto;
+        bottom:0;
+        left:0;
+
+        width:100%;
+        height:70px;
+
+        flex-direction:row;
+
+        border-right:none;
+        border-top:1px solid rgba(255,255,255,.08);
+
+        box-shadow:0 -8px 20px rgba(0,0,0,.35);
 
     }
 
     .logo{
 
-        font-size:1rem;
-
-        letter-spacing:0;
+        display:none;
 
     }
 
     nav{
 
-        padding:15px 8px;
+        width:100%;
+
+        padding:0;
+
+        flex-direction:row;
+
+        justify-content:space-around;
+
+        align-items:center;
+
+        gap:0;
 
     }
 
     nav a{
 
-        justify-content:center;
+        flex:1;
 
-        padding:14px 8px;
+        height:70px;
+
+        justify-content:center;
+        align-items:center;
+
+        padding:0;
+
+        border-radius:0;
 
     }
 
     nav a p{
 
-        font-size:.9rem;
+        font-size:.85rem;
+
+        text-align:center;
+
+    }
+
+    .router-link-active{
+
+        border-left:none;
+
+        border-top:4px solid #38bdf8;
+
+        background:rgba(56,189,248,.18);
 
     }
 

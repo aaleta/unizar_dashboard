@@ -33,33 +33,27 @@ import { RouterLink } from "vue-router";
 .panel{
 
     width:100%;
+
     max-width:520px;
 
-    min-height:320px;
+    padding:22px;
 
-    padding:28px;
+    background:#1e293b;
 
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    justify-content:center;
-    text-align:center;
+    border-radius:18px;
 
-    background:
-        linear-gradient(
-            145deg,
-            #2b0f13,
-            #1a1d2c
-        );
+    border:1px solid rgba(255,255,255,.08);
 
-    border:2px solid rgba(239,68,68,.35);
-
-    border-radius:22px;
-
-    box-shadow:
-        0 15px 35px rgba(0,0,0,.35);
+    box-shadow:0 10px 25px rgba(0,0,0,.25);
 
     transition:.25s;
+
+    box-sizing:border-box;
+
+    margin-bottom: 90px;
+
+    text-align: center;
+
 
 }
 
@@ -75,23 +69,17 @@ import { RouterLink } from "vue-router";
 
 }
 
-.icon{
-
-    font-size:4rem;
-
-    margin-bottom:18px;
-
-}
 
 h2{
 
-    margin:0;
+    margin:30px;
 
     color:white;
 
     font-size:2rem;
 
     font-weight:700;
+
 
 }
 
@@ -133,7 +121,7 @@ p{
     box-shadow:
         0 8px 20px rgba(239,68,68,.35);
     
-    margin-top: 10%;
+    margin-top: 0;
 
 }
 
@@ -145,4 +133,70 @@ p{
 
 }
 
+@media(max-width:768px){
+
+    .panel{
+
+        width:100%;
+        max-width:520px;
+
+        padding:22px;
+
+        background:#1e293b;
+
+        border-radius:18px;
+
+        border:1px solid rgba(255,255,255,.08);
+
+        box-shadow:0 10px 25px rgba(0,0,0,.25);
+
+        transition:.25s;
+
+        box-sizing:border-box;
+
+    }
+
+    .icon{
+
+        font-size:3rem;
+
+        margin-bottom:14px;
+
+    }
+
+    h2{
+
+        font-size:1.6rem;
+
+        line-height:1.2;
+
+    }
+
+    p{
+
+        margin:16px 0 24px;
+
+        max-width:100%;
+
+        font-size:.95rem;
+
+        line-height:1.6;
+
+    }
+
+    .fightButton{
+
+        width:100%;
+
+        margin-top:0;
+
+        padding:14px;
+
+        font-size:1rem;
+
+        box-sizing:border-box;
+
+    }
+
+}
 </style>

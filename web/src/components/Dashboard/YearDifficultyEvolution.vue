@@ -256,6 +256,8 @@ const chartOptions = computed(() => ({
 
     transition:.25s;
 
+    margin-bottom: 90px;
+
 }
 
 .panel:hover{

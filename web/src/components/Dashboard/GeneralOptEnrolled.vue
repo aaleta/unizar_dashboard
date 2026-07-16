@@ -200,6 +200,7 @@ const chartOptions={
 .panel{
 
     width:100%;
+
     max-width:700px;
 
     padding:22px;
@@ -215,6 +216,8 @@ const chartOptions={
     transition:.25s;
 
     box-sizing:border-box;
+
+    margin-bottom: 90px;
 
 }
 

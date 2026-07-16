@@ -588,15 +588,22 @@ const chartOptions = computed(() => ({
 
 }
 
-@media(max-width:900px){
+@media (max-width:768px){
 
     .panel{
 
         width:100%;
+        max-width:100%;
 
         min-height:auto;
 
-        padding:24px;
+        padding:20px 16px;
+
+        border-radius:18px;
+
+        box-sizing:border-box;
+
+        overflow:hidden;
 
     }
 
@@ -608,11 +615,33 @@ const chartOptions = computed(() => ({
 
         text-align:center;
 
+        gap:20px;
+
+        margin-bottom:25px;
+
+    }
+
+    .badge{
+
+        margin-bottom:10px;
+
+    }
+
+    .header h2{
+
+        font-size:1.45rem;
+
+        line-height:1.3;
+
     }
 
     .subtitle{
 
         max-width:100%;
+
+        font-size:.95rem;
+
+        line-height:1.6;
 
     }
 
@@ -620,19 +649,57 @@ const chartOptions = computed(() => ({
 
         width:100%;
 
-        max-width:420px;
+        min-width:0;
+
+        max-width:100%;
+
+        padding:18px;
+
+        box-sizing:border-box;
+
+    }
+
+    .highlight h3{
+
+        font-size:1.15rem;
+
+    }
+
+    .difficultyValue{
+
+        font-size:1.5rem;
+
+        padding:10px 20px;
 
     }
 
     .chartContainer{
 
-        height:420px;
+        width:100%;
+
+        height:320px;
+
+        min-width:0;
 
     }
 
-    .header h2{
+    .footer{
 
-        font-size:1.6rem;
+        margin-top:20px;
+
+        padding-top:16px;
+
+    }
+
+    .legend{
+
+        flex-direction:column;
+
+        gap:8px;
+
+        text-align:center;
+
+        font-size:.9rem;
 
     }
 

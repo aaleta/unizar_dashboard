@@ -113,7 +113,7 @@ import FightModeButton from "@/components/Dashboard/FightModeButton.vue";
 
     display:grid;
 
-    grid-template-columns:repeat(auto-fit,minmax(420px,1fr));
+    grid-template-columns:repeat(auto-fit,minmax(min(340px,100%),1fr));
 
     gap:30px;
 
@@ -133,15 +133,17 @@ import FightModeButton from "@/components/Dashboard/FightModeButton.vue";
 
     .home{
 
-        margin-left:70px;
+        margin-left:0;
 
-        padding:20px;
+        margin-bottom:70px;
+
+        padding:20px 16px;
 
     }
 
-    .dashboardGrid{
+    .hero{
 
-        grid-template-columns:1fr;
+        max-width:100%;
 
     }
 
@@ -149,17 +151,33 @@ import FightModeButton from "@/components/Dashboard/FightModeButton.vue";
 
         font-size:2rem;
 
+        line-height:1.2;
+
         margin-bottom:15px;
+
+        letter-spacing:1px;
 
     }
 
     .subtitle{
 
+        max-width:100%;
+
+        padding:0;
+
+        margin:0 auto 30px;
+
         font-size:.95rem;
 
-        margin-bottom:30px;
+        line-height:1.6;
 
-        padding:0 10px;
+    }
+
+    .dashboardGrid{
+
+        grid-template-columns:1fr;
+
+        gap:20px;
 
     }
 

@@ -128,7 +128,7 @@ const yearsData = computed(() => {
 
 .panel{
 
-    width:420px;
+    width:95%;
     height:300px;
 
     padding:22px;

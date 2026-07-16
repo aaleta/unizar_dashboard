@@ -699,17 +699,37 @@ const chartOptions={
 
         width:100%;
 
-        padding:20px;
+        max-width:100%;
+
+        margin:0 auto;
+
+        padding:16px;
+
+        box-sizing:border-box;
+
+        overflow:hidden;
 
     }
 
     .content{
 
+        display:grid;
+
         grid-template-columns:1fr;
+
+        gap:20px;
+
+    }
+
+    .leftColumn{
+
+        min-width:0;
 
     }
 
     .rightColumn{
+
+        min-width:0;
 
         border-left:none;
 
@@ -717,7 +737,27 @@ const chartOptions={
 
         padding-left:0;
 
-        padding-top:24px;
+        padding-top:20px;
+
+    }
+
+    .panelHeader{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+        gap:12px;
+
+    }
+
+    .panelFooter{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+        gap:10px;
 
     }
 

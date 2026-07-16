@@ -94,11 +94,13 @@ import GeneralOptEnrolled from '@/components/Dashboard/GeneralOptEnrolled.vue';
 
     .page{
 
-        margin-left:70px;
+        margin-left:0;
 
-        width:calc(100% - 70px);
+        width:100%;
 
-        padding:25px 15px;
+        padding:20px 16px;
+
+        box-sizing:border-box;
 
     }
 
@@ -112,11 +114,27 @@ import GeneralOptEnrolled from '@/components/Dashboard/GeneralOptEnrolled.vue';
 
         font-size:2rem;
 
+        line-height:1.2;
+
     }
 
     .dashboard-grid{
 
-        justify-content:center;
+        display:grid;
+
+        grid-template-columns:1fr;
+
+        gap:20px;
+
+        justify-items:center;
+
+    }
+
+    .dashboard-grid > *{
+
+        width:100%;
+
+        max-width:500px;
 
     }
 

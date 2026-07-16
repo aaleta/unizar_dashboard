@@ -280,9 +280,10 @@ const winner = metric=>{
 .panel{
 
     width:100%;
+
     max-width:700px;
 
-    margin:auto;
+    margin:40px auto;
 
     padding:36px;
 
@@ -298,7 +299,7 @@ const winner = metric=>{
 
     gap:28px;
 
-    margin-left: 30%;
+    box-sizing:border-box;
 
 }
 
@@ -424,17 +425,63 @@ h2{
 
 }
 
-@media(max-width:850px){
+/* ========================= */
+/*          MÓVIL            */
+/* ========================= */
+
+@media(max-width:768px){
+
+    .panel{
+
+        max-width:100%;
+
+        margin:20px auto;
+
+        padding:22px 18px;
+
+        gap:22px;
+
+        border-radius:14px;
+
+        margin-bottom: 90px;
+
+    }
+
+    h2{
+
+        font-size:1.35rem;
+
+        margin-bottom:20px;
+
+    }
 
     .fighters{
 
         grid-template-columns:1fr;
+
+        gap:14px;
+
+        margin-bottom:22px;
 
     }
 
     .vs{
 
         text-align:center;
+
+        font-size:1.4rem;
+
+    }
+
+    .fighterCard{
+
+        padding:16px;
+
+    }
+
+    .fighterCard h3{
+
+        font-size:.95rem;
 
     }
 
@@ -443,6 +490,26 @@ h2{
         grid-template-columns:1fr;
 
         gap:10px;
+
+        margin-bottom:20px;
+
+    }
+
+    .metricName{
+
+        font-size:.95rem;
+
+    }
+
+    .value{
+
+        padding:12px;
+
+    }
+
+    .number{
+
+        font-size:1rem;
 
     }
 

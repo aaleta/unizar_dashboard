@@ -202,7 +202,8 @@ const chartOptions = {
 
 .panel{
 
-    width:420px;
+    width:95%;
+
     height:340px;
 
     padding:22px;

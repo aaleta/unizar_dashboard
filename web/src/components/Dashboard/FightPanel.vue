@@ -130,7 +130,7 @@ const startFight = () => {
     width:100%;
     max-width:700px;
 
-    margin:auto;
+    margin:40px auto;
 
     padding:36px;
 
@@ -146,7 +146,7 @@ const startFight = () => {
 
     gap:28px;
 
-    margin-left: 30%;
+    box-sizing:border-box;
 
 }
 
@@ -200,6 +200,8 @@ label{
 
 input{
 
+    width:100%;
+
     padding:14px 16px;
 
     border-radius:10px;
@@ -211,6 +213,8 @@ input{
     color:white;
 
     font-size:1rem;
+
+    box-sizing:border-box;
 
 }
 
@@ -257,6 +261,58 @@ input:focus{
     opacity:.5;
 
     cursor:not-allowed;
+
+}
+
+/* ========================= */
+/*          MÓVIL            */
+/* ========================= */
+
+@media(max-width:768px){
+
+    .panel{
+
+        max-width:100%;
+
+        margin:20px auto;
+
+        padding:22px 18px;
+
+        border-radius:14px;
+
+        gap:20px;
+
+    }
+
+    h1{
+
+        font-size:1.6rem;
+
+    }
+
+    .subtitle{
+
+        font-size:.95rem;
+
+        line-height:1.5;
+
+    }
+
+    input{
+
+        font-size:16px; /* evita el zoom automático en iPhone */
+
+    }
+
+    .fightButton{
+
+        width:100%;
+
+        align-self:stretch;
+
+        padding:14px;
+
+    }
 
 }
 

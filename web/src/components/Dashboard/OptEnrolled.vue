@@ -176,6 +176,7 @@ const bottomSubjects = computed(() =>
 .panel{
 
     width:100%;
+    
     max-width:520px;
 
     padding:22px;

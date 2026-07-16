@@ -216,21 +216,100 @@ const getYearDashboardLink = (course) => {
 
     .page{
 
-        margin-left:220px;
+        margin-left:0;
+        margin-bottom:70px;      /* espacio para la barra inferior */
 
-        padding:25px;
+        padding:20px 16px;
+
+    }
+
+    .hero{
+
+        margin-bottom:35px;
 
     }
 
     .hero h1{
 
-        font-size:2.2rem;
+        font-size:2rem;
+
+        line-height:1.2;
+
+    }
+
+    .hero p{
+
+        font-size:1rem;
+
+    }
+
+    .section{
+
+        margin-bottom:40px;
+
+    }
+
+    .section-title{
+
+        font-size:1.4rem;
+
+        margin-bottom:18px;
 
     }
 
     .subjects-grid{
 
         grid-template-columns:1fr;
+
+        gap:18px;
+
+    }
+
+    .subject-card{
+
+        padding:20px;
+
+        border-radius:16px;
+
+    }
+
+    .subject-card h3{
+
+        font-size:1.05rem;
+
+    }
+
+    .code{
+
+        margin-bottom:18px;
+
+        font-size:.9rem;
+
+    }
+
+    .dashboard-button{
+
+        width:100%;
+
+        text-align:center;
+
+        padding:12px;
+
+        box-sizing:border-box;
+
+    }
+
+    .year-dashboard-button{
+
+        display:block;
+
+        width:100%;
+
+        text-align:center;
+
+        padding:14px;
+
+        box-sizing:border-box;
 
     }
 
