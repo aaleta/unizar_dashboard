@@ -4,6 +4,7 @@ import OptEnrolled from "@/components/Dashboard/OptEnrolled.vue";
 import YearsTroncComparation from "@/components/Dashboard/YearsTroncComparation.vue";
 import WorstSubject from "@/components/Dashboard/WorstSubject.vue";
 import AdmisionGrades from "@/components/Dashboard/AdmisionGrades.vue";
+import FightModeButton from "@/components/Dashboard/FightModeButton.vue";
 
 </script>
 
@@ -33,6 +34,8 @@ import AdmisionGrades from "@/components/Dashboard/AdmisionGrades.vue";
             <WorstSubject />
 
             <AdmisionGrades />
+
+            <FightModeButton />
 
         </div>
 

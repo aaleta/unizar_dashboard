@@ -4,6 +4,7 @@ import { computed } from "vue";
 import { useRoute } from "vue-router";
 
 import DifficultyOfSubjectsYear from "@/components/Dashboard/DifficultyOfSubjectsYear.vue";
+import YearDifficultyEvolution from "@/components/Dashboard/YearDifficultyEvolution.vue";
 
 const route = useRoute();
 
@@ -57,6 +58,10 @@ const courseName = computed(() => {
     <section class="dashboard-grid">
 
         <DifficultyOfSubjectsYear
+            :course="course"
+        />
+
+        <YearDifficultyEvolution
             :course="course"
         />
         

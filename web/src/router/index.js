@@ -5,6 +5,7 @@ import secondYear from '@/views/secondYear.vue'
 import thirdYear from '@/views/thirdYear.vue'
 import forthYear from '@/views/forthYear.vue'
 import Optional from '@/views/Optional.vue'
+import FightMode from '@/views/FightMode.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -38,6 +39,12 @@ const router = createRouter({
       path: '/Optional',
       component: Optional
     },
+
+    {
+      path: '/fight-mode',
+      component: FightMode
+    },
+
     //Dashboards
     {
       path: '/dashboard/:code',
