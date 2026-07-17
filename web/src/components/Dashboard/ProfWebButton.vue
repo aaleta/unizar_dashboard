@@ -10,7 +10,7 @@
 
     <p>
 
-        Observa la cantidad de profesores que imparten asignaturas y las relaciones entre ellos.
+        Consulta de forma visual la cantidad de asignaturas que imparten los profesores y las relaciones entre ellos.
 
     </p>
 

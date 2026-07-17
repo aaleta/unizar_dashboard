@@ -84,7 +84,7 @@ watch(
 
         if(newYears.length){
 
-            selectedYear.value=newYears[0];
+            selectedYear.value=newYears[2];
 
         }
 
