@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter, createWebHashHistory } from "vue-router";
 import HomeView from '@/views/Home.vue'
 import firstYear from '@/views/firstYear.vue'
 import secondYear from '@/views/secondYear.vue'
@@ -8,7 +8,7 @@ import Optional from '@/views/Optional.vue'
 import FightMode from '@/views/FightMode.vue'
 
 const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
+  history: createWebHashHistory(import.meta.env.BASE_URL),
   routes: [
     {
       path: '/',
