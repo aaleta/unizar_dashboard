@@ -6,6 +6,7 @@ import thirdYear from '@/views/thirdYear.vue'
 import forthYear from '@/views/forthYear.vue'
 import Optional from '@/views/Optional.vue'
 import FightMode from '@/views/FightMode.vue'
+import ProfWeb from "@/components/Dashboard/ProfWeb.vue";
 
 const router = createRouter({
   history: createWebHashHistory(import.meta.env.BASE_URL),
@@ -43,6 +44,11 @@ const router = createRouter({
     {
       path: '/fight-mode',
       component: FightMode
+    },
+
+    {
+      path: '/ProfWeb',
+      component: ProfWeb
     },
 
     //Dashboards

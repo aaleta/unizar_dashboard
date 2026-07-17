@@ -3,6 +3,7 @@
 import { computed } from "vue";
 
 import notas from "../../../../data/json/NotasRaw.json";
+import subjects from "../../../../data/json/processed/AsignaturasClasificadasOptTronc.json";
 
 const props = defineProps({
 
@@ -10,6 +11,42 @@ const props = defineProps({
     fighter2: Object
 
 });
+
+const optionalCodes = new Set(
+
+    Object.values(subjects.optativas)
+        .flat()
+        .map(subject => subject.code)
+
+);
+
+const coreCodes = new Set(
+
+    Object.values(subjects.troncales)
+        .flat()
+        .map(subject => subject.code)
+
+);
+
+const bothCore = computed(() =>
+
+    coreCodes.has(props.fighter1.code) &&
+    coreCodes.has(props.fighter2.code)
+
+);
+
+const bothOptional = computed(() =>
+
+    optionalCodes.has(props.fighter1.code) &&
+    optionalCodes.has(props.fighter2.code)
+
+);
+
+const incompatibleComparison = computed(() =>
+
+    !bothCore.value && !bothOptional.value
+
+);
 
 const difficulty = subject => {
 
@@ -99,8 +136,8 @@ const excellence = subject => {
     const years = [...new Set(
         rows.map(r => r["Curso Académico"])
     )]
-        .sort((a, b) => b.localeCompare(a))
-        .slice(0, 3);
+        .sort((a,b)=>b.localeCompare(a))
+        .slice(0,3);
 
     const recent = rows.filter(r =>
         years.includes(r["Curso Académico"])
@@ -109,76 +146,84 @@ const excellence = subject => {
     let weighted = 0;
     let students = 0;
 
-    recent.forEach(r => {
+    recent.forEach(r=>{
 
         const total =
-            r["No pre"] +
-            r["Sus"] +
-            r["Apr"] +
-            r["Not"] +
-            r["Sob"] +
+            r["No pre"]+
+            r["Sus"]+
+            r["Apr"]+
+            r["Not"]+
+            r["Sob"]+
             r["MH"];
 
-        const excellenceValue =
-            Number(r["Sob %"]) +
-            Number(r["MH %"]);
+        weighted +=
+            (Number(r["Sob %"])+Number(r["MH %"])) * total;
 
-        weighted += excellenceValue * total;
         students += total;
 
     });
 
     return students
-        ? weighted / students
-        : 0;
+        ? weighted/students
+        :0;
 
 };
 
-const metrics = computed(()=>{
+const metrics = computed(() => {
 
-    return [
+    const result = [];
 
-        {
+    if (bothCore.value) {
 
-            name:"Dificultad Media",
+        result.push({
 
-            first:difficulty(props.fighter1),
+            name: "Más Fácil",
 
-            second:difficulty(props.fighter2),
+            first: difficulty(props.fighter1),
 
-            higherIsBetter:false,
+            second: difficulty(props.fighter2),
 
-            suffix:" %"
+            higherIsBetter: false,
 
-        },
+            suffix: " %"
 
-        {
+        });
 
-            name:"Media de Matriculaciones",
+    }
 
-            first:popularity(props.fighter1),
+    if (bothOptional.value) {
 
-            second:popularity(props.fighter2),
+        result.push({
 
-            higherIsBetter:true,
+            name: "Media de Matriculaciones",
 
-            suffix:" alumnos"
+            first: popularity(props.fighter1),
 
-        },
-
-        {
-            name: "Excelencia",
-
-            first: excellence(props.fighter1),
-
-            second: excellence(props.fighter2),
+            second: popularity(props.fighter2),
 
             higherIsBetter: true,
 
-            suffix: " %"
-        }
+            suffix: " alumnos"
 
-    ];
+        });
+
+    }
+
+    result.push({
+
+        name: "Excelencia",
+
+        first: excellence(props.fighter1),
+
+        second: excellence(props.fighter2),
+
+        higherIsBetter: true,
+
+        suffix: " %"
+
+    });
+
+    return result;
 
 });
 
@@ -204,6 +249,26 @@ const winner = metric=>{
 </script>
 
 <template>
+
+<div
+    v-if="incompatibleComparison"
+    class="panel errorPanel"
+>
+
+    <h2>Imposible</h2>
+
+    <p>
+
+        Solo se pueden comparar dos asignaturas del mismo carácter (troncal - optativa).
+
+    </p>
+
+</div>
+
+<div
+    v-else
+    class="panel"
+>
 
 <div class="panel">
 
@@ -239,7 +304,7 @@ const winner = metric=>{
 
         <div
             class="value"
-            :class="{ winner: winner(metric)==1 }"
+            :class="{ winner: winner(metric) == 1 }"
         >
 
             <span class="number">
@@ -258,7 +323,7 @@ const winner = metric=>{
 
         <div
             class="value"
-            :class="{ winner: winner(metric)==2 }"
+            :class="{ winner: winner(metric) == 2 }"
         >
 
             <span class="number">
@@ -270,6 +335,8 @@ const winner = metric=>{
         </div>
 
     </div>
+
+</div>
 
 </div>
 
@@ -300,6 +367,8 @@ const winner = metric=>{
     gap:28px;
 
     box-sizing:border-box;
+
+    margin-top: 0%;
 
 }
 
@@ -425,9 +494,6 @@ h2{
 
 }
 
-/* ========================= */
-/*          MÓVIL            */
-/* ========================= */
 
 @media(max-width:768px){
 
@@ -512,6 +578,42 @@ h2{
         font-size:1rem;
 
     }
+
+}
+
+.errorPanel{
+
+    text-align:center;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:18px;
+
+    min-height:260px;
+
+}
+
+.errorPanel h2{
+
+    margin:0;
+
+    color:#f87171;
+
+}
+
+.errorPanel p{
+
+    max-width:500px;
+
+    color:#cbd5e1;
+
+    line-height:1.7;
 
 }
 

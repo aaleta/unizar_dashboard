@@ -5,6 +5,7 @@ import YearsTroncComparation from "@/components/Dashboard/YearsTroncComparation.
 import WorstSubject from "@/components/Dashboard/WorstSubject.vue";
 import AdmisionGrades from "@/components/Dashboard/AdmisionGrades.vue";
 import FightModeButton from "@/components/Dashboard/FightModeButton.vue";
+import ProfWebButton from "@/components/Dashboard/ProfWebButton.vue";
 
 </script>
 
@@ -37,6 +38,8 @@ import FightModeButton from "@/components/Dashboard/FightModeButton.vue";
 
             <FightModeButton />
 
+            <ProfWebButton />
+
         </div>
 
     </section>
@@ -59,11 +62,15 @@ import FightModeButton from "@/components/Dashboard/FightModeButton.vue";
 
     box-sizing:border-box;
 
+    overflow-x:hidden;
+
 }
 
 .hero{
 
-    max-width:1400px;
+    width:100%;
+
+    max-width:1500px;
 
     margin:0 auto;
 
@@ -113,11 +120,11 @@ import FightModeButton from "@/components/Dashboard/FightModeButton.vue";
 
     display:grid;
 
-    grid-template-columns:repeat(auto-fit,minmax(min(340px,100%),1fr));
+    grid-template-columns:repeat(auto-fit,minmax(360px,1fr));
 
-    gap:30px;
+    gap:28px;
 
-    align-items:start;
+    align-items:stretch;
 
 }
 
@@ -127,6 +134,12 @@ import FightModeButton from "@/components/Dashboard/FightModeButton.vue";
 
     min-width:0;
 
+    max-width:none;
+
+    margin:0;
+
+    box-sizing:border-box;
+
 }
 
 @media(max-width:768px){
@@ -135,15 +148,13 @@ import FightModeButton from "@/components/Dashboard/FightModeButton.vue";
 
         margin-left:0;
 
-        margin-bottom:70px;
-
-        padding:20px 16px;
+        padding:20px 14px 90px;
 
     }
 
     .hero{
 
-        max-width:100%;
+        width:100%;
 
     }
 
@@ -153,7 +164,7 @@ import FightModeButton from "@/components/Dashboard/FightModeButton.vue";
 
         line-height:1.2;
 
-        margin-bottom:15px;
+        margin-bottom:16px;
 
         letter-spacing:1px;
 
@@ -163,9 +174,7 @@ import FightModeButton from "@/components/Dashboard/FightModeButton.vue";
 
         max-width:100%;
 
-        padding:0;
-
-        margin:0 auto 30px;
+        margin:0 auto 26px;
 
         font-size:.95rem;
 
@@ -178,6 +187,16 @@ import FightModeButton from "@/components/Dashboard/FightModeButton.vue";
         grid-template-columns:1fr;
 
         gap:20px;
+
+    }
+
+    .dashboardGrid > *{
+
+        width:100%;
+
+        max-width:100%;
+
+        min-width:0;
 
     }
 

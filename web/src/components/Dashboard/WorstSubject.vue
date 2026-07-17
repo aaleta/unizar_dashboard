@@ -154,6 +154,7 @@ const fear = totalEnrolled === 0
 .panel{
 
     width:100%;
+    
     max-width:520px;
 
     padding:22px;
@@ -173,10 +174,16 @@ const fear = totalEnrolled === 0
     margin:0;
 
     display:flex;
+
     flex-direction:column;
+
     align-items:center;
+
     text-align:center;
 
+    display:flex;
+
+    justify-content:center;
 }
 
 .panel:hover{

@@ -1,26 +1,25 @@
-<script setup>
-
-import { RouterLink } from "vue-router";
-
-</script>
-
 <template>
 
 <div class="panel">
 
-
     <h2>
 
-        Fight Mode
+        Red de Profesores
 
     </h2>
 
+    <p>
+
+        Observa la cantidad de profesores que imparten asignaturas y las relaciones entre ellos.
+
+    </p>
+
     <RouterLink
-        to="/fight-mode"
-        class="fightButton"
+        to="/ProfWeb"
+        class="panelButton"
     >
 
-        Entrar al Fight Mode →
+        Ir a la red
 
     </RouterLink>
 
@@ -33,35 +32,33 @@ import { RouterLink } from "vue-router";
 .panel{
 
     width:100%;
-
     max-width:520px;
 
-    padding:22px;
+    min-height:320px;
 
-    background:#1e293b;
-
-    border-radius:18px;
-
-    border:1px solid rgba(255,255,255,.08);
-
-    box-shadow:0 10px 25px rgba(0,0,0,.25);
-
-    transition:.25s;
-
-    box-sizing:border-box;
-
-    margin-bottom: 90px;
-
-    text-align: center;
+    padding:28px;
 
     display:flex;
-
     flex-direction:column;
-
     justify-content:center;
-
     align-items:center;
+    text-align:center;
 
+    background:
+        linear-gradient(
+            145deg,
+            #14213d,
+            #1e293b
+        );
+
+    border:2px solid rgba(59,130,246,.25);
+
+    border-radius:22px;
+
+    box-shadow:
+        0 15px 35px rgba(0,0,0,.35);
+
+    transition:.25s;
 
 }
 
@@ -69,25 +66,31 @@ import { RouterLink } from "vue-router";
 
     transform:translateY(-6px);
 
-    border-color:#ef4444;
+    border-color:#3b82f6;
 
     box-shadow:
-        0 0 25px rgba(239,68,68,.35),
+        0 0 25px rgba(59,130,246,.25),
         0 18px 40px rgba(0,0,0,.45);
 
 }
 
+.icon{
+
+    font-size:4rem;
+
+    margin-bottom:18px;
+
+}
 
 h2{
 
-    margin:30px;
+    margin:0;
 
     color:white;
 
     font-size:2rem;
 
     font-weight:700;
-
 
 }
 
@@ -103,7 +106,7 @@ p{
 
 }
 
-.fightButton{
+.panelButton{
 
     display:inline-flex;
 
@@ -114,7 +117,7 @@ p{
 
     border-radius:999px;
 
-    background:#ef4444;
+    background:#2563eb;
 
     color:white;
 
@@ -122,20 +125,16 @@ p{
 
     font-weight:700;
 
-    font-size:1rem;
-
     transition:.25s;
 
     box-shadow:
-        0 8px 20px rgba(239,68,68,.35);
-    
-    margin-top: 0;
+        0 8px 20px rgba(37,99,235,.35);
 
 }
 
-.fightButton:hover{
+.panelButton:hover{
 
-    background:#dc2626;
+    background:#1d4ed8;
 
     transform:scale(1.05);
 
@@ -145,22 +144,13 @@ p{
 
     .panel{
 
-        width:100%;
-        max-width:520px;
+        max-width:100%;
 
-        padding:22px;
+        min-height:auto;
 
-        background:#1e293b;
+        padding:24px 20px;
 
         border-radius:18px;
-
-        border:1px solid rgba(255,255,255,.08);
-
-        box-shadow:0 10px 25px rgba(0,0,0,.25);
-
-        transition:.25s;
-
-        box-sizing:border-box;
 
     }
 
@@ -176,35 +166,28 @@ p{
 
         font-size:1.6rem;
 
-        line-height:1.2;
-
     }
 
     p{
-
-        margin:16px 0 24px;
 
         max-width:100%;
 
         font-size:.95rem;
 
-        line-height:1.6;
+        margin:16px 0 24px;
 
     }
 
-    .fightButton{
+    .panelButton{
 
         width:100%;
 
-        margin-top:0;
-
         padding:14px;
-
-        font-size:1rem;
 
         box-sizing:border-box;
 
     }
 
 }
+
 </style>
