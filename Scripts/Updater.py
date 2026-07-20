@@ -221,7 +221,7 @@ def obtener_datos_asignaturas():
                 if response.status_code == 200:
                     soup = BeautifulSoup(response.content, 'html.parser')
                     
-                    # Nombre de la asignatura
+                    
                     h3_tag = soup.find('h3')
                     nombre_asignatura = h3_tag.text.strip() if h3_tag else f"Asignatura_{asig_id}"
                     

@@ -40,7 +40,13 @@ years.forEach(year => {
 
     rows.forEach(subject => {
 
-        const profs = subject.profesores.map(name => {
+        const profs = subject.profesores
+            .filter(name =>
+
+                normalize(name) !== "no asignados / no encontrados"
+
+            )
+            .map(name => {
 
             const id = normalize(name);
 

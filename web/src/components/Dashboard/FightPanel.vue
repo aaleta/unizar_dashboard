@@ -5,7 +5,6 @@ import subjects from "../../../../data/json/processed/AsignaturasClasificadasOpt
 
 const emit = defineEmits(["fight"]);
 
-// Lista de asignaturas
 const allSubjects = [];
 
 Object.values(subjects.troncales).forEach(course => {
@@ -18,32 +17,95 @@ Object.values(subjects.optativas).forEach(course => {
 
 const subjectList = [
     ...new Map(
-        allSubjects.map(subject => [subject.code, subject])
+        allSubjects.map(s => [s.code, s])
     ).values()
-].sort((a, b) => a.name.localeCompare(b.name));
+].sort((a,b)=>a.name.localeCompare(b.name));
 
 const fighter1 = ref("");
 const fighter2 = ref("");
 
-const subject1 = computed(() =>
-    subjectList.find(subject => subject.name === fighter1.value)
+const show1 = ref(false);
+const show2 = ref(false);
+
+const normalize = text =>
+
+    text
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g,"")
+        .toLowerCase();
+
+const filtered1 = computed(() => {
+
+    if(!fighter1.value)
+        return [];
+
+    return subjectList.filter(subject =>
+
+        normalize(subject.name).includes(
+            normalize(fighter1.value)
+        )
+
+    ).slice(0,8);
+
+});
+
+const filtered2 = computed(() => {
+
+    if(!fighter2.value)
+        return [];
+
+    return subjectList.filter(subject =>
+
+        normalize(subject.name).includes(
+            normalize(fighter2.value)
+        )
+
+    ).slice(0,8);
+
+});
+
+const subject1 = computed(()=>
+
+    subjectList.find(s=>s.name===fighter1.value)
+
 );
 
-const subject2 = computed(() =>
-    subjectList.find(subject => subject.name === fighter2.value)
+const subject2 = computed(()=>
+
+    subjectList.find(s=>s.name===fighter2.value)
+
 );
 
-const startFight = () => {
+const select1 = subject=>{
 
-    if (!subject1.value || !subject2.value) return;
+    fighter1.value=subject.name;
 
-    emit("fight", {
-        first: subject1.value,
-        second: subject2.value
-    });
+    show1.value=false;
 
 };
 
+const select2 = subject=>{
+
+    fighter2.value=subject.name;
+
+    show2.value=false;
+
+};
+
+const startFight=()=>{
+
+    if(!subject1.value || !subject2.value)
+        return;
+
+    emit("fight",{
+
+        first:subject1.value,
+
+        second:subject2.value
+
+    });
+
+};
 
 </script>
 
@@ -67,33 +129,97 @@ const startFight = () => {
 
         <div class="field">
 
-            <label>
+            <label>Primera asignatura</label>
 
-                Primera asignatura
+            <div class="autocomplete">
 
-            </label>
+                <input
 
-            <input
-                v-model="fighter1"
-                list="subjects"
-                placeholder="Buscar asignatura..."
-            >
+                    v-model="fighter1"
+
+                    @focus="show1=true"
+
+                    @input="show1=true"
+
+                    placeholder="Buscar asignatura..."
+
+                >
+
+                <div
+
+                    v-if="show1 && filtered1.length"
+
+                    class="suggestions"
+
+                >
+
+                    <div
+
+                        v-for="subject in filtered1"
+
+                        :key="subject.code"
+
+                        class="suggestion"
+
+                        @mousedown="select1(subject)"
+
+                    >
+
+                        {{ subject.name }}
+
+                    </div>
+
+                </div>
+
+            </div>
 
         </div>
 
         <div class="field">
 
-            <label>
+            <label>Segunda asignatura</label>
 
-                Segunda asignatura
+            <div class="autocomplete">
 
-            </label>
+                <input
 
-            <input
-                v-model="fighter2"
-                list="subjects"
-                placeholder="Buscar asignatura..."
-            >
+                    v-model="fighter2"
+
+                    @focus="show2=true"
+
+                    @input="show2=true"
+
+                    placeholder="Buscar asignatura..."
+
+                >
+
+                <div
+
+                    v-if="show2 && filtered2.length"
+
+                    class="suggestions"
+
+                >
+
+                    <div
+
+                        v-for="subject in filtered2"
+
+                        :key="subject.code"
+
+                        class="suggestion"
+
+                        @mousedown="select2(subject)"
+
+                    >
+
+                        {{ subject.name }}
+
+                    </div>
+
+                </div>
+
+            </div>
 
         </div>
 
@@ -313,6 +439,56 @@ input:focus{
         padding:14px;
 
     }
+
+}
+
+.autocomplete{
+
+    position:relative;
+
+}
+
+.suggestions{
+
+    position:absolute;
+
+    top:100%;
+
+    left:0;
+
+    right:0;
+
+    background:#1e293b;
+
+    border:1px solid #334155;
+
+    border-radius:10px;
+
+    margin-top:6px;
+
+    max-height:240px;
+
+    overflow-y:auto;
+
+    z-index:100;
+
+}
+
+.suggestion{
+
+    padding:12px 16px;
+
+    color:white;
+
+    cursor:pointer;
+
+    transition:.15s;
+
+}
+
+.suggestion:hover{
+
+    background:#2563eb;
 
 }
 

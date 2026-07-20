@@ -4,7 +4,7 @@ import { ref, watch, onMounted } from "vue";
 import { Network } from "vis-network";
 import "vis-network/styles/vis-network.css";
 
-import cache from "@/utils/NodesEdges";
+import cache from "@/utils/NodesLinks";
 
 const props = defineProps({
 
