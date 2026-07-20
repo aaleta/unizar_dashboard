@@ -44,12 +44,7 @@
     align-items:center;
     text-align:center;
 
-    background:
-        linear-gradient(
-            145deg,
-            #14213d,
-            #1e293b
-        );
+    background:#1e293b;
 
     border:2px solid rgba(59,130,246,.25);
 
@@ -117,7 +112,7 @@ p{
 
     border-radius:999px;
 
-    background:#2563eb;
+    background:#064de6;
 
     color:white;
 
