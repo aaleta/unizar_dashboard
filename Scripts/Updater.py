@@ -176,6 +176,82 @@ with open(output_file, "w", encoding="utf-8") as f:
 ######################################################################################
 
 
+# Official rates for the Physics degree (success/performance/evaluation rates and
+# average number of exam sittings consumed). ResultadosRaw.json holds every degree
+# in the university (~3.5 MB), so only the Physics rows are kept: the web imports
+# this file directly and must not carry the whole university in its bundle.
+# Subjects are matched to their code by name, the only field both sources share.
+
+import unicodedata
+
+input_file = Path("../data/json/ResultadosRaw.json")
+notas_file = Path("../data/json/NotasRaw.json")
+output_file = Path("../data/json/processed/ResultadosFisica.json")
+
+STUDY = "Grado: Física"
+
+
+def normalize_name(name):
+    text = unicodedata.normalize("NFD", str(name).strip().lower())
+    return "".join(c for c in text if unicodedata.category(c) != "Mn")
+
+
+with open(input_file, "r", encoding="utf-8") as f:
+    resultados = json.load(f)
+
+with open(notas_file, "r", encoding="utf-8") as f:
+    notas = json.load(f)
+
+codes_by_name = {}
+
+for row in notas:
+    codes_by_name.setdefault(normalize_name(row["Asignatura"]), row["Código"])
+
+physics_rows = []
+unmatched = []
+
+for row in resultados:
+
+    if row["ESTUDIO"] != STUDY:
+        continue
+
+    code = codes_by_name.get(normalize_name(row["ASIGNATURA"]))
+
+    if code is None:
+        unmatched.append(row["ASIGNATURA"])
+        continue
+
+    physics_rows.append({
+        "code": code,
+        "anyo_academico": row["CURSO_ACADEMICO"],
+        "asignatura": row["ASIGNATURA"].strip(),
+        "clase": row["CLASE_ASIGNATURA"],
+        "tasa_exito": row["TASA_EXITO"],
+        "tasa_rendimiento": row["TASA_RENDIMIENTO"],
+        "tasa_evaluacion": row["TASA_EVALUACION"],
+        "alumnos_evaluados": row["ALUMNOS_EVALUADOS"],
+        "alumnos_superados": row["ALUMNOS_SUPERADOS"],
+        "alumnos_presentados": row["ALUMNOS_PRESENTADOS"],
+        "media_convocatorias": row["MEDIA_CONVOCATORIAS_CONSUMIDAS"],
+        "fecha_actualizacion": row["FECHA_ACTUALIZACION"],
+    })
+
+print(f"ResultadosFisica: {len(physics_rows)} filas")
+
+if unmatched:
+    print(f"  sin código (no están en notas.xlsx): {unmatched}")
+
+with open(output_file, "w", encoding="utf-8") as f:
+    json.dump(
+        physics_rows,
+        f,
+        ensure_ascii=False,
+        indent=4
+    )
+
+######################################################################################
+
+
 
 
 
@@ -321,11 +397,67 @@ def guardar_json(datos_nuevos, ruta):
     except Exception as e:
         print(f"Error al escribir el archivo JSON: {e}")
 
+######################################################################################
+
+
+# Freshness of each dataset, so the web can state how up to date it is instead of
+# hardcoding a year in the page. Each source is updated on its own schedule, so a
+# single "datos de 2024-2025" claim on the home page was wrong for three of them.
+
+def escribir_frescura():
+
+    def ultimo(path, key, transform=lambda v: v):
+        with open(path, "r", encoding="utf-8") as f:
+            data = json.load(f)
+        values = {transform(row[key]) for row in data if row.get(key) is not None}
+        return max(values) if values else None
+
+    def curso(year):
+        return f"{year}-{year + 1}"
+
+    with open("../data/json/processed/ResultadosFisica.json", "r", encoding="utf-8") as f:
+        resultados_fisica = json.load(f)
+
+    frescura = {
+        "notas": {
+            "label": "Calificaciones por asignatura",
+            "ultimo_curso": ultimo("../data/json/NotasRaw.json", "Curso Académico"),
+            "fuente": "https://estudios.unizar.es/informe/resultados-academicos?estudio_id=20250124",
+        },
+        "resultados": {
+            "label": "Tasas oficiales de rendimiento",
+            "ultimo_curso": curso(max(r["anyo_academico"] for r in resultados_fisica)),
+            "actualizado": resultados_fisica[0]["fecha_actualizacion"],
+            "fuente": "https://zaguan.unizar.es/collection/opendata-academico-rendimiento-asignatura-titulacion?ln=en",
+        },
+        "notas_corte": {
+            "label": "Notas de corte y de acceso",
+            "ultimo_curso": str(ultimo("../data/json/NotasDeCorteRaw.json", "Año")),
+            "fuente": "https://estudios.unizar.es/",
+        },
+        "guias": {
+            "label": "Profesorado y guías docentes",
+            "ultimo_curso": ultimo(
+                "../data/json/processed/Profesores_GuiasDoc.json", "anyo_academico"
+            ),
+            "fuente": "https://sia.unizar.es/",
+        },
+    }
+
+    with open("../data/json/processed/DataFreshness.json", "w", encoding="utf-8") as f:
+        json.dump(frescura, f, ensure_ascii=False, indent=4)
+
+    print("DataFreshness:", {k: v["ultimo_curso"] for k, v in frescura.items()})
+
+
 if __name__ == "__main__":
     ruta_salida = '../data/json/processed/Profesores_GuiasDoc.json'
-    
+
     datos_completos = obtener_datos_asignaturas()
     if datos_completos:
         guardar_json(datos_completos, ruta_salida)
     else:
         print("\nNo se extrajeron datos nuevos para guardar en cuanto a profesores o guias docentes.")
+
+    # Siempre al final: necesita todos los ficheros ya escritos.
+    escribir_frescura()

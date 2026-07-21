@@ -13,8 +13,12 @@ import {
 
 import { Bar } from "vue-chartjs";
 
-import notas from "../../../../data/json/NotasRaw.json";
-import subjects from "../../../../data/json/processed/AsignaturasClasificadasOptTronc.json";
+import {
+    RECENT_YEARS,
+    allOptionalSubjects,
+    averageEnrolment,
+    subjectName
+} from "@/utils/metrics";
 
 ChartJS.register(
     CategoryScale,
@@ -24,142 +28,86 @@ ChartJS.register(
     Legend
 );
 
-const optionalSubjects = [
-    ...new Map(
-        [
-            ...subjects.optativas["3"],
-            ...subjects.optativas["4"]
-        ].map(subject => [subject.code, subject])
-    ).values()
-];
+const ranking = computed(() =>
 
-const averageEnrollment = (subject) => {
-
-    const rows = notas.filter(
-        row => row["Código"] === subject.code
-    );
-
-    if (rows.length === 0) return 0;
-
-    const lastThreeYears = [...new Set(
-        rows.map(row => row["Curso Académico"])
-    )]
-    .sort((a,b)=>b.localeCompare(a))
-    .slice(0,3);
-
-    const recentRows = rows.filter(row =>
-        lastThreeYears.includes(row["Curso Académico"])
-    );
-
-    if(recentRows.length===0) return 0;
-
-    const total = recentRows.reduce((sum,row)=>
-
-        sum +
-
-        Number(row["No pre"]) +
-
-        Number(row["Sus"]) +
-
-        Number(row["Apr"]) +
-
-        Number(row["Not"]) +
-
-        Number(row["Sob"]) +
-
-        Number(row["MH"])
-
-    ,0);
-
-    return total / recentRows.length;
-
-};
-
-const ranking = computed(()=>
-
-    optionalSubjects
-
-        .map(subject=>({
-
-            name:subject.name,
-
-            average:averageEnrollment(subject)
-
+    allOptionalSubjects
+        .map(subject => ({
+            name: subjectName(subject.code),
+            average: averageEnrolment(subject.code)
         }))
-
-        .sort((a,b)=>b.average-a.average)
+        .sort((a, b) => b.average - a.average)
 
 );
 
-const chartData = computed(()=>({
+const chartData = computed(() => ({
 
-    labels:ranking.value.map(item=>item.name),
+    labels: ranking.value.map(item => item.name),
 
-    datasets:[{
+    datasets: [{
 
-        label:"Media de matriculados",
+        label: "Media de matriculados",
 
-        data:ranking.value.map(item=>item.average),
+        data: ranking.value.map(item => item.average),
 
-        backgroundColor:"#a855f7",
+        backgroundColor: "#a855f7",
 
-        borderRadius:8,
+        borderRadius: 8,
 
-        barThickness:18
+        barThickness: 18
 
     }]
 
 }));
 
-const chartOptions={
+const chartOptions = {
 
-    responsive:true,
+    responsive: true,
 
-    maintainAspectRatio:false,
+    maintainAspectRatio: false,
 
-    indexAxis:"y",
+    indexAxis: "y",
 
-    plugins:{
+    plugins: {
 
-        legend:{
-            display:false
+        legend: {
+            display: false
         },
 
-        tooltip:{
-            callbacks:{
-                label:ctx=>`${ctx.raw.toFixed(1)} alumnos`
+        tooltip: {
+            callbacks: {
+                label: ctx => `${ctx.raw.toFixed(1)} alumnos`
             }
         }
 
     },
 
-    scales:{
+    scales: {
 
-        x:{
+        x: {
 
-            beginAtZero:true,
+            beginAtZero: true,
 
-            ticks:{
-                color:"#cbd5e1"
+            ticks: {
+                color: "#cbd5e1"
             },
 
-            grid:{
-                color:"rgba(255,255,255,.08)"
+            grid: {
+                color: "rgba(255,255,255,.08)"
             }
 
         },
 
-        y:{
+        y: {
 
-            ticks:{
-                color:"white",
-                font:{
-                    size:11
+            ticks: {
+                color: "white",
+                font: {
+                    size: 11
                 }
             },
 
-            grid:{
-                display:false
+            grid: {
+                display: false
             }
 
         }
@@ -187,7 +135,8 @@ const chartOptions={
 
     <div class="footer">
 
-        Media del número de matriculados durante los tres cursos académicos más recientes.
+        Media de alumnos matriculados en los últimos {{ RECENT_YEARS }}
+        cursos académicos con datos.
 
     </div>
 

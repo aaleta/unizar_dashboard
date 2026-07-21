@@ -1,11 +1,18 @@
 <script setup>
 
+import DegreeKpiRow from "@/components/Dashboard/DegreeKpiRow.vue";
 import OptEnrolled from "@/components/Dashboard/OptEnrolled.vue";
 import YearsTroncComparation from "@/components/Dashboard/YearsTroncComparation.vue";
 import WorstSubject from "@/components/Dashboard/WorstSubject.vue";
 import AdmisionGrades from "@/components/Dashboard/AdmisionGrades.vue";
-import FightModeButton from "@/components/Dashboard/FightModeButton.vue";
-import ProfWebButton from "@/components/Dashboard/ProfWebButton.vue";
+
+import { DATA_SOURCES } from "@/utils/dataSources";
+
+/**
+ * Los accesos a Fight Mode y a la red de profesores ya no son tarjetas: eran
+ * navegación disfrazada de dato y competían con las gráficas. Ahora viven en
+ * el menú lateral.
+ */
 
 </script>
 
@@ -15,32 +22,47 @@ import ProfWebButton from "@/components/Dashboard/ProfWebButton.vue";
 
     <section class="hero">
 
-        <h1>
-            Dashboard Física Unizar
-        </h1>
+        <h1>Dashboard Física Unizar</h1>
 
         <p class="subtitle">
-            Datos actualizados al curso académico
-            <strong>2024-2025</strong>.
-            Todos los indicadores se han calculado a partir de la
-            información oficial publicada por la Universidad de Zaragoza.
+            Estadísticas del Grado en Física de la Universidad de Zaragoza,
+            calculadas a partir de la información oficial publicada por la
+            propia Universidad.
         </p>
 
-        <div class="dashboardGrid">
+        <!-- Cada fuente se actualiza por su cuenta: una sola fecha para todas
+             sería falsa. -->
+        <ul class="freshness">
 
-            <OptEnrolled />
+            <li
+                v-for="source in DATA_SOURCES"
+                :key="source.key"
+            >
+                <span class="freshnessLabel">{{ source.label }}</span>
+                <span class="freshnessValue">{{ source.ultimo_curso }}</span>
+            </li>
 
-            <YearsTroncComparation />
+        </ul>
 
-            <WorstSubject />
+        <p class="methodology">
+            <RouterLink to="/metodologia">
+                Cómo se calcula cada indicador →
+            </RouterLink>
+        </p>
 
-            <AdmisionGrades />
+    </section>
 
-            <FightModeButton />
+    <DegreeKpiRow />
 
-            <ProfWebButton />
+    <section class="dashboardGrid">
 
-        </div>
+        <WorstSubject />
+
+        <YearsTroncComparation />
+
+        <AdmisionGrades />
+
+        <OptEnrolled />
 
     </section>
 
@@ -52,11 +74,11 @@ import ProfWebButton from "@/components/Dashboard/ProfWebButton.vue";
 
 .home{
 
-    min-height:100vh;
-
     margin-left:220px;
 
-    padding:40px;
+    min-height:100vh;
+
+    padding:50px;
 
     background:#111216;
 
@@ -66,39 +88,45 @@ import ProfWebButton from "@/components/Dashboard/ProfWebButton.vue";
 
 }
 
-.hero{
+.hero,
+.dashboardGrid,
+:deep(.kpiGrid){
 
     width:100%;
 
     max-width:1500px;
 
-    margin:0 auto;
+    margin-left:auto;
+
+    margin-right:auto;
+
+}
+
+.hero{
+
+    margin-bottom:34px;
 
 }
 
 .hero h1{
 
-    text-align:center;
+    margin:0 0 16px;
 
-    font-size:clamp(2.5rem,6vw,5rem);
+    font-size:clamp(2.2rem,5vw,3.6rem);
 
     color:white;
 
-    margin-bottom:18px;
-
     font-weight:700;
 
-    letter-spacing:2px;
+    letter-spacing:1px;
 
 }
 
 .subtitle{
 
-    max-width:900px;
+    max-width:760px;
 
-    margin:0 auto 45px;
-
-    text-align:center;
+    margin:0 0 26px;
 
     color:#94a3b8;
 
@@ -108,11 +136,87 @@ import ProfWebButton from "@/components/Dashboard/ProfWebButton.vue";
 
 }
 
-.subtitle strong{
+.freshness{
 
-    color:white;
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:12px;
+
+    margin:0 0 16px;
+
+    padding:0;
+
+    list-style:none;
+
+}
+
+.freshness li{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:3px;
+
+    padding:9px 14px;
+
+    border-radius:10px;
+
+    background:rgba(255,255,255,.04);
+
+    border:1px solid rgba(255,255,255,.07);
+
+}
+
+.freshnessLabel{
+
+    color:#64748b;
+
+    font-size:.7rem;
+
+    text-transform:uppercase;
+
+    letter-spacing:.5px;
 
     font-weight:600;
+
+}
+
+.freshnessValue{
+
+    color:#cbd5e1;
+
+    font-size:.85rem;
+
+    font-weight:600;
+
+    font-variant-numeric:tabular-nums;
+
+}
+
+.methodology{
+
+    margin:0;
+
+}
+
+.methodology a{
+
+    color:#38bdf8;
+
+    text-decoration:none;
+
+    font-size:.9rem;
+
+    font-weight:600;
+
+}
+
+.methodology a:hover{
+
+    text-decoration:underline;
 
 }
 
@@ -122,7 +226,7 @@ import ProfWebButton from "@/components/Dashboard/ProfWebButton.vue";
 
     grid-template-columns:repeat(auto-fit,minmax(360px,1fr));
 
-    gap:28px;
+    gap:26px;
 
     align-items:stretch;
 
@@ -148,37 +252,23 @@ import ProfWebButton from "@/components/Dashboard/ProfWebButton.vue";
 
         margin-left:0;
 
-        padding:20px 14px 90px;
-
-    }
-
-    .hero{
-
-        width:100%;
+        padding:24px 16px 90px;
 
     }
 
     .hero h1{
 
-        font-size:2rem;
+        font-size:1.9rem;
 
         line-height:1.2;
-
-        margin-bottom:16px;
-
-        letter-spacing:1px;
 
     }
 
     .subtitle{
 
-        max-width:100%;
-
-        margin:0 auto 26px;
-
         font-size:.95rem;
 
-        line-height:1.6;
+        margin-bottom:20px;
 
     }
 
@@ -187,16 +277,6 @@ import ProfWebButton from "@/components/Dashboard/ProfWebButton.vue";
         grid-template-columns:1fr;
 
         gap:20px;
-
-    }
-
-    .dashboardGrid > *{
-
-        width:100%;
-
-        max-width:100%;
-
-        min-width:0;
 
     }
 

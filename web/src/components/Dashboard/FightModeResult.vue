@@ -2,8 +2,15 @@
 
 import { computed } from "vue";
 
-import notas from "../../../../data/json/NotasRaw.json";
-import subjects from "../../../../data/json/processed/AsignaturasClasificadasOptTronc.json";
+import {
+    RECENT_YEARS,
+    METRICS,
+    subjectInfo,
+    subjectRate,
+    averageEnrolment,
+    formatPct,
+    formatNumber
+} from "@/utils/metrics";
 
 const props = defineProps({
 
@@ -12,263 +19,70 @@ const props = defineProps({
 
 });
 
-const optionalCodes = new Set(
+const tipoOf = subject => subjectInfo(subject.code)?.tipo ?? null;
 
-    Object.values(subjects.optativas)
-        .flat()
-        .map(subject => subject.code)
-
-);
-
-const coreCodes = new Set(
-
-    Object.values(subjects.troncales)
-        .flat()
-        .map(subject => subject.code)
-
-);
-
-const bothCore = computed(() =>
-
-    coreCodes.has(props.fighter1.code) &&
-    coreCodes.has(props.fighter2.code)
-
-);
-
+// Solo la matriculación depende del carácter: comparar la popularidad de una
+// troncal (obligatoria para todos) con la de una optativa no dice nada.
 const bothOptional = computed(() =>
-
-    optionalCodes.has(props.fighter1.code) &&
-    optionalCodes.has(props.fighter2.code)
-
+    tipoOf(props.fighter1) === "optativa" &&
+    tipoOf(props.fighter2) === "optativa"
 );
-
-const incompatibleComparison = computed(() =>
-
-    !bothCore.value && !bothOptional.value
-
-);
-
-const difficulty = subject => {
-
-    const rows = notas.filter(r =>
-        r["Código"] === subject.code
-    );
-
-    if (!rows.length) return 0;
-
-    const years = [...new Set(
-        rows.map(r => r["Curso Académico"])
-    )]
-        .sort((a,b)=>b.localeCompare(a))
-        .slice(0,3);
-
-    const recent = rows.filter(r =>
-        years.includes(r["Curso Académico"])
-    );
-
-    let weighted = 0;
-    let students = 0;
-
-    recent.forEach(r=>{
-
-        const total =
-            r["No pre"]+
-            r["Sus"]+
-            r["Apr"]+
-            r["Not"]+
-            r["Sob"]+
-            r["MH"];
-
-        weighted +=
-            (Number(r["Sus %"])+Number(r["No pre %"])) * total;
-
-        students += total;
-
-    });
-
-    return students ? weighted/students : 0;
-
-};
-
-const popularity = subject => {
-
-    const rows = notas.filter(r =>
-        r["Código"] === subject.code
-    );
-
-    if(!rows.length) return 0;
-
-    const years=[...new Set(
-        rows.map(r=>r["Curso Académico"])
-    )]
-        .sort((a,b)=>b.localeCompare(a))
-        .slice(0,3);
-
-    const recent=rows.filter(r=>
-        years.includes(r["Curso Académico"])
-    );
-
-    const students=recent.map(r=>
-
-        r["No pre"]+
-        r["Sus"]+
-        r["Apr"]+
-        r["Not"]+
-        r["Sob"]+
-        r["MH"]
-
-    );
-
-    return students.length
-        ? students.reduce((a,b)=>a+b)/students.length
-        :0;
-
-};
-
-const excellence = subject => {
-
-    const rows = notas.filter(r =>
-        r["Código"] === subject.code
-    );
-
-    if (!rows.length) return 0;
-
-    const years = [...new Set(
-        rows.map(r => r["Curso Académico"])
-    )]
-        .sort((a,b)=>b.localeCompare(a))
-        .slice(0,3);
-
-    const recent = rows.filter(r =>
-        years.includes(r["Curso Académico"])
-    );
-
-    let weighted = 0;
-    let students = 0;
-
-    recent.forEach(r=>{
-
-        const total =
-            r["No pre"]+
-            r["Sus"]+
-            r["Apr"]+
-            r["Not"]+
-            r["Sob"]+
-            r["MH"];
-
-        weighted +=
-            (Number(r["Sob %"])+Number(r["MH %"])) * total;
-
-        students += total;
-
-    });
-
-    return students
-        ? weighted/students
-        :0;
-
-};
 
 const metrics = computed(() => {
 
     const result = [];
 
-    if (bothCore.value) {
+    const rate = (key, label) => ({
+        name: label ?? METRICS[key].label,
+        definition: METRICS[key].definition,
+        first: subjectRate(props.fighter1.code, key),
+        second: subjectRate(props.fighter2.code, key),
+        higherIsBetter: METRICS[key].higherIsBetter,
+        format: formatPct
+    });
 
-        result.push({
-
-            name: "Más Fácil",
-
-            first: difficulty(props.fighter1),
-
-            second: difficulty(props.fighter2),
-
-            higherIsBetter: false,
-
-            suffix: " %"
-
-        });
-
-    }
+    result.push(rate("noSuperacion", "Más fácil de superar"));
+    result.push(rate("exito"));
+    result.push(rate("noPresentados"));
+    result.push(rate("excelencia"));
 
     if (bothOptional.value) {
 
         result.push({
-
-            name: "Media de Matriculaciones",
-
-            first: popularity(props.fighter1),
-
-            second: popularity(props.fighter2),
-
+            name: "Media de matriculados",
+            definition:
+                `Media de alumnos matriculados en los últimos ${RECENT_YEARS} cursos.`,
+            first: averageEnrolment(props.fighter1.code),
+            second: averageEnrolment(props.fighter2.code),
             higherIsBetter: true,
-
-            suffix: " alumnos"
-
+            format: value => `${formatNumber(value)} alumnos`
         });
 
     }
-
-    result.push({
-
-        name: "Excelencia",
-
-        first: excellence(props.fighter1),
-
-        second: excellence(props.fighter2),
-
-        higherIsBetter: true,
-
-        suffix: " %"
-
-    });
 
     return result;
 
 });
 
-const winner = metric=>{
+const winner = metric => {
 
-    if(metric.first===metric.second)
-        return 0;
+    if (metric.first === null || metric.second === null) return 0;
 
-    if(metric.higherIsBetter){
+    if (metric.first === metric.second) return 0;
 
-        return metric.first>metric.second
-            ?1
-            :2;
+    if (metric.higherIsBetter) {
+
+        return metric.first > metric.second ? 1 : 2;
 
     }
 
-    return metric.first<metric.second
-        ?1
-        :2;
+    return metric.first < metric.second ? 1 : 2;
 
 };
 
 </script>
 
 <template>
-
-<div
-    v-if="incompatibleComparison"
-    class="panel errorPanel"
->
-
-    <h2>Imposible</h2>
-
-    <p>
-
-        Solo se pueden comparar dos asignaturas del mismo carácter (troncal - optativa).
-
-    </p>
-
-</div>
-
-<div
-    v-else
-    class="panel"
->
 
 <div class="panel">
 
@@ -309,13 +123,16 @@ const winner = metric=>{
 
             <span class="number">
 
-                {{ metric.first.toFixed(1) }}{{ metric.suffix }}
+                {{ metric.format(metric.first) }}
 
             </span>
 
         </div>
 
-        <div class="metricName">
+        <div
+            class="metricName"
+            :title="metric.definition"
+        >
 
             {{ metric.name }}
 
@@ -328,15 +145,13 @@ const winner = metric=>{
 
             <span class="number">
 
-                {{ metric.second.toFixed(1) }}{{ metric.suffix }}
+                {{ metric.format(metric.second) }}
 
             </span>
 
         </div>
 
     </div>
-
-</div>
 
 </div>
 
@@ -578,42 +393,6 @@ h2{
         font-size:1rem;
 
     }
-
-}
-
-.errorPanel{
-
-    text-align:center;
-
-    display:flex;
-
-    flex-direction:column;
-
-    justify-content:center;
-
-    align-items:center;
-
-    gap:18px;
-
-    min-height:260px;
-
-}
-
-.errorPanel h2{
-
-    margin:0;
-
-    color:#f87171;
-
-}
-
-.errorPanel p{
-
-    max-width:500px;
-
-    color:#cbd5e1;
-
-    line-height:1.7;
 
 }
 

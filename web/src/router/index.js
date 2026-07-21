@@ -1,78 +1,94 @@
 import { createRouter, createWebHashHistory } from "vue-router";
-import HomeView from '@/views/Home.vue'
-import firstYear from '@/views/firstYear.vue'
-import secondYear from '@/views/secondYear.vue'
-import thirdYear from '@/views/thirdYear.vue'
-import forthYear from '@/views/forthYear.vue'
-import Optional from '@/views/Optional.vue'
-import FightMode from '@/views/FightMode.vue'
-import ProfWeb from "@/components/Dashboard/ProfWeb.vue";
 
+import HomeView from "@/views/Home.vue";
+
+/**
+ * Rutas en español y en minúsculas. Las antiguas (/firstYear, /Optional,
+ * /dashboard/:code…) se mantienen como redirecciones para no romper enlaces
+ * ni marcadores ya compartidos.
+ */
 const router = createRouter({
-  history: createWebHashHistory(import.meta.env.BASE_URL),
-  routes: [
-    {
-      path: '/',
-      component: HomeView
-    },
 
-    {
-      path: '/firstYear',
-      component: firstYear
-    },
+    history: createWebHashHistory(import.meta.env.BASE_URL),
 
-    {
-      path: '/secondYear',
-      component: secondYear
-    },
+    routes: [
 
-    {
-      path: '/thirdYear',
-      component: thirdYear
-    },
+        {
+            path: "/",
+            name: "home",
+            component: HomeView
+        },
 
-    {
-      path: '/forthYear', 
-      component: forthYear
-    },
+        {
+            path: "/asignaturas",
+            name: "subjects",
+            component: () => import("@/views/Subjects.vue")
+        },
 
-    {
-      path: '/Optional',
-      component: Optional
-    },
+        {
+            path: "/asignatura/:code",
+            name: "subject",
+            component: () => import("@/views/Dashboard.vue")
+        },
 
-    {
-      path: '/fight-mode',
-      component: FightMode
-    },
+        {
+            path: "/curso/:course",
+            name: "course",
+            component: () => import("@/views/Course.vue")
+        },
 
-    {
-      path: '/ProfWeb',
-      component: ProfWeb
-    },
+        {
+            path: "/optativas",
+            name: "optatives",
+            component: () => import("@/views/Optatives.vue")
+        },
 
-    //Dashboards
-    {
-      path: '/dashboard/:code',
-      name: 'dashboard',
-      component: () => import('@/views/Dashboard.vue')
+        {
+            path: "/profesorado",
+            name: "faculty",
+            component: () => import("@/components/Dashboard/ProfWeb.vue")
+        },
 
-    },
+        {
+            path: "/metodologia",
+            name: "methodology",
+            component: () => import("@/views/Methodology.vue")
+        },
 
-    {
-      path: '/dashboardYear/:course',
-      name: 'dashboardYear',
-      component: () => import('@/views/DashboardYear.vue')
+        {
+            path: "/fight-mode",
+            name: "fight",
+            component: () => import("@/views/FightMode.vue")
+        },
 
-    },
+        /* ---------------- Redirecciones de rutas antiguas ---------------- */
 
-    {
-      path: '/dashboardGeneralOpts',
-      name: 'dashboardGeneralOpts',
-      component: () => import('@/views/DashboardGeneralOpts.vue')
+        { path: "/firstYear", redirect: "/curso/1" },
+        { path: "/secondYear", redirect: "/curso/2" },
+        { path: "/thirdYear", redirect: "/curso/3" },
+        { path: "/forthYear", redirect: "/curso/4" },
+        {
+            path: "/dashboardYear/:course",
+            redirect: to => `/curso/${to.params.course}`
+        },
+        { path: "/Optional", redirect: "/optativas" },
+        { path: "/dashboardGeneralOpts", redirect: "/optativas" },
+        {
+            path: "/dashboard/:code",
+            redirect: to => `/asignatura/${to.params.code}`
+        },
+        { path: "/ProfWeb", redirect: "/profesorado" },
 
-    }
-  ],
-})
+        {
+            path: "/:pathMatch(.*)*",
+            redirect: "/"
+        }
 
-export default router
+    ],
+
+    // Al cambiar de página se empieza arriba, no a media altura de la anterior.
+    scrollBehavior: () => ({ top: 0 })
+
+});
+
+export default router;

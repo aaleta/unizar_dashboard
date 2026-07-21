@@ -2,91 +2,32 @@
 
 import { computed } from "vue";
 
-import notas from "../../../../data/json/NotasRaw.json";
-import subjects from "../../../../data/json/processed/AsignaturasClasificadasOptTronc.json";
+import {
+    RECENT_YEARS,
+    allOptionalSubjects,
+    averageEnrolment,
+    subjectName,
+    formatNumber
+} from "@/utils/metrics";
 
-// Optativas únicas (3º y 4º)
-const optionalSubjects = [
-    ...new Map(
-        [
-            ...subjects.optativas["3"],
-            ...subjects.optativas["4"]
-        ].map(subject => [subject.code, subject])
-    ).values()
-];
+const ranking = computed(() =>
 
-// Ranking según la media de matriculados de los 3 últimos cursos
-const ranking = computed(() => {
+    allOptionalSubjects
+        .map(subject => ({
+            code: subject.code,
+            name: subjectName(subject.code),
+            enrolled: averageEnrolment(subject.code)
+        }))
+        .sort((a, b) => b.enrolled - a.enrolled)
 
-    return optionalSubjects
-
-        .map(subject => {
-
-            const rows = notas.filter(
-                row => row["Código"] === subject.code
-            );
-
-            // Últimos tres cursos académicos
-            const lastThreeYears = [...new Set(
-
-                rows.map(row => row["Curso Académico"])
-
-            )]
-            .sort((a,b)=>b.localeCompare(a))
-            .slice(0,3);
-
-            // Filas de esos cursos
-            const recentRows = rows.filter(row =>
-                lastThreeYears.includes(row["Curso Académico"])
-            );
-
-            // Matriculados por curso
-            const enrolledPerYear = recentRows.map(row =>
-
-                Number(row["No pre"]) +
-
-                Number(row["Sus"]) +
-
-                Number(row["Apr"]) +
-
-                Number(row["Not"]) +
-
-                Number(row["Sob"]) +
-
-                Number(row["MH"])
-
-            );
-
-            const average = enrolledPerYear.length
-                ? enrolledPerYear.reduce((a,b)=>a+b,0) / enrolledPerYear.length
-                : 0;
-
-            return{
-
-                code:subject.code,
-
-                name:subject.name,
-
-                enrolled:average
-
-            };
-
-        })
-
-        .sort((a,b)=>b.enrolled-a.enrolled);
-
-});
-
-// Top 3
-const topSubjects = computed(() =>
-    ranking.value.slice(0,3)
 );
 
-// Bottom 3
+const topSubjects = computed(() =>
+    ranking.value.slice(0, 3)
+);
+
 const bottomSubjects = computed(() =>
-    [...ranking.value]
-        .reverse()
-        .slice(0,3)
+    [...ranking.value].reverse().slice(0, 3)
 );
 
 </script>
@@ -123,7 +64,7 @@ const bottomSubjects = computed(() =>
 
         <span class="value">
 
-            {{ subject.enrolled.toFixed(1) }}
+            {{ formatNumber(subject.enrolled, 1) }}
 
         </span>
 
@@ -151,7 +92,7 @@ const bottomSubjects = computed(() =>
 
         <span class="value">
 
-            {{ subject.enrolled.toFixed(1) }}
+            {{ formatNumber(subject.enrolled, 1) }}
 
         </span>
 
@@ -161,7 +102,8 @@ const bottomSubjects = computed(() =>
 
         <p>
 
-            *La métrica corresponde a la media de matriculados en los tres cursos académicos más recientes.
+            Media de alumnos matriculados en los últimos {{ RECENT_YEARS }}
+            cursos académicos con datos.
 
         </p>
 

@@ -1,5 +1,22 @@
 import datos from "../../../data/json/processed/Profesores_GuiasDoc.json";
 
+/**
+ * Construye la red de colaboración docente.
+ *
+ * Nodos   = profesores. Su tamaño es el nº de asignaturas distintas que imparten.
+ * Aristas = dos profesores que comparten asignatura. Su grosor es el PESO de la
+ *           colaboración, no el número de veces que aparecen juntos.
+ *
+ * Peso: compartir una asignatura de 2 profesores es una colaboración estrecha;
+ * compartir una de 8 apenas significa nada. Por eso cada pareja suma 1/n en cada
+ * asignatura y curso académico, donde n es el nº de profesores de esa asignatura
+ * ese año. Un mismo dúo que repite asignatura curso tras curso acumula peso.
+ */
+
+export const ALL_YEARS = "all";
+
+const UNASSIGNED = "no asignados / no encontrados";
+
 const normalize = name =>
     name
         .normalize("NFD")
@@ -14,68 +31,76 @@ const shortName = name => {
     if (parts.length === 1) return name;
 
     return parts
-        .map((part, i) =>
-            i === 0
-                ? part
-                : part.charAt(0) + "."
-        )
+        .map((part, i) => (i === 0 ? part : `${part.charAt(0)}.`))
         .join(" ");
 
 };
 
-const cache = {};
+const pairKey = (a, b) => (a < b ? `${a}|${b}` : `${b}|${a}`);
 
-const years = [...new Set(datos.map(r => r.anyo_academico))];
+/** El TFG lo firma medio departamento y saturaría el grafo de aristas falsas. */
+const usableRows = datos.filter(
+    row => !row.asignatura.toLowerCase().includes("trabajo fin de grado")
+);
 
-years.forEach(year => {
+const years = [...new Set(usableRows.map(row => row.anyo_academico))].sort();
 
-    const rows = datos.filter(
-        r =>
-            r.anyo_academico === year &&
-            !r.asignatura.toLowerCase().includes("trabajo fin de grado")
-    );
+/**
+ * Acumula profesores y pesos de colaboración sobre un conjunto de filas.
+ * @returns {{ nodes: Array, edges: Array }} formato de vis-network
+ */
+const buildGraph = rows => {
 
     const professors = new Map();
-    const edges = new Set();
+    const weights = new Map();
 
-    rows.forEach(subject => {
+    rows.forEach(row => {
 
-        const profs = subject.profesores
-            .filter(name =>
-
-                normalize(name) !== "no asignados / no encontrados"
-
-            )
+        const teachers = row.profesores
+            .filter(name => normalize(name) !== UNASSIGNED)
             .map(name => {
 
-            const id = normalize(name);
+                const id = normalize(name);
 
-            if (!professors.has(id)) {
+                if (!professors.has(id)) {
 
-                professors.set(id, {
-                    id,
-                    label: shortName(name),
-                    subjects: new Set()
-                });
+                    professors.set(id, {
+                        id,
+                        label: shortName(name),
+                        fullName: name.trim(),
+                        subjects: new Set(),
+                        years: new Set()
+                    });
 
-            }
+                }
 
-            professors.get(id).subjects.add(subject.id_asignatura);
+                const professor = professors.get(id);
 
-            return id;
+                professor.subjects.add(row.id_asignatura);
+                professor.years.add(row.anyo_academico);
 
-        });
+                return id;
 
-        for (let i = 0; i < profs.length; i++) {
+            });
 
-            for (let j = i + 1; j < profs.length; j++) {
+        // Sin pareja no hay colaboración que pesar.
+        if (teachers.length < 2) return;
 
-                const key =
-                    profs[i] < profs[j]
-                        ? `${profs[i]}|${profs[j]}`
-                        : `${profs[j]}|${profs[i]}`;
+        // Cada pareja de esta asignatura-año aporta 1/n.
+        const share = 1 / teachers.length;
 
-                edges.add(key);
+        for (let i = 0; i < teachers.length; i++) {
+
+            for (let j = i + 1; j < teachers.length; j++) {
+
+                const key = pairKey(teachers[i], teachers[j]);
+
+                const current = weights.get(key) ?? { weight: 0, shared: 0 };
+
+                current.weight += share;
+                current.shared += 1;
+
+                weights.set(key, current);
 
             }
 
@@ -83,27 +108,48 @@ years.forEach(year => {
 
     });
 
-    cache[year] = {
+    const nodes = [...professors.values()].map(professor => ({
+        id: professor.id,
+        label: professor.label,
+        value: professor.subjects.size,
+        title:
+            `${professor.fullName}\n` +
+            `${professor.subjects.size} asignatura(s) distintas\n` +
+            `${professor.years.size} curso(s) académico(s)`
+    }));
 
-        nodes: [...professors.values()].map(p => ({
-            id: p.id,
-            label: p.label,
-            value: p.subjects.size
-        })),
+    const edges = [...weights.entries()].map(([key, data]) => {
 
-        edges: [...edges].map(key => {
+        const [from, to] = key.split("|");
 
-            const [from, to] = key.split("|");
+        return {
+            from,
+            to,
+            value: data.weight,
+            title:
+                `Peso de colaboración: ${data.weight.toFixed(2)}\n` +
+                `${data.shared} asignatura(s)-curso compartidas`
+        };
 
-            return {
-                from,
-                to
-            };
+    });
 
-        })
+    return { nodes, edges };
 
-    };
+};
+
+const cache = {};
+
+years.forEach(year => {
+
+    cache[year] = buildGraph(
+        usableRows.filter(row => row.anyo_academico === year)
+    );
 
 });
+
+// Vista agregada: todos los cursos académicos a la vez.
+cache[ALL_YEARS] = buildGraph(usableRows);
+
+export const availableYears = years;
 
 export default cache;

@@ -1,45 +1,79 @@
+<script setup>
+
+/**
+ * La navegación se agrupa en secciones: antes Fight Mode y la red de
+ * profesores solo se alcanzaban desde tarjetas de la portada y no había
+ * forma de volver a ellas.
+ */
+const SECTIONS = [
+    {
+        title: null,
+        links: [
+            { to: "/", label: "Inicio", exact: true },
+            { to: "/asignaturas", label: "Asignaturas" }
+        ]
+    },
+    {
+        title: "Cursos",
+        links: [
+            { to: "/curso/1", label: "1º" },
+            { to: "/curso/2", label: "2º" },
+            { to: "/curso/3", label: "3º" },
+            { to: "/curso/4", label: "4º" },
+            { to: "/optativas", label: "Optativas" }
+        ]
+    },
+    {
+        title: "Más",
+        links: [
+            { to: "/profesorado", label: "Profesorado" },
+            { to: "/fight-mode", label: "Fight Mode" },
+            { to: "/metodologia", label: "Metodología" }
+        ]
+    }
+];
+
+</script>
+
 <template>
 
-    <aside class="sidebar">
+<aside class="sidebar">
 
-        <div class="logo">
-            Menú
+    <div class="logo">
+        Física Unizar
+    </div>
+
+    <nav>
+
+        <div
+            v-for="(section, index) in SECTIONS"
+            :key="index"
+            class="section"
+        >
+
+            <span
+                v-if="section.title"
+                class="sectionTitle"
+            >
+                {{ section.title }}
+            </span>
+
+            <RouterLink
+                v-for="link in section.links"
+                :key="link.to"
+                :to="link.to"
+                :class="{ exact: link.exact }"
+            >
+                {{ link.label }}
+            </RouterLink>
+
         </div>
 
-        <nav>
+    </nav>
 
-            <RouterLink to="/">
-                <p>Inicio</p>
-            </RouterLink>
-
-            <RouterLink to="/firstYear">
-                <p>1º</p>
-            </RouterLink>
-
-            <RouterLink to="/secondYear">
-                <p>2º</p>
-            </RouterLink>
-
-            <RouterLink to="/thirdYear">
-                <p>3º</p>
-            </RouterLink>
-
-            <RouterLink to="/forthYear">
-                <p>4º</p>
-            </RouterLink>
-
-            <RouterLink to="/Optional">
-                <p>Optativas</p>
-            </RouterLink>
-
-        </nav>
-
-    </aside>
+</aside>
 
 </template>
-
-<script setup>
-</script>
 
 <style scoped>
 
@@ -62,6 +96,8 @@
 
     box-shadow:8px 0 25px rgba(0,0,0,.35);
 
+    overflow-y:auto;
+
     z-index:1000;
 
 }
@@ -70,16 +106,18 @@
 
     height:80px;
 
+    flex-shrink:0;
+
     display:flex;
     justify-content:center;
     align-items:center;
 
     color:white;
 
-    font-size:1.6rem;
+    font-size:1.1rem;
     font-weight:700;
 
-    letter-spacing:2px;
+    letter-spacing:1.5px;
 
     border-bottom:1px solid rgba(255,255,255,.08);
 
@@ -91,9 +129,35 @@ nav{
 
     flex-direction:column;
 
-    gap:8px;
+    gap:18px;
 
     padding:20px 12px;
+
+}
+
+.section{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:4px;
+
+}
+
+.sectionTitle{
+
+    padding:0 18px 6px;
+
+    color:#64748b;
+
+    font-size:.68rem;
+
+    font-weight:700;
+
+    text-transform:uppercase;
+
+    letter-spacing:1px;
 
 }
 
@@ -103,25 +167,19 @@ nav a{
 
     align-items:center;
 
-    padding:14px 18px;
+    padding:11px 18px;
 
-    border-radius:12px;
+    border-radius:10px;
 
     text-decoration:none;
 
     color:#d1d5db;
 
-    transition:.2s;
-
-}
-
-nav a p{
-
-    margin:0;
-
-    font-size:1rem;
+    font-size:.95rem;
 
     font-weight:500;
+
+    transition:.2s;
 
 }
 
@@ -133,13 +191,15 @@ nav a:hover{
 
 }
 
-.router-link-active{
+/* "Inicio" solo se marca en la raíz; el resto, también en sus subrutas. */
+nav a.router-link-active:not(.exact),
+nav a.exact.router-link-exact-active{
 
     background:rgba(56,189,248,.18);
 
     color:white;
 
-    border-left:4px solid #38bdf8;
+    box-shadow:inset 3px 0 0 #38bdf8;
 
 }
 
@@ -156,7 +216,7 @@ nav a:hover{
         left:0;
 
         width:100%;
-        height:70px;
+        height:64px;
 
         flex-direction:row;
 
@@ -165,9 +225,13 @@ nav a:hover{
 
         box-shadow:0 -8px 20px rgba(0,0,0,.35);
 
+        overflow-x:auto;
+        overflow-y:hidden;
+
     }
 
-    .logo{
+    .logo,
+    .sectionTitle{
 
         display:none;
 
@@ -177,11 +241,19 @@ nav a:hover{
 
         width:100%;
 
-        padding:0;
+        padding:0 4px;
 
         flex-direction:row;
 
-        justify-content:space-around;
+        align-items:center;
+
+        gap:0;
+
+    }
+
+    .section{
+
+        flex-direction:row;
 
         align-items:center;
 
@@ -191,34 +263,22 @@ nav a:hover{
 
     nav a{
 
-        flex:1;
+        height:64px;
 
-        height:70px;
-
-        justify-content:center;
-        align-items:center;
-
-        padding:0;
+        padding:0 14px;
 
         border-radius:0;
 
-    }
-
-    nav a p{
+        white-space:nowrap;
 
         font-size:.85rem;
 
-        text-align:center;
-
     }
 
-    .router-link-active{
+    nav a.router-link-active:not(.exact),
+    nav a.exact.router-link-exact-active{
 
-        border-left:none;
-
-        border-top:4px solid #38bdf8;
-
-        background:rgba(56,189,248,.18);
+        box-shadow:inset 0 3px 0 #38bdf8;
 
     }
 

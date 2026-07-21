@@ -1,0 +1,23 @@
+{
+    "notas": {
+        "label": "Calificaciones por asignatura",
+        "ultimo_curso": "2024-2025",
+        "fuente": "https://estudios.unizar.es/informe/resultados-academicos?estudio_id=20250124"
+    },
+    "resultados": {
+        "label": "Tasas oficiales de rendimiento",
+        "ultimo_curso": "2024-2025",
+        "actualizado": "28/06/2026",
+        "fuente": "https://zaguan.unizar.es/collection/opendata-academico-rendimiento-asignatura-titulacion?ln=en"
+    },
+    "notas_corte": {
+        "label": "Notas de corte y de acceso",
+        "ultimo_curso": "2025",
+        "fuente": "https://estudios.unizar.es/"
+    },
+    "guias": {
+        "label": "Profesorado y guías docentes",
+        "ultimo_curso": "2026-2027",
+        "fuente": "https://sia.unizar.es/"
+    }
+}

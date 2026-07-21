@@ -14,8 +14,11 @@ import {
 
 import { Line } from "vue-chartjs";
 
-import notas from "../../../../data/json/NotasRaw.json";
-import subjects from "../../../../data/json/processed/AsignaturasClasificadasOptTronc.json";
+import {
+    METRICS,
+    academicYears,
+    courseSeries
+} from "@/utils/metrics";
 
 ChartJS.register(
     CategoryScale,
@@ -27,80 +30,26 @@ ChartJS.register(
 );
 
 const props = defineProps({
-    course: String
-});
 
-const courseSubjects = computed(() =>
-    subjects.troncales[props.course] ?? []
-);
-
-
-const years = computed(() => {
-
-    return [...new Set(
-
-        notas.map(r => r["Curso Académico"])
-
-    )].sort();
+    course: [String, Number]
 
 });
 
-const values = computed(() =>
-
-    years.value.map(year => {
-
-        let weighted = 0;
-        let studentsTotal = 0;
-
-        courseSubjects.value.forEach(subject => {
-
-            const row = notas.find(r =>
-
-                r["Código"] === subject.code &&
-                r["Curso Académico"] === year
-
-            );
-
-            if (!row) return;
-
-            const students =
-
-                row["No pre"] +
-                row["Sus"] +
-                row["Apr"] +
-                row["Not"] +
-                row["Sob"] +
-                row["MH"];
-
-            const difficulty =
-
-                Number(row["Sus %"]) +
-                Number(row["No pre %"]);
-
-            weighted += difficulty * students;
-            studentsTotal += students;
-
-        });
-
-        return studentsTotal
-            ? weighted / studentsTotal
-            : null;
-
-    })
-
+const series = computed(() =>
+    courseSeries(props.course, "noSuperacion")
 );
 
 const chartData = computed(() => ({
 
-    labels: years.value,
+    labels: academicYears,
 
     datasets: [
 
         {
 
-            label: "Dificultad media",
+            label: METRICS.noSuperacion.label,
 
-            data: values.value,
+            data: series.value.map(point => point.value),
 
             borderColor: "#3b82f6",
 
@@ -118,7 +67,7 @@ const chartData = computed(() => ({
 
             pointBorderColor: "#fff",
 
-            pointBorderWidth: 2
+            spanGaps: true
 
         }
 
@@ -126,13 +75,7 @@ const chartData = computed(() => ({
 
 }));
 
-const maxValue = computed(() =>
-
-    Math.ceil(Math.max(...values.value.filter(v => v !== null)) + 5)
-
-);
-
-const chartOptions = computed(() => ({
+const chartOptions = {
 
     responsive: true,
 
@@ -150,9 +93,7 @@ const chartOptions = computed(() => ({
 
             callbacks: {
 
-                label: ctx =>
-
-                    `${ctx.raw.toFixed(2)} %`
+                label: context => `${context.raw.toFixed(1)} % no supera`
 
             }
 
@@ -165,15 +106,11 @@ const chartOptions = computed(() => ({
         x: {
 
             ticks: {
-
                 color: "#cbd5e1"
-
             },
 
             grid: {
-
                 display: false
-
             }
 
         },
@@ -182,27 +119,25 @@ const chartOptions = computed(() => ({
 
             beginAtZero: true,
 
-            suggestedMax: maxValue.value,
+            suggestedMax: 50,
 
             ticks: {
 
                 color: "#94a3b8",
 
-                callback: value => value + "%"
+                callback: value => `${value} %`
 
             },
 
             grid: {
-
                 color: "rgba(255,255,255,.08)"
-
             }
 
         }
 
     }
 
-}));
+};
 
 </script>
 
@@ -212,7 +147,7 @@ const chartOptions = computed(() => ({
 
     <h2>
 
-        Evolución de la dificultad del curso
+        Evolución de la tasa de no superación del curso
 
     </h2>
 
@@ -227,10 +162,9 @@ const chartOptions = computed(() => ({
 
     <div class="footer">
 
-        Media ponderada del porcentaje de
-        <strong>Suspensos + No Presentados</strong>
-        considerando el número de matriculados
-        de todas las asignaturas troncales del curso.
+        <strong>{{ METRICS.noSuperacion.label }}</strong>:
+        {{ METRICS.noSuperacion.definition }}
+        Media de las troncales del curso, ponderada por matriculados.
 
     </div>
 

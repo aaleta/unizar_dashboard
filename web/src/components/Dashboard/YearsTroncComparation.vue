@@ -13,8 +13,11 @@ import {
 
 import { Bar } from "vue-chartjs";
 
-import notas from "../../../../data/json/NotasRaw.json";
-import subjects from "../../../../data/json/processed/AsignaturasClasificadasOptTronc.json";
+import {
+    RECENT_YEARS,
+    METRICS,
+    courseRate
+} from "@/utils/metrics";
 
 ChartJS.register(
     CategoryScale,
@@ -26,132 +29,27 @@ ChartJS.register(
 
 const courses = ["1", "2", "3", "4"];
 
-const courseAverage = (course) => {
-
-    const courseSubjects = subjects.troncales[course];
-
-    if (!courseSubjects || courseSubjects.length === 0) return 0;
-
-    const subjectMeans = courseSubjects.map(subject => {
-
-        const rows = notas.filter(
-            row => row["Código"] === subject.code
-        );
-
-        if (rows.length === 0) return 0;
-
-        const lastThreeYears = [...new Set(
-            rows.map(row => row["Curso Académico"])
-        )]
-        .sort((a, b) => b.localeCompare(a))
-        .slice(0, 3);
-
-        const recentRows = rows.filter(row =>
-            lastThreeYears.includes(row["Curso Académico"])
-        );
-
-        if (recentRows.length === 0) return 0;
-
-        const totalEnrolled = recentRows.reduce(
-
-    (sum, row) =>
-
-        sum +
-
-        Number(row["No pre"]) +
-
-        Number(row["Sus"]) +
-
-        Number(row["Apr"]) +
-
-        Number(row["Not"]) +
-
-        Number(row["Sob"]) +
-
-        Number(row["MH"]),
-
-    0
-
+const values = computed(() =>
+    courses.map(course => courseRate(course, "noSuperacion") ?? 0)
 );
-
-if (totalEnrolled === 0) return 0;
-
-const weightedAverage = recentRows.reduce(
-
-    (sum, row) => {
-
-        const enrolled =
-
-            Number(row["No pre"]) +
-
-            Number(row["Sus"]) +
-
-            Number(row["Apr"]) +
-
-            Number(row["Not"]) +
-
-            Number(row["Sob"]) +
-
-            Number(row["MH"]);
-
-        return sum +
-
-            (Number(row["Sus %"]) + Number(row["No pre %"])) * enrolled;
-
-    },
-
-    0
-
-);
-
-return weightedAverage / totalEnrolled;
-
-    });
-
-    return (
-
-        subjectMeans.reduce((sum, value) => sum + value, 0)
-
-        / subjectMeans.length
-
-    );
-
-};
-
-const values = computed(() => courses.map(courseAverage));
 
 const chartData = computed(() => ({
 
-    labels: [
-
-        "1º",
-
-        "2º",
-
-        "3º",
-
-        "4º"
-
-    ],
+    labels: courses.map(course => `${course}º`),
 
     datasets: [
 
         {
 
-            label: "Media % Suspensos + No Presentados",
+            label: METRICS.noSuperacion.label,
 
             data: values.value,
 
             backgroundColor: [
-
                 "#3b82f6",
-
                 "#2563eb",
-
                 "#1d4ed8",
-
                 "#1e40af"
-
             ],
 
             borderRadius: 10,
@@ -184,9 +82,7 @@ const chartOptions = {
 
             callbacks: {
 
-                label: context =>
-
-                    `${context.raw.toFixed(2)} %`
+                label: context => `${context.raw.toFixed(1)} % no supera`
 
             }
 
@@ -206,7 +102,7 @@ const chartOptions = {
 
                 color: "#cbd5e1",
 
-                callback: value => value + "%"
+                callback: value => `${value} %`
 
             },
 
@@ -265,7 +161,10 @@ const chartOptions = {
 
     <div class="footer">
 
-        *Media ponderada del porcentaje de suspensos y no presentados de las asignaturas troncales durante los tres cursos académicos más recientes.
+        <strong>{{ METRICS.noSuperacion.label }}</strong>:
+        {{ METRICS.noSuperacion.definition }}
+        Media ponderada por matriculados de las troncales de cada curso
+        durante los últimos {{ RECENT_YEARS }} cursos académicos.
 
     </div>
 

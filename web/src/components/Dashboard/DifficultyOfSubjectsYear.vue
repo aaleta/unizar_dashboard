@@ -1,184 +1,111 @@
 <script setup>
 
-import { computed } from "vue";
+import { ref, computed } from "vue";
 
 import {
     Chart as ChartJS,
-    RadialLinearScale,
-    PointElement,
-    LineElement,
-    Filler,
+    CategoryScale,
+    LinearScale,
+    BarElement,
     Tooltip,
     Legend
 } from "chart.js";
 
-import { Radar } from "vue-chartjs";
+import { Bar } from "vue-chartjs";
 
-import notas from "../../../../data/json/NotasRaw.json";
-import subjects from "../../../../data/json/processed/AsignaturasClasificadasOptTronc.json";
+import {
+    RECENT_YEARS,
+    METRICS,
+    coreSubjects,
+    optionalSubjectsOf,
+    subjectRate,
+    subjectName,
+    averageEnrolment,
+    formatPct
+} from "@/utils/metrics";
 
 ChartJS.register(
-    RadialLinearScale,
-    PointElement,
-    LineElement,
-    Filler,
+    CategoryScale,
+    LinearScale,
+    BarElement,
     Tooltip,
     Legend
 );
 
 const props = defineProps({
-    course: String
+
+    // La vista pasa un número; las claves del JSON son cadenas.
+    course: [String, Number]
+
 });
 
-const courseSubjects = computed(() =>
-    subjects.troncales[props.course] ?? []
+/**
+ * 3º y 4º son medio optativos, así que se puede incluirlas; por defecto se
+ * comparan solo las troncales, que son las que cursa todo el mundo.
+ */
+const includeOptional = ref(false);
+
+const hasOptional = computed(() =>
+    optionalSubjectsOf(props.course).length > 0
 );
 
-const difficulty = (subject) => {
+const subjects = computed(() => {
 
-    const rows = notas.filter(
-        r => r["Código"] === subject.code
-    );
+    const core = coreSubjects(props.course).map(subject => ({
+        ...subject,
+        tipo: "troncal"
+    }));
 
-    if (!rows.length) return 0;
+    if (!includeOptional.value) return core;
 
-    const years = [...new Set(
-        rows.map(r => r["Curso Académico"])
-    )]
-        .sort((a, b) => b.localeCompare(a))
-        .slice(0, 3);
+    const optional = optionalSubjectsOf(props.course).map(subject => ({
+        ...subject,
+        tipo: "optativa"
+    }));
 
-    const recentRows = rows.filter(r =>
-        years.includes(r["Curso Académico"])
-    );
+    return [...core, ...optional];
 
-    let weighted = 0;
-    let totalStudents = 0;
+});
 
-    recentRows.forEach(row => {
+// Barras ordenadas: la comparación se lee de arriba abajo sin buscar.
+const ranked = computed(() =>
 
-        const students =
-            row["No pre"] +
-            row["Sus"] +
-            row["Apr"] +
-            row["Not"] +
-            row["Sob"] +
-            row["MH"];
+    subjects.value
+        .map(subject => ({
+            code: subject.code,
+            tipo: subject.tipo,
+            name: subjectName(subject.code),
+            value: subjectRate(subject.code, "noSuperacion"),
+            enrolment: averageEnrolment(subject.code)
+        }))
+        .filter(item => item.value !== null)
+        .sort((a, b) => b.value - a.value)
 
-        const difficultyValue =
-            Number(row["Sus %"]) +
-            Number(row["No pre %"]);
-
-        weighted += difficultyValue * students;
-        totalStudents += students;
-
-    });
-
-    return totalStudents
-        ? weighted / totalStudents
-        : 0;
-
-};
-
-const values = computed(() =>
-    courseSubjects.value.map(difficulty)
 );
 
-const maxDifficulty = computed(() => {
-
-    if (!values.value.length) return 40;
-
-    return Math.ceil(Math.max(...values.value) + 5);
-
-});
-
-const hardestSubject = computed(() => {
-
-    if (!courseSubjects.value.length) return null;
-
-    let hardest = courseSubjects.value[0];
-    let max = difficulty(hardest);
-
-    courseSubjects.value.forEach(subject => {
-
-        const value = difficulty(subject);
-
-        if (value > max) {
-
-            max = value;
-            hardest = subject;
-
-        }
-
-    });
-
-    return {
-
-        name: hardest.name,
-        difficulty: max
-
-    };
-
-});
+const hardestSubject = computed(() =>
+    ranked.value.length ? ranked.value[0] : null
+);
 
 const chartData = computed(() => ({
 
-    labels: courseSubjects.value.map(
-        s => s.name
-    ),
+    labels: ranked.value.map(item => item.name),
 
     datasets: [
 
         {
 
-            label: "Dificultad",
+            label: METRICS.noSuperacion.label,
 
-            data: values.value,
+            data: ranked.value.map(item => item.value),
 
-            backgroundColor(context) {
+            backgroundColor: ranked.value.map(item =>
+                item.tipo === "optativa" ? "#a855f7" : "#3b82f6"
+            ),
 
-                const chart = context.chart;
-                const { ctx, chartArea } = chart;
+            borderRadius: 6,
 
-                if (!chartArea)
-                    return "rgba(59,130,246,.25)";
-
-                const gradient = ctx.createLinearGradient(
-                    0,
-                    chartArea.top,
-                    0,
-                    chartArea.bottom
-                );
-
-                gradient.addColorStop(
-                    0,
-                    "rgba(59,130,246,.45)"
-                );
-
-                gradient.addColorStop(
-                    1,
-                    "rgba(59,130,246,.08)"
-                );
-
-                return gradient;
-
-            },
-
-            borderColor: "#60a5fa",
-
-            borderWidth: 4,
-
-            pointRadius: 6,
-
-            pointHoverRadius: 9,
-
-            pointBackgroundColor: "#60a5fa",
-
-            pointBorderColor: "#ffffff",
-
-            pointBorderWidth: 2,
-
-            fill: true
+            barThickness: 16
 
         }
 
@@ -192,29 +119,25 @@ const chartOptions = computed(() => ({
 
     maintainAspectRatio: false,
 
+    indexAxis: "y",
+
     plugins: {
 
         legend: {
-
             display: false
-
         },
 
         tooltip: {
 
-            backgroundColor: "#0f172a",
-
-            borderColor: "#3b82f6",
-
-            borderWidth: 1,
-
-            padding: 12,
-
             callbacks: {
 
-                label: context =>
+                label: context => {
 
-                    `${context.label}: ${context.raw.toFixed(1)} %`
+                    const item = ranked.value[context.dataIndex];
+
+                    return `${formatPct(item.value)} no supera · ${Math.round(item.enrolment)} matriculados de media`;
+
+                }
 
             }
 
@@ -224,43 +147,32 @@ const chartOptions = computed(() => ({
 
     scales: {
 
-        r: {
+        x: {
 
             beginAtZero: true,
 
-            suggestedMax: maxDifficulty.value,
-
-            angleLines: {
-
-                color: "rgba(255,255,255,.18)"
-
+            ticks: {
+                color: "#cbd5e1",
+                callback: value => `${value} %`
             },
 
             grid: {
+                color: "rgba(255,255,255,.08)"
+            }
 
-                color: "rgba(255,255,255,.12)"
+        },
 
-            },
-
-            pointLabels: {
-
-                color: "white",
-
-                font: {
-
-                    size: 15,
-                    weight: "bold"
-
-                }
-
-            },
+        y: {
 
             ticks: {
+                color: "white",
+                font: {
+                    size: 12
+                }
+            },
 
-                display: false,
-
-                backdropColor: "transparent"
-
+            grid: {
+                display: false
             }
 
         }
@@ -268,6 +180,11 @@ const chartOptions = computed(() => ({
     }
 
 }));
+
+// Altura proporcional al nº de barras: si no, se aplastan unas sobre otras.
+const chartHeight = computed(() =>
+    Math.max(260, ranked.value.length * 30 + 60)
+);
 
 </script>
 
@@ -280,22 +197,28 @@ const chartOptions = computed(() => ({
         <div>
 
             <span class="badge">
-                Curso {{ course }}
+                {{ course }}º curso
             </span>
 
-            <h2>
-
-                Dificultad de las asignaturas
-
-            </h2>
+            <h2>Dificultad de las asignaturas</h2>
 
             <p class="subtitle">
-
-                Media ponderada del porcentaje de
-                <strong>Suspensos + No Presentados</strong>
-                durante los tres cursos académicos más recientes.
-
+                <strong>{{ METRICS.noSuperacion.label }}</strong>:
+                {{ METRICS.noSuperacion.definition }}
+                Media ponderada por matriculados de los últimos
+                {{ RECENT_YEARS }} cursos académicos.
             </p>
+
+            <label
+                v-if="hasOptional"
+                class="toggle"
+            >
+                <input
+                    v-model="includeOptional"
+                    type="checkbox"
+                >
+                Incluir optativas del curso
+            </label>
 
         </div>
 
@@ -305,53 +228,47 @@ const chartOptions = computed(() => ({
         >
 
             <span class="highlightTitle">
-
                 Asignatura más difícil
-
             </span>
 
-            <h3>
-
-                {{ hardestSubject.name }}
-
-            </h3>
+            <h3>{{ hardestSubject.name }}</h3>
 
             <div class="difficultyValue">
-
-                {{ hardestSubject.difficulty.toFixed(1) }}%
-
+                {{ formatPct(hardestSubject.value) }}
             </div>
 
         </div>
 
     </div>
 
-    <div class="chartContainer">
+    <div
+        class="chartContainer"
+        :style="{ height: `${chartHeight}px` }"
+    >
 
-        <Radar
-
+        <Bar
             :data="chartData"
-
             :options="chartOptions"
-
         />
 
     </div>
 
     <div class="footer">
 
-        <div class="legend">
+        <span class="legendItem">
+            <span class="legendDot core"></span> Troncal
+        </span>
 
-            <div class="legendDot"></div>
+        <span
+            v-if="includeOptional"
+            class="legendItem"
+        >
+            <span class="legendDot optional"></span> Optativa
+        </span>
 
-            <span>
-
-                Cuanto más alejado del centro,
-                mayor dificultad presenta la asignatura.
-
-            </span>
-
-        </div>
+        <span class="legendNote">
+            Barras más largas = más alumnos no superan la asignatura.
+        </span>
 
     </div>
 
@@ -363,39 +280,17 @@ const chartOptions = computed(() => ({
 
 .panel{
 
-    width:min(950px,95vw);
+    width:100%;
 
-    min-height:760px;
+    padding:30px;
 
-    margin:auto;
+    box-sizing:border-box;
 
-    padding:34px;
+    background:#1e293b;
 
-    background:linear-gradient(
-        180deg,
-        #1f2937 0%,
-        #172033 100%
-    );
-
-    border-radius:26px;
+    border-radius:20px;
 
     border:1px solid rgba(255,255,255,.08);
-
-    box-shadow:
-        0 18px 50px rgba(0,0,0,.35);
-
-    transition:.3s;
-
-}
-
-.panel:hover{
-
-    transform:translateY(-6px);
-
-    border-color:#60a5fa;
-
-    box-shadow:
-        0 25px 60px rgba(0,0,0,.45);
 
 }
 
@@ -409,7 +304,7 @@ const chartOptions = computed(() => ({
 
     gap:30px;
 
-    margin-bottom:35px;
+    margin-bottom:26px;
 
 }
 
@@ -417,7 +312,7 @@ const chartOptions = computed(() => ({
 
     display:inline-block;
 
-    padding:8px 14px;
+    padding:6px 12px;
 
     border-radius:999px;
 
@@ -425,23 +320,23 @@ const chartOptions = computed(() => ({
 
     color:#93c5fd;
 
-    font-size:.85rem;
+    font-size:.8rem;
 
     font-weight:700;
 
     letter-spacing:.5px;
 
-    margin-bottom:16px;
+    margin-bottom:12px;
 
 }
 
 .header h2{
 
-    margin:0;
+    margin:0 0 10px;
 
     color:white;
 
-    font-size:2rem;
+    font-size:1.4rem;
 
     font-weight:700;
 
@@ -449,66 +344,89 @@ const chartOptions = computed(() => ({
 
 .subtitle{
 
-    margin-top:12px;
+    max-width:640px;
+
+    margin:0;
 
     color:#94a3b8;
 
-    max-width:600px;
+    font-size:.88rem;
 
-    line-height:1.7;
-
-    font-size:1rem;
+    line-height:1.6;
 
 }
 
 .subtitle strong{
 
-    color:white;
+    color:#cbd5e1;
+
+}
+
+.toggle{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    margin-top:14px;
+
+    color:#cbd5e1;
+
+    font-size:.85rem;
+
+    cursor:pointer;
+
+}
+
+.toggle input{
+
+    accent-color:#38bdf8;
+
+    cursor:pointer;
 
 }
 
 .highlight{
 
-    min-width:260px;
+    flex-shrink:0;
 
-    padding:22px;
+    min-width:200px;
 
-    border-radius:18px;
+    padding:18px 20px;
 
-    background:linear-gradient(
-        135deg,
-        rgba(59,130,246,.18),
-        rgba(30,64,175,.35)
-    );
+    border-radius:16px;
 
-    border:1px solid rgba(96,165,250,.35);
+    background:rgba(239,68,68,.1);
 
-    text-align:center;
+    border:1px solid rgba(239,68,68,.25);
 
-    box-shadow:
-        inset 0 0 25px rgba(255,255,255,.03);
+    text-align:right;
 
 }
 
 .highlightTitle{
 
-    color:#bfdbfe;
+    color:#fca5a5;
 
-    font-size:.85rem;
+    font-size:.72rem;
+
+    font-weight:700;
 
     text-transform:uppercase;
 
-    letter-spacing:1px;
+    letter-spacing:.5px;
 
 }
 
 .highlight h3{
 
-    margin:18px 0;
+    margin:8px 0 10px;
 
     color:white;
 
-    font-size:1.3rem;
+    font-size:1.05rem;
 
     line-height:1.35;
 
@@ -516,26 +434,11 @@ const chartOptions = computed(() => ({
 
 .difficultyValue{
 
-    display:inline-flex;
+    color:#f87171;
 
-    justify-content:center;
-
-    align-items:center;
-
-    padding:12px 24px;
-
-    border-radius:999px;
-
-    background:#3b82f6;
-
-    color:white;
-
-    font-size:2rem;
+    font-size:1.6rem;
 
     font-weight:700;
-
-    box-shadow:
-        0 10px 25px rgba(59,130,246,.35);
 
 }
 
@@ -543,67 +446,75 @@ const chartOptions = computed(() => ({
 
     width:100%;
 
-    height:560px;
-
 }
 
 .footer{
 
-    margin-top:28px;
+    display:flex;
 
-    padding-top:20px;
+    flex-wrap:wrap;
+
+    align-items:center;
+
+    gap:18px;
+
+    margin-top:20px;
+
+    padding-top:16px;
 
     border-top:1px solid rgba(255,255,255,.08);
 
+    color:#94a3b8;
+
+    font-size:.8rem;
+
 }
 
-.legend{
+.legendItem{
 
     display:flex;
 
     align-items:center;
 
-    justify-content:center;
-
-    gap:12px;
-
-    color:#94a3b8;
-
-    font-size:.95rem;
+    gap:8px;
 
 }
 
 .legendDot{
 
-    width:14px;
+    width:11px;
 
-    height:14px;
+    height:11px;
 
-    border-radius:50%;
-
-    background:#60a5fa;
-
-    box-shadow:
-        0 0 12px rgba(96,165,250,.7);
+    border-radius:3px;
 
 }
 
-@media (max-width:768px){
+.legendDot.core{
+
+    background:#3b82f6;
+
+}
+
+.legendDot.optional{
+
+    background:#a855f7;
+
+}
+
+.legendNote{
+
+    margin-left:auto;
+
+    color:#64748b;
+
+}
+
+@media(max-width:768px){
 
     .panel{
 
-        width:100%;
-        max-width:100%;
-
-        min-height:auto;
-
-        padding:20px 16px;
-
-        border-radius:18px;
-
-        box-sizing:border-box;
-
-        overflow:hidden;
+        padding:20px;
 
     }
 
@@ -611,37 +522,7 @@ const chartOptions = computed(() => ({
 
         flex-direction:column;
 
-        align-items:center;
-
-        text-align:center;
-
-        gap:20px;
-
-        margin-bottom:25px;
-
-    }
-
-    .badge{
-
-        margin-bottom:10px;
-
-    }
-
-    .header h2{
-
-        font-size:1.45rem;
-
-        line-height:1.3;
-
-    }
-
-    .subtitle{
-
-        max-width:100%;
-
-        font-size:.95rem;
-
-        line-height:1.6;
+        gap:18px;
 
     }
 
@@ -649,57 +530,13 @@ const chartOptions = computed(() => ({
 
         width:100%;
 
-        min-width:0;
-
-        max-width:100%;
-
-        padding:18px;
-
-        box-sizing:border-box;
+        text-align:left;
 
     }
 
-    .highlight h3{
+    .legendNote{
 
-        font-size:1.15rem;
-
-    }
-
-    .difficultyValue{
-
-        font-size:1.5rem;
-
-        padding:10px 20px;
-
-    }
-
-    .chartContainer{
-
-        width:100%;
-
-        height:320px;
-
-        min-width:0;
-
-    }
-
-    .footer{
-
-        margin-top:20px;
-
-        padding-top:16px;
-
-    }
-
-    .legend{
-
-        flex-direction:column;
-
-        gap:8px;
-
-        text-align:center;
-
-        font-size:.9rem;
+        margin-left:0;
 
     }
 

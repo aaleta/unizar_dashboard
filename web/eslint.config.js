@@ -24,6 +24,16 @@ export default defineConfig([
   js.configs.recommended,
   ...pluginVue.configs['flat/essential'],
 
+  {
+    // Las vistas de ruta y el layout son únicos por definición: obligarles a
+    // llevar nombre compuesto (HomeView, CourseView…) solo añade ruido.
+    name: 'app/single-word-route-views',
+    files: ['src/views/**/*.vue', 'src/components/Sidebar.vue'],
+    rules: {
+      'vue/multi-word-component-names': 'off',
+    },
+  },
+
   ...pluginOxlint.buildFromOxlintConfigFile('.oxlintrc.json'),
 
   skipFormatting,
