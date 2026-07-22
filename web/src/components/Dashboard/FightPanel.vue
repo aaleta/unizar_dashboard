@@ -107,6 +107,16 @@ const startFight=()=>{
 
 };
 
+const resetFight = () => {
+
+    fighter1.value = "";
+    fighter2.value = "";
+
+    show1.value = false;
+    show2.value = false;
+
+};
+
 </script>
 
 <template>
@@ -235,15 +245,24 @@ const startFight=()=>{
 
     </datalist>
 
-    <button
-        class="fightButton"
-        :disabled="!subject1 || !subject2"
-        @click="startFight"
-    >
+    <div class="buttons">
 
-        Fight
+        <button
+            class="fightButton"
+            :disabled="!subject1 || !subject2"
+            @click="startFight"
+        >
+            Fight
+        </button>
 
-    </button>
+        <button
+            class="resetButton"
+            @click="resetFight"
+        >
+            Reset
+        </button>
+
+    </div>
 
 </div>
 
@@ -489,6 +508,60 @@ input:focus{
 .suggestion:hover{
 
     background:#2563eb;
+
+}
+
+.buttons{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:16px;
+
+}
+
+.resetButton{
+
+    padding:14px 40px;
+
+    border:none;
+
+    border-radius:10px;
+
+    background:#475569;
+
+    color:white;
+
+    font-size:1rem;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.2s;
+
+}
+
+.resetButton:hover{
+
+    background:#334155;
+
+}
+
+@media(max-width:768px){
+
+    .buttons{
+
+        flex-direction:column;
+
+    }
+
+    .resetButton{
+
+        width:100%;
+
+    }
 
 }
 
