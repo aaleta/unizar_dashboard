@@ -1,12 +1,35 @@
-html,
+/**
+ * Base de la aplicación.
+ *
+ * El orden importa: tokens y tipografía se importan antes que nada para que
+ * las variables existan cuando se usen aquí abajo.
+ *
+ * OJO — rediseño en curso: el tema pasa de oscuro a papel cálido, pero las
+ * vistas de escritorio aún no migradas siguen pintando sus colores oscuros a
+ * pelo y se ven mal a partir de aquí. Es la consecuencia asumida de rehacer
+ * primero el móvil (ver MOBILE_REDESIGN_PLAN.md), no un fallo suelto.
+ */
 
+@import "./theme/fonts.css";
+@import "./theme/tokens.css";
+@import "./theme/typography.css";
+
+*,
+*::before,
+*::after{
+
+    box-sizing:border-box;
+
+}
+
+html,
 body{
+
     margin:0;
 
     overflow-x:hidden;
+
 }
-
-
 
 #app{
 
@@ -16,6 +39,54 @@ body{
     width:100%;
     min-height:100vh;
 
-    background:#0f172a;
+    /* Con la barra de direcciones de los móviles, 100vh se pasa de largo y
+       deja un hueco al final. dvh mide el viewport que de verdad se ve. */
+    min-height:100dvh;
+
+    background:var(--paper);
+
+}
+
+/* La navegación es táctil: el resalte azul de iOS al tocar sobra. */
+a,
+button{
+
+    -webkit-tap-highlight-color:transparent;
+
+}
+
+a{
+
+    color:var(--navy);
+
+    text-decoration:none;
+
+}
+
+/* Quien navega con teclado tiene derecho a saber dónde está. */
+:focus-visible{
+
+    outline:2px solid var(--navy);
+
+    outline-offset:2px;
+
+}
+
+/* Respeta a quien ha pedido que las cosas no se muevan. */
+@media (prefers-reduced-motion:reduce){
+
+    *,
+    *::before,
+    *::after{
+
+        animation-duration:.01ms !important;
+
+        animation-iteration-count:1 !important;
+
+        transition-duration:.01ms !important;
+
+        scroll-behavior:auto !important;
+
+    }
 
 }

@@ -167,10 +167,17 @@ Todas las cifras del mock salen de datos reales. Verificado ya contra `data/`:
 
 ### D5 — Rampa de dificultad: una sola función
 
-Handoff §5 y §10 lo exigen explícitamente. `theme/difficulty.js` exporta
-`difficultyFill(pct)` y `difficultyText(pct)` sobre los umbrales del handoff
-(≥45 / 33-44 / 22-32 / 15-21 / 8-14 / <8). **Ningún componente define un color de dificultad
-por su cuenta.** Se aplica al punto de la fila, a las barras, al numeral y a las gráficas.
+Handoff §5 y §10 lo exigen explícitamente. `theme/difficulty.js` exporta `difficultyFill(pct)`,
+`difficultyInk(pct, small)` y `difficultyBand(pct)`. **Ningún componente define un color de
+dificultad por su cuenta.** Se aplica al punto de la fila, a las barras, al numeral y a las
+gráficas.
+
+Los seis tramos del handoff son **cinco** en el código: los dos últimos (8-14 % y <8 %) llevan
+exactamente el mismo par de colores, así que mantenerlos separados sería fingir una distinción
+que no existe. Los umbrales son los mismos.
+
+La web no tenía ninguna escala equivalente con la que alinear estos umbrales: solo un `hot >= 30`
+suelto en `Subjects.vue`, que la rampa sustituye.
 
 ---
 
@@ -214,7 +221,7 @@ no hay que construirla: ya existe, solo hay que condicionarla al viewport.
 
 ---
 
-## Fase 1 — Cimientos de diseño
+## Fase 1 — Cimientos de diseño · ✅ **COMPLETADA**
 
 **Objetivo:** los tokens del handoff §5 existen en el código y son la única fuente de color,
 tipografía y espaciado de **toda la app** (no solo del móvil: el rediseño de escritorio heredará
@@ -248,6 +255,51 @@ decoración + ganador de Fight Mode.
 
 **Aceptación:** galería `/dev/ui` comparada lado a lado con el prototipo; ningún color
 hard-codeado fuera de `theme/`.
+
+### Resultado
+
+| Entregable | Fichero |
+|---|---|
+| Tokens | `theme/tokens.css` — el contrato de color de §4 está escrito en la cabecera, no solo en este plan |
+| Tipografía | `theme/typography.css` — escala + utilidades `.num`, `.eyebrow`, `.serif` |
+| Rampa | `theme/difficulty.js` — verificada tramo a tramo contra el handoff §5 |
+| Paleta de notas | `theme/gradePalette.js` |
+| Primitivas | `components/ui/` — `UiCard`, `UiCallout`, `UiChip`, `UiCountBar`, `UiDifficultyDot`, `UiKpiCard`, `UiLinkRow`, `UiPill`, `UiSearchField`, `UiSectionHeader`, `UiSortHeader`, `UiStat` |
+| Galería | `views/dev/UiGallery.vue` + ruta `/dev/ui` |
+| Base | `style.css` reescrito: papel cálido, reset, foco visible, `prefers-reduced-motion` |
+
+**Comprobado:** lint y build verdes · la galería no entra en el bundle de producción
+(`import.meta.env.DEV` se evalúa en compilación) · auditoría de color sin ningún hex fuera de
+`theme/` · rampa contrastada contra la tabla del handoff, tramo a tramo.
+
+**Nombres con prefijo `Ui`:** eslint exige nombres compuestos (`vue/multi-word-component-names`)
+salvo en `views/`. `UiCard` en vez de `Card` evita tocar la configuración del linter y sigue la
+convención de componentes base de la guía de estilo de Vue. La galería vive en `views/dev/` para
+quedar cubierta por la excepción existente.
+
+**`Eyebrow` no es un componente**, es la clase `.eyebrow` de `typography.css`. Un componente Vue
+para envolver un `<span>` con tres propiedades CSS es más ceremonia que utilidad; la clase se usa
+igual y no obliga a importar nada.
+
+### Un hallazgo que cambia la rampa: contraste
+
+Los tonos de texto del handoff se quedan **entre 3,1:1 y 3,7:1** sobre papel. Eso cumple AA para
+texto grande (≥3:1) pero **no para texto normal** (≥4,5:1), y la tasa de no superación aparece a
+**11px** en las filas de las listas de `#1c` y `#9a` — no solo en la KPI de 23px.
+
+Por eso `difficulty.js` expone **dos tonos de texto por tramo**:
+
+| | Uso | Contraste sobre papel |
+|---|---|---|
+| `ink` | Numeral grande (23px), tal cual lo especifica el handoff | 3,1 – 6,1 (AA texto grande) |
+| `inkSmall` | Cifras de 11-13px, oscurecido | **4,5 – 6,1 (AA)** |
+
+`difficultyInk(value, small)` decide cuál. El tramo más duro no necesitaba ajuste (ya iba a 6:1).
+Los rellenos (`fill`) no se tocan: son superficie, no texto, y son los del handoff exactamente.
+
+Es una desviación deliberada y mínima respecto del diseño, en la dirección que el propio handoff
+pide ("*the numeral text uses the darker readable tone*"). **A confirmar con quien diseñó**, pero
+la alternativa era publicar cifras que no se leen en una web de datos públicos.
 
 ---
 

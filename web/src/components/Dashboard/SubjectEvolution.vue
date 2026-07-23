@@ -23,6 +23,8 @@ import {
     formatPct
 } from "@/utils/metrics";
 
+import { gradeColor } from "@/theme/gradePalette";
+
 ChartJS.register(
     CategoryScale,
     LinearScale,
@@ -78,11 +80,11 @@ const chartData = computed(() => ({
 
         }),
 
-        borderColor: category.color,
+        borderColor: gradeColor(category.key),
 
-        backgroundColor: `${category.color}2b`,
+        backgroundColor: `${gradeColor(category.key)}2b`,
 
-        pointBackgroundColor: category.color,
+        pointBackgroundColor: gradeColor(category.key),
 
         pointBorderColor: "#ffffff",
 

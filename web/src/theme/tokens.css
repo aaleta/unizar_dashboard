@@ -1,0 +1,164 @@
+/**
+ * Tokens de diseño. Única fuente de color, radio, sombra y espaciado.
+ *
+ * Ningún componente debe escribir un color a pelo: si hace falta uno que no
+ * está aquí, se añade aquí. Es el mismo principio que ya aplica metrics.js a
+ * las métricas, aplicado al aspecto.
+ *
+ * ------------------------------------------------------------------------
+ * EL CONTRATO DE COLOR — la regla que gobierna todo lo demás
+ * ------------------------------------------------------------------------
+ * La credibilidad de esta web depende de que el color NO mienta. Hay cuatro
+ * papeles y no pueden mezclarse:
+ *
+ *   1. NAVY      → estructura y cromo. Cabeceras, pestaña activa, botones,
+ *                  enlaces, contadores estructurales, la línea del timeline.
+ *                  El navy NUNCA codifica una magnitud.
+ *   2. RAMPA     → dificultad, y solo dificultad (tasa de no superación).
+ *                  Vive en theme/difficulty.js, no aquí.
+ *   3. GRIS      → recuentos y cantidades (matrículas, peso de colaboración).
+ *                  Una cantidad no es una dificultad, así que va en gris.
+ *   4. NOTAS     → el desglose No presentado→MH, y nada más.
+ *                  Vive en theme/gradePalette.js, no aquí.
+ *
+ * El oro es decoración y el ganador de Fight Mode; tampoco es un dato.
+ *
+ * Ante la duda: ¿esto es estructura, dificultad, un recuento o una categoría
+ * de nota?
+ */
+
+:root{
+
+    /* ---------------------------------------------------------------- *
+     * Marca
+     * ---------------------------------------------------------------- */
+
+    /* Azul corporativo de Unizar (PANTONE 653C). */
+    --navy:#223d71;
+    --navy-soft:#3a4667;          /* Navy legible sobre fondo claro */
+    --navy-faint:#aeb9d1;         /* Subtítulos y eyebrows SOBRE el navy */
+    --navy-line:#c3ccdd;          /* Bordes de píldora navy */
+    --navy-line-soft:#cdd4e0;     /* Bordes de control (selector de año) */
+    --navy-wash:#eef0f5;          /* Fondo de aviso estructural */
+    --navy-wash-line:#dfe3ec;
+
+    /* Oro heráldico: decoración y ganador de Fight Mode. Nunca un dato. */
+    --gold:#c9a24b;
+    --gold-ink:#a8813a;           /* Oro legible como texto */
+    --gold-wash:#fbf5e7;
+
+    /* ---------------------------------------------------------------- *
+     * Superficies
+     * ---------------------------------------------------------------- */
+
+    --paper:#f4efe6;              /* Fondo de la aplicación */
+    --surface:#fff;               /* Tarjeta */
+    --surface-alt:#fcfaf5;        /* Tarjeta de optativa */
+    --surface-sunken:#ece5d7;     /* Cabecera de tabla ordenable */
+
+    /* ---------------------------------------------------------------- *
+     * Líneas
+     * ---------------------------------------------------------------- */
+
+    --line:#e7ded0;               /* Borde de tarjeta, divisor por defecto */
+    --line-inner:#f0eadd;         /* Divisor DENTRO de una tarjeta */
+    --line-rule:#e7e0d2;          /* Regla de pie de sección */
+    --line-strong:#ddd3c2;        /* Borde de control (buscador, cabecera) */
+    --line-tab:#e2d8c6;           /* Borde superior de la barra de pestañas */
+    --line-chip:#cdc3b0;          /* Borde de chip inactivo */
+    --line-dashed:#cdbf9e;        /* Borde discontinuo de optativa */
+    --line-spine:#d7cdb9;         /* Línea vertical del mapa del grado */
+
+    /* ---------------------------------------------------------------- *
+     * Texto
+     * ---------------------------------------------------------------- */
+
+    --ink:#23201b;                /* Primario */
+    --ink-2:#4a463e;              /* Secundario */
+    --ink-3:#5f584c;              /* Etiqueta de chip inactivo */
+    --ink-muted:#6e675c;
+    --ink-soft:#8a8275;           /* Eyebrows y metadatos sobre papel */
+    --ink-faint:#a49a86;          /* Notas al pie en mono */
+    --ink-faint-2:#948c7e;
+    --ink-placeholder:#9a9182;    /* Placeholder y huecos por rellenar */
+    --ink-icon:#a49a88;           /* Iconos de control */
+    --ink-on-navy:#fff;           /* Texto sobre superficie navy */
+
+    /* ---------------------------------------------------------------- *
+     * Recuentos — barras grises. Una cantidad NO es una dificultad.
+     * ---------------------------------------------------------------- */
+
+    --count-fill:#a89a86;
+    --count-track:#efe7d7;
+
+    /* ---------------------------------------------------------------- *
+     * Avisos
+     * ---------------------------------------------------------------- */
+
+    /* "Dura": la asignatura más difícil, la advertencia con peso. */
+    --warn-bg:#f9ece7;
+    --warn-line:#f0d6cb;
+    --warn-title:#8f3521;
+    --warn-body:#9c6b5c;
+
+    /* Cohorte pequeña: el ⚠ y su nota. Llama la atención sin alarmar.
+       El handoff fija el glifo y el texto; el fondo y el borde se derivan de
+       ellos para poder montar el aviso completo. */
+    --attention:#c89a2e;
+    --attention-ink:#a08a3e;
+    --attention-bg:#fbf6e8;
+    --attention-line:#eee0bd;
+
+    /* ---------------------------------------------------------------- *
+     * Variación (deltas)
+     * ---------------------------------------------------------------- *
+     * Ojo: el color dice "mejor o peor", no "sube o baja". Subir un 19 pp de
+     * no superación es malo y va en rojo; subir un 2 pp de aprobados es bueno
+     * y va en verde. Quien pinta el delta decide el signo, no el token.
+     */
+
+    --delta-good:#4a6a44;
+    --delta-bad:#b5482f;
+    --delta-flat:#8a8275;
+
+    /* ---------------------------------------------------------------- *
+     * Radios
+     * ---------------------------------------------------------------- */
+
+    --radius-row:8px;             /* Fila de asignatura */
+    --radius-control:9px;         /* Botón, buscador */
+    --radius-card:11px;
+    --radius-card-lg:14px;
+    --radius-sheet:16px;          /* Hoja desplegable "Más" */
+    --radius-pill:999px;
+
+    /* ---------------------------------------------------------------- *
+     * Sombras — escasas a propósito: esto es papel, no material design.
+     * ---------------------------------------------------------------- */
+
+    --shadow-card:0 1px 3px rgba(35,32,27,.05);
+    --shadow-sheet:0 14px 34px rgba(20,18,14,.30);
+    --shadow-medallion:0 2px 6px rgba(34,61,113,.28);
+
+    --scrim:rgba(24,20,14,.44);
+
+    /* ---------------------------------------------------------------- *
+     * Espaciado y medidas
+     * ---------------------------------------------------------------- */
+
+    --gutter:16px;                /* Margen horizontal del contenido */
+    --gap-row:7px;                /* Entre filas de una lista */
+    --gap-card:9px;               /* Entre tarjetas de una rejilla */
+    --gap-section:16px;           /* Ritmo vertical entre secciones */
+    --pad-card:12px 13px;
+
+    --tab-bar-height:62px;
+
+    /* Mínimo táctil. No es decorativo: por debajo de esto la gente falla. */
+    --touch-target:44px;
+
+    /* El mock está dibujado a 402px. En pantallas anchas el contenido se
+       contiene en lugar de estirarse hasta lo ilegible. */
+    --content-max:520px;
+
+}

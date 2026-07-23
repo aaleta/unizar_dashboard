@@ -174,14 +174,16 @@ export const BASES = {
 
 /* ------------------------------------------------------------------ *
  * Categorías de calificación
- * ------------------------------------------------------------------ */
+ * ------------------------------------------------------------------ *
+ * Sin color: qué se cuenta y con qué denominador no cambia porque cambie el
+ * diseño. Los colores viven en theme/gradePalette.js, indexados por `key`.
+ */
 
 export const GRADE_CATEGORIES = [
     {
         key: "No pre",
         label: "No presentados",
         short: "No pr",
-        color: "#94a3b8",
         count: noPresentados,
         // Fuera de la distribución cuando el denominador son los presentados.
         onlyOverMatriculados: true
@@ -190,42 +192,38 @@ export const GRADE_CATEGORIES = [
         key: "Sus",
         label: "Suspensos",
         short: "Susp",
-        color: "#ef4444",
         count: suspensos
     },
     {
         key: "Apr",
         label: "Aprobados",
         short: "Apr",
-        color: "#22c55e",
         count: row => num(row["Apr"])
     },
     {
         key: "Not",
         label: "Notables",
         short: "Not",
-        color: "#3b82f6",
         count: row => num(row["Not"])
     },
     {
         key: "Sob",
         label: "Sobresalientes",
         short: "Sob",
-        color: "#a855f7",
         count: row => num(row["Sob"])
     },
     {
         key: "MH",
         label: "Matrículas de honor",
         short: "MH",
-        color: "#facc15",
         count: row => num(row["MH"])
     }
 ];
 
 /**
  * Distribución de calificaciones de una fila, sobre la base indicada.
- * @returns [{ key, label, short, color, count, pct }]
+ * @returns [{ key, label, short, count, pct }] — el color se pide aparte a
+ *          theme/gradePalette.js con la misma `key`.
  */
 export const distribution = (row, baseKey = "matriculados") => {
 
@@ -246,7 +244,6 @@ export const distribution = (row, baseKey = "matriculados") => {
                 key: category.key,
                 label: category.label,
                 short: category.short,
-                color: category.color,
                 count,
                 pct: rate(count, total)
             };

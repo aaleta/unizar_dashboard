@@ -79,6 +79,24 @@ const router = createRouter({
         },
         { path: "/ProfWeb", redirect: "/profesorado" },
 
+        /* ---------------- Solo en desarrollo ---------------- */
+
+        /**
+         * Galería de primitivas del sistema de diseño. `import.meta.env.DEV`
+         * lo evalúa Vite en tiempo de compilación, así que en producción esta
+         * rama desaparece y la vista ni siquiera entra en el bundle.
+         *
+         * Va antes del comodín: si no, /dev/ui acabaría redirigido a la
+         * portada.
+         */
+        ...(import.meta.env.DEV
+            ? [{
+                path: "/dev/ui",
+                name: "dev-ui",
+                component: () => import("@/views/dev/UiGallery.vue")
+            }]
+            : []),
+
         {
             path: "/:pathMatch(.*)*",
             redirect: "/"

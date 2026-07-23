@@ -20,6 +20,8 @@ import {
     formatPct
 } from "@/utils/metrics";
 
+import { gradeColor } from "@/theme/gradePalette";
+
 ChartJS.register(
     CategoryScale,
     LinearScale,
@@ -61,7 +63,7 @@ const chartData = computed(() => ({
 
         data: slices.value.map(slice => slice.pct ?? 0),
 
-        backgroundColor: slices.value.map(slice => slice.color),
+        backgroundColor: slices.value.map(slice => gradeColor(slice.key)),
 
         borderRadius: 8,
 
@@ -196,7 +198,7 @@ const chartOptions = computed(() => ({
                     <th scope="row">
                         <span
                             class="dot"
-                            :style="{ background: slice.color }"
+                            :style="{ background: gradeColor(slice.key) }"
                         ></span>
                         {{ slice.label }}
                     </th>

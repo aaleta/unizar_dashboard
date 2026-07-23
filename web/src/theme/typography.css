@@ -1,0 +1,125 @@
+/**
+ * Escala tipográfica.
+ *
+ * Tres familias con tres papeles que no se cruzan:
+ *
+ *   Spectral        → titulares, cabeceras de sección, nombres de asignatura.
+ *   Public Sans     → cuerpo, etiquetas de interfaz, botones.
+ *   IBM Plex Mono   → TODAS las cifras y porcentajes, los eyebrows, los
+ *                     metadatos y los códigos.
+ *
+ * Lo de la mono es lo importante: los números son el producto. En mono se
+ * alinean en columna, se comparan de un vistazo y no bailan al cambiar de
+ * dígito. Un porcentaje escrito en Public Sans es un error, no un matiz.
+ *
+ * Los tamaños del handoff están medidos a 402px (el ancho del mock). Los
+ * titulares escalan de forma fluida entre 320px y 480px; el texto pequeño no
+ * escala, porque por debajo de 11px deja de leerse y "proporcional" no es
+ * excusa para eso.
+ */
+
+:root{
+
+    --font-serif:'Spectral',Georgia,'Times New Roman',serif;
+    --font-sans:'Public Sans',system-ui,-apple-system,'Segoe UI',sans-serif;
+    --font-mono:'IBM Plex Mono','SF Mono',Menlo,Consolas,monospace;
+
+    /* Titulares — fluidos: 22→27px y 25→30px entre 320px y 480px de ancho. */
+    --text-h1:clamp(22px,calc(12px + 3.125vw),27px);
+    --text-h1-lg:clamp(25px,calc(14.3px + 3.34vw),30px);
+
+    /* Secciones y tarjetas — el rango es de 1px, no merece fluidez. */
+    --text-section:16px;
+    --text-card-title:14.5px;
+
+    /* Cuerpo */
+    --text-body:12.5px;
+    --text-body-sm:11.5px;
+    --text-body-xs:11px;
+
+    /* Cifras. La KPI grande es el elemento con más peso de cada pantalla. */
+    --text-kpi:23px;
+    --text-metric:15.5px;
+    --text-num:11px;
+    --text-num-sm:10px;
+
+    /* Eyebrow: mono, mayúsculas, con letter-spacing. Ver .eyebrow abajo. */
+    --text-eyebrow:9px;
+    --text-eyebrow-sm:8.5px;
+    --text-nav:9px;
+    --text-footnote:8.5px;
+
+    --leading-tight:1.15;
+    --leading-snug:1.35;
+    --leading-body:1.5;
+
+}
+
+html{
+
+    /* Aunque casi todo se mide en px, el usuario puede haber subido el tamaño
+       base del navegador y los rem del futuro deben respetarlo. */
+    -webkit-text-size-adjust:100%;
+
+}
+
+body{
+
+    font-family:var(--font-sans);
+
+    font-size:var(--text-body);
+
+    line-height:var(--leading-body);
+
+    color:var(--ink);
+
+    -webkit-font-smoothing:antialiased;
+
+    -moz-osx-font-smoothing:grayscale;
+
+}
+
+/* ------------------------------------------------------------------ *
+ * Utilidades tipográficas
+ * ------------------------------------------------------------------ *
+ * Son tres patrones que se repiten en las once pantallas. Como clases
+ * globales se escriben una vez; como estilos sueltos por componente
+ * acabarían divergiendo.
+ */
+
+/** Cualquier cifra visible. Tabular para que las columnas cuadren. */
+.num{
+
+    font-family:var(--font-mono);
+
+    font-variant-numeric:tabular-nums;
+
+    font-weight:600;
+
+}
+
+/** Etiqueta pequeña en mayúsculas que rotula un bloque. */
+.eyebrow{
+
+    font-family:var(--font-mono);
+
+    font-size:var(--text-eyebrow);
+
+    font-weight:600;
+
+    letter-spacing:.5px;
+
+    text-transform:uppercase;
+
+    color:var(--ink-soft);
+
+}
+
+/** Titulares y nombres de asignatura. */
+.serif{
+
+    font-family:var(--font-serif);
+
+    font-weight:600;
+
+}
