@@ -1,0 +1,558 @@
+# Plan de implementación — Rediseño móvil "Grado en Física"
+
+> **Documento temporal de trabajo.** Plan por fases para implementar
+> `design_handoff_physics_mobile/` sobre `web/`. Borrar (o mover a `docs/`) cuando el
+> rediseño esté terminado.
+>
+> Fuente de verdad del diseño: `design_handoff_physics_mobile/README.md` +
+> `prototype/mobile-screens.dc.html` (abrir en navegador, ids `#1c`, `#2a`, …).
+> Este documento **no** re-especifica el diseño: solo organiza *cómo* llevarlo al código.
+
+---
+
+## 0. Estado actual del código (lo que ya tenemos)
+
+| Área | Situación |
+|---|---|
+| Stack | Vue 3.5 (SFC `<script setup>`) + Vite 8 + vue-router 5 (**hash history**), `base: /unizar_dashboard/` |
+| Estado | **No hay store** (ni Pinia ni Vuex). Los datos son JSON importados estáticamente y funciones puras |
+| Capa de datos | `utils/metrics.js` (625 líneas, "definiciones ÚNICAS"), `utils/dataSources.js`, `utils/NodesLinks.js` |
+| Gráficas | `chart.js` + `vue-chartjs`; red de profesores con `cytoscape` / `vis-network` |
+| Navegación | `Sidebar.vue` fija de 220px, que a <768px se convierte en una barra inferior con scroll horizontal |
+| Tema | **Oscuro** (`#0f172a` / `#111827` / paleta slate-tailwind), forma de escritorio |
+| Volumen | ~10.300 líneas entre vistas, componentes y utilidades |
+
+**Lo bueno:** la capa de datos ya cumple el principio de "una sola definición" que exige el
+handoff (§10). Las vistas móviles pueden consumir `metrics.js` tal cual, sin recalcular nada.
+
+**Lo que cambia:** absolutamente toda la piel (tema oscuro → papel cálido `#F4EFE6` + navy
+`#223D71`), la tipografía (Spectral / Public Sans / IBM Plex Mono), y la capa de navegación
+(sidebar → header navy + tab bar de 4 pestañas + action sheet).
+
+### Divergencias entre rutas actuales y las del handoff
+
+| Handoff §6 | Ruta actual | Decisión propuesta |
+|---|---|---|
+| `/grado` (Spine `#1c`) | — no existe | **Nueva** |
+| `/grado/:curso` (`#3a`) | `/curso/:course` | Usar `/grado/:curso`, dejar `/curso/:course` como redirección |
+| `/fight` (`#5a`) | `/fight-mode` | Usar `/fight`, redirigir la antigua |
+| `/acerca` (`#10a`) | — no existe | **Nueva** (contenido estático) |
+| `/asignatura/:code` (`#2a`) | `/asignatura/:code` | Igual ✔ |
+| `/asignaturas`, `/optativas`, `/profesorado`, `/metodologia` | iguales | Igual ✔ |
+
+El bloque de redirecciones de `router/index.js` ya establece el patrón: **añadir, nunca romper
+enlaces existentes.**
+
+---
+
+## 1. Decisiones de arquitectura (tomar antes de la Fase 1)
+
+### D1 — Cómo conviven móvil y escritorio ← *la decisión importante* · **DECIDIDA**
+
+**Decisión: un solo código base, responsive, mobile-first.** No hay versión móvil y versión
+escritorio separadas.
+
+Contexto aportado por el usuario, que fija la decisión:
+
+1. **El escritorio puede quedar roto de momento.** Esto elimina el único argumento fuerte a
+   favor de dos árboles paralelos: en el plan anterior el árbol `src/mobile/` existía para
+   *proteger* el escritorio en funcionamiento. Si el escritorio es prescindible, esa protección
+   no vale nada y solo se paga en duplicación.
+2. **El escritorio agregará funcionalidad que el móvil no puede tener** (p.ej. la red completa
+   de profesores). Esto exige **intercambio de componente por pantalla**, no un árbol paralelo.
+
+**Por qué un solo código base**
+
+- De las 11 pantallas, **solo Profesorado** diverge de verdad en modelo de interacción
+  (lista ego a persona vs. grafo de fuerzas de 267 nodos). El propio handoff ya define la
+  costura: en móvil, *"Ver red completa →"* enlaza al grafo de escritorio. Duplicar diez
+  pantallas para resolver una es mal negocio.
+- **El diseño de escritorio todavía no existe.** Un árbol de escritorio paralelo sería andamiaje
+  construido contra nada. Cuando llegue ese diseño compartirá marca, contrato de color, tokens y
+  rampa de dificultad — todo definido por el handoff a nivel de **producto**, no de móvil.
+- **El handoff ya obliga a ser responsive** (≈320px → tablet, §3). Ampliar ese rango hacia
+  arriba más adelante es continuo, no un mecanismo nuevo.
+- **La duplicación peligrosa es la lógica, no el CSS.** Ordenación, filtros, agregados por curso,
+  derivación del ego-network: en `composables/`, el rediseño de escritorio los consume en vez de
+  reimplementarlos. Ahí es donde nacen los bugs de "el mismo número calculado de dos formas".
+
+**Estructura resultante**
+
+```
+web/src/
+├─ theme/            ← tokens, rampa de dificultad, paleta de notas   (nuevo)
+├─ composables/      ← lógica derivada, sin UI                         (nuevo)
+├─ components/
+│  ├─ ui/            ← primitivas del sistema de diseño                (nuevo)
+│  ├─ layout/        ← AppShell, AppHeader, BottomTabBar, MoreSheet    (nuevo)
+│  ├─ charts/        ← wrappers de chart.js con el tema nuevo          (nuevo)
+│  └─ Dashboard/     ← componentes actuales: fuente de lógica a extraer,
+│                      y hogar de los componentes SOLO-ESCRITORIO
+└─ views/            ← reescritas in situ, mobile-first
+```
+
+`components/Dashboard/` no se borra: contiene la lógica que funciona (configuración de gráficas,
+grafo de profesores, reglas de Fight Mode). Se va canibalizando hacia `composables/` conforme
+avanzan las fases. `ProfGraph.vue` / `ProfWeb.vue` se quedan **tal cual**: son el componente
+solo-escritorio, y se renderizan únicamente por encima del breakpoint.
+
+**Mecanismo de divergencia por viewport** (cuando haga falta, no antes):
+
+```js
+const { isDesktop } = useViewport()          // matchMedia reactivo
+const FullGraph = defineAsyncComponent(() => import('@/components/Dashboard/ProfWeb.vue'))
+// <FullGraph v-if="isDesktop" /> <ProfEgoList v-else />
+```
+
+Con carga diferida, `cytoscape` y `vis-network` —las dos dependencias más pesadas— **nunca se
+descargan en un móvil**. Dos árboles paralelos darían lo mismo, pero pagándolo con la
+duplicación de todo lo que no necesitaba duplicarse.
+
+**Simplificación que se adopta ahora:** *no construir todavía el conmutador de viewport.* Se
+construye mobile-first y las pantallas anchas muestran el layout móvil con un `max-width`
+limitado. `useViewport()` se introduce cuando aterrice la primera divergencia real
+(Profesorado, Fase 7a). Un conmutador sin nada que conmutar es complejidad especulativa.
+
+**Coste honesto y asumido:** algunos componentes acumularán CSS de breakpoints cuando llegue el
+diseño de escritorio, y unos pocos habrá que partirlos entonces. Es un coste real pero
+**posterior**, y solo se paga donde de verdad hace falta — frente a duplicarlo todo por
+adelantado apostando a que hará falta.
+
+*Alternativas descartadas:* (A) árbol `src/mobile/` paralelo conmutado por viewport — solo se
+justificaba para proteger un escritorio que ahora es prescindible; (C) rama móvil desechable —
+no hay razón para tirar el trabajo si la base es compartida desde el principio.
+
+### D2 — Paleta de calificaciones
+
+`metrics.js` define `GRADE_CATEGORIES` con colores tailwind (`#94a3b8`, `#ef4444`, `#22c55e`…).
+El handoff §5 exige otros (`#B9B0A1`, `#B5482F`, `#6E9A6A`, `#4E86A0`, `#7E6BA6`, `#D2A03F`).
+
+**Propuesta (revisada tras D1):** con un solo código base y el escritorio prescindible, ya no hay
+motivo para el apaño. Se hace lo correcto de una vez: **sacar el color de `metrics.js`** (un
+color no es una métrica) y llevarlo a `theme/gradePalette.js`, indexado por la `key` de
+`GRADE_CATEGORIES`. `metrics.js` se queda solo con definiciones y recuentos, que es lo que su
+propia cabecera dice que es.
+
+Impacto: `GradeDistribution.vue` y cualquier consumidor de `category.color` pasan a leer la
+paleta del tema. Es un cambio pequeño y mecánico, y deja `metrics.js` más limpio para el
+rediseño de escritorio.
+
+### D3 — Fuentes · **HECHA (Fase 0)**
+
+Auto-hospedadas, como se proponía. Detalles de la implementación real:
+
+- Los `.woff2` viven en `src/assets/fonts/` (**no** en `public/fonts/`): así Vite los versiona
+  y reescribe las URLs respetando `base: '/unizar_dashboard/'`. Desde `public/` habría que
+  escribir la ruta base a mano y se rompería al cambiarla.
+- `src/theme/fonts.css`, importado desde `main.js` antes de `style.css`.
+- Solo subconjuntos `latin` + `latin-ext`; 12 ficheros, ~217 kB en total (un navegador solo
+  descarga los que usa).
+- ⚠ **Public Sans es una fuente VARIABLE**: Google sirve **el mismo fichero** para 400/500/600/
+  700 y solo cambia la etiqueta `font-weight`. Declararla con pesos sueltos hace que el
+  navegador **sintetice** las negritas en vez de usar el eje real. Se declara una sola vez por
+  subconjunto con `font-weight:100 900`. Spectral e IBM Plex Mono sí son estáticas.
+  *(Detectado porque Vite dedujo 4 ficheros idénticos y emitió uno solo.)*
+
+### D4 — Nada de números escritos a mano
+
+Todas las cifras del mock salen de datos reales. Verificado ya contra `data/`:
+
+- `4 CURSOS · 33 TRONCALES · 21 OPTATIVAS` → **correcto** (12+9+6+6 troncales; 21 optativas
+  únicas, ofertadas 21 en 3º y 19 en 4º).
+- ⚠ `"Buscar entre 53 asignaturas…"` (`#9a`) → el catálogo real tiene **54** códigos únicos.
+  **La cifra se calcula (`allSubjects.length`), no se escribe.** Mismo criterio en todos los
+  contadores y en el subtítulo de Optativas.
+- Frescura de fuentes (`#8a`): Calificaciones 2024-2025 · Tasas 2024-2025 · Notas de corte 2025
+  · Profesorado 2026-2027 → **coincide** con `DataFreshness.json`. Sale de `DATA_SOURCES`.
+
+### D5 — Rampa de dificultad: una sola función
+
+Handoff §5 y §10 lo exigen explícitamente. `theme/difficulty.js` exporta
+`difficultyFill(pct)` y `difficultyText(pct)` sobre los umbrales del handoff
+(≥45 / 33-44 / 22-32 / 15-21 / 8-14 / <8). **Ningún componente define un color de dificultad
+por su cuenta.** Se aplica al punto de la fila, a las barras, al numeral y a las gráficas.
+
+---
+
+## Fase 0 — Preparación · ✅ **COMPLETADA**
+
+**Objetivo:** rama, tooling y decisiones cerradas.
+
+1. Crear la rama `mobile` desde `main`. *(Sigue siendo útil aunque el código base sea único: es
+   una rama de trabajo larga, no una versión paralela del producto. Se fusiona a `main` cuando
+   el móvil esté terminado, con el escritorio pendiente de rediseño.)*
+2. Cerrar D3 con el usuario (D1, D2, D4 y D5 ya están decididas).
+3. Añadir las fuentes (D3) y comprobar que `npm run dev` + `npm run build` siguen verdes.
+4. Confirmar que `data/` no necesita ningún campo nuevo (ver §"Huecos de datos" abajo).
+5. Anotar en el `README.md` del repo que el escritorio queda temporalmente sin rediseñar, para
+   que nadie lo tome por una regresión.
+
+**Aceptación:** rama creada, app arrancando, fuentes cargando.
+
+### Resultado
+
+| Paso | Estado |
+|---|---|
+| Rama `mobile` | ✅ creada desde `main` |
+| Decisiones | ✅ D1, D2, D4, D5 ya estaban decididas · **D3 cerrada y ejecutada** |
+| Fuentes | ✅ 12 `.woff2` en `src/assets/fonts/` + `src/theme/fonts.css` importado desde `main.js` |
+| `npm run build` | ✅ verde · las 12 fuentes se emiten versionadas y sin duplicados |
+| `npm run lint` | ✅ verde (oxlint + eslint) |
+| `npm run dev` | ✅ arranca; `fonts.css` y los `.woff2` se sirven con HTTP 200 |
+| Huecos de datos | ✅ los 6 riesgos verificados + **2 nuevos encontrados** (ver la tabla de riesgos) |
+
+**Sin cambios visuales**, como se pretendía: las fuentes están cargadas pero ninguna regla las
+aplica todavía. Eso es la Fase 1.
+
+**Nota de entorno:** Node en uso es **v23.2.0** y `package.json` pide `^22.18.0 || >=24.12.0`.
+Ni build ni lint se quejan, pero es una versión no soportada por el propio proyecto. Conviene
+alinearlo (usar Node 22 LTS, o ampliar `engines`) antes de que muerda en CI.
+
+**Un dato que valida D1 antes de tiempo:** el build ya separa `ProfWeb` en su propio *chunk*
+(516 kB JS + 221 kB CSS, con `cytoscape`/`vis-network` dentro). La carga diferida de la Fase 7a
+no hay que construirla: ya existe, solo hay que condicionarla al viewport.
+
+---
+
+## Fase 1 — Cimientos de diseño
+
+**Objetivo:** los tokens del handoff §5 existen en el código y son la única fuente de color,
+tipografía y espaciado de **toda la app** (no solo del móvil: el rediseño de escritorio heredará
+estos mismos tokens, así que se nombran a nivel de producto).
+
+**Entregables**
+
+- `theme/tokens.css` — custom properties: navy, oro, superficies, líneas, texto, radios,
+  sombras, espaciado. Nombres semánticos (`--surface-card`, `--line-soft`), no literales.
+- `theme/difficulty.js` — la rampa (D5), con test manual de los 6 tramos.
+- `theme/gradePalette.js` — paleta categórica de calificaciones (D2).
+- `theme/typography.css` — escala de tipos del handoff (H1 22-27px, sección 15-16px, tarjeta
+  14-15px, cuerpo 11-13px, KPI mono 23-24px, eyebrow 8.5-9px), fluida con `clamp()`.
+- `components/ui/` primitivas: `Card`, `Eyebrow`, `Pill`, `DifficultyDot` (relleno=troncal /
+  anillo=optativa), `CountBar` (gris `#A89A86` sobre `#EFE7D7`), `StatRow`, `Callout`
+  (variantes *estructural* `#EEF0F5` / *dura* `#F9ECE7` / *cohorte pequeña* `#C89A2E`),
+  `SectionHeader`, `Chip`, `LinkRow`.
+  Se nombran sin prefijo `M-`: son las primitivas de la app, no "las del móvil". Deben ser
+  **agnósticas del layout** (sin anchos fijos, sin márgenes externos) — es lo que permitirá
+  reutilizarlas en escritorio sin pelearse con ellas.
+- Sustituir el tema oscuro de `style.css` (`#app { background:#0f172a }`) por el papel cálido
+  `#F4EFE6`. Es el punto en el que el escritorio actual empieza a verse roto: **esperado y
+  aceptado** por D1.
+- Una **página de galería interna** (ruta `/dev/ui`, solo en `mode === 'development'`) que
+  renderiza todas las primitivas y los 6 tramos de la rampa juntos → verificación visual barata
+  contra el prototipo.
+
+**Regla que se verifica aquí:** el *contrato de color* del handoff §4 — navy solo estructura,
+rampa solo dificultad, gris solo recuentos, paleta categórica solo calificaciones, oro solo
+decoración + ganador de Fight Mode.
+
+**Aceptación:** galería `/dev/ui` comparada lado a lado con el prototipo; ningún color
+hard-codeado fuera de `theme/`.
+
+---
+
+## Fase 2 — Shell y navegación
+
+**Objetivo:** la carcasa de todas las pantallas y el sistema de navegación móvil.
+
+**Entregables**
+
+- `components/layout/AppShell.vue` — header navy + cuerpo con scroll `#F4EFE6` + tab bar fija.
+  Safe areas reales con `env(safe-area-inset-*)`; **no** portar el espaciador de 54px ni el
+  bisel del prototipo (handoff §2). Contenido con `max-width` limitado y centrado, para que en
+  pantallas anchas se vea el layout móvil contenido en lugar de estirado hasta lo absurdo.
+- `components/layout/AppHeader.vue` — dos variantes: *identidad* (tesela oro "F" + título) e
+  *interior* (chevron atrás + eyebrow de la ruta padre en mono mayúsculas + título Spectral).
+- `components/layout/BottomTabBar.vue` — 62px, borde `#E2D8C6`, 4 pestañas con icono SVG de 20px
+  y etiqueta de 9px; activo navy/600, inactivo `#A29A8A`/500. Iconos SVG inline (casa, capas,
+  marcador, 3 puntos) en `components/ui/icons/`.
+- `components/layout/MoreSheet.vue` — el roll-up `#11a`: scrim `rgba(24,20,14,.44)`, hoja blanca
+  radio 16px con caret hacia la pestaña, 4 filas ≥44px, cierre por scrim o ✕, **sin cambio de
+  ruta**. Bloqueo de scroll del fondo, `Escape` cierra, foco atrapado.
+- `App.vue` pasa de `<Sidebar /> + <RouterView />` a `<AppShell><RouterView /></AppShell>`.
+  `Sidebar.vue` queda huérfano: **no se borra todavía**, es la referencia del mapa de navegación
+  para el rediseño de escritorio. Se retira en la Fase 9 si sigue sin usarse.
+- Router: rutas nuevas (`/grado`, `/grado/:curso`, `/fight`, `/acerca`) + redirecciones desde
+  las antiguas; `scrollBehavior` conservado.
+
+**Lo que NO se hace aquí** (por D1): no se construye el conmutador móvil/escritorio ni
+`useViewport()`. Llegan en la Fase 7a, con la primera divergencia real.
+
+**Aceptación:** navegación completa entre pestañas con pantallas vacías (placeholders);
+objetivos táctiles ≥44px medidos; el roll-up abre y cierra sin tocar la ruta.
+
+---
+
+## Fase 3 — Mapa del grado / "The Spine" (`#1c`, `/grado`)
+
+**Objetivo:** la pantalla organizadora, la que da sentido al rediseño. Se hace pronto porque es
+la que valida las primitivas de la Fase 1 con datos reales.
+
+**Entregables**
+
+- `composables/useDegreeMap.js` — por cada curso 1-4: `avgPass` (`courseRate(c,'rendimiento')`),
+  `nTroncales` (`coreSubjects`), `nOptativas` (`optionalSubjectsOf`), y las asignaturas
+  ordenadas por `noSuperacion` desc (`subjectSummary`). Todo sobre `metrics.js`, cero fórmulas
+  nuevas.
+- `views/DegreeMap.vue` (**vista nueva**) — timeline con línea `#D7CDB9` de 2px, nodos navy de
+  21px, bloque por curso (título Spectral 18px + caption "aprueban X% de media"), cabecera de
+  grupo `TRONCALES · N` + `% que no aprueba`, filas de asignatura, enlace `＋ N troncales más`.
+- Subgrupo `OPTATIVAS · N` en 3º y 4º (eyebrow oro `#A8813A`, filas con borde discontinuo,
+  puntos huecos).
+- Cuarto colapsado en tarjeta informativa `#EEF0F5`.
+- Enlaces: nodo/título de curso → `/grado/:curso`; fila → `/asignatura/:code`.
+- Afordancia "ver como lista" → `/asignaturas` (handoff §6, nota sobre El Grado).
+
+**Aceptación:** cifras contrastadas contra el escritorio actual (`Course.vue`); ningún número
+hard-codeado; la expansión "＋ N más" funciona.
+
+---
+
+## Fase 4 — Drill-down: Vista de curso y Ficha de asignatura
+
+**Objetivo:** completar el camino Spine → Curso → Ficha, el eje del handoff §8.
+
+### 4a. Vista de curso — `#3a` (`/grado/:curso`)
+- Badge de año + resumen (`X% aprueban · Y% no se presentan · N troncales · M optativas`, con
+  el conteo de troncales en navy y el de optativas en oro).
+- "Dificultad de las troncales": barras horizontales sobre la rampa, ordenadas desc.
+- Sección `TRONCALES · N`: tarjeta por asignatura (blanca) con matriculados, % no superan
+  grande, pie (aprueban, no pres.), "Ver ficha →" + `＋ N troncales más`.
+- Sección `OPTATIVAS · N`: eyebrow oro, tarjetas discontinuas, nota "también se ofertan en 4º",
+  "Ver todas las optativas →".
+- Reutiliza la lógica de `Course.vue` / `DifficultyOfSubjectsYear.vue` vía composable.
+
+### 4b. Ficha de asignatura — `#2a` (`/asignatura/:code`)
+La pantalla con más superficie de datos; cada bloque mapea 1:1 con un panel existente.
+- Fila de tags (`TRONCAL`, `1º CURSO`, `CÓD. 26907`) + título Spectral 27px + banner de
+  veredicto (paleta "dura"), con el ranking calculado (`rankSubjects`).
+- **INDICADORES**: selector de curso académico (`subjectYears(code)`) + 6 tarjetas KPI en 2
+  columnas con deltas contra la media de 3 años (`subjectRateBefore`).
+- Distribución de calificaciones: barra apilada con la paleta categórica (D2) + leyenda de 2
+  columnas con recuentos (`distribution(row)`).
+- "No superan, curso a curso": barras sobre la rampa (`subjectSeries`), última en negrita.
+- "Frente a las troncales de Nº": 2 barras (asignatura vs media del curso en gris) + conclusión.
+- Profesorado y guía: lista de docentes + botón navy "Ver guía docente →" + "PDF"
+  (`TeachingInfo.vue` / `Profesores_GuiasDoc.json`). ⚠ Riesgo 7: hay optativas que no se ofertan
+  este curso — usar el año más reciente con guía y, si no hay ninguna, ocultar el botón.
+
+**Aceptación:** cambiar el año recalcula los 6 KPIs y la distribución; los enlaces externos
+abren con `rel="noopener"`; cohorte pequeña muestra ⚠ y su nota.
+
+---
+
+## Fase 5 — Listas: Asignaturas y Optativas
+
+**Objetivo:** la maquinaria compartida de búsqueda / filtro / orden.
+
+**Entregables**
+
+- `composables/useSubjectList.js` — búsqueda en vivo, filtros (todas/troncales/optativas/curso),
+  orden por métrica con dirección, **orden por defecto `noSuperacion` desc**. Compartido por
+  ambas pantallas y reutilizable por el escritorio.
+- **Asignaturas `#9a`** (`/asignaturas`): buscador (`Buscar entre {{ n }} asignaturas…`, n
+  calculado — ver D4), chips de filtro (activo = relleno navy), cabecera de columna ordenable
+  `#ECE5D7`, filas densas (punto de dificultad + nombre + línea meta mono + % grande), ⚠ en
+  cohortes pequeñas, `＋ N asignaturas más`.
+- **Optativas `#4a`** (`/optativas`): resumen (`21 optativas · N matrículas/año · X% aprueban`,
+  el 21 en oro), "Las más elegidas" con **barras grises** (es un recuento, no dificultad —
+  handoff §4), buscador + chips de orden (`Populares / Más fáciles / ＋ Sob·MH / A-Z`), tarjetas
+  de optativa discontinuas sobre `#FCFAF5`, nota de cohorte pequeña, regla al pie.
+
+**Aceptación:** estados vacíos de búsqueda; orden y filtro combinables; las barras de
+popularidad son grises en cualquier caso.
+
+---
+
+## Fase 6 — Inicio (`#8a`, `/`) y gráficas tematizadas
+
+**Objetivo:** la portada — *"a dashboard opens with numbers, not charts"* — y el re-tematizado
+de chart.js.
+
+**Entregables**
+
+- `components/charts/` — wrappers de `vue-chartjs` con el tema nuevo: sin rejilla pesada, tipografía
+  IBM Plex Mono en ejes, tooltips en la paleta de papel, `maintainAspectRatio:false` y alturas
+  fijas por móvil. Un solo módulo de opciones base, reutilizado.
+- Héroe navy (identidad, título, línea honesta sobre el origen oficial de los datos, motivo de
+  círculos concéntricos tenue).
+- 4 tarjetas KPI en rejilla 2×2 (nota de corte, aprueban, no presentados, convocatorias) con
+  numeral mono 24px y delta coloreado (`#B5482F` baja / `#4A6A44` sube). Datos de
+  `DegreeKpiRow.vue` + `NotasDeCorteRaw.json`.
+- "Notas de acceso": gráfica de líneas 2020-2025 (media `#4C6699` / corte `#C4642F`) +
+  conclusión (`AdmisionGrades.vue`).
+- Aviso de la asignatura más dura (paleta "dura") → enlace a su ficha (`WorstSubject.vue`).
+- Tendencia de aprobados: barras neutras de 12 años (`YearsTroncComparation.vue`).
+- Frescura por fuente desde `DATA_SOURCES` + descargo de responsabilidad al pie.
+
+**Aceptación:** las 4 fuentes muestran su curso real y distinto; las gráficas legibles a 320px.
+
+---
+
+## Fase 7 — Pantallas secundarias (las 4 del roll-up)
+
+### 7a. Profesorado `#6a` (`/profesorado`) — *el rediseño más profundo* · **la única divergencia real**
+El grafo de fuerzas (267 nodos / 2.003 aristas) es ilegible en móvil, así que el móvil va
+**persona a persona**; el grafo completo se queda en escritorio.
+
+**Aquí es donde aterriza el mecanismo de D1**, y solo aquí:
+
+- `composables/useViewport.js` — `matchMedia` reactivo, breakpoint ≈900px. Se crea **ahora**,
+  no antes.
+- `ProfWeb.vue` / `ProfGraph.vue` se quedan **tal cual, sin tocar**: son el componente
+  solo-escritorio. Se cargan con `defineAsyncComponent` bajo `v-if="isDesktop"`, de modo que
+  `cytoscape` y `vis-network` nunca lleguen a un móvil.
+- `views/Faculty.vue` (nueva) elige entre la lista ego (móvil) y el grafo completo (escritorio).
+
+Contenido móvil:
+- **Primero**, cambio aditivo en `NodesLinks.js` (ver riesgo 3, ya verificado): exponer `weight`,
+  `shared`, `fullName` y `subjects` como campos de nodos y aristas. El dato ya se calcula, pero
+  hoy solo sobrevive dentro de la cadena `title`. No tocar `value`/`title`: el grafo de
+  escritorio debe seguir funcionando igual.
+- `composables/useProfessorNetwork.js` sobre `NodesLinks.js`: ranking por alcance y, por
+  profesor, `subjects[]` + `topCollaborators[] {name, weight(1/n), sharedCount}`.
+- Título + explicación del peso 1/n + fila de estadísticas. **Ojo:** son 267 profesores y 2.003
+  colaboraciones (el mock acierta) pero **10 cursos, no 8** (riesgo 8). Calculadas, no escritas.
+- Aviso informativo con glifo de grafo + "Ver red completa →". Con un único código base este
+  enlace **no** puede ser un enlace externo a otra build: es la misma ruta vista en pantalla
+  ancha. Copy a ajustar en consecuencia (invita a abrirlo en pantalla grande, no navega a otro
+  sitio) — desviación mínima y justificada respecto del handoff, que asumía dos versiones.
+- Buscador + lista rankeada; fila seleccionada con borde izquierdo navy y fondo `#EEF0F5`.
+- Tarjeta de ego-network: IMPARTE (píldoras con contorno navy) + COLABORA MÁS CON (barras
+  **grises**, peso mono, nº de asignaturas compartidas). Pie: "el TFG se excluye".
+
+**Este es el patrón a repetir** cuando el escritorio agregue más funcionalidad que el móvil no
+pueda tener: composable de datos compartido + componente de presentación por viewport, cargado
+en diferido. Nunca una segunda copia de la app.
+
+### 7b. Fight Mode `#5a` (`/fight`)
+- Dos ranuras de contendiente con autocompletado ("cambiar ▾") + medallón VS (círculo navy, "VS"
+  oro, la única sombra fuerte).
+- Banner de veredicto en oro sobre `#FBF5E7` (trofeo + marcador).
+- Filas de duelo en rejilla `1fr 90px 1fr`; celda ganadora con borde y fondo oro + "gana".
+  Métricas en orden: más fácil de superar, tasa de éxito, no presentados, excelencia.
+  **5ª fila (matriculados) solo si ambas son optativas** — misma regla que hoy en `FightPanel`.
+- Reutiliza la lógica de `FightPanel.vue` / `FightModeResult.vue`.
+
+### 7c. Metodología `#7a` (`/metodologia`)
+- La tabla oscura y ancha del escritorio pasa a tarjetas apiladas.
+  **Textos verbatim desde `Methodology.vue` — no parafrasear** (handoff §7.9).
+- 3 recuentos base como tarjetas numeradas; 7 indicadores como tarjetas con su **píldora de
+  denominador en navy** (`÷ matriculados` / `÷ presentados`) tomada de `METRICS[].base`;
+  4 tarjetas de fuente con su "último" curso real + "Fuente →"; 7 limitaciones con teselas de
+  glifo.
+
+### 7d. Acerca de `#10a` (`/acerca`) — **ruta nueva**
+- Misión, crédito real a `@aaleta` + **3 huecos de colaborador editables** en `#9A9182` con
+  avatares "··". **No inventar nombres** (handoff §7.10).
+- "Cómo se hizo" → enlaces a Metodología; CTA navy a GitHub; descargo en aviso estructural.
+
+---
+
+## Fase 8 — Estados, accesibilidad y fluidez
+
+**Objetivo:** lo que el handoff §9 exige y suele quedarse fuera.
+
+- **Carga** — esqueletos en el estilo del código (aunque el JSON sea síncrono, las rutas son
+  `import()` diferidos: la transición existe).
+- **Vacío** — sin resultados de búsqueda/filtro, en cada lista.
+- **Cohorte pequeña (<10)** — ⚠ `#C89A2E` + "los porcentajes bailan mucho" + preferir recuentos
+  absolutos. Consistente en lista, tarjetas y ficha (`isSmallCohort` ya existe).
+- **Años COVID / desajuste de fuentes** — anotación sutil y consistente donde se grafique.
+- **Fluidez 320px → tablet**: el mock es de 402px fijos; verificar a 320, 360, 402, 430 y 768.
+- **Pantalla ancha (≥900px)**: no es objetivo de este esfuerzo, pero **debe ser presentable, no
+  vergonzoso**: layout móvil centrado con `max-width`, sin texto estirado a 1600px ni gráficas
+  deformadas. Es lo que verá cualquiera que abra la web en un portátil hasta que llegue el
+  rediseño de escritorio.
+- **Accesibilidad**: contraste AA en la rampa sobre papel, `aria-current` en las pestañas, roles
+  de diálogo en el roll-up, foco visible, `prefers-reduced-motion` respetado.
+- **Animación contenida**: subida del roll-up, feedback de pulsación en chips, transiciones de
+  lista. Nada más (handoff §8).
+
+---
+
+## Fase 9 — Verificación y cierre
+
+- Repaso pantalla a pantalla contra los ids del prototipo (`#1c`, `#8a`, `#3a`, `#2a`, `#9a`,
+  `#4a`, `#6a`, `#5a`, `#7a`, `#10a`, `#11a`), con capturas lado a lado.
+- **Auditoría del contrato de color** (§4): recorrer cada color usado y clasificarlo en
+  estructura / dificultad / recuento / categoría de nota. Cualquiera que no encaje es un fallo.
+- **Auditoría de "un solo origen"**: `grep` de porcentajes y contadores literales en las vistas
+  nuevas — no debe quedar ninguno.
+- `npm run lint` + `npm run format` + `npm run build`; comprobar el build con `base:
+  /unizar_dashboard/` y rutas hash.
+- **Comprobar el reparto de bundles**: `cytoscape` y `vis-network` deben quedar en un chunk
+  diferido que un móvil nunca descarga (consecuencia directa de D1 — si no se cumple, el
+  `defineAsyncComponent` de la Fase 7a está mal puesto).
+- Prueba en dispositivo real (safe areas del notch, barra de direcciones de iOS Safari).
+- **Inventario de deuda de escritorio**: listar qué quedó roto o sin rediseñar y qué componentes
+  antiguos siguen vivos (`Sidebar.vue`, `views/` no migradas, `components/Dashboard/*`). Es el
+  punto de partida del siguiente esfuerzo, y conviene escribirlo mientras está fresco.
+- Actualizar `README.md` del repo; borrar este documento.
+
+---
+
+## Huecos y riesgos de datos (verificar pronto)
+
+**Todos verificados en la Fase 0** contra los ficheros reales de `data/`. Resultado:
+
+| # | Asunto | Verificado | Qué hacer |
+|---|---|---|---|
+| 1 | **Convocatorias oficiales** | ⚠ **Confirmado el problema.** `ResultadosFisica.json` solo tiene `anyo_academico: 2024`, es decir **un único curso (2024-2025)** | El KPI "Convocatorias" de la ficha muestra `—` en todos los demás años del selector, con nota de por qué. `officialYears` ya permite saberlo. **No inventar ni interpolar** |
+| 2 | **"53 asignaturas"** del mock | ⚠ **Confirmado:** el catálogo tiene **54** códigos | Calcular con `allSubjects.length` (D4) |
+| 3 | **`sharedCount`** de colaboradores | ✅ **Existe el dato, pero no está expuesto.** `NodesLinks.js:98-102` ya acumula `{weight, shared}`… y luego lo entierra en la cadena `title` de la arista (`NodesLinks.js:129-131`). Igual pasa con `fullName` y `subjects` en los nodos | Cambio **aditivo** en `NodesLinks.js`: sacar `weight`, `shared`, `fullName` y `subjects` como campos propios. Sin tocar `value`/`title`, así el grafo de escritorio sigue igual. **Prohibido parsear el `title`** |
+| 4 | **Serie de notas de corte** | ✅ `NotasDeCorteRaw.json` = **6 filas, 2020-2025**, con `Nota media en pruebas de acceso` y `Nota de corte` | Coincide con los 6 puntos del mock |
+| 5 | **Tendencia de aprobados** | ✅ **12 cursos, 2013-2014 → 2024-2025** | Coincide con los "12 años" del mock |
+| 6 | **Guías docentes** | ✅ Cobertura **100 %** de `guia_docente_web`, `guia_docente_pdf` y `profesores` en las 53 asignaturas de 2026-2027 | Ver el matiz del punto 7 |
+| 7 | **Catálogo ≠ guías** (nuevo) | ⚠ **26934 Física de la atmósfera** y **26939 Iluminación y colorimetría** están en el catálogo y tienen notas, pero **no se ofertan en 2026-2027** (son optativas que alternan). **26943 Prácticas externas** está en las guías pero sin notas ni clasificación | La ficha **no** puede asumir guía del curso actual: usar el año más reciente que la tenga, y si no hay ninguna, ocultar el botón en vez de enlazar a nada |
+| 8 | **"8 cursos" del mock** (nuevo) | ⚠ Reproducida la red real: **267 profesores ✅ · 2.003 colaboraciones ✅ · pero 10 cursos**, no 8 (2017-2018 → 2026-2027) | Los dos primeros números del mock son correctos; el tercero está desfasado. Calcular los tres (D4) |
+
+---
+
+## Orden y dependencias
+
+```
+Fase 0 ──> Fase 1 ──> Fase 2 ──┬─> Fase 3 ──> Fase 4
+                               ├─> Fase 5
+                               ├─> Fase 6
+                               └─> Fase 7
+                                     └──────> Fase 8 ──> Fase 9
+```
+
+Las fases 0-2 son estrictamente secuenciales (todo lo demás depende del shell y los tokens).
+La 3 va antes que la 4 porque el Spine es la pantalla que define el lenguaje visual. Las fases
+4-7 son independientes entre sí una vez existe el shell.
+
+**Punto de control recomendado:** enseñar el resultado tras la Fase 3 antes de seguir — es el
+momento más barato para corregir el rumbo del lenguaje visual.
+
+---
+
+## Qué pasa con el escritorio mientras tanto
+
+Consecuencia asumida de D1, escrito aquí para que no sorprenda a nadie:
+
+- A partir de la **Fase 1** el tema oscuro desaparece y las vistas de escritorio que aún no se
+  han migrado se verán mal (texto claro sobre papel claro, sidebar oscura sobre fondo cálido).
+  **Es esperado.**
+- A partir de la **Fase 2** la `Sidebar.vue` deja de montarse; la navegación en pantalla ancha
+  pasa a ser la tab bar inferior. Funcional, pero claramente no diseñada para escritorio.
+- Al final de la Fase 9 la app es **una app móvil bien hecha que también se abre en un
+  portátil**, con el layout contenido y legible. No es un escritorio diseñado.
+
+**Lo que el siguiente esfuerzo hereda ya construido** (y que es justamente lo que justifica no
+haber hecho dos versiones):
+
+| Ya hecho | Dónde |
+|---|---|
+| Tokens, tipografía, contrato de color | `theme/` |
+| Rampa de dificultad, paleta de notas | `theme/difficulty.js`, `theme/gradePalette.js` |
+| Primitivas del sistema de diseño | `components/ui/` |
+| Toda la lógica derivada, sin UI | `composables/` |
+| Gráficas ya tematizadas | `components/charts/` |
+| Patrón de divergencia por viewport | `useViewport()` + Fase 7a |
+| Rutas y redirecciones definitivas | `router/index.js` |
+
+El rediseño de escritorio será entonces, sobre todo, **layout**: rejillas más anchas, navegación
+lateral, y las agregaciones que solo caben en pantalla grande. No hay que rehacer ni el sistema
+de diseño ni la capa de datos.

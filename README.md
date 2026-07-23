@@ -39,6 +39,22 @@ Las métricas están definidas **una sola vez** en `web/src/utils/metrics.js`
 (tasas de rendimiento, éxito, evaluación y no superación, con la nomenclatura
 oficial de Unizar). Ningún componente debe recalcularlas por su cuenta.
 
+## Rediseño en curso (rama `mobile`)
+
+El 70 % de las visitas son desde el móvil y la web estaba pensada para
+escritorio, así que se está rehaciendo **empezando por el móvil**. El plan por
+fases está en `MOBILE_REDESIGN_PLAN.md` y el diseño de referencia en
+`design_handoff_physics_mobile/`.
+
+Es **un solo código base responsive**, no dos versiones: los tokens de diseño,
+la rampa de dificultad y la lógica derivada se construyen una vez y el rediseño
+de escritorio los heredará.
+
+> ⚠️ **Mientras dure el rediseño, la vista de escritorio se verá rota**
+> (tema oscuro sustituido por el claro, pantallas aún sin migrar). Es una
+> consecuencia asumida del orden de trabajo, no una regresión que haya que
+> reportar. El escritorio se rediseña después, sobre estos mismos cimientos.
+
 ## Última actualización
 
 Ya no se anota a mano: cada fuente publica su propia fecha y la portada la lee
