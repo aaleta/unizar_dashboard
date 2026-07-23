@@ -193,10 +193,20 @@ const meta = row => [
         class="cards"
     >
 
+        <!-- Props explícitas, NUNCA v-bind="row".
+             El resumen trae campos que la tarjeta no declara y que se cuelan
+             como atributos en el <a>. Uno de ellos, `search`, es además una
+             propiedad del DOM en los enlaces: asignarla REESCRIBE la query del
+             href y deja URLs con "?gravitacion y cosmologia 26937" pegado. -->
         <UiSubjectCard
             v-for="row in visible"
             :key="row.code"
-            v-bind="row"
+            :code="row.code"
+            :name="row.name"
+            :no-superacion="row.noSuperacion"
+            :rendimiento="row.rendimiento"
+            :excelencia="row.excelencia"
+            :small-cohort="row.smallCohort"
             :meta="meta(row)"
             secondary="excelencia"
             optative

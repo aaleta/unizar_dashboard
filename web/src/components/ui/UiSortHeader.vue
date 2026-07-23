@@ -118,8 +118,8 @@ defineEmits(["sort"]);
 
     min-width:0;
 
-    /* Sobre el fondo hundido (#ece5d7) los grises apagados se quedan cortos:
-       aquí se usa la tinta secundaria, que sí cumple. */
+    /* Sobre el fondo hundido, más oscuro que el papel, los grises apagados se
+       quedan cortos: aquí se usa la tinta secundaria, que sí cumple. */
     color:var(--ink-2);
 
 }

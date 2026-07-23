@@ -142,10 +142,18 @@ const ordinal = course => `${course}º`;
 
         <div class="cards">
 
+            <!-- Props explícitas: v-bind del objeto entero cuela campos
+                 sueltos como atributos del <a>. Ver la nota en Optatives.vue. -->
             <UiSubjectCard
                 v-for="subject in visibleCore"
                 :key="subject.code"
-                v-bind="subject"
+                :code="subject.code"
+                :name="subject.name"
+                :no-superacion="subject.noSuperacion"
+                :rendimiento="subject.rendimiento"
+                :no-presentados="subject.noPresentados"
+                :enrolment="subject.enrolment"
+                :small-cohort="subject.smallCohort"
             />
 
             <button
@@ -187,7 +195,13 @@ const ordinal = course => `${course}º`;
             <UiSubjectCard
                 v-for="subject in visibleOptional"
                 :key="subject.code"
-                v-bind="subject"
+                :code="subject.code"
+                :name="subject.name"
+                :no-superacion="subject.noSuperacion"
+                :rendimiento="subject.rendimiento"
+                :no-presentados="subject.noPresentados"
+                :enrolment="subject.enrolment"
+                :small-cohort="subject.smallCohort"
                 optative
             />
 

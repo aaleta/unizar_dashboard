@@ -44,21 +44,51 @@ Las métricas están definidas **una sola vez** en `web/src/utils/metrics.js`
 (tasas de rendimiento, éxito, evaluación y no superación, con la nomenclatura
 oficial de Unizar). Ningún componente debe recalcularlas por su cuenta.
 
-## Rediseño en curso (rama `mobile`)
+## Rediseño móvil (hecho)
 
-El 70 % de las visitas son desde el móvil y la web estaba pensada para
-escritorio, así que se está rehaciendo **empezando por el móvil**. El plan por
-fases está en `MOBILE_REDESIGN_PLAN.md` y el diseño de referencia en
+El 70 % de las visitas llegan desde el móvil y la web estaba pensada para
+escritorio, así que se rehizo **empezando por el móvil**, siguiendo el diseño de
 `design_handoff_physics_mobile/`.
 
-Es **un solo código base responsive**, no dos versiones: los tokens de diseño,
-la rampa de dificultad y la lógica derivada se construyen una vez y el rediseño
-de escritorio los heredará.
+Es **un solo código base responsive**, no dos versiones.
 
-> ⚠️ **Mientras dure el rediseño, la vista de escritorio se verá rota**
-> (tema oscuro sustituido por el claro, pantallas aún sin migrar). Es una
-> consecuencia asumida del orden de trabajo, no una regresión que haya que
-> reportar. El escritorio se rediseña después, sobre estos mismos cimientos.
+```
+web/src/
+├─ theme/          tokens, rampa de dificultad, paleta de notas, contraste
+├─ composables/    lógica derivada, sin interfaz
+├─ components/
+│  ├─ ui/          primitivas del sistema de diseño (Ui*)
+│  ├─ layout/      carcasa: cabecera, pestañas, hoja "Más"
+│  ├─ charts/      gráficas en SVG
+│  └─ Dashboard/   ⚠ componentes de ESCRITORIO heredados (ver abajo)
+└─ views/          una vista por pantalla
+```
+
+Reglas que conviene no romper:
+
+- **El color no miente.** Navy = estructura; la rampa = dificultad y nada más;
+  gris = recuentos; la paleta categórica = calificaciones. Está escrito en la
+  cabecera de `theme/tokens.css`.
+- **Ninguna cifra se escribe a mano.** Todo sale de `utils/metrics.js`.
+- **Ningún color fuera de `theme/`.**
+- **Contraste AA** en las diez pantallas. Los grises del diseño original no
+  llegaban; ver la nota en `theme/tokens.css`.
+
+### Deuda pendiente: el escritorio
+
+El escritorio **no está rediseñado**. Por encima de 900px se ve el layout móvil
+centrado con un ancho máximo: presentable, pero no diseñado para esa pantalla.
+
+- `components/Dashboard/` y `Sidebar.vue` son el escritorio **anterior**, con su
+  tema oscuro. Se conservan como referencia del rediseño pendiente.
+- De ellos solo siguen vivos `ProfWeb.vue` → `ProfGraph.vue`: el grafo completo
+  de profesores, que se carga **solo por encima de 900px** y en diferido, para
+  que un móvil no descargue medio mega de `vis-network`.
+- El resto está huérfano. No entra en el bundle (Vite no lo incluye si nadie lo
+  importa), pero tampoco se ha borrado.
+- `chart.js` y `vue-chartjs` ya **no se usan en ninguna pantalla viva** y no
+  aparecen en el bundle de producción. Se pueden desinstalar cuando el rediseño
+  de escritorio decida qué hacer con los paneles antiguos.
 
 ## Última actualización
 
