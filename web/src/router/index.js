@@ -71,7 +71,7 @@ const router = createRouter({
         {
             path: "/asignatura/:code",
             name: "subject",
-            component: () => import("@/views/Dashboard.vue"),
+            component: () => import("@/views/Subject.vue"),
             meta: {
                 header: "inner",
                 eyebrow: "El Grado",

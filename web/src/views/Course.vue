@@ -1,358 +1,419 @@
 <script setup>
 
-import { computed } from "vue";
+/**
+ * Vista de curso: la capa intermedia entre el mapa del grado y la ficha.
+ *
+ * El mapa dice qué cursos hay y cuál duele; la ficha lo cuenta todo de una
+ * asignatura. Aquí se responde a lo que queda en medio: cómo va ESTE curso y
+ * qué asignaturas lo componen, con lo justo de cada una para decidir en cuál
+ * entrar.
+ *
+ * Una sola vista para los cuatro cursos: antes eran ocho ficheros casi
+ * idénticos (firstYear…forthYear + dashboardYear) para el mismo contenido.
+ *
+ * El orden es siempre por dificultad descendente. Alfabético sería más
+ * neutral, pero nadie llega aquí preguntándose qué asignatura empieza por A.
+ */
+
+import { computed, ref } from "vue";
 import { useRoute } from "vue-router";
 
-import DifficultyOfSubjectsYear from "@/components/Dashboard/DifficultyOfSubjectsYear.vue";
-import YearDifficultyEvolution from "@/components/Dashboard/YearDifficultyEvolution.vue";
-import SubjectCard from "@/components/Dashboard/SubjectCard.vue";
+import { useCourse } from "@/composables/useCourse";
+import { usePageHeader } from "@/composables/usePageHeader";
 
-import {
-    RECENT_YEARS,
-    coreSubjects,
-    optionalSubjectsOf,
-    courseRate,
-    formatPct
-} from "@/utils/metrics";
+import UiCallout from "@/components/ui/UiCallout.vue";
+import UiMeterRow from "@/components/ui/UiMeterRow.vue";
+import UiSectionHeader from "@/components/ui/UiSectionHeader.vue";
+import UiStat from "@/components/ui/UiStat.vue";
+import UiSubjectCard from "@/components/ui/UiSubjectCard.vue";
 
-/**
- * Una sola vista para los cuatro cursos, y con las estadísticas del curso y el
- * listado de asignaturas juntos: antes eran ocho ficheros casi idénticos
- * (firstYear…forthYear + dashboardYear) para el mismo contenido.
- */
+/** Cuántas tarjetas se ven antes de tener que pedir el resto. */
+const PREVIEW = 3;
+
 const route = useRoute();
 
-const course = computed(() => String(route.params.curso));
+const {
+    number,
+    valid,
+    name,
+    troncales,
+    optativas,
+    avgPass,
+    avgNoShow,
+    alsoInCourses,
+    recentYears
+} = useCourse(() => route.params.curso);
 
-const COURSE_NAMES = {
-    1: "Primero",
-    2: "Segundo",
-    3: "Tercero",
-    4: "Cuarto"
-};
+usePageHeader(() => ({
+    header: "inner",
+    eyebrow: "El Grado",
+    title: name.value ? `${name.value} · vista de curso` : "Vista de curso",
+    back: "/grado"
+}));
 
-const courseName = computed(() =>
-    COURSE_NAMES[course.value] ?? "Curso"
+const showAllCore = ref(false);
+const showAllOptional = ref(false);
+
+const visibleCore = computed(() =>
+    showAllCore.value ? troncales.value : troncales.value.slice(0, PREVIEW)
 );
 
-const core = computed(() => coreSubjects(course.value));
+const visibleOptional = computed(() =>
+    showAllOptional.value ? optativas.value : optativas.value.slice(0, PREVIEW)
+);
 
-const optional = computed(() => optionalSubjectsOf(course.value));
+const pct = value =>
+    value === null ? "—" : `${Math.round(value)}%`;
 
-const summary = computed(() => ({
-    rendimiento: courseRate(course.value, "rendimiento"),
-    noPresentados: courseRate(course.value, "noPresentados"),
-    noSuperacion: courseRate(course.value, "noSuperacion")
-}));
+const ordinal = course => `${course}º`;
 
 </script>
 
 <template>
 
-<main class="page">
+<div
+    v-if="valid"
+    class="screen"
+>
 
-    <header class="hero">
+    <header class="intro">
 
-        <h1>{{ courseName }}</h1>
-
-        <p>
-            Estadísticas del curso y acceso al dashboard de cada asignatura.
-        </p>
-
-        <div class="summary">
-
-            <div class="summaryItem">
-                <span class="summaryValue">
-                    {{ formatPct(summary.rendimiento, 0) }}
-                </span>
-                <span class="summaryLabel">aprueban de media</span>
-            </div>
-
-            <div class="summaryItem">
-                <span class="summaryValue">
-                    {{ formatPct(summary.noPresentados, 0) }}
-                </span>
-                <span class="summaryLabel">no se presentan</span>
-            </div>
-
-            <div class="summaryItem">
-                <span class="summaryValue">{{ core.length }}</span>
-                <span class="summaryLabel">troncales</span>
-            </div>
-
-            <div
-                v-if="optional.length"
-                class="summaryItem"
-            >
-                <span class="summaryValue">{{ optional.length }}</span>
-                <span class="summaryLabel">optativas ofertadas</span>
-            </div>
-
+        <div class="title">
+            <span
+                class="badge"
+                aria-hidden="true"
+            >{{ number }}</span>
+            <h1>{{ name }}</h1>
         </div>
 
-        <p class="summaryNote">
-            Medias ponderadas por matriculados de las troncales del curso en los
-            últimos {{ RECENT_YEARS }} cursos académicos.
+        <p class="lead">
+            Estadísticas del curso y acceso a la ficha de cada asignatura.
+        </p>
+
+        <div class="stats">
+            <UiStat
+                :value="pct(avgPass)"
+                label="aprueban de media"
+            />
+            <UiStat
+                :value="pct(avgNoShow)"
+                label="no se presentan"
+            />
+            <UiStat
+                :value="troncales.length"
+                label="troncales"
+                tone="navy"
+            />
+            <UiStat
+                v-if="optativas.length"
+                :value="optativas.length"
+                label="optativas"
+                tone="gold"
+            />
+        </div>
+
+        <p class="footnote">
+            Medias ponderadas de las troncales · últimos {{ recentYears }} cursos.
         </p>
 
     </header>
 
-    <section class="panels">
+    <section class="section">
 
-        <DifficultyOfSubjectsYear :course="course" />
+        <h2>Dificultad de las troncales</h2>
 
-        <YearDifficultyEvolution :course="course" />
+        <div class="panel">
+            <UiMeterRow
+                v-for="subject in troncales"
+                :key="subject.code"
+                :label="subject.name"
+                :value="subject.noSuperacion"
+            />
+        </div>
 
     </section>
 
     <section class="section">
 
-        <h2 class="sectionTitle core">Troncales</h2>
+        <UiSectionHeader
+            label="Troncales"
+            :count="troncales.length"
+        />
 
-        <div class="grid">
+        <div class="cards">
 
-            <SubjectCard
-                v-for="subject in core"
+            <UiSubjectCard
+                v-for="subject in visibleCore"
                 :key="subject.code"
-                :code="subject.code"
+                v-bind="subject"
             />
+
+            <button
+                v-if="troncales.length > PREVIEW"
+                type="button"
+                class="more"
+                @click="showAllCore = !showAllCore"
+            >
+                {{ showAllCore
+                    ? "− ver menos"
+                    : `＋ ${troncales.length - PREVIEW} troncales más` }}
+            </button>
 
         </div>
 
     </section>
 
     <section
-        v-if="optional.length"
+        v-if="optativas.length"
         class="section"
     >
 
-        <h2 class="sectionTitle optional">Optativas de {{ course }}º</h2>
+        <UiSectionHeader
+            label="Optativas"
+            :count="optativas.length"
+            tone="gold"
+        />
 
-        <p class="sectionNote">
-            Muchas se ofertan también en el otro curso.
-            <RouterLink to="/optativas">
-                Ver todas las optativas del grado →
-            </RouterLink>
+        <p class="note">
+            <template v-if="alsoInCourses.length">
+                Muchas se ofertan también en
+                {{ alsoInCourses.map(ordinal).join(" y ") }}.
+            </template>
+            <RouterLink to="/optativas">Ver todas las optativas →</RouterLink>
         </p>
 
-        <div class="grid">
+        <div class="cards">
 
-            <SubjectCard
-                v-for="subject in optional"
+            <UiSubjectCard
+                v-for="subject in visibleOptional"
                 :key="subject.code"
-                :code="subject.code"
+                v-bind="subject"
+                optative
             />
+
+            <button
+                v-if="optativas.length > PREVIEW"
+                type="button"
+                class="more"
+                @click="showAllOptional = !showAllOptional"
+            >
+                {{ showAllOptional
+                    ? "− ver menos"
+                    : `＋ ${optativas.length - PREVIEW} optativas más` }}
+            </button>
 
         </div>
 
     </section>
 
-</main>
+</div>
+
+<div
+    v-else
+    class="screen"
+>
+    <UiCallout
+        tone="structural"
+        title="Ese curso no existe"
+    >
+        El grado tiene cuatro cursos.
+        <RouterLink to="/grado">Volver al mapa del grado →</RouterLink>
+    </UiCallout>
+</div>
 
 </template>
 
 <style scoped>
 
-.page{
+.screen{
 
-    /* Sin barra lateral: el hueco de 220px ya no reserva nada. */
-    margin-left:0;
-
-    width:calc(100% - 220px);
-
-    min-height:100vh;
-
-    padding:50px;
-
-    box-sizing:border-box;
-
-    background:#0f172a;
-
-    color:white;
+    padding:16px var(--gutter) 8px;
 
 }
 
-.hero{
+.intro .title{
 
-    margin-bottom:34px;
+    display:flex;
+
+    align-items:center;
+
+    gap:9px;
+
+    margin-bottom:8px;
 
 }
 
-.hero h1{
+.badge{
 
-    margin:0 0 10px;
+    display:flex;
 
-    font-size:2.8rem;
+    align-items:center;
+
+    justify-content:center;
+
+    width:26px;
+
+    height:26px;
+
+    flex:none;
+
+    border-radius:50%;
+
+    background:var(--navy);
+
+    color:var(--ink-on-navy);
+
+    font-family:var(--font-serif);
+
+    font-size:13px;
 
     font-weight:700;
 
 }
 
-.hero > p{
+h1{
 
-    margin:0 0 22px;
+    margin:0;
 
-    color:#94a3b8;
+    font-family:var(--font-serif);
 
-    font-size:1.05rem;
+    font-size:26px;
+
+    font-weight:700;
+
+    line-height:1;
 
 }
 
-.summary{
+.lead{
+
+    margin:0 0 14px;
+
+    font-size:var(--text-body-sm);
+
+    color:var(--ink-soft);
+
+}
+
+.stats{
 
     display:flex;
 
     flex-wrap:wrap;
 
-    gap:34px;
+    gap:22px;
 
 }
 
-.summaryItem{
+.footnote{
 
-    display:flex;
+    margin:12px 0 0;
 
-    flex-direction:column;
+    font-family:var(--font-mono);
 
-    gap:4px;
+    font-size:var(--text-footnote);
 
-}
+    line-height:1.5;
 
-.summaryValue{
-
-    color:white;
-
-    font-size:1.8rem;
-
-    font-weight:700;
-
-    font-variant-numeric:tabular-nums;
-
-}
-
-.summaryLabel{
-
-    color:#94a3b8;
-
-    font-size:.8rem;
-
-}
-
-.summaryNote{
-
-    margin:16px 0 0;
-
-    color:#64748b;
-
-    font-size:.78rem;
-
-}
-
-.panels{
-
-    display:flex;
-
-    flex-direction:column;
-
-    gap:24px;
-
-    margin-bottom:48px;
+    color:var(--ink-faint);
 
 }
 
 .section{
 
-    margin-bottom:48px;
+    margin-top:18px;
 
 }
 
-.sectionTitle{
+h2{
 
-    margin:0 0 8px;
+    margin:0 0 11px;
 
-    font-size:1.6rem;
+    font-family:var(--font-serif);
+
+    font-size:var(--text-section);
 
     font-weight:600;
 
 }
 
-.sectionTitle.core{
+.panel{
 
-    color:#38bdf8;
+    display:flex;
 
-}
+    flex-direction:column;
 
-.sectionTitle.optional{
+    gap:9px;
 
-    color:#c084fc;
+    padding:14px;
 
-}
+    background:var(--surface);
 
-.sectionNote{
+    border:1px solid var(--line);
 
-    margin:0 0 20px;
+    border-radius:12px;
 
-    color:#94a3b8;
-
-    font-size:.9rem;
+    box-shadow:var(--shadow-card);
 
 }
 
-.sectionNote a{
+.note{
 
-    color:#38bdf8;
+    margin:6px 0 10px;
 
-    text-decoration:none;
+    font-size:var(--text-num-sm);
+
+    line-height:1.5;
+
+    color:var(--ink-soft);
+
+}
+
+.note a{
 
     font-weight:600;
 
 }
 
-.sectionNote a:hover{
+.cards{
 
-    text-decoration:underline;
+    display:flex;
 
-}
+    flex-direction:column;
 
-.grid{
+    gap:9px;
 
-    display:grid;
-
-    grid-template-columns:repeat(auto-fill,minmax(280px,1fr));
-
-    gap:20px;
+    margin-top:10px;
 
 }
 
-@media(max-width:768px){
+.more{
 
-    .page{
+    display:flex;
 
-        margin-left:0;
+    align-items:center;
 
-        width:100%;
+    min-height:var(--touch-target);
 
-        padding:24px 16px 90px;
+    padding:2px;
 
-    }
+    border:none;
 
-    .hero h1{
+    background:none;
 
-        font-size:2rem;
+    font-family:var(--font-mono);
 
-    }
+    font-size:10px;
 
-    .summary{
+    color:var(--ink-faint-2);
 
-        gap:22px;
+    cursor:pointer;
 
-    }
+}
 
-    .grid{
+.more:active{
 
-        grid-template-columns:1fr;
-
-    }
+    color:var(--navy);
 
 }
 

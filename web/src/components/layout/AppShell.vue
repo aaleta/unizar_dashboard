@@ -18,14 +18,27 @@
  * vea contenido y no una columna estirada.
  */
 
-import { ref, watch } from "vue";
+import { computed, ref, watch } from "vue";
 import { useRoute } from "vue-router";
+
+import { pageHeader } from "@/composables/usePageHeader";
 
 import AppHeader from "./AppHeader.vue";
 import BottomTabBar from "./BottomTabBar.vue";
 import MoreSheet from "./MoreSheet.vue";
 
 const route = useRoute();
+
+/**
+ * El `meta` de la ruta manda salvo que la pantalla afine su cabecera con
+ * usePageHeader: hay títulos que no se saben hasta tener los datos delante.
+ */
+const header = computed(() => ({
+    variant: "identity",
+    back: "/",
+    ...route.meta,
+    ...pageHeader.value
+}));
 
 const sheetOpen = ref(false);
 
@@ -42,10 +55,10 @@ watch(() => route.fullPath, () => {
 <div class="shell">
 
     <AppHeader
-        :variant="route.meta.header || 'identity'"
-        :title="route.meta.title"
-        :eyebrow="route.meta.eyebrow"
-        :back="route.meta.back || '/'"
+        :variant="header.header || header.variant"
+        :title="header.title"
+        :eyebrow="header.eyebrow"
+        :back="header.back"
     />
 
     <main class="body">

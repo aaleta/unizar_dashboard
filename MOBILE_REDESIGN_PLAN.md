@@ -435,7 +435,7 @@ densidad del mock, decidirlo aquí y aplicar el mismo criterio a las listas de l
 
 ---
 
-## Fase 4 — Drill-down: Vista de curso y Ficha de asignatura
+## Fase 4 — Drill-down: Vista de curso y Ficha de asignatura · ✅ **COMPLETADA**
 
 **Objetivo:** completar el camino Spine → Curso → Ficha, el eje del handoff §8.
 
@@ -465,6 +465,55 @@ La pantalla con más superficie de datos; cada bloque mapea 1:1 con un panel exi
 
 **Aceptación:** cambiar el año recalcula los 6 KPIs y la distribución; los enlaces externos
 abren con `rel="noopener"`; cohorte pequeña muestra ⚠ y su nota.
+
+### Resultado
+
+| Entregable | Fichero |
+|---|---|
+| Datos de curso | `composables/useCourse.js` |
+| Datos de asignatura | `composables/useSubject.js` |
+| Cabecera dinámica | `composables/usePageHeader.js` |
+| Vista de curso | `views/Course.vue` (reescrita) |
+| Ficha | `views/Subject.vue` (**renombrada** desde `Dashboard.vue`) |
+| Nuevas primitivas | `UiMeterRow`, `UiSubjectCard` |
+
+**`Dashboard.vue` → `Subject.vue`.** El fichero se reescribía entero y "dashboard" no describe una
+ficha de asignatura. La ruta no cambia.
+
+**La cabecera dinámica llega ahora, no antes** (se aplazó en la fase 2 hasta que hubiera una
+necesidad concreta): la ficha necesita el eyebrow "EL GRADO · PRIMERO", y de qué curso es una
+asignatura no está en la ruta sino en el catálogo. `usePageHeader` deja que la pantalla afine
+`title`, `eyebrow` y `back`; el `meta` de la ruta sigue mandando por defecto.
+
+**El selector de año paga los 12 cursos de datos oficiales.** Comprobado: pasar de 2024-2025 a
+2019-2020 cambia los seis indicadores **incluidas las convocatorias** (1,57 → 1,24) y la
+distribución (139 → 108 matriculados). Antes de la reingesta de datos ese KPI habría mostrado
+`—` en once de los doce años.
+
+**Casos límite probados:** código inexistente y curso inexistente dan aviso estructural con
+salida; una optativa no ofertada este curso (26934) cae a la guía docente del año más reciente
+que la tenga (riesgo 7); una cohorte de 9 alumnos (26909 Biología) muestra el aviso ámbar. Sin
+desbordamiento a 320px en ninguna de las cinco rutas.
+
+### Dos cosas aprendidas por el camino
+
+- **`unref()` no resuelve getters.** `useCourse(() => route.params.curso)` devolvía `NaN` y la
+  pantalla decía "ese curso no existe". Los dos composables usan ahora un `read()` que acepta
+  valor, ref o función.
+- **Tras tocar un composable hay que reiniciar Vite antes de fiarse de una comprobación.** Dos
+  "fallos" de la cabecera fueron módulos rancios de HMR, no código. Se perdió un rato
+  depurando algo que ya funcionaba.
+
+### Desviaciones del mock, deliberadas
+
+- **El veredicto solo sale si la asignatura está entre las tres más duras de su curso.** Una
+  troncal de media tabla no necesita banner rojo, y ponerlo igualmente convierte un aviso en
+  decoración.
+- **La frase de la serie compara el primer curso con el último** (56 % → 61 %), no el mínimo con
+  el último como hacía el mock ("en 2019-20 el 19 %; hoy el 61 %"). Elegir el mínimo como base
+  exagera la tendencia, y esta web va justo de lo contrario.
+- **"La troncal más dura de primero"**, no "del grado": el ranking se calcula dentro del curso,
+  así que afirmar lo otro sería decir más de lo que se ha medido.
 
 ---
 
