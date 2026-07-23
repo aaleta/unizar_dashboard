@@ -1,0 +1,1 @@
+import{I as e,ft as t,q as n,rt as r,tt as i}from"./index-CDAiJQE6.js";var a=e({__name:`UiPill`,props:{tone:{type:String,default:`navy`,validator:e=>[`navy`,`neutral`,`gold`].includes(e)}},setup(e){return(a,o)=>(i(),n(`span`,{class:t([`pill`,e.tone])},[r(a.$slots,`default`,{},void 0,!0)],2))}},[[`__scopeId`,`data-v-b7af1e73`]]);export{a as t};
