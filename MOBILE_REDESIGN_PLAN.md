@@ -379,7 +379,7 @@ divergencia real. Tampoco hay mecanismo para títulos de cabecera dinámicos —
 
 ---
 
-## Fase 3 — Mapa del grado / "The Spine" (`#1c`, `/grado`)
+## Fase 3 — Mapa del grado / "The Spine" (`#1c`, `/grado`) · ✅ **COMPLETADA**
 
 **Objetivo:** la pantalla organizadora, la que da sentido al rediseño. Se hace pronto porque es
 la que valida las primitivas de la Fase 1 con datos reales.
@@ -401,6 +401,37 @@ la que valida las primitivas de la Fase 1 con datos reales.
 
 **Aceptación:** cifras contrastadas contra el escritorio actual (`Course.vue`); ningún número
 hard-codeado; la expansión "＋ N más" funciona.
+
+### Resultado
+
+`composables/useDegreeMap.js` + `views/DegreeMap.vue`. El composable **no calcula ninguna tasa**:
+agrupa, separa troncales de optativas y ordena por dificultad, que son decisiones de
+presentación. Todo lo demás sale de `metrics.js`.
+
+**Comprobado con datos reales:** 12 · 9 · 6 · 6 troncales, 21 optativas en 3º, y aprueban
+77 % · 77 % · 76 % · 94 %. Las cifras del mock (74 %, 76 %) eran de una versión anterior de los
+datos; las de la web se calculan.
+
+**"El curso más amable" se verifica, no se escribe.** Cuarto lo es hoy por veinte puntos, pero
+es una afirmación sobre datos que cambian: el composable comprueba cuál es el curso con más
+aprobados y la frase solo aparece si sigue siendo Cuarto.
+
+**Interacciones probadas por CDP:** sin desbordamiento a 320px · 16 filas al entrar · desplegar
+1º pasa a 24 y el botón cambia a "− ver menos" · plegar vuelve a 16 · el nodo lleva a
+`/grado/1` y la fila a `/asignatura/26907`.
+
+### Una contradicción del handoff que hay que decidir
+
+El handoff §5 exige **objetivos táctiles ≥44px "en todas partes (…filas de lista…)"**, pero su
+propio mock dibuja las filas de asignatura a **~31px**. No se puede cumplir lo uno sin
+incumplir lo otro.
+
+**Decidido: 44px**, porque una regla de accesibilidad explícita pesa más que la densidad, y
+rebajarla en silencio sería justo el tipo de cosa que no se debe hacer sin decirlo. El coste es
+real: la lista queda ~40 % más alta y de un vistazo entran dos cursos en vez de tres.
+
+⚠ **Es reversible en una línea** (`min-height` de `.row` en `DegreeMap.vue`). Si se prefiere la
+densidad del mock, decidirlo aquí y aplicar el mismo criterio a las listas de la fase 5.
 
 ---
 
