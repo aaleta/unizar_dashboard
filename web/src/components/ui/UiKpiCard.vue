@@ -97,7 +97,10 @@ const deltaText = computed(() => {
 
     const decimals = props.deltaUnit === "pp" ? 0 : 2;
 
-    return `${arrow} ${Math.abs(props.delta).toFixed(decimals)} ${props.deltaUnit}`;
+    // Coma decimal: toda la web está en español y "1.79" se lee como otra cosa.
+    const amount = Math.abs(props.delta).toFixed(decimals).replace(".", ",");
+
+    return `${arrow} ${amount} ${props.deltaUnit}`.trim();
 
 });
 

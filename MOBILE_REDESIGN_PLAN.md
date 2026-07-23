@@ -572,7 +572,7 @@ es contradecirse en dos líneas.
 
 ---
 
-## Fase 6 — Inicio (`#8a`, `/`) y gráficas tematizadas
+## Fase 6 — Inicio (`#8a`, `/`) y gráficas tematizadas · ✅ **COMPLETADA**
 
 **Objetivo:** la portada — *"a dashboard opens with numbers, not charts"* — y el re-tematizado
 de chart.js.
@@ -594,6 +594,49 @@ de chart.js.
 - Frescura por fuente desde `DATA_SOURCES` + descargo de responsabilidad al pie.
 
 **Aceptación:** las 4 fuentes muestran su curso real y distinto; las gráficas legibles a 320px.
+
+### Resultado
+
+`composables/useDegree.js` + `views/Home.vue` reescrita + `components/charts/LineChart.vue`.
+
+### Cambio de plan: SVG a mano en lugar de chart.js
+
+El plan pedía envoltorios de `vue-chartjs` tematizados. Al llegar aquí, **la portada necesita
+UNA gráfica de líneas** — la tendencia de aprobados son barras, como la serie de la ficha, y esas
+ya se hacen con `<div>`. Traer una librería de dibujo entera, su capa de tematizado y su canvas
+para un solo gráfico sale caro en bytes y en peleas con el estilo: este diseño quiere ejes en
+mono, sin rejilla y con los tonos del papel, que en chart.js son treinta líneas de opciones y en
+SVG cuatro atributos. Y en SVG el texto **es texto**: se selecciona, lo lee un lector de pantalla
+y escala con el zoom.
+
+**Consecuencia útil:** tras esta fase quedan **catorce componentes de `components/Dashboard/`
+huérfanos**, entre ellos los ocho que importaban chart.js. Solo siguen vivos `FightPanel`,
+`FightModeResult`, `ProfGraph` y `ProfWeb` — y la fase 7 reescribe Fight Mode y Profesorado. Es
+muy probable que **chart.js se pueda desinstalar en la fase 9**; hay que comprobarlo entonces, no
+antes.
+
+### La serie de notas de acceso: 16 años, no 6
+
+El mock dibuja 2020-2025 porque era lo que había cuando se diseñó. Con los 16 cursos que trajo la
+reingesta, la gráfica cuenta algo que en seis puntos no se ve: **la nota de corte fue un 5,0
+plano hasta 2014** —es decir, entraba todo el mundo— y a partir de ahí subió hasta rozar el 12,2.
+Esconder diez años disponibles en una web que va de datos abiertos no tenía defensa.
+
+El eje Y **no arranca en cero** a propósito: estas notas se mueven entre 5 y 13, y forzar el cero
+aplastaría dieciséis años de historia en una franja. Queda anotado en el componente.
+
+### Comprobado
+
+Cifras reales frente a las del mock: nota de corte **10,375 ▼1,79 vs 2024** (coincide exacto),
+aprueban **79 %** (el mock decía 82 %), no presentados **9 %** (8 %), convocatorias **1,32**
+(1,34). Las tres últimas venían de datos anteriores; las de la web se calculan.
+
+Sin desbordamiento y con todos los objetivos ≥44px a 320px y a 402px.
+
+Dos arreglos de formato que se vieron en pantalla: el delta usaba punto decimal ("1.79" en una
+web en español) y las tasas se rotulaban con el nombre oficial ("Tasa de rendimiento") en vez de
+en román paladino ("Aprueban"). El nombre oficial sigue en `metrics.js`, que es de donde lo toma
+la metodología.
 
 ---
 
