@@ -22,6 +22,7 @@ import { computed, ref, watch } from "vue";
 import { useRoute } from "vue-router";
 
 import { pageHeader } from "@/composables/usePageHeader";
+import { navigationLoading } from "@/composables/useNavigationProgress";
 
 import AppHeader from "./AppHeader.vue";
 import BottomTabBar from "./BottomTabBar.vue";
@@ -61,6 +62,15 @@ watch(() => route.fullPath, () => {
         :back="header.back"
     />
 
+    <!-- Barra de carga: solo aparece si la pantalla tarda. `aria-hidden` a
+         propósito — el cambio de página ya se anuncia solo, y un "cargando"
+         hablado en cada toque sería ruido. -->
+    <div
+        v-if="navigationLoading"
+        class="progress"
+        aria-hidden="true"
+    ></div>
+
     <main class="body">
         <div class="content">
             <slot />
@@ -90,6 +100,48 @@ watch(() => route.fullPath, () => {
     flex-direction:column;
 
     min-height:100dvh;
+
+}
+
+/* Pegada bajo la cabecera, que es sticky: la barra tiene que verse aunque se
+   haya bajado un poco antes de tocar el enlace. */
+.progress{
+
+    position:sticky;
+
+    top:0;
+
+    z-index:9;
+
+    height:2px;
+
+    overflow:hidden;
+
+    background:var(--line);
+
+}
+
+.progress::after{
+
+    content:"";
+
+    display:block;
+
+    width:40%;
+
+    height:100%;
+
+    background:var(--navy);
+
+    animation:slide 1s ease-in-out infinite;
+
+}
+
+@keyframes slide{
+
+    from{ transform:translateX(-100%); }
+
+    to{ transform:translateX(350%); }
 
 }
 

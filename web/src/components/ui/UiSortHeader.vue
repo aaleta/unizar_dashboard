@@ -118,7 +118,9 @@ defineEmits(["sort"]);
 
     min-width:0;
 
-    color:var(--ink-soft);
+    /* Sobre el fondo hundido (#ece5d7) los grises apagados se quedan cortos:
+       aquí se usa la tinta secundaria, que sí cumple. */
+    color:var(--ink-2);
 
 }
 
@@ -148,7 +150,7 @@ defineEmits(["sort"]);
 
     background:none;
 
-    color:var(--ink-faint);
+    color:var(--ink-2);
 
     cursor:pointer;
 

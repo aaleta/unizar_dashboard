@@ -144,6 +144,49 @@ const gradeTotal = computed(() =>
     grades.value.reduce((sum, slice) => sum + slice.count, 0)
 );
 
+const luminance = color => {
+
+    const channels = [1, 3, 5]
+        .map(i => parseInt(color.substr(i, 2), 16) / 255)
+        .map(value =>
+            value <= 0.03928 ? value / 12.92 : ((value + 0.055) / 1.055) ** 2.4
+        );
+
+    return 0.2126 * channels[0] + 0.7152 * channels[1] + 0.0722 * channels[2];
+
+};
+
+const contrast = (a, b) => {
+    const [high, low] = [luminance(a), luminance(b)].sort((x, y) => y - x);
+    return (high + 0.05) / (low + 0.05);
+};
+
+/**
+ * Tinta del recuento que va DENTRO de cada tramo de la barra apilada.
+ *
+ * Blanco fijo no vale: sobre el gris de "no presentados" se queda en 2,1:1. Se
+ * coge la que más contraste dé de las dos, y si NINGUNA llega a 4,5:1 —le pasa
+ * al azul de los notables, que se queda en 4,05 con blanco y con negro— se
+ * devuelve null y la cifra no se pinta.
+ *
+ * No se pierde nada: la leyenda de debajo lleva los seis recuentos. Antes que
+ * un número que no se lee, ninguno.
+ */
+const INK = "#23201b";
+const ON_DARK = "#ffffff";
+
+const sliceInk = color => {
+
+    const dark = contrast(INK, color);
+    const light = contrast(ON_DARK, color);
+    const best = Math.max(dark, light);
+
+    if (best < 4.5) return null;
+
+    return dark >= light ? "var(--ink)" : "var(--ink-on-navy)";
+
+};
+
 const comparison = computed(() => {
 
     if (!courseAverage.value || courseAverage.value.rendimiento === null) {
@@ -297,8 +340,9 @@ const comparison = computed(() => {
                 :title="`${slice.label}: ${slice.count}`"
             >
                 <span
-                    v-if="slice.count / gradeTotal > 0.12"
+                    v-if="slice.count / gradeTotal > 0.12 && sliceInk(gradeColor(slice.key))"
                     class="sliceValue num"
+                    :style="{ color: sliceInk(gradeColor(slice.key)) }"
                 >{{ slice.count }}</span>
             </div>
         </div>
@@ -644,8 +688,6 @@ h2{
 .sliceValue{
 
     font-size:var(--text-num-sm);
-
-    color:var(--ink-on-navy);
 
 }
 

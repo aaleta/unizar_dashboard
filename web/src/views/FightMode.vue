@@ -50,7 +50,8 @@ const valueColor = (duel, side) => {
 
     if (duel.key !== "noSuperacion") return "var(--ink)";
 
-    return difficultyInk(side === 1 ? duel.first : duel.second, false);
+    // Celdas de 15,5px: por debajo de "texto grande", hace falta 4,5:1.
+    return difficultyInk(side === 1 ? duel.first : duel.second, true);
 
 };
 
@@ -394,7 +395,7 @@ h1{
 
     background:var(--gold-wash);
 
-    border:1px solid #e7d3a2;
+    border:1px solid var(--gold-line);
 
     border-radius:12px;
 
@@ -426,7 +427,8 @@ h1{
 
     background:var(--gold);
 
-    color:var(--ink-on-navy);
+    /* Navy sobre oro, no blanco: el blanco sobre oro se queda en 2,4:1. */
+    color:var(--navy);
 
     font-size:16px;
 
@@ -446,7 +448,7 @@ h1{
 
     line-height:1.25;
 
-    color:#8f6a1e;
+    color:var(--gold-strong);
 
 }
 
@@ -470,7 +472,7 @@ h1{
 
     line-height:1.35;
 
-    color:#9c7f4a;
+    color:var(--gold-soft);
 
 }
 

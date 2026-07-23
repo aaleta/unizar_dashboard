@@ -47,6 +47,26 @@ body{
 
 }
 
+/**
+ * Bandas a sangre: se salen del ancho del contenido y cruzan la pantalla.
+ *
+ * El contenido va centrado con un ancho máximo, pero las bandas navy —el héroe
+ * de la portada, la fila de cifras del mapa— tienen que llegar de borde a
+ * borde: si se quedan del ancho de la columna, en un portátil parecen una caja
+ * azul suelta debajo de la cabecera, que es exactamente lo que parecían.
+ *
+ * El margen negativo las estira y el relleno equivalente devuelve su contenido
+ * a la columna. Con `overflow-x:hidden` en el body, la barra de desplazamiento
+ * no provoca desbordamiento.
+ */
+.fullBleed{
+
+    margin-inline:calc(50% - 50vw);
+
+    padding-inline:calc(50vw - 50%);
+
+}
+
 /* La navegación es táctil: el resalte azul de iOS al tocar sobra. */
 a,
 button{

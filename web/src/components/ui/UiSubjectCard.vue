@@ -92,7 +92,9 @@ const props = defineProps({
 const pct = value =>
     value === null ? "—" : `${Math.round(value)}%`;
 
-const headline = computed(() => difficultyInk(props.noSuperacion, false));
+// El titular va a 15,5px. No llega a "texto grande" (18,66px en negrita),
+// así que necesita 4,5:1 y le toca el tono oscurecido de la rampa.
+const headline = computed(() => difficultyInk(props.noSuperacion, true));
 
 const metaLine = computed(() =>
     props.meta

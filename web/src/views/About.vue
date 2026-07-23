@@ -303,7 +303,7 @@ h2{
 
     background:var(--navy-wash);
 
-    color:#7185ab;
+    color:var(--navy-avatar);
 
     font-size:13px;
 

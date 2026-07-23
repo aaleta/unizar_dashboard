@@ -379,7 +379,7 @@ h1{
 
 .person.active .personMeta{
 
-    color:#6e7f9c;
+    color:var(--navy-meta);
 
 }
 

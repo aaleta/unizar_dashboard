@@ -75,7 +75,7 @@ const kindestNote = course =>
     <!-- Continúa la banda navy de la cabecera: son las cifras estructurales
          del grado, no datos que haya que comparar. Se va con el scroll y la
          cabecera se queda, que es lo que hace falta al bajar. -->
-    <div class="totals">
+    <div class="totals fullBleed">
         <div class="totalsInner">
             <span>{{ totals.courses }} cursos</span>
             <span>{{ totals.troncales }} troncales</span>
@@ -263,7 +263,7 @@ const kindestNote = course =>
 
     background:var(--navy);
 
-    padding:0 var(--gutter) 12px;
+    padding-bottom:12px;
 
     /* Sube 1px para tapar cualquier costura con la cabecera al hacer zoom. */
     margin-top:-1px;

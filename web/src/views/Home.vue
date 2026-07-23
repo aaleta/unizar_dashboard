@@ -55,7 +55,7 @@ const chart = computed(() => ({
     ]
 }));
 
-const CHART_COLORS = ["#4c6699", "#c4642f"];
+const CHART_COLORS = ["var(--chart-line-1)", "var(--chart-line-2)"];
 
 /**
  * La frase de la gráfica. Se construye con los datos en vez de escribirse,
@@ -104,7 +104,7 @@ const trendEnds = computed(() => ({
 <div class="screen">
 
     <!-- Héroe: continúa la banda navy de la cabecera ------------------- -->
-    <section class="hero">
+    <section class="hero fullBleed">
 
         <div class="motif" aria-hidden="true">
             <span class="ring big"></span>
@@ -281,7 +281,9 @@ const trendEnds = computed(() => ({
 
     background:var(--navy);
 
-    padding:2px var(--gutter) 18px;
+    padding-top:2px;
+
+    padding-bottom:18px;
 
     /* Sube 1px para que no se vea costura con la cabecera. */
     margin-top:-1px;
@@ -372,7 +374,7 @@ h1{
 
     line-height:1.55;
 
-    color:#c4cee0;
+    color:var(--on-navy-soft);
 
 }
 
@@ -526,7 +528,7 @@ h2{
 
     line-height:1.2;
 
-    color:#b08476;
+    color:var(--warn-caption);
 
 }
 

@@ -747,7 +747,64 @@ en diferido. Nunca una segunda copia de la app.
 
 ---
 
-## Fase 8 — Estados, accesibilidad y fluidez
+## Fase 8 — Estados, accesibilidad y fluidez · ✅ **COMPLETADA**
+
+### Resultado
+
+**Contraste: de 21-52 fallos por pantalla a CERO.** Auditadas las diez rutas midiendo cada nodo
+de texto contra su fondo real. Detalle abajo.
+
+**Carga** — `composables/useNavigationProgress.js`. Una barra fina bajo la cabecera que **no
+aparece durante los primeros 180 ms**. Comprobado: en navegación instantánea no se ve nada a los
+90 ms; con la red estrangulada aparece a los 500 ms y desaparece al llegar la pantalla.
+
+**Vacío** — las dos listas, el buscador de profesores, y avisos con salida para código o curso
+inexistentes. Ya estaban de fases anteriores; aquí solo se han verificado.
+
+**Cohorte pequeña** — ⚠ y nota en lista, tarjeta y ficha, medido siempre sobre la cifra que se
+enseña (arreglado en la fase 5).
+
+**Fluidez** — sin desbordamiento horizontal en **320, 360, 402, 430, 768 y 1280 px**.
+
+**Movimiento** — con `prefers-reduced-motion: reduce` las transiciones caen a 0,00001 s y la hoja
+"Más" **sigue abriéndose**: se quita la animación, no la función.
+
+**Foco** — contorno de 2px visible al tabular.
+
+**COVID** — descartado por decisión del usuario; no se anota nada en las series.
+
+### El hallazgo gordo: la paleta de grises apagados no cumplía
+
+El handoff define cuatro niveles de gris para texto secundario (`#8A8275`, `#A49A86`, `#948C7E`,
+`#9A9182`). Sobre el papel dan entre **2,4:1 y 3,3:1**, y el texto normal necesita 4,5:1. No es
+un matiz decorativo: son los eyebrows, las líneas de metadatos, las notas al pie y los enlaces
+"＋ N más" — contenido real, y alguno pulsable.
+
+Y hay un límite duro: **por encima de 4,5:1 sobre este fondo no caben cuatro grises
+distinguibles**. Cualquiera que cumpla acaba pegado a los demás. Así que la escala baja a **dos
+niveles** y la jerarquía la sostienen el tamaño y el peso — que es lo que el diseño ya hacía de
+todos modos: estos textos van a 8,5–10px frente a los 12,5px del cuerpo.
+
+Otros cuatro arreglos del mismo tipo:
+
+- **Numerales de la rampa a 15,5px** (tarjeta de asignatura, celdas de Fight Mode) usaban el tono
+  claro. 15,5px no llega a "texto grande" (18,66px en negrita), así que les toca el tono
+  oscurecido. Los de 21-23px sí son texto grande y se quedan como estaban.
+- **Recuentos dentro de la barra apilada de notas**: en blanco fijo se quedaban en 2,1:1 sobre el
+  gris de "no presentados". Ahora se elige la tinta que más contraste dé y, si **ninguna** llega
+  a 4,5:1 —le pasa al azul de los notables, 4,05 con blanco y con negro— **la cifra no se pinta**.
+  No se pierde nada: la leyenda lleva los seis recuentos. Antes que un número ilegible, ninguno.
+- **Cabecera ordenable**: va sobre `#ece5d7`, más oscuro que el papel; usa tinta secundaria.
+- **Oro sobre navy** (el «VS», la «AA», la «F») se quedaba en 4,43. Se aclara el oro un 1 %, que
+  no se nota y arregla los tres a la vez. El trofeo pasa de blanco a navy: blanco sobre oro son
+  2,4:1.
+
+### Un fallo que solo se veía en pantalla ancha
+
+Las bandas navy —el héroe de la portada y la fila de cifras del mapa— quedaban recortadas al
+ancho de la columna mientras la cabecera cruzaba toda la pantalla: en un portátil parecían una
+caja azul suelta colgando. Añadida la utilidad `.fullBleed`, que estira la banda de borde a
+borde y devuelve su contenido a la columna.
 
 **Objetivo:** lo que el handoff §9 exige y suele quedarse fuera.
 

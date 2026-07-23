@@ -43,9 +43,29 @@
     --navy-wash-line:#dfe3ec;
 
     /* Oro heráldico: decoración y ganador de Fight Mode. Nunca un dato. */
-    --gold:#c9a24b;
-    --gold-ink:#a8813a;           /* Oro legible como texto */
+    --gold:#cba44c;
+    --gold-ink:#85662d;           /* Oro legible como texto */
     --gold-wash:#fbf5e7;
+    --gold-line:#e7d3a2;          /* Borde del veredicto */
+    --gold-strong:#8a6619;        /* Título del veredicto sobre gold-wash */
+    --gold-soft:#866d40;          /* Detalle del veredicto sobre gold-wash */
+
+    /* Sobre superficies navy claras y oscuras */
+    --on-navy-soft:#c4cee0;       /* Párrafo del héroe sobre navy */
+    --navy-meta:#606e88;          /* Metadatos sobre navy-wash */
+    --navy-avatar:#5d6d8c;        /* Avatar de hueco por rellenar */
+
+    /* ---------------------------------------------------------------- *
+     * Gráficas
+     * ---------------------------------------------------------------- *
+     * Las dos líneas de "notas de acceso" (handoff §7.2). Ojo: el naranja
+     * coincide con un tramo de la rampa de dificultad. Se acepta porque una
+     * gráfica con leyenda y ejes propios no se lee como una tasa de
+     * suspensos, pero es el único sitio donde los dos usos se rozan.
+     */
+
+    --chart-line-1:#4c6699;       /* Nota media de acceso */
+    --chart-line-2:#c4642f;       /* Nota de corte */
 
     /* ---------------------------------------------------------------- *
      * Superficies
@@ -73,20 +93,33 @@
 
     /* ---------------------------------------------------------------- *
      * Texto
-     * ---------------------------------------------------------------- */
+     * ---------------------------------------------------------------- *
+     * El handoff define CUATRO niveles de gris apagado (#8A8275, #A49A86,
+     * #948C7E, #9A9182). Sobre papel dan entre 2,4:1 y 3,3:1 de contraste, y
+     * el texto normal necesita 4,5:1. No es un matiz: son los eyebrows, las
+     * líneas de metadatos, las notas al pie y los enlaces "＋ N más" —
+     * contenido real, y alguno además pulsable.
+     *
+     * Aquí está el problema: por encima de 4,5:1 sobre este fondo ya no caben
+     * cuatro grises distinguibles. Cualquier gris que cumpla acaba pegado a
+     * los demás. Así que la escala baja a DOS niveles y la jerarquía la
+     * sostienen el tamaño y el peso, que es lo que el diseño ya hacía de
+     * todas formas: estos textos van a 8,5–10px frente a los 12,5px del
+     * cuerpo, y esa diferencia se lee mucho antes que un matiz de gris.
+     */
 
     --ink:#23201b;                /* Primario */
     --ink-2:#4a463e;              /* Secundario */
     --ink-3:#5f584c;              /* Etiqueta de chip inactivo */
-    --ink-muted:#6e675c;
-    --ink-soft:#8a8275;           /* Eyebrows y metadatos sobre papel */
-    --ink-faint:#a49a86;          /* Notas al pie en mono */
-    --ink-faint-2:#948c7e;
-    --ink-placeholder:#9a9182;    /* Placeholder y huecos por rellenar */
-    --ink-icon:#a49a88;           /* Iconos de control */
+    --ink-muted:#6e675c;          /* Apoyo (4,9:1) — el del handoff, ya cumplía */
+    --ink-soft:#736c61;           /* Eyebrows y metadatos (4,5:1) */
+    --ink-faint:#716b5f;          /* Notas al pie y cifras de apoyo (4,5:1) */
+    --ink-faint-2:#716b5f;        /* Alias: ya no se distinguía del anterior */
+    --ink-placeholder:#776f64;    /* Placeholder y huecos por rellenar */
+    --ink-icon:#8a8275;           /* Iconos de control (no es texto: 3:1) */
     --ink-on-navy:#fff;           /* Texto sobre superficie navy */
-    --ink-tab:#a29a8a;            /* Pestaña inactiva de la barra inferior */
-    --ink-chevron:#c2b7a3;        /* Flechas de "seguir" al final de una fila */
+    --ink-tab:#7b7569;            /* Pestaña inactiva de la barra inferior */
+    --ink-chevron:#8d8578;        /* Flechas de "seguir" (icono: basta 3:1) */
 
     /* ---------------------------------------------------------------- *
      * Recuentos — barras grises. Una cantidad NO es una dificultad.
@@ -103,13 +136,14 @@
     --warn-bg:#f9ece7;
     --warn-line:#f0d6cb;
     --warn-title:#8f3521;
-    --warn-body:#9c6b5c;
+    --warn-body:#8c6053;
+    --warn-caption:#86645a;       /* Rótulo bajo la cifra del aviso */
 
     /* Cohorte pequeña: el ⚠ y su nota. Llama la atención sin alarmar.
        El handoff fija el glifo y el texto; el fondo y el borde se derivan de
        ellos para poder montar el aviso completo. */
     --attention:#c89a2e;
-    --attention-ink:#a08a3e;
+    --attention-ink:#806e32;
     --attention-bg:#fbf6e8;
     --attention-line:#eee0bd;
 
@@ -123,7 +157,7 @@
 
     --delta-good:#4a6a44;
     --delta-bad:#b5482f;
-    --delta-flat:#8a8275;
+    --delta-flat:#6e675c;
 
     /* ---------------------------------------------------------------- *
      * Radios
