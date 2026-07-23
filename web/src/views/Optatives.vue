@@ -1,448 +1,402 @@
 <script setup>
 
-import { ref, computed } from "vue";
+/**
+ * Catálogo de optativas: la pantalla para ELEGIR, que es una tarea distinta de
+ * consultar.
+ *
+ * Por eso no es una tabla ordenable como la lista maestra sino tarjetas con
+ * cuatro órdenes con nombre propio. Quien elige optativas no piensa "ordéname
+ * por tasa de excelencia descendente"; piensa "cuáles son las más fáciles" o
+ * "en cuáles cae más matrícula de honor".
+ *
+ * Las barras de "las más elegidas" van en GRIS y no en la rampa. Cuánta gente
+ * se matricula es un recuento, no una dificultad: pintar de rojo la más
+ * elegida diría que es la más dura, que es justo lo contrario de lo que pasa.
+ *
+ * Antes esto eran dos páginas (/Optional y /dashboardGeneralOpts) contando lo
+ * mismo por separado.
+ */
 
-import GeneralOptEnrolled from "@/components/Dashboard/GeneralOptEnrolled.vue";
-import SubjectCard from "@/components/Dashboard/SubjectCard.vue";
+import { computed, ref } from "vue";
 
+import { useSubjectList } from "@/composables/useSubjectList";
 import {
-    RECENT_YEARS,
     allOptionalSubjects,
-    subjectSummary,
-    formatPct,
-    formatNumber
+    weightedRate,
+    subjectRows,
+    lastYears
 } from "@/utils/metrics";
 
+import UiChip from "@/components/ui/UiChip.vue";
+import UiCountBar from "@/components/ui/UiCountBar.vue";
+import UiSearchField from "@/components/ui/UiSearchField.vue";
+import UiStat from "@/components/ui/UiStat.vue";
+import UiSubjectCard from "@/components/ui/UiSubjectCard.vue";
+
+/** Cuántas tarjetas se ven antes de tener que pedir el resto. */
+const PREVIEW = 4;
+
+/** Cuántas barras tiene "las más elegidas". */
+const TOP_ENROLLED = 5;
+
+const {
+    query,
+    applySort,
+    isSort,
+    results,
+    rows,
+    total,
+    empty
+} = useSubjectList({
+    source: allOptionalSubjects,
+    sort: "enrolment",
+    descending: true
+});
+
 /**
- * Listado y estadísticas de optativas en una sola página (antes /Optional y
- * /dashboardGeneralOpts contaban lo mismo por separado).
+ * Los cuatro órdenes, con la dirección explícita. "Más fáciles" es no
+ * superación ASCENDENTE: la que menos gente suspende, arriba.
  */
-const summaries = allOptionalSubjects.map(subject =>
-    subjectSummary(subject.code)
+const ORDERS = [
+    { label: "Populares", key: "enrolment", descending: true },
+    { label: "Más fáciles", key: "noSuperacion", descending: false },
+    { label: "＋ Sob·MH", key: "excelencia", descending: true },
+    { label: "A–Z", key: "name", descending: false }
+];
+
+const expanded = ref(false);
+
+const visible = computed(() =>
+    expanded.value ? results.value : results.value.slice(0, PREVIEW)
 );
 
-const search = ref("");
+/** Media ponderada de aprobados de TODAS las optativas del grado. */
+const averagePass = computed(() => {
 
-const sortBy = ref("popularidad");
-
-const SORTS = {
-    popularidad: {
-        label: "Más matriculados",
-        compare: (a, b) => b.enrolment - a.enrolment
-    },
-    faciles: {
-        label: "Más fáciles de superar",
-        compare: (a, b) => (b.rendimiento ?? 0) - (a.rendimiento ?? 0)
-    },
-    excelencia: {
-        label: "Más sobresalientes y MH",
-        compare: (a, b) => (b.excelencia ?? 0) - (a.excelencia ?? 0)
-    },
-    nombre: {
-        label: "Nombre (A–Z)",
-        compare: (a, b) => a.name.localeCompare(b.name)
-    }
-};
-
-const normalize = text =>
-    text
-        .toLowerCase()
-        .normalize("NFD")
-        .replace(/[\u0300-\u036f]/g, "");
-
-const visible = computed(() => {
-
-    const query = normalize(search.value.trim());
-
-    const filtered = query
-        ? summaries.filter(item => normalize(item.name).includes(query))
-        : [...summaries];
-
-    return filtered.sort(SORTS[sortBy.value].compare);
-
-});
-
-const totals = computed(() => {
-
-    const withData = summaries.filter(item => item.rendimiento !== null);
-
-    const students = summaries.reduce(
-        (sum, item) => sum + item.enrolment,
-        0
+    const allRows = allOptionalSubjects.flatMap(subject =>
+        lastYears(subjectRows(subject.code))
     );
 
-    const rendimiento = withData.length
-        ? withData.reduce((sum, item) => sum + item.rendimiento, 0) /
-          withData.length
-        : null;
-
-    return {
-        count: summaries.length,
-        students,
-        rendimiento
-    };
+    return weightedRate(allRows, "rendimiento");
 
 });
+
+/** Matrículas al año: la suma de las medias de matriculados de cada una. */
+const enrolmentPerYear = computed(() =>
+    Math.round(
+        rows.value.reduce((sum, row) => sum + row.enrolment, 0)
+    )
+);
+
+const mostEnrolled = computed(() =>
+    [...rows.value]
+        .sort((a, b) => b.enrolment - a.enrolment)
+        .slice(0, TOP_ENROLLED)
+);
+
+const topEnrolment = computed(() =>
+    mostEnrolled.value[0]?.enrolment ?? 1
+);
+
+const pct = value =>
+    value === null ? "—" : `${Math.round(value)}%`;
+
+/** "OPTATIVA · 3º y 4º · 58 matr." */
+const meta = row => [
+    "Optativa",
+    row.courses.map(c => `${c}º`).join(" y "),
+    `${Math.round(row.enrolment)} matr.`
+].join(" · ");
 
 </script>
 
 <template>
 
-<main class="page">
+<div class="screen">
 
-    <header class="hero">
+    <header class="intro">
 
         <h1>Optativas</h1>
 
-        <p>
-            Todas las optativas del grado, con sus estadísticas y su dashboard.
+        <p class="lead">
+            Todas las del grado, con sus estadísticas y su ficha.
         </p>
 
-        <div class="summary">
-
-            <div class="summaryItem">
-                <span class="summaryValue">{{ totals.count }}</span>
-                <span class="summaryLabel">optativas</span>
-            </div>
-
-            <div class="summaryItem">
-                <span class="summaryValue">
-                    {{ formatNumber(totals.students, 0) }}
-                </span>
-                <span class="summaryLabel">matrículas al año</span>
-            </div>
-
-            <div class="summaryItem">
-                <span class="summaryValue">
-                    {{ formatPct(totals.rendimiento, 0) }}
-                </span>
-                <span class="summaryLabel">aprueban de media</span>
-            </div>
-
+        <div class="stats">
+            <UiStat
+                :value="total"
+                label="optativas"
+                tone="gold"
+            />
+            <UiStat
+                :value="enrolmentPerYear"
+                label="matrículas al año"
+            />
+            <UiStat
+                :value="pct(averagePass)"
+                label="aprueban de media"
+            />
         </div>
-
-        <p class="summaryNote">
-            Medias de los últimos {{ RECENT_YEARS }} cursos académicos.
-        </p>
 
     </header>
 
-    <section class="panel">
-
-        <GeneralOptEnrolled />
-
-    </section>
-
     <section class="section">
 
-        <div class="controls">
+        <h2>Las más elegidas</h2>
 
-            <label class="control grow">
-
-                <span class="controlLabel">Buscar</span>
-
-                <input
-                    v-model="search"
-                    type="search"
-                    placeholder="Nombre de la asignatura..."
-                >
-
-            </label>
-
-            <label class="control">
-
-                <span class="controlLabel">Ordenar por</span>
-
-                <select v-model="sortBy">
-                    <option
-                        v-for="(sort, key) in SORTS"
-                        :key="key"
-                        :value="key"
-                    >
-                        {{ sort.label }}
-                    </option>
-                </select>
-
-            </label>
-
-        </div>
-
-        <p class="resultCount">
-            {{ visible.length }} optativa(s)
-        </p>
-
-        <div
-            v-if="visible.length"
-            class="grid"
-        >
-
-            <SubjectCard
-                v-for="item in visible"
-                :key="item.code"
-                :code="item.code"
+        <div class="panel">
+            <UiCountBar
+                v-for="row in mostEnrolled"
+                :key="row.code"
+                :label="row.name"
+                :value="row.enrolment"
+                :max="topEnrolment"
+                :display="String(Math.round(row.enrolment))"
             />
-
         </div>
-
-        <p
-            v-else
-            class="empty"
-        >
-            No se ha encontrado ninguna asignatura.
-        </p>
 
     </section>
 
-</main>
+    <div class="controls">
+
+        <UiSearchField
+            v-model="query"
+            placeholder="Buscar optativa…"
+            label="Buscar optativa"
+        />
+
+        <p class="eyebrow orderLabel">Ordenar por</p>
+
+        <div class="chips">
+            <UiChip
+                v-for="order in ORDERS"
+                :key="order.label"
+                shape="rounded"
+                :active="isSort(order.key, order.descending)"
+                @click="applySort(order.key, order.descending)"
+            >
+                {{ order.label }}
+            </UiChip>
+        </div>
+
+    </div>
+
+    <p
+        v-if="empty"
+        class="emptyState"
+    >
+        Ninguna optativa coincide con la búsqueda.
+    </p>
+
+    <div
+        v-else
+        class="cards"
+    >
+
+        <UiSubjectCard
+            v-for="row in visible"
+            :key="row.code"
+            v-bind="row"
+            :meta="meta(row)"
+            secondary="excelencia"
+            optative
+        />
+
+        <button
+            v-if="results.length > PREVIEW"
+            type="button"
+            class="more"
+            @click="expanded = !expanded"
+        >
+            {{ expanded
+                ? "− ver menos"
+                : `＋ ${results.length - PREVIEW} optativas más` }}
+        </button>
+
+    </div>
+
+    <p class="footnote">
+        Debes cursar un mínimo de optativas · medias de 3 cursos ·
+        ⚠ = menos de 10 alumnos.
+    </p>
+
+</div>
 
 </template>
 
 <style scoped>
 
-.page{
+.screen{
 
-    /* Sin barra lateral: el hueco de 220px ya no reserva nada. */
-    margin-left:0;
-
-    width:calc(100% - 220px);
-
-    min-height:100vh;
-
-    padding:50px;
-
-    box-sizing:border-box;
-
-    background:#0f172a;
-
-    color:white;
+    padding:15px var(--gutter) 8px;
 
 }
 
-.hero{
+h1{
 
-    margin-bottom:34px;
+    margin:0 0 3px;
 
-}
+    font-family:var(--font-serif);
 
-.hero h1{
-
-    margin:0 0 10px;
-
-    font-size:2.8rem;
+    font-size:var(--text-h1-lg);
 
     font-weight:700;
 
 }
 
-.hero > p{
+.lead{
 
-    margin:0 0 22px;
+    margin:0 0 13px;
 
-    color:#94a3b8;
+    font-size:var(--text-body-sm);
 
-    font-size:1.05rem;
+    color:var(--ink-soft);
 
 }
 
-.summary{
+.stats{
 
     display:flex;
 
     flex-wrap:wrap;
 
-    gap:34px;
-
-}
-
-.summaryItem{
-
-    display:flex;
-
-    flex-direction:column;
-
-    gap:4px;
-
-}
-
-.summaryValue{
-
-    color:white;
-
-    font-size:1.8rem;
-
-    font-weight:700;
-
-    font-variant-numeric:tabular-nums;
-
-}
-
-.summaryLabel{
-
-    color:#94a3b8;
-
-    font-size:.8rem;
-
-}
-
-.summaryNote{
-
-    margin:16px 0 0;
-
-    color:#64748b;
-
-    font-size:.78rem;
-
-}
-
-.panel{
-
-    margin-bottom:48px;
+    gap:22px;
 
 }
 
 .section{
 
-    margin-bottom:48px;
+    margin-top:16px;
 
 }
 
-.controls{
+h2{
 
-    display:flex;
+    margin:0 0 10px;
 
-    flex-wrap:wrap;
+    font-family:var(--font-serif);
 
-    gap:20px;
+    font-size:var(--text-section);
 
-    margin-bottom:14px;
+    font-weight:600;
 
 }
 
-.control{
+.panel{
 
     display:flex;
 
     flex-direction:column;
 
-    gap:8px;
+    gap:9px;
+
+    padding:14px;
+
+    background:var(--surface);
+
+    border:1px solid var(--line);
+
+    border-radius:12px;
+
+    box-shadow:var(--shadow-card);
 
 }
 
-.control.grow{
+.controls{
 
-    flex:1;
-
-    min-width:240px;
-
-    max-width:420px;
+    margin-top:16px;
 
 }
 
-.controlLabel{
+.orderLabel{
 
-    color:#94a3b8;
+    margin:11px 0 7px;
 
-    font-size:.75rem;
-
-    font-weight:600;
-
-    text-transform:uppercase;
-
-    letter-spacing:.5px;
+    font-size:var(--text-footnote);
 
 }
 
-.control input,
-.control select{
+.chips{
 
-    background:#1e293b;
+    display:flex;
 
-    color:white;
+    flex-wrap:wrap;
 
-    border:1px solid #334155;
-
-    border-radius:10px;
-
-    padding:10px 14px;
-
-    font-size:.95rem;
+    gap:6px;
 
 }
 
-.control input:focus,
-.control select:focus{
+.cards{
 
-    outline:none;
+    display:flex;
 
-    border-color:#38bdf8;
+    flex-direction:column;
 
-}
+    gap:9px;
 
-.resultCount{
-
-    margin:0 0 20px;
-
-    color:#64748b;
-
-    font-size:.85rem;
+    margin-top:12px;
 
 }
 
-.grid{
+.more{
 
-    display:grid;
+    display:flex;
 
-    grid-template-columns:repeat(auto-fill,minmax(280px,1fr));
+    align-items:center;
 
-    gap:20px;
+    min-height:var(--touch-target);
+
+    padding:2px;
+
+    border:none;
+
+    background:none;
+
+    font-family:var(--font-mono);
+
+    font-size:10px;
+
+    color:var(--ink-faint-2);
+
+    cursor:pointer;
 
 }
 
-.empty{
+.more:active{
 
-    padding:40px;
+    color:var(--navy);
+
+}
+
+.emptyState{
+
+    margin:0;
+
+    padding:26px 0;
 
     text-align:center;
 
-    color:#94a3b8;
+    font-size:var(--text-body);
 
-    font-style:italic;
-
-    border:1px dashed rgba(255,255,255,.12);
-
-    border-radius:16px;
+    color:var(--ink-soft);
 
 }
 
-@media(max-width:768px){
+.footnote{
 
-    .page{
+    margin:14px 0 0;
 
-        margin-left:0;
+    padding-top:12px;
 
-        width:100%;
+    border-top:1px solid var(--line-rule);
 
-        padding:24px 16px 90px;
+    font-family:var(--font-mono);
 
-    }
+    font-size:var(--text-footnote);
 
-    .hero h1{
+    line-height:1.6;
 
-        font-size:2rem;
-
-    }
-
-    .summary{
-
-        gap:22px;
-
-    }
-
-    .grid{
-
-        grid-template-columns:1fr;
-
-    }
+    color:var(--ink-faint);
 
 }
 

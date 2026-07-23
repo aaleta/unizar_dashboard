@@ -15,6 +15,17 @@ defineProps({
     active: {
         type: Boolean,
         default: false
+    },
+
+    /**
+     * Píldora para FILTRAR (quitar cosas de la lista), rectángulo para ORDENAR
+     * (las mismas cosas en otro orden). Son gestos distintos y el diseño los
+     * distingue por la forma, no solo por dónde están.
+     */
+    shape: {
+        type: String,
+        default: "pill",
+        validator: value => ["pill", "rounded"].includes(value)
     }
 
 });
@@ -26,7 +37,7 @@ defineProps({
 <button
     type="button"
     class="chip"
-    :class="{ active }"
+    :class="[shape, { active }]"
     :aria-pressed="active"
 >
     <slot />
@@ -49,8 +60,6 @@ defineProps({
 
     padding:6px 11px;
 
-    border-radius:var(--radius-pill);
-
     border:1px solid var(--line-chip);
 
     background:var(--surface);
@@ -70,6 +79,20 @@ defineProps({
     cursor:pointer;
 
     transition:background .15s,border-color .15s,color .15s;
+
+}
+
+.chip.pill{
+
+    border-radius:var(--radius-pill);
+
+}
+
+.chip.rounded{
+
+    border-radius:8px;
+
+    padding:7px 11px;
 
 }
 

@@ -44,7 +44,9 @@ const describe = subject => {
         rendimiento: summary.rendimiento,
         noPresentados: summary.noPresentados,
         courses: summary.courses,
-        smallCohort: isSmallCohort(summary.recentStudents)
+        // Según la matrícula media, que es la que se enseña en la tarjeta.
+        // Ver la nota en useSubjectList.js.
+        smallCohort: isSmallCohort(Math.round(summary.enrolment))
     };
 };
 

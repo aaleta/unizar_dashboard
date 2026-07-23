@@ -69,6 +69,7 @@
     --line-chip:#cdc3b0;          /* Borde de chip inactivo */
     --line-dashed:#cdbf9e;        /* Borde discontinuo de optativa */
     --line-spine:#d7cdb9;         /* Línea vertical del mapa del grado */
+    --line-row:#e9e2d4;           /* Separador entre filas de una lista densa */
 
     /* ---------------------------------------------------------------- *
      * Texto

@@ -49,6 +49,22 @@ const props = defineProps({
         default: null
     },
 
+    excelencia: {
+        type: Number,
+        default: null
+    },
+
+    /**
+     * Qué se enseña como segundo dato del pie. En la vista de curso interesa
+     * cuánta gente ni se presenta; eligiendo optativas interesa cuántas
+     * matrículas de honor caen, que es media razón para escoger una.
+     */
+    secondary: {
+        type: String,
+        default: "noPresentados",
+        validator: value => ["noPresentados", "excelencia"].includes(value)
+    },
+
     // Media de matriculados de los últimos cursos.
     enrolment: {
         type: Number,
@@ -85,6 +101,12 @@ const metaLine = computed(() =>
             : `${Math.round(props.enrolment)} matriculados`)
 );
 
+const secondaryStat = computed(() =>
+    props.secondary === "excelencia"
+        ? { label: "Sob+MH", value: props.excelencia }
+        : { label: "no pres.", value: props.noPresentados }
+);
+
 </script>
 
 <template>
@@ -99,7 +121,17 @@ const metaLine = computed(() =>
 
         <div class="identity">
 
-            <div class="name">{{ name }}</div>
+            <div class="name">
+                {{ name }}
+                <!-- El aviso va pegado al nombre y no solo en el pie: quien
+                     ordena por "más fáciles" se encuentra estas arriba del
+                     todo, y tiene que ver por qué antes de creerse el 0 %. -->
+                <span
+                    v-if="smallCohort"
+                    class="warn"
+                    title="Menos de 10 alumnos: los porcentajes bailan mucho"
+                >⚠</span>
+            </div>
 
             <div
                 v-if="metaLine"
@@ -125,21 +157,31 @@ const metaLine = computed(() =>
 
     </div>
 
-    <p
+    <!-- Con cohorte pequeña el pie NO enseña porcentajes: repetir "aprueban
+         el 100 %" debajo del aviso de que los porcentajes no valen sería
+         contradecirse en dos líneas. -->
+    <div
         v-if="smallCohort"
-        class="cohort"
+        class="foot"
     >
-        ⚠ Menos de 10 alumnos: los porcentajes bailan mucho.
-    </p>
+        <span class="cohort">
+            Menos de 10 alumnos: los porcentajes bailan mucho.
+        </span>
+        <span class="go">Ver ficha →</span>
+    </div>
 
-    <div class="foot">
+    <div
+        v-else
+        class="foot"
+    >
 
         <span class="stat">
             aprueban <strong class="num">{{ pct(rendimiento) }}</strong>
         </span>
 
         <span class="stat">
-            no pres. <strong class="num">{{ pct(noPresentados) }}</strong>
+            {{ secondaryStat.label }}
+            <strong class="num">{{ pct(secondaryStat.value) }}</strong>
         </span>
 
         <span class="go">Ver ficha →</span>
@@ -220,6 +262,14 @@ const metaLine = computed(() =>
 
 }
 
+.warn{
+
+    color:var(--attention);
+
+    font-size:12px;
+
+}
+
 .meta{
 
     margin-top:3px;
@@ -260,7 +310,9 @@ const metaLine = computed(() =>
 
 .cohort{
 
-    margin:9px 0 0;
+    flex:1;
+
+    min-width:0;
 
     font-size:9.5px;
 

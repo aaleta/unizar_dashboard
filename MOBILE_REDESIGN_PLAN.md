@@ -517,7 +517,7 @@ desbordamiento a 320px en ninguna de las cinco rutas.
 
 ---
 
-## Fase 5 — Listas: Asignaturas y Optativas
+## Fase 5 — Listas: Asignaturas y Optativas · ✅ **COMPLETADA**
 
 **Objetivo:** la maquinaria compartida de búsqueda / filtro / orden.
 
@@ -537,6 +537,38 @@ desbordamiento a 320px en ninguna de las cinco rutas.
 
 **Aceptación:** estados vacíos de búsqueda; orden y filtro combinables; las barras de
 popularidad son grises en cualquier caso.
+
+### Resultado
+
+`composables/useSubjectList.js` + `views/Subjects.vue` y `views/Optatives.vue` reescritas.
+`UiSubjectCard` gana la variante de optativa (Sob+MH en vez de no presentados) y `UiChip` la
+forma rectangular: **píldora para filtrar** (quitar cosas) y **rectángulo para ordenar** (las
+mismas cosas en otro orden) son gestos distintos y el diseño los separa por la forma.
+
+**Probado con Chrome dirigido:** orden por defecto (más duras primero) · reordenar por
+matriculados · filtro Optativas · filtro + búsqueda combinados · búsqueda sin resultados →
+estado vacío · los cuatro órdenes con nombre de Optativas (Populares / Más fáciles / ＋ Sob·MH /
+A–Z) devuelven cada uno lo suyo. Sin desbordamiento y con todos los objetivos ≥44px a 320px.
+
+**Densidad:** se mantienen los 44px decididos en la fase 3, ahora también aquí. Las filas de la
+lista maestra llevan dos líneas y llegan a ~52px de forma natural, así que el coste es cero;
+donde se nota es en el mapa del grado.
+
+### El fallo que encontró "Más fáciles"
+
+Ordenar optativas por facilidad saca arriba las de cohorte diminuta, y ahí se vio que **el aviso
+de cohorte pequeña no saltaba**: se calculaba sobre el total acumulado de los tres cursos
+(`recentStudents`) mientras la tarjeta enseñaba la matrícula **media**. Resultado: una tarjeta
+que decía "7 matr." y "0 % no superan" sin una sola advertencia, justo en el primer puesto de
+"las más fáciles".
+
+Ahora el umbral se mide sobre **la misma cifra que se enseña**. Cuadrarlo con un número que el
+lector no ve es como no tenerlo. Corregido en las tres listas (`useSubjectList`, `useCourse`,
+`useDegreeMap`); la ficha ya usaba los matriculados del año concreto, que es lo correcto ahí.
+
+Además, con cohorte pequeña el pie de la tarjeta **sustituye** los porcentajes por el aviso, en
+vez de añadirlo debajo: decir "aprueban el 100 %" justo encima de "los porcentajes bailan mucho"
+es contradecirse en dos líneas.
 
 ---
 

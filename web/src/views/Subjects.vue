@@ -1,717 +1,445 @@
 <script setup>
 
-import { ref, computed } from "vue";
-
-import {
-    RECENT_YEARS,
-    MIN_COHORT,
-    METRICS,
-    allSubjects,
-    subjectSummary,
-    formatPct,
-    formatNumber
-} from "@/utils/metrics";
-
 /**
- * Tabla maestra: la vista que responde de un vistazo "qué asignatura es dura",
- * sin tener que entrar una por una. Ordenable y filtrable.
+ * La lista maestra: todas las asignaturas del grado, planas y ordenables.
+ *
+ * Es lo contrario del mapa del grado a propósito. El mapa enseña la ESTRUCTURA
+ * —qué va con qué, qué es obligatorio— y esconde el detalle; aquí no hay
+ * estructura ninguna: una fila por asignatura, ordenadas por lo que se pida.
+ * Quien quiere comparar dos asignaturas de cursos distintos no puede hacerlo
+ * en el mapa, y quien quiere entender la carrera no puede hacerlo aquí.
+ *
+ * Filas densas, de dos líneas y un porcentaje: con más de cincuenta
+ * asignaturas, tarjetas obligarían a cinco pantallas de scroll para lo que
+ * aquí cabe en dos.
  */
-const rows = allSubjects.map(subject => subjectSummary(subject.code));
 
-const COLUMNS = [
-    {
-        key: "name",
-        label: "Asignatura",
-        type: "text",
-        align: "left"
-    },
-    {
-        key: "course",
-        label: "Curso",
-        type: "course",
-        align: "left"
-    },
-    {
-        key: "enrolment",
-        label: "Matriculados",
-        type: "number",
-        hint: `Media de matriculados de los últimos ${RECENT_YEARS} cursos.`
-    },
-    {
-        key: "rendimiento",
-        label: "Aprueban",
-        type: "pct",
-        hint: METRICS.rendimiento.definition
-    },
-    {
-        key: "noPresentados",
-        label: "No presentados",
-        type: "pct",
-        hint: METRICS.noPresentados.definition
-    },
-    {
-        key: "excelencia",
-        label: "Sob. + MH",
-        type: "pct",
-        hint: METRICS.excelencia.definition
-    },
-    {
-        key: "noSuperacion",
-        label: "No superan",
-        type: "pct",
-        hint: METRICS.noSuperacion.definition
-    }
+import { computed, ref } from "vue";
+
+import { useSubjectList } from "@/composables/useSubjectList";
+import { difficultyFill, difficultyInk } from "@/theme/difficulty";
+
+import UiChip from "@/components/ui/UiChip.vue";
+import UiSearchField from "@/components/ui/UiSearchField.vue";
+import UiSortHeader from "@/components/ui/UiSortHeader.vue";
+
+/** Cuántas filas se ven antes de tener que pedir el resto. */
+const PREVIEW = 12;
+
+const {
+    query,
+    tipo,
+    course,
+    sortKey,
+    descending,
+    sortBy,
+    results,
+    total,
+    empty
+} = useSubjectList();
+
+const SORT_METRICS = [
+    { key: "noSuperacion", label: "No superan" },
+    { key: "enrolment", label: "Matr." }
 ];
 
-const search = ref("");
+const TIPOS = [
+    { value: "todas", label: "Todas" },
+    { value: "troncal", label: "Troncales" },
+    { value: "optativa", label: "Optativas" }
+];
 
-const tipoFilter = ref("todas");
+const expanded = ref(false);
 
-const courseFilter = ref("todos");
+const visible = computed(() =>
+    expanded.value ? results.value : results.value.slice(0, PREVIEW)
+);
 
-const sortKey = ref("noSuperacion");
+const pct = value =>
+    value === null ? "—" : `${Math.round(value)}%`;
 
-const sortAsc = ref(false);
-
-const normalize = text =>
-    text
-        .toLowerCase()
-        .normalize("NFD")
-        .replace(/[\u0300-\u036f]/g, "");
-
-const toggleSort = key => {
-
-    if (sortKey.value === key) {
-
-        sortAsc.value = !sortAsc.value;
-
-        return;
-
-    }
-
-    sortKey.value = key;
-
-    // El nombre se lee mejor de la A a la Z; los números, de mayor a menor.
-    sortAsc.value = key === "name";
-
-};
-
-const filtered = computed(() => {
-
-    const query = normalize(search.value.trim());
-
-    return rows.filter(row => {
-
-        if (query && !normalize(row.name).includes(query)) return false;
-
-        if (tipoFilter.value !== "todas" && row.tipo !== tipoFilter.value) {
-            return false;
-        }
-
-        if (
-            courseFilter.value !== "todos" &&
-            !row.courses.includes(courseFilter.value)
-        ) {
-            return false;
-        }
-
-        return true;
-
-    });
-
-});
-
-const sorted = computed(() => {
-
-    const key = sortKey.value;
-    const direction = sortAsc.value ? 1 : -1;
-
-    return [...filtered.value].sort((a, b) => {
-
-        const first = a[key];
-        const second = b[key];
-
-        if (typeof first === "string") {
-
-            return first.localeCompare(second) * direction;
-
-        }
-
-        // Las asignaturas sin datos van siempre al final, ordene como ordene.
-        if (first === null) return 1;
-        if (second === null) return -1;
-
-        return (first - second) * direction;
-
-    });
-
-});
-
-const sortIndicator = key => {
-
-    if (sortKey.value !== key) return "";
-
-    return sortAsc.value ? "▲" : "▼";
-
-};
-
+/**
+ * La línea de metadatos cambia con el orden: si se ordena por matriculados, lo
+ * que interesa ver al lado del nombre es cuánta gente la cursa, no la tasa de
+ * aprobados.
+ */
+const meta = row => [
+    row.tipo === "troncal" ? "T" : "O",
+    row.courses.map(c => `${c}º`).join("/"),
+    `${Math.round(row.enrolment)} matr`,
+    sortKey.value === "enrolment"
+        ? `no superan ${pct(row.noSuperacion)}`
+        : `aprueban ${pct(row.rendimiento)}`
+].join(" · ");
 
 </script>
 
 <template>
 
-<main class="page">
+<div class="screen">
 
-    <header class="hero">
+    <div class="controls">
 
-        <h1>Todas las asignaturas</h1>
+        <UiSearchField
+            v-model="query"
+            :placeholder="`Buscar entre ${total} asignaturas…`"
+            label="Buscar asignatura"
+        />
 
-        <p>
-            Compara las {{ rows.length }} asignaturas del grado de un vistazo.
-            Pulsa en una columna para ordenar; pulsa en una asignatura para ver
-            su dashboard.
-        </p>
+        <div class="chips">
 
-    </header>
-
-    <div class="filters">
-
-        <label class="filter grow">
-
-            <span class="filterLabel">Buscar</span>
-
-            <input
-                v-model="search"
-                type="search"
-                placeholder="Nombre de la asignatura..."
+            <UiChip
+                v-for="option in TIPOS"
+                :key="option.value"
+                :active="tipo === option.value"
+                @click="tipo = option.value"
             >
+                {{ option.label }}
+            </UiChip>
 
-        </label>
+            <label class="courseChip">
+                <span class="visuallyHidden">Filtrar por curso</span>
+                <select
+                    v-model="course"
+                    :class="{ active: course !== 'todos' }"
+                >
+                    <option value="todos">Curso</option>
+                    <option
+                        v-for="n in 4"
+                        :key="n"
+                        :value="n"
+                    >
+                        {{ n }}º
+                    </option>
+                </select>
+            </label>
 
-        <label class="filter">
-
-            <span class="filterLabel">Carácter</span>
-
-            <select v-model="tipoFilter">
-                <option value="todas">Todas</option>
-                <option value="troncal">Troncales</option>
-                <option value="optativa">Optativas</option>
-            </select>
-
-        </label>
-
-        <label class="filter">
-
-            <span class="filterLabel">Curso</span>
-
-            <select v-model="courseFilter">
-                <option value="todos">Todos</option>
-                <option value="1">1º</option>
-                <option value="2">2º</option>
-                <option value="3">3º</option>
-                <option value="4">4º</option>
-            </select>
-
-        </label>
+        </div>
 
     </div>
 
-    <p class="resultCount">
-        {{ sorted.length }} asignatura(s)
+    <UiSortHeader
+        :metrics="SORT_METRICS"
+        :active-key="sortKey"
+        :descending="descending"
+        @sort="sortBy"
+    />
+
+    <p
+        v-if="empty"
+        class="emptyState"
+    >
+        Ninguna asignatura coincide con la búsqueda.
     </p>
 
-    <div class="tableWrapper">
+    <ul
+        v-else
+        class="rows"
+    >
 
-        <table>
+        <li
+            v-for="row in visible"
+            :key="row.code"
+        >
+            <RouterLink
+                :to="`/asignatura/${row.code}`"
+                class="row"
+            >
+                <span
+                    class="dot"
+                    :class="{ hollow: row.tipo === 'optativa' }"
+                    :style="row.tipo === 'optativa'
+                        ? { borderColor: difficultyFill(row.noSuperacion) }
+                        : { background: difficultyFill(row.noSuperacion) }"
+                ></span>
 
-            <thead>
-
-                <tr>
-
-                    <th
-                        v-for="column in COLUMNS"
-                        :key="column.key"
-                        :class="[column.align === 'left' ? 'left' : 'right']"
-                        :aria-sort="
-                            sortKey === column.key
-                                ? (sortAsc ? 'ascending' : 'descending')
-                                : 'none'
-                        "
-                    >
-
-                        <button
-                            type="button"
-                            :title="column.hint"
-                            @click="toggleSort(column.key)"
-                        >
-                            {{ column.label }}
-                            <span class="indicator">
-                                {{ sortIndicator(column.key) }}
-                            </span>
-                        </button>
-
-                    </th>
-
-                </tr>
-
-            </thead>
-
-            <tbody>
-
-                <tr
-                    v-for="row in sorted"
-                    :key="row.code"
-                >
-
-                    <th
-                        scope="row"
-                        class="left"
-                    >
-                        <RouterLink :to="`/asignatura/${row.code}`">
-                            {{ row.name }}
-                        </RouterLink>
-
+                <span class="identity">
+                    <span class="name">
+                        {{ row.name }}
                         <span
-                            v-if="row.recentStudents < MIN_COHORT"
+                            v-if="row.smallCohort"
                             class="warn"
-                            title="Cohorte muy pequeña: los porcentajes son poco fiables."
-                        >
-                            ⚠
-                        </span>
-                    </th>
+                            title="Menos de 10 alumnos: los porcentajes bailan mucho"
+                        >⚠</span>
+                    </span>
+                    <span class="meta">{{ meta(row) }}</span>
+                </span>
 
-                    <td class="left">
+                <span
+                    class="value num"
+                    :style="{ color: difficultyInk(row.noSuperacion, true) }"
+                >
+                    {{ pct(row.noSuperacion) }}
+                </span>
+            </RouterLink>
+        </li>
 
-                        <span
-                            class="badge"
-                            :class="row.tipo"
-                        >
-                            {{ row.tipo === "troncal" ? "Troncal" : "Optativa" }}
-                        </span>
+        <li v-if="results.length > PREVIEW">
+            <button
+                type="button"
+                class="more"
+                @click="expanded = !expanded"
+            >
+                {{ expanded
+                    ? "− ver menos"
+                    : `＋ ${results.length - PREVIEW} asignaturas más` }}
+            </button>
+        </li>
 
-                        <span class="courses">
-                            {{ row.courses.map(c => `${c}º`).join(", ") }}
-                        </span>
-
-                    </td>
-
-                    <td>{{ formatNumber(row.enrolment, 0) }}</td>
-
-                    <td>{{ formatPct(row.rendimiento) }}</td>
-
-                    <td>{{ formatPct(row.noPresentados) }}</td>
-
-                    <td>{{ formatPct(row.excelencia) }}</td>
-
-                    <td
-                        class="emphasis"
-                        :class="{
-                            hot: row.noSuperacion !== null && row.noSuperacion >= 30
-                        }"
-                    >
-                        {{ formatPct(row.noSuperacion) }}
-                    </td>
-
-                </tr>
-
-                <tr v-if="!sorted.length">
-
-                    <td
-                        :colspan="COLUMNS.length"
-                        class="empty"
-                    >
-                        No se ha encontrado ninguna asignatura con esos filtros.
-                    </td>
-
-                </tr>
-
-            </tbody>
-
-        </table>
-
-    </div>
+    </ul>
 
     <p class="footnote">
-        Todas las tasas son medias ponderadas por matriculados de los últimos
-        {{ RECENT_YEARS }} cursos académicos con datos.
-        ⚠ marca las asignaturas con menos de {{ MIN_COHORT }} alumnos en ese
-        periodo, donde los porcentajes son poco fiables.
+        Medias ponderadas de los últimos 3 cursos · ⚠ = menos de 10 alumnos.
     </p>
 
-</main>
+</div>
 
 </template>
 
 <style scoped>
 
-.page{
+.controls{
 
-    /* Sin barra lateral: el hueco de 220px ya no reserva nada. */
-    margin-left:0;
+    padding:13px var(--gutter) 11px;
 
-    width:calc(100% - 220px);
-
-    min-height:100vh;
-
-    padding:50px;
-
-    box-sizing:border-box;
-
-    background:#0f172a;
-
-    color:white;
+    border-bottom:1px solid var(--line-rule);
 
 }
 
-.hero{
-
-    margin-bottom:28px;
-
-}
-
-.hero h1{
-
-    margin:0 0 12px;
-
-    font-size:2.6rem;
-
-}
-
-.hero p{
-
-    max-width:760px;
-
-    margin:0;
-
-    color:#94a3b8;
-
-    line-height:1.6;
-
-}
-
-.filters{
+.chips{
 
     display:flex;
 
     flex-wrap:wrap;
 
-    gap:20px;
+    gap:6px;
 
-    margin-bottom:14px;
+    margin-top:9px;
 
 }
 
-.filter{
+/* El filtro de curso es un <select> disfrazado de chip: cinco opciones no
+   merecen cinco chips, y el desplegable nativo se abre con la rueda del
+   sistema y funciona con teclado sin escribir una línea. */
+.courseChip select{
+
+    min-height:var(--touch-target);
+
+    padding:6px 11px;
+
+    border:1px solid var(--line-chip);
+
+    border-radius:var(--radius-pill);
+
+    background:var(--surface);
+
+    color:var(--ink-3);
+
+    font-family:var(--font-sans);
+
+    font-size:var(--text-body-sm);
+
+    font-weight:600;
+
+}
+
+.courseChip select.active{
+
+    background:var(--navy);
+
+    border-color:var(--navy);
+
+    color:var(--ink-on-navy);
+
+}
+
+.rows{
+
+    margin:0;
+
+    padding:0;
+
+    list-style:none;
+
+}
+
+.row{
 
     display:flex;
 
-    flex-direction:column;
+    align-items:center;
 
-    gap:8px;
+    gap:11px;
+
+    min-height:var(--touch-target);
+
+    padding:11px var(--gutter);
+
+    border-bottom:1px solid var(--line-row);
+
+    color:var(--ink);
 
 }
 
-.filter.grow{
+.row:active{
+
+    background:var(--navy-wash);
+
+}
+
+.dot{
+
+    width:9px;
+
+    height:9px;
+
+    flex:none;
+
+    border-radius:50%;
+
+}
+
+.dot.hollow{
+
+    background:transparent;
+
+    border:2px solid;
+
+    box-sizing:border-box;
+
+}
+
+.identity{
 
     flex:1;
 
-    min-width:240px;
-
-    max-width:420px;
+    min-width:0;
 
 }
 
-.filterLabel{
+.name{
 
-    color:#94a3b8;
+    display:block;
 
-    font-size:.75rem;
+    font-size:14px;
 
     font-weight:600;
 
-    text-transform:uppercase;
-
-    letter-spacing:.5px;
-
-}
-
-.filter input,
-.filter select{
-
-    background:#1e293b;
-
-    color:white;
-
-    border:1px solid #334155;
-
-    border-radius:10px;
-
-    padding:10px 14px;
-
-    font-size:.95rem;
-
-}
-
-.filter input:focus,
-.filter select:focus{
-
-    outline:none;
-
-    border-color:#38bdf8;
-
-}
-
-.resultCount{
-
-    margin:0 0 12px;
-
-    color:#64748b;
-
-    font-size:.85rem;
-
-}
-
-.tableWrapper{
-
-    overflow-x:auto;
-
-    border:1px solid rgba(255,255,255,.08);
-
-    border-radius:16px;
-
-    background:#1e293b;
-
-}
-
-table{
-
-    width:100%;
-
-    border-collapse:collapse;
-
-    font-size:.9rem;
-
-}
-
-thead th{
-
-    position:sticky;
-
-    top:0;
-
-    background:#172033;
-
-    border-bottom:1px solid rgba(255,255,255,.1);
+    line-height:1.2;
 
     white-space:nowrap;
 
-}
+    overflow:hidden;
 
-thead th button{
-
-    width:100%;
-
-    padding:14px 12px;
-
-    background:none;
-
-    border:none;
-
-    color:#94a3b8;
-
-    font-size:.75rem;
-
-    font-weight:700;
-
-    text-transform:uppercase;
-
-    letter-spacing:.5px;
-
-    text-align:right;
-
-    cursor:pointer;
-
-}
-
-thead th.left button{
-
-    text-align:left;
-
-}
-
-thead th button:hover{
-
-    color:white;
-
-}
-
-.indicator{
-
-    display:inline-block;
-
-    width:12px;
-
-    color:#38bdf8;
-
-}
-
-tbody th,
-tbody td{
-
-    padding:11px 12px;
-
-    text-align:right;
-
-    font-weight:500;
-
-    color:#cbd5e1;
-
-    border-bottom:1px solid rgba(255,255,255,.05);
-
-    font-variant-numeric:tabular-nums;
-
-    white-space:nowrap;
-
-}
-
-tbody th.left,
-tbody td.left{
-
-    text-align:left;
-
-    white-space:normal;
-
-}
-
-tbody tr:hover{
-
-    background:rgba(255,255,255,.03);
-
-}
-
-tbody th a{
-
-    color:white;
-
-    text-decoration:none;
-
-    font-weight:600;
-
-}
-
-tbody th a:hover{
-
-    color:#38bdf8;
-
-    text-decoration:underline;
+    text-overflow:ellipsis;
 
 }
 
 .warn{
 
-    margin-left:6px;
-
-    color:#facc15;
-
-    cursor:help;
+    color:var(--attention);
 
 }
 
-.badge{
+.meta{
 
-    display:inline-block;
+    display:block;
 
-    padding:3px 9px;
+    margin-top:2px;
 
-    border-radius:999px;
+    font-family:var(--font-mono);
 
-    font-size:.72rem;
+    font-size:var(--text-eyebrow);
 
-    font-weight:600;
-
-}
-
-.badge.troncal{
-
-    background:rgba(56,189,248,.18);
-
-    color:#7dd3fc;
+    color:var(--ink-soft);
 
 }
 
-.badge.optativa{
+.value{
 
-    background:rgba(168,85,247,.18);
+    flex:none;
 
-    color:#d8b4fe;
-
-}
-
-.courses{
-
-    margin-left:8px;
-
-    color:#64748b;
-
-    font-size:.8rem;
+    font-size:var(--text-metric);
 
 }
 
-.emphasis{
+.more{
 
-    color:white;
+    display:flex;
 
-    font-weight:700;
+    align-items:center;
+
+    width:100%;
+
+    min-height:var(--touch-target);
+
+    padding:0 var(--gutter);
+
+    border:none;
+
+    background:none;
+
+    font-family:var(--font-mono);
+
+    font-size:10px;
+
+    color:var(--ink-faint-2);
+
+    cursor:pointer;
 
 }
 
-.emphasis.hot{
+.more:active{
 
-    color:#f87171;
+    color:var(--navy);
 
 }
 
-.empty{
+.emptyState{
 
-    padding:40px;
+    margin:0;
+
+    padding:26px var(--gutter);
 
     text-align:center;
 
-    color:#94a3b8;
+    font-size:var(--text-body);
 
-    font-style:italic;
+    color:var(--ink-soft);
 
 }
 
 .footnote{
 
-    margin:16px 0 0;
+    margin:12px 0 0;
 
-    color:#64748b;
+    padding:12px var(--gutter) 0;
 
-    font-size:.78rem;
+    border-top:1px solid var(--line-rule);
+
+    font-family:var(--font-mono);
+
+    font-size:var(--text-footnote);
 
     line-height:1.6;
 
+    color:var(--ink-faint);
+
 }
 
-@media(max-width:768px){
+.visuallyHidden{
 
-    .page{
+    position:absolute;
 
-        margin-left:0;
+    width:1px;
 
-        width:100%;
+    height:1px;
 
-        padding:24px 16px 90px;
+    overflow:hidden;
 
-    }
+    clip-path:inset(50%);
 
-    .hero h1{
-
-        font-size:1.9rem;
-
-    }
+    white-space:nowrap;
 
 }
 

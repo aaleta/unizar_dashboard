@@ -57,8 +57,9 @@ const describe = subject => {
         name: summary.name,
         noSuperacion: summary.noSuperacion,
         // Con menos de 10 matriculados el porcentaje es ruido, y la fila tiene
-        // que decirlo allí donde se muestre.
-        smallCohort: isSmallCohort(summary.recentStudents)
+        // que decirlo allí donde se muestre. Se mide sobre la matrícula media,
+        // como en el resto de listas: ver la nota en useSubjectList.js.
+        smallCohort: isSmallCohort(Math.round(summary.enrolment))
     };
 
 };
