@@ -461,3 +461,81 @@ if __name__ == "__main__":
 
     # Siempre al final: necesita todos los ficheros ya escritos.
     escribir_frescura()
+
+
+
+#Scraper del Horario, guuarda un Json con el Horario completo del curso, no no ejecuta Freshness
+import requests
+import json
+import time
+
+print("Comienza el scraping del horario:")
+
+def makePetition(course, group, semester):
+    url = "http://155.210.84.118/publicacion/2627/horarios/tabla/series"
+
+    payload = {
+        "curso": course,
+        "grupo": group,
+        "periodo": semester,
+        "__curso": "447-1",
+        "__grupo": group,
+        "__periodo": semester
+    }
+
+    response = requests.post(
+        url=url,
+        json=payload
+    )
+
+    if(response.status_code == 200):
+        print(f"Datos de curso {payload['curso']}, grupo {payload['grupo']}, semestre {payload['periodo']} leido correctamente.")
+
+    time.sleep(1)
+
+    return response.json()
+
+def FilterData(content):
+    filteredContent = []
+    for element in content:
+        for subj in element["data"]:
+            try:
+                filteredElement = {
+                    "Asignatura": subj["title"],
+                    "Curso-Grupo": subj["subgrupo"],
+                    "Semestre": subj["periodo_de_clases"],
+                    "HoraIni": subj["h_ini"],
+                    "HoraFin": subj["h_fin"],
+                    "Dia": subj["wday"]
+                }
+    
+                filteredContent.append(filteredElement)
+                print("Asignatura Filtrada")
+            except KeyError:
+                continue
+
+    return filteredContent
+
+content = []
+
+for i in range(4):
+    for j in range(2):
+        for k in range(2):
+            if(i+1 == 4):
+                if(j == 0):
+                    JsonResponse = makePetition(f"447-{i+1}", f"447-{i+1}-{j}", f"S{k+1}")
+                    content.append(JsonResponse) 
+            else:
+                JsonResponse = makePetition(f"447-{i+1}", f"447-{i+1}-{j}", f"S{k+1}")
+                content.append(JsonResponse)
+
+print("Datos Leidos Correctamente")
+
+Content = FilterData(content)
+
+with open("../data/json/processed/TimeTableData.json", "w", encoding="utf-8") as f:
+    json.dump(Content, f, indent=4, ensure_ascii=False)
+
+print("Datos Guardados")
+
+

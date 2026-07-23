@@ -1,0 +1,3746 @@
+[
+    {
+        "Asignatura": "26901 Química",
+        "Curso-Grupo": "447-1-0-26901-T-1",
+        "Semestre": "S1",
+        "HoraIni": "12:00",
+        "HoraFin": "13:00",
+        "Dia": 1
+    },
+    {
+        "Asignatura": "26901 Química",
+        "Curso-Grupo": "447-1-0-26901-T-1",
+        "Semestre": "S1",
+        "HoraIni": "12:00",
+        "HoraFin": "13:00",
+        "Dia": 2
+    },
+    {
+        "Asignatura": "26902 Álgebra I",
+        "Curso-Grupo": "447-1-0-26902-T-1",
+        "Semestre": "S1",
+        "HoraIni": "11:00",
+        "HoraFin": "12:00",
+        "Dia": 3
+    },
+    {
+        "Asignatura": "26900 Fundamentos de física I",
+        "Curso-Grupo": "447-1-0-26900-T-1",
+        "Semestre": "S1",
+        "HoraIni": "10:00",
+        "HoraFin": "11:00",
+        "Dia": 5
+    },
+    {
+        "Asignatura": "26900 Fundamentos de física I",
+        "Curso-Grupo": "447-1-0-26900-T-1",
+        "Semestre": "S1",
+        "HoraIni": "10:00",
+        "HoraFin": "11:00",
+        "Dia": 1
+    },
+    {
+        "Asignatura": "26900 Fundamentos de física I",
+        "Curso-Grupo": "447-1-0-26900-T-1",
+        "Semestre": "S1",
+        "HoraIni": "10:00",
+        "HoraFin": "11:00",
+        "Dia": 2
+    },
+    {
+        "Asignatura": "26901 Química",
+        "Curso-Grupo": "447-1-0-26901-T-1",
+        "Semestre": "S1",
+        "HoraIni": "09:00",
+        "HoraFin": "10:00",
+        "Dia": 3
+    },
+    {
+        "Asignatura": "26901 Química",
+        "Curso-Grupo": "447-1-0-26901-T-1",
+        "Semestre": "S1",
+        "HoraIni": "10:00",
+        "HoraFin": "11:00",
+        "Dia": 4
+    },
+    {
+        "Asignatura": "26902 Álgebra I",
+        "Curso-Grupo": "447-1-0-26902-T-1",
+        "Semestre": "S1",
+        "HoraIni": "11:00",
+        "HoraFin": "12:00",
+        "Dia": 1
+    },
+    {
+        "Asignatura": "26902 Álgebra I",
+        "Curso-Grupo": "447-1-0-26902-T-1",
+        "Semestre": "S1",
+        "HoraIni": "11:00",
+        "HoraFin": "12:00",
+        "Dia": 4
+    },
+    {
+        "Asignatura": "26900 Fundamentos de física I",
+        "Curso-Grupo": "447-1-0-26900-T-1",
+        "Semestre": "S1",
+        "HoraIni": "10:00",
+        "HoraFin": "11:00",
+        "Dia": 3
+    },
+    {
+        "Asignatura": "26902 Álgebra I",
+        "Curso-Grupo": "447-1-0-26902-T-1",
+        "Semestre": "S1",
+        "HoraIni": "12:00",
+        "HoraFin": "13:00",
+        "Dia": 5
+    },
+    {
+        "Asignatura": "26903 Análisis matemático",
+        "Curso-Grupo": "447-1-0-26903-T-1",
+        "Semestre": "S1",
+        "HoraIni": "09:00",
+        "HoraFin": "10:00",
+        "Dia": 1
+    },
+    {
+        "Asignatura": "26903 Análisis matemático",
+        "Curso-Grupo": "447-1-0-26903-T-1",
+        "Semestre": "S1",
+        "HoraIni": "09:00",
+        "HoraFin": "10:00",
+        "Dia": 2
+    },
+    {
+        "Asignatura": "26903 Análisis matemático",
+        "Curso-Grupo": "447-1-0-26903-T-1",
+        "Semestre": "S1",
+        "HoraIni": "09:00",
+        "HoraFin": "10:00",
+        "Dia": 4
+    },
+    {
+        "Asignatura": "26903 Análisis matemático",
+        "Curso-Grupo": "447-1-0-26903-T-1",
+        "Semestre": "S1",
+        "HoraIni": "09:00",
+        "HoraFin": "10:00",
+        "Dia": 5
+    },
+    {
+        "Asignatura": "26904 Informática",
+        "Curso-Grupo": "447-1-0-26904-T-1",
+        "Semestre": "S1",
+        "HoraIni": "11:00",
+        "HoraFin": "12:00",
+        "Dia": 2
+    },
+    {
+        "Asignatura": "26904 Informática",
+        "Curso-Grupo": "447-1-0-26904-T-1",
+        "Semestre": "S1",
+        "HoraIni": "12:00",
+        "HoraFin": "13:00",
+        "Dia": 3
+    },
+    {
+        "Asignatura": "26904 Informática",
+        "Curso-Grupo": "447-1-0-26904-T-1",
+        "Semestre": "S1",
+        "HoraIni": "11:00",
+        "HoraFin": "12:00",
+        "Dia": 5
+    },
+    {
+        "Asignatura": "26904 Informática",
+        "Curso-Grupo": "447-1-0-26904-O-1",
+        "Semestre": "S1",
+        "HoraIni": "16:00",
+        "HoraFin": "18:00",
+        "Dia": 1
+    },
+    {
+        "Asignatura": "26904 Informática",
+        "Curso-Grupo": "447-1-0-26904-O-2",
+        "Semestre": "S1",
+        "HoraIni": "17:00",
+        "HoraFin": "19:00",
+        "Dia": 2
+    },
+    {
+        "Asignatura": "26904 Informática",
+        "Curso-Grupo": "447-1-0-26904-O-3",
+        "Semestre": "S1",
+        "HoraIni": "13:00",
+        "HoraFin": "15:00",
+        "Dia": 5
+    },
+    {
+        "Asignatura": "26901 Química",
+        "Curso-Grupo": "447-1-0-26901-L-2",
+        "Semestre": "S1",
+        "HoraIni": "16:00",
+        "HoraFin": "19:00",
+        "Dia": null
+    },
+    {
+        "Asignatura": "26901 Química",
+        "Curso-Grupo": "447-1-0-26901-L-1",
+        "Semestre": "S1",
+        "HoraIni": "16:00",
+        "HoraFin": "19:00",
+        "Dia": null
+    },
+    {
+        "Asignatura": "26904 Informática",
+        "Curso-Grupo": "447-1-0-26904-O-1",
+        "Semestre": "S1",
+        "HoraIni": "13:00",
+        "HoraFin": "15:00",
+        "Dia": null
+    },
+    {
+        "Asignatura": "26904 Informática",
+        "Curso-Grupo": "447-1-0-26904-O-3",
+        "Semestre": "S1",
+        "HoraIni": "13:00",
+        "HoraFin": "15:00",
+        "Dia": null
+    },
+    {
+        "Asignatura": "26903 Análisis matemático",
+        "Curso-Grupo": "447-1-0-26903-T-1",
+        "Semestre": "S1",
+        "HoraIni": "08:00",
+        "HoraFin": "09:00",
+        "Dia": null
+    },
+    {
+        "Asignatura": "26904 Informática",
+        "Curso-Grupo": "447-1-0-26904-O-4",
+        "Semestre": "S1",
+        "HoraIni": "13:00",
+        "HoraFin": "15:00",
+        "Dia": null
+    },
+    {
+        "Asignatura": "26905 Fundamentos de física II",
+        "Curso-Grupo": "447-1-0-26905-T-1",
+        "Semestre": "S2",
+        "HoraIni": "09:00",
+        "HoraFin": "11:00",
+        "Dia": 2
+    },
+    {
+        "Asignatura": "26905 Fundamentos de física II",
+        "Curso-Grupo": "447-1-0-26905-T-1",
+        "Semestre": "S2",
+        "HoraIni": "09:00",
+        "HoraFin": "11:00",
+        "Dia": 4
+    },
+    {
+        "Asignatura": "26907 Álgebra II",
+        "Curso-Grupo": "447-1-0-26907-T-1",
+        "Semestre": "S2",
+        "HoraIni": "09:00",
+        "HoraFin": "11:00",
+        "Dia": 1
+    },
+    {
+        "Asignatura": "26907 Álgebra II",
+        "Curso-Grupo": "447-1-0-26907-T-1",
+        "Semestre": "S2",
+        "HoraIni": "09:00",
+        "HoraFin": "11:00",
+        "Dia": 3
+    },
+    {
+        "Asignatura": "26908 Cálculo diferencial",
+        "Curso-Grupo": "447-1-0-26908-T-1",
+        "Semestre": "S2",
+        "HoraIni": "11:00",
+        "HoraFin": "12:00",
+        "Dia": 1
+    },
+    {
+        "Asignatura": "26908 Cálculo diferencial",
+        "Curso-Grupo": "447-1-0-26908-T-1",
+        "Semestre": "S2",
+        "HoraIni": "11:00",
+        "HoraFin": "12:00",
+        "Dia": 2
+    },
+    {
+        "Asignatura": "26908 Cálculo diferencial",
+        "Curso-Grupo": "447-1-0-26908-T-1",
+        "Semestre": "S2",
+        "HoraIni": "11:00",
+        "HoraFin": "12:00",
+        "Dia": 3
+    },
+    {
+        "Asignatura": "26908 Cálculo diferencial",
+        "Curso-Grupo": "447-1-0-26908-T-1",
+        "Semestre": "S2",
+        "HoraIni": "11:00",
+        "HoraFin": "12:00",
+        "Dia": 4
+    },
+    {
+        "Asignatura": "26906 Laboratorio de física",
+        "Curso-Grupo": "447-1-0-26906-T-1",
+        "Semestre": "S2",
+        "HoraIni": "13:00",
+        "HoraFin": "14:00",
+        "Dia": 1
+    },
+    {
+        "Asignatura": "26906 Laboratorio de física",
+        "Curso-Grupo": "447-1-0-26906-L-1",
+        "Semestre": "S2",
+        "HoraIni": "16:00",
+        "HoraFin": "20:00",
+        "Dia": 2
+    },
+    {
+        "Asignatura": "26906 Laboratorio de física",
+        "Curso-Grupo": "447-1-0-26906-L-2",
+        "Semestre": "S2",
+        "HoraIni": "16:00",
+        "HoraFin": "20:00",
+        "Dia": 3
+    },
+    {
+        "Asignatura": "26906 Laboratorio de física",
+        "Curso-Grupo": "447-1-0-26906-T-1",
+        "Semestre": "S2",
+        "HoraIni": "09:00",
+        "HoraFin": "12:00",
+        "Dia": null
+    },
+    {
+        "Asignatura": "26906 Laboratorio de física",
+        "Curso-Grupo": "447-1-0-26906-L-3",
+        "Semestre": "S2",
+        "HoraIni": "16:00",
+        "HoraFin": "20:00",
+        "Dia": 4
+    },
+    {
+        "Asignatura": "26906 Laboratorio de física",
+        "Curso-Grupo": "447-1-0-26906-T-1",
+        "Semestre": "S2",
+        "HoraIni": "12:00",
+        "HoraFin": "14:00",
+        "Dia": null
+    },
+    {
+        "Asignatura": "26907 Álgebra II",
+        "Curso-Grupo": "447-1-0-26907-O-1",
+        "Semestre": "S2",
+        "HoraIni": "09:00",
+        "HoraFin": "11:00",
+        "Dia": null
+    },
+    {
+        "Asignatura": "26907 Álgebra II",
+        "Curso-Grupo": "447-1-0-26907-O-2",
+        "Semestre": "S2",
+        "HoraIni": "11:00",
+        "HoraFin": "14:10",
+        "Dia": null
+    },
+    {
+        "Asignatura": "26907 Álgebra II",
+        "Curso-Grupo": "447-1-0-26907-O-3",
+        "Semestre": "S2",
+        "HoraIni": "15:00",
+        "HoraFin": "17:00",
+        "Dia": null
+    },
+    {
+        "Asignatura": "26907 Álgebra II",
+        "Curso-Grupo": "447-1-0-26907-O-4",
+        "Semestre": "S2",
+        "HoraIni": "17:00",
+        "HoraFin": "19:40",
+        "Dia": null
+    },
+    {
+        "Asignatura": "26906 Laboratorio de física",
+        "Curso-Grupo": "447-1-0-26906-T-1",
+        "Semestre": "S2",
+        "HoraIni": "12:00",
+        "HoraFin": "13:00",
+        "Dia": null
+    },
+    {
+        "Asignatura": "26999 Probabilidad y Estadística",
+        "Curso-Grupo": "447-1-0-26999-T-1",
+        "Semestre": "S2",
+        "HoraIni": "12:00",
+        "HoraFin": "13:00",
+        "Dia": 1
+    },
+    {
+        "Asignatura": "26999 Probabilidad y Estadística",
+        "Curso-Grupo": "447-1-0-26999-T-1",
+        "Semestre": "S2",
+        "HoraIni": "12:00",
+        "HoraFin": "13:00",
+        "Dia": 2
+    },
+    {
+        "Asignatura": "26999 Probabilidad y Estadística",
+        "Curso-Grupo": "447-1-0-26999-T-1",
+        "Semestre": "S2",
+        "HoraIni": "12:00",
+        "HoraFin": "13:00",
+        "Dia": 3
+    },
+    {
+        "Asignatura": "26999 Probabilidad y Estadística",
+        "Curso-Grupo": "447-1-0-26999-T-1",
+        "Semestre": "S2",
+        "HoraIni": "13:00",
+        "HoraFin": "14:00",
+        "Dia": null
+    },
+    {
+        "Asignatura": "26999 Probabilidad y Estadística",
+        "Curso-Grupo": "447-1-0-26999-O-1",
+        "Semestre": "S2",
+        "HoraIni": "09:00",
+        "HoraFin": "11:00",
+        "Dia": 5
+    },
+    {
+        "Asignatura": "26999 Probabilidad y Estadística",
+        "Curso-Grupo": "447-1-0-26999-O-2",
+        "Semestre": "S2",
+        "HoraIni": "11:00",
+        "HoraFin": "13:00",
+        "Dia": 5
+    },
+    {
+        "Asignatura": "26999 Probabilidad y Estadística",
+        "Curso-Grupo": "447-1-0-26999-O-3",
+        "Semestre": "S2",
+        "HoraIni": "11:00",
+        "HoraFin": "13:00",
+        "Dia": 5
+    },
+    {
+        "Asignatura": "26999 Probabilidad y Estadística",
+        "Curso-Grupo": "447-1-0-26999-O-4",
+        "Semestre": "S2",
+        "HoraIni": "15:00",
+        "HoraFin": "17:00",
+        "Dia": 5
+    },
+    {
+        "Asignatura": "26999 Probabilidad y Estadística",
+        "Curso-Grupo": "447-1-0-26999-O-1",
+        "Semestre": "S2",
+        "HoraIni": "08:30",
+        "HoraFin": "11:00",
+        "Dia": 5
+    },
+    {
+        "Asignatura": "26999 Probabilidad y Estadística",
+        "Curso-Grupo": "447-1-0-26999-O-2",
+        "Semestre": "S2",
+        "HoraIni": "11:00",
+        "HoraFin": "13:30",
+        "Dia": 5
+    },
+    {
+        "Asignatura": "26999 Probabilidad y Estadística",
+        "Curso-Grupo": "447-1-0-26999-O-3",
+        "Semestre": "S2",
+        "HoraIni": "11:00",
+        "HoraFin": "13:30",
+        "Dia": 5
+    },
+    {
+        "Asignatura": "26999 Probabilidad y Estadística",
+        "Curso-Grupo": "447-1-0-26999-O-4",
+        "Semestre": "S2",
+        "HoraIni": "15:00",
+        "HoraFin": "17:30",
+        "Dia": 5
+    },
+    {
+        "Asignatura": "26999 Probabilidad y Estadística",
+        "Curso-Grupo": "447-1-0-26999-O-5",
+        "Semestre": "S2",
+        "HoraIni": "15:00",
+        "HoraFin": "17:00",
+        "Dia": 5
+    },
+    {
+        "Asignatura": "26999 Probabilidad y Estadística",
+        "Curso-Grupo": "447-1-0-26999-O-6",
+        "Semestre": "S2",
+        "HoraIni": "17:00",
+        "HoraFin": "19:00",
+        "Dia": 5
+    },
+    {
+        "Asignatura": "26999 Probabilidad y Estadística",
+        "Curso-Grupo": "447-1-0-26999-O-6",
+        "Semestre": "S2",
+        "HoraIni": "17:30",
+        "HoraFin": "20:00",
+        "Dia": 5
+    },
+    {
+        "Asignatura": "26999 Probabilidad y Estadística",
+        "Curso-Grupo": "447-1-0-26999-O-5",
+        "Semestre": "S2",
+        "HoraIni": "14:30",
+        "HoraFin": "17:00",
+        "Dia": 5
+    },
+    {
+        "Asignatura": "26906 Laboratorio de física",
+        "Curso-Grupo": "447-1-0-26906-T-1",
+        "Semestre": "S2",
+        "HoraIni": "08:00",
+        "HoraFin": "09:00",
+        "Dia": null
+    },
+    {
+        "Asignatura": "26999 Probabilidad y Estadística",
+        "Curso-Grupo": "447-1-0-26999-O-3",
+        "Semestre": "S2",
+        "HoraIni": "11:00",
+        "HoraFin": "13:00",
+        "Dia": null
+    },
+    {
+        "Asignatura": "26999 Probabilidad y Estadística",
+        "Curso-Grupo": "447-1-0-26999-O-1",
+        "Semestre": "S2",
+        "HoraIni": "09:00",
+        "HoraFin": "11:00",
+        "Dia": null
+    },
+    {
+        "Asignatura": "26999 Probabilidad y Estadística",
+        "Curso-Grupo": "447-1-0-26999-O-4",
+        "Semestre": "S2",
+        "HoraIni": "15:00",
+        "HoraFin": "17:00",
+        "Dia": null
+    },
+    {
+        "Asignatura": "26999 Probabilidad y Estadística",
+        "Curso-Grupo": "447-1-0-26999-O-5",
+        "Semestre": "S2",
+        "HoraIni": "15:00",
+        "HoraFin": "17:00",
+        "Dia": null
+    },
+    {
+        "Asignatura": "26999 Probabilidad y Estadística",
+        "Curso-Grupo": "447-1-0-26999-O-6",
+        "Semestre": "S2",
+        "HoraIni": "17:00",
+        "HoraFin": "19:00",
+        "Dia": null
+    },
+    {
+        "Asignatura": "26999 Probabilidad y Estadística",
+        "Curso-Grupo": "447-1-0-26999-O-4",
+        "Semestre": "S2",
+        "HoraIni": "15:00",
+        "HoraFin": "17:30",
+        "Dia": null
+    },
+    {
+        "Asignatura": "26999 Probabilidad y Estadística",
+        "Curso-Grupo": "447-1-0-26999-O-6",
+        "Semestre": "S2",
+        "HoraIni": "17:30",
+        "HoraFin": "20:00",
+        "Dia": null
+    },
+    {
+        "Asignatura": "26900 Fundamentos de física I",
+        "Curso-Grupo": "447-1-1-26900-T-1",
+        "Semestre": "S1",
+        "HoraIni": "16:00",
+        "HoraFin": "17:00",
+        "Dia": 1
+    },
+    {
+        "Asignatura": "26900 Fundamentos de física I",
+        "Curso-Grupo": "447-1-1-26900-T-1",
+        "Semestre": "S1",
+        "HoraIni": "16:00",
+        "HoraFin": "17:00",
+        "Dia": 2
+    },
+    {
+        "Asignatura": "26900 Fundamentos de física I",
+        "Curso-Grupo": "447-1-1-26900-T-1",
+        "Semestre": "S1",
+        "HoraIni": "16:00",
+        "HoraFin": "17:00",
+        "Dia": 3
+    },
+    {
+        "Asignatura": "26900 Fundamentos de física I",
+        "Curso-Grupo": "447-1-1-26900-T-1",
+        "Semestre": "S1",
+        "HoraIni": "16:00",
+        "HoraFin": "17:00",
+        "Dia": 4
+    },
+    {
+        "Asignatura": "26901 Química",
+        "Curso-Grupo": "447-1-1-26901-T-1",
+        "Semestre": "S1",
+        "HoraIni": "15:00",
+        "HoraFin": "16:00",
+        "Dia": 1
+    },
+    {
+        "Asignatura": "26901 Química",
+        "Curso-Grupo": "447-1-1-26901-T-1",
+        "Semestre": "S1",
+        "HoraIni": "15:00",
+        "HoraFin": "16:00",
+        "Dia": 3
+    },
+    {
+        "Asignatura": "26902 Álgebra I",
+        "Curso-Grupo": "447-1-1-26902-T-1",
+        "Semestre": "S1",
+        "HoraIni": "15:00",
+        "HoraFin": "16:00",
+        "Dia": 4
+    },
+    {
+        "Asignatura": "26901 Química",
+        "Curso-Grupo": "447-1-1-26901-T-1",
+        "Semestre": "S1",
+        "HoraIni": "15:00",
+        "HoraFin": "16:00",
+        "Dia": 5
+    },
+    {
+        "Asignatura": "26904 Informática",
+        "Curso-Grupo": "447-1-1-26904-T-1",
+        "Semestre": "S1",
+        "HoraIni": "17:00",
+        "HoraFin": "18:00",
+        "Dia": 1
+    },
+    {
+        "Asignatura": "26903 Análisis matemático",
+        "Curso-Grupo": "447-1-1-26903-T-1",
+        "Semestre": "S1",
+        "HoraIni": "17:00",
+        "HoraFin": "18:00",
+        "Dia": 2
+    },
+    {
+        "Asignatura": "26902 Álgebra I",
+        "Curso-Grupo": "447-1-1-26902-T-1",
+        "Semestre": "S1",
+        "HoraIni": "18:00",
+        "HoraFin": "19:00",
+        "Dia": 3
+    },
+    {
+        "Asignatura": "26901 Química",
+        "Curso-Grupo": "447-1-1-26901-T-1",
+        "Semestre": "S1",
+        "HoraIni": "18:00",
+        "HoraFin": "19:00",
+        "Dia": 4
+    },
+    {
+        "Asignatura": "26902 Álgebra I",
+        "Curso-Grupo": "447-1-1-26902-T-1",
+        "Semestre": "S1",
+        "HoraIni": "18:00",
+        "HoraFin": "19:00",
+        "Dia": 2
+    },
+    {
+        "Asignatura": "26903 Análisis matemático",
+        "Curso-Grupo": "447-1-1-26903-T-1",
+        "Semestre": "S1",
+        "HoraIni": "17:00",
+        "HoraFin": "18:00",
+        "Dia": 3
+    },
+    {
+        "Asignatura": "26903 Análisis matemático",
+        "Curso-Grupo": "447-1-1-26903-T-1",
+        "Semestre": "S1",
+        "HoraIni": "17:00",
+        "HoraFin": "18:00",
+        "Dia": 4
+    },
+    {
+        "Asignatura": "26903 Análisis matemático",
+        "Curso-Grupo": "447-1-1-26903-T-1",
+        "Semestre": "S1",
+        "HoraIni": "17:00",
+        "HoraFin": "18:00",
+        "Dia": 5
+    },
+    {
+        "Asignatura": "26902 Álgebra I",
+        "Curso-Grupo": "447-1-1-26902-T-1",
+        "Semestre": "S1",
+        "HoraIni": "18:00",
+        "HoraFin": "19:00",
+        "Dia": 1
+    },
+    {
+        "Asignatura": "26904 Informática",
+        "Curso-Grupo": "447-1-1-26904-T-1",
+        "Semestre": "S1",
+        "HoraIni": "15:00",
+        "HoraFin": "16:00",
+        "Dia": 2
+    },
+    {
+        "Asignatura": "26904 Informática",
+        "Curso-Grupo": "447-1-1-26904-T-1",
+        "Semestre": "S1",
+        "HoraIni": "16:00",
+        "HoraFin": "17:00",
+        "Dia": 5
+    },
+    {
+        "Asignatura": "26904 Informática",
+        "Curso-Grupo": "447-1-1-26904-O-1",
+        "Semestre": "S1",
+        "HoraIni": "09:00",
+        "HoraFin": "11:00",
+        "Dia": 3
+    },
+    {
+        "Asignatura": "26904 Informática",
+        "Curso-Grupo": "447-1-1-26904-O-2",
+        "Semestre": "S1",
+        "HoraIni": "11:00",
+        "HoraFin": "13:00",
+        "Dia": 3
+    },
+    {
+        "Asignatura": "26904 Informática",
+        "Curso-Grupo": "447-1-1-26904-O-3",
+        "Semestre": "S1",
+        "HoraIni": "13:00",
+        "HoraFin": "15:00",
+        "Dia": 5
+    },
+    {
+        "Asignatura": "26901 Química",
+        "Curso-Grupo": "447-1-1-26901-L-1",
+        "Semestre": "S1",
+        "HoraIni": "09:00",
+        "HoraFin": "12:00",
+        "Dia": null
+    },
+    {
+        "Asignatura": "26901 Química",
+        "Curso-Grupo": "447-1-1-26901-L-2",
+        "Semestre": "S1",
+        "HoraIni": "09:00",
+        "HoraFin": "12:00",
+        "Dia": null
+    },
+    {
+        "Asignatura": "26904 Informática",
+        "Curso-Grupo": "447-1-1-26904-O-3",
+        "Semestre": "S1",
+        "HoraIni": "13:00",
+        "HoraFin": "15:00",
+        "Dia": null
+    },
+    {
+        "Asignatura": "26904 Informática",
+        "Curso-Grupo": "447-1-1-26904-O-2",
+        "Semestre": "S1",
+        "HoraIni": "11:00",
+        "HoraFin": "13:00",
+        "Dia": null
+    },
+    {
+        "Asignatura": "26904 Informática",
+        "Curso-Grupo": "447-1-1-26904-O-4",
+        "Semestre": "S1",
+        "HoraIni": "10:00",
+        "HoraFin": "12:00",
+        "Dia": 4
+    },
+    {
+        "Asignatura": "26904 Informática",
+        "Curso-Grupo": "447-1-1-26904-O-4",
+        "Semestre": "S1",
+        "HoraIni": "10:00",
+        "HoraFin": "12:00",
+        "Dia": null
+    },
+    {
+        "Asignatura": "26903 Análisis matemático",
+        "Curso-Grupo": "447-1-1-26903-T-1",
+        "Semestre": "S1",
+        "HoraIni": "18:00",
+        "HoraFin": "19:00",
+        "Dia": null
+    },
+    {
+        "Asignatura": "26905 Fundamentos de física II",
+        "Curso-Grupo": "447-1-1-26905-T-1",
+        "Semestre": "S2",
+        "HoraIni": "16:00",
+        "HoraFin": "18:00",
+        "Dia": 2
+    },
+    {
+        "Asignatura": "26905 Fundamentos de física II",
+        "Curso-Grupo": "447-1-1-26905-T-1",
+        "Semestre": "S2",
+        "HoraIni": "16:00",
+        "HoraFin": "18:00",
+        "Dia": 4
+    },
+    {
+        "Asignatura": "26907 Álgebra II",
+        "Curso-Grupo": "447-1-1-26907-T-1",
+        "Semestre": "S2",
+        "HoraIni": "16:00",
+        "HoraFin": "18:00",
+        "Dia": 1
+    },
+    {
+        "Asignatura": "26907 Álgebra II",
+        "Curso-Grupo": "447-1-1-26907-T-1",
+        "Semestre": "S2",
+        "HoraIni": "16:00",
+        "HoraFin": "18:00",
+        "Dia": 3
+    },
+    {
+        "Asignatura": "26908 Cálculo diferencial",
+        "Curso-Grupo": "447-1-1-26908-T-1",
+        "Semestre": "S2",
+        "HoraIni": "18:00",
+        "HoraFin": "19:00",
+        "Dia": 1
+    },
+    {
+        "Asignatura": "26908 Cálculo diferencial",
+        "Curso-Grupo": "447-1-1-26908-T-1",
+        "Semestre": "S2",
+        "HoraIni": "18:00",
+        "HoraFin": "19:00",
+        "Dia": 2
+    },
+    {
+        "Asignatura": "26908 Cálculo diferencial",
+        "Curso-Grupo": "447-1-1-26908-T-1",
+        "Semestre": "S2",
+        "HoraIni": "18:00",
+        "HoraFin": "19:00",
+        "Dia": 3
+    },
+    {
+        "Asignatura": "26908 Cálculo diferencial",
+        "Curso-Grupo": "447-1-1-26908-T-1",
+        "Semestre": "S2",
+        "HoraIni": "18:00",
+        "HoraFin": "19:00",
+        "Dia": 4
+    },
+    {
+        "Asignatura": "26906 Laboratorio de física",
+        "Curso-Grupo": "447-1-1-26906-T-1",
+        "Semestre": "S2",
+        "HoraIni": "19:00",
+        "HoraFin": "20:00",
+        "Dia": 1
+    },
+    {
+        "Asignatura": "26906 Laboratorio de física",
+        "Curso-Grupo": "447-1-1-26906-L-1",
+        "Semestre": "S2",
+        "HoraIni": "10:00",
+        "HoraFin": "14:00",
+        "Dia": 2
+    },
+    {
+        "Asignatura": "26906 Laboratorio de física",
+        "Curso-Grupo": "447-1-1-26906-L-2",
+        "Semestre": "S2",
+        "HoraIni": "10:00",
+        "HoraFin": "14:00",
+        "Dia": 3
+    },
+    {
+        "Asignatura": "26906 Laboratorio de física",
+        "Curso-Grupo": "447-1-1-26906-T-1",
+        "Semestre": "S2",
+        "HoraIni": "16:00",
+        "HoraFin": "19:00",
+        "Dia": null
+    },
+    {
+        "Asignatura": "26906 Laboratorio de física",
+        "Curso-Grupo": "447-1-1-26906-L-3",
+        "Semestre": "S2",
+        "HoraIni": "08:00",
+        "HoraFin": "12:00",
+        "Dia": 4
+    },
+    {
+        "Asignatura": "26907 Álgebra II",
+        "Curso-Grupo": "447-1-1-26907-O-1",
+        "Semestre": "S2",
+        "HoraIni": "09:00",
+        "HoraFin": "11:00",
+        "Dia": null
+    },
+    {
+        "Asignatura": "26907 Álgebra II",
+        "Curso-Grupo": "447-1-1-26907-O-2",
+        "Semestre": "S2",
+        "HoraIni": "11:00",
+        "HoraFin": "14:10",
+        "Dia": null
+    },
+    {
+        "Asignatura": "26907 Álgebra II",
+        "Curso-Grupo": "447-1-1-26907-O-3",
+        "Semestre": "S2",
+        "HoraIni": "15:00",
+        "HoraFin": "17:00",
+        "Dia": null
+    },
+    {
+        "Asignatura": "26907 Álgebra II",
+        "Curso-Grupo": "447-1-1-26907-O-4",
+        "Semestre": "S2",
+        "HoraIni": "17:00",
+        "HoraFin": "19:40",
+        "Dia": null
+    },
+    {
+        "Asignatura": "26999 Probabilidad y Estadística",
+        "Curso-Grupo": "447-1-1-26999-T-1",
+        "Semestre": "S2",
+        "HoraIni": "15:00",
+        "HoraFin": "16:00",
+        "Dia": 1
+    },
+    {
+        "Asignatura": "26999 Probabilidad y Estadística",
+        "Curso-Grupo": "447-1-1-26999-T-1",
+        "Semestre": "S2",
+        "HoraIni": "15:00",
+        "HoraFin": "16:00",
+        "Dia": 2
+    },
+    {
+        "Asignatura": "26999 Probabilidad y Estadística",
+        "Curso-Grupo": "447-1-1-26999-T-1",
+        "Semestre": "S2",
+        "HoraIni": "15:00",
+        "HoraFin": "16:00",
+        "Dia": 3
+    },
+    {
+        "Asignatura": "26999 Probabilidad y Estadística",
+        "Curso-Grupo": "447-1-1-26999-T-1",
+        "Semestre": "S2",
+        "HoraIni": "19:00",
+        "HoraFin": "20:00",
+        "Dia": null
+    },
+    {
+        "Asignatura": "26999 Probabilidad y Estadística",
+        "Curso-Grupo": "447-1-1-26999-O-1",
+        "Semestre": "S2",
+        "HoraIni": "09:00",
+        "HoraFin": "11:00",
+        "Dia": 5
+    },
+    {
+        "Asignatura": "26999 Probabilidad y Estadística",
+        "Curso-Grupo": "447-1-1-26999-O-2",
+        "Semestre": "S2",
+        "HoraIni": "11:00",
+        "HoraFin": "13:00",
+        "Dia": 5
+    },
+    {
+        "Asignatura": "26999 Probabilidad y Estadística",
+        "Curso-Grupo": "447-1-1-26999-O-3",
+        "Semestre": "S2",
+        "HoraIni": "11:00",
+        "HoraFin": "13:00",
+        "Dia": 5
+    },
+    {
+        "Asignatura": "26999 Probabilidad y Estadística",
+        "Curso-Grupo": "447-1-1-26999-O-4",
+        "Semestre": "S2",
+        "HoraIni": "15:00",
+        "HoraFin": "17:00",
+        "Dia": 5
+    },
+    {
+        "Asignatura": "26999 Probabilidad y Estadística",
+        "Curso-Grupo": "447-1-1-26999-O-1",
+        "Semestre": "S2",
+        "HoraIni": "08:30",
+        "HoraFin": "11:00",
+        "Dia": 5
+    },
+    {
+        "Asignatura": "26999 Probabilidad y Estadística",
+        "Curso-Grupo": "447-1-1-26999-O-2",
+        "Semestre": "S2",
+        "HoraIni": "11:00",
+        "HoraFin": "13:30",
+        "Dia": 5
+    },
+    {
+        "Asignatura": "26999 Probabilidad y Estadística",
+        "Curso-Grupo": "447-1-1-26999-O-3",
+        "Semestre": "S2",
+        "HoraIni": "11:00",
+        "HoraFin": "13:30",
+        "Dia": 5
+    },
+    {
+        "Asignatura": "26999 Probabilidad y Estadística",
+        "Curso-Grupo": "447-1-1-26999-O-4",
+        "Semestre": "S2",
+        "HoraIni": "15:00",
+        "HoraFin": "17:30",
+        "Dia": 5
+    },
+    {
+        "Asignatura": "26999 Probabilidad y Estadística",
+        "Curso-Grupo": "447-1-1-26999-O-5",
+        "Semestre": "S2",
+        "HoraIni": "15:00",
+        "HoraFin": "17:00",
+        "Dia": 5
+    },
+    {
+        "Asignatura": "26999 Probabilidad y Estadística",
+        "Curso-Grupo": "447-1-1-26999-O-6",
+        "Semestre": "S2",
+        "HoraIni": "17:00",
+        "HoraFin": "19:00",
+        "Dia": 5
+    },
+    {
+        "Asignatura": "26999 Probabilidad y Estadística",
+        "Curso-Grupo": "447-1-1-26999-O-5",
+        "Semestre": "S2",
+        "HoraIni": "14:30",
+        "HoraFin": "17:00",
+        "Dia": 5
+    },
+    {
+        "Asignatura": "26999 Probabilidad y Estadística",
+        "Curso-Grupo": "447-1-1-26999-O-6",
+        "Semestre": "S2",
+        "HoraIni": "17:30",
+        "HoraFin": "20:00",
+        "Dia": 5
+    },
+    {
+        "Asignatura": "26999 Probabilidad y Estadística",
+        "Curso-Grupo": "447-1-1-26999-O-1",
+        "Semestre": "S2",
+        "HoraIni": "09:00",
+        "HoraFin": "11:00",
+        "Dia": null
+    },
+    {
+        "Asignatura": "26999 Probabilidad y Estadística",
+        "Curso-Grupo": "447-1-1-26999-O-3",
+        "Semestre": "S2",
+        "HoraIni": "11:00",
+        "HoraFin": "13:00",
+        "Dia": null
+    },
+    {
+        "Asignatura": "26999 Probabilidad y Estadística",
+        "Curso-Grupo": "447-1-1-26999-O-1",
+        "Semestre": "S2",
+        "HoraIni": "09:00",
+        "HoraFin": "11:00",
+        "Dia": null
+    },
+    {
+        "Asignatura": "26999 Probabilidad y Estadística",
+        "Curso-Grupo": "447-1-1-26999-O-2",
+        "Semestre": "S2",
+        "HoraIni": "11:00",
+        "HoraFin": "13:00",
+        "Dia": null
+    },
+    {
+        "Asignatura": "26999 Probabilidad y Estadística",
+        "Curso-Grupo": "447-1-1-26999-O-3",
+        "Semestre": "S2",
+        "HoraIni": "11:00",
+        "HoraFin": "13:00",
+        "Dia": null
+    },
+    {
+        "Asignatura": "26999 Probabilidad y Estadística",
+        "Curso-Grupo": "447-1-1-26999-O-4",
+        "Semestre": "S2",
+        "HoraIni": "15:00",
+        "HoraFin": "17:30",
+        "Dia": null
+    },
+    {
+        "Asignatura": "26999 Probabilidad y Estadística",
+        "Curso-Grupo": "447-1-1-26999-O-6",
+        "Semestre": "S2",
+        "HoraIni": "17:30",
+        "HoraFin": "20:00",
+        "Dia": null
+    },
+    {
+        "Asignatura": "26999 Probabilidad y Estadística",
+        "Curso-Grupo": "447-1-1-26999-O-1",
+        "Semestre": "S2",
+        "HoraIni": "09:00",
+        "HoraFin": "11:00",
+        "Dia": null
+    },
+    {
+        "Asignatura": "26911 Técnicas físicas I",
+        "Curso-Grupo": "447-2-0-26911-T-1",
+        "Semestre": "S1",
+        "HoraIni": "11:00",
+        "HoraFin": "12:00",
+        "Dia": 1
+    },
+    {
+        "Asignatura": "26911 Técnicas físicas I",
+        "Curso-Grupo": "447-2-0-26911-T-1",
+        "Semestre": "S1",
+        "HoraIni": "11:00",
+        "HoraFin": "12:00",
+        "Dia": 2
+    },
+    {
+        "Asignatura": "26911 Técnicas físicas I",
+        "Curso-Grupo": "447-2-0-26911-T-1",
+        "Semestre": "S1",
+        "HoraIni": "11:00",
+        "HoraFin": "12:00",
+        "Dia": 4
+    },
+    {
+        "Asignatura": "26912 Mecánica clásica I",
+        "Curso-Grupo": "447-2-0-26912-T-1",
+        "Semestre": "S1",
+        "HoraIni": "12:00",
+        "HoraFin": "14:00",
+        "Dia": 1
+    },
+    {
+        "Asignatura": "26912 Mecánica clásica I",
+        "Curso-Grupo": "447-2-0-26912-T-1",
+        "Semestre": "S1",
+        "HoraIni": "10:00",
+        "HoraFin": "11:00",
+        "Dia": 4
+    },
+    {
+        "Asignatura": "26912 Mecánica clásica I",
+        "Curso-Grupo": "447-2-0-26912-T-1",
+        "Semestre": "S1",
+        "HoraIni": "12:00",
+        "HoraFin": "14:00",
+        "Dia": 5
+    },
+    {
+        "Asignatura": "26912 Mecánica clásica I",
+        "Curso-Grupo": "447-2-0-26912-T-1",
+        "Semestre": "S1",
+        "HoraIni": "13:00",
+        "HoraFin": "14:00",
+        "Dia": 3
+    },
+    {
+        "Asignatura": "26913 Cálculo integral y geometría",
+        "Curso-Grupo": "447-2-0-26913-T-1",
+        "Semestre": "S1",
+        "HoraIni": "09:00",
+        "HoraFin": "11:00",
+        "Dia": 1
+    },
+    {
+        "Asignatura": "26914 Ecuaciones diferenciales",
+        "Curso-Grupo": "447-2-0-26914-T-1",
+        "Semestre": "S1",
+        "HoraIni": "09:00",
+        "HoraFin": "11:00",
+        "Dia": 2
+    },
+    {
+        "Asignatura": "26915 Electromagnetismo",
+        "Curso-Grupo": "447-2-0-26915-T-1",
+        "Semestre": "S1",
+        "HoraIni": "12:00",
+        "HoraFin": "14:00",
+        "Dia": 2
+    },
+    {
+        "Asignatura": "26915 Electromagnetismo",
+        "Curso-Grupo": "447-2-0-26915-T-1",
+        "Semestre": "S1",
+        "HoraIni": "11:00",
+        "HoraFin": "13:00",
+        "Dia": 3
+    },
+    {
+        "Asignatura": "26915 Electromagnetismo",
+        "Curso-Grupo": "447-2-0-26915-T-1",
+        "Semestre": "S1",
+        "HoraIni": "09:00",
+        "HoraFin": "10:00",
+        "Dia": 4
+    },
+    {
+        "Asignatura": "26915 Electromagnetismo",
+        "Curso-Grupo": "447-2-0-26915-T-1",
+        "Semestre": "S1",
+        "HoraIni": "11:00",
+        "HoraFin": "12:00",
+        "Dia": 5
+    },
+    {
+        "Asignatura": "26915 Electromagnetismo",
+        "Curso-Grupo": "447-2-0-26915-L-1",
+        "Semestre": "S1",
+        "HoraIni": "15:00",
+        "HoraFin": "17:30",
+        "Dia": 1
+    },
+    {
+        "Asignatura": "26915 Electromagnetismo",
+        "Curso-Grupo": "447-2-0-26915-L-1",
+        "Semestre": "S1",
+        "HoraIni": "17:30",
+        "HoraFin": "20:00",
+        "Dia": 1
+    },
+    {
+        "Asignatura": "26915 Electromagnetismo",
+        "Curso-Grupo": "447-2-0-26915-L-1",
+        "Semestre": "S1",
+        "HoraIni": "15:00",
+        "HoraFin": "17:30",
+        "Dia": 1
+    },
+    {
+        "Asignatura": "26915 Electromagnetismo",
+        "Curso-Grupo": "447-2-0-26915-L-1",
+        "Semestre": "S1",
+        "HoraIni": "17:30",
+        "HoraFin": "20:00",
+        "Dia": 1
+    },
+    {
+        "Asignatura": "26912 Mecánica clásica I",
+        "Curso-Grupo": "447-2-0-26912-L-1",
+        "Semestre": "S1",
+        "HoraIni": "15:00",
+        "HoraFin": "17:30",
+        "Dia": 1
+    },
+    {
+        "Asignatura": "26912 Mecánica clásica I",
+        "Curso-Grupo": "447-2-0-26912-L-1",
+        "Semestre": "S1",
+        "HoraIni": "17:30",
+        "HoraFin": "20:00",
+        "Dia": 1
+    },
+    {
+        "Asignatura": "26913 Cálculo integral y geometría",
+        "Curso-Grupo": "447-2-0-26913-T-1",
+        "Semestre": "S1",
+        "HoraIni": "09:00",
+        "HoraFin": "11:00",
+        "Dia": 3
+    },
+    {
+        "Asignatura": "26914 Ecuaciones diferenciales",
+        "Curso-Grupo": "447-2-0-26914-T-1",
+        "Semestre": "S1",
+        "HoraIni": "09:00",
+        "HoraFin": "11:00",
+        "Dia": 5
+    },
+    {
+        "Asignatura": "26911 Técnicas físicas I",
+        "Curso-Grupo": "447-2-0-26911-T-1",
+        "Semestre": "S2",
+        "HoraIni": "10:00",
+        "HoraFin": "12:00",
+        "Dia": 4
+    },
+    {
+        "Asignatura": "26916 Mecánica clásica II",
+        "Curso-Grupo": "447-2-0-26916-T-1",
+        "Semestre": "S2",
+        "HoraIni": "11:00",
+        "HoraFin": "13:00",
+        "Dia": 5
+    },
+    {
+        "Asignatura": "26916 Mecánica clásica II",
+        "Curso-Grupo": "447-2-0-26916-T-1",
+        "Semestre": "S2",
+        "HoraIni": "11:00",
+        "HoraFin": "13:00",
+        "Dia": 2
+    },
+    {
+        "Asignatura": "26916 Mecánica clásica II",
+        "Curso-Grupo": "447-2-0-26916-T-1",
+        "Semestre": "S2",
+        "HoraIni": "09:00",
+        "HoraFin": "10:00",
+        "Dia": 3
+    },
+    {
+        "Asignatura": "26917 Métodos matemáticos para la física",
+        "Curso-Grupo": "447-2-0-26917-T-1",
+        "Semestre": "S2",
+        "HoraIni": "11:00",
+        "HoraFin": "12:00",
+        "Dia": 1
+    },
+    {
+        "Asignatura": "26917 Métodos matemáticos para la física",
+        "Curso-Grupo": "447-2-0-26917-T-1",
+        "Semestre": "S2",
+        "HoraIni": "09:00",
+        "HoraFin": "10:00",
+        "Dia": 4
+    },
+    {
+        "Asignatura": "26917 Métodos matemáticos para la física",
+        "Curso-Grupo": "447-2-0-26917-T-1",
+        "Semestre": "S2",
+        "HoraIni": "10:00",
+        "HoraFin": "11:00",
+        "Dia": 3
+    },
+    {
+        "Asignatura": "26917 Métodos matemáticos para la física",
+        "Curso-Grupo": "447-2-0-26917-T-1",
+        "Semestre": "S2",
+        "HoraIni": "09:00",
+        "HoraFin": "11:00",
+        "Dia": 5
+    },
+    {
+        "Asignatura": "26918 Física computacional",
+        "Curso-Grupo": "447-2-0-26918-T-1",
+        "Semestre": "S2",
+        "HoraIni": "09:00",
+        "HoraFin": "11:00",
+        "Dia": 2
+    },
+    {
+        "Asignatura": "26919 Ondas electromagnéticas",
+        "Curso-Grupo": "447-2-0-26919-T-1",
+        "Semestre": "S2",
+        "HoraIni": "09:00",
+        "HoraFin": "11:00",
+        "Dia": 1
+    },
+    {
+        "Asignatura": "26919 Ondas electromagnéticas",
+        "Curso-Grupo": "447-2-0-26919-T-1",
+        "Semestre": "S2",
+        "HoraIni": "11:00",
+        "HoraFin": "13:00",
+        "Dia": 3
+    },
+    {
+        "Asignatura": "26919 Ondas electromagnéticas",
+        "Curso-Grupo": "447-2-0-26919-L-1",
+        "Semestre": "S2",
+        "HoraIni": "15:30",
+        "HoraFin": "19:00",
+        "Dia": 1
+    },
+    {
+        "Asignatura": "26919 Ondas electromagnéticas",
+        "Curso-Grupo": "447-2-0-26919-L-1",
+        "Semestre": "S2",
+        "HoraIni": "15:30",
+        "HoraFin": "19:00",
+        "Dia": 2
+    },
+    {
+        "Asignatura": "26919 Ondas electromagnéticas",
+        "Curso-Grupo": "447-2-0-26919-L-1",
+        "Semestre": "S2",
+        "HoraIni": "15:30",
+        "HoraFin": "19:00",
+        "Dia": 3
+    },
+    {
+        "Asignatura": "26911 Técnicas físicas I",
+        "Curso-Grupo": "447-2-0-26911-L-1",
+        "Semestre": "S2",
+        "HoraIni": "15:30",
+        "HoraFin": "19:30",
+        "Dia": 1
+    },
+    {
+        "Asignatura": "26911 Técnicas físicas I",
+        "Curso-Grupo": "447-2-0-26911-L-1",
+        "Semestre": "S2",
+        "HoraIni": "15:30",
+        "HoraFin": "19:30",
+        "Dia": 2
+    },
+    {
+        "Asignatura": "26911 Técnicas físicas I",
+        "Curso-Grupo": "447-2-0-26911-L-1",
+        "Semestre": "S2",
+        "HoraIni": "15:30",
+        "HoraFin": "19:30",
+        "Dia": 3
+    },
+    {
+        "Asignatura": "26916 Mecánica clásica II",
+        "Curso-Grupo": "447-2-0-26916-L-1",
+        "Semestre": "S2",
+        "HoraIni": "15:30",
+        "HoraFin": "18:00",
+        "Dia": null
+    },
+    {
+        "Asignatura": "26916 Mecánica clásica II",
+        "Curso-Grupo": "447-2-0-26916-L-2",
+        "Semestre": "S2",
+        "HoraIni": "15:30",
+        "HoraFin": "18:00",
+        "Dia": null
+    },
+    {
+        "Asignatura": "26916 Mecánica clásica II",
+        "Curso-Grupo": "447-2-0-26916-L-3",
+        "Semestre": "S2",
+        "HoraIni": "15:00",
+        "HoraFin": "17:30",
+        "Dia": null
+    },
+    {
+        "Asignatura": "26916 Mecánica clásica II",
+        "Curso-Grupo": "447-2-0-26916-L-4",
+        "Semestre": "S2",
+        "HoraIni": "17:30",
+        "HoraFin": "20:00",
+        "Dia": null
+    },
+    {
+        "Asignatura": "26918 Física computacional",
+        "Curso-Grupo": "447-2-0-26918-O-1",
+        "Semestre": "S2",
+        "HoraIni": "15:00",
+        "HoraFin": "17:00",
+        "Dia": 4
+    },
+    {
+        "Asignatura": "26918 Física computacional",
+        "Curso-Grupo": "447-2-0-26918-O-2",
+        "Semestre": "S2",
+        "HoraIni": "17:00",
+        "HoraFin": "19:00",
+        "Dia": 4
+    },
+    {
+        "Asignatura": "26917 Métodos matemáticos para la física",
+        "Curso-Grupo": "447-2-0-26917-T-1",
+        "Semestre": "S2",
+        "HoraIni": "13:00",
+        "HoraFin": "14:00",
+        "Dia": null
+    },
+    {
+        "Asignatura": "26912 Mecánica clásica I",
+        "Curso-Grupo": "447-2-1-26912-T-1",
+        "Semestre": "S1",
+        "HoraIni": "18:00",
+        "HoraFin": "20:00",
+        "Dia": 1
+    },
+    {
+        "Asignatura": "26912 Mecánica clásica I",
+        "Curso-Grupo": "447-2-1-26912-T-1",
+        "Semestre": "S1",
+        "HoraIni": "17:00",
+        "HoraFin": "18:00",
+        "Dia": 3
+    },
+    {
+        "Asignatura": "26912 Mecánica clásica I",
+        "Curso-Grupo": "447-2-1-26912-T-1",
+        "Semestre": "S1",
+        "HoraIni": "17:00",
+        "HoraFin": "18:00",
+        "Dia": 4
+    },
+    {
+        "Asignatura": "26912 Mecánica clásica I",
+        "Curso-Grupo": "447-2-1-26912-T-1",
+        "Semestre": "S1",
+        "HoraIni": "18:00",
+        "HoraFin": "20:00",
+        "Dia": 5
+    },
+    {
+        "Asignatura": "26911 Técnicas físicas I",
+        "Curso-Grupo": "447-2-1-26911-T-1",
+        "Semestre": "S1",
+        "HoraIni": "17:00",
+        "HoraFin": "18:00",
+        "Dia": 1
+    },
+    {
+        "Asignatura": "26911 Técnicas físicas I",
+        "Curso-Grupo": "447-2-1-26911-T-1",
+        "Semestre": "S1",
+        "HoraIni": "17:00",
+        "HoraFin": "18:00",
+        "Dia": 2
+    },
+    {
+        "Asignatura": "26911 Técnicas físicas I",
+        "Curso-Grupo": "447-2-1-26911-T-1",
+        "Semestre": "S1",
+        "HoraIni": "19:00",
+        "HoraFin": "20:00",
+        "Dia": 4
+    },
+    {
+        "Asignatura": "26915 Electromagnetismo",
+        "Curso-Grupo": "447-2-1-26915-T-1",
+        "Semestre": "S1",
+        "HoraIni": "18:00",
+        "HoraFin": "20:00",
+        "Dia": 2
+    },
+    {
+        "Asignatura": "26915 Electromagnetismo",
+        "Curso-Grupo": "447-2-1-26915-T-1",
+        "Semestre": "S1",
+        "HoraIni": "18:00",
+        "HoraFin": "20:00",
+        "Dia": 3
+    },
+    {
+        "Asignatura": "26915 Electromagnetismo",
+        "Curso-Grupo": "447-2-1-26915-T-1",
+        "Semestre": "S1",
+        "HoraIni": "18:00",
+        "HoraFin": "19:00",
+        "Dia": 4
+    },
+    {
+        "Asignatura": "26915 Electromagnetismo",
+        "Curso-Grupo": "447-2-1-26915-T-1",
+        "Semestre": "S1",
+        "HoraIni": "17:00",
+        "HoraFin": "18:00",
+        "Dia": 5
+    },
+    {
+        "Asignatura": "26914 Ecuaciones diferenciales",
+        "Curso-Grupo": "447-2-1-26914-T-1",
+        "Semestre": "S1",
+        "HoraIni": "15:00",
+        "HoraFin": "17:00",
+        "Dia": 2
+    },
+    {
+        "Asignatura": "26913 Cálculo integral y geometría",
+        "Curso-Grupo": "447-2-1-26913-T-1",
+        "Semestre": "S1",
+        "HoraIni": "15:00",
+        "HoraFin": "17:00",
+        "Dia": 3
+    },
+    {
+        "Asignatura": "26914 Ecuaciones diferenciales",
+        "Curso-Grupo": "447-2-1-26914-T-1",
+        "Semestre": "S1",
+        "HoraIni": "15:00",
+        "HoraFin": "17:00",
+        "Dia": 5
+    },
+    {
+        "Asignatura": "26913 Cálculo integral y geometría",
+        "Curso-Grupo": "447-2-1-26913-T-1",
+        "Semestre": "S1",
+        "HoraIni": "15:00",
+        "HoraFin": "17:00",
+        "Dia": 1
+    },
+    {
+        "Asignatura": "26915 Electromagnetismo",
+        "Curso-Grupo": "447-2-1-26915-L-1",
+        "Semestre": "S1",
+        "HoraIni": "08:30",
+        "HoraFin": "11:00",
+        "Dia": null
+    },
+    {
+        "Asignatura": "26915 Electromagnetismo",
+        "Curso-Grupo": "447-2-1-26915-L-1",
+        "Semestre": "S1",
+        "HoraIni": "11:00",
+        "HoraFin": "13:30",
+        "Dia": null
+    },
+    {
+        "Asignatura": "26915 Electromagnetismo",
+        "Curso-Grupo": "447-2-1-26915-L-1",
+        "Semestre": "S1",
+        "HoraIni": "08:30",
+        "HoraFin": "11:00",
+        "Dia": null
+    },
+    {
+        "Asignatura": "26915 Electromagnetismo",
+        "Curso-Grupo": "447-2-1-26915-L-1",
+        "Semestre": "S1",
+        "HoraIni": "11:00",
+        "HoraFin": "13:30",
+        "Dia": null
+    },
+    {
+        "Asignatura": "26912 Mecánica clásica I",
+        "Curso-Grupo": "447-2-1-26912-L-1",
+        "Semestre": "S1",
+        "HoraIni": "08:30",
+        "HoraFin": "11:00",
+        "Dia": null
+    },
+    {
+        "Asignatura": "26912 Mecánica clásica I",
+        "Curso-Grupo": "447-2-1-26912-L-1",
+        "Semestre": "S1",
+        "HoraIni": "11:00",
+        "HoraFin": "13:30",
+        "Dia": null
+    },
+    {
+        "Asignatura": "26916 Mecánica clásica II",
+        "Curso-Grupo": "447-2-1-26916-T-1",
+        "Semestre": "S2",
+        "HoraIni": "18:00",
+        "HoraFin": "20:00",
+        "Dia": 2
+    },
+    {
+        "Asignatura": "26916 Mecánica clásica II",
+        "Curso-Grupo": "447-2-1-26916-T-1",
+        "Semestre": "S2",
+        "HoraIni": "17:00",
+        "HoraFin": "18:00",
+        "Dia": 3
+    },
+    {
+        "Asignatura": "26916 Mecánica clásica II",
+        "Curso-Grupo": "447-2-1-26916-T-1",
+        "Semestre": "S2",
+        "HoraIni": "18:00",
+        "HoraFin": "20:00",
+        "Dia": 5
+    },
+    {
+        "Asignatura": "26919 Ondas electromagnéticas",
+        "Curso-Grupo": "447-2-1-26919-T-1",
+        "Semestre": "S2",
+        "HoraIni": "18:00",
+        "HoraFin": "20:00",
+        "Dia": 1
+    },
+    {
+        "Asignatura": "26919 Ondas electromagnéticas",
+        "Curso-Grupo": "447-2-1-26919-T-1",
+        "Semestre": "S2",
+        "HoraIni": "18:00",
+        "HoraFin": "20:00",
+        "Dia": 3
+    },
+    {
+        "Asignatura": "26917 Métodos matemáticos para la física",
+        "Curso-Grupo": "447-2-1-26917-T-1",
+        "Semestre": "S2",
+        "HoraIni": "17:00",
+        "HoraFin": "18:00",
+        "Dia": 1
+    },
+    {
+        "Asignatura": "26917 Métodos matemáticos para la física",
+        "Curso-Grupo": "447-2-1-26917-T-1",
+        "Semestre": "S2",
+        "HoraIni": "17:00",
+        "HoraFin": "18:00",
+        "Dia": 4
+    },
+    {
+        "Asignatura": "26917 Métodos matemáticos para la física",
+        "Curso-Grupo": "447-2-1-26917-T-1",
+        "Semestre": "S2",
+        "HoraIni": "16:00",
+        "HoraFin": "17:00",
+        "Dia": 3
+    },
+    {
+        "Asignatura": "26917 Métodos matemáticos para la física",
+        "Curso-Grupo": "447-2-1-26917-T-1",
+        "Semestre": "S2",
+        "HoraIni": "16:00",
+        "HoraFin": "18:00",
+        "Dia": 5
+    },
+    {
+        "Asignatura": "26918 Física computacional",
+        "Curso-Grupo": "447-2-1-26918-T-1",
+        "Semestre": "S2",
+        "HoraIni": "16:00",
+        "HoraFin": "18:00",
+        "Dia": 2
+    },
+    {
+        "Asignatura": "26911 Técnicas físicas I",
+        "Curso-Grupo": "447-2-1-26911-T-1",
+        "Semestre": "S2",
+        "HoraIni": "18:00",
+        "HoraFin": "20:00",
+        "Dia": 4
+    },
+    {
+        "Asignatura": "26918 Física computacional",
+        "Curso-Grupo": "447-2-1-26918-O-1",
+        "Semestre": "S2",
+        "HoraIni": "08:00",
+        "HoraFin": "10:00",
+        "Dia": 4
+    },
+    {
+        "Asignatura": "26911 Técnicas físicas I",
+        "Curso-Grupo": "447-2-1-26911-L-1",
+        "Semestre": "S2",
+        "HoraIni": "09:00",
+        "HoraFin": "13:00",
+        "Dia": 1
+    },
+    {
+        "Asignatura": "26911 Técnicas físicas I",
+        "Curso-Grupo": "447-2-1-26911-L-1",
+        "Semestre": "S2",
+        "HoraIni": "09:00",
+        "HoraFin": "13:00",
+        "Dia": 2
+    },
+    {
+        "Asignatura": "26911 Técnicas físicas I",
+        "Curso-Grupo": "447-2-1-26911-L-1",
+        "Semestre": "S2",
+        "HoraIni": "09:00",
+        "HoraFin": "13:00",
+        "Dia": 3
+    },
+    {
+        "Asignatura": "26919 Ondas electromagnéticas",
+        "Curso-Grupo": "447-2-1-26919-L-1",
+        "Semestre": "S2",
+        "HoraIni": "09:30",
+        "HoraFin": "13:00",
+        "Dia": 1
+    },
+    {
+        "Asignatura": "26919 Ondas electromagnéticas",
+        "Curso-Grupo": "447-2-1-26919-L-1",
+        "Semestre": "S2",
+        "HoraIni": "09:30",
+        "HoraFin": "13:00",
+        "Dia": 2
+    },
+    {
+        "Asignatura": "26919 Ondas electromagnéticas",
+        "Curso-Grupo": "447-2-1-26919-L-1",
+        "Semestre": "S2",
+        "HoraIni": "09:30",
+        "HoraFin": "13:00",
+        "Dia": 3
+    },
+    {
+        "Asignatura": "26918 Física computacional",
+        "Curso-Grupo": "447-2-1-26918-O-2",
+        "Semestre": "S2",
+        "HoraIni": "10:00",
+        "HoraFin": "12:00",
+        "Dia": 4
+    },
+    {
+        "Asignatura": "26916 Mecánica clásica II",
+        "Curso-Grupo": "447-2-1-26916-L-1",
+        "Semestre": "S2",
+        "HoraIni": "10:00",
+        "HoraFin": "12:30",
+        "Dia": null
+    },
+    {
+        "Asignatura": "26916 Mecánica clásica II",
+        "Curso-Grupo": "447-2-1-26916-L-2",
+        "Semestre": "S2",
+        "HoraIni": "08:30",
+        "HoraFin": "11:00",
+        "Dia": null
+    },
+    {
+        "Asignatura": "26916 Mecánica clásica II",
+        "Curso-Grupo": "447-2-1-26916-L-3",
+        "Semestre": "S2",
+        "HoraIni": "11:00",
+        "HoraFin": "13:30",
+        "Dia": null
+    },
+    {
+        "Asignatura": "26916 Mecánica clásica II",
+        "Curso-Grupo": "447-2-1-26916-L-4",
+        "Semestre": "S2",
+        "HoraIni": "08:30",
+        "HoraFin": "11:00",
+        "Dia": null
+    },
+    {
+        "Asignatura": "26916 Mecánica clásica II",
+        "Curso-Grupo": "447-2-1-26916-L-5",
+        "Semestre": "S2",
+        "HoraIni": "11:00",
+        "HoraFin": "13:30",
+        "Dia": null
+    },
+    {
+        "Asignatura": "26917 Métodos matemáticos para la física",
+        "Curso-Grupo": "447-2-1-26917-T-1",
+        "Semestre": "S2",
+        "HoraIni": "13:00",
+        "HoraFin": "14:00",
+        "Dia": null
+    },
+    {
+        "Asignatura": "26920 Técnicas físicas II",
+        "Curso-Grupo": "447-3-0-26920-T-1",
+        "Semestre": "S1",
+        "HoraIni": "09:00",
+        "HoraFin": "10:00",
+        "Dia": 4
+    },
+    {
+        "Asignatura": "26920 Técnicas físicas II",
+        "Curso-Grupo": "447-3-0-26920-T-1",
+        "Semestre": "S1",
+        "HoraIni": "09:00",
+        "HoraFin": "10:00",
+        "Dia": 5
+    },
+    {
+        "Asignatura": "26921 Física cuántica I",
+        "Curso-Grupo": "447-3-0-26921-T-1",
+        "Semestre": "S1",
+        "HoraIni": "11:00",
+        "HoraFin": "12:00",
+        "Dia": 1
+    },
+    {
+        "Asignatura": "26923 Óptica",
+        "Curso-Grupo": "447-3-0-26923-T-1",
+        "Semestre": "S1",
+        "HoraIni": "11:00",
+        "HoraFin": "12:00",
+        "Dia": 2
+    },
+    {
+        "Asignatura": "26921 Física cuántica I",
+        "Curso-Grupo": "447-3-0-26921-T-1",
+        "Semestre": "S1",
+        "HoraIni": "11:00",
+        "HoraFin": "12:00",
+        "Dia": 3
+    },
+    {
+        "Asignatura": "26921 Física cuántica I",
+        "Curso-Grupo": "447-3-0-26921-T-1",
+        "Semestre": "S1",
+        "HoraIni": "10:00",
+        "HoraFin": "11:00",
+        "Dia": 4
+    },
+    {
+        "Asignatura": "26921 Física cuántica I",
+        "Curso-Grupo": "447-3-0-26921-T-1",
+        "Semestre": "S1",
+        "HoraIni": "10:00",
+        "HoraFin": "11:00",
+        "Dia": 5
+    },
+    {
+        "Asignatura": "26921 Física cuántica I",
+        "Curso-Grupo": "447-3-0-26921-L-1",
+        "Semestre": "S1",
+        "HoraIni": "16:00",
+        "HoraFin": "20:00",
+        "Dia": 1
+    },
+    {
+        "Asignatura": "26921 Física cuántica I",
+        "Curso-Grupo": "447-3-0-26921-L-1",
+        "Semestre": "S1",
+        "HoraIni": "16:00",
+        "HoraFin": "20:00",
+        "Dia": 2
+    },
+    {
+        "Asignatura": "26921 Física cuántica I",
+        "Curso-Grupo": "447-3-0-26921-L-1",
+        "Semestre": "S1",
+        "HoraIni": "16:00",
+        "HoraFin": "20:00",
+        "Dia": 3
+    },
+    {
+        "Asignatura": "26921 Física cuántica I",
+        "Curso-Grupo": "447-3-0-26921-L-1",
+        "Semestre": "S1",
+        "HoraIni": "16:00",
+        "HoraFin": "20:00",
+        "Dia": 4
+    },
+    {
+        "Asignatura": "26922 Termodinámica",
+        "Curso-Grupo": "447-3-0-26922-T-1",
+        "Semestre": "S1",
+        "HoraIni": "13:00",
+        "HoraFin": "14:00",
+        "Dia": 1
+    },
+    {
+        "Asignatura": "26922 Termodinámica",
+        "Curso-Grupo": "447-3-0-26922-T-1",
+        "Semestre": "S1",
+        "HoraIni": "13:00",
+        "HoraFin": "14:00",
+        "Dia": 2
+    },
+    {
+        "Asignatura": "26922 Termodinámica",
+        "Curso-Grupo": "447-3-0-26922-T-1",
+        "Semestre": "S1",
+        "HoraIni": "13:00",
+        "HoraFin": "14:00",
+        "Dia": 3
+    },
+    {
+        "Asignatura": "26922 Termodinámica",
+        "Curso-Grupo": "447-3-0-26922-T-1",
+        "Semestre": "S1",
+        "HoraIni": "13:00",
+        "HoraFin": "14:00",
+        "Dia": 5
+    },
+    {
+        "Asignatura": "26922 Termodinámica",
+        "Curso-Grupo": "447-3-0-26922-L-1",
+        "Semestre": "S1",
+        "HoraIni": "16:00",
+        "HoraFin": "20:00",
+        "Dia": 1
+    },
+    {
+        "Asignatura": "26922 Termodinámica",
+        "Curso-Grupo": "447-3-0-26922-L-1",
+        "Semestre": "S1",
+        "HoraIni": "16:00",
+        "HoraFin": "20:00",
+        "Dia": 2
+    },
+    {
+        "Asignatura": "26922 Termodinámica",
+        "Curso-Grupo": "447-3-0-26922-L-1",
+        "Semestre": "S1",
+        "HoraIni": "16:00",
+        "HoraFin": "20:00",
+        "Dia": 3
+    },
+    {
+        "Asignatura": "26922 Termodinámica",
+        "Curso-Grupo": "447-3-0-26922-L-1",
+        "Semestre": "S1",
+        "HoraIni": "16:00",
+        "HoraFin": "20:00",
+        "Dia": 4
+    },
+    {
+        "Asignatura": "26923 Óptica",
+        "Curso-Grupo": "447-3-0-26923-T-1",
+        "Semestre": "S1",
+        "HoraIni": "12:00",
+        "HoraFin": "13:00",
+        "Dia": 1
+    },
+    {
+        "Asignatura": "26923 Óptica",
+        "Curso-Grupo": "447-3-0-26923-T-1",
+        "Semestre": "S1",
+        "HoraIni": "12:00",
+        "HoraFin": "13:00",
+        "Dia": 5
+    },
+    {
+        "Asignatura": "26921 Física cuántica I",
+        "Curso-Grupo": "447-3-0-26921-T-1",
+        "Semestre": "S1",
+        "HoraIni": "11:00",
+        "HoraFin": "12:00",
+        "Dia": 5
+    },
+    {
+        "Asignatura": "26923 Óptica",
+        "Curso-Grupo": "447-3-0-26923-T-1",
+        "Semestre": "S1",
+        "HoraIni": "12:00",
+        "HoraFin": "13:00",
+        "Dia": 3
+    },
+    {
+        "Asignatura": "26923 Óptica",
+        "Curso-Grupo": "447-3-0-26923-T-1",
+        "Semestre": "S1",
+        "HoraIni": "11:00",
+        "HoraFin": "12:00",
+        "Dia": 4
+    },
+    {
+        "Asignatura": "26923 Óptica",
+        "Curso-Grupo": "447-3-0-26923-L-1",
+        "Semestre": "S1",
+        "HoraIni": "16:00",
+        "HoraFin": "20:00",
+        "Dia": 1
+    },
+    {
+        "Asignatura": "26923 Óptica",
+        "Curso-Grupo": "447-3-0-26923-L-1",
+        "Semestre": "S1",
+        "HoraIni": "16:00",
+        "HoraFin": "20:00",
+        "Dia": 3
+    },
+    {
+        "Asignatura": "26923 Óptica",
+        "Curso-Grupo": "447-3-0-26923-L-1",
+        "Semestre": "S1",
+        "HoraIni": "16:00",
+        "HoraFin": "20:00",
+        "Dia": 4
+    },
+    {
+        "Asignatura": "26920 Técnicas físicas II",
+        "Curso-Grupo": "447-3-0-26920-L-2",
+        "Semestre": "S1",
+        "HoraIni": "17:00",
+        "HoraFin": "19:00",
+        "Dia": 5
+    },
+    {
+        "Asignatura": "26920 Técnicas físicas II",
+        "Curso-Grupo": "447-3-0-26920-L-1",
+        "Semestre": "S1",
+        "HoraIni": "09:00",
+        "HoraFin": "11:00",
+        "Dia": 1
+    },
+    {
+        "Asignatura": "26923 Óptica",
+        "Curso-Grupo": "447-3-0-26923-L-1",
+        "Semestre": "S1",
+        "HoraIni": "16:00",
+        "HoraFin": "20:00",
+        "Dia": 2
+    },
+    {
+        "Asignatura": "26920 Técnicas físicas II",
+        "Curso-Grupo": "447-3-0-26920-T-1",
+        "Semestre": "S1",
+        "HoraIni": "12:00",
+        "HoraFin": "13:00",
+        "Dia": 2
+    },
+    {
+        "Asignatura": "26922 Termodinámica",
+        "Curso-Grupo": "447-3-0-26922-T-1",
+        "Semestre": "S1",
+        "HoraIni": "14:00",
+        "HoraFin": "15:00",
+        "Dia": null
+    },
+    {
+        "Asignatura": "26932 Astronomía y astrofísica",
+        "Curso-Grupo": "447-3-6-26932-T-1",
+        "Semestre": "S1",
+        "HoraIni": "08:00",
+        "HoraFin": "09:00",
+        "Dia": 1
+    },
+    {
+        "Asignatura": "26932 Astronomía y astrofísica",
+        "Curso-Grupo": "447-3-6-26932-T-1",
+        "Semestre": "S1",
+        "HoraIni": "08:00",
+        "HoraFin": "09:00",
+        "Dia": 5
+    },
+    {
+        "Asignatura": "26935 Física de fluidos",
+        "Curso-Grupo": "447-3-6-26935-T-1",
+        "Semestre": "S1",
+        "HoraIni": "09:00",
+        "HoraFin": "11:00",
+        "Dia": 2
+    },
+    {
+        "Asignatura": "26935 Física de fluidos",
+        "Curso-Grupo": "447-3-6-26935-T-1",
+        "Semestre": "S1",
+        "HoraIni": "09:00",
+        "HoraFin": "11:00",
+        "Dia": 3
+    },
+    {
+        "Asignatura": "26938 Historia de la ciencia",
+        "Curso-Grupo": "447-3-6-26938-T-1",
+        "Semestre": "S1",
+        "HoraIni": "15:00",
+        "HoraFin": "16:00",
+        "Dia": 1
+    },
+    {
+        "Asignatura": "26938 Historia de la ciencia",
+        "Curso-Grupo": "447-3-6-26938-T-1",
+        "Semestre": "S1",
+        "HoraIni": "15:00",
+        "HoraFin": "16:00",
+        "Dia": 2
+    },
+    {
+        "Asignatura": "26938 Historia de la ciencia",
+        "Curso-Grupo": "447-3-6-26938-T-1",
+        "Semestre": "S1",
+        "HoraIni": "15:00",
+        "HoraFin": "16:00",
+        "Dia": 3
+    },
+    {
+        "Asignatura": "26932 Astronomía y astrofísica",
+        "Curso-Grupo": "447-3-6-26932-T-1",
+        "Semestre": "S1",
+        "HoraIni": "08:00",
+        "HoraFin": "09:00",
+        "Dia": 2
+    },
+    {
+        "Asignatura": "26932 Astronomía y astrofísica",
+        "Curso-Grupo": "447-3-6-26932-T-1",
+        "Semestre": "S1",
+        "HoraIni": "08:00",
+        "HoraFin": "09:00",
+        "Dia": 4
+    },
+    {
+        "Asignatura": "26920 Técnicas físicas II",
+        "Curso-Grupo": "447-3-0-26920-O-1",
+        "Semestre": "S2",
+        "HoraIni": "16:00",
+        "HoraFin": "18:00",
+        "Dia": 2
+    },
+    {
+        "Asignatura": "26924 Física cuántica II",
+        "Curso-Grupo": "447-3-0-26924-T-1",
+        "Semestre": "S2",
+        "HoraIni": "12:00",
+        "HoraFin": "13:00",
+        "Dia": 5
+    },
+    {
+        "Asignatura": "26924 Física cuántica II",
+        "Curso-Grupo": "447-3-0-26924-T-1",
+        "Semestre": "S2",
+        "HoraIni": "12:00",
+        "HoraFin": "14:00",
+        "Dia": 3
+    },
+    {
+        "Asignatura": "26924 Física cuántica II",
+        "Curso-Grupo": "447-3-0-26924-T-1",
+        "Semestre": "S2",
+        "HoraIni": "11:00",
+        "HoraFin": "12:00",
+        "Dia": 5
+    },
+    {
+        "Asignatura": "26925 Física estadística",
+        "Curso-Grupo": "447-3-0-26925-T-1",
+        "Semestre": "S2",
+        "HoraIni": "11:00",
+        "HoraFin": "12:00",
+        "Dia": 1
+    },
+    {
+        "Asignatura": "26925 Física estadística",
+        "Curso-Grupo": "447-3-0-26925-T-1",
+        "Semestre": "S2",
+        "HoraIni": "11:00",
+        "HoraFin": "12:00",
+        "Dia": 2
+    },
+    {
+        "Asignatura": "26925 Física estadística",
+        "Curso-Grupo": "447-3-0-26925-T-1",
+        "Semestre": "S2",
+        "HoraIni": "11:00",
+        "HoraFin": "12:00",
+        "Dia": 3
+    },
+    {
+        "Asignatura": "26920 Técnicas físicas II",
+        "Curso-Grupo": "447-3-0-26920-L-1",
+        "Semestre": "S2",
+        "HoraIni": "16:00",
+        "HoraFin": "20:00",
+        "Dia": 1
+    },
+    {
+        "Asignatura": "26920 Técnicas físicas II",
+        "Curso-Grupo": "447-3-0-26920-L-1",
+        "Semestre": "S2",
+        "HoraIni": "16:00",
+        "HoraFin": "20:00",
+        "Dia": 1
+    },
+    {
+        "Asignatura": "26920 Técnicas físicas II",
+        "Curso-Grupo": "447-3-0-26920-L-1",
+        "Semestre": "S2",
+        "HoraIni": "16:00",
+        "HoraFin": "20:00",
+        "Dia": 3
+    },
+    {
+        "Asignatura": "26920 Técnicas físicas II",
+        "Curso-Grupo": "447-3-0-26920-T-1",
+        "Semestre": "S2",
+        "HoraIni": "16:00",
+        "HoraFin": "18:00",
+        "Dia": null
+    },
+    {
+        "Asignatura": "26924 Física cuántica II",
+        "Curso-Grupo": "447-3-0-26924-T-1",
+        "Semestre": "S2",
+        "HoraIni": "12:00",
+        "HoraFin": "13:00",
+        "Dia": 2
+    },
+    {
+        "Asignatura": "26920 Técnicas físicas II",
+        "Curso-Grupo": "447-3-0-26920-L-1",
+        "Semestre": "S2",
+        "HoraIni": "16:00",
+        "HoraFin": "20:00",
+        "Dia": 5
+    },
+    {
+        "Asignatura": "26925 Física estadística",
+        "Curso-Grupo": "447-3-0-26925-T-1",
+        "Semestre": "S2",
+        "HoraIni": "12:00",
+        "HoraFin": "13:00",
+        "Dia": 1
+    },
+    {
+        "Asignatura": "26920 Técnicas físicas II",
+        "Curso-Grupo": "447-3-0-26920-L-1",
+        "Semestre": "S2",
+        "HoraIni": "16:00",
+        "HoraFin": "20:00",
+        "Dia": 3
+    },
+    {
+        "Asignatura": "26920 Técnicas físicas II",
+        "Curso-Grupo": "447-3-0-26920-L-1",
+        "Semestre": "S2",
+        "HoraIni": "16:00",
+        "HoraFin": "20:00",
+        "Dia": 5
+    },
+    {
+        "Asignatura": "26920 Técnicas físicas II",
+        "Curso-Grupo": "447-3-0-26920-L-1",
+        "Semestre": "S2",
+        "HoraIni": "16:00",
+        "HoraFin": "20:00",
+        "Dia": 4
+    },
+    {
+        "Asignatura": "26920 Técnicas físicas II",
+        "Curso-Grupo": "447-3-0-26920-L-1",
+        "Semestre": "S2",
+        "HoraIni": "16:00",
+        "HoraFin": "20:00",
+        "Dia": 4
+    },
+    {
+        "Asignatura": "26924 Física cuántica II",
+        "Curso-Grupo": "447-3-0-26924-L-1",
+        "Semestre": "S2",
+        "HoraIni": "16:00",
+        "HoraFin": "20:00",
+        "Dia": 2
+    },
+    {
+        "Asignatura": "26925 Física estadística",
+        "Curso-Grupo": "447-3-0-26925-O-1",
+        "Semestre": "S2",
+        "HoraIni": "16:00",
+        "HoraFin": "20:00",
+        "Dia": 4
+    },
+    {
+        "Asignatura": "26920 Técnicas físicas II",
+        "Curso-Grupo": "447-3-0-26920-O-2",
+        "Semestre": "S2",
+        "HoraIni": "16:00",
+        "HoraFin": "18:00",
+        "Dia": 2
+    },
+    {
+        "Asignatura": "26924 Física cuántica II",
+        "Curso-Grupo": "447-3-0-26924-L-2",
+        "Semestre": "S2",
+        "HoraIni": "16:00",
+        "HoraFin": "20:00",
+        "Dia": 2
+    },
+    {
+        "Asignatura": "26920 Técnicas físicas II",
+        "Curso-Grupo": "447-3-0-26920-L-1",
+        "Semestre": "S2",
+        "HoraIni": "16:00",
+        "HoraFin": "20:00",
+        "Dia": 5
+    },
+    {
+        "Asignatura": "26933 Caos y sistemas dinámicos no lineales",
+        "Curso-Grupo": "447-3-6-26933-T-1",
+        "Semestre": "S2",
+        "HoraIni": "09:00",
+        "HoraFin": "11:00",
+        "Dia": 4
+    },
+    {
+        "Asignatura": "26933 Caos y sistemas dinámicos no lineales",
+        "Curso-Grupo": "447-3-6-26933-T-1",
+        "Semestre": "S2",
+        "HoraIni": "09:00",
+        "HoraFin": "11:00",
+        "Dia": 5
+    },
+    {
+        "Asignatura": "26937 Gravitación y cosmología",
+        "Curso-Grupo": "447-3-6-26937-T-1",
+        "Semestre": "S2",
+        "HoraIni": "08:00",
+        "HoraFin": "09:00",
+        "Dia": 2
+    },
+    {
+        "Asignatura": "26937 Gravitación y cosmología",
+        "Curso-Grupo": "447-3-6-26937-T-1",
+        "Semestre": "S2",
+        "HoraIni": "08:00",
+        "HoraFin": "09:00",
+        "Dia": 1
+    },
+    {
+        "Asignatura": "26937 Gravitación y cosmología",
+        "Curso-Grupo": "447-3-6-26937-T-1",
+        "Semestre": "S2",
+        "HoraIni": "08:00",
+        "HoraFin": "09:00",
+        "Dia": 3
+    },
+    {
+        "Asignatura": "26937 Gravitación y cosmología",
+        "Curso-Grupo": "447-3-6-26937-T-1",
+        "Semestre": "S2",
+        "HoraIni": "13:00",
+        "HoraFin": "14:00",
+        "Dia": 5
+    },
+    {
+        "Asignatura": "26940 Láser y aplicaciones",
+        "Curso-Grupo": "447-3-6-26940-T-1",
+        "Semestre": "S2",
+        "HoraIni": "13:00",
+        "HoraFin": "14:00",
+        "Dia": 2
+    },
+    {
+        "Asignatura": "26940 Láser y aplicaciones",
+        "Curso-Grupo": "447-3-6-26940-T-1",
+        "Semestre": "S2",
+        "HoraIni": "13:00",
+        "HoraFin": "14:00",
+        "Dia": 5
+    },
+    {
+        "Asignatura": "26940 Láser y aplicaciones",
+        "Curso-Grupo": "447-3-6-26940-T-1",
+        "Semestre": "S2",
+        "HoraIni": "13:00",
+        "HoraFin": "14:00",
+        "Dia": 1
+    },
+    {
+        "Asignatura": "26941 Micro y nano sistemas",
+        "Curso-Grupo": "447-3-6-26941-T-1",
+        "Semestre": "S2",
+        "HoraIni": "13:00",
+        "HoraFin": "14:00",
+        "Dia": 1
+    },
+    {
+        "Asignatura": "26941 Micro y nano sistemas",
+        "Curso-Grupo": "447-3-6-26941-T-1",
+        "Semestre": "S2",
+        "HoraIni": "13:00",
+        "HoraFin": "14:00",
+        "Dia": 5
+    },
+    {
+        "Asignatura": "26941 Micro y nano sistemas",
+        "Curso-Grupo": "447-3-6-26941-T-1",
+        "Semestre": "S2",
+        "HoraIni": "13:00",
+        "HoraFin": "14:00",
+        "Dia": 2
+    },
+    {
+        "Asignatura": "26937 Gravitation and cosmology",
+        "Curso-Grupo": "447-3-6--26937-T-1",
+        "Semestre": "S2",
+        "HoraIni": "13:00",
+        "HoraFin": "14:00",
+        "Dia": 1
+    },
+    {
+        "Asignatura": "26937 Gravitation and cosmology",
+        "Curso-Grupo": "447-3-6--26937-T-1",
+        "Semestre": "S2",
+        "HoraIni": "13:00",
+        "HoraFin": "14:00",
+        "Dia": 2
+    },
+    {
+        "Asignatura": "26937 Gravitation and cosmology",
+        "Curso-Grupo": "447-3-6--26937-T-1",
+        "Semestre": "S2",
+        "HoraIni": "08:00",
+        "HoraFin": "09:00",
+        "Dia": 4
+    },
+    {
+        "Asignatura": "26937 Gravitation and cosmology",
+        "Curso-Grupo": "447-3-6--26937-T-1",
+        "Semestre": "S2",
+        "HoraIni": "08:00",
+        "HoraFin": "09:00",
+        "Dia": 5
+    },
+    {
+        "Asignatura": "26944 Aplicaciones de la difracción y de la interferometría",
+        "Curso-Grupo": "447-3-6-26944-T-1",
+        "Semestre": "S2",
+        "HoraIni": "15:00",
+        "HoraFin": "16:00",
+        "Dia": 1
+    },
+    {
+        "Asignatura": "26944 Aplicaciones de la difracción y de la interferometría",
+        "Curso-Grupo": "447-3-6-26944-T-1",
+        "Semestre": "S2",
+        "HoraIni": "15:00",
+        "HoraFin": "16:00",
+        "Dia": 2
+    },
+    {
+        "Asignatura": "26944 Aplicaciones de la difracción y de la interferometría",
+        "Curso-Grupo": "447-3-6-26944-T-1",
+        "Semestre": "S2",
+        "HoraIni": "15:00",
+        "HoraFin": "16:00",
+        "Dia": 3
+    },
+    {
+        "Asignatura": "26942 Microondas: propagación y antenas",
+        "Curso-Grupo": "447-3-6-26942-T-1",
+        "Semestre": "S2",
+        "HoraIni": "15:00",
+        "HoraFin": "16:00",
+        "Dia": 1
+    },
+    {
+        "Asignatura": "26942 Microondas: propagación y antenas",
+        "Curso-Grupo": "447-3-6-26942-T-1",
+        "Semestre": "S2",
+        "HoraIni": "15:00",
+        "HoraFin": "16:00",
+        "Dia": 2
+    },
+    {
+        "Asignatura": "26942 Microondas: propagación y antenas",
+        "Curso-Grupo": "447-3-6-26942-T-1",
+        "Semestre": "S2",
+        "HoraIni": "15:00",
+        "HoraFin": "16:00",
+        "Dia": 3
+    },
+    {
+        "Asignatura": "26923 Óptica",
+        "Curso-Grupo": "447-3-1-26923-T-1",
+        "Semestre": "S1",
+        "HoraIni": "16:00",
+        "HoraFin": "17:00",
+        "Dia": 1
+    },
+    {
+        "Asignatura": "26923 Óptica",
+        "Curso-Grupo": "447-3-1-26923-T-1",
+        "Semestre": "S1",
+        "HoraIni": "16:00",
+        "HoraFin": "17:00",
+        "Dia": 2
+    },
+    {
+        "Asignatura": "26923 Óptica",
+        "Curso-Grupo": "447-3-1-26923-T-1",
+        "Semestre": "S1",
+        "HoraIni": "16:00",
+        "HoraFin": "17:00",
+        "Dia": 3
+    },
+    {
+        "Asignatura": "26923 Óptica",
+        "Curso-Grupo": "447-3-1-26923-T-1",
+        "Semestre": "S1",
+        "HoraIni": "15:00",
+        "HoraFin": "16:00",
+        "Dia": 4
+    },
+    {
+        "Asignatura": "26923 Óptica",
+        "Curso-Grupo": "447-3-1-26923-T-1",
+        "Semestre": "S1",
+        "HoraIni": "16:00",
+        "HoraFin": "17:00",
+        "Dia": 4
+    },
+    {
+        "Asignatura": "26921 Física cuántica I",
+        "Curso-Grupo": "447-3-1-26921-T-1",
+        "Semestre": "S1",
+        "HoraIni": "17:00",
+        "HoraFin": "18:00",
+        "Dia": 1
+    },
+    {
+        "Asignatura": "26921 Física cuántica I",
+        "Curso-Grupo": "447-3-1-26921-T-1",
+        "Semestre": "S1",
+        "HoraIni": "17:00",
+        "HoraFin": "18:00",
+        "Dia": 2
+    },
+    {
+        "Asignatura": "26921 Física cuántica I",
+        "Curso-Grupo": "447-3-1-26921-T-1",
+        "Semestre": "S1",
+        "HoraIni": "17:00",
+        "HoraFin": "18:00",
+        "Dia": 3
+    },
+    {
+        "Asignatura": "26921 Física cuántica I",
+        "Curso-Grupo": "447-3-1-26921-T-1",
+        "Semestre": "S1",
+        "HoraIni": "17:00",
+        "HoraFin": "18:00",
+        "Dia": 4
+    },
+    {
+        "Asignatura": "26921 Física cuántica I",
+        "Curso-Grupo": "447-3-1-26921-T-1",
+        "Semestre": "S1",
+        "HoraIni": "16:00",
+        "HoraFin": "17:00",
+        "Dia": 5
+    },
+    {
+        "Asignatura": "26920 Técnicas físicas II",
+        "Curso-Grupo": "447-3-1-26920-T-1",
+        "Semestre": "S1",
+        "HoraIni": "18:00",
+        "HoraFin": "19:00",
+        "Dia": 2
+    },
+    {
+        "Asignatura": "26920 Técnicas físicas II",
+        "Curso-Grupo": "447-3-1-26920-T-1",
+        "Semestre": "S1",
+        "HoraIni": "18:00",
+        "HoraFin": "19:00",
+        "Dia": 4
+    },
+    {
+        "Asignatura": "26920 Técnicas físicas II",
+        "Curso-Grupo": "447-3-1-26920-T-1",
+        "Semestre": "S1",
+        "HoraIni": "17:00",
+        "HoraFin": "18:00",
+        "Dia": 5
+    },
+    {
+        "Asignatura": "26922 Termodinámica",
+        "Curso-Grupo": "447-3-1-26922-T-1",
+        "Semestre": "S1",
+        "HoraIni": "18:00",
+        "HoraFin": "19:00",
+        "Dia": 1
+    },
+    {
+        "Asignatura": "26922 Termodinámica",
+        "Curso-Grupo": "447-3-1-26922-T-1",
+        "Semestre": "S1",
+        "HoraIni": "19:00",
+        "HoraFin": "20:00",
+        "Dia": 2
+    },
+    {
+        "Asignatura": "26922 Termodinámica",
+        "Curso-Grupo": "447-3-1-26922-T-1",
+        "Semestre": "S1",
+        "HoraIni": "18:00",
+        "HoraFin": "19:00",
+        "Dia": 3
+    },
+    {
+        "Asignatura": "26922 Termodinámica",
+        "Curso-Grupo": "447-3-1-26922-T-1",
+        "Semestre": "S1",
+        "HoraIni": "18:00",
+        "HoraFin": "19:00",
+        "Dia": 5
+    },
+    {
+        "Asignatura": "26920 Técnicas físicas II",
+        "Curso-Grupo": "447-3-1-26920-L-1",
+        "Semestre": "S1",
+        "HoraIni": "10:00",
+        "HoraFin": "12:00",
+        "Dia": 4
+    },
+    {
+        "Asignatura": "26920 Técnicas físicas II",
+        "Curso-Grupo": "447-3-1-26920-L-2",
+        "Semestre": "S1",
+        "HoraIni": "10:00",
+        "HoraFin": "12:00",
+        "Dia": 5
+    },
+    {
+        "Asignatura": "26921 Física cuántica I",
+        "Curso-Grupo": "447-3-1-26921-L-1",
+        "Semestre": "S1",
+        "HoraIni": "09:00",
+        "HoraFin": "13:00",
+        "Dia": 1
+    },
+    {
+        "Asignatura": "26921 Física cuántica I",
+        "Curso-Grupo": "447-3-1-26921-L-1",
+        "Semestre": "S1",
+        "HoraIni": "09:00",
+        "HoraFin": "13:00",
+        "Dia": 2
+    },
+    {
+        "Asignatura": "26921 Física cuántica I",
+        "Curso-Grupo": "447-3-1-26921-L-1",
+        "Semestre": "S1",
+        "HoraIni": "09:00",
+        "HoraFin": "13:00",
+        "Dia": 3
+    },
+    {
+        "Asignatura": "26923 Óptica",
+        "Curso-Grupo": "447-3-1-26923-L-1",
+        "Semestre": "S1",
+        "HoraIni": "09:00",
+        "HoraFin": "12:00",
+        "Dia": 1
+    },
+    {
+        "Asignatura": "26923 Óptica",
+        "Curso-Grupo": "447-3-1-26923-L-1",
+        "Semestre": "S1",
+        "HoraIni": "11:00",
+        "HoraFin": "14:00",
+        "Dia": 2
+    },
+    {
+        "Asignatura": "26923 Óptica",
+        "Curso-Grupo": "447-3-1-26923-L-1",
+        "Semestre": "S1",
+        "HoraIni": "11:00",
+        "HoraFin": "14:00",
+        "Dia": 3
+    },
+    {
+        "Asignatura": "26922 Termodinámica",
+        "Curso-Grupo": "447-3-1-26922-L-1",
+        "Semestre": "S1",
+        "HoraIni": "09:00",
+        "HoraFin": "13:00",
+        "Dia": 1
+    },
+    {
+        "Asignatura": "26922 Termodinámica",
+        "Curso-Grupo": "447-3-1-26922-L-1",
+        "Semestre": "S1",
+        "HoraIni": "09:00",
+        "HoraFin": "13:00",
+        "Dia": 2
+    },
+    {
+        "Asignatura": "26922 Termodinámica",
+        "Curso-Grupo": "447-3-1-26922-L-1",
+        "Semestre": "S1",
+        "HoraIni": "09:00",
+        "HoraFin": "13:00",
+        "Dia": 3
+    },
+    {
+        "Asignatura": "26922 Termodinámica",
+        "Curso-Grupo": "447-3-1-26922-T-1",
+        "Semestre": "S1",
+        "HoraIni": "15:00",
+        "HoraFin": "16:00",
+        "Dia": null
+    },
+    {
+        "Asignatura": "26932 Astronomía y astrofísica",
+        "Curso-Grupo": "447-3-6-26932-T-1",
+        "Semestre": "S1",
+        "HoraIni": "08:00",
+        "HoraFin": "09:00",
+        "Dia": 1
+    },
+    {
+        "Asignatura": "26932 Astronomía y astrofísica",
+        "Curso-Grupo": "447-3-6-26932-T-1",
+        "Semestre": "S1",
+        "HoraIni": "08:00",
+        "HoraFin": "09:00",
+        "Dia": 5
+    },
+    {
+        "Asignatura": "26935 Física de fluidos",
+        "Curso-Grupo": "447-3-6-26935-T-1",
+        "Semestre": "S1",
+        "HoraIni": "09:00",
+        "HoraFin": "11:00",
+        "Dia": 2
+    },
+    {
+        "Asignatura": "26935 Física de fluidos",
+        "Curso-Grupo": "447-3-6-26935-T-1",
+        "Semestre": "S1",
+        "HoraIni": "09:00",
+        "HoraFin": "11:00",
+        "Dia": 3
+    },
+    {
+        "Asignatura": "26938 Historia de la ciencia",
+        "Curso-Grupo": "447-3-6-26938-T-1",
+        "Semestre": "S1",
+        "HoraIni": "15:00",
+        "HoraFin": "16:00",
+        "Dia": 1
+    },
+    {
+        "Asignatura": "26938 Historia de la ciencia",
+        "Curso-Grupo": "447-3-6-26938-T-1",
+        "Semestre": "S1",
+        "HoraIni": "15:00",
+        "HoraFin": "16:00",
+        "Dia": 2
+    },
+    {
+        "Asignatura": "26938 Historia de la ciencia",
+        "Curso-Grupo": "447-3-6-26938-T-1",
+        "Semestre": "S1",
+        "HoraIni": "15:00",
+        "HoraFin": "16:00",
+        "Dia": 3
+    },
+    {
+        "Asignatura": "26932 Astronomía y astrofísica",
+        "Curso-Grupo": "447-3-6-26932-T-1",
+        "Semestre": "S1",
+        "HoraIni": "08:00",
+        "HoraFin": "09:00",
+        "Dia": 2
+    },
+    {
+        "Asignatura": "26932 Astronomía y astrofísica",
+        "Curso-Grupo": "447-3-6-26932-T-1",
+        "Semestre": "S1",
+        "HoraIni": "08:00",
+        "HoraFin": "09:00",
+        "Dia": 4
+    },
+    {
+        "Asignatura": "26925 Física estadística",
+        "Curso-Grupo": "447-3-1-26925-T-1",
+        "Semestre": "S2",
+        "HoraIni": "16:00",
+        "HoraFin": "18:00",
+        "Dia": 1
+    },
+    {
+        "Asignatura": "26925 Física estadística",
+        "Curso-Grupo": "447-3-1-26925-T-1",
+        "Semestre": "S2",
+        "HoraIni": "16:00",
+        "HoraFin": "17:00",
+        "Dia": 2
+    },
+    {
+        "Asignatura": "26925 Física estadística",
+        "Curso-Grupo": "447-3-1-26925-T-1",
+        "Semestre": "S2",
+        "HoraIni": "16:00",
+        "HoraFin": "17:00",
+        "Dia": 3
+    },
+    {
+        "Asignatura": "26924 Física cuántica II",
+        "Curso-Grupo": "447-3-1-26924-T-1",
+        "Semestre": "S2",
+        "HoraIni": "18:00",
+        "HoraFin": "19:00",
+        "Dia": 1
+    },
+    {
+        "Asignatura": "26924 Física cuántica II",
+        "Curso-Grupo": "447-3-1-26924-T-1",
+        "Semestre": "S2",
+        "HoraIni": "17:00",
+        "HoraFin": "19:00",
+        "Dia": 2
+    },
+    {
+        "Asignatura": "26924 Física cuántica II",
+        "Curso-Grupo": "447-3-1-26924-T-1",
+        "Semestre": "S2",
+        "HoraIni": "17:00",
+        "HoraFin": "19:00",
+        "Dia": 3
+    },
+    {
+        "Asignatura": "26924 Física cuántica II",
+        "Curso-Grupo": "447-3-1-26924-L-1",
+        "Semestre": "S2",
+        "HoraIni": "09:00",
+        "HoraFin": "13:00",
+        "Dia": 2
+    },
+    {
+        "Asignatura": "26920 Técnicas físicas II",
+        "Curso-Grupo": "447-3-1-26920-L-1",
+        "Semestre": "S2",
+        "HoraIni": "09:00",
+        "HoraFin": "13:00",
+        "Dia": 1
+    },
+    {
+        "Asignatura": "26920 Técnicas físicas II",
+        "Curso-Grupo": "447-3-1-26920-L-1",
+        "Semestre": "S2",
+        "HoraIni": "09:00",
+        "HoraFin": "13:00",
+        "Dia": 1
+    },
+    {
+        "Asignatura": "26920 Técnicas físicas II",
+        "Curso-Grupo": "447-3-1-26920-L-1",
+        "Semestre": "S2",
+        "HoraIni": "09:00",
+        "HoraFin": "13:00",
+        "Dia": 3
+    },
+    {
+        "Asignatura": "26920 Técnicas físicas II",
+        "Curso-Grupo": "447-3-1-26920-L-1",
+        "Semestre": "S2",
+        "HoraIni": "09:00",
+        "HoraFin": "13:00",
+        "Dia": 3
+    },
+    {
+        "Asignatura": "26920 Técnicas físicas II",
+        "Curso-Grupo": "447-3-1-26920-L-1",
+        "Semestre": "S2",
+        "HoraIni": "09:00",
+        "HoraFin": "13:00",
+        "Dia": 5
+    },
+    {
+        "Asignatura": "26920 Técnicas físicas II",
+        "Curso-Grupo": "447-3-1-26920-L-1",
+        "Semestre": "S2",
+        "HoraIni": "09:00",
+        "HoraFin": "13:00",
+        "Dia": 5
+    },
+    {
+        "Asignatura": "26920 Técnicas físicas II",
+        "Curso-Grupo": "447-3-1-26920-L-1",
+        "Semestre": "S2",
+        "HoraIni": "16:00",
+        "HoraFin": "20:00",
+        "Dia": 4
+    },
+    {
+        "Asignatura": "26920 Técnicas físicas II",
+        "Curso-Grupo": "447-3-1-26920-L-1",
+        "Semestre": "S2",
+        "HoraIni": "16:00",
+        "HoraFin": "20:00",
+        "Dia": 4
+    },
+    {
+        "Asignatura": "26920 Técnicas físicas II",
+        "Curso-Grupo": "447-3-1-26920-L-1",
+        "Semestre": "S2",
+        "HoraIni": "16:00",
+        "HoraFin": "20:00",
+        "Dia": 5
+    },
+    {
+        "Asignatura": "26920 Técnicas físicas II",
+        "Curso-Grupo": "447-3-1-26920-L-1",
+        "Semestre": "S2",
+        "HoraIni": "16:00",
+        "HoraFin": "20:00",
+        "Dia": 5
+    },
+    {
+        "Asignatura": "26925 Física estadística",
+        "Curso-Grupo": "447-3-1-26925-O-1",
+        "Semestre": "S2",
+        "HoraIni": "16:00",
+        "HoraFin": "20:00",
+        "Dia": 4
+    },
+    {
+        "Asignatura": "26920 Técnicas físicas II",
+        "Curso-Grupo": "447-3-1-26920-T-1",
+        "Semestre": "S2",
+        "HoraIni": "11:00",
+        "HoraFin": "13:00",
+        "Dia": null
+    },
+    {
+        "Asignatura": "26924 Física cuántica II",
+        "Curso-Grupo": "447-3-1-26924-L-2",
+        "Semestre": "S2",
+        "HoraIni": "09:00",
+        "HoraFin": "13:00",
+        "Dia": 2
+    },
+    {
+        "Asignatura": "26920 Técnicas físicas II",
+        "Curso-Grupo": "447-3-1-26920-L-1",
+        "Semestre": "S2",
+        "HoraIni": "09:00",
+        "HoraFin": "13:00",
+        "Dia": 5
+    },
+    {
+        "Asignatura": "26920 Técnicas físicas II",
+        "Curso-Grupo": "447-3-1-26920-O-2",
+        "Semestre": "S2",
+        "HoraIni": "11:00",
+        "HoraFin": "13:00",
+        "Dia": null
+    },
+    {
+        "Asignatura": "26920 Técnicas físicas II",
+        "Curso-Grupo": "447-3-1-26920-O-1",
+        "Semestre": "S2",
+        "HoraIni": "11:00",
+        "HoraFin": "13:00",
+        "Dia": null
+    },
+    {
+        "Asignatura": "26920 Técnicas físicas II",
+        "Curso-Grupo": "447-3-1-26920-O-1",
+        "Semestre": "S2",
+        "HoraIni": "11:00",
+        "HoraFin": "13:00",
+        "Dia": null
+    },
+    {
+        "Asignatura": "26920 Técnicas físicas II",
+        "Curso-Grupo": "447-3-1-26920-O-2",
+        "Semestre": "S2",
+        "HoraIni": "11:00",
+        "HoraFin": "13:00",
+        "Dia": null
+    },
+    {
+        "Asignatura": "26933 Caos y sistemas dinámicos no lineales",
+        "Curso-Grupo": "447-3-6-26933-T-1",
+        "Semestre": "S2",
+        "HoraIni": "09:00",
+        "HoraFin": "11:00",
+        "Dia": 4
+    },
+    {
+        "Asignatura": "26933 Caos y sistemas dinámicos no lineales",
+        "Curso-Grupo": "447-3-6-26933-T-1",
+        "Semestre": "S2",
+        "HoraIni": "09:00",
+        "HoraFin": "11:00",
+        "Dia": 5
+    },
+    {
+        "Asignatura": "26937 Gravitación y cosmología",
+        "Curso-Grupo": "447-3-6-26937-T-1",
+        "Semestre": "S2",
+        "HoraIni": "08:00",
+        "HoraFin": "09:00",
+        "Dia": 2
+    },
+    {
+        "Asignatura": "26937 Gravitación y cosmología",
+        "Curso-Grupo": "447-3-6-26937-T-1",
+        "Semestre": "S2",
+        "HoraIni": "08:00",
+        "HoraFin": "09:00",
+        "Dia": 1
+    },
+    {
+        "Asignatura": "26937 Gravitación y cosmología",
+        "Curso-Grupo": "447-3-6-26937-T-1",
+        "Semestre": "S2",
+        "HoraIni": "08:00",
+        "HoraFin": "09:00",
+        "Dia": 3
+    },
+    {
+        "Asignatura": "26937 Gravitación y cosmología",
+        "Curso-Grupo": "447-3-6-26937-T-1",
+        "Semestre": "S2",
+        "HoraIni": "13:00",
+        "HoraFin": "14:00",
+        "Dia": 5
+    },
+    {
+        "Asignatura": "26940 Láser y aplicaciones",
+        "Curso-Grupo": "447-3-6-26940-T-1",
+        "Semestre": "S2",
+        "HoraIni": "13:00",
+        "HoraFin": "14:00",
+        "Dia": 2
+    },
+    {
+        "Asignatura": "26940 Láser y aplicaciones",
+        "Curso-Grupo": "447-3-6-26940-T-1",
+        "Semestre": "S2",
+        "HoraIni": "13:00",
+        "HoraFin": "14:00",
+        "Dia": 5
+    },
+    {
+        "Asignatura": "26940 Láser y aplicaciones",
+        "Curso-Grupo": "447-3-6-26940-T-1",
+        "Semestre": "S2",
+        "HoraIni": "13:00",
+        "HoraFin": "14:00",
+        "Dia": 1
+    },
+    {
+        "Asignatura": "26941 Micro y nano sistemas",
+        "Curso-Grupo": "447-3-6-26941-T-1",
+        "Semestre": "S2",
+        "HoraIni": "13:00",
+        "HoraFin": "14:00",
+        "Dia": 1
+    },
+    {
+        "Asignatura": "26941 Micro y nano sistemas",
+        "Curso-Grupo": "447-3-6-26941-T-1",
+        "Semestre": "S2",
+        "HoraIni": "13:00",
+        "HoraFin": "14:00",
+        "Dia": 5
+    },
+    {
+        "Asignatura": "26941 Micro y nano sistemas",
+        "Curso-Grupo": "447-3-6-26941-T-1",
+        "Semestre": "S2",
+        "HoraIni": "13:00",
+        "HoraFin": "14:00",
+        "Dia": 2
+    },
+    {
+        "Asignatura": "26937 Gravitation and cosmology",
+        "Curso-Grupo": "447-3-6--26937-T-1",
+        "Semestre": "S2",
+        "HoraIni": "13:00",
+        "HoraFin": "14:00",
+        "Dia": 1
+    },
+    {
+        "Asignatura": "26937 Gravitation and cosmology",
+        "Curso-Grupo": "447-3-6--26937-T-1",
+        "Semestre": "S2",
+        "HoraIni": "13:00",
+        "HoraFin": "14:00",
+        "Dia": 2
+    },
+    {
+        "Asignatura": "26937 Gravitation and cosmology",
+        "Curso-Grupo": "447-3-6--26937-T-1",
+        "Semestre": "S2",
+        "HoraIni": "08:00",
+        "HoraFin": "09:00",
+        "Dia": 4
+    },
+    {
+        "Asignatura": "26937 Gravitation and cosmology",
+        "Curso-Grupo": "447-3-6--26937-T-1",
+        "Semestre": "S2",
+        "HoraIni": "08:00",
+        "HoraFin": "09:00",
+        "Dia": 5
+    },
+    {
+        "Asignatura": "26944 Aplicaciones de la difracción y de la interferometría",
+        "Curso-Grupo": "447-3-6-26944-T-1",
+        "Semestre": "S2",
+        "HoraIni": "15:00",
+        "HoraFin": "16:00",
+        "Dia": 1
+    },
+    {
+        "Asignatura": "26944 Aplicaciones de la difracción y de la interferometría",
+        "Curso-Grupo": "447-3-6-26944-T-1",
+        "Semestre": "S2",
+        "HoraIni": "15:00",
+        "HoraFin": "16:00",
+        "Dia": 2
+    },
+    {
+        "Asignatura": "26944 Aplicaciones de la difracción y de la interferometría",
+        "Curso-Grupo": "447-3-6-26944-T-1",
+        "Semestre": "S2",
+        "HoraIni": "15:00",
+        "HoraFin": "16:00",
+        "Dia": 3
+    },
+    {
+        "Asignatura": "26942 Microondas: propagación y antenas",
+        "Curso-Grupo": "447-3-6-26942-T-1",
+        "Semestre": "S2",
+        "HoraIni": "15:00",
+        "HoraFin": "16:00",
+        "Dia": 1
+    },
+    {
+        "Asignatura": "26942 Microondas: propagación y antenas",
+        "Curso-Grupo": "447-3-6-26942-T-1",
+        "Semestre": "S2",
+        "HoraIni": "15:00",
+        "HoraFin": "16:00",
+        "Dia": 2
+    },
+    {
+        "Asignatura": "26942 Microondas: propagación y antenas",
+        "Curso-Grupo": "447-3-6-26942-T-1",
+        "Semestre": "S2",
+        "HoraIni": "15:00",
+        "HoraFin": "16:00",
+        "Dia": 3
+    },
+    {
+        "Asignatura": "26926 Estado sólido I",
+        "Curso-Grupo": "447-4-0-26926-T-1",
+        "Semestre": "S1",
+        "HoraIni": "09:00",
+        "HoraFin": "10:00",
+        "Dia": 1
+    },
+    {
+        "Asignatura": "26926 Estado sólido I",
+        "Curso-Grupo": "447-4-0-26926-T-1",
+        "Semestre": "S1",
+        "HoraIni": "09:00",
+        "HoraFin": "10:00",
+        "Dia": 2
+    },
+    {
+        "Asignatura": "26926 Estado sólido I",
+        "Curso-Grupo": "447-4-0-26926-T-1",
+        "Semestre": "S1",
+        "HoraIni": "09:00",
+        "HoraFin": "10:00",
+        "Dia": 4
+    },
+    {
+        "Asignatura": "26926 Estado sólido I",
+        "Curso-Grupo": "447-4-0-26926-T-1",
+        "Semestre": "S1",
+        "HoraIni": "09:00",
+        "HoraFin": "10:00",
+        "Dia": 5
+    },
+    {
+        "Asignatura": "26927 Técnicas físicas III",
+        "Curso-Grupo": "447-4-0-26927-L-1",
+        "Semestre": "S1",
+        "HoraIni": "16:00",
+        "HoraFin": "20:00",
+        "Dia": 3
+    },
+    {
+        "Asignatura": "26928 Electrónica física",
+        "Curso-Grupo": "447-4-0-26928-T-1",
+        "Semestre": "S1",
+        "HoraIni": "11:00",
+        "HoraFin": "12:00",
+        "Dia": 1
+    },
+    {
+        "Asignatura": "26928 Electrónica física",
+        "Curso-Grupo": "447-4-0-26928-T-1",
+        "Semestre": "S1",
+        "HoraIni": "11:00",
+        "HoraFin": "12:00",
+        "Dia": 2
+    },
+    {
+        "Asignatura": "26928 Electrónica física",
+        "Curso-Grupo": "447-4-0-26928-T-1",
+        "Semestre": "S1",
+        "HoraIni": "11:00",
+        "HoraFin": "12:00",
+        "Dia": 4
+    },
+    {
+        "Asignatura": "26928 Electrónica física",
+        "Curso-Grupo": "447-4-0-26928-T-1",
+        "Semestre": "S1",
+        "HoraIni": "11:00",
+        "HoraFin": "12:00",
+        "Dia": 5
+    },
+    {
+        "Asignatura": "26929 Física nuclear y partículas",
+        "Curso-Grupo": "447-4-0-26929-T-1",
+        "Semestre": "S1",
+        "HoraIni": "10:00",
+        "HoraFin": "11:00",
+        "Dia": 1
+    },
+    {
+        "Asignatura": "26929 Física nuclear y partículas",
+        "Curso-Grupo": "447-4-0-26929-T-1",
+        "Semestre": "S1",
+        "HoraIni": "10:00",
+        "HoraFin": "11:00",
+        "Dia": 2
+    },
+    {
+        "Asignatura": "26929 Física nuclear y partículas",
+        "Curso-Grupo": "447-4-0-26929-T-1",
+        "Semestre": "S1",
+        "HoraIni": "10:00",
+        "HoraFin": "11:00",
+        "Dia": 4
+    },
+    {
+        "Asignatura": "26929 Física nuclear y partículas",
+        "Curso-Grupo": "447-4-0-26929-T-1",
+        "Semestre": "S1",
+        "HoraIni": "10:00",
+        "HoraFin": "11:00",
+        "Dia": 5
+    },
+    {
+        "Asignatura": "26926 Estado sólido I",
+        "Curso-Grupo": "447-4-0-26926-O-1",
+        "Semestre": "S1",
+        "HoraIni": "15:00",
+        "HoraFin": "20:00",
+        "Dia": 1
+    },
+    {
+        "Asignatura": "26926 Estado sólido I",
+        "Curso-Grupo": "447-4-0-26926-O-2",
+        "Semestre": "S1",
+        "HoraIni": "15:00",
+        "HoraFin": "20:00",
+        "Dia": 2
+    },
+    {
+        "Asignatura": "26926 Estado sólido I",
+        "Curso-Grupo": "447-4-0-26926-O-3",
+        "Semestre": "S1",
+        "HoraIni": "15:00",
+        "HoraFin": "20:00",
+        "Dia": 3
+    },
+    {
+        "Asignatura": "26926 Estado sólido I",
+        "Curso-Grupo": "447-4-0-26926-O-4",
+        "Semestre": "S1",
+        "HoraIni": "15:00",
+        "HoraFin": "20:00",
+        "Dia": 4
+    },
+    {
+        "Asignatura": "26926 Estado sólido I",
+        "Curso-Grupo": "447-4-0-26926-O-5",
+        "Semestre": "S1",
+        "HoraIni": "15:00",
+        "HoraFin": "20:00",
+        "Dia": 5
+    },
+    {
+        "Asignatura": "26928 Electrónica física",
+        "Curso-Grupo": "447-4-0-26928-L-1",
+        "Semestre": "S1",
+        "HoraIni": "16:00",
+        "HoraFin": "19:00",
+        "Dia": 1
+    },
+    {
+        "Asignatura": "26928 Electrónica física",
+        "Curso-Grupo": "447-4-0-26928-L-2",
+        "Semestre": "S1",
+        "HoraIni": "16:00",
+        "HoraFin": "19:00",
+        "Dia": 1
+    },
+    {
+        "Asignatura": "26928 Electrónica física",
+        "Curso-Grupo": "447-4-0-26928-L-3",
+        "Semestre": "S1",
+        "HoraIni": "16:00",
+        "HoraFin": "19:00",
+        "Dia": 1
+    },
+    {
+        "Asignatura": "26928 Electrónica física",
+        "Curso-Grupo": "447-4-0-26928-L-4",
+        "Semestre": "S1",
+        "HoraIni": "16:00",
+        "HoraFin": "19:00",
+        "Dia": 1
+    },
+    {
+        "Asignatura": "26929 Física nuclear y partículas",
+        "Curso-Grupo": "447-4-0-26929-L-1",
+        "Semestre": "S1",
+        "HoraIni": "16:00",
+        "HoraFin": "20:00",
+        "Dia": 1
+    },
+    {
+        "Asignatura": "26929 Física nuclear y partículas",
+        "Curso-Grupo": "447-4-0-26929-L-2",
+        "Semestre": "S1",
+        "HoraIni": "16:00",
+        "HoraFin": "20:00",
+        "Dia": 1
+    },
+    {
+        "Asignatura": "26929 Física nuclear y partículas",
+        "Curso-Grupo": "447-4-0-26929-L-3",
+        "Semestre": "S1",
+        "HoraIni": "16:00",
+        "HoraFin": "20:00",
+        "Dia": 1
+    },
+    {
+        "Asignatura": "26929 Física nuclear y partículas",
+        "Curso-Grupo": "447-4-0-26929-L-4",
+        "Semestre": "S1",
+        "HoraIni": "16:00",
+        "HoraFin": "20:00",
+        "Dia": 1
+    },
+    {
+        "Asignatura": "26929 Física nuclear y partículas",
+        "Curso-Grupo": "447-4-0-26929-L-5",
+        "Semestre": "S1",
+        "HoraIni": "16:00",
+        "HoraFin": "20:00",
+        "Dia": 1
+    },
+    {
+        "Asignatura": "26927 Técnicas físicas III",
+        "Curso-Grupo": "447-4-0-26927-L-1",
+        "Semestre": "S1",
+        "HoraIni": "09:00",
+        "HoraFin": "14:00",
+        "Dia": 3
+    },
+    {
+        "Asignatura": "26929 Física nuclear y partículas",
+        "Curso-Grupo": "447-4-0-26929-L-6",
+        "Semestre": "S1",
+        "HoraIni": "16:00",
+        "HoraFin": "20:00",
+        "Dia": null
+    },
+    {
+        "Asignatura": "26927 Técnicas físicas III",
+        "Curso-Grupo": "447-4-0-26927-T-1",
+        "Semestre": "S1",
+        "HoraIni": "16:00",
+        "HoraFin": "18:00",
+        "Dia": null
+    },
+    {
+        "Asignatura": "26946 Dosimetría y radioprotección",
+        "Curso-Grupo": "447-4-6-26946-T-1",
+        "Semestre": "S1",
+        "HoraIni": "12:00",
+        "HoraFin": "14:00",
+        "Dia": 1
+    },
+    {
+        "Asignatura": "26953 Mecánica cuántica",
+        "Curso-Grupo": "447-4-6-26953-T-1",
+        "Semestre": "S1",
+        "HoraIni": "16:00",
+        "HoraFin": "18:00",
+        "Dia": 2
+    },
+    {
+        "Asignatura": "26946 Dosimetría y radioprotección",
+        "Curso-Grupo": "447-4-6-26946-T-1",
+        "Semestre": "S1",
+        "HoraIni": "12:00",
+        "HoraFin": "14:00",
+        "Dia": 5
+    },
+    {
+        "Asignatura": "26957 Sistemas digitales",
+        "Curso-Grupo": "447-4-6-26957-T-1",
+        "Semestre": "S1",
+        "HoraIni": "12:00",
+        "HoraFin": "14:00",
+        "Dia": 1
+    },
+    {
+        "Asignatura": "26957 Sistemas digitales",
+        "Curso-Grupo": "447-4-6-26957-T-1",
+        "Semestre": "S1",
+        "HoraIni": "12:00",
+        "HoraFin": "14:00",
+        "Dia": 2
+    },
+    {
+        "Asignatura": "26936 Gestión empresarial y proyectos",
+        "Curso-Grupo": "447-4-6-26936-T-1",
+        "Semestre": "S1",
+        "HoraIni": "16:00",
+        "HoraFin": "19:00",
+        "Dia": 1
+    },
+    {
+        "Asignatura": "26953 Mecánica cuántica",
+        "Curso-Grupo": "447-4-6-26953-T-1",
+        "Semestre": "S1",
+        "HoraIni": "08:00",
+        "HoraFin": "09:00",
+        "Dia": 4
+    },
+    {
+        "Asignatura": "26953 Mecánica cuántica",
+        "Curso-Grupo": "447-4-6-26953-T-1",
+        "Semestre": "S1",
+        "HoraIni": "16:00",
+        "HoraFin": "18:00",
+        "Dia": 4
+    },
+    {
+        "Asignatura": "26930 Estado sólido II",
+        "Curso-Grupo": "447-4-0-26930-T-1",
+        "Semestre": "S2",
+        "HoraIni": "11:00",
+        "HoraFin": "12:00",
+        "Dia": 1
+    },
+    {
+        "Asignatura": "26930 Estado sólido II",
+        "Curso-Grupo": "447-4-0-26930-T-1",
+        "Semestre": "S2",
+        "HoraIni": "11:00",
+        "HoraFin": "12:00",
+        "Dia": 2
+    },
+    {
+        "Asignatura": "26930 Estado sólido II",
+        "Curso-Grupo": "447-4-0-26930-T-1",
+        "Semestre": "S2",
+        "HoraIni": "11:00",
+        "HoraFin": "12:00",
+        "Dia": 3
+    },
+    {
+        "Asignatura": "26930 Estado sólido II",
+        "Curso-Grupo": "447-4-0-26930-L-1",
+        "Semestre": "S2",
+        "HoraIni": "16:00",
+        "HoraFin": "20:00",
+        "Dia": 1
+    },
+    {
+        "Asignatura": "26930 Estado sólido II",
+        "Curso-Grupo": "447-4-0-26930-L-2",
+        "Semestre": "S2",
+        "HoraIni": "16:00",
+        "HoraFin": "20:00",
+        "Dia": 1
+    },
+    {
+        "Asignatura": "26930 Estado sólido II",
+        "Curso-Grupo": "447-4-0-26930-L-3",
+        "Semestre": "S2",
+        "HoraIni": "16:00",
+        "HoraFin": "20:00",
+        "Dia": 1
+    },
+    {
+        "Asignatura": "26930 Estado sólido II",
+        "Curso-Grupo": "447-4-0-26930-L-4",
+        "Semestre": "S2",
+        "HoraIni": "16:00",
+        "HoraFin": "20:00",
+        "Dia": 1
+    },
+    {
+        "Asignatura": "26930 Estado sólido II",
+        "Curso-Grupo": "447-4-0-26930-T-1",
+        "Semestre": "S2",
+        "HoraIni": "11:00",
+        "HoraFin": "12:00",
+        "Dia": 4
+    },
+    {
+        "Asignatura": "26945 Dispositivos y sistemas fotónicos",
+        "Curso-Grupo": "447-4-6-26945-T-1",
+        "Semestre": "S2",
+        "HoraIni": "08:00",
+        "HoraFin": "09:00",
+        "Dia": 2
+    },
+    {
+        "Asignatura": "26945 Dispositivos y sistemas fotónicos",
+        "Curso-Grupo": "447-4-6-26945-T-1",
+        "Semestre": "S2",
+        "HoraIni": "08:00",
+        "HoraFin": "09:00",
+        "Dia": 3
+    },
+    {
+        "Asignatura": "26945 Dispositivos y sistemas fotónicos",
+        "Curso-Grupo": "447-4-6-26945-T-1",
+        "Semestre": "S2",
+        "HoraIni": "08:00",
+        "HoraFin": "09:00",
+        "Dia": 4
+    },
+    {
+        "Asignatura": "26947 Espectroscopia",
+        "Curso-Grupo": "447-4-6-26947-T-1",
+        "Semestre": "S2",
+        "HoraIni": "10:00",
+        "HoraFin": "11:00",
+        "Dia": 1
+    },
+    {
+        "Asignatura": "26947 Espectroscopia",
+        "Curso-Grupo": "447-4-6-26947-T-1",
+        "Semestre": "S2",
+        "HoraIni": "12:00",
+        "HoraFin": "13:30",
+        "Dia": 3
+    },
+    {
+        "Asignatura": "26947 Espectroscopia",
+        "Curso-Grupo": "447-4-6-26947-T-1",
+        "Semestre": "S2",
+        "HoraIni": "10:00",
+        "HoraFin": "11:00",
+        "Dia": 2
+    },
+    {
+        "Asignatura": "26949 Física biológica",
+        "Curso-Grupo": "447-4-6-26949-T-1",
+        "Semestre": "S2",
+        "HoraIni": "12:00",
+        "HoraFin": "14:00",
+        "Dia": 1
+    },
+    {
+        "Asignatura": "26949 Física biológica",
+        "Curso-Grupo": "447-4-6-26949-T-1",
+        "Semestre": "S2",
+        "HoraIni": "10:00",
+        "HoraFin": "11:00",
+        "Dia": 3
+    },
+    {
+        "Asignatura": "26951 Física y tecnología nuclear",
+        "Curso-Grupo": "447-4-6-26951-T-1",
+        "Semestre": "S2",
+        "HoraIni": "09:00",
+        "HoraFin": "10:00",
+        "Dia": 1
+    },
+    {
+        "Asignatura": "26951 Física y tecnología nuclear",
+        "Curso-Grupo": "447-4-6-26951-T-1",
+        "Semestre": "S2",
+        "HoraIni": "09:00",
+        "HoraFin": "10:00",
+        "Dia": 2
+    },
+    {
+        "Asignatura": "26951 Física y tecnología nuclear",
+        "Curso-Grupo": "447-4-6-26951-T-1",
+        "Semestre": "S2",
+        "HoraIni": "09:00",
+        "HoraFin": "10:00",
+        "Dia": 3
+    },
+    {
+        "Asignatura": "26951 Física y tecnología nuclear",
+        "Curso-Grupo": "447-4-6-26951-T-1",
+        "Semestre": "S2",
+        "HoraIni": "09:00",
+        "HoraFin": "10:00",
+        "Dia": 4
+    },
+    {
+        "Asignatura": "26949 Física biológica",
+        "Curso-Grupo": "447-4-6-26949-T-1",
+        "Semestre": "S2",
+        "HoraIni": "10:00",
+        "HoraFin": "11:00",
+        "Dia": 4
+    },
+    {
+        "Asignatura": "26949 Física biológica",
+        "Curso-Grupo": "447-4-6-26949-O-1",
+        "Semestre": "S2",
+        "HoraIni": "12:00",
+        "HoraFin": "14:00",
+        "Dia": null
+    },
+    {
+        "Asignatura": "26949 Física biológica",
+        "Curso-Grupo": "447-4-6-26949-O-2",
+        "Semestre": "S2",
+        "HoraIni": "12:00",
+        "HoraFin": "14:00",
+        "Dia": null
+    },
+    {
+        "Asignatura": "26950 Física de altas energías",
+        "Curso-Grupo": "447-4-6-26950-T-1",
+        "Semestre": "S2",
+        "HoraIni": "15:00",
+        "HoraFin": "17:00",
+        "Dia": 2
+    },
+    {
+        "Asignatura": "26950 Física de altas energías",
+        "Curso-Grupo": "447-4-6-26950-T-1",
+        "Semestre": "S2",
+        "HoraIni": "15:00",
+        "HoraFin": "17:00",
+        "Dia": 4
+    },
+    {
+        "Asignatura": "26952 Geofísica",
+        "Curso-Grupo": "447-4-6-26952-T-1",
+        "Semestre": "S2",
+        "HoraIni": "15:00",
+        "HoraFin": "17:00",
+        "Dia": 1
+    },
+    {
+        "Asignatura": "26952 Geofísica",
+        "Curso-Grupo": "447-4-6-26952-T-1",
+        "Semestre": "S2",
+        "HoraIni": "15:00",
+        "HoraFin": "17:00",
+        "Dia": 3
+    }
+]
