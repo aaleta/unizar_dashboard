@@ -346,7 +346,8 @@ const sortIndicator = key => {
 
 .page{
 
-    margin-left:220px;
+    /* Sin barra lateral: el hueco de 220px ya no reserva nada. */
+    margin-left:0;
 
     width:calc(100% - 220px);
 

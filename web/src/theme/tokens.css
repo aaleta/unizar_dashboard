@@ -55,6 +55,7 @@
     --surface:#fff;               /* Tarjeta */
     --surface-alt:#fcfaf5;        /* Tarjeta de optativa */
     --surface-sunken:#ece5d7;     /* Cabecera de tabla ordenable */
+    --surface-muted:#f1ece2;      /* Botón redondo sobre tarjeta blanca */
 
     /* ---------------------------------------------------------------- *
      * Líneas
@@ -83,6 +84,8 @@
     --ink-placeholder:#9a9182;    /* Placeholder y huecos por rellenar */
     --ink-icon:#a49a88;           /* Iconos de control */
     --ink-on-navy:#fff;           /* Texto sobre superficie navy */
+    --ink-tab:#a29a8a;            /* Pestaña inactiva de la barra inferior */
+    --ink-chevron:#c2b7a3;        /* Flechas de "seguir" al final de una fila */
 
     /* ---------------------------------------------------------------- *
      * Recuentos — barras grises. Una cantidad NO es una dificultad.

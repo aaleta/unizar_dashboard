@@ -28,10 +28,10 @@ const info = computed(() => subjectInfo(subjectCode.value));
 /* --- Migas de pan: volver al listado del que viene la asignatura ------- */
 
 const COURSE_ROUTES = {
-    1: { path: "/curso/1", label: "Primero" },
-    2: { path: "/curso/2", label: "Segundo" },
-    3: { path: "/curso/3", label: "Tercero" },
-    4: { path: "/curso/4", label: "Cuarto" }
+    1: { path: "/grado/1", label: "Primero" },
+    2: { path: "/grado/2", label: "Segundo" },
+    3: { path: "/grado/3", label: "Tercero" },
+    4: { path: "/grado/4", label: "Cuarto" }
 };
 
 const parent = computed(() => {
@@ -232,7 +232,8 @@ const base = ref("matriculados");
 
 .page{
 
-    margin-left:220px;
+    /* Sin barra lateral: el hueco de 220px ya no reserva nada. */
+    margin-left:0;
 
     width:calc(100% - 220px);
 

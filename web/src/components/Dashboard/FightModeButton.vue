@@ -16,7 +16,7 @@ import { RouterLink } from "vue-router";
     </h2>
 
     <RouterLink
-        to="/fight-mode"
+        to="/fight"
         class="fightButton"
     >
 

@@ -74,7 +74,8 @@ import { DATA_SOURCES } from "@/utils/dataSources";
 
 .home{
 
-    margin-left:220px;
+    /* Sin barra lateral: el hueco de 220px ya no reserva nada. */
+    margin-left:0;
 
     min-height:100vh;
 

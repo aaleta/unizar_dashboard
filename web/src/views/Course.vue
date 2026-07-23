@@ -22,7 +22,7 @@ import {
  */
 const route = useRoute();
 
-const course = computed(() => String(route.params.course));
+const course = computed(() => String(route.params.curso));
 
 const COURSE_NAMES = {
     1: "Primero",
@@ -155,7 +155,8 @@ const summary = computed(() => ({
 
 .page{
 
-    margin-left:220px;
+    /* Sin barra lateral: el hueco de 220px ya no reserva nada. */
+    margin-left:0;
 
     width:calc(100% - 220px);
 

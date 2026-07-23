@@ -303,7 +303,7 @@ la alternativa era publicar cifras que no se leen en una web de datos públicos.
 
 ---
 
-## Fase 2 — Shell y navegación
+## Fase 2 — Shell y navegación · ✅ **COMPLETADA**
 
 **Objetivo:** la carcasa de todas las pantallas y el sistema de navegación móvil.
 
@@ -332,6 +332,50 @@ la alternativa era publicar cifras que no se leen en una web de datos públicos.
 
 **Aceptación:** navegación completa entre pestañas con pantallas vacías (placeholders);
 objetivos táctiles ≥44px medidos; el roll-up abre y cierra sin tocar la ruta.
+
+### Resultado
+
+| Entregable | Fichero |
+|---|---|
+| Carcasa | `components/layout/AppShell.vue` |
+| Cabecera (2 variantes) | `components/layout/AppHeader.vue` |
+| Barra de pestañas | `components/layout/BottomTabBar.vue` |
+| Hoja "Más" | `components/layout/MoreSheet.vue` |
+| Iconos | `components/ui/UiIcon.vue` — los diez en un fichero, sin dependencia externa |
+| Rutas + `meta` | `router/index.js` |
+| Andamios | `views/DegreeMap.vue` (fase 3), `views/About.vue` (fase 7d) |
+
+**El mapa de navegación vive en `meta`**, no en las vistas: `header` (identidad o interior),
+`eyebrow`, `title` y `back`. Así la jerarquía —qué cuelga de qué— se lee entera en un fichero
+en vez de estar repartida por once componentes.
+
+**Rutas nuevas y redirecciones:** `/grado`, `/grado/:curso`, `/fight`, `/acerca`. Se redirigen
+`/curso/:course` → `/grado/:course` y `/fight-mode` → `/fight`, y se actualizan los enlaces
+internos que apuntaban a las antiguas (`Dashboard.vue`, `FightModeButton.vue`). `Course.vue` pasa
+a leer `params.curso`.
+
+**Comprobado con Chrome dirigido por CDP** (no solo a ojo): la hoja abre y cierra con velo, ✕ y
+Escape **sin tocar la ruta**; una fila navega y cierra; el scroll del fondo se bloquea y se
+libera; el foco entra en el primer destino y **vuelve a la pestaña "Más"** al cerrar sin navegar.
+Sin desbordamiento horizontal en ninguna ruta a 320px ni a 402px, y **todos los objetivos
+táctiles ≥44px**.
+
+**Dos cosas que se cayeron al probarlas de verdad:**
+
+- El foco no volvía a la pestaña al cerrar, aunque el comentario del componente decía que sí.
+  Peor: el primer intento de arreglo tenía una guarda equivocada (`closest("a")`) que lo
+  suprimía precisamente en el caso que quería cubrir. Ahora se distingue explícitamente "cierro
+  porque me voy" de "cierro porque desisto".
+- El pico de la hoja apuntaba ~9px a la izquierda del centro de la pestaña: la hoja va metida
+  12px por lado y la barra solo 6, y el 87,5 % no es el mismo punto en las dos. Corregido a
+  88,5 %, que se mantiene dentro de ±2px de 320px al ancho máximo.
+
+**Se retira `Sidebar.vue`** de `App.vue` (no se borra: es el mapa de navegación que heredará el
+rediseño de escritorio). Con ella se va el hueco de 220px que siete vistas reservaban a mano.
+
+**Sigue sin construirse** el conmutador móvil/escritorio: llega en la fase 7a, con la primera
+divergencia real. Tampoco hay mecanismo para títulos de cabecera dinámicos —la ficha necesitará
+"EL GRADO · PRIMERO"—; se añadirá en la fase 4b, cuando exista la necesidad concreta.
 
 ---
 
