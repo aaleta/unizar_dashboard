@@ -1,0 +1,314 @@
+CURSO_ACADEMICO;CENTRO;ESTUDIO;TIPO_ESTUDIO;ALUMNOS_MATRICULADOS;ALUMNOS_NUEVO_INGRESO;PLAZAS_OFERTADAS;ALUMNOS_GRADUADOS;ALUMNOS_ADAPTA_GRADO_MATRI;ALUMNOS_ADAPTA_GRADO_MATRI_NI;ALUMNOS_ADAPTA_GRADO_TITULADO;ALUMNOS_CON_RECONOCIMIENTO;ALUMNOS_MOVILIDAD_ENTRADA;ALUMNOS_MOVILIDAD_SALIDA;CREDITOS_MATRICULADOS;CREDITOS_RECONOCIDOS;DURACION_MEDIA_GRADUADOS;TASA_EXITO;TASA_RENDIMIENTO;TASA_EFICIENCIA;TASA_ABANDONO;TASA_GRADUACION;FECHA_ACTUALIZACION
+2015;Escuela Politécnica Superior;Ciencias Ambientales;Grado;242;55;60;26;0;0;0;28;2;5;12540.00;655.50;5.23;81.47;70.46;81.73;0.00;0.00;29/04/2018
+2015;Facultad de Ciencias de la Salud;Enfermería;Grado;645;160;160;149;4;4;4;42;11;4;37927.00;2667.00;4.14;96.75;94.10;95.13;0.00;0.00;29/04/2018
+2015;Escuela Universitaria de Enfermería San Jorge de Huesca;Enfermería;Grado;207;52;54;58;0;0;0;8;;1;12319.00;305.00;4.02;98.08;96.66;98.13;0.00;0.00;29/04/2018
+2015;Escuela Universitaria de Enfermería de Teruel;Enfermería;Grado;135;32;33;33;0;0;0;3;;3;7801.00;72.00;4.06;98.33;96.51;97.66;0.00;0.00;29/04/2018
+2015;Facultad de Ciencias Sociales y Humanas de Teruel;Bellas Artes;Grado;173;38;55;31;0;0;0;14;7;15;9624.00;485.00;4.42;94.69;85.87;94.89;0.00;0.00;29/04/2018
+2015;Facultad de Ciencias Sociales y Humanas de Teruel;Psicología;Grado;343;85;85;65;0;0;0;43;9;27;20574.00;347.50;4.19;90.67;86.90;93.54;0.00;0.00;29/04/2018
+2015;Facultad de Filosofía y Letras;Filosofía;Grado;179;51;60;24;0;0;0;8;29;4;9912.00;11.50;4.55;88.88;71.24;91.76;0.00;0.00;29/04/2018
+2015;Facultad de Filosofía y Letras;Periodismo;Grado;259;60;60;57;0;0;0;12;50;22;14043.00;216.00;4.42;96.90;92.14;97.88;0.00;0.00;29/04/2018
+2015;Facultad de Filosofía y Letras;Información y Documentación;Grado;89;15;40;18;0;0;0;9;12;2;4272.00;351.50;5.40;87.21;75.88;90.40;0.00;0.00;29/04/2018
+2015;Escuela de Ingeniería y Arquitectura;Arquitectura;Grado;4;0;;3;0;0;0;0;;0;48.00;0.00;8.00;100.00;75.00;79.79;;;29/04/2018
+2015;Facultad de Ciencias de la Salud;Fisioterapia;Grado;262;66;60;66;1;1;1;15;3;8;15177.00;1061.00;4.14;95.61;92.64;95.33;0.00;0.00;29/04/2018
+2015;Facultad de Ciencias de la Salud;Terapia Ocupacional;Grado;302;84;80;57;1;1;1;8;1;3;18134.00;702.00;4.14;92.24;88.03;94.06;0.00;0.00;29/04/2018
+2015;Facultad de Ciencias Sociales y del Trabajo;Trabajo Social;Grado;679;179;180;123;7;0;2;51;19;33;39779.00;361.00;4.22;93.06;87.79;95.70;0.00;0.00;29/04/2018
+2015;Escuela de Ingeniería y Arquitectura;Ingeniero en Diseño Industrial y Desarrollo de Producto;Grado;357;75;75;94;2;0;1;55;30;27;20647.50;1041.00;4.39;91.24;84.47;89.28;0.00;0.00;29/04/2018
+2015;Facultad de Veterinaria;Ciencia y Tecnología de los Alimentos;Grado;248;62;60;45;0;0;0;10;12;5;14786.00;255.00;4.51;89.24;84.22;87.47;0.00;0.00;29/04/2018
+2015;Facultad de Ciencias de la Salud y del Deporte;Ciencias de la Actividad Física y del Deporte;Grado;285;70;70;58;0;0;0;17;6;7;16092.00;363.00;4.27;94.83;91.67;95.87;0.00;0.00;29/04/2018
+2015;Facultad de Ciencias;Geología;Grado;151;42;65;28;0;0;0;6;3;0;8276.50;185.00;5.00;73.15;62.68;83.91;0.00;0.00;29/04/2018
+2015;Facultad de Ciencias;Óptica y Optometría;Grado;227;59;60;38;0;0;0;5;;0;13803.00;108.00;4.43;87.35;80.87;87.48;0.00;0.00;29/04/2018
+2015;Facultad de Educación;Magisterio en Educación Primaria;Grado;1108;242;240;206;44;8;18;104;28;46;60030.00;5365.50;4.24;93.77;88.20;95.60;0.00;0.00;29/04/2018
+2015;Facultad de Ciencias Humanas y de la Educación;Magisterio en Educación Primaria;Grado;513;122;120;88;0;0;0;60;8;15;30020.00;2214.00;4.36;88.63;81.55;93.25;0.00;0.00;29/04/2018
+2015;Facultad de Ciencias Sociales y Humanas de Teruel;Magisterio en Educación Primaria;Grado;380;96;120;55;0;0;0;53;3;6;22222.00;1146.50;4.43;85.34;78.03;91.87;0.00;0.00;29/04/2018
+2015;Facultad de Educación;Magisterio en Educación Infantil;Grado;493;120;120;92;0;0;0;56;14;13;27368.00;2504.00;4.15;94.80;91.12;96.54;0.00;0.00;29/04/2018
+2015;Facultad de Ciencias Humanas y de la Educación;Magisterio en Educación Infantil;Grado;475;119;120;87;3;0;2;88;2;6;26862.00;4593.00;4.45;90.77;84.92;92.22;0.00;0.00;29/04/2018
+2015;Facultad de Ciencias Sociales y Humanas de Teruel;Magisterio en Educación Infantil;Grado;347;88;120;62;0;0;0;107;5;13;19594.00;1828.50;4.40;88.52;83.47;92.80;0.00;0.00;29/04/2018
+2015;Facultad de Medicina;Medicina;Grado;1456;178;180;292;0;0;0;336;58;89;86481.00;9345.50;6.05;96.92;94.49;97.39;0.00;0.00;29/04/2018
+2015;Facultad de Ciencias de la Salud y del Deporte;Medicina;Grado;100;47;45;0;0;0;0;12;1;0;5148.00;331.00;;97.21;94.60;;0.00;0.00;29/04/2018
+2015;Facultad de Filosofía y Letras;Estudios Clásicos;Grado;64;15;40;8;0;0;0;4;15;1;3614.00;8.00;4.67;82.24;65.07;86.58;0.00;0.00;29/04/2018
+2015;Facultad de Filosofía y Letras;Estudios Ingleses;Grado;407;101;100;62;0;0;0;27;112;33;22638.00;1862.00;4.47;84.36;74.83;94.61;0.00;0.00;29/04/2018
+2015;Facultad de Filosofía y Letras;Filología Hispánica;Grado;281;70;70;35;0;0;0;66;153;11;15776.00;1919.50;4.52;87.27;72.02;89.62;0.00;0.00;29/04/2018
+2015;Facultad de Filosofía y Letras;Historia;Grado;597;147;165;82;0;0;0;85;96;19;32233.00;922.00;4.47;89.18;76.16;94.42;0.00;0.00;29/04/2018
+2015;Facultad de Filosofía y Letras;Historia del Arte;Grado;333;79;120;46;0;0;0;45;36;4;17672.00;581.00;4.59;84.85;73.16;91.31;0.00;0.00;29/04/2018
+2015;Facultad de Ciencias;Física;Grado;276;83;80;42;0;0;0;55;12;8;15483.50;674.50;4.68;83.17;72.55;88.75;0.00;0.00;29/04/2018
+2015;Facultad de Ciencias;Biotecnología;Grado;274;65;66;61;0;0;0;68;7;18;16450.00;745.00;4.05;96.24;94.13;97.30;0.00;0.00;29/04/2018
+2015;Facultad de Ciencias;Matemáticas;Grado;216;65;66;30;0;0;0;47;10;7;12189.00;587.50;4.64;82.94;64.71;88.43;0.00;0.00;29/04/2018
+2015;Facultad de Ciencias;Química;Grado;583;146;150;61;0;0;0;121;12;14;32947.00;1162.50;4.72;77.51;69.24;84.93;0.00;0.00;29/04/2018
+2015;Facultad de Ciencias de la Salud y del Deporte;Nutrición Humana y Dietética;Grado;242;64;65;43;3;0;2;29;10;8;13413.00;261.50;4.41;91.04;85.12;89.59;0.00;0.00;29/04/2018
+2015;Facultad de Ciencias de la Salud y del Deporte;Odontología;Grado;170;36;36;27;0;0;0;66;1;4;10117.00;339.00;5.04;96.78;94.23;97.94;0.00;0.00;29/04/2018
+2015;Facultad de Veterinaria;Veterinaria;Grado;816;147;148;141;0;0;0;152;20;32;49339.00;2640.00;5.21;91.88;87.64;92.63;0.00;0.00;29/04/2018
+2015;Facultad de Economía y Empresa;Administración y Dirección de Empresas;Grado;1707;392;400;286;61;9;25;474;137;63;90339.00;13991.00;5.06;79.94;69.26;90.25;0.00;0.00;29/04/2018
+2015;Facultad de Empresa y Gestión Pública;Administración y Dirección de Empresas;Grado;295;61;65;34;63;1;19;76;13;10;12728.50;1130.00;5.20;72.26;54.93;84.34;0.00;0.00;29/04/2018
+2015;Facultad de Ciencias Sociales y Humanas de Teruel;Administración y Dirección de Empresas;Grado;162;29;55;20;0;0;0;45;9;0;7870.00;523.00;5.33;84.88;75.91;86.49;0.00;0.00;29/04/2018
+2015;Facultad de Derecho;Derecho;Grado;1414;305;308;332;0;0;0;413;73;44;83147.00;7870.00;4.78;88.06;82.36;91.42;0.00;0.00;29/04/2018
+2015;Facultad de Economía y Empresa;Economía;Grado;787;180;200;84;0;0;0;166;85;19;42789.00;3201.00;4.94;75.63;63.24;85.91;0.00;0.00;29/04/2018
+2015;Facultad de Economía y Empresa;Finanzas y Contabilidad;Grado;530;141;150;61;0;0;0;105;10;6;27507.00;4149.50;4.80;77.62;63.19;86.36;0.00;0.00;29/04/2018
+2015;Facultad de Filosofía y Letras;Geografía y Ordenación del Territorio;Grado;194;48;50;21;0;0;0;26;30;9;10650.00;110.00;4.85;92.66;82.45;90.21;0.00;0.00;29/04/2018
+2015;Facultad de Empresa y Gestión Pública;Gestión y Administración Pública;Grado;88;17;45;13;13;1;4;28;4;1;3377.50;901.50;4.50;82.24;57.72;88.36;0.00;0.00;29/04/2018
+2015;Facultad de Economía y Empresa;Marketing e Investigación de Mercados;Grado;579;150;150;76;0;0;0;127;34;18;31706.00;3130.50;5.02;82.57;72.03;83.31;0.00;0.00;29/04/2018
+2015;Facultad de Ciencias Sociales y del Trabajo;Relaciones Laborales y Recursos Humanos;Grado;792;176;180;95;26;7;13;150;16;15;41107.00;3284.00;4.93;83.19;74.14;90.28;0.00;0.00;29/04/2018
+2015;Escuela Universitaria de Turismo de Zaragoza;Turismo;Grado;260;29;80;50;3;0;1;68;13;18;13773.00;986.00;4.46;88.89;78.38;91.26;0.00;0.00;29/04/2018
+2015;Escuela Politécnica Superior;Ingeniería Agroalimentaria y del Medio Rural;Grado;154;36;50;14;7;2;4;29;2;5;7858.00;1417.50;4.78;70.92;56.58;82.30;0.00;0.00;29/04/2018
+2015;Escuela Universitaria Politécnica de la Almunia de Doña Godina;Ingeniería Civil;Grado;128;8;60;28;11;2;4;67;17;3;5361.00;1665.50;5.53;79.84;59.12;79.97;0.00;0.00;29/04/2018
+2015;Escuela Universitaria Politécnica de la Almunia de Doña Godina;Arquitectura Técnica;Grado;133;7;60;35;5;4;4;69;14;8;5443.00;3143.00;5.27;85.28;67.16;85.66;0.00;0.00;29/04/2018
+2015;Escuela Universitaria Politécnica de la Almunia de Doña Godina;Ingeniería de Organización Industrial;Grado;111;36;60;16;0;0;0;55;18;2;5194.00;1661.00;4.42;89.93;77.13;90.06;0.00;0.00;29/04/2018
+2015;Centro Universitario de la Defensa de Zaragoza;Ingeniería de Organización Industrial;Grado;1123;0;;108;0;0;0;152;;0;54165.00;2034.00;5.34;88.94;88.45;86.39;;;29/04/2018
+2015;Escuela de Ingeniería y Arquitectura;Ingeniería de Tecnologías Industriales;Grado;728;178;180;93;0;0;0;155;26;50;41822.00;1605.00;4.90;78.63;70.05;83.79;0.00;0.00;29/04/2018
+2015;Escuela de Ingeniería y Arquitectura;Ingeniería de Tecnologías y Servicios de Telecomunicación;Grado;248;83;90;21;0;0;0;52;6;16;13601.00;794.00;4.82;77.24;57.00;84.04;0.00;0.00;29/04/2018
+2015;Escuela de Ingeniería y Arquitectura;Ingeniería Electrica;Grado;300;83;90;25;9;2;4;81;17;3;15918.00;1852.00;5.23;75.83;60.32;83.39;0.00;0.00;29/04/2018
+2015;Escuela de Ingeniería y Arquitectura;Ingeniería Electrónica y Automática;Grado;370;117;120;40;6;2;1;80;8;19;20030.00;1522.00;4.70;71.33;55.52;90.18;0.00;0.00;29/04/2018
+2015;Escuela Universitaria Politécnica de Teruel;Ingeniería Electrónica y Automática;Grado;76;16;33;10;0;0;0;17;3;2;3800.00;225.00;5.00;84.90;76.93;89.50;0.00;0.00;29/04/2018
+2015;Escuela de Ingeniería y Arquitectura;Ingeniería Informática;Grado;368;89;90;59;0;0;0;110;18;9;19870.00;1711.50;4.62;82.00;70.54;90.50;0.00;0.00;29/04/2018
+2015;Escuela Universitaria Politécnica de Teruel;Ingeniería Informática;Grado;104;39;33;5;0;0;0;26;3;2;5686.00;608.00;5.00;70.74;59.74;94.79;0.00;0.00;29/04/2018
+2015;Escuela de Ingeniería y Arquitectura;Ingeniería Mecánica;Grado;958;236;240;111;29;0;21;226;35;35;49770.00;4867.00;5.08;73.68;58.92;84.18;0.00;0.00;29/04/2018
+2015;Escuela Universitaria Politécnica de la Almunia de Doña Godina;Ingeniería Mecatrónica;Grado;191;48;60;32;0;0;0;64;5;3;10326.00;788.00;4.39;88.94;76.17;94.58;0.00;0.00;29/04/2018
+2015;Escuela de Ingeniería y Arquitectura;Ingeniería Química;Grado;294;85;90;43;29;1;13;49;18;9;15352.50;973.50;4.69;75.88;63.93;87.86;0.00;0.00;29/04/2018
+2015;Facultad de Filosofía y Letras;Lenguas Modernas;Grado;177;52;55;17;0;0;0;12;104;22;10092.00;216.50;4.31;90.67;80.09;95.63;0.00;0.00;29/04/2018
+2015;Facultad de Derecho;Programa conjunto ADE/Derecho;Grado;444;80;80;0;0;0;0;84;2;28;31611.00;200.50;;96.25;93.94;;0.00;0.00;29/04/2018
+2015;Escuela de Ingeniería y Arquitectura;Estudios en Arquitectura;Grado;375;69;70;63;0;0;0;80;55;50;21068.00;1268.00;5.00;83.20;75.18;95.65;0.00;0.00;29/04/2018
+2015;Facultad de Economía y Empresa;Ciencias Empresariales;Licenciatura o equivalente;;;;0;;;0;;;;;;;;;;;;29/04/2018
+2015;Facultad de Derecho;Derecho;Licenciatura o equivalente;81;0;;56;0;0;0;32;;0;2191.00;459.00;8.82;83.07;61.99;56.63;;;29/04/2018
+2015;Facultad de Economía y Empresa;Diplomado Ciencias Empresariales;Diplomatura o equivalente;;;;1;;;0;1;;;;1.50;10.00;;;69.79;;;29/04/2018
+2015;Facultad de Empresa y Gestión Pública;Diplomado Ciencias Empresariales;Diplomatura o equivalente;;;;0;;;0;;;;;;;;;;;;29/04/2018
+2015;Facultad de Ciencias;Estadística;Diplomatura o equivalente;;;;0;;;0;;;;;;;;;;;;29/04/2018
+2015;Facultad de Filosofía y Letras;Filología Clásica;Licenciatura o equivalente;3;0;;1;0;0;0;3;;0;42.00;20.50;7.00;42.86;42.86;71.11;;;29/04/2018
+2015;Facultad de Ciencias;Físicas;Licenciatura o equivalente;1;0;;1;0;0;0;0;;0;13.00;0.00;10.00;100.00;100.00;58.39;;;29/04/2018
+2015;Facultad de Empresa y Gestión Pública;Gestión y Administración Pública;Diplomatura o equivalente;;;;0;;;0;;;;;;;;;;;;29/04/2018
+2015;Escuela de Ingeniería y Arquitectura;Ingeniero de Telecomunicación;Licenciatura o equivalente;31;0;;12;0;0;0;14;;0;563.00;59.00;13.55;100.00;45.65;52.84;;;29/04/2018
+2015;Escuela de Ingeniería y Arquitectura;Ingeniero en Informática;Licenciatura o equivalente;51;0;;15;0;0;0;10;;0;1081.00;25.00;11.40;97.84;37.65;62.42;;;29/04/2018
+2015;Escuela de Ingeniería y Arquitectura;Ingeniero Industrial;Licenciatura o equivalente;106;0;;54;0;0;0;27;;0;1694.50;240.50;10.32;98.23;59.41;62.59;;;29/04/2018
+2015;Escuela de Ingeniería y Arquitectura;Ingeniero Técnico en Electrónica Industrial;Diplomatura o equivalente;;;;0;;;0;;;;;;;;;;;;29/04/2018
+2015;Escuela Universitaria Politécnica de la Almunia de Doña Godina;Ingeniero Técnico en Electrónica Industrial;Diplomatura o equivalente;;;;0;;;0;;;;;;;;;;;;29/04/2018
+2015;Escuela Universitaria Politécnica de la Almunia de Doña Godina;Ingeniero Técnico en Informática de Sistemas;Diplomatura o equivalente;;;;0;;;0;;;;;;;;;;;;29/04/2018
+2015;Escuela Politécnica Superior;Ingeniero Técnico Industrial, E. Química Industrial;Diplomatura o equivalente;;;;0;;;0;;;;;;;;;;;;29/04/2018
+2015;Escuela Universitaria Politécnica de Teruel;Ingeniero Técnico de Telecomunicación;Diplomatura o equivalente;;;;0;;;0;;;;;;;;;;;;29/04/2018
+2015;Facultad de Ciencias;Matemáticas;Licenciatura o equivalente;;;;0;;;0;;;;;;;;;;;;29/04/2018
+2015;Facultad de Ciencias;Químicas;Licenciatura o equivalente;8;0;;5;0;0;0;7;;0;185.00;92.50;10.40;86.99;84.08;49.46;;;29/04/2018
+2015;Facultad de Veterinaria;Veterinaria;Licenciatura o equivalente;27;0;;15;0;0;0;6;;0;804.50;82.00;11.93;88.81;73.52;42.65;;;29/04/2018
+2015;Facultad de Filosofía y Letras;Filología Hispánica;Licenciatura o equivalente;8;0;;2;0;0;0;0;;0;264.00;0.00;14.00;59.26;37.21;53.36;;;29/04/2018
+2015;Facultad de Filosofía y Letras;Filología Inglesa;Licenciatura o equivalente;12;0;;5;0;0;0;0;;0;228.00;0.00;12.40;65.62;56.76;49.34;;;29/04/2018
+2015;Facultad de Filosofía y Letras;Filología Románica (Francés);Licenciatura o equivalente;1;0;;0;0;0;0;0;;0;12.00;0.00;;100.00;100.00;;;;29/04/2018
+2015;Escuela Universitaria Politécnica de la Almunia de Doña Godina;Ingeniero Técnico Agrícola;Diplomatura o equivalente;;;;0;;;0;;;;;;;;;;;;29/04/2018
+2015;Facultad de Ciencias;Movilidad para 1º y 2º ciclo y grado;Movilidad de entrada;35;0;;;0;0;;0;10;0;1017.00;0.00;;;;;;;29/04/2018
+2015;Facultad de Derecho;Movilidad para 1º y 2º ciclo y grado;Movilidad de entrada;67;0;;;0;0;;0;;0;2488.50;0.00;;;;;;;29/04/2018
+2015;Facultad de Filosofía y Letras;Movilidad para 1º y 2º ciclo y grado;Movilidad de entrada;264;0;;;0;0;;0;;0;10128.00;0.00;;;;;;;29/04/2018
+2015;Facultad de Medicina;Movilidad para 1º y 2º ciclo y grado;Movilidad de entrada;57;0;;;0;0;;0;;0;2939.00;0.00;;;;;;;29/04/2018
+2015;Facultad de Veterinaria;Movilidad para 1º y 2º ciclo y grado;Movilidad de entrada;30;0;;;0;0;;0;;0;1333.00;0.00;;100.00;100.00;;;;29/04/2018
+2015;Facultad de Educación;Movilidad para 1º y 2º ciclo y grado;Movilidad de entrada;23;0;;;0;0;;0;;0;705.00;0.00;;;;;;;29/04/2018
+2015;Facultad de Ciencias Sociales y del Trabajo;Movilidad para 1º y 2º ciclo y grado;Movilidad de entrada;29;0;;;0;0;;0;;0;901.00;0.00;;;;;;;29/04/2018
+2015;Facultad de Economía y Empresa;Movilidad para 1º y 2º ciclo y grado;Movilidad de entrada;130;0;;;0;0;;0;;0;4106.00;0.00;;;;;;;29/04/2018
+2015;Escuela de Ingeniería y Arquitectura;Movilidad para 1º y 2º ciclo y grado;Movilidad de entrada;133;0;;;0;0;;1;;0;4357.50;6.00;;;;;;;29/04/2018
+2015;Facultad de Ciencias de la Salud;Movilidad para 1º y 2º ciclo y grado;Movilidad de entrada;15;0;;;0;0;;0;;0;544.00;0.00;;100.00;100.00;;;;29/04/2018
+2015;Escuela Universitaria Politécnica de la Almunia de Doña Godina;Movilidad para 1º y 2º ciclo y grado;Movilidad de entrada;30;0;;;0;0;;7;;0;1120.00;9.00;;100.00;100.00;;;;29/04/2018
+2015;Escuela Universitaria de Turismo de Zaragoza;Movilidad para 1º y 2º ciclo y grado;Movilidad de entrada;9;0;;;0;0;;0;;0;301.00;0.00;;;;;;;29/04/2018
+2015;Escuela Politécnica Superior;Movilidad para 1º y 2º ciclo y grado;Movilidad de entrada;4;0;;;0;0;;0;;0;144.00;0.00;;;;;;;29/04/2018
+2015;Facultad de Ciencias Humanas y de la Educación;Movilidad para 1º y 2º ciclo y grado;Movilidad de entrada;3;0;;;0;0;;0;;0;150.00;0.00;;100.00;100.00;;;;29/04/2018
+2015;Facultad de Empresa y Gestión Pública;Movilidad para 1º y 2º ciclo y grado;Movilidad de entrada;13;0;;;0;0;;0;;0;622.00;0.00;;;;;;;29/04/2018
+2015;Facultad de Ciencias de la Salud y del Deporte;Movilidad para 1º y 2º ciclo y grado;Movilidad de entrada;20;0;;;0;0;;1;;0;600.00;1.00;;100.00;100.00;;;;29/04/2018
+2015;Facultad de Ciencias Sociales y Humanas de Teruel;Movilidad para 1º y 2º ciclo y grado;Movilidad de entrada;27;0;;;0;0;;0;;0;822.00;0.00;;;;;;;29/04/2018
+2015;Escuela Universitaria Politécnica de Teruel;Movilidad para 1º y 2º ciclo y grado;Movilidad de entrada;3;0;;;0;0;;0;;0;90.00;0.00;;;;;;;29/04/2018
+2015;Facultad de Ciencias Humanas y de la Educación;Maestro Educación Infantil;Diplomatura o equivalente;;;;0;;;0;;;;;;;;;;;;29/04/2018
+2015;Facultad de Educación;Maestro Educación Primaria;Diplomatura o equivalente;;;;0;;;0;;;;;;;;;;;;29/04/2018
+2015;Facultad de Ciencias Humanas y de la Educación;Maestro Educación Primaria;Diplomatura o equivalente;;;;0;;;0;;;;;;;;;;;;29/04/2018
+2015;Facultad de Ciencias Sociales y Humanas de Teruel;Maestro Educación Primaria;Diplomatura o equivalente;;;;0;;;0;;;;;;;;;;;;29/04/2018
+2015;Facultad de Educación;Maestro Lengua Extranjera;Diplomatura o equivalente;;;;0;;;0;;;;;;;;;;;;29/04/2018
+2015;Facultad de Ciencias Sociales y Humanas de Teruel;Maestro Lengua Extranjera;Diplomatura o equivalente;;;;0;;;0;;;;;;;;;;;;29/04/2018
+2015;Facultad de Educación;Maestro Educación Física;Diplomatura o equivalente;;;;0;;;0;;;;;;;;;;;;29/04/2018
+2015;Facultad de Educación;Maestro Educación Especial;Diplomatura o equivalente;;;;0;;;0;;;;;;;;;;;;29/04/2018
+2015;Facultad de Veterinaria;Ciencia y Tecnología de los Alimentos;Licenciatura o equivalente;2;0;;2;0;0;0;0;;0;26.50;0.00;;100.00;100.00;;;;29/04/2018
+2015;Escuela de Ingeniería y Arquitectura;Ingenierio Químico;Licenciatura o equivalente;19;0;;7;0;0;0;1;;0;279.00;1.50;14.33;100.00;50.00;56.41;;;29/04/2018
+2015;Facultad de Economía y Empresa;Licenciado en Economía;Licenciatura o equivalente;;;;9;;;0;13;;;;136.50;11.56;;;42.82;;;29/04/2018
+2015;Facultad de Economía y Empresa;Licenciado en Administración y Dirección de Empresas;Licenciatura o equivalente;;;;11;;;0;13;;;;205.00;8.82;;;70.00;;;29/04/2018
+2015;Facultad de Ciencias Humanas y de la Educación;Licenciado en Humanidades;Licenciatura o equivalente;;;;0;;;0;;;;;;;;;;;;29/04/2018
+2015;Facultad de Ciencias Sociales y Humanas de Teruel;Licenciado en Humanidades;Licenciatura o equivalente;;;;1;;;0;1;;;;19.00;8.00;;;44.79;;;29/04/2018
+2015;Facultad de Educación;Maestro Educación Musical;Diplomatura o equivalente;;;;0;;;0;;;;;;;;;;;;29/04/2018
+2015;Facultad de Educación;Maestro Audición y Lenguaje;Diplomatura o equivalente;;;;0;;;0;;;;;;;;;;;;29/04/2018
+2015;Facultad de Filosofía y Letras;Geografía;Licenciatura o equivalente;2;0;;0;0;0;0;1;;0;45.00;5.00;;100.00;53.33;;;;29/04/2018
+2015;Facultad de Ciencias Sociales y del Trabajo;Relaciones Laborales;Diplomatura o equivalente;;;;0;;;0;;;;;;;;;;;;29/04/2018
+2015;Facultad de Empresa y Gestión Pública;Relaciones Laborales;Diplomatura o equivalente;;;;0;;;0;;;;;;;;;;;;29/04/2018
+2015;Facultad de Filosofía y Letras;Historia;Licenciatura o equivalente;12;0;;4;0;0;0;5;;0;245.00;21.00;7.75;95.35;53.25;55.56;;;29/04/2018
+2015;Facultad de Filosofía y Letras;Historia del Arte;Licenciatura o equivalente;8;0;;7;0;0;0;5;;0;162.00;56.50;11.00;100.00;81.48;57.20;;;29/04/2018
+2015;Facultad de Ciencias;Bioquímica;Licenciatura o equivalente;4;0;;1;0;0;0;1;;0;84.50;15.00;7.00;72.41;37.28;47.92;;;29/04/2018
+2015;Escuela Universitaria Politécnica de la Almunia de Doña Godina;Arquitectura Técnica;Diplomatura o equivalente;;;;0;;;0;;;;;;;;;;;;29/04/2018
+2015;Escuela Universitaria Politécnica de Teruel;Ingeniero Técnico en Informática de Gestión;Diplomatura o equivalente;;;;0;;;0;;;;;;;;;;;;29/04/2018
+2015;Escuela de Ingeniería y Arquitectura;Ingeniero Técnico Industrial, Esp.Química Industrial;Diplomatura o equivalente;;;;0;;;0;;;;;;;;;;;;29/04/2018
+2015;Escuela de Ingeniería y Arquitectura;Ingeniero Técnico Industrial, Esp. Electricidad;Diplomatura o equivalente;;;;0;;;0;;;;;;;;;;;;29/04/2018
+2015;Escuela de Ingeniería y Arquitectura;Ingeniero Técnico Industrial, Esp. Mecánica;Diplomatura o equivalente;;;;0;;;0;;;;;;;;;;;;29/04/2018
+2015;Escuela Universitaria de Ingeniería Técnica Industrial;Ingeniero Técnico Industrial, Esp. Mecánica;Diplomatura o equivalente;;;;0;;;0;;;;;;;;;;;;29/04/2018
+2015;Facultad de Ciencias de la Salud y del Deporte;Licenciado en Ciencias de la Actividad Física y del Deporte;Licenciatura o equivalente;;;;0;;;0;;;;;;;;;;;;29/04/2018
+2015;Facultad de Ciencias Sociales y Humanas de Teruel;Licenciado en Ciencias del Trabajo;Licenciatura o equivalente;10;0;;8;0;0;0;1;;0;190.50;6.00;6.62;92.23;74.80;47.45;;;29/04/2018
+2015;Escuela Universitaria de Turismo de Zaragoza;Diplomado en Turismo;Diplomatura o equivalente;;;;1;;;0;1;;;;11.00;8.00;;;97.01;;;29/04/2018
+2015;Facultad de Ciencias;Licenciado en Matemáticas;Licenciatura o equivalente;;;;0;;;0;;;;;;;;;;;;29/04/2018
+2015;Facultad de Educación;Licenciado en Psicopedagogía;Licenciatura o equivalente;8;0;;4;0;0;0;0;;0;150.00;0.00;9.00;70.59;48.00;50.55;;;29/04/2018
+2015;Escuela Universitaria Politécnica de la Almunia de Doña Godina;Ingeniero Técnico Industrial, Especialidad Mecánica;Diplomatura o equivalente;;;;0;;;0;;;;;;;;;;;;29/04/2018
+2015;Facultad de Derecho;Programa Conjunto Derecho Administración y Dirección Empresas;Licenciatura o equivalente;13;0;;0;0;0;0;2;;0;329.50;18.50;;96.81;96.81;;;;29/04/2018
+2015;Facultad de Ciencias de la Salud y del Deporte;Diplomado en Nutrición Humana;Diplomatura o equivalente;;;;1;;;0;1;;;;5.00;7.00;;;61.74;;;29/04/2018
+2015;Escuela de Ingeniería y Arquitectura;Ingeniero Técnico en Diseño Industrial;Diplomatura o equivalente;;;;0;;;0;;;;;;;;;;;;29/04/2018
+2015;Escuela Politécnica Superior;Ingeniero Agrónomo;Licenciatura o equivalente;27;0;;6;0;0;0;11;;0;330.00;168.00;4.50;79.17;34.55;75.29;;;29/04/2018
+2015;Facultad de Medicina;Medicina;Licenciatura o equivalente;5;0;;2;0;0;0;0;;0;135.50;0.00;;81.15;57.20;;;;29/04/2018
+2015;Escuela Universitaria Politécnica de la Almunia de Doña Godina;Ingeniero Técnico en Obras Públicas, Esp. Construcciones Civiles;Diplomatura o equivalente;;;;0;;;0;;;;;;;;;;;;29/04/2018
+2015;Facultad de Ciencias;Biología Molecular y Celular;Máster;20;19;30;17;0;0;0;1;1;0;1158.00;6.00;1.00;100.00;92.75;100.00;5.26;94.74;29/04/2018
+2015;Facultad de Ciencias;Iniciación a la Investigación en Geología;Máster;;;;0;;;0;;;;;;;;;;;;29/04/2018
+2015;Facultad de Ciencias;Física y Tecnologías Físicas;Máster;9;9;30;6;0;0;0;1;4;0;511.00;42.00;1.00;100.00;92.95;100.00;12.50;87.50;29/04/2018
+2015;Facultad de Filosofía y Letras;Estudios Textuales y Culturales en Lengua Inglesa;Máster;3;0;;3;0;0;0;0;;0;45.00;0.00;2.00;100.00;100.00;80.00;;;29/04/2018
+2015;Facultad de Filosofía y Letras;Gestión del Patrimonio Cultural;Máster;30;26;35;25;0;0;0;0;;0;1624.00;0.00;1.08;100.00;95.07;97.91;0.00;96.15;29/04/2018
+2015;Facultad de Filosofía y Letras;Tec.Información Geográfica para Ordenación Territorio: Sig/Teled;Máster;30;25;25;25;0;0;0;0;;0;1596.00;0.00;1.12;100.00;94.39;97.10;4.17;95.83;29/04/2018
+2015;Facultad de Ciencias de la Salud;Ciencias de la Enfermería;Máster;;;;0;;;0;;;;;;;;;;;;29/04/2018
+2015;Facultad de Ciencias de la Salud;Gerontología Social;Máster;37;36;36;35;0;0;0;4;;0;2137.00;49.50;1.00;100.00;99.44;99.64;3.03;96.97;29/04/2018
+2015;Facultad de Ciencias Sociales y del Trabajo;Relaciones de Género;Máster;24;19;30;14;0;0;0;0;1;0;1194.00;0.00;1.36;100.00;90.95;97.90;5.56;77.78;29/04/2018
+2015;Facultad de Economía y Empresa;Contabilidad y finanzas;Máster;25;19;30;18;0;0;0;0;;0;1179.00;0.00;1.19;98.33;89.99;94.49;0.00;88.24;29/04/2018
+2015;Facultad de Economía y Empresa;Economía;Máster;17;15;30;10;0;0;0;0;;0;855.00;0.00;1.00;98.74;82.81;100.00;7.69;84.62;29/04/2018
+2015;Facultad de Economía y Empresa;Gestión de las organizaciones;Máster;2;0;;2;0;0;0;0;;0;30.00;0.00;2.00;100.00;100.00;80.13;;;29/04/2018
+2015;Facultad de Medicina;Iniciación a la investigación en Medicina;Máster;80;65;60;54;0;0;0;60;;0;3585.00;300.00;1.07;100.00;95.48;98.40;2.13;93.62;29/04/2018
+2015;Facultad de Veterinaria;Nutrición animal;Máster;19;19;30;0;0;0;0;0;;0;1140.00;0.00;;100.00;100.00;;5.26;89.47;29/04/2018
+2015;Escuela de Ingeniería y Arquitectura;Ingeniería biomédica;Máster;50;26;30;16;0;0;0;3;5;1;1962.00;30.00;2.13;97.82;82.90;97.36;0.00;100.00;29/04/2018
+2015;Escuela de Ingeniería y Arquitectura;Ingeniería de sistemas e informática;Máster;3;0;;2;0;0;0;0;;0;90.00;0.00;8.50;100.00;66.67;46.15;;;29/04/2018
+2015;Escuela Politécnica Superior;Ini. a la investigación en ciencias agrarias y del medio natural;Máster;;;;0;;;0;;;;;;;;;;;;29/04/2018
+2015;Facultad de Empresa y Gestión Pública;Dirección y planificación del turismo;Máster;37;21;30;20;0;0;0;2;6;0;1485.00;12.00;1.45;97.58;73.33;91.12;28.57;66.67;29/04/2018
+2015;Facultad de Ciencias;Movilidad para máster;Movilidad de entrada;6;0;;;0;0;;0;;0;126.00;0.00;;;;;;;29/04/2018
+2015;Facultad de Filosofía y Letras;Movilidad para máster;Movilidad de entrada;3;0;;;0;0;;0;;0;72.00;0.00;;;;;;;29/04/2018
+2015;Escuela de Ingeniería y Arquitectura;Movilidad para máster;Movilidad de entrada;9;0;;;0;0;;0;;0;256.50;0.00;;;;;;;29/04/2018
+2015;Facultad de Empresa y Gestión Pública;Movilidad para máster;Movilidad de entrada;6;0;;;0;0;;0;;0;306.00;0.00;;;;;;;29/04/2018
+2015;Facultad de Ciencias;Materiales nanoestructurados para aplicaciones nanotecnológicas;Máster;22;18;25;19;0;0;0;0;2;0;1138.00;0.00;1.11;100.00;97.54;98.79;0.00;94.44;29/04/2018
+2015;Facultad de Filosofía y Letras;Traducción de textos especializados;Máster;18;12;25;11;0;0;0;2;;0;748.00;12.00;1.33;100.00;95.45;94.51;0.00;88.89;29/04/2018
+2015;Escuela de Ingeniería y Arquitectura;Sistemas Mecánicos;Máster;2;0;;1;0;0;0;0;;0;30.00;0.00;6.00;100.00;100.00;80.00;;;29/04/2018
+2015;Facultad de Economía y Empresa;Sociología de las Políticas Públicas y Sociales;Máster;21;18;30;13;0;0;0;1;;0;1018.00;52.00;1.00;100.00;93.32;97.98;0.00;92.86;29/04/2018
+2015;Facultad de Economía y Empresa;Unión Europea;Máster;12;10;30;7;0;0;0;0;;0;600.00;0.00;1.29;100.00;90.50;94.59;11.11;55.56;29/04/2018
+2015;Facultad de Derecho;Especialización e Investigación en Derecho;Máster;4;0;;1;0;0;0;0;;0;72.00;0.00;6.00;100.00;25.00;56.60;;;29/04/2018
+2015;Facultad de Educación;Aprendizaje a lo largo de la vida: Iniciación a la investigación;Máster;42;29;30;22;0;0;0;10;3;0;1700.00;145.00;1.33;96.70;77.65;92.27;6.67;73.33;29/04/2018
+2015;Facultad de Filosofía y Letras;Ciencias de la Antigüedad;Máster;4;0;;1;0;0;0;0;;0;60.00;0.00;2.00;100.00;40.00;83.33;;;29/04/2018
+2015;Facultad de Filosofía y Letras;Investigación y Estudios Avanzados en Historia;Máster;13;11;40;8;0;0;0;0;2;0;648.00;0.00;1.29;96.04;89.81;95.24;12.50;75.00;29/04/2018
+2015;Facultad de Filosofía y Letras;Estudios Avanzados en Historia del Arte;Máster;12;10;35;6;0;0;0;0;;2;582.00;0.00;1.17;98.62;81.90;94.66;25.00;75.00;29/04/2018
+2015;Escuela de Ingeniería y Arquitectura;Energías Renovables y Eficiencia Energética;Máster;38;17;75;18;0;0;0;7;9;0;1337.00;43.00;2.38;99.50;90.20;88.17;0.00;73.33;29/04/2018
+2015;Escuela de Ingeniería y Arquitectura;Mecánica Aplicada;Máster;1;0;;1;0;0;0;0;;0;15.00;0.00;3.00;100.00;100.00;78.26;;;29/04/2018
+2015;Facultad de Filosofía y Letras;Estudios Hispánicos: lengua y literatura;Máster;4;0;;3;0;0;0;0;;0;48.00;0.00;;100.00;75.00;83.33;;;29/04/2018
+2015;Facultad de Filosofía y Letras;Historia Contemporánea;Máster;16;12;40;12;0;0;0;0;1;0;755.00;0.00;1.18;100.00;94.70;94.84;0.00;100.00;29/04/2018
+2015;Facultad de Filosofía y Letras;Ordenación Territorial y Medioambiental;Máster;17;15;25;15;0;0;0;1;2;3;972.00;48.00;1.00;100.00;96.00;100.00;6.67;93.33;29/04/2018
+2015;Escuela de Ingeniería y Arquitectura;Ingeniería Electrónica;Máster;37;23;30;22;0;0;0;1;2;0;1376.00;4.00;2.69;100.00;89.24;83.41;7.69;76.92;29/04/2018
+2015;Facultad de Educación;Profesorado E.S.O., F.P. y Ens. Idiom, Art y Deport;Máster;463;408;405;387;0;0;0;21;4;0;25049.00;702.00;1.03;99.58;96.58;99.30;4.70;93.21;29/04/2018
+2015;Facultad de Ciencias Humanas y de la Educación;Profesorado E.S.O., F.P. y Ens. Idiom, Art y Deport;Máster;18;13;20;15;0;0;0;0;;0;818.00;0.00;1.47;98.99;96.44;93.17;0.00;92.31;29/04/2018
+2015;Facultad de Ciencias Sociales y Humanas de Teruel;Profesorado E.S.O., F.P. y Ens. Idiom, Art y Deport;Máster;14;11;40;10;0;0;0;1;;0;725.00;7.00;1.20;99.01;95.69;98.02;0.00;90.91;29/04/2018
+2015;Facultad de Medicina;Salud pública;Máster;36;27;30;25;0;0;0;3;;0;1698.00;34.00;1.27;99.22;90.22;93.39;9.09;86.36;29/04/2018
+2015;Facultad de Medicina;Cond. genéticos, nutric. y amb. del crec. y desarrollo;Máster;35;27;25;21;0;0;0;0;;0;1518.00;0.00;1.13;100.00;100.00;96.55;0.00;100.00;29/04/2018
+2015;Facultad de Derecho;Prevención de riesgos laborales;Máster;25;24;30;21;0;0;0;3;;0;1704.00;202.00;1.05;99.29;98.59;99.63;0.00;100.00;29/04/2018
+2015;Facultad de Ciencias;Erasmus Mundus en Ingeniería de Membranas;Máster;3;0;;3;0;0;0;3;;0;180.00;193.00;;100.00;100.00;;;;29/04/2018
+2015;Escuela de Ingeniería y Arquitectura;Arquitectura;Máster;65;45;80;34;0;0;0;18;3;2;3213.00;54.00;1.50;99.73;70.82;79.53;2.27;88.64;29/04/2018
+2015;Facultad de Ciencias;Modelización e Investigación Matemática, Estadística y Computación;Máster;9;7;30;5;0;0;0;0;3;0;450.00;0.00;1.00;100.00;82.67;100.00;0.00;83.33;29/04/2018
+2015;Facultad de Derecho;Abogacía;Máster;125;85;100;40;0;0;0;1;;0;6300.00;12.00;2.00;99.84;99.05;99.67;1.18;98.82;29/04/2018
+2015;Facultad de Ciencias Humanas y de la Educación;Estudios Avanzados sobre el Lenguaje, la Comunicación y sus Patologías;Máster;8;8;40;2;0;0;0;1;;0;480.50;9.00;1.00;97.02;81.27;100.00;25.00;62.50;29/04/2018
+2015;Escuela de Ingeniería y Arquitectura;Ingeniería Química;Máster;26;20;40;7;0;0;0;14;9;0;1318.50;162.00;1.00;99.53;95.90;100.00;0.00;93.33;29/04/2018
+2015;Escuela de Ingeniería y Arquitectura;Ingeniería Industrial;Máster;158;95;240;44;0;0;0;67;5;28;8644.50;1102.00;2.00;95.08;90.13;97.20;0.00;72.73;29/04/2018
+2015;Escuela de Ingeniería y Arquitectura;Ingeniería de Telecomunicación;Máster;29;8;60;17;0;0;0;1;;11;1710.50;3.00;2.00;98.15;92.75;99.61;0.00;85.71;29/04/2018
+2015;Escuela de Ingeniería y Arquitectura;Ingeniería Informática;Máster;11;4;60;4;0;0;0;8;;0;423.00;60.00;2.00;100.00;95.74;100.00;0.00;100.00;29/04/2018
+2015;Escuela de Ingeniería y Arquitectura;Ingeniería Mecánica;Máster;18;18;30;13;0;0;0;11;1;0;1035.00;99.00;1.00;99.29;81.16;91.73;12.50;75.00;29/04/2018
+2015;Facultad de Ciencias;Química Industrial;Máster;12;10;50;11;0;0;0;1;1;0;573.00;16.00;1.20;100.00;100.00;97.06;0.00;100.00;29/04/2018
+2015;Facultad de Ciencias;Geología: Técnicas y Aplicaciones;Máster;10;10;30;9;0;0;0;0;1;0;600.00;0.00;1.00;100.00;98.00;100.00;0.00;90.00;29/04/2018
+2015;Facultad de Ciencias;Química Molecular y Catálisis Homogénea;Máster;6;6;25;6;0;0;0;0;1;0;360.00;0.00;1.00;100.00;100.00;100.00;0.00;100.00;29/04/2018
+2015;Facultad de Ciencias;Nanotecnología Medioambiental;Máster;6;6;30;3;0;0;0;0;;0;329.00;0.00;1.00;100.00;69.60;100.00;40.00;60.00;29/04/2018
+2015;Facultad de Economía y Empresa;Auditoría;Máster;34;30;35;27;0;0;0;0;;0;1772.00;0.00;1.15;100.00;94.96;98.54;7.14;92.86;29/04/2018
+2015;Escuela Politécnica Superior;Ingeniería Agronómica;Máster;18;7;40;6;0;0;0;2;;6;684.00;21.00;2.00;93.83;83.52;100.00;0.00;100.00;29/04/2018
+2015;Facultad de Ciencias de la Salud y del Deporte;Evaluación y Entrenamiento Físico para la Salud;Máster;14;13;20;11;0;0;0;0;2;2;798.00;0.00;1.09;100.00;92.68;97.35;23.08;76.92;29/04/2018
+2015;Facultad de Filosofía y Letras;Estudios Avanzados de Literatura y Cine en Lengua Inglesa;Máster;11;10;25;5;0;0;0;1;1;0;540.00;15.00;1.00;100.00;84.72;100.00;0.00;85.71;29/04/2018
+2015;Facultad de Filosofía y Letras;Mundo Antiguo y Patrimonio Arqueológico;Máster;12;12;30;11;0;0;0;0;1;0;720.00;0.00;1.00;100.00;98.33;100.00;0.00;91.67;29/04/2018
+2015;Facultad de Ciencias de la Salud;Iniciación a la Investigación en Ciencias de la Enfermería;Máster;29;29;30;28;0;0;0;0;;0;1740.00;0.00;1.00;100.00;99.31;100.00;0.00;100.00;29/04/2018
+2015;Facultad de Economía y Empresa;Dirección, Estrategia y Marketing;Máster;15;13;30;5;0;0;0;1;;0;690.00;24.00;1.00;100.00;83.91;100.00;0.00;50.00;29/04/2018
+2015;Facultad de Ciencias Sociales y Humanas de Teruel;Psicología General Sanitaria;Máster;30;30;30;;0;0;;0;;0;1440.00;0.00;;99.58;99.58;;0.00;90.00;29/04/2018
+2015;Escuela de Ingeniería y Arquitectura;Ingeniería de Diseño de Producto;Máster;9;9;30;3;0;0;0;4;;0;489.00;27.00;1.00;100.00;87.73;100.00;0.00;87.50;29/04/2018
+2015;Facultad de Filosofía y Letras;Literaturas Hispánicas y Lengua Española: Tradición e Identidades;Máster;7;7;25;5;0;0;0;0;6;0;390.00;0.00;1.00;98.25;86.15;100.00;16.67;83.33;29/04/2018
+2015;Facultad de Veterinaria;Calidad, Seguridad y Tecnología de los Alimentos;Máster;29;29;30;26;0;0;0;0;;1;1695.00;0.00;1.00;100.00;99.28;100.00;0.00;96.30;29/04/2018
+2015;Escuela de Doctorado;Estudios avanzados de Literatura Hispánica;Doctorado;1;0;;1;0;0;0;0;;0;0.00;0.00;8.00;;;100.00;;;29/04/2018
+2015;Escuela de Doctorado;Química sostenible;Doctorado;1;0;;;0;0;;0;;0;0.00;0.00;;;;;;;29/04/2018
+2015;Escuela de Doctorado;Medicina;Doctorado;62;0;;25;0;0;0;0;;0;0.00;0.00;;;;;;;29/04/2018
+2015;Escuela de Doctorado;Calidad, seguridad y tecnología de los alimentos;Doctorado;9;0;;5;0;0;0;0;;1;0.00;0.00;;;;;;;29/04/2018
+2015;Escuela de Doctorado;Medicina y sanidad animal;Doctorado;27;0;;8;0;0;0;0;;0;0.00;0.00;;;;;;;29/04/2018
+2015;Escuela de Doctorado;Producción animal;Doctorado;5;0;;2;0;0;0;0;;0;0.00;0.00;;;;;;;29/04/2018
+2015;Escuela de Doctorado;Ciencias agrarias y del medio natural;Doctorado;11;0;;3;0;0;0;0;;0;0.00;0.00;;;;;;;29/04/2018
+2015;Escuela de Doctorado;Ciencias de la Salud;Doctorado;28;0;;12;0;0;0;0;;0;0.00;0.00;;;;;;;29/04/2018
+2015;Escuela de Doctorado;Relaciones de Género;Doctorado;7;0;;;0;0;;0;;0;0.00;0.00;;;;;;;29/04/2018
+2015;Escuela de Doctorado;Ingenierías transversales;Doctorado;1;0;;;0;0;;0;;0;0.00;0.00;;;;;;;29/04/2018
+2015;Escuela de Doctorado;Bioquímica y biología molecular;Doctorado;17;0;;5;0;0;0;0;;0;0.00;0.00;;;;;;;29/04/2018
+2015;Escuela de Doctorado;Física;Doctorado;17;0;;11;0;0;0;0;;0;0.00;0.00;;;;;;;29/04/2018
+2015;Escuela de Doctorado;Geología;Doctorado;12;0;;5;0;0;0;0;;0;0.00;0.00;;;;;;;29/04/2018
+2015;Escuela de Doctorado;Métodos matemáticos y sus aplicaciones;Doctorado;4;0;;3;0;0;0;0;;0;0.00;0.00;;;;;;;29/04/2018
+2015;Escuela de Doctorado;Ciencia analítica en química;Doctorado;4;0;;;0;0;;0;;0;0.00;0.00;;;;;;;29/04/2018
+2015;Escuela de Doctorado;Ingeniería química y del medio ambiente;Doctorado;19;0;;6;0;0;0;0;;0;0.00;0.00;;;;;;;29/04/2018
+2015;Escuela de Doctorado;Química física;Doctorado;1;0;;;0;0;;0;;0;0.00;0.00;;;;;;;29/04/2018
+2015;Escuela de Doctorado;Química orgánica;Doctorado;8;0;;4;0;0;0;0;;0;0.00;0.00;;;;;;;29/04/2018
+2015;Escuela de Doctorado;Química inorgánica;Doctorado;13;0;;3;0;0;0;0;;0;0.00;0.00;;;;;;;29/04/2018
+2015;Escuela de Doctorado;Estudios ingleses;Doctorado;8;0;;;0;0;;0;;0;0.00;0.00;;;;;;;29/04/2018
+2015;Escuela de Doctorado;Información y documentación;Doctorado;8;0;;2;0;0;0;0;;0;0.00;0.00;;;;;;;29/04/2018
+2015;Escuela de Doctorado;Ordenación del territorio y medio ambiente;Doctorado;12;0;;2;0;0;0;0;;0;0.00;0.00;;;;;;;29/04/2018
+2015;Escuela de Doctorado;Lingüística y lengua española;Doctorado;6;0;;;0;0;;0;;0;0.00;0.00;;;;;;;29/04/2018
+2015;Escuela de Doctorado;Historia contemporánea;Doctorado;11;0;;3;0;0;0;0;;0;0.00;0.00;;;;;;;29/04/2018
+2015;Escuela de Doctorado;Historia moderna;Doctorado;2;0;;;0;0;;0;;0;0.00;0.00;;;;;;;29/04/2018
+2015;Escuela de Doctorado;Ciencias de la antigüedad;Doctorado;14;0;;2;0;0;0;0;;1;0.00;0.00;;;;;;;29/04/2018
+2015;Escuela de Doctorado;Estudios filosóficos;Doctorado;8;0;;1;0;0;0;0;;1;0.00;0.00;;;;;;;29/04/2018
+2015;Escuela de Doctorado;Filología hispánica;Doctorado;2;0;;;0;0;;0;;0;0.00;0.00;;;;;;;29/04/2018
+2015;Escuela de Doctorado;Historia del arte;Doctorado;14;0;;;0;0;;0;;0;0.00;0.00;;;;;;;29/04/2018
+2015;Escuela de Doctorado;Historia Medieval;Doctorado;2;0;;;0;0;;0;;0;0.00;0.00;;;;;;;29/04/2018
+2015;Escuela de Doctorado;Economía;Doctorado;8;0;;1;0;0;0;0;;0;0.00;0.00;;;;;;;29/04/2018
+2015;Escuela de Doctorado;Contabilidad y finanzas;Doctorado;3;0;;;0;0;;0;;0;0.00;0.00;;;;;;;29/04/2018
+2015;Escuela de Doctorado;Economía y gestión de las organizaciones;Doctorado;10;0;;4;0;0;0;0;;0;0.00;0.00;;;;;;;29/04/2018
+2015;Escuela de Doctorado;Sociología de las políticas públicas y sociales;Doctorado;8;0;;2;0;0;0;0;;0;0.00;0.00;;;;;;;29/04/2018
+2015;Escuela de Doctorado;Ciencias biomédicas y biotecnológicas;Doctorado;8;0;;2;0;0;0;0;;0;0.00;0.00;;;;;;;29/04/2018
+2015;Escuela de Doctorado;Condicionantes genéticos, nutricionales y ambientales del crec.;Doctorado;6;0;;2;0;0;0;0;;0;0.00;0.00;;;;;;;29/04/2018
+2015;Escuela de Doctorado;Tecnologías de la información y comunicaciones en redes móviles;Doctorado;7;0;;;0;0;;0;;0;0.00;0.00;;;;;;;29/04/2018
+2015;Escuela de Doctorado;Ingeniería electrónica;Doctorado;5;0;;2;0;0;0;0;;0;0.00;0.00;;;;;;;29/04/2018
+2015;Escuela de Doctorado;Ingeniería de sistemas e informática;Doctorado;19;0;;12;0;0;0;0;;0;0.00;0.00;;;;;;;29/04/2018
+2015;Escuela de Doctorado;Ingeniería biomédica;Doctorado;11;0;;4;0;0;0;0;;0;0.00;0.00;;;;;;;29/04/2018
+2015;Escuela de Doctorado;Ingeniería de diseño y fabricación;Doctorado;5;0;;1;0;0;0;0;;0;0.00;0.00;;;;;;;29/04/2018
+2015;Escuela de Doctorado;Mecánica de fluidos;Doctorado;4;0;;1;0;0;0;0;;0;0.00;0.00;;;;;;;29/04/2018
+2015;Escuela de Doctorado;Mecánica computacional;Doctorado;3;0;;1;0;0;0;0;;0;0.00;0.00;;;;;;;29/04/2018
+2015;Escuela de Doctorado;Derecho;Doctorado;25;0;;7;0;0;0;0;;1;0.00;0.00;;;;;;;29/04/2018
+2015;Escuela de Doctorado;Educación;Doctorado;26;0;;7;0;0;0;0;;0;0.00;0.00;;;;;;;29/04/2018
+2015;Escuela de Doctorado;Energías renovables y eficiencia energética;Doctorado;8;0;;3;0;0;0;0;;0;0.00;0.00;;;;;;;29/04/2018
+2015;Escuela de Doctorado;Logística y gestión de la cadena de suministro;Doctorado;1;0;;1;0;0;0;0;;0;0.00;0.00;;;;;;;29/04/2018
+2015;Escuela de Doctorado;Programa de doctorado RD 778/98;Doctorado;51;11;300;;0;0;;0;;0;0.00;0.00;;;;;0.00;0.00;29/04/2018
+2015;Escuela de Doctorado;Programa de doctorado RD 185/85;Doctorado;7;1;99;;0;0;;0;;0;0.00;0.00;;;;;0.00;0.00;29/04/2018
+2015;Escuela de Doctorado;Programa de doctorado de cursos monográficos;Doctorado;1;0;99;;0;0;;0;;0;0.00;0.00;;;;;;;29/04/2018
+2015;Escuela de Doctorado;PD en Ciencias de la antigüedad;Doctorado;50;26;99;1;0;0;0;0;;0;0.00;0.00;;;;;;;29/04/2018
+2015;Escuela de Doctorado;PD Estudios ingleses;Doctorado;16;7;99;1;0;0;0;0;;0;0.00;0.00;;;;;;;29/04/2018
+2015;Escuela de Doctorado;PD Literaturas hispánicas;Doctorado;22;18;99;1;0;0;0;0;;0;0.00;0.00;;;;;;;29/04/2018
+2015;Escuela de Doctorado;PD Filosofía;Doctorado;13;2;99;;0;0;;0;;0;0.00;0.00;;;;;;;29/04/2018
+2015;Escuela de Doctorado;PD Historia contemporánea;Doctorado;32;22;99;2;0;0;0;0;;0;0.00;0.00;;;;;;;29/04/2018
+2015;Escuela de Doctorado;PD Historia del arte;Doctorado;54;38;99;3;0;0;0;0;;0;0.00;0.00;;;;;;;29/04/2018
+2015;Escuela de Doctorado;PD Historia, sociedad y cultura: épocas medieval y moderna;Doctorado;20;14;99;;0;0;;0;;0;0.00;0.00;;;;;;;29/04/2018
+2015;Escuela de Doctorado;PD Lingüística hispánica;Doctorado;35;17;99;1;0;0;0;0;;0;0.00;0.00;;;;;;;29/04/2018
+2015;Escuela de Doctorado;PD Bioquímica y biología molecular;Doctorado;58;30;99;5;0;0;0;0;;0;0.00;0.00;;;;;;;29/04/2018
+2015;Escuela de Doctorado;PD Calidad, seguridad y tecnología de los alimentos;Doctorado;16;4;99;;0;0;;0;;0;0.00;0.00;;;;;;;29/04/2018
+2015;Escuela de Doctorado;PD Ciencia analítica en química;Doctorado;14;6;99;1;0;0;0;0;;0;0.00;0.00;;;;;;;29/04/2018
+2015;Escuela de Doctorado;PD Física;Doctorado;47;19;99;5;0;0;0;0;;0;0.00;0.00;;;;;;;29/04/2018
+2015;Escuela de Doctorado;PD Geología;Doctorado;28;12;99;;0;0;;0;;0;0.00;0.00;;;;;;;29/04/2018
+2015;Escuela de Doctorado;PD Matemáticas y estadística;Doctorado;9;3;99;;0;0;;0;;0;0.00;0.00;;;;;;;29/04/2018
+2015;Escuela de Doctorado;PD Producción animal;Doctorado;17;7;99;2;0;0;0;0;;0;0.00;0.00;;;;;;;29/04/2018
+2015;Escuela de Doctorado;PD Química física;Doctorado;5;2;99;;0;0;;0;;0;0.00;0.00;;;;;;;29/04/2018
+2015;Escuela de Doctorado;PD Química inorgánica;Doctorado;24;10;99;1;0;0;0;0;;0;0.00;0.00;;;;;;;29/04/2018
+2015;Escuela de Doctorado;PD Química orgánica;Doctorado;22;6;99;1;0;0;0;0;;0;0.00;0.00;;;;;;;29/04/2018
+2015;Escuela de Doctorado;PD Ciencias biomédicas y biotecnológicas;Doctorado;16;6;99;1;0;0;0;0;;0;0.00;0.00;;;;;;;29/04/2018
+2015;Escuela de Doctorado;PD Ciencias de la salud y del deporte;Doctorado;80;32;99;4;0;0;0;0;;0;0.00;0.00;;;;;;;29/04/2018
+2015;Escuela de Doctorado;PD Medicina;Doctorado;197;78;99;25;0;0;0;0;;0;0.00;0.00;;;;;;;29/04/2018
+2015;Escuela de Doctorado;PD Medicina y sanidad animal;Doctorado;27;13;99;1;0;0;0;0;;0;0.00;0.00;;;;;;;29/04/2018
+2015;Escuela de Doctorado;PD Contabilidad y finanzas;Doctorado;31;16;99;2;0;0;0;0;;0;0.00;0.00;;;;;;;29/04/2018
+2015;Escuela de Doctorado;PD Derecho;Doctorado;82;41;99;3;0;0;0;0;;0;0.00;0.00;;;;;;;29/04/2018
+2015;Escuela de Doctorado;PD Derechos humanos y libertades fundamentales;Doctorado;26;14;99;;0;0;;0;;0;0.00;0.00;;;;;;;29/04/2018
+2015;Escuela de Doctorado;PD Economía;Doctorado;28;15;99;1;0;0;0;0;;0;0.00;0.00;;;;;;;29/04/2018
+2015;Escuela de Doctorado;PD Economía y gestión de las organizaciones;Doctorado;36;15;99;1;0;0;0;0;;0;0.00;0.00;;;;;;;29/04/2018
+2015;Escuela de Doctorado;PD Educación;Doctorado;74;30;99;5;0;0;0;0;;0;0.00;0.00;;;;;;;29/04/2018
+2015;Escuela de Doctorado;PD Ordenación del territorio y medio ambiente;Doctorado;39;8;99;1;0;0;0;0;;0;0.00;0.00;;;;;;;29/04/2018
+2015;Escuela de Doctorado;PD Relaciones de género y estudios feministas;Doctorado;7;4;99;;0;0;;0;;0;0.00;0.00;;;;;;;29/04/2018
+2015;Escuela de Doctorado;PD Sociología de las políticas públicas y sociales;Doctorado;50;21;99;2;0;0;0;0;;0;0.00;0.00;;;;;;;29/04/2018
+2015;Escuela de Doctorado;PD Ciencias agrarias y del medio natural;Doctorado;26;10;99;2;0;0;0;0;;0;0.00;0.00;;;;;;;29/04/2018
+2015;Escuela de Doctorado;PD Energías renovables y eficiencia energética;Doctorado;47;28;99;3;0;0;0;0;;0;0.00;0.00;;;;;;;29/04/2018
+2015;Escuela de Doctorado;PD Ingeniería biomédica;Doctorado;26;10;99;4;0;0;0;0;;0;0.00;0.00;;;;;;;29/04/2018
+2015;Escuela de Doctorado;PD Ingeniería de diseño y fabricación;Doctorado;24;14;99;1;0;0;0;0;;0;0.00;0.00;;;;;;;29/04/2018
+2015;Escuela de Doctorado;PD Ingeniería de sistemas e informática;Doctorado;39;15;99;;0;0;;0;;0;0.00;0.00;;;;;;;29/04/2018
+2015;Escuela de Doctorado;PD Ingeniería electrónica;Doctorado;10;6;99;;0;0;;0;;0;0.00;0.00;;;;;;;29/04/2018
+2015;Escuela de Doctorado;PD Ingeniería mecánica;Doctorado;41;15;99;3;0;0;0;0;;0;0.00;0.00;;;;;;;29/04/2018
+2015;Escuela de Doctorado;PD Ingeniería química y del medio ambiente;Doctorado;57;18;99;5;0;0;0;0;;0;0.00;0.00;;;;;;;29/04/2018
+2015;Escuela de Doctorado;PD Mecánica de fluídos;Doctorado;5;5;99;;0;0;;0;;0;0.00;0.00;;;;;;;29/04/2018
+2015;Escuela de Doctorado;PD Nuevos territorios en la arquitectura;Doctorado;30;10;99;2;0;0;0;0;;0;0.00;0.00;;;;;;;29/04/2018
+2015;Escuela de Doctorado;PD Tecnologías de la información y comunicaciones en redes moviles;Doctorado;4;2;99;;0;0;;0;;0;0.00;0.00;;;;;;;29/04/2018
+2015;Escuela de Doctorado;PD Información y Comunicación;Doctorado;16;10;99;;0;0;;0;;0;0.00;0.00;;;;;;;29/04/2018
+2015;Escuela de Doctorado;PD Patrimonio, Sociedades y Espacios de Frontera;Doctorado;;;8;;;;;;;;;;;;;;;;29/04/2018
+2015;Facultad de Ciencias;;Máster;;;40;;;;;;;;;;;;;;;;29/04/2018
+2015;Escuela Politécnica Superior;;Máster;;;20;;;;;;;;;;;;;;;;29/04/2018

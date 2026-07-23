@@ -1,0 +1,850 @@
+CURSO_ACADEMICO;LOCALIDAD;ESTUDIO;TIPO_ESTUDIO;TIPO_EGRESO;SEXO;ALUMNOS_GRADUADOS;ALUMNOS_INTERRUMPEN_ESTUDIOS;ALUMNOS_INTERRUMPEN_EST_ANO1;ALUMNOS_TRASLADAN_OTRA_UNIV;DURACION_MEDIA_GRADUADOS;TASA_EFICIENCIA;FECHA_ACTUALIZACION
+2018;Almunia de Doña Godina (La);Grado: Arquitectura Técnica;Grado;Abandono Voluntario;Hombres;0;10;2;0;;;27/09/2020
+2018;Almunia de Doña Godina (La);Grado: Arquitectura Técnica;Grado;Abandono Voluntario;Mujeres;0;1;0;0;;;27/09/2020
+2018;Almunia de Doña Godina (La);Grado: Arquitectura Técnica;Grado;Cambio de estudios sin simultaneidad;Hombres;0;1;1;0;;;27/09/2020
+2018;Almunia de Doña Godina (La);Grado: Arquitectura Técnica;Grado;Graduado;Hombres;9;0;0;0;7.75;83.35;27/09/2020
+2018;Almunia de Doña Godina (La);Grado: Arquitectura Técnica;Grado;Graduado;Mujeres;13;0;0;0;5.50;91.62;27/09/2020
+2018;Almunia de Doña Godina (La);Grado: Ingeniería Civil;Grado;Abandono Voluntario;Hombres;0;13;1;0;;;27/09/2020
+2018;Almunia de Doña Godina (La);Grado: Ingeniería Civil;Grado;Abandono Voluntario;Mujeres;0;2;0;0;;;27/09/2020
+2018;Almunia de Doña Godina (La);Grado: Ingeniería Civil;Grado;Cambio de estudios sin simultaneidad;Hombres;0;1;0;0;;;27/09/2020
+2018;Almunia de Doña Godina (La);Grado: Ingeniería Civil;Grado;Graduado;Hombres;5;0;0;0;4.75;90.74;27/09/2020
+2018;Almunia de Doña Godina (La);Grado: Ingeniería Civil;Grado;Graduado;Mujeres;2;0;0;0;5.50;83.96;27/09/2020
+2018;Almunia de Doña Godina (La);Grado: Ingeniería de Organización Industrial;Grado;Abandono Voluntario;Hombres;0;13;7;0;;;27/09/2020
+2018;Almunia de Doña Godina (La);Grado: Ingeniería de Organización Industrial;Grado;Abandono Voluntario;Mujeres;0;2;0;0;;;27/09/2020
+2018;Almunia de Doña Godina (La);Grado: Ingeniería de Organización Industrial;Grado;Cambio de estudios sin simultaneidad;Hombres;0;4;4;0;;;27/09/2020
+2018;Almunia de Doña Godina (La);Grado: Ingeniería de Organización Industrial;Grado;Graduado;Hombres;15;0;0;0;6.67;67.89;27/09/2020
+2018;Almunia de Doña Godina (La);Grado: Ingeniería de Organización Industrial;Grado;Graduado;Mujeres;2;0;0;0;5.00;95.35;27/09/2020
+2018;Almunia de Doña Godina (La);Grado: Ingeniería de Organización Industrial;Grado;Incumple Régimen de permanencia;Mujeres;0;1;1;0;;;27/09/2020
+2018;Almunia de Doña Godina (La);Grado: Ingeniería Mecatrónica;Grado;Abandono Voluntario;Hombres;0;13;5;0;;;27/09/2020
+2018;Almunia de Doña Godina (La);Grado: Ingeniería Mecatrónica;Grado;Abandono Voluntario;Mujeres;0;1;0;0;;;27/09/2020
+2018;Almunia de Doña Godina (La);Grado: Ingeniería Mecatrónica;Grado;Cambio de estudios sin simultaneidad;Hombres;0;1;1;0;;;27/09/2020
+2018;Almunia de Doña Godina (La);Grado: Ingeniería Mecatrónica;Grado;Graduado;Hombres;19;0;0;0;5.73;74.84;27/09/2020
+2018;Almunia de Doña Godina (La);Grado: Ingeniería Mecatrónica;Grado;Graduado;Mujeres;3;0;0;0;5.00;87.75;27/09/2020
+2018;Almunia de Doña Godina (La);Grado: Ingeniería Mecatrónica;Grado;Incumple Régimen de permanencia;Hombres;0;1;0;0;;;27/09/2020
+2018;Huesca;Diplomado en Nutrición Humana;Diplomatura o equivalente;Traslado a otra Universidad;Hombres;0;0;0;1;;;27/09/2020
+2018;Huesca;Grado: Administración y Dirección de Empresas;Grado;Abandono Voluntario;Hombres;0;29;6;0;;;27/09/2020
+2018;Huesca;Grado: Administración y Dirección de Empresas;Grado;Abandono Voluntario;Mujeres;0;18;7;0;;;27/09/2020
+2018;Huesca;Grado: Administración y Dirección de Empresas;Grado;Cambio de estudios sin simultaneidad;Hombres;0;5;4;0;;;27/09/2020
+2018;Huesca;Grado: Administración y Dirección de Empresas;Grado;Cambio de estudios sin simultaneidad;Mujeres;0;1;1;0;;;27/09/2020
+2018;Huesca;Grado: Administración y Dirección de Empresas;Grado;Graduado;Hombres;18;0;0;0;5.38;78.95;27/09/2020
+2018;Huesca;Grado: Administración y Dirección de Empresas;Grado;Graduado;Mujeres;14;0;0;0;4.91;83.88;27/09/2020
+2018;Huesca;Grado: Administración y Dirección de Empresas;Grado;Incumple Régimen de permanencia;Hombres;0;6;5;0;;;27/09/2020
+2018;Huesca;Grado: Administración y Dirección de Empresas;Grado;Incumple Régimen de permanencia;Mujeres;0;2;1;0;;;27/09/2020
+2018;Huesca;Grado: Ciencias Ambientales;Grado;Abandono Voluntario;Hombres;0;17;8;0;;;27/09/2020
+2018;Huesca;Grado: Ciencias Ambientales;Grado;Abandono Voluntario;Mujeres;0;4;2;0;;;27/09/2020
+2018;Huesca;Grado: Ciencias Ambientales;Grado;Cambio de estudios sin simultaneidad;Hombres;0;1;1;0;;;27/09/2020
+2018;Huesca;Grado: Ciencias Ambientales;Grado;Graduado;Hombres;20;0;0;0;6.00;78.04;27/09/2020
+2018;Huesca;Grado: Ciencias Ambientales;Grado;Graduado;Mujeres;16;0;0;0;6.14;78.47;27/09/2020
+2018;Huesca;Grado: Ciencias Ambientales;Grado;Incumple Régimen de permanencia;Hombres;0;1;1;0;;;27/09/2020
+2018;Huesca;Grado: Ciencias de la Actividad Física y del Deporte;Grado;Abandono Voluntario;Hombres;0;6;1;0;;;27/09/2020
+2018;Huesca;Grado: Ciencias de la Actividad Física y del Deporte;Grado;Cambio de estudios sin simultaneidad;Mujeres;0;1;1;0;;;27/09/2020
+2018;Huesca;Grado: Ciencias de la Actividad Física y del Deporte;Grado;Graduado;Hombres;42;0;0;0;4.54;93.33;27/09/2020
+2018;Huesca;Grado: Ciencias de la Actividad Física y del Deporte;Grado;Graduado;Mujeres;20;0;0;0;4.15;98.12;27/09/2020
+2018;Huesca;Grado: Ciencias de la Actividad Física y del Deporte;Grado;Traslado a otra Universidad;Hombres;0;0;0;3;;;27/09/2020
+2018;Huesca;Grado: Enfermería;Grado;Abandono Voluntario;Hombres;0;2;2;0;;;27/09/2020
+2018;Huesca;Grado: Enfermería;Grado;Abandono Voluntario;Mujeres;0;4;2;0;;;27/09/2020
+2018;Huesca;Grado: Enfermería;Grado;Cambio de estudios sin simultaneidad;Hombres;0;2;2;0;;;27/09/2020
+2018;Huesca;Grado: Enfermería;Grado;Cambio de estudios sin simultaneidad;Mujeres;0;1;1;0;;;27/09/2020
+2018;Huesca;Grado: Enfermería;Grado;Graduado;Hombres;10;0;0;0;4.12;95.20;27/09/2020
+2018;Huesca;Grado: Enfermería;Grado;Graduado;Mujeres;39;0;0;0;4.00;99.33;27/09/2020
+2018;Huesca;Grado: Enfermería;Grado;Incumple Régimen de permanencia;Hombres;0;1;0;0;;;27/09/2020
+2018;Huesca;Grado: Gestión y Administración Pública;Grado;Abandono Voluntario;Hombres;0;3;2;0;;;27/09/2020
+2018;Huesca;Grado: Gestión y Administración Pública;Grado;Abandono Voluntario;Mujeres;0;13;7;0;;;27/09/2020
+2018;Huesca;Grado: Gestión y Administración Pública;Grado;Graduado;Hombres;8;0;0;0;5.50;86.88;27/09/2020
+2018;Huesca;Grado: Gestión y Administración Pública;Grado;Graduado;Mujeres;6;0;0;0;;80.37;27/09/2020
+2018;Huesca;Grado: Gestión y Administración Pública;Grado;Incumple Régimen de permanencia;Mujeres;0;1;1;0;;;27/09/2020
+2018;Huesca;Grado: Ingeniería Agroalimentaria y del Medio Rural;Grado;Abandono Voluntario;Hombres;0;10;3;0;;;27/09/2020
+2018;Huesca;Grado: Ingeniería Agroalimentaria y del Medio Rural;Grado;Abandono Voluntario;Mujeres;0;4;0;0;;;27/09/2020
+2018;Huesca;Grado: Ingeniería Agroalimentaria y del Medio Rural;Grado;Cambio de estudios sin simultaneidad;Hombres;0;1;1;0;;;27/09/2020
+2018;Huesca;Grado: Ingeniería Agroalimentaria y del Medio Rural;Grado;Graduado;Hombres;9;0;0;0;6.14;76.31;27/09/2020
+2018;Huesca;Grado: Ingeniería Agroalimentaria y del Medio Rural;Grado;Graduado;Mujeres;8;0;0;0;5.33;76.20;27/09/2020
+2018;Huesca;Grado: Magisterio en Educación Infantil;Grado;Abandono Voluntario;Hombres;0;3;2;0;;;27/09/2020
+2018;Huesca;Grado: Magisterio en Educación Infantil;Grado;Abandono Voluntario;Mujeres;0;17;8;0;;;27/09/2020
+2018;Huesca;Grado: Magisterio en Educación Infantil;Grado;Graduado;Hombres;5;0;0;0;4.50;93.39;27/09/2020
+2018;Huesca;Grado: Magisterio en Educación Infantil;Grado;Graduado;Mujeres;89;0;0;0;4.22;95.77;27/09/2020
+2018;Huesca;Grado: Magisterio en Educación Primaria;Grado;Abandono Voluntario;Hombres;0;13;2;0;;;27/09/2020
+2018;Huesca;Grado: Magisterio en Educación Primaria;Grado;Abandono Voluntario;Mujeres;0;15;6;0;;;27/09/2020
+2018;Huesca;Grado: Magisterio en Educación Primaria;Grado;Cambio de estudios sin simultaneidad;Hombres;0;1;1;0;;;27/09/2020
+2018;Huesca;Grado: Magisterio en Educación Primaria;Grado;Cambio de estudios sin simultaneidad;Mujeres;0;2;1;0;;;27/09/2020
+2018;Huesca;Grado: Magisterio en Educación Primaria;Grado;Graduado;Hombres;36;0;0;0;4.97;85.54;27/09/2020
+2018;Huesca;Grado: Magisterio en Educación Primaria;Grado;Graduado;Mujeres;76;0;0;0;4.53;91.32;27/09/2020
+2018;Huesca;Grado: Medicina;Grado;Abandono Voluntario;Hombres;0;2;2;0;;;27/09/2020
+2018;Huesca;Grado: Medicina;Grado;Abandono Voluntario;Mujeres;0;2;2;0;;;27/09/2020
+2018;Huesca;Grado: Medicina;Grado;Cambio de estudios sin simultaneidad;Mujeres;0;1;1;0;;;27/09/2020
+2018;Huesca;Grado: Medicina;Grado;Traslado a otra Universidad;Hombres;0;0;0;1;;;27/09/2020
+2018;Huesca;Grado: Medicina;Grado;Traslado a otra Universidad;Mujeres;0;0;0;5;;;27/09/2020
+2018;Huesca;Grado: Nutrición Humana y Dietética;Grado;Abandono Voluntario;Hombres;0;9;4;0;;;27/09/2020
+2018;Huesca;Grado: Nutrición Humana y Dietética;Grado;Abandono Voluntario;Mujeres;0;6;2;0;;;27/09/2020
+2018;Huesca;Grado: Nutrición Humana y Dietética;Grado;Cambio de estudios sin simultaneidad;Hombres;0;1;1;0;;;27/09/2020
+2018;Huesca;Grado: Nutrición Humana y Dietética;Grado;Cambio de estudios sin simultaneidad;Mujeres;0;1;1;0;;;27/09/2020
+2018;Huesca;Grado: Nutrición Humana y Dietética;Grado;Graduado;Hombres;14;0;0;0;4.73;94.04;27/09/2020
+2018;Huesca;Grado: Nutrición Humana y Dietética;Grado;Graduado;Mujeres;30;0;0;0;4.85;90.14;27/09/2020
+2018;Huesca;Grado: Nutrición Humana y Dietética;Grado;Traslado a otra Universidad;Hombres;0;0;0;2;;;27/09/2020
+2018;Huesca;Grado: Nutrición Humana y Dietética;Grado;Traslado a otra Universidad;Mujeres;0;0;0;4;;;27/09/2020
+2018;Huesca;Grado: Odontología;Grado;Abandono Voluntario;Hombres;0;1;0;0;;;27/09/2020
+2018;Huesca;Grado: Odontología;Grado;Abandono Voluntario;Mujeres;0;2;1;0;;;27/09/2020
+2018;Huesca;Grado: Odontología;Grado;Cambio de estudios sin simultaneidad;Mujeres;0;2;2;0;;;27/09/2020
+2018;Huesca;Grado: Odontología;Grado;Graduado;Hombres;10;0;0;0;5.09;95.91;27/09/2020
+2018;Huesca;Grado: Odontología;Grado;Graduado;Mujeres;17;0;0;0;5.00;99.23;27/09/2020
+2018;Huesca;Grado: Odontología;Grado;Traslado a otra Universidad;Mujeres;0;0;0;2;;;27/09/2020
+2018;Huesca;Ingeniero Agrónomo;Licenciatura o equivalente;Abandono Voluntario;Hombres;0;2;0;0;;;27/09/2020
+2018;Huesca;Ingeniero Agrónomo;Licenciatura o equivalente;Abandono Voluntario;Mujeres;0;1;0;0;;;27/09/2020
+2018;Huesca;Máster: Dirección y planificación del turismo;Máster;Abandono Voluntario;Hombres;0;4;2;0;;;27/09/2020
+2018;Huesca;Máster: Dirección y planificación del turismo;Máster;Graduado;Hombres;4;0;0;0;2.00;72.07;27/09/2020
+2018;Huesca;Máster: Dirección y planificación del turismo;Máster;Graduado;Mujeres;17;0;0;0;1.41;86.08;27/09/2020
+2018;Huesca;Máster: Estudios Avanzados sobre el Lenguaje, la Comunicación y sus Patologías;Máster;Graduado;Mujeres;7;0;0;0;1.43;91.06;27/09/2020
+2018;Huesca;Máster: Evaluación y Entrenamiento Físico para la Salud;Máster;Abandono Voluntario;Mujeres;0;1;1;0;;;27/09/2020
+2018;Huesca;Máster: Evaluación y Entrenamiento Físico para la Salud;Máster;Graduado;Hombres;10;0;0;0;1.00;100.00;27/09/2020
+2018;Huesca;Máster: Evaluación y Entrenamiento Físico para la Salud;Máster;Graduado;Mujeres;5;0;0;0;3.00;89.29;27/09/2020
+2018;Huesca;Máster: Ingeniería Agronómica;Máster;Abandono Voluntario;Hombres;0;2;0;0;;;27/09/2020
+2018;Huesca;Máster: Ingeniería Agronómica;Máster;Graduado;Hombres;3;0;0;0;2.00;95.74;27/09/2020
+2018;Huesca;Máster: Profesorado E.S.O., F.P. y Ens. Idiom, Art y Deport;Máster;Abandono Voluntario;Hombres;0;1;0;0;;;27/09/2020
+2018;Huesca;Máster: Profesorado E.S.O., F.P. y Ens. Idiom, Art y Deport;Máster;Graduado;Hombres;23;0;0;0;1.09;98.57;27/09/2020
+2018;Huesca;Máster: Profesorado E.S.O., F.P. y Ens. Idiom, Art y Deport;Máster;Graduado;Mujeres;2;0;0;0;1.00;100.00;27/09/2020
+2018;Teruel;Grado: Administración y Dirección de Empresas;Grado;Abandono Voluntario;Hombres;0;6;2;0;;;27/09/2020
+2018;Teruel;Grado: Administración y Dirección de Empresas;Grado;Abandono Voluntario;Mujeres;0;5;2;0;;;27/09/2020
+2018;Teruel;Grado: Administración y Dirección de Empresas;Grado;Cambio de estudios sin simultaneidad;Hombres;0;1;1;0;;;27/09/2020
+2018;Teruel;Grado: Administración y Dirección de Empresas;Grado;Graduado;Hombres;3;0;0;0;5.00;86.18;27/09/2020
+2018;Teruel;Grado: Administración y Dirección de Empresas;Grado;Graduado;Mujeres;13;0;0;0;5.46;91.34;27/09/2020
+2018;Teruel;Grado: Administración y Dirección de Empresas;Grado;Traslado a otra Universidad;Hombres;0;0;0;1;;;27/09/2020
+2018;Teruel;Grado: Administración y Dirección de Empresas;Grado;Traslado a otra Universidad;Mujeres;0;0;0;1;;;27/09/2020
+2018;Teruel;Grado: Bellas Artes;Grado;Abandono Voluntario;Hombres;0;4;0;0;;;27/09/2020
+2018;Teruel;Grado: Bellas Artes;Grado;Abandono Voluntario;Mujeres;0;8;2;0;;;27/09/2020
+2018;Teruel;Grado: Bellas Artes;Grado;Cambio de estudios sin simultaneidad;Mujeres;0;1;1;0;;;27/09/2020
+2018;Teruel;Grado: Bellas Artes;Grado;Graduado;Hombres;14;0;0;0;4.38;92.25;27/09/2020
+2018;Teruel;Grado: Bellas Artes;Grado;Graduado;Mujeres;19;0;0;0;4.61;92.69;27/09/2020
+2018;Teruel;Grado: Bellas Artes;Grado;Incumple Régimen de permanencia;Hombres;0;1;1;0;;;27/09/2020
+2018;Teruel;Grado: Bellas Artes;Grado;Traslado a otra Universidad;Hombres;0;0;0;2;;;27/09/2020
+2018;Teruel;Grado: Bellas Artes;Grado;Traslado a otra Universidad;Mujeres;0;0;0;2;;;27/09/2020
+2018;Teruel;Grado: Enfermería;Grado;Abandono Voluntario;Mujeres;0;1;0;0;;;27/09/2020
+2018;Teruel;Grado: Enfermería;Grado;Graduado;Hombres;10;0;0;0;5.00;93.95;27/09/2020
+2018;Teruel;Grado: Enfermería;Grado;Graduado;Mujeres;23;0;0;0;4.00;99.54;27/09/2020
+2018;Teruel;Grado: Enfermería;Grado;Traslado a otra Universidad;Mujeres;0;0;0;2;;;27/09/2020
+2018;Teruel;Grado: Ingeniería Electrónica y Automática;Grado;Abandono Voluntario;Hombres;0;4;0;0;;;27/09/2020
+2018;Teruel;Grado: Ingeniería Electrónica y Automática;Grado;Abandono Voluntario;Mujeres;0;2;0;0;;;27/09/2020
+2018;Teruel;Grado: Ingeniería Electrónica y Automática;Grado;Cambio de estudios sin simultaneidad;Mujeres;0;1;0;0;;;27/09/2020
+2018;Teruel;Grado: Ingeniería Electrónica y Automática;Grado;Graduado;Hombres;11;0;0;0;4.86;88.74;27/09/2020
+2018;Teruel;Grado: Ingeniería Electrónica y Automática;Grado;Incumple Régimen de permanencia;Hombres;0;1;1;0;;;27/09/2020
+2018;Teruel;Grado: Ingeniería Informática;Grado;Abandono Voluntario;Hombres;0;10;2;0;;;27/09/2020
+2018;Teruel;Grado: Ingeniería Informática;Grado;Cambio de estudios sin simultaneidad;Hombres;0;3;1;0;;;27/09/2020
+2018;Teruel;Grado: Ingeniería Informática;Grado;Graduado;Hombres;9;0;0;0;6.11;73.38;27/09/2020
+2018;Teruel;Grado: Ingeniería Informática;Grado;Traslado a otra Universidad;Hombres;0;0;0;2;;;27/09/2020
+2018;Teruel;Grado: Magisterio en Educación Infantil;Grado;Abandono Voluntario;Hombres;0;2;1;0;;;27/09/2020
+2018;Teruel;Grado: Magisterio en Educación Infantil;Grado;Abandono Voluntario;Mujeres;0;15;7;0;;;27/09/2020
+2018;Teruel;Grado: Magisterio en Educación Infantil;Grado;Cambio de estudios sin simultaneidad;Mujeres;0;1;1;0;;;27/09/2020
+2018;Teruel;Grado: Magisterio en Educación Infantil;Grado;Graduado;Hombres;4;0;0;0;5.00;87.68;27/09/2020
+2018;Teruel;Grado: Magisterio en Educación Infantil;Grado;Graduado;Mujeres;76;0;0;0;4.47;90.09;27/09/2020
+2018;Teruel;Grado: Magisterio en Educación Infantil;Grado;Traslado a otra Universidad;Mujeres;0;0;0;5;;;27/09/2020
+2018;Teruel;Grado: Magisterio en Educación Primaria;Grado;Abandono Voluntario;Hombres;0;19;3;0;;;27/09/2020
+2018;Teruel;Grado: Magisterio en Educación Primaria;Grado;Abandono Voluntario;Mujeres;0;10;8;0;;;27/09/2020
+2018;Teruel;Grado: Magisterio en Educación Primaria;Grado;Graduado;Hombres;25;0;0;0;4.96;84.13;27/09/2020
+2018;Teruel;Grado: Magisterio en Educación Primaria;Grado;Graduado;Mujeres;52;0;0;0;4.60;87.66;27/09/2020
+2018;Teruel;Grado: Magisterio en Educación Primaria;Grado;Incumple Régimen de permanencia;Hombres;0;2;1;0;;;27/09/2020
+2018;Teruel;Grado: Magisterio en Educación Primaria;Grado;Traslado a otra Universidad;Mujeres;0;0;0;4;;;27/09/2020
+2018;Teruel;Grado: Psicología;Grado;Abandono Voluntario;Hombres;0;1;1;0;;;27/09/2020
+2018;Teruel;Grado: Psicología;Grado;Abandono Voluntario;Mujeres;0;8;3;0;;;27/09/2020
+2018;Teruel;Grado: Psicología;Grado;Graduado;Hombres;15;0;0;0;4.60;91.00;27/09/2020
+2018;Teruel;Grado: Psicología;Grado;Graduado;Mujeres;70;0;0;0;4.29;93.35;27/09/2020
+2018;Teruel;Grado: Psicología;Grado;Traslado a otra Universidad;Hombres;0;0;0;2;;;27/09/2020
+2018;Teruel;Grado: Psicología;Grado;Traslado a otra Universidad;Mujeres;0;0;0;6;;;27/09/2020
+2018;Teruel;Licenciado en Ciencias del Trabajo;Licenciatura o equivalente;Abandono Voluntario;Mujeres;0;1;0;0;;;27/09/2020
+2018;Teruel;Máster: Profesorado E.S.O., F.P. y Ens. Idiom, Art y Deport;Máster;Abandono Voluntario;Hombres;0;2;2;0;;;27/09/2020
+2018;Teruel;Máster: Profesorado E.S.O., F.P. y Ens. Idiom, Art y Deport;Máster;Abandono Voluntario;Mujeres;0;1;0;0;;;27/09/2020
+2018;Teruel;Máster: Profesorado E.S.O., F.P. y Ens. Idiom, Art y Deport;Máster;Graduado;Hombres;8;0;0;0;1.00;100.00;27/09/2020
+2018;Teruel;Máster: Profesorado E.S.O., F.P. y Ens. Idiom, Art y Deport;Máster;Graduado;Mujeres;15;0;0;0;1.20;98.68;27/09/2020
+2018;Teruel;Máster: Psicología General Sanitaria;Máster;Abandono Voluntario;Mujeres;0;2;0;0;;;27/09/2020
+2018;Teruel;Máster: Psicología General Sanitaria;Máster;Graduado;Hombres;7;0;0;0;2.00;100.00;27/09/2020
+2018;Teruel;Máster: Psicología General Sanitaria;Máster;Graduado;Mujeres;22;0;0;0;2.14;98.21;27/09/2020
+2018;Teruel;Relaciones Laborales;Diplomatura o equivalente;Traslado a otra Universidad;Mujeres;0;0;0;1;;;27/09/2020
+2018;Zaragoza;Biblioteconomía y Documentación;Diplomatura o equivalente;Traslado a otra Universidad;Hombres;0;0;0;1;;;27/09/2020
+2018;Zaragoza;Derecho;Licenciatura o equivalente;Traslado a otra Universidad;Hombres;0;0;0;6;;;27/09/2020
+2018;Zaragoza;Derecho;Licenciatura o equivalente;Traslado a otra Universidad;Mujeres;0;0;0;2;;;27/09/2020
+2018;Zaragoza;Diplomado Ciencias Empresariales;Diplomatura o equivalente;Traslado a otra Universidad;Hombres;0;0;0;1;;;27/09/2020
+2018;Zaragoza;Diplomado Ciencias Empresariales;Diplomatura o equivalente;Traslado a otra Universidad;Mujeres;0;0;0;2;;;27/09/2020
+2018;Zaragoza;Doctorado: PD Bioquímica y biología molecular [RD 99/2011];Doctorado;Graduado;Hombres;4;0;0;0;3.69;;27/09/2020
+2018;Zaragoza;Doctorado: PD Bioquímica y biología molecular [RD 99/2011];Doctorado;Graduado;Mujeres;10;0;0;0;3.90;;27/09/2020
+2018;Zaragoza;Doctorado: PD Bioquímica y biología molecular [RD 99/2011];Doctorado;Incumple Régimen de permanencia;Mujeres;0;1;0;0;;;27/09/2020
+2018;Zaragoza;Doctorado: PD Calidad, seguridad y tecnología de los alimentos [RD 99/2011];Doctorado;Abandono Voluntario;Mujeres;0;1;0;0;;;27/09/2020
+2018;Zaragoza;Doctorado: PD Calidad, seguridad y tecnología de los alimentos [RD 99/2011];Doctorado;Graduado;Hombres;5;0;0;0;3.72;;27/09/2020
+2018;Zaragoza;Doctorado: PD Calidad, seguridad y tecnología de los alimentos [RD 99/2011];Doctorado;Graduado;Mujeres;4;0;0;0;4.05;;27/09/2020
+2018;Zaragoza;Doctorado: PD Calidad, seguridad y tecnología de los alimentos [RD 99/2011];Doctorado;Incumple Régimen de permanencia;Mujeres;0;4;0;0;;;27/09/2020
+2018;Zaragoza;Doctorado: PD Ciencia analítica en química [RD 99/2011];Doctorado;Graduado;Hombres;2;0;0;0;4.45;;27/09/2020
+2018;Zaragoza;Doctorado: PD Ciencia analítica en química [RD 99/2011];Doctorado;Graduado;Mujeres;4;0;0;0;3.53;;27/09/2020
+2018;Zaragoza;Doctorado: PD Ciencias agrarias y del medio natural [RD 99/2011];Doctorado;Graduado;Hombres;2;0;0;0;4.12;;27/09/2020
+2018;Zaragoza;Doctorado: PD Ciencias agrarias y del medio natural [RD 99/2011];Doctorado;Graduado;Mujeres;2;0;0;0;4.26;;27/09/2020
+2018;Zaragoza;Doctorado: PD Ciencias biomédicas y biotecnológicas [RD 99/2011];Doctorado;Graduado;Hombres;2;0;0;0;3.58;;27/09/2020
+2018;Zaragoza;Doctorado: PD Ciencias biomédicas y biotecnológicas [RD 99/2011];Doctorado;Graduado;Mujeres;2;0;0;0;3.11;;27/09/2020
+2018;Zaragoza;Doctorado: PD Ciencias de la antigüedad [RD 99/2011];Doctorado;Abandono Voluntario;Mujeres;0;1;0;0;;;27/09/2020
+2018;Zaragoza;Doctorado: PD Ciencias de la antigüedad [RD 99/2011];Doctorado;Graduado;Hombres;6;0;0;0;3.19;;27/09/2020
+2018;Zaragoza;Doctorado: PD Ciencias de la antigüedad [RD 99/2011];Doctorado;Graduado;Mujeres;4;0;0;0;4.21;;27/09/2020
+2018;Zaragoza;Doctorado: PD Ciencias de la antigüedad [RD 99/2011];Doctorado;Incumple Régimen de permanencia;Hombres;0;2;0;0;;;27/09/2020
+2018;Zaragoza;Doctorado: PD Ciencias de la antigüedad [RD 99/2011];Doctorado;Incumple Régimen de permanencia;Mujeres;0;1;0;0;;;27/09/2020
+2018;Zaragoza;Doctorado: PD Ciencias de la salud y del deporte [RD 99/2011];Doctorado;Abandono Voluntario;Hombres;0;6;0;0;;;27/09/2020
+2018;Zaragoza;Doctorado: PD Ciencias de la salud y del deporte [RD 99/2011];Doctorado;Graduado;Hombres;8;0;0;0;3.16;;27/09/2020
+2018;Zaragoza;Doctorado: PD Ciencias de la salud y del deporte [RD 99/2011];Doctorado;Graduado;Mujeres;7;0;0;0;3.73;;27/09/2020
+2018;Zaragoza;Doctorado: PD Ciencias de la salud y del deporte [RD 99/2011];Doctorado;Incumple Régimen de permanencia;Hombres;0;1;0;0;;;27/09/2020
+2018;Zaragoza;Doctorado: PD Ciencias de la salud y del deporte [RD 99/2011];Doctorado;Incumple Régimen de permanencia;Mujeres;0;2;0;0;;;27/09/2020
+2018;Zaragoza;Doctorado: PD Contabilidad y finanzas [RD 99/2011];Doctorado;Abandono Voluntario;Mujeres;0;1;0;0;;;27/09/2020
+2018;Zaragoza;Doctorado: PD Contabilidad y finanzas [RD 99/2011];Doctorado;Graduado;Hombres;1;0;0;0;4.66;;27/09/2020
+2018;Zaragoza;Doctorado: PD Contabilidad y finanzas [RD 99/2011];Doctorado;Graduado;Mujeres;1;0;0;0;4.20;;27/09/2020
+2018;Zaragoza;Doctorado: PD Contabilidad y finanzas [RD 99/2011];Doctorado;Incumple Régimen de permanencia;Hombres;0;1;0;0;;;27/09/2020
+2018;Zaragoza;Doctorado: PD Contabilidad y finanzas [RD 99/2011];Doctorado;Incumple Régimen de permanencia;Mujeres;0;1;0;0;;;27/09/2020
+2018;Zaragoza;Doctorado: PD Derecho [RD 99/2011];Doctorado;Graduado;Hombres;3;0;0;0;2.79;;27/09/2020
+2018;Zaragoza;Doctorado: PD Derecho [RD 99/2011];Doctorado;Graduado;Mujeres;5;0;0;0;4.48;;27/09/2020
+2018;Zaragoza;Doctorado: PD Derecho [RD 99/2011];Doctorado;Incumple Régimen de permanencia;Hombres;0;2;0;0;;;27/09/2020
+2018;Zaragoza;Doctorado: PD Derecho [RD 99/2011];Doctorado;Incumple Régimen de permanencia;Mujeres;0;3;0;0;;;27/09/2020
+2018;Zaragoza;Doctorado: PD Derechos humanos y libertades fundamentales [RD 99/2011];Doctorado;Abandono Voluntario;Mujeres;0;1;0;0;;;27/09/2020
+2018;Zaragoza;Doctorado: PD Derechos humanos y libertades fundamentales [RD 99/2011];Doctorado;Graduado;Hombres;2;0;0;0;3.22;;27/09/2020
+2018;Zaragoza;Doctorado: PD Derechos humanos y libertades fundamentales [RD 99/2011];Doctorado;Graduado;Mujeres;3;0;0;0;3.45;;27/09/2020
+2018;Zaragoza;Doctorado: PD Derechos humanos y libertades fundamentales [RD 99/2011];Doctorado;Incumple Régimen de permanencia;Hombres;0;1;0;0;;;27/09/2020
+2018;Zaragoza;Doctorado: PD Economía [RD 99/2011];Doctorado;Abandono Voluntario;Hombres;0;1;0;0;;;27/09/2020
+2018;Zaragoza;Doctorado: PD Economía [RD 99/2011];Doctorado;Graduado;Hombres;3;0;0;0;2.43;;27/09/2020
+2018;Zaragoza;Doctorado: PD Economía [RD 99/2011];Doctorado;Graduado;Mujeres;3;0;0;0;4.77;;27/09/2020
+2018;Zaragoza;Doctorado: PD Economía [RD 99/2011];Doctorado;Incumple Régimen de permanencia;Hombres;0;2;0;0;;;27/09/2020
+2018;Zaragoza;Doctorado: PD Economía [RD 99/2011];Doctorado;Incumple Régimen de permanencia;Mujeres;0;1;0;0;;;27/09/2020
+2018;Zaragoza;Doctorado: PD Economía y gestión de las organizaciones [RD 99/2011];Doctorado;Graduado;Hombres;1;0;0;0;4.89;;27/09/2020
+2018;Zaragoza;Doctorado: PD Economía y gestión de las organizaciones [RD 99/2011];Doctorado;Graduado;Mujeres;2;0;0;0;3.75;;27/09/2020
+2018;Zaragoza;Doctorado: PD Economía y gestión de las organizaciones [RD 99/2011];Doctorado;Incumple Régimen de permanencia;Hombres;0;3;0;0;;;27/09/2020
+2018;Zaragoza;Doctorado: PD Educación [RD 99/2011];Doctorado;Abandono Voluntario;Hombres;0;1;0;0;;;27/09/2020
+2018;Zaragoza;Doctorado: PD Educación [RD 99/2011];Doctorado;Abandono Voluntario;Mujeres;0;1;0;0;;;27/09/2020
+2018;Zaragoza;Doctorado: PD Educación [RD 99/2011];Doctorado;Graduado;Hombres;5;0;0;0;3.32;;27/09/2020
+2018;Zaragoza;Doctorado: PD Educación [RD 99/2011];Doctorado;Graduado;Mujeres;5;0;0;0;4.41;;27/09/2020
+2018;Zaragoza;Doctorado: PD Educación [RD 99/2011];Doctorado;Incumple Régimen de permanencia;Hombres;0;1;0;0;;;27/09/2020
+2018;Zaragoza;Doctorado: PD Educación [RD 99/2011];Doctorado;Incumple Régimen de permanencia;Mujeres;0;10;0;0;;;27/09/2020
+2018;Zaragoza;Doctorado: PD Energías renovables y eficiencia energética [RD 99/2011];Doctorado;Abandono Voluntario;Hombres;0;1;0;0;;;27/09/2020
+2018;Zaragoza;Doctorado: PD Energías renovables y eficiencia energética [RD 99/2011];Doctorado;Abandono Voluntario;Mujeres;0;1;0;0;;;27/09/2020
+2018;Zaragoza;Doctorado: PD Energías renovables y eficiencia energética [RD 99/2011];Doctorado;Graduado;Hombres;6;0;0;0;3.38;;27/09/2020
+2018;Zaragoza;Doctorado: PD Energías renovables y eficiencia energética [RD 99/2011];Doctorado;Incumple Régimen de permanencia;Hombres;0;2;0;0;;;27/09/2020
+2018;Zaragoza;Doctorado: PD Estudios ingleses [RD 99/2011];Doctorado;Abandono Voluntario;Hombres;0;1;0;0;;;27/09/2020
+2018;Zaragoza;Doctorado: PD Filosofía [RD 99/2011];Doctorado;Graduado;Hombres;2;0;0;0;4.60;;27/09/2020
+2018;Zaragoza;Doctorado: PD Física [RD 99/2011];Doctorado;Graduado;Hombres;4;0;0;0;3.48;;27/09/2020
+2018;Zaragoza;Doctorado: PD Física [RD 99/2011];Doctorado;Graduado;Mujeres;1;0;0;0;3.89;;27/09/2020
+2018;Zaragoza;Doctorado: PD Física [RD 99/2011];Doctorado;Incumple Régimen de permanencia;Hombres;0;2;0;0;;;27/09/2020
+2018;Zaragoza;Doctorado: PD Física [RD 99/2011];Doctorado;Incumple Régimen de permanencia;Mujeres;0;1;0;0;;;27/09/2020
+2018;Zaragoza;Doctorado: PD Geología [RD 99/2011];Doctorado;Abandono Voluntario;Mujeres;0;1;0;0;;;27/09/2020
+2018;Zaragoza;Doctorado: PD Geología [RD 99/2011];Doctorado;Cambio de estudios sin simultaneidad;Mujeres;0;1;0;0;;;27/09/2020
+2018;Zaragoza;Doctorado: PD Geología [RD 99/2011];Doctorado;Graduado;Hombres;4;0;0;0;5.08;;27/09/2020
+2018;Zaragoza;Doctorado: PD Geología [RD 99/2011];Doctorado;Graduado;Mujeres;3;0;0;0;5.12;;27/09/2020
+2018;Zaragoza;Doctorado: PD Geología [RD 99/2011];Doctorado;Incumple Régimen de permanencia;Hombres;0;1;0;0;;;27/09/2020
+2018;Zaragoza;Doctorado: PD Historia contemporánea [RD 99/2011];Doctorado;Abandono Voluntario;Mujeres;0;1;0;0;;;27/09/2020
+2018;Zaragoza;Doctorado: PD Historia contemporánea [RD 99/2011];Doctorado;Graduado;Hombres;1;0;0;0;3.92;;27/09/2020
+2018;Zaragoza;Doctorado: PD Historia contemporánea [RD 99/2011];Doctorado;Incumple Régimen de permanencia;Hombres;0;1;0;0;;;27/09/2020
+2018;Zaragoza;Doctorado: PD Historia del arte [RD 99/2011];Doctorado;Graduado;Hombres;1;0;0;0;5.29;;27/09/2020
+2018;Zaragoza;Doctorado: PD Historia del arte [RD 99/2011];Doctorado;Graduado;Mujeres;4;0;0;0;3.96;;27/09/2020
+2018;Zaragoza;Doctorado: PD Historia del arte [RD 99/2011];Doctorado;Incumple Régimen de permanencia;Mujeres;0;4;0;0;;;27/09/2020
+2018;Zaragoza;Doctorado: PD Historia, sociedad y cultura: épocas medieval y moderna [RD 99/2011];Doctorado;Abandono Voluntario;Hombres;0;2;0;0;;;27/09/2020
+2018;Zaragoza;Doctorado: PD Historia, sociedad y cultura: épocas medieval y moderna [RD 99/2011];Doctorado;Graduado;Hombres;3;0;0;0;3.20;;27/09/2020
+2018;Zaragoza;Doctorado: PD Historia, sociedad y cultura: épocas medieval y moderna [RD 99/2011];Doctorado;Graduado;Mujeres;3;0;0;0;2.96;;27/09/2020
+2018;Zaragoza;Doctorado: PD Historia, sociedad y cultura: épocas medieval y moderna [RD 99/2011];Doctorado;Incumple Régimen de permanencia;Mujeres;0;1;0;0;;;27/09/2020
+2018;Zaragoza;Doctorado: PD Información y Comunicación [RD 99/2011];Doctorado;Graduado;Hombres;1;0;0;0;3.29;;27/09/2020
+2018;Zaragoza;Doctorado: PD Información y Comunicación [RD 99/2011];Doctorado;Incumple Régimen de permanencia;Hombres;0;1;0;0;;;27/09/2020
+2018;Zaragoza;Doctorado: PD Ingeniería biomédica [RD 99/2011];Doctorado;Abandono Voluntario;Hombres;0;1;0;0;;;27/09/2020
+2018;Zaragoza;Doctorado: PD Ingeniería biomédica [RD 99/2011];Doctorado;Graduado;Hombres;4;0;0;0;3.12;;27/09/2020
+2018;Zaragoza;Doctorado: PD Ingeniería biomédica [RD 99/2011];Doctorado;Graduado;Mujeres;1;0;0;0;3.91;;27/09/2020
+2018;Zaragoza;Doctorado: PD Ingeniería biomédica [RD 99/2011];Doctorado;Incumple Régimen de permanencia;Hombres;0;2;0;0;;;27/09/2020
+2018;Zaragoza;Doctorado: PD Ingeniería de diseño y fabricación [RD 99/2011];Doctorado;Graduado;Hombres;4;0;0;0;3.18;;27/09/2020
+2018;Zaragoza;Doctorado: PD Ingeniería de diseño y fabricación [RD 99/2011];Doctorado;Incumple Régimen de permanencia;Hombres;0;1;0;0;;;27/09/2020
+2018;Zaragoza;Doctorado: PD Ingeniería de sistemas e informática [RD 99/2011];Doctorado;Graduado;Hombres;4;0;0;0;3.54;;27/09/2020
+2018;Zaragoza;Doctorado: PD Ingeniería de sistemas e informática [RD 99/2011];Doctorado;Graduado;Mujeres;3;0;0;0;4.27;;27/09/2020
+2018;Zaragoza;Doctorado: PD Ingeniería de sistemas e informática [RD 99/2011];Doctorado;Incumple Régimen de permanencia;Hombres;0;4;0;0;;;27/09/2020
+2018;Zaragoza;Doctorado: PD Ingeniería electrónica [RD 99/2011];Doctorado;Graduado;Hombres;4;0;0;0;3.28;;27/09/2020
+2018;Zaragoza;Doctorado: PD Ingeniería electrónica [RD 99/2011];Doctorado;Incumple Régimen de permanencia;Hombres;0;1;0;0;;;27/09/2020
+2018;Zaragoza;Doctorado: PD Ingeniería mecánica [RD 99/2011];Doctorado;Abandono Voluntario;Hombres;0;3;0;0;;;27/09/2020
+2018;Zaragoza;Doctorado: PD Ingeniería mecánica [RD 99/2011];Doctorado;Graduado;Hombres;1;0;0;0;4.44;;27/09/2020
+2018;Zaragoza;Doctorado: PD Ingeniería mecánica [RD 99/2011];Doctorado;Graduado;Mujeres;1;0;0;0;4.37;;27/09/2020
+2018;Zaragoza;Doctorado: PD Ingeniería mecánica [RD 99/2011];Doctorado;Incumple Régimen de permanencia;Hombres;0;4;0;0;;;27/09/2020
+2018;Zaragoza;Doctorado: PD Ingeniería química y del medio ambiente [RD 99/2011];Doctorado;Abandono Voluntario;Hombres;0;1;0;0;;;27/09/2020
+2018;Zaragoza;Doctorado: PD Ingeniería química y del medio ambiente [RD 99/2011];Doctorado;Abandono Voluntario;Mujeres;0;1;0;0;;;27/09/2020
+2018;Zaragoza;Doctorado: PD Ingeniería química y del medio ambiente [RD 99/2011];Doctorado;Graduado;Hombres;7;0;0;0;3.26;;27/09/2020
+2018;Zaragoza;Doctorado: PD Ingeniería química y del medio ambiente [RD 99/2011];Doctorado;Graduado;Mujeres;7;0;0;0;3.94;;27/09/2020
+2018;Zaragoza;Doctorado: PD Ingeniería química y del medio ambiente [RD 99/2011];Doctorado;Incumple Régimen de permanencia;Hombres;0;4;0;0;;;27/09/2020
+2018;Zaragoza;Doctorado: PD Ingeniería química y del medio ambiente [RD 99/2011];Doctorado;Incumple Régimen de permanencia;Mujeres;0;1;0;0;;;27/09/2020
+2018;Zaragoza;Doctorado: PD Lingüística hispánica [RD 99/2011];Doctorado;Incumple Régimen de permanencia;Mujeres;0;3;0;0;;;27/09/2020
+2018;Zaragoza;Doctorado: PD Literaturas hispánicas [RD 99/2011];Doctorado;Abandono Voluntario;Hombres;0;2;0;0;;;27/09/2020
+2018;Zaragoza;Doctorado: PD Literaturas hispánicas [RD 99/2011];Doctorado;Abandono Voluntario;Mujeres;0;1;0;0;;;27/09/2020
+2018;Zaragoza;Doctorado: PD Literaturas hispánicas [RD 99/2011];Doctorado;Graduado;Hombres;1;0;0;0;5.00;;27/09/2020
+2018;Zaragoza;Doctorado: PD Literaturas hispánicas [RD 99/2011];Doctorado;Graduado;Mujeres;2;0;0;0;3.20;;27/09/2020
+2018;Zaragoza;Doctorado: PD Literaturas hispánicas [RD 99/2011];Doctorado;Incumple Régimen de permanencia;Hombres;0;1;0;0;;;27/09/2020
+2018;Zaragoza;Doctorado: PD Literaturas hispánicas [RD 99/2011];Doctorado;Incumple Régimen de permanencia;Mujeres;0;2;0;0;;;27/09/2020
+2018;Zaragoza;Doctorado: PD Matemáticas y estadística [RD 99/2011];Doctorado;Abandono Voluntario;Hombres;0;1;0;0;;;27/09/2020
+2018;Zaragoza;Doctorado: PD Matemáticas y estadística [RD 99/2011];Doctorado;Graduado;Hombres;1;0;0;0;3.57;;27/09/2020
+2018;Zaragoza;Doctorado: PD Mecánica de fluidos [RD 99/2011];Doctorado;Graduado;Hombres;1;0;0;0;3.18;;27/09/2020
+2018;Zaragoza;Doctorado: PD Mecánica de fluidos [RD 99/2011];Doctorado;Incumple Régimen de permanencia;Hombres;0;1;0;0;;;27/09/2020
+2018;Zaragoza;Doctorado: PD Medicina [RD 99/2011];Doctorado;Abandono Voluntario;Mujeres;0;2;0;0;;;27/09/2020
+2018;Zaragoza;Doctorado: PD Medicina [RD 99/2011];Doctorado;Graduado;Hombres;5;0;0;0;3.25;;27/09/2020
+2018;Zaragoza;Doctorado: PD Medicina [RD 99/2011];Doctorado;Graduado;Mujeres;21;0;0;0;3.35;;27/09/2020
+2018;Zaragoza;Doctorado: PD Medicina [RD 99/2011];Doctorado;Incumple Régimen de permanencia;Hombres;0;7;0;0;;;27/09/2020
+2018;Zaragoza;Doctorado: PD Medicina [RD 99/2011];Doctorado;Incumple Régimen de permanencia;Mujeres;0;14;0;0;;;27/09/2020
+2018;Zaragoza;Doctorado: PD Medicina y sanidad animal [RD 99/2011];Doctorado;Abandono Voluntario;Hombres;0;1;0;0;;;27/09/2020
+2018;Zaragoza;Doctorado: PD Medicina y sanidad animal [RD 99/2011];Doctorado;Abandono Voluntario;Mujeres;0;1;0;0;;;27/09/2020
+2018;Zaragoza;Doctorado: PD Medicina y sanidad animal [RD 99/2011];Doctorado;Graduado;Hombres;2;0;0;0;4.21;;27/09/2020
+2018;Zaragoza;Doctorado: PD Medicina y sanidad animal [RD 99/2011];Doctorado;Graduado;Mujeres;3;0;0;0;3.26;;27/09/2020
+2018;Zaragoza;Doctorado: PD Medicina y sanidad animal [RD 99/2011];Doctorado;Incumple Régimen de permanencia;Hombres;0;2;0;0;;;27/09/2020
+2018;Zaragoza;Doctorado: PD Medicina y sanidad animal [RD 99/2011];Doctorado;Incumple Régimen de permanencia;Mujeres;0;1;0;0;;;27/09/2020
+2018;Zaragoza;Doctorado: PD Nuevos territorios en la arquitectura [RD 99/2011];Doctorado;Abandono Voluntario;Mujeres;0;1;0;0;;;27/09/2020
+2018;Zaragoza;Doctorado: PD Nuevos territorios en la arquitectura [RD 99/2011];Doctorado;Graduado;Mujeres;1;0;0;0;5.55;;27/09/2020
+2018;Zaragoza;Doctorado: PD Nuevos territorios en la arquitectura [RD 99/2011];Doctorado;Incumple Régimen de permanencia;Hombres;0;2;0;0;;;27/09/2020
+2018;Zaragoza;Doctorado: PD Nuevos territorios en la arquitectura [RD 99/2011];Doctorado;Incumple Régimen de permanencia;Mujeres;0;3;0;0;;;27/09/2020
+2018;Zaragoza;Doctorado: PD Ordenación del territorio y medio ambiente [RD 99/2011];Doctorado;Abandono Voluntario;Mujeres;0;1;0;0;;;27/09/2020
+2018;Zaragoza;Doctorado: PD Ordenación del territorio y medio ambiente [RD 99/2011];Doctorado;Graduado;Hombres;3;0;0;0;4.09;;27/09/2020
+2018;Zaragoza;Doctorado: PD Ordenación del territorio y medio ambiente [RD 99/2011];Doctorado;Graduado;Mujeres;3;0;0;0;4.76;;27/09/2020
+2018;Zaragoza;Doctorado: PD Ordenación del territorio y medio ambiente [RD 99/2011];Doctorado;Incumple Régimen de permanencia;Hombres;0;1;0;0;;;27/09/2020
+2018;Zaragoza;Doctorado: PD Patrimonio, Sociedades y Espacios de Frontera [RD 99/2011];Doctorado;Abandono Voluntario;Mujeres;0;1;0;0;;;27/09/2020
+2018;Zaragoza;Doctorado: PD Patrimonio, Sociedades y Espacios de Frontera [RD 99/2011];Doctorado;Graduado;Hombres;1;0;0;0;1.42;;27/09/2020
+2018;Zaragoza;Doctorado: PD Patrimonio, Sociedades y Espacios de Frontera [RD 99/2011];Doctorado;Incumple Régimen de permanencia;Mujeres;0;1;0;0;;;27/09/2020
+2018;Zaragoza;Doctorado: PD Producción animal [RD 99/2011];Doctorado;Abandono Voluntario;Mujeres;0;1;0;0;;;27/09/2020
+2018;Zaragoza;Doctorado: PD Producción animal [RD 99/2011];Doctorado;Graduado;Hombres;1;0;0;0;4.56;;27/09/2020
+2018;Zaragoza;Doctorado: PD Producción animal [RD 99/2011];Doctorado;Graduado;Mujeres;1;0;0;0;3.42;;27/09/2020
+2018;Zaragoza;Doctorado: PD Producción animal [RD 99/2011];Doctorado;Incumple Régimen de permanencia;Hombres;0;1;0;0;;;27/09/2020
+2018;Zaragoza;Doctorado: PD Producción animal [RD 99/2011];Doctorado;Incumple Régimen de permanencia;Mujeres;0;1;0;0;;;27/09/2020
+2018;Zaragoza;Doctorado: PD Química física [RD 99/2011];Doctorado;Abandono Voluntario;Hombres;0;1;0;0;;;27/09/2020
+2018;Zaragoza;Doctorado: PD Química física [RD 99/2011];Doctorado;Graduado;Hombres;1;0;0;0;3.03;;27/09/2020
+2018;Zaragoza;Doctorado: PD Química física [RD 99/2011];Doctorado;Graduado;Mujeres;1;0;0;0;3.90;;27/09/2020
+2018;Zaragoza;Doctorado: PD Química inorgánica [RD 99/2011];Doctorado;Graduado;Hombres;2;0;0;0;3.00;;27/09/2020
+2018;Zaragoza;Doctorado: PD Química inorgánica [RD 99/2011];Doctorado;Graduado;Mujeres;5;0;0;0;2.84;;27/09/2020
+2018;Zaragoza;Doctorado: PD Química orgánica [RD 99/2011];Doctorado;Graduado;Hombres;3;0;0;0;4.27;;27/09/2020
+2018;Zaragoza;Doctorado: PD Química orgánica [RD 99/2011];Doctorado;Graduado;Mujeres;3;0;0;0;3.91;;27/09/2020
+2018;Zaragoza;Doctorado: PD Química orgánica [RD 99/2011];Doctorado;Incumple Régimen de permanencia;Hombres;0;1;0;0;;;27/09/2020
+2018;Zaragoza;Doctorado: PD Relaciones de género y estudios feministas [RD 99/2011];Doctorado;Abandono Voluntario;Mujeres;0;1;0;0;;;27/09/2020
+2018;Zaragoza;Doctorado: PD Relaciones de género y estudios feministas [RD 99/2011];Doctorado;Incumple Régimen de permanencia;Mujeres;0;1;0;0;;;27/09/2020
+2018;Zaragoza;Doctorado: PD Sociología de las políticas públicas y sociales [RD 99/2011];Doctorado;Graduado;Hombres;5;0;0;0;2.71;;27/09/2020
+2018;Zaragoza;Doctorado: PD Sociología de las políticas públicas y sociales [RD 99/2011];Doctorado;Graduado;Mujeres;5;0;0;0;3.31;;27/09/2020
+2018;Zaragoza;Doctorado: PD Sociología de las políticas públicas y sociales [RD 99/2011];Doctorado;Incumple Régimen de permanencia;Hombres;0;1;0;0;;;27/09/2020
+2018;Zaragoza;Doctorado: PD Sociología de las políticas públicas y sociales [RD 99/2011];Doctorado;Incumple Régimen de permanencia;Mujeres;0;4;0;0;;;27/09/2020
+2018;Zaragoza;Doctorado: PD Tecnologías de la información y comunicaciones en redes moviles [RD 99/2011];Doctorado;Graduado;Hombres;1;0;0;0;3.64;;27/09/2020
+2018;Zaragoza;Doctorado: PD Tecnologías de la información y comunicaciones en redes moviles [RD 99/2011];Doctorado;Graduado;Mujeres;1;0;0;0;3.96;;27/09/2020
+2018;Zaragoza;Estadística;Diplomatura o equivalente;Traslado a otra Universidad;Mujeres;0;0;0;1;;;27/09/2020
+2018;Zaragoza;Filología Clásica;Licenciatura o equivalente;Traslado a otra Universidad;Mujeres;0;0;0;1;;;27/09/2020
+2018;Zaragoza;Filología Hispánica;Licenciatura o equivalente;Abandono Voluntario;Mujeres;0;1;0;0;;;27/09/2020
+2018;Zaragoza;Filología Hispánica;Licenciatura o equivalente;Traslado a otra Universidad;Mujeres;0;0;0;2;;;27/09/2020
+2018;Zaragoza;Físicas;Licenciatura o equivalente;Traslado a otra Universidad;Hombres;0;0;0;4;;;27/09/2020
+2018;Zaragoza;Geografía;Licenciatura o equivalente;Traslado a otra Universidad;Hombres;0;0;0;1;;;27/09/2020
+2018;Zaragoza;Geografía e Historia;Licenciatura o equivalente;Traslado a otra Universidad;Hombres;0;0;0;1;;;27/09/2020
+2018;Zaragoza;Geografía e Historia;Licenciatura o equivalente;Traslado a otra Universidad;Mujeres;0;0;0;1;;;27/09/2020
+2018;Zaragoza;Geológicas;Licenciatura o equivalente;Traslado a otra Universidad;Hombres;0;0;0;1;;;27/09/2020
+2018;Zaragoza;Grado: Administración y Dirección de Empresas;Grado;Abandono Voluntario;Hombres;0;87;34;0;;;27/09/2020
+2018;Zaragoza;Grado: Administración y Dirección de Empresas;Grado;Abandono Voluntario;Mujeres;0;50;14;0;;;27/09/2020
+2018;Zaragoza;Grado: Administración y Dirección de Empresas;Grado;Cambio de estudios sin simultaneidad;Hombres;0;25;12;0;;;27/09/2020
+2018;Zaragoza;Grado: Administración y Dirección de Empresas;Grado;Cambio de estudios sin simultaneidad;Mujeres;0;7;6;0;;;27/09/2020
+2018;Zaragoza;Grado: Administración y Dirección de Empresas;Grado;Graduado;Hombres;146;0;0;0;5.62;84.31;27/09/2020
+2018;Zaragoza;Grado: Administración y Dirección de Empresas;Grado;Graduado;Mujeres;192;0;0;0;5.38;88.66;27/09/2020
+2018;Zaragoza;Grado: Administración y Dirección de Empresas;Grado;Incumple Régimen de permanencia;Hombres;0;13;7;0;;;27/09/2020
+2018;Zaragoza;Grado: Administración y Dirección de Empresas;Grado;Incumple Régimen de permanencia;Mujeres;0;6;2;0;;;27/09/2020
+2018;Zaragoza;Grado: Administración y Dirección de Empresas;Grado;Traslado a otra Universidad;Hombres;0;0;0;12;;;27/09/2020
+2018;Zaragoza;Grado: Administración y Dirección de Empresas;Grado;Traslado a otra Universidad;Mujeres;0;0;0;13;;;27/09/2020
+2018;Zaragoza;Grado: Biotecnología;Grado;Abandono Voluntario;Hombres;0;1;1;0;;;27/09/2020
+2018;Zaragoza;Grado: Biotecnología;Grado;Abandono Voluntario;Mujeres;0;1;0;0;;;27/09/2020
+2018;Zaragoza;Grado: Biotecnología;Grado;Cambio de estudios sin simultaneidad;Hombres;0;3;2;0;;;27/09/2020
+2018;Zaragoza;Grado: Biotecnología;Grado;Cambio de estudios sin simultaneidad;Mujeres;0;1;1;0;;;27/09/2020
+2018;Zaragoza;Grado: Biotecnología;Grado;Graduado;Hombres;20;0;0;0;4.24;98.39;27/09/2020
+2018;Zaragoza;Grado: Biotecnología;Grado;Graduado;Mujeres;50;0;0;0;4.26;95.23;27/09/2020
+2018;Zaragoza;Grado: Biotecnología;Grado;Incumple Régimen de permanencia;Hombres;0;1;1;0;;;27/09/2020
+2018;Zaragoza;Grado: Biotecnología;Grado;Incumple Régimen de permanencia;Mujeres;0;2;2;0;;;27/09/2020
+2018;Zaragoza;Grado: Biotecnología;Grado;Traslado a otra Universidad;Hombres;0;0;0;3;;;27/09/2020
+2018;Zaragoza;Grado: Biotecnología;Grado;Traslado a otra Universidad;Mujeres;0;0;0;1;;;27/09/2020
+2018;Zaragoza;Grado: Ciencia y Tecnología de los Alimentos;Grado;Abandono Voluntario;Hombres;0;4;2;0;;;27/09/2020
+2018;Zaragoza;Grado: Ciencia y Tecnología de los Alimentos;Grado;Abandono Voluntario;Mujeres;0;4;1;0;;;27/09/2020
+2018;Zaragoza;Grado: Ciencia y Tecnología de los Alimentos;Grado;Cambio de estudios sin simultaneidad;Hombres;0;1;1;0;;;27/09/2020
+2018;Zaragoza;Grado: Ciencia y Tecnología de los Alimentos;Grado;Cambio de estudios sin simultaneidad;Mujeres;0;2;2;0;;;27/09/2020
+2018;Zaragoza;Grado: Ciencia y Tecnología de los Alimentos;Grado;Graduado;Hombres;15;0;0;0;5.08;83.83;27/09/2020
+2018;Zaragoza;Grado: Ciencia y Tecnología de los Alimentos;Grado;Graduado;Mujeres;22;0;0;0;4.40;90.57;27/09/2020
+2018;Zaragoza;Grado: Ciencia y Tecnología de los Alimentos;Grado;Traslado a otra Universidad;Hombres;0;0;0;1;;;27/09/2020
+2018;Zaragoza;Grado: Derecho;Grado;Abandono Voluntario;Hombres;0;28;9;0;;;27/09/2020
+2018;Zaragoza;Grado: Derecho;Grado;Abandono Voluntario;Mujeres;0;23;7;0;;;27/09/2020
+2018;Zaragoza;Grado: Derecho;Grado;Cambio de estudios sin simultaneidad;Hombres;0;4;4;0;;;27/09/2020
+2018;Zaragoza;Grado: Derecho;Grado;Cambio de estudios sin simultaneidad;Mujeres;0;6;5;0;;;27/09/2020
+2018;Zaragoza;Grado: Derecho;Grado;Graduado;Hombres;111;0;0;0;5.16;90.68;27/09/2020
+2018;Zaragoza;Grado: Derecho;Grado;Graduado;Mujeres;183;0;0;0;5.06;91.53;27/09/2020
+2018;Zaragoza;Grado: Derecho;Grado;Incumple Régimen de permanencia;Hombres;0;2;1;0;;;27/09/2020
+2018;Zaragoza;Grado: Derecho;Grado;Incumple Régimen de permanencia;Mujeres;0;4;1;0;;;27/09/2020
+2018;Zaragoza;Grado: Derecho;Grado;Traslado a otra Universidad;Hombres;0;0;0;8;;;27/09/2020
+2018;Zaragoza;Grado: Derecho;Grado;Traslado a otra Universidad;Mujeres;0;0;0;13;;;27/09/2020
+2018;Zaragoza;Grado: Economía;Grado;Abandono Voluntario;Hombres;0;32;17;0;;;27/09/2020
+2018;Zaragoza;Grado: Economía;Grado;Abandono Voluntario;Mujeres;0;29;7;0;;;27/09/2020
+2018;Zaragoza;Grado: Economía;Grado;Cambio de estudios sin simultaneidad;Hombres;0;9;4;0;;;27/09/2020
+2018;Zaragoza;Grado: Economía;Grado;Cambio de estudios sin simultaneidad;Mujeres;0;3;3;0;;;27/09/2020
+2018;Zaragoza;Grado: Economía;Grado;Graduado;Hombres;60;0;0;0;5.96;75.88;27/09/2020
+2018;Zaragoza;Grado: Economía;Grado;Graduado;Mujeres;30;0;0;0;5.12;85.83;27/09/2020
+2018;Zaragoza;Grado: Economía;Grado;Incumple Régimen de permanencia;Hombres;0;18;11;0;;;27/09/2020
+2018;Zaragoza;Grado: Economía;Grado;Incumple Régimen de permanencia;Mujeres;0;7;3;0;;;27/09/2020
+2018;Zaragoza;Grado: Economía;Grado;Traslado a otra Universidad;Hombres;0;0;0;14;;;27/09/2020
+2018;Zaragoza;Grado: Economía;Grado;Traslado a otra Universidad;Mujeres;0;0;0;4;;;27/09/2020
+2018;Zaragoza;Grado: Enfermería;Grado;Abandono Voluntario;Hombres;0;3;1;0;;;27/09/2020
+2018;Zaragoza;Grado: Enfermería;Grado;Abandono Voluntario;Mujeres;0;10;4;0;;;27/09/2020
+2018;Zaragoza;Grado: Enfermería;Grado;Cambio de estudios sin simultaneidad;Hombres;0;1;1;0;;;27/09/2020
+2018;Zaragoza;Grado: Enfermería;Grado;Cambio de estudios sin simultaneidad;Mujeres;0;13;13;0;;;27/09/2020
+2018;Zaragoza;Grado: Enfermería;Grado;Graduado;Hombres;17;0;0;0;4.00;95.30;27/09/2020
+2018;Zaragoza;Grado: Enfermería;Grado;Graduado;Mujeres;117;0;0;0;4.02;98.07;27/09/2020
+2018;Zaragoza;Grado: Enfermería;Grado;Traslado a otra Universidad;Mujeres;0;0;0;4;;;27/09/2020
+2018;Zaragoza;Grado: Estudios Clásicos;Grado;Abandono Voluntario;Hombres;0;1;0;0;;;27/09/2020
+2018;Zaragoza;Grado: Estudios Clásicos;Grado;Abandono Voluntario;Mujeres;0;5;2;0;;;27/09/2020
+2018;Zaragoza;Grado: Estudios Clásicos;Grado;Cambio de estudios sin simultaneidad;Hombres;0;1;0;0;;;27/09/2020
+2018;Zaragoza;Grado: Estudios Clásicos;Grado;Cambio de estudios sin simultaneidad;Mujeres;0;6;2;0;;;27/09/2020
+2018;Zaragoza;Grado: Estudios Clásicos;Grado;Graduado;Mujeres;3;0;0;0;5.50;85.66;27/09/2020
+2018;Zaragoza;Grado: Estudios Clásicos;Grado;Traslado a otra Universidad;Mujeres;0;0;0;2;;;27/09/2020
+2018;Zaragoza;Grado: Estudios en Arquitectura;Grado;Abandono Voluntario;Hombres;0;14;8;0;;;27/09/2020
+2018;Zaragoza;Grado: Estudios en Arquitectura;Grado;Abandono Voluntario;Mujeres;0;3;3;0;;;27/09/2020
+2018;Zaragoza;Grado: Estudios en Arquitectura;Grado;Cambio de estudios sin simultaneidad;Hombres;0;1;1;0;;;27/09/2020
+2018;Zaragoza;Grado: Estudios en Arquitectura;Grado;Cambio de estudios sin simultaneidad;Mujeres;0;1;1;0;;;27/09/2020
+2018;Zaragoza;Grado: Estudios en Arquitectura;Grado;Graduado;Hombres;24;0;0;0;5.68;87.58;27/09/2020
+2018;Zaragoza;Grado: Estudios en Arquitectura;Grado;Graduado;Mujeres;25;0;0;0;5.74;89.32;27/09/2020
+2018;Zaragoza;Grado: Estudios en Arquitectura;Grado;Incumple Régimen de permanencia;Hombres;0;3;2;0;;;27/09/2020
+2018;Zaragoza;Grado: Estudios en Arquitectura;Grado;Incumple Régimen de permanencia;Mujeres;0;1;1;0;;;27/09/2020
+2018;Zaragoza;Grado: Estudios en Arquitectura;Grado;Traslado a otra Universidad;Hombres;0;0;0;3;;;27/09/2020
+2018;Zaragoza;Grado: Estudios Ingleses;Grado;Abandono Voluntario;Hombres;0;17;7;0;;;27/09/2020
+2018;Zaragoza;Grado: Estudios Ingleses;Grado;Abandono Voluntario;Mujeres;0;17;8;0;;;27/09/2020
+2018;Zaragoza;Grado: Estudios Ingleses;Grado;Cambio de estudios sin simultaneidad;Mujeres;0;3;2;0;;;27/09/2020
+2018;Zaragoza;Grado: Estudios Ingleses;Grado;Graduado;Hombres;6;0;0;0;4.80;86.96;27/09/2020
+2018;Zaragoza;Grado: Estudios Ingleses;Grado;Graduado;Mujeres;49;0;0;0;4.49;92.24;27/09/2020
+2018;Zaragoza;Grado: Estudios Ingleses;Grado;Incumple Régimen de permanencia;Hombres;0;1;1;0;;;27/09/2020
+2018;Zaragoza;Grado: Estudios Ingleses;Grado;Traslado a otra Universidad;Hombres;0;0;0;1;;;27/09/2020
+2018;Zaragoza;Grado: Estudios Ingleses;Grado;Traslado a otra Universidad;Mujeres;0;0;0;4;;;27/09/2020
+2018;Zaragoza;Grado: Filología Hispánica;Grado;Abandono Voluntario;Hombres;0;8;3;0;;;27/09/2020
+2018;Zaragoza;Grado: Filología Hispánica;Grado;Abandono Voluntario;Mujeres;0;17;10;0;;;27/09/2020
+2018;Zaragoza;Grado: Filología Hispánica;Grado;Cambio de estudios sin simultaneidad;Hombres;0;2;0;0;;;27/09/2020
+2018;Zaragoza;Grado: Filología Hispánica;Grado;Cambio de estudios sin simultaneidad;Mujeres;0;2;2;0;;;27/09/2020
+2018;Zaragoza;Grado: Filología Hispánica;Grado;Graduado;Hombres;8;0;0;0;5.60;82.38;27/09/2020
+2018;Zaragoza;Grado: Filología Hispánica;Grado;Graduado;Mujeres;35;0;0;0;4.83;89.52;27/09/2020
+2018;Zaragoza;Grado: Filología Hispánica;Grado;Incumple Régimen de permanencia;Hombres;0;1;1;0;;;27/09/2020
+2018;Zaragoza;Grado: Filología Hispánica;Grado;Incumple Régimen de permanencia;Mujeres;0;1;1;0;;;27/09/2020
+2018;Zaragoza;Grado: Filología Hispánica;Grado;Traslado a otra Universidad;Hombres;0;0;0;1;;;27/09/2020
+2018;Zaragoza;Grado: Filología Hispánica;Grado;Traslado a otra Universidad;Mujeres;0;0;0;3;;;27/09/2020
+2018;Zaragoza;Grado: Filosofía;Grado;Abandono Voluntario;Hombres;0;13;5;0;;;27/09/2020
+2018;Zaragoza;Grado: Filosofía;Grado;Abandono Voluntario;Mujeres;0;7;6;0;;;27/09/2020
+2018;Zaragoza;Grado: Filosofía;Grado;Cambio de estudios sin simultaneidad;Hombres;0;1;0;0;;;27/09/2020
+2018;Zaragoza;Grado: Filosofía;Grado;Graduado;Hombres;13;0;0;0;5.09;81.54;27/09/2020
+2018;Zaragoza;Grado: Filosofía;Grado;Graduado;Mujeres;14;0;0;0;5.57;81.01;27/09/2020
+2018;Zaragoza;Grado: Filosofía;Grado;Incumple Régimen de permanencia;Hombres;0;1;0;0;;;27/09/2020
+2018;Zaragoza;Grado: Filosofía;Grado;Traslado a otra Universidad;Hombres;0;0;0;6;;;27/09/2020
+2018;Zaragoza;Grado: Filosofía;Grado;Traslado a otra Universidad;Mujeres;0;0;0;3;;;27/09/2020
+2018;Zaragoza;Grado: Finanzas y Contabilidad;Grado;Abandono Voluntario;Hombres;0;34;19;0;;;27/09/2020
+2018;Zaragoza;Grado: Finanzas y Contabilidad;Grado;Abandono Voluntario;Mujeres;0;22;7;0;;;27/09/2020
+2018;Zaragoza;Grado: Finanzas y Contabilidad;Grado;Cambio de estudios sin simultaneidad;Hombres;0;9;9;0;;;27/09/2020
+2018;Zaragoza;Grado: Finanzas y Contabilidad;Grado;Cambio de estudios sin simultaneidad;Mujeres;0;6;5;0;;;27/09/2020
+2018;Zaragoza;Grado: Finanzas y Contabilidad;Grado;Graduado;Hombres;27;0;0;0;5.53;80.18;27/09/2020
+2018;Zaragoza;Grado: Finanzas y Contabilidad;Grado;Graduado;Mujeres;40;0;0;0;5.56;82.77;27/09/2020
+2018;Zaragoza;Grado: Finanzas y Contabilidad;Grado;Incumple Régimen de permanencia;Hombres;0;2;1;0;;;27/09/2020
+2018;Zaragoza;Grado: Finanzas y Contabilidad;Grado;Incumple Régimen de permanencia;Mujeres;0;2;0;0;;;27/09/2020
+2018;Zaragoza;Grado: Finanzas y Contabilidad;Grado;Traslado a otra Universidad;Mujeres;0;0;0;2;;;27/09/2020
+2018;Zaragoza;Grado: Física;Grado;Abandono Voluntario;Hombres;0;5;1;0;;;27/09/2020
+2018;Zaragoza;Grado: Física;Grado;Abandono Voluntario;Mujeres;0;1;0;0;;;27/09/2020
+2018;Zaragoza;Grado: Física;Grado;Cambio de estudios sin simultaneidad;Hombres;0;4;3;0;;;27/09/2020
+2018;Zaragoza;Grado: Física;Grado;Cambio de estudios sin simultaneidad;Mujeres;0;1;0;0;;;27/09/2020
+2018;Zaragoza;Grado: Física;Grado;Graduado;Hombres;31;0;0;0;4.21;92.90;27/09/2020
+2018;Zaragoza;Grado: Física;Grado;Graduado;Mujeres;8;0;0;0;4.75;84.76;27/09/2020
+2018;Zaragoza;Grado: Física;Grado;Incumple Régimen de permanencia;Hombres;0;5;0;0;;;27/09/2020
+2018;Zaragoza;Grado: Física;Grado;Incumple Régimen de permanencia;Mujeres;0;2;0;0;;;27/09/2020
+2018;Zaragoza;Grado: Física;Grado;Traslado a otra Universidad;Hombres;0;0;0;1;;;27/09/2020
+2018;Zaragoza;Grado: Física;Grado;Traslado a otra Universidad;Mujeres;0;0;0;3;;;27/09/2020
+2018;Zaragoza;Grado: Fisioterapia;Grado;Abandono Voluntario;Hombres;0;2;0;0;;;27/09/2020
+2018;Zaragoza;Grado: Fisioterapia;Grado;Abandono Voluntario;Mujeres;0;2;0;0;;;27/09/2020
+2018;Zaragoza;Grado: Fisioterapia;Grado;Cambio de estudios sin simultaneidad;Hombres;0;2;2;0;;;27/09/2020
+2018;Zaragoza;Grado: Fisioterapia;Grado;Cambio de estudios sin simultaneidad;Mujeres;0;3;3;0;;;27/09/2020
+2018;Zaragoza;Grado: Fisioterapia;Grado;Graduado;Hombres;30;0;0;0;4.15;95.46;27/09/2020
+2018;Zaragoza;Grado: Fisioterapia;Grado;Graduado;Mujeres;26;0;0;0;4.08;97.07;27/09/2020
+2018;Zaragoza;Grado: Fisioterapia;Grado;Incumple Régimen de permanencia;Hombres;0;1;1;0;;;27/09/2020
+2018;Zaragoza;Grado: Fisioterapia;Grado;Traslado a otra Universidad;Hombres;0;0;0;1;;;27/09/2020
+2018;Zaragoza;Grado: Fisioterapia;Grado;Traslado a otra Universidad;Mujeres;0;0;0;1;;;27/09/2020
+2018;Zaragoza;Grado: Geografía y Ordenación del Territorio;Grado;Abandono Voluntario;Hombres;0;18;4;0;;;27/09/2020
+2018;Zaragoza;Grado: Geografía y Ordenación del Territorio;Grado;Abandono Voluntario;Mujeres;0;6;4;0;;;27/09/2020
+2018;Zaragoza;Grado: Geografía y Ordenación del Territorio;Grado;Cambio de estudios sin simultaneidad;Hombres;0;5;4;0;;;27/09/2020
+2018;Zaragoza;Grado: Geografía y Ordenación del Territorio;Grado;Cambio de estudios sin simultaneidad;Mujeres;0;1;1;0;;;27/09/2020
+2018;Zaragoza;Grado: Geografía y Ordenación del Territorio;Grado;Graduado;Hombres;15;0;0;0;4.73;94.67;27/09/2020
+2018;Zaragoza;Grado: Geografía y Ordenación del Territorio;Grado;Graduado;Mujeres;14;0;0;0;4.58;91.76;27/09/2020
+2018;Zaragoza;Grado: Geografía y Ordenación del Territorio;Grado;Incumple Régimen de permanencia;Hombres;0;1;1;0;;;27/09/2020
+2018;Zaragoza;Grado: Geología;Grado;Abandono Voluntario;Hombres;0;4;4;0;;;27/09/2020
+2018;Zaragoza;Grado: Geología;Grado;Abandono Voluntario;Mujeres;0;6;4;0;;;27/09/2020
+2018;Zaragoza;Grado: Geología;Grado;Cambio de estudios sin simultaneidad;Hombres;0;2;1;0;;;27/09/2020
+2018;Zaragoza;Grado: Geología;Grado;Graduado;Hombres;9;0;0;0;5.44;80.97;27/09/2020
+2018;Zaragoza;Grado: Geología;Grado;Graduado;Mujeres;14;0;0;0;5.07;83.22;27/09/2020
+2018;Zaragoza;Grado: Geología;Grado;Incumple Régimen de permanencia;Hombres;0;3;2;0;;;27/09/2020
+2018;Zaragoza;Grado: Geología;Grado;Incumple Régimen de permanencia;Mujeres;0;1;1;0;;;27/09/2020
+2018;Zaragoza;Grado: Geología;Grado;Traslado a otra Universidad;Hombres;0;0;0;2;;;27/09/2020
+2018;Zaragoza;Grado: Geología;Grado;Traslado a otra Universidad;Mujeres;0;0;0;1;;;27/09/2020
+2018;Zaragoza;Grado: Historia;Grado;Abandono Voluntario;Hombres;0;29;8;0;;;27/09/2020
+2018;Zaragoza;Grado: Historia;Grado;Abandono Voluntario;Mujeres;0;21;8;0;;;27/09/2020
+2018;Zaragoza;Grado: Historia;Grado;Cambio de estudios sin simultaneidad;Hombres;0;2;2;0;;;27/09/2020
+2018;Zaragoza;Grado: Historia;Grado;Cambio de estudios sin simultaneidad;Mujeres;0;6;5;0;;;27/09/2020
+2018;Zaragoza;Grado: Historia;Grado;Graduado;Hombres;63;0;0;0;5.12;87.45;27/09/2020
+2018;Zaragoza;Grado: Historia;Grado;Graduado;Mujeres;22;0;0;0;4.55;96.84;27/09/2020
+2018;Zaragoza;Grado: Historia;Grado;Incumple Régimen de permanencia;Hombres;0;2;2;0;;;27/09/2020
+2018;Zaragoza;Grado: Historia;Grado;Traslado a otra Universidad;Hombres;0;0;0;7;;;27/09/2020
+2018;Zaragoza;Grado: Historia;Grado;Traslado a otra Universidad;Mujeres;0;0;0;4;;;27/09/2020
+2018;Zaragoza;Grado: Historia del Arte;Grado;Abandono Voluntario;Hombres;0;9;4;0;;;27/09/2020
+2018;Zaragoza;Grado: Historia del Arte;Grado;Abandono Voluntario;Mujeres;0;30;16;0;;;27/09/2020
+2018;Zaragoza;Grado: Historia del Arte;Grado;Cambio de estudios sin simultaneidad;Hombres;0;1;1;0;;;27/09/2020
+2018;Zaragoza;Grado: Historia del Arte;Grado;Cambio de estudios sin simultaneidad;Mujeres;0;4;3;0;;;27/09/2020
+2018;Zaragoza;Grado: Historia del Arte;Grado;Graduado;Hombres;13;0;0;0;5.00;91.09;27/09/2020
+2018;Zaragoza;Grado: Historia del Arte;Grado;Graduado;Mujeres;30;0;0;0;5.74;83.92;27/09/2020
+2018;Zaragoza;Grado: Historia del Arte;Grado;Incumple Régimen de permanencia;Mujeres;0;8;4;0;;;27/09/2020
+2018;Zaragoza;Grado: Historia del Arte;Grado;Traslado a otra Universidad;Hombres;0;0;0;1;;;27/09/2020
+2018;Zaragoza;Grado: Historia del Arte;Grado;Traslado a otra Universidad;Mujeres;0;0;0;3;;;27/09/2020
+2018;Zaragoza;Grado: Información y Documentación;Grado;Abandono Voluntario;Hombres;0;4;3;0;;;27/09/2020
+2018;Zaragoza;Grado: Información y Documentación;Grado;Abandono Voluntario;Mujeres;0;5;1;0;;;27/09/2020
+2018;Zaragoza;Grado: Información y Documentación;Grado;Cambio de estudios sin simultaneidad;Hombres;0;1;1;0;;;27/09/2020
+2018;Zaragoza;Grado: Información y Documentación;Grado;Cambio de estudios sin simultaneidad;Mujeres;0;2;2;0;;;27/09/2020
+2018;Zaragoza;Grado: Información y Documentación;Grado;Graduado;Hombres;3;0;0;0;5.00;84.17;27/09/2020
+2018;Zaragoza;Grado: Información y Documentación;Grado;Graduado;Mujeres;6;0;0;0;5.20;87.53;27/09/2020
+2018;Zaragoza;Grado: Información y Documentación;Grado;Traslado a otra Universidad;Mujeres;0;0;0;1;;;27/09/2020
+2018;Zaragoza;Grado: Ingeniería de Organización Industrial;Grado;Abandono Voluntario;Hombres;0;14;3;0;;;27/09/2020
+2018;Zaragoza;Grado: Ingeniería de Organización Industrial;Grado;Abandono Voluntario;Mujeres;0;1;1;0;;;27/09/2020
+2018;Zaragoza;Grado: Ingeniería de Organización Industrial;Grado;Cambio de estudios sin simultaneidad;Mujeres;0;1;1;0;;;27/09/2020
+2018;Zaragoza;Grado: Ingeniería de Organización Industrial;Grado;Graduado;Hombres;177;0;0;0;5.26;93.37;27/09/2020
+2018;Zaragoza;Grado: Ingeniería de Organización Industrial;Grado;Graduado;Mujeres;1;0;0;0;5.00;97.56;27/09/2020
+2018;Zaragoza;Grado: Ingeniería de Organización Industrial;Grado;Traslado a otra Universidad;Hombres;0;0;0;67;;;27/09/2020
+2018;Zaragoza;Grado: Ingeniería de Organización Industrial;Grado;Traslado a otra Universidad;Mujeres;0;0;0;25;;;27/09/2020
+2018;Zaragoza;Grado: Ingeniería de Tecnologías Industriales;Grado;Abandono Voluntario;Hombres;0;22;12;0;;;27/09/2020
+2018;Zaragoza;Grado: Ingeniería de Tecnologías Industriales;Grado;Abandono Voluntario;Mujeres;0;6;3;0;;;27/09/2020
+2018;Zaragoza;Grado: Ingeniería de Tecnologías Industriales;Grado;Cambio de estudios sin simultaneidad;Hombres;0;19;14;0;;;27/09/2020
+2018;Zaragoza;Grado: Ingeniería de Tecnologías Industriales;Grado;Cambio de estudios sin simultaneidad;Mujeres;0;1;0;0;;;27/09/2020
+2018;Zaragoza;Grado: Ingeniería de Tecnologías Industriales;Grado;Graduado;Hombres;99;0;0;0;5.02;82.52;27/09/2020
+2018;Zaragoza;Grado: Ingeniería de Tecnologías Industriales;Grado;Graduado;Mujeres;27;0;0;0;4.85;85.08;27/09/2020
+2018;Zaragoza;Grado: Ingeniería de Tecnologías Industriales;Grado;Incumple Régimen de permanencia;Hombres;0;14;7;0;;;27/09/2020
+2018;Zaragoza;Grado: Ingeniería de Tecnologías Industriales;Grado;Incumple Régimen de permanencia;Mujeres;0;3;1;0;;;27/09/2020
+2018;Zaragoza;Grado: Ingeniería de Tecnologías Industriales;Grado;Traslado a otra Universidad;Hombres;0;0;0;4;;;27/09/2020
+2018;Zaragoza;Grado: Ingeniería de Tecnologías Industriales;Grado;Traslado a otra Universidad;Mujeres;0;0;0;4;;;27/09/2020
+2018;Zaragoza;Grado: Ingeniería de Tecnologías y Servicios de Telecomunicación;Grado;Abandono Voluntario;Hombres;0;13;9;0;;;27/09/2020
+2018;Zaragoza;Grado: Ingeniería de Tecnologías y Servicios de Telecomunicación;Grado;Abandono Voluntario;Mujeres;0;1;1;0;;;27/09/2020
+2018;Zaragoza;Grado: Ingeniería de Tecnologías y Servicios de Telecomunicación;Grado;Cambio de estudios sin simultaneidad;Hombres;0;10;8;0;;;27/09/2020
+2018;Zaragoza;Grado: Ingeniería de Tecnologías y Servicios de Telecomunicación;Grado;Cambio de estudios sin simultaneidad;Mujeres;0;1;1;0;;;27/09/2020
+2018;Zaragoza;Grado: Ingeniería de Tecnologías y Servicios de Telecomunicación;Grado;Graduado;Hombres;32;0;0;0;5.00;85.41;27/09/2020
+2018;Zaragoza;Grado: Ingeniería de Tecnologías y Servicios de Telecomunicación;Grado;Graduado;Mujeres;8;0;0;0;4.57;86.25;27/09/2020
+2018;Zaragoza;Grado: Ingeniería de Tecnologías y Servicios de Telecomunicación;Grado;Incumple Régimen de permanencia;Hombres;0;19;13;0;;;27/09/2020
+2018;Zaragoza;Grado: Ingeniería de Tecnologías y Servicios de Telecomunicación;Grado;Incumple Régimen de permanencia;Mujeres;0;1;0;0;;;27/09/2020
+2018;Zaragoza;Grado: Ingeniería de Tecnologías y Servicios de Telecomunicación;Grado;Traslado a otra Universidad;Hombres;0;0;0;3;;;27/09/2020
+2018;Zaragoza;Grado: Ingeniería Electrica;Grado;Abandono Voluntario;Hombres;0;20;11;0;;;27/09/2020
+2018;Zaragoza;Grado: Ingeniería Electrica;Grado;Abandono Voluntario;Mujeres;0;4;3;0;;;27/09/2020
+2018;Zaragoza;Grado: Ingeniería Electrica;Grado;Cambio de estudios sin simultaneidad;Hombres;0;7;5;0;;;27/09/2020
+2018;Zaragoza;Grado: Ingeniería Electrica;Grado;Graduado;Desconocido;1;0;0;0;4.00;88.64;27/09/2020
+2018;Zaragoza;Grado: Ingeniería Electrica;Grado;Graduado;Hombres;43;0;0;0;5.50;76.95;27/09/2020
+2018;Zaragoza;Grado: Ingeniería Electrica;Grado;Graduado;Mujeres;2;0;0;0;;63.33;27/09/2020
+2018;Zaragoza;Grado: Ingeniería Electrica;Grado;Incumple Régimen de permanencia;Hombres;0;13;11;0;;;27/09/2020
+2018;Zaragoza;Grado: Ingeniería Electrica;Grado;Incumple Régimen de permanencia;Mujeres;0;1;0;0;;;27/09/2020
+2018;Zaragoza;Grado: Ingeniería Electrica;Grado;Traslado a otra Universidad;Hombres;0;0;0;3;;;27/09/2020
+2018;Zaragoza;Grado: Ingeniería Electrónica y Automática;Grado;Abandono Voluntario;Hombres;0;39;26;0;;;27/09/2020
+2018;Zaragoza;Grado: Ingeniería Electrónica y Automática;Grado;Abandono Voluntario;Mujeres;0;7;7;0;;;27/09/2020
+2018;Zaragoza;Grado: Ingeniería Electrónica y Automática;Grado;Cambio de estudios sin simultaneidad;Hombres;0;11;7;0;;;27/09/2020
+2018;Zaragoza;Grado: Ingeniería Electrónica y Automática;Grado;Cambio de estudios sin simultaneidad;Mujeres;0;2;1;0;;;27/09/2020
+2018;Zaragoza;Grado: Ingeniería Electrónica y Automática;Grado;Graduado;Hombres;33;0;0;0;5.27;82.60;27/09/2020
+2018;Zaragoza;Grado: Ingeniería Electrónica y Automática;Grado;Graduado;Mujeres;18;0;0;0;5.19;82.77;27/09/2020
+2018;Zaragoza;Grado: Ingeniería Electrónica y Automática;Grado;Incumple Régimen de permanencia;Hombres;0;12;8;0;;;27/09/2020
+2018;Zaragoza;Grado: Ingeniería Electrónica y Automática;Grado;Incumple Régimen de permanencia;Mujeres;0;4;2;0;;;27/09/2020
+2018;Zaragoza;Grado: Ingeniería Electrónica y Automática;Grado;Traslado a otra Universidad;Hombres;0;0;0;5;;;27/09/2020
+2018;Zaragoza;Grado: Ingeniería Electrónica y Automática;Grado;Traslado a otra Universidad;Mujeres;0;0;0;1;;;27/09/2020
+2018;Zaragoza;Grado: Ingeniería Informática;Grado;Abandono Voluntario;Hombres;0;19;4;0;;;27/09/2020
+2018;Zaragoza;Grado: Ingeniería Informática;Grado;Abandono Voluntario;Mujeres;0;2;1;0;;;27/09/2020
+2018;Zaragoza;Grado: Ingeniería Informática;Grado;Cambio de estudios sin simultaneidad;Hombres;0;3;2;0;;;27/09/2020
+2018;Zaragoza;Grado: Ingeniería Informática;Grado;Cambio de estudios sin simultaneidad;Mujeres;0;1;1;0;;;27/09/2020
+2018;Zaragoza;Grado: Ingeniería Informática;Grado;Graduado;Hombres;50;0;0;0;5.12;84.91;27/09/2020
+2018;Zaragoza;Grado: Ingeniería Informática;Grado;Graduado;Mujeres;3;0;0;0;5.00;90.05;27/09/2020
+2018;Zaragoza;Grado: Ingeniería Informática;Grado;Incumple Régimen de permanencia;Hombres;0;8;6;0;;;27/09/2020
+2018;Zaragoza;Grado: Ingeniería Informática;Grado;Incumple Régimen de permanencia;Mujeres;0;1;1;0;;;27/09/2020
+2018;Zaragoza;Grado: Ingeniería Informática;Grado;Traslado a otra Universidad;Hombres;0;0;0;4;;;27/09/2020
+2018;Zaragoza;Grado: Ingeniería Mecánica;Grado;Abandono Voluntario;Hombres;0;79;45;0;;;27/09/2020
+2018;Zaragoza;Grado: Ingeniería Mecánica;Grado;Abandono Voluntario;Mujeres;0;3;1;0;;;27/09/2020
+2018;Zaragoza;Grado: Ingeniería Mecánica;Grado;Cambio de estudios sin simultaneidad;Hombres;0;12;7;0;;;27/09/2020
+2018;Zaragoza;Grado: Ingeniería Mecánica;Grado;Graduado;Hombres;100;0;0;0;5.78;77.69;27/09/2020
+2018;Zaragoza;Grado: Ingeniería Mecánica;Grado;Graduado;Mujeres;20;0;0;0;5.71;78.97;27/09/2020
+2018;Zaragoza;Grado: Ingeniería Mecánica;Grado;Incumple Régimen de permanencia;Hombres;0;37;22;0;;;27/09/2020
+2018;Zaragoza;Grado: Ingeniería Mecánica;Grado;Incumple Régimen de permanencia;Mujeres;0;5;2;0;;;27/09/2020
+2018;Zaragoza;Grado: Ingeniería Mecánica;Grado;Traslado a otra Universidad;Hombres;0;0;0;6;;;27/09/2020
+2018;Zaragoza;Grado: Ingeniería Mecánica;Grado;Traslado a otra Universidad;Mujeres;0;0;0;2;;;27/09/2020
+2018;Zaragoza;Grado: Ingeniería Química;Grado;Abandono Voluntario;Hombres;0;17;8;0;;;27/09/2020
+2018;Zaragoza;Grado: Ingeniería Química;Grado;Abandono Voluntario;Mujeres;0;11;4;0;;;27/09/2020
+2018;Zaragoza;Grado: Ingeniería Química;Grado;Cambio de estudios sin simultaneidad;Hombres;0;6;6;0;;;27/09/2020
+2018;Zaragoza;Grado: Ingeniería Química;Grado;Cambio de estudios sin simultaneidad;Mujeres;0;2;0;0;;;27/09/2020
+2018;Zaragoza;Grado: Ingeniería Química;Grado;Graduado;Hombres;16;0;0;0;5.00;82.90;27/09/2020
+2018;Zaragoza;Grado: Ingeniería Química;Grado;Graduado;Mujeres;23;0;0;0;5.15;82.32;27/09/2020
+2018;Zaragoza;Grado: Ingeniería Química;Grado;Incumple Régimen de permanencia;Hombres;0;11;9;0;;;27/09/2020
+2018;Zaragoza;Grado: Ingeniería Química;Grado;Incumple Régimen de permanencia;Mujeres;0;3;1;0;;;27/09/2020
+2018;Zaragoza;Grado: Ingeniería Química;Grado;Traslado a otra Universidad;Hombres;0;0;0;1;;;27/09/2020
+2018;Zaragoza;Grado: Ingeniería Química;Grado;Traslado a otra Universidad;Mujeres;0;0;0;1;;;27/09/2020
+2018;Zaragoza;Grado: Ingeniero en Diseño Industrial y Desarrollo de Producto;Grado;Abandono Voluntario;Hombres;0;7;2;0;;;27/09/2020
+2018;Zaragoza;Grado: Ingeniero en Diseño Industrial y Desarrollo de Producto;Grado;Abandono Voluntario;Mujeres;0;8;2;0;;;27/09/2020
+2018;Zaragoza;Grado: Ingeniero en Diseño Industrial y Desarrollo de Producto;Grado;Cambio de estudios sin simultaneidad;Hombres;0;1;0;0;;;27/09/2020
+2018;Zaragoza;Grado: Ingeniero en Diseño Industrial y Desarrollo de Producto;Grado;Cambio de estudios sin simultaneidad;Mujeres;0;2;2;0;;;27/09/2020
+2018;Zaragoza;Grado: Ingeniero en Diseño Industrial y Desarrollo de Producto;Grado;Graduado;Hombres;22;0;0;0;4.64;81.26;27/09/2020
+2018;Zaragoza;Grado: Ingeniero en Diseño Industrial y Desarrollo de Producto;Grado;Graduado;Mujeres;33;0;0;0;4.36;92.72;27/09/2020
+2018;Zaragoza;Grado: Ingeniero en Diseño Industrial y Desarrollo de Producto;Grado;Incumple Régimen de permanencia;Mujeres;0;1;0;0;;;27/09/2020
+2018;Zaragoza;Grado: Lenguas Modernas;Grado;Abandono Voluntario;Hombres;0;4;3;0;;;27/09/2020
+2018;Zaragoza;Grado: Lenguas Modernas;Grado;Abandono Voluntario;Mujeres;0;11;3;0;;;27/09/2020
+2018;Zaragoza;Grado: Lenguas Modernas;Grado;Cambio de estudios sin simultaneidad;Mujeres;0;7;4;0;;;27/09/2020
+2018;Zaragoza;Grado: Lenguas Modernas;Grado;Graduado;Hombres;10;0;0;0;4.89;91.37;27/09/2020
+2018;Zaragoza;Grado: Lenguas Modernas;Grado;Graduado;Mujeres;14;0;0;0;4.79;95.06;27/09/2020
+2018;Zaragoza;Grado: Lenguas Modernas;Grado;Incumple Régimen de permanencia;Mujeres;0;1;1;0;;;27/09/2020
+2018;Zaragoza;Grado: Lenguas Modernas;Grado;Traslado a otra Universidad;Hombres;0;0;0;3;;;27/09/2020
+2018;Zaragoza;Grado: Lenguas Modernas;Grado;Traslado a otra Universidad;Mujeres;0;0;0;2;;;27/09/2020
+2018;Zaragoza;Grado: Magisterio en Educación Infantil;Grado;Abandono Voluntario;Hombres;0;1;0;0;;;27/09/2020
+2018;Zaragoza;Grado: Magisterio en Educación Infantil;Grado;Abandono Voluntario;Mujeres;0;8;3;0;;;27/09/2020
+2018;Zaragoza;Grado: Magisterio en Educación Infantil;Grado;Cambio de estudios sin simultaneidad;Mujeres;0;1;1;0;;;27/09/2020
+2018;Zaragoza;Grado: Magisterio en Educación Infantil;Grado;Graduado;Hombres;3;0;0;0;4.00;96.39;27/09/2020
+2018;Zaragoza;Grado: Magisterio en Educación Infantil;Grado;Graduado;Mujeres;122;0;0;0;4.17;96.80;27/09/2020
+2018;Zaragoza;Grado: Magisterio en Educación Primaria;Grado;Abandono Voluntario;Hombres;0;21;7;0;;;27/09/2020
+2018;Zaragoza;Grado: Magisterio en Educación Primaria;Grado;Abandono Voluntario;Mujeres;0;28;16;0;;;27/09/2020
+2018;Zaragoza;Grado: Magisterio en Educación Primaria;Grado;Cambio de estudios sin simultaneidad;Hombres;0;2;2;0;;;27/09/2020
+2018;Zaragoza;Grado: Magisterio en Educación Primaria;Grado;Cambio de estudios sin simultaneidad;Mujeres;0;1;1;0;;;27/09/2020
+2018;Zaragoza;Grado: Magisterio en Educación Primaria;Grado;Graduado;Hombres;55;0;0;0;4.84;88.11;27/09/2020
+2018;Zaragoza;Grado: Magisterio en Educación Primaria;Grado;Graduado;Mujeres;176;0;0;0;4.53;93.76;27/09/2020
+2018;Zaragoza;Grado: Magisterio en Educación Primaria;Grado;Traslado a otra Universidad;Hombres;0;0;0;1;;;27/09/2020
+2018;Zaragoza;Grado: Magisterio en Educación Primaria;Grado;Traslado a otra Universidad;Mujeres;0;0;0;3;;;27/09/2020
+2018;Zaragoza;Grado: Marketing e Investigación de Mercados;Grado;Abandono Voluntario;Hombres;0;29;14;0;;;27/09/2020
+2018;Zaragoza;Grado: Marketing e Investigación de Mercados;Grado;Abandono Voluntario;Mujeres;0;31;8;0;;;27/09/2020
+2018;Zaragoza;Grado: Marketing e Investigación de Mercados;Grado;Cambio de estudios sin simultaneidad;Hombres;0;5;4;0;;;27/09/2020
+2018;Zaragoza;Grado: Marketing e Investigación de Mercados;Grado;Cambio de estudios sin simultaneidad;Mujeres;0;1;1;0;;;27/09/2020
+2018;Zaragoza;Grado: Marketing e Investigación de Mercados;Grado;Graduado;Hombres;26;0;0;0;6.00;77.31;27/09/2020
+2018;Zaragoza;Grado: Marketing e Investigación de Mercados;Grado;Graduado;Mujeres;60;0;0;0;5.15;85.45;27/09/2020
+2018;Zaragoza;Grado: Marketing e Investigación de Mercados;Grado;Incumple Régimen de permanencia;Hombres;0;4;2;0;;;27/09/2020
+2018;Zaragoza;Grado: Marketing e Investigación de Mercados;Grado;Incumple Régimen de permanencia;Mujeres;0;3;1;0;;;27/09/2020
+2018;Zaragoza;Grado: Marketing e Investigación de Mercados;Grado;Traslado a otra Universidad;Hombres;0;0;0;3;;;27/09/2020
+2018;Zaragoza;Grado: Marketing e Investigación de Mercados;Grado;Traslado a otra Universidad;Mujeres;0;0;0;1;;;27/09/2020
+2018;Zaragoza;Grado: Matemáticas;Grado;Abandono Voluntario;Hombres;0;6;4;0;;;27/09/2020
+2018;Zaragoza;Grado: Matemáticas;Grado;Abandono Voluntario;Mujeres;0;4;1;0;;;27/09/2020
+2018;Zaragoza;Grado: Matemáticas;Grado;Cambio de estudios sin simultaneidad;Hombres;0;3;0;0;;;27/09/2020
+2018;Zaragoza;Grado: Matemáticas;Grado;Cambio de estudios sin simultaneidad;Mujeres;0;1;1;0;;;27/09/2020
+2018;Zaragoza;Grado: Matemáticas;Grado;Graduado;Hombres;16;0;0;0;4.71;84.64;27/09/2020
+2018;Zaragoza;Grado: Matemáticas;Grado;Graduado;Mujeres;19;0;0;0;5.53;77.58;27/09/2020
+2018;Zaragoza;Grado: Matemáticas;Grado;Incumple Régimen de permanencia;Hombres;0;5;3;0;;;27/09/2020
+2018;Zaragoza;Grado: Matemáticas;Grado;Traslado a otra Universidad;Hombres;0;0;0;5;;;27/09/2020
+2018;Zaragoza;Grado: Matemáticas;Grado;Traslado a otra Universidad;Mujeres;0;0;0;3;;;27/09/2020
+2018;Zaragoza;Grado: Medicina;Grado;Abandono Voluntario;Hombres;0;6;4;0;;;27/09/2020
+2018;Zaragoza;Grado: Medicina;Grado;Abandono Voluntario;Mujeres;0;12;3;0;;;27/09/2020
+2018;Zaragoza;Grado: Medicina;Grado;Cambio de estudios sin simultaneidad;Hombres;0;1;1;0;;;27/09/2020
+2018;Zaragoza;Grado: Medicina;Grado;Cambio de estudios sin simultaneidad;Mujeres;0;1;0;0;;;27/09/2020
+2018;Zaragoza;Grado: Medicina;Grado;Graduado;Hombres;79;0;0;0;6.19;93.91;27/09/2020
+2018;Zaragoza;Grado: Medicina;Grado;Graduado;Mujeres;153;0;0;0;6.03;97.77;27/09/2020
+2018;Zaragoza;Grado: Óptica y Optometría;Grado;Abandono Voluntario;Hombres;0;5;1;0;;;27/09/2020
+2018;Zaragoza;Grado: Óptica y Optometría;Grado;Abandono Voluntario;Mujeres;0;6;2;0;;;27/09/2020
+2018;Zaragoza;Grado: Óptica y Optometría;Grado;Cambio de estudios sin simultaneidad;Hombres;0;1;1;0;;;27/09/2020
+2018;Zaragoza;Grado: Óptica y Optometría;Grado;Cambio de estudios sin simultaneidad;Mujeres;0;2;2;0;;;27/09/2020
+2018;Zaragoza;Grado: Óptica y Optometría;Grado;Graduado;Hombres;6;0;0;0;5.50;79.03;27/09/2020
+2018;Zaragoza;Grado: Óptica y Optometría;Grado;Graduado;Mujeres;37;0;0;0;4.37;91.32;27/09/2020
+2018;Zaragoza;Grado: Óptica y Optometría;Grado;Incumple Régimen de permanencia;Mujeres;0;1;1;0;;;27/09/2020
+2018;Zaragoza;Grado: Óptica y Optometría;Grado;Traslado a otra Universidad;Mujeres;0;0;0;2;;;27/09/2020
+2018;Zaragoza;Grado: Periodismo;Grado;Abandono Voluntario;Hombres;0;4;0;0;;;27/09/2020
+2018;Zaragoza;Grado: Periodismo;Grado;Abandono Voluntario;Mujeres;0;5;0;0;;;27/09/2020
+2018;Zaragoza;Grado: Periodismo;Grado;Cambio de estudios sin simultaneidad;Hombres;0;2;2;0;;;27/09/2020
+2018;Zaragoza;Grado: Periodismo;Grado;Cambio de estudios sin simultaneidad;Mujeres;0;2;1;0;;;27/09/2020
+2018;Zaragoza;Grado: Periodismo;Grado;Graduado;Hombres;16;0;0;0;4.31;95.99;27/09/2020
+2018;Zaragoza;Grado: Periodismo;Grado;Graduado;Mujeres;29;0;0;0;4.21;99.57;27/09/2020
+2018;Zaragoza;Grado: Programa conjunto ADE/Derecho;Grado;Abandono Voluntario;Hombres;0;3;1;0;;;27/09/2020
+2018;Zaragoza;Grado: Programa conjunto ADE/Derecho;Grado;Abandono Voluntario;Mujeres;0;2;0;0;;;27/09/2020
+2018;Zaragoza;Grado: Programa conjunto ADE/Derecho;Grado;Cambio de estudios sin simultaneidad;Hombres;0;1;1;0;;;27/09/2020
+2018;Zaragoza;Grado: Programa conjunto ADE/Derecho;Grado;Traslado a otra Universidad;Hombres;0;0;0;1;;;27/09/2020
+2018;Zaragoza;Grado: Programa conjunto ADE/Derecho;Grado;Traslado a otra Universidad;Mujeres;0;0;0;2;;;27/09/2020
+2018;Zaragoza;Grado: Química;Grado;Abandono Voluntario;Hombres;0;16;4;0;;;27/09/2020
+2018;Zaragoza;Grado: Química;Grado;Abandono Voluntario;Mujeres;0;12;6;0;;;27/09/2020
+2018;Zaragoza;Grado: Química;Grado;Cambio de estudios sin simultaneidad;Hombres;0;5;2;0;;;27/09/2020
+2018;Zaragoza;Grado: Química;Grado;Cambio de estudios sin simultaneidad;Mujeres;0;4;3;0;;;27/09/2020
+2018;Zaragoza;Grado: Química;Grado;Graduado;Hombres;42;0;0;0;4.97;83.29;27/09/2020
+2018;Zaragoza;Grado: Química;Grado;Graduado;Mujeres;36;0;0;0;5.26;80.17;27/09/2020
+2018;Zaragoza;Grado: Química;Grado;Incumple Régimen de permanencia;Hombres;0;4;0;0;;;27/09/2020
+2018;Zaragoza;Grado: Química;Grado;Incumple Régimen de permanencia;Mujeres;0;5;2;0;;;27/09/2020
+2018;Zaragoza;Grado: Química;Grado;Traslado a otra Universidad;Hombres;0;0;0;10;;;27/09/2020
+2018;Zaragoza;Grado: Química;Grado;Traslado a otra Universidad;Mujeres;0;0;0;11;;;27/09/2020
+2018;Zaragoza;Grado: Relaciones Laborales y Recursos Humanos;Grado;Abandono Voluntario;Hombres;0;34;10;0;;;27/09/2020
+2018;Zaragoza;Grado: Relaciones Laborales y Recursos Humanos;Grado;Abandono Voluntario;Mujeres;0;46;11;0;;;27/09/2020
+2018;Zaragoza;Grado: Relaciones Laborales y Recursos Humanos;Grado;Cambio de estudios sin simultaneidad;Hombres;0;5;5;0;;;27/09/2020
+2018;Zaragoza;Grado: Relaciones Laborales y Recursos Humanos;Grado;Cambio de estudios sin simultaneidad;Mujeres;0;5;4;0;;;27/09/2020
+2018;Zaragoza;Grado: Relaciones Laborales y Recursos Humanos;Grado;Graduado;Hombres;41;0;0;0;5.57;81.89;27/09/2020
+2018;Zaragoza;Grado: Relaciones Laborales y Recursos Humanos;Grado;Graduado;Mujeres;73;0;0;0;5.35;89.50;27/09/2020
+2018;Zaragoza;Grado: Relaciones Laborales y Recursos Humanos;Grado;Incumple Régimen de permanencia;Hombres;0;3;3;0;;;27/09/2020
+2018;Zaragoza;Grado: Relaciones Laborales y Recursos Humanos;Grado;Incumple Régimen de permanencia;Mujeres;0;3;2;0;;;27/09/2020
+2018;Zaragoza;Grado: Terapia Ocupacional;Grado;Abandono Voluntario;Hombres;0;1;0;0;;;27/09/2020
+2018;Zaragoza;Grado: Terapia Ocupacional;Grado;Abandono Voluntario;Mujeres;0;7;6;0;;;27/09/2020
+2018;Zaragoza;Grado: Terapia Ocupacional;Grado;Cambio de estudios sin simultaneidad;Hombres;0;2;0;0;;;27/09/2020
+2018;Zaragoza;Grado: Terapia Ocupacional;Grado;Cambio de estudios sin simultaneidad;Mujeres;0;1;1;0;;;27/09/2020
+2018;Zaragoza;Grado: Terapia Ocupacional;Grado;Graduado;Hombres;15;0;0;0;4.38;90.86;27/09/2020
+2018;Zaragoza;Grado: Terapia Ocupacional;Grado;Graduado;Mujeres;48;0;0;0;4.25;91.83;27/09/2020
+2018;Zaragoza;Grado: Terapia Ocupacional;Grado;Incumple Régimen de permanencia;Mujeres;0;1;1;0;;;27/09/2020
+2018;Zaragoza;Grado: Terapia Ocupacional;Grado;Traslado a otra Universidad;Hombres;0;0;0;1;;;27/09/2020
+2018;Zaragoza;Grado: Terapia Ocupacional;Grado;Traslado a otra Universidad;Mujeres;0;0;0;3;;;27/09/2020
+2018;Zaragoza;Grado: Trabajo Social;Grado;Abandono Voluntario;Hombres;0;4;1;0;;;27/09/2020
+2018;Zaragoza;Grado: Trabajo Social;Grado;Abandono Voluntario;Mujeres;0;30;10;0;;;27/09/2020
+2018;Zaragoza;Grado: Trabajo Social;Grado;Cambio de estudios sin simultaneidad;Hombres;0;1;1;0;;;27/09/2020
+2018;Zaragoza;Grado: Trabajo Social;Grado;Cambio de estudios sin simultaneidad;Mujeres;0;1;1;0;;;27/09/2020
+2018;Zaragoza;Grado: Trabajo Social;Grado;Graduado;Hombres;23;0;0;0;4.59;91.11;27/09/2020
+2018;Zaragoza;Grado: Trabajo Social;Grado;Graduado;Mujeres;109;0;0;0;4.26;95.50;27/09/2020
+2018;Zaragoza;Grado: Turismo;Grado;Abandono Voluntario;Hombres;0;19;4;0;;;27/09/2020
+2018;Zaragoza;Grado: Turismo;Grado;Abandono Voluntario;Mujeres;0;18;8;0;;;27/09/2020
+2018;Zaragoza;Grado: Turismo;Grado;Cambio de estudios sin simultaneidad;Hombres;0;1;1;0;;;27/09/2020
+2018;Zaragoza;Grado: Turismo;Grado;Cambio de estudios sin simultaneidad;Mujeres;0;2;2;0;;;27/09/2020
+2018;Zaragoza;Grado: Turismo;Grado;Graduado;Hombres;9;0;0;0;5.25;81.67;27/09/2020
+2018;Zaragoza;Grado: Turismo;Grado;Graduado;Mujeres;25;0;0;0;5.17;89.68;27/09/2020
+2018;Zaragoza;Grado: Veterinaria;Grado;Abandono Voluntario;Hombres;0;5;2;0;;;27/09/2020
+2018;Zaragoza;Grado: Veterinaria;Grado;Abandono Voluntario;Mujeres;0;10;4;0;;;27/09/2020
+2018;Zaragoza;Grado: Veterinaria;Grado;Cambio de estudios sin simultaneidad;Hombres;0;1;1;0;;;27/09/2020
+2018;Zaragoza;Grado: Veterinaria;Grado;Cambio de estudios sin simultaneidad;Mujeres;0;1;1;0;;;27/09/2020
+2018;Zaragoza;Grado: Veterinaria;Grado;Graduado;Hombres;30;0;0;0;5.53;88.78;27/09/2020
+2018;Zaragoza;Grado: Veterinaria;Grado;Graduado;Mujeres;118;0;0;0;5.48;91.15;27/09/2020
+2018;Zaragoza;Grado: Veterinaria;Grado;Traslado a otra Universidad;Hombres;0;0;0;2;;;27/09/2020
+2018;Zaragoza;Grado: Veterinaria;Grado;Traslado a otra Universidad;Mujeres;0;0;0;8;;;27/09/2020
+2018;Zaragoza;Historia;Licenciatura o equivalente;Traslado a otra Universidad;Hombres;0;0;0;2;;;27/09/2020
+2018;Zaragoza;Historia del Arte;Licenciatura o equivalente;Traslado a otra Universidad;Mujeres;0;0;0;1;;;27/09/2020
+2018;Zaragoza;Ingenierio Químico;Licenciatura o equivalente;Abandono Voluntario;Hombres;0;2;0;0;;;27/09/2020
+2018;Zaragoza;Ingeniero de Telecomunicación;Licenciatura o equivalente;Abandono Voluntario;Mujeres;0;2;0;0;;;27/09/2020
+2018;Zaragoza;Ingeniero en Informática;Licenciatura o equivalente;Abandono Voluntario;Hombres;0;6;0;0;;;27/09/2020
+2018;Zaragoza;Ingeniero en Informática;Licenciatura o equivalente;Abandono Voluntario;Mujeres;0;1;0;0;;;27/09/2020
+2018;Zaragoza;Ingeniero en Informática;Licenciatura o equivalente;Traslado a otra Universidad;Hombres;0;0;0;1;;;27/09/2020
+2018;Zaragoza;Ingeniero Industrial;Licenciatura o equivalente;Abandono Voluntario;Hombres;0;5;0;0;;;27/09/2020
+2018;Zaragoza;Ingeniero Industrial;Licenciatura o equivalente;Abandono Voluntario;Mujeres;0;1;0;0;;;27/09/2020
+2018;Zaragoza;Ingeniero Industrial;Licenciatura o equivalente;Traslado a otra Universidad;Hombres;0;0;0;1;;;27/09/2020
+2018;Zaragoza;Ingeniero Técnico en Electrónica Industrial;Diplomatura o equivalente;Traslado a otra Universidad;Hombres;0;0;0;1;;;27/09/2020
+2018;Zaragoza;Ingeniero Técnico Industrial, Esp. Mecánica;Diplomatura o equivalente;Traslado a otra Universidad;Hombres;0;0;0;1;;;27/09/2020
+2018;Zaragoza;Licenciado en Administración y Dirección de Empresas;Licenciatura o equivalente;Traslado a otra Universidad;Hombres;0;0;0;2;;;27/09/2020
+2018;Zaragoza;Licenciado en Economía;Licenciatura o equivalente;Traslado a otra Universidad;Mujeres;0;0;0;2;;;27/09/2020
+2018;Zaragoza;Licenciado en Filosofía;Licenciatura o equivalente;Traslado a otra Universidad;Hombres;0;0;0;2;;;27/09/2020
+2018;Zaragoza;Licenciado en Psicopedagogía;Licenciatura o equivalente;Abandono Voluntario;Mujeres;0;4;0;0;;;27/09/2020
+2018;Zaragoza;Máster: Abogacía;Máster;Abandono Voluntario;Hombres;0;1;1;0;;;27/09/2020
+2018;Zaragoza;Máster: Abogacía;Máster;Abandono Voluntario;Mujeres;0;1;1;0;;;27/09/2020
+2018;Zaragoza;Máster: Abogacía;Máster;Graduado;Hombres;34;0;0;0;2.03;99.61;27/09/2020
+2018;Zaragoza;Máster: Abogacía;Máster;Graduado;Mujeres;42;0;0;0;2.00;99.81;27/09/2020
+2018;Zaragoza;Máster: Aprendizaje a lo largo de la vida: Iniciación a la investigación;Máster;Abandono Voluntario;Hombres;0;4;2;0;;;27/09/2020
+2018;Zaragoza;Máster: Aprendizaje a lo largo de la vida: Iniciación a la investigación;Máster;Abandono Voluntario;Mujeres;0;3;1;0;;;27/09/2020
+2018;Zaragoza;Máster: Aprendizaje a lo largo de la vida: Iniciación a la investigación;Máster;Graduado;Hombres;5;0;0;0;1.00;100.00;27/09/2020
+2018;Zaragoza;Máster: Aprendizaje a lo largo de la vida: Iniciación a la investigación;Máster;Graduado;Mujeres;7;0;0;0;1.00;92.34;27/09/2020
+2018;Zaragoza;Máster: Arquitectura;Máster;Abandono Voluntario;Mujeres;0;2;1;0;;;27/09/2020
+2018;Zaragoza;Máster: Arquitectura;Máster;Graduado;Hombres;15;0;0;0;1.57;76.34;27/09/2020
+2018;Zaragoza;Máster: Arquitectura;Máster;Graduado;Mujeres;20;0;0;0;1.68;74.07;27/09/2020
+2018;Zaragoza;Máster: Arquitectura;Máster;Incumple Régimen de permanencia;Hombres;0;1;0;0;;;27/09/2020
+2018;Zaragoza;Máster: Auditoría;Máster;Abandono Voluntario;Mujeres;0;1;1;0;;;27/09/2020
+2018;Zaragoza;Máster: Auditoría;Máster;Graduado;Hombres;14;0;0;0;1.14;98.59;27/09/2020
+2018;Zaragoza;Máster: Auditoría;Máster;Graduado;Mujeres;17;0;0;0;1.12;98.84;27/09/2020
+2018;Zaragoza;Máster: Biología Molecular y Celular;Máster;Graduado;Hombres;4;0;0;0;1.00;100.00;27/09/2020
+2018;Zaragoza;Máster: Biología Molecular y Celular;Máster;Graduado;Mujeres;13;0;0;0;1.00;100.00;27/09/2020
+2018;Zaragoza;Máster: Biotecnología Cuantitativa;Máster;Graduado;Hombres;5;0;0;0;1.00;100.00;27/09/2020
+2018;Zaragoza;Máster: Biotecnología Cuantitativa;Máster;Graduado;Mujeres;3;0;0;0;1.00;100.00;27/09/2020
+2018;Zaragoza;Máster: Calidad, Seguridad y Tecnología de los Alimentos;Máster;Abandono Voluntario;Hombres;0;1;1;0;;;27/09/2020
+2018;Zaragoza;Máster: Calidad, Seguridad y Tecnología de los Alimentos;Máster;Abandono Voluntario;Mujeres;0;2;1;0;;;27/09/2020
+2018;Zaragoza;Máster: Calidad, Seguridad y Tecnología de los Alimentos;Máster;Graduado;Hombres;6;0;0;0;1.00;100.00;27/09/2020
+2018;Zaragoza;Máster: Calidad, Seguridad y Tecnología de los Alimentos;Máster;Graduado;Mujeres;14;0;0;0;1.07;98.59;27/09/2020
+2018;Zaragoza;Máster: Cond. genéticos, nutric. y amb. del crec. y desarrollo;Máster;Abandono Voluntario;Mujeres;0;1;0;0;;;27/09/2020
+2018;Zaragoza;Máster: Cond. genéticos, nutric. y amb. del crec. y desarrollo;Máster;Graduado;Hombres;2;0;0;0;;100.00;27/09/2020
+2018;Zaragoza;Máster: Cond. genéticos, nutric. y amb. del crec. y desarrollo;Máster;Graduado;Mujeres;10;0;0;0;1.00;100.00;27/09/2020
+2018;Zaragoza;Máster: Consultoría de Información y Comunicación Digital;Máster;Abandono Voluntario;Hombres;0;2;2;0;;;27/09/2020
+2018;Zaragoza;Máster: Consultoría de Información y Comunicación Digital;Máster;Abandono Voluntario;Mujeres;0;1;1;0;;;27/09/2020
+2018;Zaragoza;Máster: Consultoría de Información y Comunicación Digital;Máster;Graduado;Hombres;1;0;0;0;1.00;100.00;27/09/2020
+2018;Zaragoza;Máster: Consultoría de Información y Comunicación Digital;Máster;Graduado;Mujeres;13;0;0;0;1.18;96.95;27/09/2020
+2018;Zaragoza;Máster: Contabilidad y finanzas;Máster;Graduado;Hombres;6;0;0;0;1.67;88.24;27/09/2020
+2018;Zaragoza;Máster: Contabilidad y finanzas;Máster;Graduado;Mujeres;3;0;0;0;1.67;88.24;27/09/2020
+2018;Zaragoza;Máster: Derecho de la Administración Pública;Máster;Graduado;Hombres;4;0;0;0;1.00;100.00;27/09/2020
+2018;Zaragoza;Máster: Derecho de la Administración Pública;Máster;Graduado;Mujeres;5;0;0;0;1.00;100.00;27/09/2020
+2018;Zaragoza;Máster: Dirección, Estrategia y Marketing;Máster;Abandono Voluntario;Hombres;0;1;1;0;;;27/09/2020
+2018;Zaragoza;Máster: Dirección, Estrategia y Marketing;Máster;Abandono Voluntario;Mujeres;0;5;1;0;;;27/09/2020
+2018;Zaragoza;Máster: Dirección, Estrategia y Marketing;Máster;Graduado;Hombres;5;0;0;0;1.00;100.00;27/09/2020
+2018;Zaragoza;Máster: Dirección, Estrategia y Marketing;Máster;Graduado;Mujeres;5;0;0;0;1.00;100.00;27/09/2020
+2018;Zaragoza;Máster: Dirección y Gestión de Adquisiciones de Sistemas para la Defensa;Máster;Graduado;Hombres;25;0;0;0;1.00;100.00;27/09/2020
+2018;Zaragoza;Máster: Dirección y Gestión de Adquisiciones de Sistemas para la Defensa;Máster;Graduado;Mujeres;5;0;0;0;;100.00;27/09/2020
+2018;Zaragoza;Máster: Economía;Máster;Abandono Voluntario;Hombres;0;1;0;0;;;27/09/2020
+2018;Zaragoza;Máster: Economía;Máster;Cambio de estudios sin simultaneidad;Hombres;0;1;1;0;;;27/09/2020
+2018;Zaragoza;Máster: Economía;Máster;Graduado;Hombres;6;0;0;0;1.00;100.00;27/09/2020
+2018;Zaragoza;Máster: Economía;Máster;Graduado;Mujeres;5;0;0;0;1.00;100.00;27/09/2020
+2018;Zaragoza;Máster: Economía;Máster;Incumple Régimen de permanencia;Mujeres;0;1;1;0;;;27/09/2020
+2018;Zaragoza;Máster: Energías Renovables y Eficiencia Energética;Máster;Abandono Voluntario;Hombres;0;3;1;0;;;27/09/2020
+2018;Zaragoza;Máster: Energías Renovables y Eficiencia Energética;Máster;Graduado;Hombres;9;0;0;0;2.17;94.49;27/09/2020
+2018;Zaragoza;Máster: Energías Renovables y Eficiencia Energética;Máster;Graduado;Mujeres;9;0;0;0;2.00;99.07;27/09/2020
+2018;Zaragoza;Máster: Erasmus Mundus en Ingeniería de Membranas;Máster;Graduado;Hombres;2;0;0;0;;;27/09/2020
+2018;Zaragoza;Máster: Erasmus Mundus en Ingeniería de Membranas;Máster;Graduado;Mujeres;3;0;0;0;;;27/09/2020
+2018;Zaragoza;Máster: Estudios Avanzados de Literatura y Cine en Lengua Inglesa;Máster;Graduado;Mujeres;1;0;0;0;;66.67;27/09/2020
+2018;Zaragoza;Máster: Estudios Avanzados en Historia del Arte;Máster;Abandono Voluntario;Mujeres;0;2;2;0;;;27/09/2020
+2018;Zaragoza;Máster: Estudios Avanzados en Historia del Arte;Máster;Graduado;Hombres;5;0;0;0;1.00;100.00;27/09/2020
+2018;Zaragoza;Máster: Estudios Avanzados en Historia del Arte;Máster;Graduado;Mujeres;6;0;0;0;1.33;93.77;27/09/2020
+2018;Zaragoza;Máster: Física y Tecnologías Físicas;Máster;Graduado;Hombres;9;0;0;0;1.00;100.00;27/09/2020
+2018;Zaragoza;Máster: Física y Tecnologías Físicas;Máster;Graduado;Mujeres;3;0;0;0;1.33;91.13;27/09/2020
+2018;Zaragoza;Máster: Geología: Técnicas y Aplicaciones;Máster;Abandono Voluntario;Mujeres;0;1;1;0;;;27/09/2020
+2018;Zaragoza;Máster: Geología: Técnicas y Aplicaciones;Máster;Graduado;Hombres;5;0;0;0;1.60;89.29;27/09/2020
+2018;Zaragoza;Máster: Geología: Técnicas y Aplicaciones;Máster;Graduado;Mujeres;4;0;0;0;1.50;90.91;27/09/2020
+2018;Zaragoza;Máster: Gerontología Social;Máster;Graduado;Hombres;10;0;0;0;1.00;100.00;27/09/2020
+2018;Zaragoza;Máster: Gerontología Social;Máster;Graduado;Mujeres;22;0;0;0;1.05;99.10;27/09/2020
+2018;Zaragoza;Máster: Gestión Administrativa;Máster;Graduado;Hombres;2;0;0;0;1.00;100.00;27/09/2020
+2018;Zaragoza;Máster: Gestión Administrativa;Máster;Graduado;Mujeres;10;0;0;0;1.00;100.00;27/09/2020
+2018;Zaragoza;Máster: Gestión del Patrimonio Cultural;Máster;Graduado;Hombres;7;0;0;0;1.00;100.00;27/09/2020
+2018;Zaragoza;Máster: Gestión del Patrimonio Cultural;Máster;Graduado;Mujeres;25;0;0;0;1.08;97.28;27/09/2020
+2018;Zaragoza;Máster: Historia Contemporánea;Máster;Abandono Voluntario;Hombres;0;2;2;0;;;27/09/2020
+2018;Zaragoza;Máster: Historia Contemporánea;Máster;Graduado;Hombres;5;0;0;0;1.20;93.75;27/09/2020
+2018;Zaragoza;Máster: Historia Contemporánea;Máster;Graduado;Mujeres;5;0;0;0;1.00;93.75;27/09/2020
+2018;Zaragoza;Máster: Historia Contemporánea;Máster;Incumple Régimen de permanencia;Hombres;0;1;1;0;;;27/09/2020
+2018;Zaragoza;Máster: Ingeniería biomédica;Máster;Abandono Voluntario;Hombres;0;2;1;0;;;27/09/2020
+2018;Zaragoza;Máster: Ingeniería biomédica;Máster;Abandono Voluntario;Mujeres;0;1;1;0;;;27/09/2020
+2018;Zaragoza;Máster: Ingeniería biomédica;Máster;Graduado;Hombres;13;0;0;0;1.73;97.89;27/09/2020
+2018;Zaragoza;Máster: Ingeniería biomédica;Máster;Graduado;Mujeres;17;0;0;0;2.14;96.49;27/09/2020
+2018;Zaragoza;Máster: Ingeniería de Diseño de Producto;Máster;Abandono Voluntario;Mujeres;0;2;1;0;;;27/09/2020
+2018;Zaragoza;Máster: Ingeniería de Diseño de Producto;Máster;Graduado;Hombres;1;0;0;0;2.00;83.33;27/09/2020
+2018;Zaragoza;Máster: Ingeniería de Diseño de Producto;Máster;Graduado;Mujeres;5;0;0;0;2.00;86.96;27/09/2020
+2018;Zaragoza;Máster: Ingeniería de Telecomunicación;Máster;Graduado;Hombres;2;0;0;0;2.00;97.96;27/09/2020
+2018;Zaragoza;Máster: Ingeniería de Telecomunicación;Máster;Graduado;Mujeres;4;0;0;0;2.00;100.00;27/09/2020
+2018;Zaragoza;Máster: Ingeniería Electrónica;Máster;Abandono Voluntario;Hombres;0;3;0;0;;;27/09/2020
+2018;Zaragoza;Máster: Ingeniería Electrónica;Máster;Graduado;Hombres;7;0;0;0;1.00;98.84;27/09/2020
+2018;Zaragoza;Máster: Ingeniería Industrial;Máster;Abandono Voluntario;Hombres;0;8;3;0;;;27/09/2020
+2018;Zaragoza;Máster: Ingeniería Industrial;Máster;Graduado;Hombres;73;0;0;0;2.24;94.05;27/09/2020
+2018;Zaragoza;Máster: Ingeniería Industrial;Máster;Graduado;Mujeres;17;0;0;0;2.25;95.68;27/09/2020
+2018;Zaragoza;Máster: Ingeniería Industrial;Máster;Traslado a otra Universidad;Hombres;0;0;0;1;;;27/09/2020
+2018;Zaragoza;Máster: Ingeniería Informática;Máster;Abandono Voluntario;Hombres;0;1;1;0;;;27/09/2020
+2018;Zaragoza;Máster: Ingeniería Informática;Máster;Graduado;Hombres;5;0;0;0;2.00;93.17;27/09/2020
+2018;Zaragoza;Máster: Ingeniería Informática;Máster;Graduado;Mujeres;1;0;0;0;;75.00;27/09/2020
+2018;Zaragoza;Máster: Ingeniería Mecánica;Máster;Abandono Voluntario;Mujeres;0;2;1;0;;;27/09/2020
+2018;Zaragoza;Máster: Ingeniería Mecánica;Máster;Graduado;Hombres;6;0;0;0;1.33;91.60;27/09/2020
+2018;Zaragoza;Máster: Ingeniería Química;Máster;Abandono Voluntario;Hombres;0;2;1;0;;;27/09/2020
+2018;Zaragoza;Máster: Ingeniería Química;Máster;Abandono Voluntario;Mujeres;0;1;1;0;;;27/09/2020
+2018;Zaragoza;Máster: Ingeniería Química;Máster;Graduado;Hombres;5;0;0;0;2.00;100.00;27/09/2020
+2018;Zaragoza;Máster: Ingeniería Química;Máster;Graduado;Mujeres;3;0;0;0;2.00;100.00;27/09/2020
+2018;Zaragoza;Máster: Iniciación a la Investigación en Ciencias de la Enfermería;Máster;Abandono Voluntario;Hombres;0;2;2;0;;;27/09/2020
+2018;Zaragoza;Máster: Iniciación a la Investigación en Ciencias de la Enfermería;Máster;Abandono Voluntario;Mujeres;0;2;2;0;;;27/09/2020
+2018;Zaragoza;Máster: Iniciación a la Investigación en Ciencias de la Enfermería;Máster;Graduado;Hombres;6;0;0;0;1.33;93.75;27/09/2020
+2018;Zaragoza;Máster: Iniciación a la Investigación en Ciencias de la Enfermería;Máster;Graduado;Mujeres;14;0;0;0;1.14;97.22;27/09/2020
+2018;Zaragoza;Máster: Iniciación a la investigación en Medicina;Máster;Abandono Voluntario;Mujeres;0;7;2;0;;;27/09/2020
+2018;Zaragoza;Máster: Iniciación a la investigación en Medicina;Máster;Graduado;Hombres;18;0;0;0;1.00;98.04;27/09/2020
+2018;Zaragoza;Máster: Iniciación a la investigación en Medicina;Máster;Graduado;Mujeres;42;0;0;0;1.08;95.68;27/09/2020
+2018;Zaragoza;Máster: Investigación en Filosofía;Máster;Graduado;Hombres;2;0;0;0;1.00;100.00;27/09/2020
+2018;Zaragoza;Máster: Investigación en Filosofía;Máster;Graduado;Mujeres;7;0;0;0;1.29;100.00;27/09/2020
+2018;Zaragoza;Máster: Investigación y Estudios Avanzados en Historia;Máster;Abandono Voluntario;Hombres;0;1;0;0;;;27/09/2020
+2018;Zaragoza;Máster: Investigación y Estudios Avanzados en Historia;Máster;Abandono Voluntario;Mujeres;0;2;2;0;;;27/09/2020
+2018;Zaragoza;Máster: Investigación y Estudios Avanzados en Historia;Máster;Cambio de estudios sin simultaneidad;Mujeres;0;1;1;0;;;27/09/2020
+2018;Zaragoza;Máster: Investigación y Estudios Avanzados en Historia;Máster;Graduado;Hombres;9;0;0;0;1.22;89.11;27/09/2020
+2018;Zaragoza;Máster: Investigación y Estudios Avanzados en Historia;Máster;Graduado;Mujeres;3;0;0;0;1.00;100.00;27/09/2020
+2018;Zaragoza;Máster: Literaturas Hispánicas y Lengua Española: Tradición e Identidades;Máster;Graduado;Mujeres;3;0;0;0;2.00;83.33;27/09/2020
+2018;Zaragoza;Máster: Materiales nanoestructurados para aplicaciones nanotecnológicas;Máster;Abandono Voluntario;Hombres;0;3;2;0;;;27/09/2020
+2018;Zaragoza;Máster: Materiales nanoestructurados para aplicaciones nanotecnológicas;Máster;Graduado;Hombres;8;0;0;0;1.00;100.00;27/09/2020
+2018;Zaragoza;Máster: Materiales nanoestructurados para aplicaciones nanotecnológicas;Máster;Graduado;Mujeres;3;0;0;0;1.00;100.00;27/09/2020
+2018;Zaragoza;Máster: Modelización e Investigación Matemática, Estadística y Computación;Máster;Abandono Voluntario;Hombres;0;1;0;0;;;27/09/2020
+2018;Zaragoza;Máster: Modelización e Investigación Matemática, Estadística y Computación;Máster;Graduado;Hombres;10;0;0;0;1.11;97.83;27/09/2020
+2018;Zaragoza;Máster: Modelización e Investigación Matemática, Estadística y Computación;Máster;Graduado;Mujeres;2;0;0;0;1.00;100.00;27/09/2020
+2018;Zaragoza;Máster: Modelización e Investigación Matemática, Estadística y Computación;Máster;Incumple Régimen de permanencia;Mujeres;0;1;1;0;;;27/09/2020
+2018;Zaragoza;Máster: Mundo Antiguo y Patrimonio Arqueológico;Máster;Graduado;Hombres;6;0;0;0;1.17;96.77;27/09/2020
+2018;Zaragoza;Máster: Mundo Antiguo y Patrimonio Arqueológico;Máster;Graduado;Mujeres;5;0;0;0;1.00;100.00;27/09/2020
+2018;Zaragoza;Máster: Nutrición animal;Máster;Graduado;Hombres;10;0;0;0;1.90;100.00;27/09/2020
+2018;Zaragoza;Máster: Nutrición animal;Máster;Graduado;Mujeres;6;0;0;0;2.00;100.00;27/09/2020
+2018;Zaragoza;Máster: Ordenación Territorial y Medioambiental;Máster;Graduado;Hombres;9;0;0;0;1.11;97.85;27/09/2020
+2018;Zaragoza;Máster: Ordenación Territorial y Medioambiental;Máster;Graduado;Mujeres;2;0;0;0;1.00;100.00;27/09/2020
+2018;Zaragoza;Máster: Prevención de riesgos laborales;Máster;Graduado;Hombres;11;0;0;0;1.12;99.04;27/09/2020
+2018;Zaragoza;Máster: Prevención de riesgos laborales;Máster;Graduado;Mujeres;11;0;0;0;1.00;100.00;27/09/2020
+2018;Zaragoza;Máster: Profesorado E.S.O., F.P. y Ens. Idiom, Art y Deport;Máster;Abandono Voluntario;Hombres;0;7;2;0;;;27/09/2020
+2018;Zaragoza;Máster: Profesorado E.S.O., F.P. y Ens. Idiom, Art y Deport;Máster;Abandono Voluntario;Mujeres;0;14;10;0;;;27/09/2020
+2018;Zaragoza;Máster: Profesorado E.S.O., F.P. y Ens. Idiom, Art y Deport;Máster;Graduado;Hombres;191;0;0;0;1.19;97.73;27/09/2020
+2018;Zaragoza;Máster: Profesorado E.S.O., F.P. y Ens. Idiom, Art y Deport;Máster;Graduado;Mujeres;282;0;0;0;1.11;98.38;27/09/2020
+2018;Zaragoza;Máster: Química Industrial;Máster;Graduado;Hombres;11;0;0;0;1.09;98.65;27/09/2020
+2018;Zaragoza;Máster: Química Industrial;Máster;Graduado;Mujeres;7;0;0;0;1.14;97.90;27/09/2020
+2018;Zaragoza;Máster: Química Molecular y Catálisis Homogénea;Máster;Graduado;Hombres;12;0;0;0;1.08;96.00;27/09/2020
+2018;Zaragoza;Máster: Química Molecular y Catálisis Homogénea;Máster;Graduado;Mujeres;3;0;0;0;1.00;100.00;27/09/2020
+2018;Zaragoza;Máster: Relaciones de Género;Máster;Abandono Voluntario;Hombres;0;1;0;0;;;27/09/2020
+2018;Zaragoza;Máster: Relaciones de Género;Máster;Abandono Voluntario;Mujeres;0;3;2;0;;;27/09/2020
+2018;Zaragoza;Máster: Relaciones de Género;Máster;Graduado;Hombres;3;0;0;0;1.67;90.91;27/09/2020
+2018;Zaragoza;Máster: Relaciones de Género;Máster;Graduado;Mujeres;24;0;0;0;1.08;97.96;27/09/2020
+2018;Zaragoza;Máster: Salud pública;Máster;Abandono Voluntario;Hombres;0;1;1;0;;;27/09/2020
+2018;Zaragoza;Máster: Salud pública;Máster;Abandono Voluntario;Mujeres;0;1;0;0;;;27/09/2020
+2018;Zaragoza;Máster: Salud pública;Máster;Graduado;Hombres;5;0;0;0;1.75;91.46;27/09/2020
+2018;Zaragoza;Máster: Salud pública;Máster;Graduado;Mujeres;15;0;0;0;1.30;94.66;27/09/2020
+2018;Zaragoza;Máster: Sociología de las Políticas Públicas y Sociales;Máster;Abandono Voluntario;Mujeres;0;3;1;0;;;27/09/2020
+2018;Zaragoza;Máster: Sociología de las Políticas Públicas y Sociales;Máster;Graduado;Hombres;4;0;0;0;1.25;89.55;27/09/2020
+2018;Zaragoza;Máster: Sociología de las Políticas Públicas y Sociales;Máster;Graduado;Mujeres;14;0;0;0;1.00;95.48;27/09/2020
+2018;Zaragoza;Máster: Tec.Información Geográfica para Ordenación Territorio: Sig/Teled;Máster;Abandono Voluntario;Hombres;0;1;1;0;;;27/09/2020
+2018;Zaragoza;Máster: Tec.Información Geográfica para Ordenación Territorio: Sig/Teled;Máster;Graduado;Hombres;20;0;0;0;1.25;95.09;27/09/2020
+2018;Zaragoza;Máster: Tec.Información Geográfica para Ordenación Territorio: Sig/Teled;Máster;Graduado;Mujeres;7;0;0;0;1.00;100.00;27/09/2020
+2018;Zaragoza;Máster: Traducción de textos especializados;Máster;Cambio de estudios sin simultaneidad;Mujeres;0;1;1;0;;;27/09/2020
+2018;Zaragoza;Máster: Traducción de textos especializados;Máster;Graduado;Hombres;1;0;0;0;4.00;76.92;27/09/2020
+2018;Zaragoza;Máster: Traducción de textos especializados;Máster;Graduado;Mujeres;2;0;0;0;5.00;80.00;27/09/2020
+2018;Zaragoza;Máster: Traducción de textos especializados;Máster;Incumple Régimen de permanencia;Hombres;0;1;1;0;;;27/09/2020
+2018;Zaragoza;Máster: Unión Europea;Máster;Abandono Voluntario;Hombres;0;2;1;0;;;27/09/2020
+2018;Zaragoza;Químicas;Licenciatura o equivalente;Abandono Voluntario;Hombres;0;1;0;0;;;27/09/2020
+2018;Zaragoza;Químicas;Licenciatura o equivalente;Traslado a otra Universidad;Mujeres;0;0;0;1;;;27/09/2020
+2018;Zaragoza;Veterinaria;Licenciatura o equivalente;Abandono Voluntario;Mujeres;0;1;0;0;;;27/09/2020
+2018;Zaragoza;Veterinaria;Licenciatura o equivalente;Traslado a otra Universidad;Hombres;0;0;0;2;;;27/09/2020

@@ -1,0 +1,225 @@
+CURSO_ACADEMICO;CENTRO;ESTUDIO;TIPO_ESTUDIO;ALUMNOS_MATRICULADOS;ALUMNOS_NUEVO_INGRESO;PLAZAS_OFERTADAS;ALUMNOS_GRADUADOS;ALUMNOS_ADAPTA_GRADO_MATRI;ALUMNOS_ADAPTA_GRADO_MATRI_NI;ALUMNOS_ADAPTA_GRADO_TITULADO;ALUMNOS_CON_RECONOCIMIENTO;ALUMNOS_MOVILIDAD_ENTRADA;ALUMNOS_MOVILIDAD_SALIDA;CREDITOS_MATRICULADOS;CREDITOS_RECONOCIDOS;DURACION_MEDIA_GRADUADOS;TASA_EXITO;TASA_RENDIMIENTO;TASA_EFICIENCIA;TASA_ABANDONO;TASA_GRADUACION;FECHA_ACTUALIZACION
+2018;Escuela Politécnica Superior;1-Ciencias Ambientales;Grado;202;37;60;36;0;0;0;14;4;6;10448.00;369.00;6.06;81.03;70.64;78.23;0.00;0.00;27/09/2020
+2018;Facultad de Ciencias de la Salud;1-Enfermería;Grado;608;160;160;134;0;0;0;165;14;13;35748.00;1841.00;4.02;97.23;94.88;97.70;0.00;0.00;27/09/2020
+2018;Escuela Universitaria de Enfermería San Jorge de Huesca;1-Enfermería;Grado;199;55;54;49;0;0;0;59;1;0;11849.00;884.00;4.03;97.35;96.49;98.39;0.00;0.00;27/09/2020
+2018;Escuela Universitaria de Enfermería de Teruel;1-Enfermería;Grado;135;33;35;33;0;0;0;46;;2;7722.00;324.00;4.27;98.06;97.08;97.85;0.00;0.00;27/09/2020
+2018;Facultad de Ciencias Sociales y Humanas de Teruel;1-Bellas Artes;Grado;178;49;50;33;0;0;0;14;21;32;10269.00;218.50;4.52;98.23;90.62;92.49;0.00;0.00;27/09/2020
+2018;Facultad de Ciencias Sociales y Humanas de Teruel;1-Psicología;Grado;370;84;85;85;0;0;0;29;19;44;21240.00;598.50;4.35;90.09;86.55;92.90;0.00;0.00;27/09/2020
+2018;Facultad de Filosofía y Letras;1-Filosofía;Grado;220;59;60;27;0;0;0;21;30;5;11080.00;397.50;5.36;91.26;67.28;81.25;0.00;0.00;27/09/2020
+2018;Facultad de Filosofía y Letras;1-Periodismo;Grado;264;60;60;45;0;0;0;26;43;15;14931.50;399.00;4.25;97.25;92.35;98.26;0.00;0.00;27/09/2020
+2018;Facultad de Filosofía y Letras;1-Información y Documentación;Grado;79;19;36;9;0;0;0;8;6;2;3992.00;80.50;5.12;85.56;72.20;86.26;0.00;0.00;27/09/2020
+2018;Facultad de Ciencias de la Salud;1-Fisioterapia;Grado;240;59;60;56;0;0;0;9;4;13;14175.00;420.00;4.12;96.23;92.99;96.22;0.00;0.00;27/09/2020
+2018;Facultad de Ciencias de la Salud;1-Terapia Ocupacional;Grado;308;78;80;63;1;0;1;9;2;2;17641.50;232.00;4.28;94.73;88.12;91.57;0.00;0.00;27/09/2020
+2018;Facultad de Ciencias Sociales y del Trabajo;1-Trabajo Social;Grado;723;182;180;132;9;6;0;59;23;33;42143.00;2247.00;4.31;91.88;84.62;94.72;0.00;0.00;27/09/2020
+2018;Escuela de Ingeniería y Arquitectura;1-Ingeniero en Diseño Industrial y Desarrollo de Producto;Grado;329;74;75;55;0;0;0;104;24;23;19386.00;1362.00;4.45;87.29;81.00;88.47;0.00;0.00;27/09/2020
+2018;Facultad de Veterinaria;1-Ciencia y Tecnología de los Alimentos;Grado;263;58;60;37;0;0;0;35;10;13;15302.00;1481.50;4.67;89.30;84.08;87.79;0.00;0.00;27/09/2020
+2018;Facultad de Ciencias de la Salud y del Deporte;1-Ciencias de la Actividad Física y del Deporte;Grado;311;70;70;62;0;0;0;51;3;19;16854.00;1004.50;4.41;93.83;89.66;94.85;0.00;0.00;27/09/2020
+2018;Facultad de Ciencias;1-Geología;Grado;151;47;67;23;0;0;0;10;6;4;8305.50;212.50;5.22;81.11;69.57;82.32;0.00;0.00;27/09/2020
+2018;Facultad de Ciencias;1-Óptica y Optometría;Grado;243;58;60;43;0;0;0;6;;8;13748.00;100.00;4.54;87.59;77.77;89.29;0.00;0.00;27/09/2020
+2018;Facultad de Educación;1-Magisterio en Educación Primaria;Grado;1122;240;240;231;26;10;18;79;15;45;60082.00;4114.50;4.61;93.64;88.26;92.27;0.00;0.00;27/09/2020
+2018;Facultad de Ciencias Humanas y de la Educación;1-Magisterio en Educación Primaria;Grado;549;130;120;112;0;0;0;66;;20;31701.00;2357.00;4.67;90.64;83.18;89.40;0.00;0.00;27/09/2020
+2018;Facultad de Ciencias Sociales y Humanas de Teruel;1-Magisterio en Educación Primaria;Grado;402;113;120;77;0;0;0;40;10;4;22958.00;591.00;4.73;88.48;82.09;86.36;0.00;0.00;27/09/2020
+2018;Facultad de Educación;1-Magisterio en Educación Infantil;Grado;510;120;120;125;0;0;0;41;12;30;27848.00;1902.00;4.16;95.59;91.80;96.80;0.00;0.00;27/09/2020
+2018;Facultad de Ciencias Humanas y de la Educación;1-Magisterio en Educación Infantil;Grado;482;126;120;94;0;0;0;75;1;7;26609.00;3791.00;4.24;89.89;83.95;95.67;0.00;0.00;27/09/2020
+2018;Facultad de Ciencias Sociales y Humanas de Teruel;1-Magisterio en Educación Infantil;Grado;365;95;120;80;0;0;0;53;4;11;20348.00;1541.50;4.50;88.44;83.11;89.95;0.00;0.00;27/09/2020
+2018;Facultad de Medicina;1-Medicina;Grado;1251;180;180;232;0;0;0;404;62;90;75320.50;7160.00;6.08;97.70;95.17;96.44;0.00;0.00;27/09/2020
+2018;Facultad de Ciencias de la Salud y del Deporte;1-Medicina;Grado;93;45;45;0;0;0;0;8;;0;5134.00;295.00;;99.20;98.50;;0.00;0.00;27/09/2020
+2018;Facultad de Filosofía y Letras;1-Estudios Clásicos;Grado;72;27;32;3;0;0;0;9;11;3;3714.00;134.00;5.50;79.09;62.34;85.66;0.00;0.00;27/09/2020
+2018;Facultad de Filosofía y Letras;1-Estudios Ingleses;Grado;409;96;100;55;0;0;0;26;76;54;22574.00;282.50;4.52;82.12;73.20;91.68;0.00;0.00;27/09/2020
+2018;Facultad de Filosofía y Letras;1-Filología Hispánica;Grado;274;63;70;43;0;0;0;75;145;8;14274.00;1281.00;4.94;87.58;74.59;88.46;0.00;0.00;27/09/2020
+2018;Facultad de Filosofía y Letras;1-Historia;Grado;589;135;165;85;0;0;0;94;117;19;31035.00;382.50;4.96;89.36;74.60;89.70;0.00;0.00;27/09/2020
+2018;Facultad de Filosofía y Letras;1-Historia del Arte;Grado;329;72;120;43;0;0;0;65;38;9;16592.00;704.00;5.53;85.80;68.93;85.97;0.00;0.00;27/09/2020
+2018;Facultad de Ciencias;1-Física;Grado;310;72;72;39;0;0;0;65;2;17;17902.50;435.50;4.33;88.91;79.58;91.02;0.00;0.00;27/09/2020
+2018;Facultad de Ciencias;1-Biotecnología;Grado;281;68;66;70;0;0;0;89;14;26;16523.00;709.50;4.25;93.88;89.79;96.05;0.00;0.00;27/09/2020
+2018;Facultad de Ciencias;1-Matemáticas;Grado;250;66;66;35;0;0;0;36;4;11;13956.50;520.00;5.18;86.97;73.44;80.43;0.00;0.00;27/09/2020
+2018;Facultad de Ciencias;1-Química;Grado;594;150;150;78;0;0;0;94;12;34;33077.00;726.50;5.11;81.78;72.41;81.81;0.00;0.00;27/09/2020
+2018;Facultad de Ciencias de la Salud y del Deporte;1-Nutrición Humana y Dietética;Grado;261;65;65;44;1;0;1;46;2;4;14366.00;290.50;4.82;91.60;87.58;91.25;0.00;0.00;27/09/2020
+2018;Facultad de Ciencias de la Salud y del Deporte;1-Odontología;Grado;172;36;36;27;0;0;0;57;7;4;10082.00;814.00;5.04;95.77;93.96;97.87;0.00;0.00;27/09/2020
+2018;Facultad de Veterinaria;1-Veterinaria;Grado;773;145;146;148;0;0;0;123;21;38;45387.00;1069.00;5.49;91.59;87.43;90.63;0.00;0.00;27/09/2020
+2018;Facultad de Economía y Empresa;1-Administración y Dirección de Empresas;Grado;1627;392;400;338;10;0;3;541;175;70;88341.50;9578.50;5.48;77.91;66.29;86.71;0.00;0.00;27/09/2020
+2018;Facultad de Empresa y Gestión Pública;1-Administración y Dirección de Empresas;Grado;187;34;65;32;14;2;6;48;16;8;8937.00;862.00;5.17;78.62;60.08;81.13;0.00;0.00;27/09/2020
+2018;Facultad de Ciencias Sociales y Humanas de Teruel;1-Administración y Dirección de Empresas;Grado;154;25;45;16;0;0;0;27;14;4;7008.00;261.00;5.38;79.30;63.52;90.32;0.00;0.00;27/09/2020
+2018;Facultad de Derecho;1-Derecho;Grado;1343;309;308;294;0;0;0;400;79;72;76992.00;5303.00;5.10;83.58;76.00;91.21;0.00;0.00;27/09/2020
+2018;Facultad de Economía y Empresa;1-Economía;Grado;737;185;200;90;0;0;0;154;70;18;40170.50;1360.50;5.71;75.76;60.79;78.75;0.00;0.00;27/09/2020
+2018;Facultad de Economía y Empresa;1-Finanzas y Contabilidad;Grado;485;129;150;67;0;0;0;102;10;9;25741.00;1482.00;5.55;76.61;61.01;81.86;0.00;0.00;27/09/2020
+2018;Facultad de Filosofía y Letras;1-Geografía y Ordenación del Territorio;Grado;142;32;50;29;0;0;0;27;31;3;7917.00;107.00;4.67;93.96;82.92;93.30;0.00;0.00;27/09/2020
+2018;Facultad de Empresa y Gestión Pública;1-Gestión y Administración Pública;Grado;101;22;40;14;16;9;4;43;2;0;4091.00;2495.50;5.50;86.58;56.92;83.93;0.00;0.00;27/09/2020
+2018;Facultad de Economía y Empresa;1-Marketing e Investigación de Mercados;Grado;577;149;150;86;0;0;0;137;53;23;31195.00;1914.00;5.37;81.81;70.22;83.14;0.00;0.00;27/09/2020
+2018;Facultad de Ciencias Sociales y del Trabajo;1-Relaciones Laborales y Recursos Humanos;Grado;746;176;180;114;10;5;6;169;21;15;38717.00;3387.50;5.43;81.82;72.49;86.69;0.00;0.00;27/09/2020
+2018;Escuela Universitaria de Turismo de Zaragoza;1-Turismo;Grado;224;57;80;34;3;2;2;56;12;21;12373.00;901.00;5.19;81.16;65.15;87.55;0.00;0.00;27/09/2020
+2018;Escuela Politécnica Superior;1-Ingeniería Agroalimentaria y del Medio Rural;Grado;168;31;50;17;7;2;0;144;8;8;8392.00;6911.50;5.77;78.19;62.90;76.25;0.00;0.00;27/09/2020
+2018;Escuela Universitaria Politécnica de la Almunia de Doña Godina;1-Ingeniería Civil;Grado;63;6;54;7;1;0;0;19;20;0;2734.00;129.00;5.00;73.15;52.01;88.36;0.00;0.00;27/09/2020
+2018;Escuela Universitaria Politécnica de la Almunia de Doña Godina;1-Arquitectura Técnica;Grado;81;6;54;22;3;3;2;31;15;2;2631.00;1681.00;6.62;84.88;59.85;87.35;0.00;0.00;27/09/2020
+2018;Escuela Universitaria Politécnica de la Almunia de Doña Godina;1-Ingeniería de Organización Industrial;Grado;133;46;60;17;0;0;0;58;18;1;5298.00;1934.00;6.25;87.55;69.30;71.37;0.00;0.00;27/09/2020
+2018;Centro Universitario de la Defensa de Zaragoza;1-Ingeniería de Organización Industrial;Grado;1185;279;303;178;0;0;0;114;;0;56493.00;1387.50;5.26;87.01;86.74;93.39;0.00;0.00;27/09/2020
+2018;Escuela de Ingeniería y Arquitectura;1-Ingeniería de Tecnologías Industriales;Grado;732;171;180;126;0;0;0;188;17;59;41389.00;1322.00;4.98;79.45;67.42;83.09;0.00;0.00;27/09/2020
+2018;Escuela de Ingeniería y Arquitectura;1-Ingeniería de Tecnologías y Servicios de Telecomunicación;Grado;260;84;90;40;0;0;0;66;3;10;14643.00;478.50;4.91;77.41;62.00;85.60;0.00;0.00;27/09/2020
+2018;Escuela de Ingeniería y Arquitectura;1-Ingeniería Electrica;Grado;260;68;91;46;1;0;0;89;14;11;13537.00;1659.00;5.45;79.57;63.38;76.78;0.00;0.00;27/09/2020
+2018;Escuela de Ingeniería y Arquitectura;1-Ingeniería Electrónica y Automática;Grado;366;106;120;51;1;0;1;85;6;14;19868.00;1576.50;5.24;71.23;56.79;82.67;0.00;0.00;27/09/2020
+2018;Escuela Universitaria Politécnica de Teruel;1-Ingeniería Electrónica y Automática;Grado;75;17;32;11;0;0;0;25;;2;4066.00;302.50;4.86;83.58;72.25;88.74;0.00;0.00;27/09/2020
+2018;Escuela de Ingeniería y Arquitectura;1-Ingeniería Informática;Grado;400;98;99;53;0;0;0;98;12;14;21520.00;1444.50;5.11;87.90;76.34;85.20;0.00;0.00;27/09/2020
+2018;Escuela Universitaria Politécnica de Teruel;1-Ingeniería Informática;Grado;122;28;35;9;0;0;0;28;;4;6440.00;269.00;6.11;73.94;59.97;73.38;0.00;0.00;27/09/2020
+2018;Escuela de Ingeniería y Arquitectura;1-Ingeniería Mecánica;Grado;851;215;240;120;2;0;2;207;22;27;44273.00;2101.50;5.77;73.34;57.82;77.88;0.00;0.00;27/09/2020
+2018;Escuela Universitaria Politécnica de la Almunia de Doña Godina;1-Ingeniería Mecatrónica;Grado;233;59;60;22;0;0;0;76;12;4;12230.00;1157.00;5.57;84.39;70.30;77.12;0.00;0.00;27/09/2020
+2018;Escuela de Ingeniería y Arquitectura;1-Ingeniería Química;Grado;287;77;90;39;1;0;2;82;18;16;15989.00;1206.00;5.09;74.63;60.65;82.55;0.00;0.00;27/09/2020
+2018;Facultad de Filosofía y Letras;1-Lenguas Modernas;Grado;187;48;55;24;0;0;0;6;113;24;10140.00;123.00;4.83;87.14;76.63;93.63;0.00;0.00;27/09/2020
+2018;Facultad de Derecho;1-Programa conjunto ADE/Derecho;Grado;468;80;80;0;0;0;0;117;9;49;32036.00;262.50;;94.96;91.64;;0.00;0.00;27/09/2020
+2018;Escuela de Ingeniería y Arquitectura;1-Estudios en Arquitectura;Grado;336;68;70;49;0;0;0;76;34;31;19254.00;1155.50;5.71;77.60;67.55;88.53;0.00;0.00;27/09/2020
+2018;Facultad de Ciencias;1-Programa conjunto Física-Matemáticas (FisMat);Grado;20;10;10;;0;0;;2;;0;1393.50;142.00;;99.56;97.92;;0.00;0.00;27/09/2020
+2018;Facultad de Filosofía y Letras;6-Biblioteconomía y Documentación;Diplomatura o equivalente;;;;0;;;0;;;;;;;;;;;;27/09/2020
+2018;Facultad de Derecho;5-Derecho;Licenciatura o equivalente;;;;0;;;0;;;;;;;;;;;;27/09/2020
+2018;Facultad de Economía y Empresa;6-Diplomado Ciencias Empresariales;Diplomatura o equivalente;;;;0;;;0;;;;;;;;;;;;27/09/2020
+2018;Facultad de Ciencias;6-Estadística;Diplomatura o equivalente;;;;0;;;0;;;;;;;;;;;;27/09/2020
+2018;Facultad de Filosofía y Letras;5-Filología Clásica;Licenciatura o equivalente;;;;0;;;0;;;;;;;;;;;;27/09/2020
+2018;Facultad de Ciencias;5-Físicas;Licenciatura o equivalente;;;;0;;;0;;;;;;;;;;;;27/09/2020
+2018;Facultad de Ciencias;5-Geológicas;Licenciatura o equivalente;;;;0;;;0;;;;;;;;;;;;27/09/2020
+2018;Escuela de Ingeniería y Arquitectura;5-Ingeniero de Telecomunicación;Licenciatura o equivalente;;;;0;;;0;;;;;;;;;;;;27/09/2020
+2018;Centro Politécnico Superior;5-Ingeniero en Informática;Licenciatura o equivalente;;;;0;;;0;;;;;;;;;;;;27/09/2020
+2018;Escuela de Ingeniería y Arquitectura;5-Ingeniero en Informática;Licenciatura o equivalente;;;;0;;;0;;;;;;;;;;;;27/09/2020
+2018;Escuela de Ingeniería y Arquitectura;5-Ingeniero Industrial;Licenciatura o equivalente;;;;0;;;0;;;;;;;;;;;;27/09/2020
+2018;Escuela de Ingeniería y Arquitectura;6-Ingeniero Técnico en Electrónica Industrial;Diplomatura o equivalente;;;;0;;;0;;;;;;;;;;;;27/09/2020
+2018;Facultad de Ciencias;5-Químicas;Licenciatura o equivalente;;;;0;;;0;;;;;;;;;;;;27/09/2020
+2018;Facultad de Veterinaria;5-Veterinaria;Licenciatura o equivalente;;;;0;;;0;;;;;;;;;;;;27/09/2020
+2018;Facultad de Filosofía y Letras;6-Filología Hispánica;Licenciatura o equivalente;;;;0;;;0;;;;;;;;;;;;27/09/2020
+2018;Facultad de Filosofía y Letras;6-Geografía e Historia;Licenciatura o equivalente;;;;0;;;0;;;;;;;;;;;;27/09/2020
+2018;Facultad de Ciencias;4-Movilidad para 1º y 2º ciclo y grado;Movilidad de entrada;40;0;;;0;0;;1;8;0;1108.00;2.00;;;;;;;27/09/2020
+2018;Facultad de Derecho;4-Movilidad para 1º y 2º ciclo y grado;Movilidad de entrada;67;0;;;0;0;;0;;0;2211.50;0.00;;;;;;;27/09/2020
+2018;Facultad de Filosofía y Letras;4-Movilidad para 1º y 2º ciclo y grado;Movilidad de entrada;252;0;;;0;0;;0;;0;9727.00;0.00;;;;;;;27/09/2020
+2018;Facultad de Medicina;4-Movilidad para 1º y 2º ciclo y grado;Movilidad de entrada;61;0;;;0;0;;0;;0;3827.50;0.00;;;;;;;27/09/2020
+2018;Facultad de Veterinaria;4-Movilidad para 1º y 2º ciclo y grado;Movilidad de entrada;32;0;;;0;0;;0;;0;1284.00;0.00;;100.00;33.33;;;;27/09/2020
+2018;Facultad de Educación;4-Movilidad para 1º y 2º ciclo y grado;Movilidad de entrada;19;0;;;0;0;;0;;0;581.00;0.00;;;;;;;27/09/2020
+2018;Facultad de Ciencias Sociales y del Trabajo;4-Movilidad para 1º y 2º ciclo y grado;Movilidad de entrada;34;0;;;0;0;;0;;0;941.00;0.00;;;;;;;27/09/2020
+2018;Facultad de Economía y Empresa;4-Movilidad para 1º y 2º ciclo y grado;Movilidad de entrada;171;0;;;0;0;;0;;0;5207.00;0.00;;;;;;;27/09/2020
+2018;Escuela de Ingeniería y Arquitectura;4-Movilidad para 1º y 2º ciclo y grado;Movilidad de entrada;120;0;;;0;0;;0;;0;3124.50;0.00;;;;;;;27/09/2020
+2018;Facultad de Ciencias de la Salud;4-Movilidad para 1º y 2º ciclo y grado;Movilidad de entrada;19;0;;;0;0;;0;;0;679.00;0.00;;;;;;;27/09/2020
+2018;Escuela Universitaria Politécnica de la Almunia de Doña Godina;4-Movilidad para 1º y 2º ciclo y grado;Movilidad de entrada;40;0;;;0;0;;2;;0;1158.00;2.00;;100.00;100.00;;;;27/09/2020
+2018;Escuela Universitaria de Turismo de Zaragoza;4-Movilidad para 1º y 2º ciclo y grado;Movilidad de entrada;9;0;;;0;0;;0;;0;280.00;0.00;;;;;;;27/09/2020
+2018;Escuela Politécnica Superior;4-Movilidad para 1º y 2º ciclo y grado;Movilidad de entrada;9;0;;;0;0;;0;;0;246.00;0.00;;;;;;;27/09/2020
+2018;Facultad de Ciencias Humanas y de la Educación;4-Movilidad para 1º y 2º ciclo y grado;Movilidad de entrada;1;0;;;0;0;;0;;0;60.00;0.00;;;;;;;27/09/2020
+2018;Facultad de Empresa y Gestión Pública;4-Movilidad para 1º y 2º ciclo y grado;Movilidad de entrada;16;0;;;0;0;;0;;0;584.00;0.00;;;;;;;27/09/2020
+2018;Facultad de Ciencias de la Salud y del Deporte;4-Movilidad para 1º y 2º ciclo y grado;Movilidad de entrada;14;0;;;0;0;;0;;0;360.00;0.00;;100.00;100.00;;;;27/09/2020
+2018;Escuela Universitaria de Enfermería San Jorge de Huesca;4-Movilidad para 1º y 2º ciclo y grado;Movilidad de entrada;1;0;;;0;0;;0;;0;34.00;0.00;;;;;;;27/09/2020
+2018;Facultad de Ciencias Sociales y Humanas de Teruel;4-Movilidad para 1º y 2º ciclo y grado;Movilidad de entrada;56;0;;;0;0;;0;;0;1769.00;0.00;;;;;;;27/09/2020
+2018;Escuela de Ingeniería y Arquitectura;5-Ingenierio Químico;Licenciatura o equivalente;;;;0;;;0;;;;;;;;;;;;27/09/2020
+2018;Facultad de Economía y Empresa;5-Licenciado en Economía;Licenciatura o equivalente;;;;0;;;0;;;;;;;;;;;;27/09/2020
+2018;Facultad de Economía y Empresa;5-Licenciado en Administración y Dirección de Empresas;Licenciatura o equivalente;;;;0;;;0;;;;;;;;;;;;27/09/2020
+2018;Facultad de Filosofía y Letras;5-Geografía;Licenciatura o equivalente;;;;0;;;0;;;;;;;;;;;;27/09/2020
+2018;Facultad de Ciencias Sociales y Humanas de Teruel;6-Relaciones Laborales;Diplomatura o equivalente;;;;0;;;0;;;;;;;;;;;;27/09/2020
+2018;Facultad de Filosofía y Letras;5-Historia;Licenciatura o equivalente;;;;0;;;0;;;;;;;;;;;;27/09/2020
+2018;Facultad de Filosofía y Letras;5-Historia del Arte;Licenciatura o equivalente;;;;0;;;0;;;;;;;;;;;;27/09/2020
+2018;Escuela de Ingeniería y Arquitectura;6-Ingeniero Técnico Industrial, Esp. Mecánica;Diplomatura o equivalente;;;;0;;;0;;;;;;;;;;;;27/09/2020
+2018;Facultad de Ciencias Sociales y Humanas de Teruel;5-Licenciado en Ciencias del Trabajo;Licenciatura o equivalente;;;;0;;;0;;;;;;;;;;;;27/09/2020
+2018;Facultad de Educación;5-Licenciado en Psicopedagogía;Licenciatura o equivalente;;;;0;;;0;;;;;;;;;;;;27/09/2020
+2018;Facultad de Ciencias de la Salud y del Deporte;6-Diplomado en Nutrición Humana;Diplomatura o equivalente;;;;0;;;0;;;;;;;;;;;;27/09/2020
+2018;Escuela Politécnica Superior;5-Ingeniero Agrónomo;Licenciatura o equivalente;;;;0;;;0;;;;;;;;;;;;27/09/2020
+2018;Facultad de Filosofía y Letras;5-Licenciado en Filosofía;Licenciatura o equivalente;;;;0;;;0;;;;;;;;;;;;27/09/2020
+2018;Facultad de Ciencias;2-Biología Molecular y Celular;Máster;21;20;30;17;0;0;0;0;;1;1170.00;0.00;1.00;98.87;92.59;100.00;0.00;100.00;27/09/2020
+2018;Facultad de Ciencias;2-Física y Tecnologías Físicas;Máster;13;11;30;12;0;0;0;0;1;4;737.00;0.00;1.09;99.16;93.79;97.61;9.09;90.91;27/09/2020
+2018;Facultad de Filosofía y Letras;2-Gestión del Patrimonio Cultural;Máster;40;37;35;32;0;0;0;1;1;0;2290.00;10.00;1.06;98.50;91.79;97.79;5.41;83.78;27/09/2020
+2018;Facultad de Filosofía y Letras;2-Tec.Información Geográfica para Ordenación Territorio: Sig/Teled;Máster;31;23;25;27;0;0;0;0;;0;1498.50;0.00;1.19;100.00;96.80;96.31;0.00;91.30;27/09/2020
+2018;Facultad de Ciencias de la Salud;2-Gerontología Social;Máster;36;35;36;32;0;0;0;0;;0;2114.00;0.00;1.03;100.00;97.30;99.38;2.86;94.29;27/09/2020
+2018;Facultad de Ciencias Sociales y del Trabajo;2-Relaciones de Género;Máster;40;30;30;27;0;0;0;1;2;0;1938.00;6.00;1.15;100.00;91.33;97.12;10.00;83.33;27/09/2020
+2018;Facultad de Economía y Empresa;2-Contabilidad y finanzas;Máster;23;14;30;9;0;0;0;0;;0;906.00;0.00;1.67;96.94;77.04;88.24;10.00;80.00;27/09/2020
+2018;Facultad de Economía y Empresa;2-Economía;Máster;16;13;30;11;0;0;0;0;1;0;834.00;0.00;1.00;100.00;92.81;100.00;7.69;84.62;27/09/2020
+2018;Facultad de Medicina;2-Iniciación a la investigación en Medicina;Máster;64;60;60;60;0;0;0;59;;0;3432.00;300.00;1.05;100.00;96.45;96.39;0.00;98.25;27/09/2020
+2018;Facultad de Veterinaria;2-Nutrición animal;Máster;17;1;1;16;0;0;0;0;;0;1020.00;0.00;1.94;100.00;94.12;100.00;0.00;100.00;27/09/2020
+2018;Escuela de Ingeniería y Arquitectura;2-Ingeniería biomédica;Máster;56;21;30;30;0;0;0;1;2;2;1978.00;12.00;1.96;99.82;85.75;97.11;10.53;52.63;27/09/2020
+2018;Facultad de Empresa y Gestión Pública;2-Dirección y planificación del turismo;Máster;43;19;30;21;0;0;0;6;8;0;1500.00;324.00;1.52;95.00;72.20;82.03;15.79;52.63;27/09/2020
+2018;Facultad de Ciencias;4-Movilidad para máster;Movilidad de entrada;3;0;;;0;0;;0;1;0;22.00;0.00;;;;;;;27/09/2020
+2018;Facultad de Filosofía y Letras;4-Movilidad para máster;Movilidad de entrada;5;0;;;0;0;;0;;0;192.00;0.00;;;;;;;27/09/2020
+2018;Escuela de Ingeniería y Arquitectura;4-Movilidad para máster;Movilidad de entrada;38;0;;;0;0;;0;;0;673.50;0.00;;;;;;;27/09/2020
+2018;Facultad de Empresa y Gestión Pública;4-Movilidad para máster;Movilidad de entrada;6;0;;;0;0;;0;;0;324.00;0.00;;;;;;;27/09/2020
+2018;Facultad de Ciencias de la Salud y del Deporte;4-Movilidad para máster;Movilidad de entrada;1;0;;;0;0;;0;;0;30.00;0.00;;100.00;100.00;;;;27/09/2020
+2018;Facultad de Ciencias;2-Materiales nanoestructurados para aplicaciones nanotecnológicas;Máster;13;12;25;11;0;0;0;0;3;0;734.00;0.00;1.00;100.00;95.50;100.00;0.00;91.67;27/09/2020
+2018;Facultad de Filosofía y Letras;2-Traducción de textos especializados;Máster;3;0;;3;0;0;0;0;;0;18.00;0.00;4.67;100.00;100.00;78.95;;;27/09/2020
+2018;Facultad de Economía y Empresa;2-Sociología de las Políticas Públicas y Sociales;Máster;23;17;25;18;0;0;0;0;5;0;1080.00;0.00;1.07;100.00;96.30;94.10;0.00;100.00;27/09/2020
+2018;Facultad de Economía y Empresa;2-Unión Europea;Máster;;;;0;;;0;;;;;;;;;;;;27/09/2020
+2018;Facultad de Educación;2-Aprendizaje a lo largo de la vida: Iniciación a la investigación;Máster;27;18;40;12;0;0;0;11;;0;1033.00;144.00;1.00;99.16;80.45;94.75;12.50;75.00;27/09/2020
+2018;Facultad de Filosofía y Letras;2-Investigación y Estudios Avanzados en Historia;Máster;13;11;40;12;0;0;0;0;1;0;726.00;0.00;1.17;100.00;98.35;91.60;0.00;90.91;27/09/2020
+2018;Facultad de Filosofía y Letras;2-Estudios Avanzados en Historia del Arte;Máster;25;21;35;11;0;0;0;4;;0;1191.00;120.00;1.18;89.94;77.71;96.51;6.25;75.00;27/09/2020
+2018;Escuela de Ingeniería y Arquitectura;2-Energías Renovables y Eficiencia Energética;Máster;42;16;75;18;0;0;0;3;32;2;1429.00;22.00;2.08;96.57;81.88;96.60;18.18;54.55;27/09/2020
+2018;Facultad de Filosofía y Letras;2-Historia Contemporánea;Máster;23;18;40;10;0;0;0;0;3;1;1040.00;0.00;1.11;98.82;82.27;93.75;15.38;69.23;27/09/2020
+2018;Facultad de Filosofía y Letras;2-Ordenación Territorial y Medioambiental;Máster;21;18;25;11;0;0;0;0;5;0;1074.00;0.00;1.10;96.53;77.65;98.06;0.00;83.33;27/09/2020
+2018;Escuela de Ingeniería y Arquitectura;2-Ingeniería Electrónica;Máster;20;14;30;7;0;0;0;2;1;0;836.00;76.00;1.00;99.10;79.31;98.84;10.00;70.00;27/09/2020
+2018;Facultad de Educación;2-Profesorado E.S.O., F.P. y Ens. Idiom, Art y Deport;Máster;628;514;510;473;0;0;0;71;1;0;30994.00;1946.00;1.14;99.20;94.47;98.11;3.63;88.89;27/09/2020
+2018;Facultad de Ciencias Humanas y de la Educación;2-Profesorado E.S.O., F.P. y Ens. Idiom, Art y Deport;Máster;34;30;30;25;0;0;0;2;;0;1778.00;93.00;1.08;99.65;96.31;98.68;3.45;86.21;27/09/2020
+2018;Facultad de Ciencias Sociales y Humanas de Teruel;2-Profesorado E.S.O., F.P. y Ens. Idiom, Art y Deport;Máster;30;28;30;23;0;0;0;1;;0;1610.00;54.00;1.13;99.42;97.27;99.14;0.00;100.00;27/09/2020
+2018;Facultad de Medicina;2-Salud pública;Máster;26;17;30;20;0;0;0;1;;0;1154.00;20.00;1.43;100.00;92.72;93.75;0.00;81.25;27/09/2020
+2018;Facultad de Medicina;2-Cond. genéticos, nutric. y amb. del crec. y desarrollo;Máster;42;25;25;12;0;0;0;0;;0;1448.00;0.00;1.00;99.93;98.62;100.00;57.14;28.57;27/09/2020
+2018;Facultad de Derecho;2-Prevención de riesgos laborales;Máster;27;24;30;22;0;0;0;8;;0;1407.00;445.00;1.06;100.00;92.61;99.55;5.88;88.24;27/09/2020
+2018;Facultad de Ciencias;2-Erasmus Mundus en Ingeniería de Membranas;Máster;5;0;;5;0;0;0;6;;0;300.00;380.00;;100.00;100.00;;;;27/09/2020
+2018;Escuela de Ingeniería y Arquitectura;2-Arquitectura;Máster;52;28;80;35;0;0;0;0;6;0;2358.00;0.00;1.64;99.36;79.01;75.03;0.00;81.48;27/09/2020
+2018;Facultad de Ciencias;2-Modelización e Investigación Matemática, Estadística y Computación;Máster;18;14;17;12;0;0;0;1;2;1;798.00;24.00;1.09;100.00;89.92;98.21;0.00;100.00;27/09/2020
+2018;Facultad de Derecho;2-Abogacía;Máster;176;97;100;76;0;0;0;2;;0;8202.00;15.00;2.01;99.85;99.11;99.72;2.06;89.69;27/09/2020
+2018;Facultad de Ciencias Humanas y de la Educación;2-Estudios Avanzados sobre el Lenguaje, la Comunicación y sus Patologías;Máster;10;4;20;7;0;0;0;1;;0;327.00;9.00;1.43;100.00;87.16;91.06;0.00;100.00;27/09/2020
+2018;Escuela de Ingeniería y Arquitectura;2-Ingeniería Química;Máster;29;16;40;8;0;0;0;0;4;1;1366.50;0.00;2.00;99.52;93.94;100.00;0.00;76.92;27/09/2020
+2018;Escuela de Ingeniería y Arquitectura;2-Ingeniería Industrial;Máster;250;99;240;90;0;0;0;3;14;46;12435.00;88.50;2.24;95.21;88.35;94.36;1.30;19.48;27/09/2020
+2018;Escuela de Ingeniería y Arquitectura;2-Ingeniería de Telecomunicación;Máster;26;15;60;6;0;0;0;0;;2;1360.50;0.00;2.00;96.56;88.00;99.31;0.00;33.33;27/09/2020
+2018;Escuela de Ingeniería y Arquitectura;2-Ingeniería Informática;Máster;18;8;60;6;0;0;0;1;;2;648.00;6.00;2.00;95.43;85.20;89.55;0.00;50.00;27/09/2020
+2018;Escuela de Ingeniería y Arquitectura;2-Ingeniería Mecánica;Máster;16;7;30;6;0;0;0;0;6;0;478.50;0.00;1.33;100.00;84.95;91.60;0.00;100.00;27/09/2020
+2018;Facultad de Ciencias;2-Química Industrial;Máster;23;19;50;18;0;0;0;0;1;0;1128.00;0.00;1.11;100.00;97.61;98.36;0.00;94.12;27/09/2020
+2018;Facultad de Ciencias;2-Geología: Técnicas y Aplicaciones;Máster;9;5;30;9;0;0;0;0;1;0;348.00;0.00;1.56;100.00;100.00;90.00;0.00;100.00;27/09/2020
+2018;Facultad de Ciencias;2-Química Molecular y Catálisis Homogénea;Máster;17;15;25;15;0;0;0;0;4;1;912.00;0.00;1.07;99.29;95.24;96.77;0.00;100.00;27/09/2020
+2018;Facultad de Ciencias;2-Nanotecnología Medioambiental;Máster;;;0;;;;;;;;;;;;;;;;27/09/2020
+2018;Facultad de Economía y Empresa;2-Auditoría;Máster;41;32;32;31;0;0;0;0;;0;2004.00;0.00;1.13;97.81;93.76;98.73;6.67;93.33;27/09/2020
+2018;Escuela Politécnica Superior;2-Ingeniería Agronómica;Máster;30;17;40;3;0;0;0;5;;1;1153.50;76.50;2.00;92.55;80.77;95.74;0.00;100.00;27/09/2020
+2018;Facultad de Ciencias de la Salud y del Deporte;2-Evaluación y Entrenamiento Físico para la Salud;Máster;19;13;20;15;0;0;0;0;1;1;912.00;0.00;1.46;98.14;89.80;96.15;8.33;83.33;27/09/2020
+2018;Facultad de Filosofía y Letras;2-Estudios Avanzados de Literatura y Cine en Lengua Inglesa;Máster;3;0;;1;0;0;0;0;;0;45.00;0.00;;100.00;33.33;66.67;;;27/09/2020
+2018;Facultad de Filosofía y Letras;2-Mundo Antiguo y Patrimonio Arqueológico;Máster;14;13;30;11;0;0;0;0;1;0;748.00;0.00;1.09;100.00;98.40;98.21;9.09;90.91;27/09/2020
+2018;Facultad de Ciencias de la Salud;2-Iniciación a la Investigación en Ciencias de la Enfermería;Máster;25;20;30;20;0;0;0;0;;0;1242.00;0.00;1.20;100.00;95.41;96.15;5.26;84.21;27/09/2020
+2018;Facultad de Economía y Empresa;2-Dirección, Estrategia y Marketing;Máster;14;12;30;10;0;0;0;0;2;0;726.00;0.00;1.00;100.00;90.91;100.00;0.00;100.00;27/09/2020
+2018;Facultad de Ciencias Sociales y Humanas de Teruel;2-Psicología General Sanitaria;Máster;62;30;30;29;0;0;0;0;;0;2702.00;0.00;2.10;100.00;97.56;98.64;0.00;82.76;27/09/2020
+2018;Escuela de Ingeniería y Arquitectura;2-Ingeniería de Diseño de Producto;Máster;10;6;30;6;0;0;0;0;4;0;330.00;0.00;2.00;100.00;90.91;86.21;0.00;75.00;27/09/2020
+2018;Facultad de Filosofía y Letras;2-Literaturas Hispánicas y Lengua Española: Tradición e Identidades;Máster;4;0;;3;0;0;0;0;;0;48.00;0.00;2.00;100.00;75.00;83.33;;;27/09/2020
+2018;Facultad de Filosofía y Letras;2-Consultoría de Información y Comunicación Digital;Máster;34;23;25;14;0;0;0;8;1;0;1416.00;48.00;1.17;96.51;70.34;97.14;35.00;55.00;27/09/2020
+2018;Facultad de Veterinaria;2-Calidad, Seguridad y Tecnología de los Alimentos;Máster;25;21;30;20;0;0;0;0;;0;1239.00;0.00;1.05;100.00;98.06;99.01;0.00;100.00;27/09/2020
+2018;Facultad de Ciencias;2-Biotecnología Cuantitativa;Máster;9;9;20;8;0;0;0;0;2;0;540.00;0.00;1.00;100.00;88.89;100.00;11.11;88.89;27/09/2020
+2018;Facultad de Derecho;2-Gestión Administrativa;Máster;16;15;30;12;0;0;0;0;;0;876.00;0.00;1.00;98.56;93.84;100.00;7.14;92.86;27/09/2020
+2018;Facultad de Filosofía y Letras;2-Investigación en Filosofía;Máster;16;14;12;9;0;0;0;0;;0;792.00;0.00;1.22;97.65;78.79;100.00;0.00;63.64;27/09/2020
+2018;Centro Universitario de la Defensa de Zaragoza;2-Dirección y Gestión de Adquisiciones de Sistemas para la Defensa;Máster;54;25;25;30;0;0;0;6;;0;1602.00;72.00;1.00;100.00;99.50;100.00;0.00;100.00;27/09/2020
+2018;Facultad de Derecho;2-Derecho de la Administración Pública;Máster;19;19;20;9;0;0;0;1;;0;945.00;18.00;1.00;94.82;75.56;100.00;8.33;75.00;27/09/2020
+2018;Escuela de Doctorado;3-PD Ciencias de la antigüedad;Doctorado;56;6;30;10;0;0;0;0;;0;0.00;0.00;3.60;;;;;;27/09/2020
+2018;Escuela de Doctorado;3-PD Estudios ingleses;Doctorado;33;8;12;0;0;0;0;0;;0;0.00;0.00;;;;;;;27/09/2020
+2018;Escuela de Doctorado;3-PD Literaturas hispánicas;Doctorado;27;7;25;3;0;0;0;0;;0;0.00;0.00;3.80;;;;;;27/09/2020
+2018;Escuela de Doctorado;3-PD Filosofía;Doctorado;25;11;8;2;0;0;0;0;;0;0.00;0.00;4.60;;;;;;27/09/2020
+2018;Escuela de Doctorado;3-PD Historia contemporánea;Doctorado;42;8;15;1;0;0;0;0;;0;0.00;0.00;3.92;;;;;;27/09/2020
+2018;Escuela de Doctorado;3-PD Historia del arte;Doctorado;60;14;20;5;0;0;0;0;;0;0.00;0.00;4.23;;;;;;27/09/2020
+2018;Escuela de Doctorado;3-PD Historia, sociedad y cultura: épocas medieval y moderna;Doctorado;21;4;8;6;0;0;0;0;;0;0.00;0.00;3.08;;;;;;27/09/2020
+2018;Escuela de Doctorado;3-PD Lingüística hispánica;Doctorado;38;2;20;0;0;0;0;0;;0;0.00;0.00;;;;;;;27/09/2020
+2018;Escuela de Doctorado;3-PD Bioquímica y biología molecular;Doctorado;87;21;30;14;0;0;0;0;;0;0.00;0.00;3.84;;;;;;27/09/2020
+2018;Escuela de Doctorado;3-PD Calidad, seguridad y tecnología de los alimentos;Doctorado;25;7;20;9;0;0;0;0;;0;0.00;0.00;3.87;;;;;;27/09/2020
+2018;Escuela de Doctorado;3-PD Ciencia analítica en química;Doctorado;32;11;20;6;0;0;0;0;;0;0.00;0.00;3.84;;;;;;27/09/2020
+2018;Escuela de Doctorado;3-PD Física;Doctorado;66;14;50;5;0;0;0;0;;2;0.00;0.00;3.56;;;;;;27/09/2020
+2018;Escuela de Doctorado;3-PD Geología;Doctorado;45;11;11;7;0;0;0;0;;0;0.00;0.00;5.10;;;;;;27/09/2020
+2018;Escuela de Doctorado;3-PD Matemáticas y estadística;Doctorado;12;3;5;1;0;0;0;0;;0;0.00;0.00;3.57;;;;;;27/09/2020
+2018;Escuela de Doctorado;3-PD Producción animal;Doctorado;13;2;6;2;0;0;0;0;;0;0.00;0.00;3.99;;;;;;27/09/2020
+2018;Escuela de Doctorado;3-PD Química física;Doctorado;11;4;10;2;0;0;0;0;;0;0.00;0.00;3.46;;;;;;27/09/2020
+2018;Escuela de Doctorado;3-PD Química inorgánica;Doctorado;43;8;18;7;0;0;0;0;;0;0.00;0.00;2.89;;;;;;27/09/2020
+2018;Escuela de Doctorado;3-PD Química orgánica;Doctorado;25;6;12;6;0;0;0;0;;0;0.00;0.00;4.09;;;;;;27/09/2020
+2018;Escuela de Doctorado;3-PD Ciencias biomédicas y biotecnológicas;Doctorado;37;7;20;4;0;0;0;0;;0;0.00;0.00;3.34;;;;;;27/09/2020
+2018;Escuela de Doctorado;3-PD Ciencias de la salud y del deporte;Doctorado;110;21;30;15;0;0;0;0;;0;0.00;0.00;3.43;;;;;;27/09/2020
+2018;Escuela de Doctorado;3-PD Medicina;Doctorado;291;75;75;26;0;0;0;0;;0;0.00;0.00;3.33;;;;;;27/09/2020
+2018;Escuela de Doctorado;3-PD Medicina y sanidad animal;Doctorado;48;7;15;5;0;0;0;0;;0;0.00;0.00;3.64;;;;;;27/09/2020
+2018;Escuela de Doctorado;3-PD Contabilidad y finanzas;Doctorado;40;11;20;2;0;0;0;0;;0;0.00;0.00;4.43;;;;;;27/09/2020
+2018;Escuela de Doctorado;3-PD Derecho;Doctorado;102;23;20;8;0;0;0;0;;0;0.00;0.00;3.84;;;;;;27/09/2020
+2018;Escuela de Doctorado;3-PD Derechos humanos y libertades fundamentales;Doctorado;37;5;10;5;0;0;0;0;;0;0.00;0.00;3.36;;;;;;27/09/2020
+2018;Escuela de Doctorado;3-PD Economía;Doctorado;50;5;15;6;0;0;0;0;;0;0.00;0.00;3.60;;;;;;27/09/2020
+2018;Escuela de Doctorado;3-PD Economía y gestión de las organizaciones;Doctorado;39;13;20;3;0;0;0;0;;0;0.00;0.00;4.13;;;;;;27/09/2020
+2018;Escuela de Doctorado;3-PD Educación;Doctorado;97;24;25;10;0;0;0;0;;0;0.00;0.00;3.86;;;;;;27/09/2020
+2018;Escuela de Doctorado;3-PD Ordenación del territorio y medio ambiente;Doctorado;42;8;25;6;0;0;0;0;;0;0.00;0.00;4.43;;;;;;27/09/2020
+2018;Escuela de Doctorado;3-PD Relaciones de género y estudios feministas;Doctorado;18;4;30;0;0;0;0;0;;0;0.00;0.00;;;;;;;27/09/2020
+2018;Escuela de Doctorado;3-PD Sociología de las políticas públicas y sociales;Doctorado;55;16;20;10;0;0;0;0;;0;0.00;0.00;3.01;;;;;;27/09/2020
+2018;Escuela de Doctorado;3-PD Ciencias agrarias y del medio natural;Doctorado;39;8;30;4;0;0;0;0;;0;0.00;0.00;4.19;;;;;;27/09/2020
+2018;Escuela de Doctorado;3-PD Energías renovables y eficiencia energética;Doctorado;63;13;20;6;0;0;0;0;;0;0.00;0.00;3.38;;;;;;27/09/2020
+2018;Escuela de Doctorado;3-PD Ingeniería biomédica;Doctorado;41;10;10;5;0;0;0;0;;0;0.00;0.00;3.27;;;;;;27/09/2020
+2018;Escuela de Doctorado;3-PD Ingeniería de diseño y fabricación;Doctorado;33;5;25;4;0;0;0;0;;0;0.00;0.00;3.18;;;;;;27/09/2020
+2018;Escuela de Doctorado;3-PD Ingeniería de sistemas e informática;Doctorado;60;18;30;7;0;0;0;0;;0;0.00;0.00;3.85;;;;;;27/09/2020
+2018;Escuela de Doctorado;3-PD Ingeniería electrónica;Doctorado;28;4;10;4;0;0;0;0;;0;0.00;0.00;3.28;;;;;;27/09/2020
+2018;Escuela de Doctorado;3-PD Ingeniería mecánica;Doctorado;47;13;25;2;0;0;0;0;;0;0.00;0.00;4.40;;;;;;27/09/2020
+2018;Escuela de Doctorado;3-PD Ingeniería química y del medio ambiente;Doctorado;72;17;60;14;0;0;0;0;;0;0.00;0.00;3.60;;;;;;27/09/2020
+2018;Escuela de Doctorado;3-PD Mecánica de fluidos;Doctorado;10;2;3;1;0;0;0;0;;0;0.00;0.00;3.18;;;;;;27/09/2020
+2018;Escuela de Doctorado;3-PD Nuevos territorios en la arquitectura;Doctorado;35;1;10;1;0;0;0;0;;0;0.00;0.00;5.55;;;;;;27/09/2020
+2018;Escuela de Doctorado;3-PD Tecnologías de la información y comunicaciones en redes moviles;Doctorado;17;2;10;2;0;0;0;0;;0;0.00;0.00;3.80;;;;;;27/09/2020
+2018;Escuela de Doctorado;3-PD Información y Comunicación;Doctorado;30;7;6;1;0;0;0;0;;0;0.00;0.00;3.29;;;;;;27/09/2020
+2018;Escuela de Doctorado;3-PD Patrimonio, Sociedades y Espacios de Frontera;Doctorado;10;4;8;1;0;0;0;0;;0;0.00;0.00;1.42;;;;;;27/09/2020
+2018;Escuela de Doctorado;3-PD Logística y gestión de la cadena de suministro;Doctorado;3;0;8;;0;0;;0;;0;0.00;0.00;;;;;;;27/09/2020

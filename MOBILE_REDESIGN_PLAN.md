@@ -550,14 +550,49 @@ en diferido. Nunca una segunda copia de la app.
 
 | # | Asunto | Verificado | Qué hacer |
 |---|---|---|---|
-| 1 | **Convocatorias oficiales** | ⚠ **Confirmado el problema.** `ResultadosFisica.json` solo tiene `anyo_academico: 2024`, es decir **un único curso (2024-2025)** | El KPI "Convocatorias" de la ficha muestra `—` en todos los demás años del selector, con nota de por qué. `officialYears` ya permite saberlo. **No inventar ni interpolar** |
+| 1 | **Convocatorias oficiales** | ✅ **RESUELTO** (23-07-2026). Los nuevos CSV de `data/xlsx_csv/rendimiento/` traen **12 cursos (2013-2014 → 2024-2025), 611 filas** en vez de 53 de un solo curso | Ya no hace falta ningún `—`: el selector de año de la ficha tiene dato en todos los cursos. Quedan 9 asignaturas de 54 sin los doce (optativas que no se ofertan siempre): ahí se cae al curso más reciente con dato y **se dice cuál es** |
 | 2 | **"53 asignaturas"** del mock | ⚠ **Confirmado:** el catálogo tiene **54** códigos | Calcular con `allSubjects.length` (D4) |
 | 3 | **`sharedCount`** de colaboradores | ✅ **Existe el dato, pero no está expuesto.** `NodesLinks.js:98-102` ya acumula `{weight, shared}`… y luego lo entierra en la cadena `title` de la arista (`NodesLinks.js:129-131`). Igual pasa con `fullName` y `subjects` en los nodos | Cambio **aditivo** en `NodesLinks.js`: sacar `weight`, `shared`, `fullName` y `subjects` como campos propios. Sin tocar `value`/`title`, así el grafo de escritorio sigue igual. **Prohibido parsear el `title`** |
-| 4 | **Serie de notas de corte** | ✅ `NotasDeCorteRaw.json` = **6 filas, 2020-2025**, con `Nota media en pruebas de acceso` y `Nota de corte` | Coincide con los 6 puntos del mock |
+| 4 | **Serie de notas de corte** | ✅ **AMPLIADA** (23-07-2026). Ya no son 6 cursos sino **16 (2010-2025)**. Además las columnas cambiaron de nombre y la serie de nota media venía **corregida** al alza en cinco años | El mock dibuja 2020-2025; con 16 años se puede enseñar la serie completa, que cuenta mucho mejor la historia (la nota de corte era un 5 hasta 2014). **A decidir en la Fase 6** |
 | 5 | **Tendencia de aprobados** | ✅ **12 cursos, 2013-2014 → 2024-2025** | Coincide con los "12 años" del mock |
 | 6 | **Guías docentes** | ✅ Cobertura **100 %** de `guia_docente_web`, `guia_docente_pdf` y `profesores` en las 53 asignaturas de 2026-2027 | Ver el matiz del punto 7 |
 | 7 | **Catálogo ≠ guías** (nuevo) | ⚠ **26934 Física de la atmósfera** y **26939 Iluminación y colorimetría** están en el catálogo y tienen notas, pero **no se ofertan en 2026-2027** (son optativas que alternan). **26943 Prácticas externas** está en las guías pero sin notas ni clasificación | La ficha **no** puede asumir guía del curso actual: usar el año más reciente que la tenga, y si no hay ninguna, ocultar el botón en vez de enlazar a nada |
 | 8 | **"8 cursos" del mock** (nuevo) | ⚠ Reproducida la red real: **267 profesores ✅ · 2.003 colaboraciones ✅ · pero 10 cursos**, no 8 (2017-2018 → 2026-2027) | Los dos primeros números del mock son correctos; el tercero está desfasado. Calcular los tres (D4) |
+
+---
+
+## Datos nuevos (23-07-2026)
+
+El repositorio incorporó cinco carpetas nuevas de datos abiertos de la Universidad. La mayoría
+cubre cosas que la web **no** hace todavía y se dejan para más adelante; dos afectan de lleno a
+lo que ya existe y ya están integradas.
+
+### Integrado
+
+| Fuente | Qué aporta |
+|---|---|
+| `xlsx_csv/rendimiento/` (12 CSV) | Sustituye al desaparecido `resultados.csv`. Tasas oficiales y **media de convocatorias por asignatura y curso, 12 años**. Resuelve el riesgo 1 |
+| `xlsx_csv/notas_de_corte.xlsx` | Renombrado (antes `Notas_de_corte.xlsx`), **16 cursos** en vez de 6 y columnas nuevas. Serie de nota media corregida |
+
+### Aparcado — funcionalidad que la web no tiene
+
+| Fuente | Qué contiene | Para qué serviría |
+|---|---|---|
+| `resultados/` (12 CSV) | Nivel titulación: matriculados, nuevo ingreso, plazas ofertadas, graduados, duración media, tasas de abandono/graduación/eficiencia | Una pantalla de "el grado en conjunto": ¿cuánta gente entra, cuánta acaba, en cuántos años? Hoy la web no habla de eso |
+| `procedencia/` (16 CSV) | De qué comunidad autónoma viene el alumnado, sexo, dedicación | Perfil de quién estudia el grado |
+| `egresados/` (12 CSV) | Graduados, abandonos, traslados, por tipo de egreso y sexo | La otra cara de la tasa de abandono |
+| `erasmus/` (11 CSV) | Movilidad: plazas por universidad, país, idioma | Un buscador de destinos Erasmus |
+
+⚠ **Ojo con `resultados/`**: trae `TASA_RENDIMIENTO` y `TASA_EXITO` a nivel de titulación, que la
+web ya calcula desde las calificaciones. **No mezclar.** La metodología explica que las dos
+fuentes discrepan y que se usa una sola; tomar la tasa oficial del grado rompería esa promesa.
+
+### Calidad de los CSV
+
+~60 filas de 61.000 vienen partidas: hay nombres de asignatura con saltos de línea sin
+entrecomillar, y eso corre todas las columnas del registro. **Ninguna es de Física**, pero
+`Updater.py` ahora lee todo como texto y convierte los números a mano, para que un curso
+contaminado no vuelva `CURSO_ACADEMICO` un campo de texto y contamine el proceso en silencio.
 
 ---
 

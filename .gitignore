@@ -40,3 +40,7 @@ __screenshots__/
 
 #Virtual enviroment
 .venv
+
+# Python
+__pycache__/
+*.pyc

@@ -61,17 +61,17 @@ const rateKpis = computed(() => [
 
 const admission = computed(() => {
 
-    const sorted = [...notasAcceso].sort((a, b) => a["Año"] - b["Año"]);
+    const sorted = [...notasAcceso].sort((a, b) => a.anyo - b.anyo);
 
     const last = sorted[sorted.length - 1];
     const previous = sorted[sorted.length - 2];
 
     return {
-        year: last?.["Año"],
-        value: last?.["Nota de corte"] ?? null,
+        year: last?.anyo,
+        value: last?.nota_corte ?? null,
         delta:
             last && previous
-                ? last["Nota de corte"] - previous["Nota de corte"]
+                ? last.nota_corte - previous.nota_corte
                 : null
     };
 

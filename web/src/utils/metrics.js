@@ -309,7 +309,10 @@ export const academicYears = [
  * Publicados por la propia Unizar. Aportan una métrica que no se puede
  * derivar de las calificaciones —la media de convocatorias consumidas— y
  * sirven para contrastar que nuestras tasas cuadran con las suyas.
- * Ojo: por ahora solo cubren un curso académico.
+ *
+ * Cubren los mismos doce cursos que las calificaciones (2013-2014 en adelante).
+ * Aun así, `officialResult` puede devolver null para una asignatura y un año
+ * concretos: hay optativas que no se ofertan todos los cursos.
  */
 
 const officialByCode = new Map();
@@ -353,6 +356,59 @@ export const officialResult = (code, year = null) => {
 /** Media de convocatorias consumidas: cuántos intentos cuesta la asignatura. */
 export const averageSittings = (code, year = null) =>
     officialResult(code, year)?.media_convocatorias ?? null;
+
+/**
+ * Cuánto se parece NUESTRA tasa de rendimiento a la que publica la Universidad,
+ * en un curso académico concreto.
+ *
+ * La página de metodología afirma que las dos fuentes no siempre cuadran. Esa
+ * afirmación llevaba las cifras escritas a mano y se quedó obsoleta en cuanto
+ * la Universidad republicó los datos. Calcularla es la única forma de que
+ * siga siendo verdad el año que viene.
+ *
+ * Se comparan solo las asignaturas presentes en las dos fuentes ese curso.
+ * @returns { curso, comparables, coinciden, difieren, diferenciaMaxima }
+ */
+export const officialAgreement = (year, tolerance = 0.05) => {
+
+    let comparables = 0;
+    let coinciden = 0;
+    let diferenciaMaxima = 0;
+
+    resultados
+        .filter(official => `${official.anyo_academico}-${official.anyo_academico + 1}` === year)
+        .forEach(official => {
+
+            const row = subjectRow(official.code, year);
+
+            if (!row || official.tasa_rendimiento === null) return;
+
+            const ours = METRICS.rendimiento.compute(row);
+
+            if (ours === null) return;
+
+            const delta = Math.abs(ours - official.tasa_rendimiento);
+
+            comparables += 1;
+
+            if (delta <= tolerance) coinciden += 1;
+
+            if (delta > diferenciaMaxima) diferenciaMaxima = delta;
+
+        });
+
+    return {
+        curso: year,
+        comparables,
+        coinciden,
+        difieren: comparables - coinciden,
+        diferenciaMaxima
+    };
+
+};
+
+/** El curso oficial más reciente, que es el que se contrasta en metodología. */
+export const latestOfficialYear = officialYears[officialYears.length - 1] ?? null;
 
 /* ------------------------------------------------------------------ *
  * Agregación

@@ -1,0 +1,1009 @@
+CURSO_ACADEMICO;LOCALIDAD;ESTUDIO;TIPO_ESTUDIO;TIPO_EGRESO;SEXO;ALUMNOS_GRADUADOS;ALUMNOS_INTERRUMPEN_ESTUDIOS;ALUMNOS_INTERRUMPEN_EST_ANO1;ALUMNOS_TRASLADAN_OTRA_UNIV;DURACION_MEDIA_GRADUADOS;TASA_EFICIENCIA;FECHA_ACTUALIZACION
+2014;Almunia de Doña Godina (La);Arquitectura Técnica;Diplomatura o equivalente;Abandono Voluntario;Hombres;0;12;0;0;;;29/04/2018
+2014;Almunia de Doña Godina (La);Arquitectura Técnica;Diplomatura o equivalente;Abandono Voluntario;Mujeres;0;6;0;0;;;29/04/2018
+2014;Almunia de Doña Godina (La);Arquitectura Técnica;Diplomatura o equivalente;Graduado;Hombres;45;0;0;0;9.42;52.07;29/04/2018
+2014;Almunia de Doña Godina (La);Arquitectura Técnica;Diplomatura o equivalente;Graduado;Mujeres;38;0;0;0;9.33;50.01;29/04/2018
+2014;Almunia de Doña Godina (La);Arquitectura Técnica;Grado;Abandono Voluntario;Hombres;0;9;4;0;;;29/04/2018
+2014;Almunia de Doña Godina (La);Arquitectura Técnica;Grado;Abandono Voluntario;Mujeres;0;3;3;0;;;29/04/2018
+2014;Almunia de Doña Godina (La);Arquitectura Técnica;Grado;Cambio de estudios sin simultaneidad;Mujeres;0;1;1;0;;;29/04/2018
+2014;Almunia de Doña Godina (La);Arquitectura Técnica;Grado;Graduado;Hombres;24;0;0;0;4.90;88.95;29/04/2018
+2014;Almunia de Doña Godina (La);Arquitectura Técnica;Grado;Graduado;Mujeres;20;0;0;0;5.00;86.56;29/04/2018
+2014;Almunia de Doña Godina (La);Arquitectura Técnica;Grado;Incumple Régimen de permanencia;Hombres;0;1;1;0;;;29/04/2018
+2014;Almunia de Doña Godina (La);Arquitectura Técnica;Grado;Incumple Régimen de permanencia;Mujeres;0;1;0;0;;;29/04/2018
+2014;Almunia de Doña Godina (La);Ingeniería Civil;Grado;Abandono Voluntario;Hombres;0;14;6;0;;;29/04/2018
+2014;Almunia de Doña Godina (La);Ingeniería Civil;Grado;Abandono Voluntario;Mujeres;0;1;0;0;;;29/04/2018
+2014;Almunia de Doña Godina (La);Ingeniería Civil;Grado;Cambio de estudios sin simultaneidad;Hombres;0;1;0;0;;;29/04/2018
+2014;Almunia de Doña Godina (La);Ingeniería Civil;Grado;Graduado;Hombres;26;0;0;0;4.67;88.98;29/04/2018
+2014;Almunia de Doña Godina (La);Ingeniería Civil;Grado;Graduado;Mujeres;5;0;0;0;4.50;92.27;29/04/2018
+2014;Almunia de Doña Godina (La);Ingeniería Civil;Grado;Incumple Régimen de permanencia;Hombres;0;1;0;0;;;29/04/2018
+2014;Almunia de Doña Godina (La);Ingeniería de Organización Industrial;Grado;Abandono Voluntario;Hombres;0;3;2;0;;;29/04/2018
+2014;Almunia de Doña Godina (La);Ingeniería de Organización Industrial;Grado;Abandono Voluntario;Mujeres;0;2;1;0;;;29/04/2018
+2014;Almunia de Doña Godina (La);Ingeniería de Organización Industrial;Grado;Cambio de estudios sin simultaneidad;Hombres;0;1;1;0;;;29/04/2018
+2014;Almunia de Doña Godina (La);Ingeniería de Organización Industrial;Grado;Graduado;Hombres;6;0;0;0;4.33;92.94;29/04/2018
+2014;Almunia de Doña Godina (La);Ingeniería de Organización Industrial;Grado;Graduado;Mujeres;2;0;0;0;4.50;90.80;29/04/2018
+2014;Almunia de Doña Godina (La);Ingeniería Mecatrónica;Grado;Abandono Voluntario;Hombres;0;8;8;0;;;29/04/2018
+2014;Almunia de Doña Godina (La);Ingeniería Mecatrónica;Grado;Cambio de estudios sin simultaneidad;Hombres;0;2;1;0;;;29/04/2018
+2014;Almunia de Doña Godina (La);Ingeniería Mecatrónica;Grado;Graduado;Hombres;13;0;0;0;4.67;90.35;29/04/2018
+2014;Almunia de Doña Godina (La);Ingeniería Mecatrónica;Grado;Graduado;Mujeres;1;0;0;0;5.00;92.42;29/04/2018
+2014;Almunia de Doña Godina (La);Ingeniería Mecatrónica;Grado;Incumple Régimen de permanencia;Hombres;0;2;2;0;;;29/04/2018
+2014;Almunia de Doña Godina (La);Ingeniero Técnico Agrícola;Diplomatura o equivalente;Abandono Voluntario;Hombres;0;1;0;0;;;29/04/2018
+2014;Almunia de Doña Godina (La);Ingeniero Técnico Agrícola;Diplomatura o equivalente;Abandono Voluntario;Mujeres;0;1;0;0;;;29/04/2018
+2014;Almunia de Doña Godina (La);Ingeniero Técnico Agrícola;Diplomatura o equivalente;Cambio de estudios sin simultaneidad;Hombres;0;1;0;0;;;29/04/2018
+2014;Almunia de Doña Godina (La);Ingeniero Técnico Agrícola;Diplomatura o equivalente;Graduado;Hombres;3;0;0;0;14.00;34.47;29/04/2018
+2014;Almunia de Doña Godina (La);Ingeniero Técnico Agrícola;Diplomatura o equivalente;Graduado;Mujeres;6;0;0;0;13.67;67.30;29/04/2018
+2014;Almunia de Doña Godina (La);Ingeniero Técnico en Electrónica Industrial;Diplomatura o equivalente;Abandono Voluntario;Hombres;0;3;0;0;;;29/04/2018
+2014;Almunia de Doña Godina (La);Ingeniero Técnico en Electrónica Industrial;Diplomatura o equivalente;Abandono Voluntario;Mujeres;0;1;0;0;;;29/04/2018
+2014;Almunia de Doña Godina (La);Ingeniero Técnico en Electrónica Industrial;Diplomatura o equivalente;Graduado;Hombres;18;0;0;0;15.25;40.86;29/04/2018
+2014;Almunia de Doña Godina (La);Ingeniero Técnico en Informática de Sistemas;Diplomatura o equivalente;Abandono Voluntario;Hombres;0;13;0;0;;;29/04/2018
+2014;Almunia de Doña Godina (La);Ingeniero Técnico en Informática de Sistemas;Diplomatura o equivalente;Cambio de estudios sin simultaneidad;Hombres;0;1;0;0;;;29/04/2018
+2014;Almunia de Doña Godina (La);Ingeniero Técnico en Informática de Sistemas;Diplomatura o equivalente;Graduado;Hombres;41;0;0;0;15.81;50.51;29/04/2018
+2014;Almunia de Doña Godina (La);Ingeniero Técnico en Informática de Sistemas;Diplomatura o equivalente;Graduado;Mujeres;3;0;0;0;10.33;47.60;29/04/2018
+2014;Almunia de Doña Godina (La);Ingeniero Técnico en Obras Públicas, Esp. Construcciones Civiles;Diplomatura o equivalente;Abandono Voluntario;Hombres;0;6;0;0;;;29/04/2018
+2014;Almunia de Doña Godina (La);Ingeniero Técnico en Obras Públicas, Esp. Construcciones Civiles;Diplomatura o equivalente;Abandono Voluntario;Mujeres;0;2;0;0;;;29/04/2018
+2014;Almunia de Doña Godina (La);Ingeniero Técnico en Obras Públicas, Esp. Construcciones Civiles;Diplomatura o equivalente;Graduado;Hombres;17;0;0;0;7.00;56.57;29/04/2018
+2014;Almunia de Doña Godina (La);Ingeniero Técnico en Obras Públicas, Esp. Construcciones Civiles;Diplomatura o equivalente;Graduado;Mujeres;12;0;0;0;8.62;45.47;29/04/2018
+2014;Almunia de Doña Godina (La);Ingeniero Técnico Industrial, Especialidad Mecánica;Diplomatura o equivalente;Abandono Voluntario;Hombres;0;4;0;0;;;29/04/2018
+2014;Almunia de Doña Godina (La);Ingeniero Técnico Industrial, Especialidad Mecánica;Diplomatura o equivalente;Cambio de estudios sin simultaneidad;Hombres;0;1;0;0;;;29/04/2018
+2014;Almunia de Doña Godina (La);Ingeniero Técnico Industrial, Especialidad Mecánica;Diplomatura o equivalente;Graduado;Hombres;7;0;0;0;7.50;55.22;29/04/2018
+2014;Almunia de Doña Godina (La);Ingeniero Técnico Industrial, Especialidad Mecánica;Diplomatura o equivalente;Graduado;Mujeres;1;0;0;0;6.00;75.37;29/04/2018
+2014;Huesca;Administración y Dirección de Empresas;Grado;Abandono Voluntario;Hombres;0;11;10;0;;;29/04/2018
+2014;Huesca;Administración y Dirección de Empresas;Grado;Abandono Voluntario;Mujeres;0;18;11;0;;;29/04/2018
+2014;Huesca;Administración y Dirección de Empresas;Grado;Cambio de estudios sin simultaneidad;Hombres;0;2;1;0;;;29/04/2018
+2014;Huesca;Administración y Dirección de Empresas;Grado;Cambio de estudios sin simultaneidad;Mujeres;0;2;0;0;;;29/04/2018
+2014;Huesca;Administración y Dirección de Empresas;Grado;Graduado;Hombres;14;0;0;0;4.67;87.44;29/04/2018
+2014;Huesca;Administración y Dirección de Empresas;Grado;Graduado;Mujeres;18;0;0;0;4.70;90.20;29/04/2018
+2014;Huesca;Administración y Dirección de Empresas;Grado;Incumple Régimen de permanencia;Mujeres;0;4;3;0;;;29/04/2018
+2014;Huesca;Ciencias Ambientales;Grado;Abandono Voluntario;Hombres;0;11;4;0;;;29/04/2018
+2014;Huesca;Ciencias Ambientales;Grado;Abandono Voluntario;Mujeres;0;6;3;0;;;29/04/2018
+2014;Huesca;Ciencias Ambientales;Grado;Cambio de estudios sin simultaneidad;Hombres;0;2;1;0;;;29/04/2018
+2014;Huesca;Ciencias Ambientales;Grado;Cambio de estudios sin simultaneidad;Mujeres;0;1;0;0;;;29/04/2018
+2014;Huesca;Ciencias Ambientales;Grado;Graduado;Hombres;16;0;0;0;5.00;89.95;29/04/2018
+2014;Huesca;Ciencias Ambientales;Grado;Graduado;Mujeres;22;0;0;0;5.38;86.82;29/04/2018
+2014;Huesca;Ciencias Ambientales;Grado;Incumple Régimen de permanencia;Hombres;0;2;2;0;;;29/04/2018
+2014;Huesca;Ciencias de la Actividad Física y del Deporte;Grado;Abandono Voluntario;Hombres;0;4;3;0;;;29/04/2018
+2014;Huesca;Ciencias de la Actividad Física y del Deporte;Grado;Abandono Voluntario;Mujeres;0;1;0;0;;;29/04/2018
+2014;Huesca;Ciencias de la Actividad Física y del Deporte;Grado;Cambio de estudios sin simultaneidad;Hombres;0;1;1;0;;;29/04/2018
+2014;Huesca;Ciencias de la Actividad Física y del Deporte;Grado;Cambio de estudios sin simultaneidad;Mujeres;0;1;1;0;;;29/04/2018
+2014;Huesca;Ciencias de la Actividad Física y del Deporte;Grado;Graduado;Hombres;27;0;0;0;4.35;93.96;29/04/2018
+2014;Huesca;Ciencias de la Actividad Física y del Deporte;Grado;Graduado;Mujeres;15;0;0;0;4.40;92.04;29/04/2018
+2014;Huesca;Ciencias de la Actividad Física y del Deporte;Grado;Traslado a otra Universidad;Hombres;0;0;0;3;;;29/04/2018
+2014;Huesca;Diplomado Ciencias Empresariales;Diplomatura o equivalente;Abandono Voluntario;Hombres;0;4;0;0;;;29/04/2018
+2014;Huesca;Diplomado Ciencias Empresariales;Diplomatura o equivalente;Abandono Voluntario;Mujeres;0;7;0;0;;;29/04/2018
+2014;Huesca;Diplomado en Nutrición Humana;Diplomatura o equivalente;Abandono Voluntario;Hombres;0;2;0;0;;;29/04/2018
+2014;Huesca;Diplomado en Nutrición Humana;Diplomatura o equivalente;Abandono Voluntario;Mujeres;0;1;0;0;;;29/04/2018
+2014;Huesca;Dirección y planificación del turismo;Máster;Abandono Voluntario;Hombres;0;1;0;0;;;29/04/2018
+2014;Huesca;Dirección y planificación del turismo;Máster;Abandono Voluntario;Mujeres;0;3;1;0;;;29/04/2018
+2014;Huesca;Dirección y planificación del turismo;Máster;Graduado;Hombres;2;0;0;0;2.00;86.96;29/04/2018
+2014;Huesca;Dirección y planificación del turismo;Máster;Graduado;Mujeres;9;0;0;0;2.00;82.19;29/04/2018
+2014;Huesca;Enfermería;Grado;Abandono Voluntario;Mujeres;0;1;0;0;;;29/04/2018
+2014;Huesca;Enfermería;Grado;Graduado;Hombres;6;0;0;0;4.00;100.00;29/04/2018
+2014;Huesca;Enfermería;Grado;Graduado;Mujeres;42;0;0;0;4.03;96.34;29/04/2018
+2014;Huesca;Enfermería;Grado;Traslado a otra Universidad;Mujeres;0;0;0;1;;;29/04/2018
+2014;Huesca;Estudios Avanzados en Humanidades;Máster;Abandono Voluntario;Mujeres;0;1;0;0;;;29/04/2018
+2014;Huesca;Estudios Avanzados sobre el Lenguaje, la Comunicación y sus Patologías;Máster;Graduado;Mujeres;2;0;0;0;1.00;100.00;29/04/2018
+2014;Huesca;Evaluación y Entrenamiento Físico para la Salud;Máster;Graduado;Hombres;5;0;0;0;1.00;100.00;29/04/2018
+2014;Huesca;Evaluación y Entrenamiento Físico para la Salud;Máster;Graduado;Mujeres;3;0;0;0;1.00;100.00;29/04/2018
+2014;Huesca;Gestión y Administración Pública;Diplomatura o equivalente;Abandono Voluntario;Hombres;0;1;0;0;;;29/04/2018
+2014;Huesca;Gestión y Administración Pública;Diplomatura o equivalente;Abandono Voluntario;Mujeres;0;2;0;0;;;29/04/2018
+2014;Huesca;Gestión y Administración Pública;Diplomatura o equivalente;Graduado;Mujeres;2;0;0;0;7.00;87.24;29/04/2018
+2014;Huesca;Gestión y Administración Pública;Grado;Abandono Voluntario;Hombres;0;8;7;0;;;29/04/2018
+2014;Huesca;Gestión y Administración Pública;Grado;Abandono Voluntario;Mujeres;0;13;6;0;;;29/04/2018
+2014;Huesca;Gestión y Administración Pública;Grado;Cambio de estudios sin simultaneidad;Hombres;0;1;1;0;;;29/04/2018
+2014;Huesca;Gestión y Administración Pública;Grado;Cambio de estudios sin simultaneidad;Mujeres;0;1;1;0;;;29/04/2018
+2014;Huesca;Gestión y Administración Pública;Grado;Graduado;Hombres;4;0;0;0;5.00;88.04;29/04/2018
+2014;Huesca;Gestión y Administración Pública;Grado;Graduado;Mujeres;8;0;0;0;4.00;86.86;29/04/2018
+2014;Huesca;Gestión y Administración Pública;Grado;Incumple Régimen de permanencia;Hombres;0;1;1;0;;;29/04/2018
+2014;Huesca;Ingeniería Agroalimentaria y del Medio Rural;Grado;Abandono Voluntario;Hombres;0;29;25;0;;;29/04/2018
+2014;Huesca;Ingeniería Agroalimentaria y del Medio Rural;Grado;Abandono Voluntario;Mujeres;0;10;9;0;;;29/04/2018
+2014;Huesca;Ingeniería Agroalimentaria y del Medio Rural;Grado;Graduado;Hombres;20;0;0;0;4.62;88.49;29/04/2018
+2014;Huesca;Ingeniería Agroalimentaria y del Medio Rural;Grado;Graduado;Mujeres;12;0;0;0;4.67;94.29;29/04/2018
+2014;Huesca;Ingeniero Agrónomo;Licenciatura o equivalente;Abandono Voluntario;Hombres;0;6;1;0;;;29/04/2018
+2014;Huesca;Ingeniero Agrónomo;Licenciatura o equivalente;Abandono Voluntario;Mujeres;0;2;0;0;;;29/04/2018
+2014;Huesca;Ingeniero Agrónomo;Licenciatura o equivalente;Graduado;Hombres;9;0;0;0;5.50;85.87;29/04/2018
+2014;Huesca;Ingeniero Agrónomo;Licenciatura o equivalente;Graduado;Mujeres;3;0;0;0;4.50;66.20;29/04/2018
+2014;Huesca;Ingeniero Técnico en Explotaciones Agropecuarias;Diplomatura o equivalente;Abandono Voluntario;Hombres;0;6;0;0;;;29/04/2018
+2014;Huesca;Ingeniero Técnico en Explotaciones Agropecuarias;Diplomatura o equivalente;Abandono Voluntario;Mujeres;0;2;0;0;;;29/04/2018
+2014;Huesca;Ingeniero Técnico en Explotaciones Agropecuarias;Diplomatura o equivalente;Cambio de estudios sin simultaneidad;Hombres;0;2;0;0;;;29/04/2018
+2014;Huesca;Ingeniero Técnico en Explotaciones Agropecuarias;Diplomatura o equivalente;Cambio de estudios sin simultaneidad;Mujeres;0;3;0;0;;;29/04/2018
+2014;Huesca;Ingeniero Técnico en Explotaciones Agropecuarias;Diplomatura o equivalente;Graduado;Hombres;38;0;0;0;16.95;50.09;29/04/2018
+2014;Huesca;Ingeniero Técnico en Explotaciones Agropecuarias;Diplomatura o equivalente;Graduado;Mujeres;19;0;0;0;16.06;45.34;29/04/2018
+2014;Huesca;Ingeniero Técnico Industrial, E. Química Industrial;Diplomatura o equivalente;Abandono Voluntario;Hombres;0;1;0;0;;;29/04/2018
+2014;Huesca;Ingeniero Técnico Industrial, E. Química Industrial;Diplomatura o equivalente;Abandono Voluntario;Mujeres;0;1;0;0;;;29/04/2018
+2014;Huesca;Ingeniero Técnico Industrial, E. Química Industrial;Diplomatura o equivalente;Graduado;Hombres;11;0;0;0;12.64;43.72;29/04/2018
+2014;Huesca;Ingeniero Técnico Industrial, E. Química Industrial;Diplomatura o equivalente;Graduado;Mujeres;4;0;0;0;14.50;30.20;29/04/2018
+2014;Huesca;Ini. a la investigación en ciencias agrarias y del medio natural;Máster;Abandono Voluntario;Hombres;0;1;0;0;;;29/04/2018
+2014;Huesca;Ini. a la investigación en ciencias agrarias y del medio natural;Máster;Abandono Voluntario;Mujeres;0;1;1;0;;;29/04/2018
+2014;Huesca;Licenciado en Ciencias de la Actividad Física y del Deporte;Licenciatura o equivalente;Abandono Voluntario;Hombres;0;5;0;0;;;29/04/2018
+2014;Huesca;Licenciado en Ciencias de la Actividad Física y del Deporte;Licenciatura o equivalente;Abandono Voluntario;Mujeres;0;2;0;0;;;29/04/2018
+2014;Huesca;Licenciado en Ciencias de la Actividad Física y del Deporte;Licenciatura o equivalente;Graduado;Hombres;2;0;0;0;8.50;63.43;29/04/2018
+2014;Huesca;Licenciado en Ciencias de la Actividad Física y del Deporte;Licenciatura o equivalente;Graduado;Mujeres;2;0;0;0;;;29/04/2018
+2014;Huesca;Licenciado en Ciencias de la Actividad Física y del Deporte;Licenciatura o equivalente;Traslado a otra Universidad;Hombres;0;0;0;1;;;29/04/2018
+2014;Huesca;Licenciado en Ciencias de la Actividad Física y del Deporte;Licenciatura o equivalente;Traslado a otra Universidad;Mujeres;0;0;0;1;;;29/04/2018
+2014;Huesca;Licenciado en Humanidades;Licenciatura o equivalente;Abandono Voluntario;Hombres;0;2;0;0;;;29/04/2018
+2014;Huesca;Licenciado en Humanidades;Licenciatura o equivalente;Graduado;Hombres;1;0;0;0;19.00;41.43;29/04/2018
+2014;Huesca;Licenciado en Humanidades;Licenciatura o equivalente;Graduado;Mujeres;3;0;0;0;8.00;74.19;29/04/2018
+2014;Huesca;Maestro Educación Física;Diplomatura o equivalente;Abandono Voluntario;Hombres;0;1;0;0;;;29/04/2018
+2014;Huesca;Maestro Educación Física;Diplomatura o equivalente;Abandono Voluntario;Mujeres;0;2;0;0;;;29/04/2018
+2014;Huesca;Maestro Educación Física;Diplomatura o equivalente;Graduado;Hombres;5;0;0;0;7.75;57.42;29/04/2018
+2014;Huesca;Maestro Educación Física;Diplomatura o equivalente;Incumple Régimen de permanencia;Hombres;0;1;0;0;;;29/04/2018
+2014;Huesca;Maestro Educación Infantil;Diplomatura o equivalente;Abandono Voluntario;Hombres;0;2;0;0;;;29/04/2018
+2014;Huesca;Maestro Educación Infantil;Diplomatura o equivalente;Abandono Voluntario;Mujeres;0;8;0;0;;;29/04/2018
+2014;Huesca;Maestro Educación Infantil;Diplomatura o equivalente;Graduado;Mujeres;1;0;0;0;6.00;84.96;29/04/2018
+2014;Huesca;Maestro Educación Primaria;Diplomatura o equivalente;Abandono Voluntario;Hombres;0;2;0;0;;;29/04/2018
+2014;Huesca;Maestro Educación Primaria;Diplomatura o equivalente;Abandono Voluntario;Mujeres;0;1;0;0;;;29/04/2018
+2014;Huesca;Maestro Educación Primaria;Diplomatura o equivalente;Graduado;Mujeres;1;0;0;0;9.00;54.91;29/04/2018
+2014;Huesca;Magisterio en Educación Infantil;Grado;Abandono Voluntario;Hombres;0;4;3;0;;;29/04/2018
+2014;Huesca;Magisterio en Educación Infantil;Grado;Abandono Voluntario;Mujeres;0;8;5;0;;;29/04/2018
+2014;Huesca;Magisterio en Educación Infantil;Grado;Graduado;Hombres;6;0;0;0;4.25;91.60;29/04/2018
+2014;Huesca;Magisterio en Educación Infantil;Grado;Graduado;Mujeres;79;0;0;0;4.12;96.28;29/04/2018
+2014;Huesca;Magisterio en Educación Primaria;Grado;Abandono Voluntario;Hombres;0;12;6;0;;;29/04/2018
+2014;Huesca;Magisterio en Educación Primaria;Grado;Abandono Voluntario;Mujeres;0;6;4;0;;;29/04/2018
+2014;Huesca;Magisterio en Educación Primaria;Grado;Cambio de estudios sin simultaneidad;Hombres;0;2;2;0;;;29/04/2018
+2014;Huesca;Magisterio en Educación Primaria;Grado;Graduado;Hombres;42;0;0;0;4.44;90.45;29/04/2018
+2014;Huesca;Magisterio en Educación Primaria;Grado;Graduado;Mujeres;27;0;0;0;4.19;94.42;29/04/2018
+2014;Huesca;Medicina;Grado;Abandono Voluntario;Mujeres;0;1;1;0;;;29/04/2018
+2014;Huesca;Medicina;Grado;Traslado a otra Universidad;Hombres;0;0;0;1;;;29/04/2018
+2014;Huesca;Medicina;Grado;Traslado a otra Universidad;Mujeres;0;0;0;6;;;29/04/2018
+2014;Huesca;Nutrición Humana y Dietética;Grado;Abandono Voluntario;Hombres;0;2;2;0;;;29/04/2018
+2014;Huesca;Nutrición Humana y Dietética;Grado;Abandono Voluntario;Mujeres;0;2;2;0;;;29/04/2018
+2014;Huesca;Nutrición Humana y Dietética;Grado;Graduado;Hombres;11;0;0;0;4.33;92.87;29/04/2018
+2014;Huesca;Nutrición Humana y Dietética;Grado;Graduado;Mujeres;27;0;0;0;4.46;92.98;29/04/2018
+2014;Huesca;Nutrición Humana y Dietética;Grado;Incumple Régimen de permanencia;Hombres;0;1;1;0;;;29/04/2018
+2014;Huesca;Nutrición Humana y Dietética;Grado;Incumple Régimen de permanencia;Mujeres;0;1;1;0;;;29/04/2018
+2014;Huesca;Nutrición Humana y Dietética;Grado;Traslado a otra Universidad;Mujeres;0;0;0;5;;;29/04/2018
+2014;Huesca;Odontología;Grado;Cambio de estudios sin simultaneidad;Mujeres;0;1;1;0;;;29/04/2018
+2014;Huesca;Odontología;Grado;Graduado;Hombres;6;0;0;0;5.00;98.68;29/04/2018
+2014;Huesca;Odontología;Grado;Graduado;Mujeres;21;0;0;0;4.95;97.91;29/04/2018
+2014;Huesca;Odontología;Grado;Traslado a otra Universidad;Hombres;0;0;0;1;;;29/04/2018
+2014;Huesca;Odontología;Grado;Traslado a otra Universidad;Mujeres;0;0;0;2;;;29/04/2018
+2014;Huesca;Profesorado E.S.O., F.P. y Ens. Idiom, Art y Deport;Máster;Abandono Voluntario;Hombres;0;3;3;0;;;29/04/2018
+2014;Huesca;Profesorado E.S.O., F.P. y Ens. Idiom, Art y Deport;Máster;Graduado;Hombres;11;0;0;0;1.09;98.51;29/04/2018
+2014;Huesca;Profesorado E.S.O., F.P. y Ens. Idiom, Art y Deport;Máster;Graduado;Mujeres;4;0;0;0;1.00;100.00;29/04/2018
+2014;Huesca;Relaciones Laborales;Diplomatura o equivalente;Abandono Voluntario;Hombres;0;1;0;0;;;29/04/2018
+2014;Huesca;Relaciones Laborales;Diplomatura o equivalente;Abandono Voluntario;Mujeres;0;5;0;0;;;29/04/2018
+2014;Huesca;Relaciones Laborales;Diplomatura o equivalente;Graduado;Mujeres;1;0;0;0;6.00;65.35;29/04/2018
+2014;Teruel;Administración y Dirección de Empresas;Grado;Abandono Voluntario;Hombres;0;8;6;0;;;29/04/2018
+2014;Teruel;Administración y Dirección de Empresas;Grado;Abandono Voluntario;Mujeres;0;3;1;0;;;29/04/2018
+2014;Teruel;Administración y Dirección de Empresas;Grado;Cambio de estudios sin simultaneidad;Hombres;0;1;0;0;;;29/04/2018
+2014;Teruel;Administración y Dirección de Empresas;Grado;Cambio de estudios sin simultaneidad;Mujeres;0;1;1;0;;;29/04/2018
+2014;Teruel;Administración y Dirección de Empresas;Grado;Graduado;Hombres;7;0;0;0;4.00;100.00;29/04/2018
+2014;Teruel;Administración y Dirección de Empresas;Grado;Graduado;Mujeres;11;0;0;0;4.33;92.17;29/04/2018
+2014;Teruel;Administración y Dirección de Empresas;Grado;Incumple Régimen de permanencia;Hombres;0;1;0;0;;;29/04/2018
+2014;Teruel;Bellas Artes;Grado;Abandono Voluntario;Hombres;0;4;0;0;;;29/04/2018
+2014;Teruel;Bellas Artes;Grado;Abandono Voluntario;Mujeres;0;8;2;0;;;29/04/2018
+2014;Teruel;Bellas Artes;Grado;Cambio de estudios sin simultaneidad;Mujeres;0;1;1;0;;;29/04/2018
+2014;Teruel;Bellas Artes;Grado;Graduado;Hombres;3;0;0;0;4.67;90.65;29/04/2018
+2014;Teruel;Bellas Artes;Grado;Graduado;Mujeres;14;0;0;0;4.57;95.37;29/04/2018
+2014;Teruel;Enfermería;Grado;Abandono Voluntario;Hombres;0;1;1;0;;;29/04/2018
+2014;Teruel;Enfermería;Grado;Abandono Voluntario;Mujeres;0;2;0;0;;;29/04/2018
+2014;Teruel;Enfermería;Grado;Graduado;Hombres;4;0;0;0;4.00;99.17;29/04/2018
+2014;Teruel;Enfermería;Grado;Graduado;Mujeres;23;0;0;0;4.00;98.24;29/04/2018
+2014;Teruel;Ingeniería Electrónica y Automática;Grado;Abandono Voluntario;Hombres;0;7;3;0;;;29/04/2018
+2014;Teruel;Ingeniería Electrónica y Automática;Grado;Cambio de estudios sin simultaneidad;Hombres;0;1;0;0;;;29/04/2018
+2014;Teruel;Ingeniería Electrónica y Automática;Grado;Graduado;Hombres;9;0;0;0;4.00;96.77;29/04/2018
+2014;Teruel;Ingeniería Electrónica y Automática;Grado;Incumple Régimen de permanencia;Hombres;0;2;1;0;;;29/04/2018
+2014;Teruel;Ingeniería Electrónica y Automática;Grado;Incumple Régimen de permanencia;Mujeres;0;1;0;0;;;29/04/2018
+2014;Teruel;Ingeniería Informática;Grado;Abandono Voluntario;Hombres;0;9;4;0;;;29/04/2018
+2014;Teruel;Ingeniería Informática;Grado;Cambio de estudios sin simultaneidad;Hombres;0;1;1;0;;;29/04/2018
+2014;Teruel;Ingeniería Informática;Grado;Graduado;Hombres;6;0;0;0;5.00;87.69;29/04/2018
+2014;Teruel;Ingeniero Técnico de Telecomunicación;Diplomatura o equivalente;Abandono Voluntario;Hombres;0;1;0;0;;;29/04/2018
+2014;Teruel;Ingeniero Técnico de Telecomunicación;Diplomatura o equivalente;Cambio de estudios sin simultaneidad;Hombres;0;1;0;0;;;29/04/2018
+2014;Teruel;Ingeniero Técnico de Telecomunicación;Diplomatura o equivalente;Graduado;Hombres;14;0;0;0;15.62;37.70;29/04/2018
+2014;Teruel;Ingeniero Técnico de Telecomunicación;Diplomatura o equivalente;Graduado;Mujeres;2;0;0;0;13.00;45.73;29/04/2018
+2014;Teruel;Ingeniero Técnico en Informática de Gestión;Diplomatura o equivalente;Abandono Voluntario;Hombres;0;3;0;0;;;29/04/2018
+2014;Teruel;Ingeniero Técnico en Informática de Gestión;Diplomatura o equivalente;Graduado;Hombres;8;0;0;0;13.57;45.59;29/04/2018
+2014;Teruel;Ingeniero Técnico en Informática de Gestión;Diplomatura o equivalente;Graduado;Mujeres;2;0;0;0;11.00;52.19;29/04/2018
+2014;Teruel;Licenciado en Ciencias del Trabajo;Licenciatura o equivalente;Abandono Voluntario;Hombres;0;3;1;0;;;29/04/2018
+2014;Teruel;Licenciado en Ciencias del Trabajo;Licenciatura o equivalente;Abandono Voluntario;Mujeres;0;3;1;0;;;29/04/2018
+2014;Teruel;Licenciado en Ciencias del Trabajo;Licenciatura o equivalente;Cambio de estudios sin simultaneidad;Mujeres;0;2;1;0;;;29/04/2018
+2014;Teruel;Licenciado en Ciencias del Trabajo;Licenciatura o equivalente;Graduado;Hombres;3;0;0;0;3.67;77.25;29/04/2018
+2014;Teruel;Licenciado en Ciencias del Trabajo;Licenciatura o equivalente;Graduado;Mujeres;12;0;0;0;5.00;64.52;29/04/2018
+2014;Teruel;Licenciado en Ciencias del Trabajo;Licenciatura o equivalente;Incumple Régimen de permanencia;Mujeres;0;1;0;0;;;29/04/2018
+2014;Teruel;Licenciado en Humanidades;Licenciatura o equivalente;Graduado;Hombres;1;0;0;0;10.00;44.02;29/04/2018
+2014;Teruel;Maestro Educación Primaria;Diplomatura o equivalente;Abandono Voluntario;Hombres;0;2;0;0;;;29/04/2018
+2014;Teruel;Maestro Educación Primaria;Diplomatura o equivalente;Abandono Voluntario;Mujeres;0;1;0;0;;;29/04/2018
+2014;Teruel;Maestro Lengua Extranjera;Diplomatura o equivalente;Abandono Voluntario;Hombres;0;1;0;0;;;29/04/2018
+2014;Teruel;Maestro Lengua Extranjera;Diplomatura o equivalente;Abandono Voluntario;Mujeres;0;5;0;0;;;29/04/2018
+2014;Teruel;Maestro Lengua Extranjera;Diplomatura o equivalente;Graduado;Hombres;2;0;0;0;8.50;43.04;29/04/2018
+2014;Teruel;Maestro Lengua Extranjera;Diplomatura o equivalente;Graduado;Mujeres;2;0;0;0;6.00;66.23;29/04/2018
+2014;Teruel;Magisterio en Educación Infantil;Grado;Abandono Voluntario;Hombres;0;3;1;0;;;29/04/2018
+2014;Teruel;Magisterio en Educación Infantil;Grado;Abandono Voluntario;Mujeres;0;16;12;0;;;29/04/2018
+2014;Teruel;Magisterio en Educación Infantil;Grado;Cambio de estudios sin simultaneidad;Mujeres;0;2;2;0;;;29/04/2018
+2014;Teruel;Magisterio en Educación Infantil;Grado;Graduado;Hombres;3;0;0;0;4.33;97.83;29/04/2018
+2014;Teruel;Magisterio en Educación Infantil;Grado;Graduado;Mujeres;82;0;0;0;4.28;94.11;29/04/2018
+2014;Teruel;Magisterio en Educación Primaria;Grado;Abandono Voluntario;Hombres;0;8;4;0;;;29/04/2018
+2014;Teruel;Magisterio en Educación Primaria;Grado;Abandono Voluntario;Mujeres;0;10;9;0;;;29/04/2018
+2014;Teruel;Magisterio en Educación Primaria;Grado;Graduado;Hombres;25;0;0;0;4.43;91.82;29/04/2018
+2014;Teruel;Magisterio en Educación Primaria;Grado;Graduado;Mujeres;38;0;0;0;4.15;95.54;29/04/2018
+2014;Teruel;Profesorado E.S.O., F.P. y Ens. Idiom, Art y Deport;Máster;Abandono Voluntario;Mujeres;0;1;0;0;;;29/04/2018
+2014;Teruel;Profesorado E.S.O., F.P. y Ens. Idiom, Art y Deport;Máster;Graduado;Hombres;3;0;0;0;1.67;85.31;29/04/2018
+2014;Teruel;Profesorado E.S.O., F.P. y Ens. Idiom, Art y Deport;Máster;Graduado;Mujeres;6;0;0;0;1.00;100.00;29/04/2018
+2014;Teruel;Psicología;Grado;Abandono Voluntario;Hombres;0;7;1;0;;;29/04/2018
+2014;Teruel;Psicología;Grado;Abandono Voluntario;Mujeres;0;5;3;0;;;29/04/2018
+2014;Teruel;Psicología;Grado;Cambio de estudios sin simultaneidad;Mujeres;0;1;1;0;;;29/04/2018
+2014;Teruel;Psicología;Grado;Graduado;Hombres;6;0;0;0;4.80;85.84;29/04/2018
+2014;Teruel;Psicología;Grado;Graduado;Mujeres;38;0;0;0;4.12;94.42;29/04/2018
+2014;Teruel;Relaciones Laborales;Diplomatura o equivalente;Abandono Voluntario;Hombres;0;1;0;0;;;29/04/2018
+2014;Teruel;Relaciones Laborales;Diplomatura o equivalente;Abandono Voluntario;Mujeres;0;1;0;0;;;29/04/2018
+2014;Zaragoza;Administración y Dirección de Empresas;Grado;Abandono Voluntario;Hombres;0;54;23;0;;;29/04/2018
+2014;Zaragoza;Administración y Dirección de Empresas;Grado;Abandono Voluntario;Mujeres;0;28;12;0;;;29/04/2018
+2014;Zaragoza;Administración y Dirección de Empresas;Grado;Cambio de estudios sin simultaneidad;Hombres;0;13;7;0;;;29/04/2018
+2014;Zaragoza;Administración y Dirección de Empresas;Grado;Cambio de estudios sin simultaneidad;Mujeres;0;7;6;0;;;29/04/2018
+2014;Zaragoza;Administración y Dirección de Empresas;Grado;Graduado;Hombres;100;0;0;0;4.54;88.77;29/04/2018
+2014;Zaragoza;Administración y Dirección de Empresas;Grado;Graduado;Mujeres;127;0;0;0;4.54;90.40;29/04/2018
+2014;Zaragoza;Administración y Dirección de Empresas;Grado;Incumple Régimen de permanencia;Hombres;0;17;9;0;;;29/04/2018
+2014;Zaragoza;Administración y Dirección de Empresas;Grado;Incumple Régimen de permanencia;Mujeres;0;11;10;0;;;29/04/2018
+2014;Zaragoza;Administración y Dirección de Empresas;Grado;Traslado a otra Universidad;Hombres;0;0;0;17;;;29/04/2018
+2014;Zaragoza;Administración y Dirección de Empresas;Grado;Traslado a otra Universidad;Mujeres;0;0;0;16;;;29/04/2018
+2014;Zaragoza;Aprendizaje a lo largo de la vida: Iniciación a la investigación;Máster;Abandono Voluntario;Mujeres;0;8;5;0;;;29/04/2018
+2014;Zaragoza;Aprendizaje a lo largo de la vida: Iniciación a la investigación;Máster;Graduado;Hombres;5;0;0;0;1.00;95.83;29/04/2018
+2014;Zaragoza;Aprendizaje a lo largo de la vida: Iniciación a la investigación;Máster;Graduado;Mujeres;7;0;0;0;2.00;84.29;29/04/2018
+2014;Zaragoza;Arquitectura;Máster;Graduado;Hombres;12;0;0;0;1.55;78.57;29/04/2018
+2014;Zaragoza;Arquitectura;Máster;Graduado;Mujeres;18;0;0;0;1.56;78.26;29/04/2018
+2014;Zaragoza;Auditoría;Máster;Graduado;Hombres;10;0;0;0;1.00;100.00;29/04/2018
+2014;Zaragoza;Auditoría;Máster;Graduado;Mujeres;6;0;0;0;1.00;100.00;29/04/2018
+2014;Zaragoza;Biblioteconomía y Documentación;Diplomatura o equivalente;Traslado a otra Universidad;Hombres;0;0;0;1;;;29/04/2018
+2014;Zaragoza;Biblioteconomía y Documentación;Diplomatura o equivalente;Traslado a otra Universidad;Mujeres;0;0;0;1;;;29/04/2018
+2014;Zaragoza;Biología Molecular y Celular;Máster;Abandono Voluntario;Mujeres;0;1;0;0;;;29/04/2018
+2014;Zaragoza;Biología Molecular y Celular;Máster;Graduado;Hombres;5;0;0;0;1.00;100.00;29/04/2018
+2014;Zaragoza;Biología Molecular y Celular;Máster;Graduado;Mujeres;13;0;0;0;1.00;100.00;29/04/2018
+2014;Zaragoza;Bioquímica;Licenciatura o equivalente;Abandono Voluntario;Hombres;0;3;2;0;;;29/04/2018
+2014;Zaragoza;Bioquímica;Licenciatura o equivalente;Abandono Voluntario;Mujeres;0;2;1;0;;;29/04/2018
+2014;Zaragoza;Bioquímica;Licenciatura o equivalente;Graduado;Hombres;1;0;0;0;3.00;83.33;29/04/2018
+2014;Zaragoza;Bioquímica;Licenciatura o equivalente;Graduado;Mujeres;5;0;0;0;;;29/04/2018
+2014;Zaragoza;Bioquímica;Licenciatura o equivalente;Traslado a otra Universidad;Mujeres;0;0;0;1;;;29/04/2018
+2014;Zaragoza;Bioquímica y biología molecular;Doctorado;Graduado;Hombres;5;0;0;0;;;29/04/2018
+2014;Zaragoza;Bioquímica y biología molecular;Doctorado;Graduado;Mujeres;12;0;0;0;;;29/04/2018
+2014;Zaragoza;Biotecnología;Grado;Abandono Voluntario;Hombres;0;1;0;0;;;29/04/2018
+2014;Zaragoza;Biotecnología;Grado;Abandono Voluntario;Mujeres;0;2;1;0;;;29/04/2018
+2014;Zaragoza;Biotecnología;Grado;Graduado;Hombres;27;0;0;0;4.19;95.78;29/04/2018
+2014;Zaragoza;Biotecnología;Grado;Graduado;Mujeres;32;0;0;0;3.94;99.84;29/04/2018
+2014;Zaragoza;Biotecnología;Grado;Incumple Régimen de permanencia;Hombres;0;1;0;0;;;29/04/2018
+2014;Zaragoza;Biotecnología;Grado;Incumple Régimen de permanencia;Mujeres;0;2;2;0;;;29/04/2018
+2014;Zaragoza;Biotecnología;Grado;Traslado a otra Universidad;Hombres;0;0;0;1;;;29/04/2018
+2014;Zaragoza;Biotecnología;Grado;Traslado a otra Universidad;Mujeres;0;0;0;3;;;29/04/2018
+2014;Zaragoza;Calidad, seguridad y tecnología de los alimentos;Doctorado;Graduado;Hombres;4;0;0;0;;;29/04/2018
+2014;Zaragoza;Calidad, seguridad y tecnología de los alimentos;Doctorado;Graduado;Mujeres;6;0;0;0;;;29/04/2018
+2014;Zaragoza;Ciencia analítica en química;Doctorado;Graduado;Hombres;3;0;0;0;;;29/04/2018
+2014;Zaragoza;Ciencia analítica en química;Doctorado;Graduado;Mujeres;7;0;0;0;;;29/04/2018
+2014;Zaragoza;Ciencia y Tecnología de los Alimentos;Grado;Abandono Voluntario;Hombres;0;3;1;0;;;29/04/2018
+2014;Zaragoza;Ciencia y Tecnología de los Alimentos;Grado;Abandono Voluntario;Mujeres;0;4;0;0;;;29/04/2018
+2014;Zaragoza;Ciencia y Tecnología de los Alimentos;Grado;Cambio de estudios sin simultaneidad;Hombres;0;2;1;0;;;29/04/2018
+2014;Zaragoza;Ciencia y Tecnología de los Alimentos;Grado;Cambio de estudios sin simultaneidad;Mujeres;0;1;1;0;;;29/04/2018
+2014;Zaragoza;Ciencia y Tecnología de los Alimentos;Grado;Graduado;Hombres;11;0;0;0;4.36;88.89;29/04/2018
+2014;Zaragoza;Ciencia y Tecnología de los Alimentos;Grado;Graduado;Mujeres;32;0;0;0;4.34;90.94;29/04/2018
+2014;Zaragoza;Ciencia y Tecnología de los Alimentos;Licenciatura o equivalente;Abandono Voluntario;Hombres;0;1;0;0;;;29/04/2018
+2014;Zaragoza;Ciencia y Tecnología de los Alimentos;Licenciatura o equivalente;Abandono Voluntario;Mujeres;0;5;0;0;;;29/04/2018
+2014;Zaragoza;Ciencia y Tecnología de los Alimentos;Licenciatura o equivalente;Graduado;Hombres;2;0;0;0;;;29/04/2018
+2014;Zaragoza;Ciencia y Tecnología de los Alimentos;Licenciatura o equivalente;Graduado;Mujeres;5;0;0;0;;;29/04/2018
+2014;Zaragoza;Ciencia y Tecnología de los Alimentos;Licenciatura o equivalente;Traslado a otra Universidad;Hombres;0;0;0;1;;;29/04/2018
+2014;Zaragoza;Ciencias agrarias y del medio natural;Doctorado;Graduado;Hombres;2;0;0;0;;;29/04/2018
+2014;Zaragoza;Ciencias agrarias y del medio natural;Doctorado;Graduado;Mujeres;3;0;0;0;;;29/04/2018
+2014;Zaragoza;Ciencias biomédicas y biotecnológicas;Doctorado;Graduado;Mujeres;7;0;0;0;;;29/04/2018
+2014;Zaragoza;Ciencias de la Antigüedad;Máster;Abandono Voluntario;Hombres;0;1;0;0;;;29/04/2018
+2014;Zaragoza;Ciencias de la Antigüedad;Máster;Graduado;Hombres;6;0;0;0;1.83;89.71;29/04/2018
+2014;Zaragoza;Ciencias de la Antigüedad;Máster;Graduado;Mujeres;2;0;0;0;1.00;100.00;29/04/2018
+2014;Zaragoza;Ciencias de la antigüedad;Doctorado;Graduado;Hombres;2;0;0;0;;;29/04/2018
+2014;Zaragoza;Ciencias de la Enfermería;Máster;Abandono Voluntario;Hombres;0;1;1;0;;;29/04/2018
+2014;Zaragoza;Ciencias de la Enfermería;Máster;Abandono Voluntario;Mujeres;0;1;0;0;;;29/04/2018
+2014;Zaragoza;Ciencias de la Enfermería;Máster;Graduado;Hombres;1;0;0;0;3.00;70.29;29/04/2018
+2014;Zaragoza;Ciencias de la Enfermería;Máster;Graduado;Mujeres;2;0;0;0;6.00;70.48;29/04/2018
+2014;Zaragoza;Ciencias de la Salud;Doctorado;Graduado;Hombres;4;0;0;0;;;29/04/2018
+2014;Zaragoza;Ciencias de la Salud;Doctorado;Graduado;Mujeres;9;0;0;0;;;29/04/2018
+2014;Zaragoza;Ciencias Empresariales;Licenciatura o equivalente;Traslado a otra Universidad;Hombres;0;0;0;1;;;29/04/2018
+2014;Zaragoza;Cond. genéticos, nutric. y amb. del crec. y desarrollo;Máster;Abandono Voluntario;Mujeres;0;1;0;0;;;29/04/2018
+2014;Zaragoza;Cond. genéticos, nutric. y amb. del crec. y desarrollo;Máster;Graduado;Hombres;4;0;0;0;1.00;93.02;29/04/2018
+2014;Zaragoza;Cond. genéticos, nutric. y amb. del crec. y desarrollo;Máster;Graduado;Mujeres;20;0;0;0;1.00;98.52;29/04/2018
+2014;Zaragoza;Condicionantes genéticos, nutricionales y ambientales del crec.;Doctorado;Graduado;Mujeres;3;0;0;0;;;29/04/2018
+2014;Zaragoza;Contabilidad y finanzas;Doctorado;Graduado;Hombres;1;0;0;0;;;29/04/2018
+2014;Zaragoza;Contabilidad y finanzas;Doctorado;Graduado;Mujeres;3;0;0;0;;;29/04/2018
+2014;Zaragoza;Contabilidad y finanzas;Máster;Abandono Voluntario;Mujeres;0;1;0;0;;;29/04/2018
+2014;Zaragoza;Contabilidad y finanzas;Máster;Graduado;Hombres;10;0;0;0;1.00;99.34;29/04/2018
+2014;Zaragoza;Contabilidad y finanzas;Máster;Graduado;Mujeres;10;0;0;0;1.00;100.00;29/04/2018
+2014;Zaragoza;Contabilidad y finanzas de las organizaciones;Doctorado;Graduado;Mujeres;2;0;0;0;;;29/04/2018
+2014;Zaragoza;Derecho;Doctorado;Graduado;Hombres;2;0;0;0;;;29/04/2018
+2014;Zaragoza;Derecho;Doctorado;Graduado;Mujeres;4;0;0;0;;;29/04/2018
+2014;Zaragoza;Derecho;Grado;Abandono Voluntario;Hombres;0;18;14;0;;;29/04/2018
+2014;Zaragoza;Derecho;Grado;Abandono Voluntario;Mujeres;0;12;6;0;;;29/04/2018
+2014;Zaragoza;Derecho;Grado;Cambio de estudios sin simultaneidad;Hombres;0;5;2;0;;;29/04/2018
+2014;Zaragoza;Derecho;Grado;Cambio de estudios sin simultaneidad;Mujeres;0;1;0;0;;;29/04/2018
+2014;Zaragoza;Derecho;Grado;Graduado;Hombres;80;0;0;0;4.40;93.17;29/04/2018
+2014;Zaragoza;Derecho;Grado;Graduado;Mujeres;137;0;0;0;4.30;93.11;29/04/2018
+2014;Zaragoza;Derecho;Grado;Incumple Régimen de permanencia;Hombres;0;5;4;0;;;29/04/2018
+2014;Zaragoza;Derecho;Grado;Incumple Régimen de permanencia;Mujeres;0;5;3;0;;;29/04/2018
+2014;Zaragoza;Derecho;Grado;Traslado a otra Universidad;Hombres;0;0;0;15;;;29/04/2018
+2014;Zaragoza;Derecho;Grado;Traslado a otra Universidad;Mujeres;0;0;0;20;;;29/04/2018
+2014;Zaragoza;Derecho;Licenciatura o equivalente;Abandono Voluntario;Hombres;0;12;0;0;;;29/04/2018
+2014;Zaragoza;Derecho;Licenciatura o equivalente;Abandono Voluntario;Mujeres;0;7;0;0;;;29/04/2018
+2014;Zaragoza;Derecho;Licenciatura o equivalente;Graduado;Hombres;105;0;0;0;7.22;69.80;29/04/2018
+2014;Zaragoza;Derecho;Licenciatura o equivalente;Graduado;Mujeres;111;0;0;0;6.94;76.91;29/04/2018
+2014;Zaragoza;Derecho;Licenciatura o equivalente;Traslado a otra Universidad;Hombres;0;0;0;14;;;29/04/2018
+2014;Zaragoza;Derecho;Licenciatura o equivalente;Traslado a otra Universidad;Mujeres;0;0;0;16;;;29/04/2018
+2014;Zaragoza;Diplomado Ciencias Empresariales;Diplomatura o equivalente;Abandono Voluntario;Hombres;0;21;0;0;;;29/04/2018
+2014;Zaragoza;Diplomado Ciencias Empresariales;Diplomatura o equivalente;Abandono Voluntario;Mujeres;0;47;0;0;;;29/04/2018
+2014;Zaragoza;Diplomado Ciencias Empresariales;Diplomatura o equivalente;Cambio de estudios sin simultaneidad;Hombres;0;1;0;0;;;29/04/2018
+2014;Zaragoza;Diplomado Ciencias Empresariales;Diplomatura o equivalente;Graduado;Hombres;2;0;0;0;6.50;49.81;29/04/2018
+2014;Zaragoza;Diplomado Ciencias Empresariales;Diplomatura o equivalente;Graduado;Mujeres;3;0;0;0;8.00;45.38;29/04/2018
+2014;Zaragoza;Diplomado Ciencias Empresariales;Diplomatura o equivalente;Traslado a otra Universidad;Hombres;0;0;0;8;;;29/04/2018
+2014;Zaragoza;Diplomado Ciencias Empresariales;Diplomatura o equivalente;Traslado a otra Universidad;Mujeres;0;0;0;6;;;29/04/2018
+2014;Zaragoza;Diplomado en Turismo;Diplomatura o equivalente;Abandono Voluntario;Hombres;0;2;0;0;;;29/04/2018
+2014;Zaragoza;Diplomado en Turismo;Diplomatura o equivalente;Abandono Voluntario;Mujeres;0;3;1;0;;;29/04/2018
+2014;Zaragoza;Diplomado en Turismo;Diplomatura o equivalente;Graduado;Hombres;2;0;0;0;11.00;53.05;29/04/2018
+2014;Zaragoza;Diplomado en Turismo;Diplomatura o equivalente;Graduado;Mujeres;5;0;0;0;8.40;70.00;29/04/2018
+2014;Zaragoza;Economía;Doctorado;Graduado;Hombres;4;0;0;0;;;29/04/2018
+2014;Zaragoza;Economía;Doctorado;Graduado;Mujeres;1;0;0;0;;;29/04/2018
+2014;Zaragoza;Economía;Grado;Abandono Voluntario;Hombres;0;30;24;0;;;29/04/2018
+2014;Zaragoza;Economía;Grado;Abandono Voluntario;Mujeres;0;16;11;0;;;29/04/2018
+2014;Zaragoza;Economía;Grado;Cambio de estudios sin simultaneidad;Hombres;0;10;6;0;;;29/04/2018
+2014;Zaragoza;Economía;Grado;Cambio de estudios sin simultaneidad;Mujeres;0;5;3;0;;;29/04/2018
+2014;Zaragoza;Economía;Grado;Graduado;Hombres;40;0;0;0;4.61;90.44;29/04/2018
+2014;Zaragoza;Economía;Grado;Graduado;Mujeres;35;0;0;0;4.56;89.51;29/04/2018
+2014;Zaragoza;Economía;Grado;Incumple Régimen de permanencia;Hombres;0;17;15;0;;;29/04/2018
+2014;Zaragoza;Economía;Grado;Incumple Régimen de permanencia;Mujeres;0;5;2;0;;;29/04/2018
+2014;Zaragoza;Economía;Grado;Traslado a otra Universidad;Hombres;0;0;0;14;;;29/04/2018
+2014;Zaragoza;Economía;Grado;Traslado a otra Universidad;Mujeres;0;0;0;9;;;29/04/2018
+2014;Zaragoza;Economía;Máster;Abandono Voluntario;Mujeres;0;2;1;0;;;29/04/2018
+2014;Zaragoza;Economía;Máster;Graduado;Hombres;11;0;0;0;1.09;97.36;29/04/2018
+2014;Zaragoza;Economía;Máster;Graduado;Mujeres;2;0;0;0;1.00;100.00;29/04/2018
+2014;Zaragoza;Economía y gestión de las organizaciones;Doctorado;Graduado;Hombres;3;0;0;0;9.00;75.00;29/04/2018
+2014;Zaragoza;Economía y gestión de las organizaciones;Doctorado;Graduado;Mujeres;2;0;0;0;;;29/04/2018
+2014;Zaragoza;Educación;Doctorado;Graduado;Hombres;1;0;0;0;;;29/04/2018
+2014;Zaragoza;Educación;Doctorado;Graduado;Mujeres;2;0;0;0;;;29/04/2018
+2014;Zaragoza;Energías Renovables y Eficiencia Energética;Máster;Abandono Voluntario;Hombres;0;9;2;0;;;29/04/2018
+2014;Zaragoza;Energías Renovables y Eficiencia Energética;Máster;Abandono Voluntario;Mujeres;0;1;0;0;;;29/04/2018
+2014;Zaragoza;Energías Renovables y Eficiencia Energética;Máster;Graduado;Hombres;6;0;0;0;2.50;76.47;29/04/2018
+2014;Zaragoza;Energías Renovables y Eficiencia Energética;Máster;Incumple Régimen de permanencia;Hombres;0;1;1;0;;;29/04/2018
+2014;Zaragoza;Energías renovables y eficiencia energética;Doctorado;Graduado;Hombres;2;0;0;0;;;29/04/2018
+2014;Zaragoza;Energías renovables y eficiencia energética;Doctorado;Graduado;Mujeres;2;0;0;0;;;29/04/2018
+2014;Zaragoza;Enfermería;Grado;Abandono Voluntario;Hombres;0;4;2;0;;;29/04/2018
+2014;Zaragoza;Enfermería;Grado;Abandono Voluntario;Mujeres;0;10;6;0;;;29/04/2018
+2014;Zaragoza;Enfermería;Grado;Cambio de estudios sin simultaneidad;Hombres;0;3;3;0;;;29/04/2018
+2014;Zaragoza;Enfermería;Grado;Cambio de estudios sin simultaneidad;Mujeres;0;9;7;0;;;29/04/2018
+2014;Zaragoza;Enfermería;Grado;Graduado;Hombres;37;0;0;0;4.15;93.99;29/04/2018
+2014;Zaragoza;Enfermería;Grado;Graduado;Mujeres;145;0;0;0;4.07;95.81;29/04/2018
+2014;Zaragoza;Enfermería;Grado;Incumple Régimen de permanencia;Mujeres;0;1;1;0;;;29/04/2018
+2014;Zaragoza;Erasmus Mundus en Ingeniería de Membranas;Máster;Graduado;Hombres;1;0;0;0;;;29/04/2018
+2014;Zaragoza;Erasmus Mundus en Ingeniería de Membranas;Máster;Graduado;Mujeres;4;0;0;0;;;29/04/2018
+2014;Zaragoza;Especialización e Investigación en Derecho;Máster;Abandono Voluntario;Hombres;0;2;2;0;;;29/04/2018
+2014;Zaragoza;Especialización e Investigación en Derecho;Máster;Abandono Voluntario;Mujeres;0;1;0;0;;;29/04/2018
+2014;Zaragoza;Especialización e Investigación en Derecho;Máster;Graduado;Hombres;2;0;0;0;6.00;76.92;29/04/2018
+2014;Zaragoza;Estadística;Diplomatura o equivalente;Abandono Voluntario;Hombres;0;1;0;0;;;29/04/2018
+2014;Zaragoza;Estadística;Diplomatura o equivalente;Abandono Voluntario;Mujeres;0;3;0;0;;;29/04/2018
+2014;Zaragoza;Estudios Avanzados en Historia del Arte;Máster;Abandono Voluntario;Hombres;0;1;1;0;;;29/04/2018
+2014;Zaragoza;Estudios Avanzados en Historia del Arte;Máster;Abandono Voluntario;Mujeres;0;1;0;0;;;29/04/2018
+2014;Zaragoza;Estudios Avanzados en Historia del Arte;Máster;Graduado;Hombres;5;0;0;0;1.25;96.15;29/04/2018
+2014;Zaragoza;Estudios Avanzados en Historia del Arte;Máster;Graduado;Mujeres;14;0;0;0;1.27;94.92;29/04/2018
+2014;Zaragoza;Estudios Clásicos;Grado;Abandono Voluntario;Hombres;0;4;1;0;;;29/04/2018
+2014;Zaragoza;Estudios Clásicos;Grado;Abandono Voluntario;Mujeres;0;3;1;0;;;29/04/2018
+2014;Zaragoza;Estudios Clásicos;Grado;Cambio de estudios sin simultaneidad;Hombres;0;2;1;0;;;29/04/2018
+2014;Zaragoza;Estudios Clásicos;Grado;Cambio de estudios sin simultaneidad;Mujeres;0;7;2;0;;;29/04/2018
+2014;Zaragoza;Estudios Clásicos;Grado;Graduado;Hombres;2;0;0;0;4.00;98.76;29/04/2018
+2014;Zaragoza;Estudios Clásicos;Grado;Incumple Régimen de permanencia;Hombres;0;1;1;0;;;29/04/2018
+2014;Zaragoza;Estudios Clásicos;Grado;Traslado a otra Universidad;Hombres;0;0;0;1;;;29/04/2018
+2014;Zaragoza;Estudios en Arquitectura;Grado;Abandono Voluntario;Hombres;0;8;2;0;;;29/04/2018
+2014;Zaragoza;Estudios en Arquitectura;Grado;Abandono Voluntario;Mujeres;0;3;0;0;;;29/04/2018
+2014;Zaragoza;Estudios en Arquitectura;Grado;Cambio de estudios sin simultaneidad;Hombres;0;2;0;0;;;29/04/2018
+2014;Zaragoza;Estudios en Arquitectura;Grado;Cambio de estudios sin simultaneidad;Mujeres;0;1;1;0;;;29/04/2018
+2014;Zaragoza;Estudios en Arquitectura;Grado;Graduado;Hombres;31;0;0;0;;;29/04/2018
+2014;Zaragoza;Estudios en Arquitectura;Grado;Graduado;Mujeres;18;0;0;0;4.00;97.71;29/04/2018
+2014;Zaragoza;Estudios en Arquitectura;Grado;Incumple Régimen de permanencia;Hombres;0;2;0;0;;;29/04/2018
+2014;Zaragoza;Estudios en Arquitectura;Grado;Traslado a otra Universidad;Hombres;0;0;0;2;;;29/04/2018
+2014;Zaragoza;Estudios en Arquitectura;Grado;Traslado a otra Universidad;Mujeres;0;0;0;1;;;29/04/2018
+2014;Zaragoza;Estudios Filosóficos;Máster;Abandono Voluntario;Hombres;0;2;2;0;;;29/04/2018
+2014;Zaragoza;Estudios filosóficos;Doctorado;Graduado;Mujeres;1;0;0;0;;;29/04/2018
+2014;Zaragoza;Estudios Hispánicos: lengua y literatura;Máster;Abandono Voluntario;Mujeres;0;1;0;0;;;29/04/2018
+2014;Zaragoza;Estudios Hispánicos: lengua y literatura;Máster;Graduado;Mujeres;3;0;0;0;2.00;90.48;29/04/2018
+2014;Zaragoza;Estudios Ingleses;Grado;Abandono Voluntario;Hombres;0;6;3;0;;;29/04/2018
+2014;Zaragoza;Estudios Ingleses;Grado;Abandono Voluntario;Mujeres;0;11;7;0;;;29/04/2018
+2014;Zaragoza;Estudios Ingleses;Grado;Cambio de estudios sin simultaneidad;Mujeres;0;1;1;0;;;29/04/2018
+2014;Zaragoza;Estudios Ingleses;Grado;Graduado;Hombres;8;0;0;0;4.25;94.67;29/04/2018
+2014;Zaragoza;Estudios Ingleses;Grado;Graduado;Mujeres;59;0;0;0;4.19;95.73;29/04/2018
+2014;Zaragoza;Estudios Ingleses;Grado;Incumple Régimen de permanencia;Hombres;0;1;1;0;;;29/04/2018
+2014;Zaragoza;Estudios Ingleses;Grado;Incumple Régimen de permanencia;Mujeres;0;5;4;0;;;29/04/2018
+2014;Zaragoza;Estudios Ingleses;Grado;Traslado a otra Universidad;Mujeres;0;0;0;6;;;29/04/2018
+2014;Zaragoza;Estudios ingleses;Doctorado;Graduado;Mujeres;2;0;0;0;;;29/04/2018
+2014;Zaragoza;Estudios Textuales y Culturales en Lengua Inglesa;Máster;Abandono Voluntario;Hombres;0;2;2;0;;;29/04/2018
+2014;Zaragoza;Estudios Textuales y Culturales en Lengua Inglesa;Máster;Abandono Voluntario;Mujeres;0;4;4;0;;;29/04/2018
+2014;Zaragoza;Estudios Textuales y Culturales en Lengua Inglesa;Máster;Cambio de estudios sin simultaneidad;Mujeres;0;1;1;0;;;29/04/2018
+2014;Zaragoza;Estudios Textuales y Culturales en Lengua Inglesa;Máster;Graduado;Hombres;1;0;0;0;;53.33;29/04/2018
+2014;Zaragoza;Estudios Textuales y Culturales en Lengua Inglesa;Máster;Graduado;Mujeres;6;0;0;0;1.60;90.91;29/04/2018
+2014;Zaragoza;Filología Clásica;Licenciatura o equivalente;Abandono Voluntario;Mujeres;0;1;0;0;;;29/04/2018
+2014;Zaragoza;Filología Clásica;Licenciatura o equivalente;Graduado;Mujeres;5;0;0;0;6.00;75.79;29/04/2018
+2014;Zaragoza;Filología Hispánica;Grado;Abandono Voluntario;Hombres;0;6;5;0;;;29/04/2018
+2014;Zaragoza;Filología Hispánica;Grado;Abandono Voluntario;Mujeres;0;8;7;0;;;29/04/2018
+2014;Zaragoza;Filología Hispánica;Grado;Cambio de estudios sin simultaneidad;Mujeres;0;2;1;0;;;29/04/2018
+2014;Zaragoza;Filología Hispánica;Grado;Graduado;Hombres;6;0;0;0;4.50;91.60;29/04/2018
+2014;Zaragoza;Filología Hispánica;Grado;Graduado;Mujeres;29;0;0;0;4.22;94.66;29/04/2018
+2014;Zaragoza;Filología Hispánica;Grado;Incumple Régimen de permanencia;Mujeres;0;1;1;0;;;29/04/2018
+2014;Zaragoza;Filología Hispánica;Grado;Traslado a otra Universidad;Mujeres;0;0;0;3;;;29/04/2018
+2014;Zaragoza;Filología Hispánica;Licenciatura o equivalente;Abandono Voluntario;Hombres;0;3;0;0;;;29/04/2018
+2014;Zaragoza;Filología Hispánica;Licenciatura o equivalente;Abandono Voluntario;Mujeres;0;3;1;0;;;29/04/2018
+2014;Zaragoza;Filología Hispánica;Licenciatura o equivalente;Cambio de estudios sin simultaneidad;Mujeres;0;1;1;0;;;29/04/2018
+2014;Zaragoza;Filología Hispánica;Licenciatura o equivalente;Graduado;Hombres;2;0;0;0;7.00;55.81;29/04/2018
+2014;Zaragoza;Filología Hispánica;Licenciatura o equivalente;Graduado;Mujeres;6;0;0;0;12.00;59.40;29/04/2018
+2014;Zaragoza;Filología Hispánica;Licenciatura o equivalente;Traslado a otra Universidad;Hombres;0;0;0;2;;;29/04/2018
+2014;Zaragoza;Filología Hispánica;Licenciatura o equivalente;Traslado a otra Universidad;Mujeres;0;0;0;2;;;29/04/2018
+2014;Zaragoza;Filología hispánica;Doctorado;Graduado;Hombres;1;0;0;0;;;29/04/2018
+2014;Zaragoza;Filología hispánica;Doctorado;Graduado;Mujeres;2;0;0;0;;;29/04/2018
+2014;Zaragoza;Filología Inglesa;Licenciatura o equivalente;Abandono Voluntario;Hombres;0;4;1;0;;;29/04/2018
+2014;Zaragoza;Filología Inglesa;Licenciatura o equivalente;Abandono Voluntario;Mujeres;0;8;0;0;;;29/04/2018
+2014;Zaragoza;Filología Inglesa;Licenciatura o equivalente;Graduado;Hombres;1;0;0;0;6.00;80.33;29/04/2018
+2014;Zaragoza;Filología Inglesa;Licenciatura o equivalente;Graduado;Mujeres;12;0;0;0;11.67;50.08;29/04/2018
+2014;Zaragoza;Filología Inglesa;Licenciatura o equivalente;Traslado a otra Universidad;Hombres;0;0;0;1;;;29/04/2018
+2014;Zaragoza;Filología Inglesa;Licenciatura o equivalente;Traslado a otra Universidad;Mujeres;0;0;0;2;;;29/04/2018
+2014;Zaragoza;Filología Románica (Francés);Licenciatura o equivalente;Abandono Voluntario;Mujeres;0;2;0;0;;;29/04/2018
+2014;Zaragoza;Filología Románica (Francés);Licenciatura o equivalente;Graduado;Hombres;1;0;0;0;10.00;41.32;29/04/2018
+2014;Zaragoza;Filología Románica (Francés);Licenciatura o equivalente;Graduado;Mujeres;1;0;0;0;9.00;84.21;29/04/2018
+2014;Zaragoza;Filosofía;Grado;Abandono Voluntario;Hombres;0;9;5;0;;;29/04/2018
+2014;Zaragoza;Filosofía;Grado;Abandono Voluntario;Mujeres;0;4;0;0;;;29/04/2018
+2014;Zaragoza;Filosofía;Grado;Graduado;Hombres;12;0;0;0;4.45;92.42;29/04/2018
+2014;Zaragoza;Filosofía;Grado;Graduado;Mujeres;12;0;0;0;4.70;85.26;29/04/2018
+2014;Zaragoza;Filosofía;Grado;Incumple Régimen de permanencia;Hombres;0;4;3;0;;;29/04/2018
+2014;Zaragoza;Filosofía;Grado;Traslado a otra Universidad;Hombres;0;0;0;6;;;29/04/2018
+2014;Zaragoza;Filosofía;Grado;Traslado a otra Universidad;Mujeres;0;0;0;2;;;29/04/2018
+2014;Zaragoza;Finanzas y Contabilidad;Grado;Abandono Voluntario;Hombres;0;22;17;0;;;29/04/2018
+2014;Zaragoza;Finanzas y Contabilidad;Grado;Abandono Voluntario;Mujeres;0;25;19;0;;;29/04/2018
+2014;Zaragoza;Finanzas y Contabilidad;Grado;Cambio de estudios sin simultaneidad;Hombres;0;11;5;0;;;29/04/2018
+2014;Zaragoza;Finanzas y Contabilidad;Grado;Cambio de estudios sin simultaneidad;Mujeres;0;5;3;0;;;29/04/2018
+2014;Zaragoza;Finanzas y Contabilidad;Grado;Graduado;Hombres;16;0;0;0;4.50;90.62;29/04/2018
+2014;Zaragoza;Finanzas y Contabilidad;Grado;Graduado;Mujeres;29;0;0;0;4.58;89.97;29/04/2018
+2014;Zaragoza;Finanzas y Contabilidad;Grado;Incumple Régimen de permanencia;Hombres;0;11;7;0;;;29/04/2018
+2014;Zaragoza;Finanzas y Contabilidad;Grado;Incumple Régimen de permanencia;Mujeres;0;6;6;0;;;29/04/2018
+2014;Zaragoza;Finanzas y Contabilidad;Grado;Traslado a otra Universidad;Hombres;0;0;0;5;;;29/04/2018
+2014;Zaragoza;Finanzas y Contabilidad;Grado;Traslado a otra Universidad;Mujeres;0;0;0;3;;;29/04/2018
+2014;Zaragoza;Física;Doctorado;Graduado;Hombres;10;0;0;0;;;29/04/2018
+2014;Zaragoza;Física;Doctorado;Graduado;Mujeres;9;0;0;0;;;29/04/2018
+2014;Zaragoza;Física;Grado;Abandono Voluntario;Hombres;0;6;3;0;;;29/04/2018
+2014;Zaragoza;Física;Grado;Abandono Voluntario;Mujeres;0;4;4;0;;;29/04/2018
+2014;Zaragoza;Física;Grado;Cambio de estudios sin simultaneidad;Hombres;0;3;2;0;;;29/04/2018
+2014;Zaragoza;Física;Grado;Cambio de estudios sin simultaneidad;Mujeres;0;3;1;0;;;29/04/2018
+2014;Zaragoza;Física;Grado;Graduado;Hombres;21;0;0;0;4.42;93.53;29/04/2018
+2014;Zaragoza;Física;Grado;Graduado;Mujeres;3;0;0;0;4.33;86.69;29/04/2018
+2014;Zaragoza;Física;Grado;Incumple Régimen de permanencia;Hombres;0;10;6;0;;;29/04/2018
+2014;Zaragoza;Física;Grado;Incumple Régimen de permanencia;Mujeres;0;2;0;0;;;29/04/2018
+2014;Zaragoza;Física;Grado;Traslado a otra Universidad;Hombres;0;0;0;10;;;29/04/2018
+2014;Zaragoza;Física;Grado;Traslado a otra Universidad;Mujeres;0;0;0;3;;;29/04/2018
+2014;Zaragoza;Física y Tecnologías Físicas;Máster;Abandono Voluntario;Mujeres;0;1;1;0;;;29/04/2018
+2014;Zaragoza;Física y Tecnologías Físicas;Máster;Graduado;Hombres;16;0;0;0;1.00;100.00;29/04/2018
+2014;Zaragoza;Física y Tecnologías Físicas;Máster;Graduado;Mujeres;4;0;0;0;1.00;100.00;29/04/2018
+2014;Zaragoza;Física y Tecnologías Físicas;Máster;Incumple Régimen de permanencia;Hombres;0;1;0;0;;;29/04/2018
+2014;Zaragoza;Físicas;Licenciatura o equivalente;Abandono Voluntario;Hombres;0;2;0;0;;;29/04/2018
+2014;Zaragoza;Físicas;Licenciatura o equivalente;Graduado;Hombres;6;0;0;0;7.83;65.67;29/04/2018
+2014;Zaragoza;Físicas;Licenciatura o equivalente;Graduado;Mujeres;4;0;0;0;13.25;40.79;29/04/2018
+2014;Zaragoza;Físicas;Licenciatura o equivalente;Traslado a otra Universidad;Hombres;0;0;0;1;;;29/04/2018
+2014;Zaragoza;Fisioterapia;Grado;Abandono Voluntario;Hombres;0;2;1;0;;;29/04/2018
+2014;Zaragoza;Fisioterapia;Grado;Abandono Voluntario;Mujeres;0;3;1;0;;;29/04/2018
+2014;Zaragoza;Fisioterapia;Grado;Cambio de estudios sin simultaneidad;Mujeres;0;1;1;0;;;29/04/2018
+2014;Zaragoza;Fisioterapia;Grado;Graduado;Hombres;24;0;0;0;4.06;96.39;29/04/2018
+2014;Zaragoza;Fisioterapia;Grado;Graduado;Mujeres;38;0;0;0;4.12;95.72;29/04/2018
+2014;Zaragoza;Geografía;Licenciatura o equivalente;Abandono Voluntario;Hombres;0;1;0;0;;;29/04/2018
+2014;Zaragoza;Geografía;Licenciatura o equivalente;Graduado;Hombres;4;0;0;0;6.25;73.63;29/04/2018
+2014;Zaragoza;Geografía;Licenciatura o equivalente;Graduado;Mujeres;1;0;0;0;6.00;90.50;29/04/2018
+2014;Zaragoza;Geografía e Historia;Licenciatura o equivalente;Traslado a otra Universidad;Mujeres;0;0;0;1;;;29/04/2018
+2014;Zaragoza;Geografía y Ordenación del Territorio;Grado;Abandono Voluntario;Hombres;0;5;4;0;;;29/04/2018
+2014;Zaragoza;Geografía y Ordenación del Territorio;Grado;Abandono Voluntario;Mujeres;0;3;3;0;;;29/04/2018
+2014;Zaragoza;Geografía y Ordenación del Territorio;Grado;Cambio de estudios sin simultaneidad;Hombres;0;3;3;0;;;29/04/2018
+2014;Zaragoza;Geografía y Ordenación del Territorio;Grado;Graduado;Hombres;10;0;0;0;4.20;96.95;29/04/2018
+2014;Zaragoza;Geografía y Ordenación del Territorio;Grado;Graduado;Mujeres;9;0;0;0;4.25;96.24;29/04/2018
+2014;Zaragoza;Geografía y Ordenación del Territorio;Grado;Incumple Régimen de permanencia;Hombres;0;2;2;0;;;29/04/2018
+2014;Zaragoza;Geografía y Ordenación del Territorio;Grado;Traslado a otra Universidad;Hombres;0;0;0;1;;;29/04/2018
+2014;Zaragoza;Geología;Doctorado;Graduado;Hombres;10;0;0;0;;;29/04/2018
+2014;Zaragoza;Geología;Doctorado;Graduado;Mujeres;7;0;0;0;;;29/04/2018
+2014;Zaragoza;Geología;Grado;Abandono Voluntario;Hombres;0;14;5;0;;;29/04/2018
+2014;Zaragoza;Geología;Grado;Abandono Voluntario;Mujeres;0;7;3;0;;;29/04/2018
+2014;Zaragoza;Geología;Grado;Graduado;Hombres;13;0;0;0;4.70;85.08;29/04/2018
+2014;Zaragoza;Geología;Grado;Graduado;Mujeres;15;0;0;0;4.58;87.88;29/04/2018
+2014;Zaragoza;Geología;Grado;Incumple Régimen de permanencia;Hombres;0;4;2;0;;;29/04/2018
+2014;Zaragoza;Geología;Grado;Incumple Régimen de permanencia;Mujeres;0;3;2;0;;;29/04/2018
+2014;Zaragoza;Geología;Grado;Traslado a otra Universidad;Hombres;0;0;0;2;;;29/04/2018
+2014;Zaragoza;Geología;Grado;Traslado a otra Universidad;Mujeres;0;0;0;2;;;29/04/2018
+2014;Zaragoza;Geología: Técnicas y Aplicaciones;Máster;Graduado;Hombres;5;0;0;0;1.00;100.00;29/04/2018
+2014;Zaragoza;Geología: Técnicas y Aplicaciones;Máster;Graduado;Mujeres;2;0;0;0;1.00;100.00;29/04/2018
+2014;Zaragoza;Gerontología Social;Máster;Abandono Voluntario;Mujeres;0;1;0;0;;;29/04/2018
+2014;Zaragoza;Gerontología Social;Máster;Graduado;Hombres;4;0;0;0;1.00;100.00;29/04/2018
+2014;Zaragoza;Gerontología Social;Máster;Graduado;Mujeres;36;0;0;0;1.17;97.25;29/04/2018
+2014;Zaragoza;Gestión de las organizaciones;Máster;Abandono Voluntario;Hombres;0;1;0;0;;;29/04/2018
+2014;Zaragoza;Gestión de las organizaciones;Máster;Abandono Voluntario;Mujeres;0;2;1;0;;;29/04/2018
+2014;Zaragoza;Gestión de las organizaciones;Máster;Cambio de estudios sin simultaneidad;Hombres;0;1;1;0;;;29/04/2018
+2014;Zaragoza;Gestión de las organizaciones;Máster;Graduado;Hombres;3;0;0;0;;82.76;29/04/2018
+2014;Zaragoza;Gestión de las organizaciones;Máster;Graduado;Mujeres;4;0;0;0;1.00;98.38;29/04/2018
+2014;Zaragoza;Gestión del Patrimonio Cultural;Máster;Abandono Voluntario;Hombres;0;1;0;0;;;29/04/2018
+2014;Zaragoza;Gestión del Patrimonio Cultural;Máster;Graduado;Hombres;4;0;0;0;1.25;91.60;29/04/2018
+2014;Zaragoza;Gestión del Patrimonio Cultural;Máster;Graduado;Mujeres;14;0;0;0;1.00;100.00;29/04/2018
+2014;Zaragoza;Graduado Social;Diplomatura o equivalente;Traslado a otra Universidad;Mujeres;0;0;0;1;;;29/04/2018
+2014;Zaragoza;Historia;Grado;Abandono Voluntario;Hombres;0;28;19;0;;;29/04/2018
+2014;Zaragoza;Historia;Grado;Abandono Voluntario;Mujeres;0;4;2;0;;;29/04/2018
+2014;Zaragoza;Historia;Grado;Cambio de estudios sin simultaneidad;Hombres;0;3;0;0;;;29/04/2018
+2014;Zaragoza;Historia;Grado;Cambio de estudios sin simultaneidad;Mujeres;0;2;1;0;;;29/04/2018
+2014;Zaragoza;Historia;Grado;Graduado;Hombres;43;0;0;0;4.41;95.62;29/04/2018
+2014;Zaragoza;Historia;Grado;Graduado;Mujeres;26;0;0;0;4.57;90.29;29/04/2018
+2014;Zaragoza;Historia;Grado;Incumple Régimen de permanencia;Hombres;0;1;1;0;;;29/04/2018
+2014;Zaragoza;Historia;Grado;Traslado a otra Universidad;Hombres;0;0;0;7;;;29/04/2018
+2014;Zaragoza;Historia;Licenciatura o equivalente;Abandono Voluntario;Hombres;0;3;0;0;;;29/04/2018
+2014;Zaragoza;Historia;Licenciatura o equivalente;Abandono Voluntario;Mujeres;0;2;0;0;;;29/04/2018
+2014;Zaragoza;Historia;Licenciatura o equivalente;Graduado;Hombres;15;0;0;0;7.40;59.76;29/04/2018
+2014;Zaragoza;Historia;Licenciatura o equivalente;Graduado;Mujeres;18;0;0;0;8.06;57.32;29/04/2018
+2014;Zaragoza;Historia;Licenciatura o equivalente;Traslado a otra Universidad;Hombres;0;0;0;2;;;29/04/2018
+2014;Zaragoza;Historia Contemporánea;Máster;Abandono Voluntario;Hombres;0;2;1;0;;;29/04/2018
+2014;Zaragoza;Historia Contemporánea;Máster;Graduado;Hombres;17;0;0;0;1.06;98.09;29/04/2018
+2014;Zaragoza;Historia Contemporánea;Máster;Graduado;Mujeres;3;0;0;0;1.00;100.00;29/04/2018
+2014;Zaragoza;Historia del Arte;Grado;Abandono Voluntario;Hombres;0;7;6;0;;;29/04/2018
+2014;Zaragoza;Historia del Arte;Grado;Abandono Voluntario;Mujeres;0;19;10;0;;;29/04/2018
+2014;Zaragoza;Historia del Arte;Grado;Cambio de estudios sin simultaneidad;Hombres;0;1;1;0;;;29/04/2018
+2014;Zaragoza;Historia del Arte;Grado;Cambio de estudios sin simultaneidad;Mujeres;0;4;4;0;;;29/04/2018
+2014;Zaragoza;Historia del Arte;Grado;Graduado;Hombres;7;0;0;0;4.29;93.60;29/04/2018
+2014;Zaragoza;Historia del Arte;Grado;Graduado;Mujeres;30;0;0;0;4.56;88.65;29/04/2018
+2014;Zaragoza;Historia del Arte;Grado;Incumple Régimen de permanencia;Hombres;0;4;4;0;;;29/04/2018
+2014;Zaragoza;Historia del Arte;Grado;Incumple Régimen de permanencia;Mujeres;0;5;3;0;;;29/04/2018
+2014;Zaragoza;Historia del Arte;Grado;Traslado a otra Universidad;Hombres;0;0;0;1;;;29/04/2018
+2014;Zaragoza;Historia del Arte;Grado;Traslado a otra Universidad;Mujeres;0;0;0;6;;;29/04/2018
+2014;Zaragoza;Historia del Arte;Licenciatura o equivalente;Abandono Voluntario;Mujeres;0;4;0;0;;;29/04/2018
+2014;Zaragoza;Historia del Arte;Licenciatura o equivalente;Graduado;Hombres;5;0;0;0;9.00;71.32;29/04/2018
+2014;Zaragoza;Historia del Arte;Licenciatura o equivalente;Graduado;Mujeres;8;0;0;0;9.25;58.83;29/04/2018
+2014;Zaragoza;Historia del Arte;Licenciatura o equivalente;Traslado a otra Universidad;Hombres;0;0;0;1;;;29/04/2018
+2014;Zaragoza;Historia del Arte;Licenciatura o equivalente;Traslado a otra Universidad;Mujeres;0;0;0;2;;;29/04/2018
+2014;Zaragoza;Historia del arte;Doctorado;Graduado;Hombres;2;0;0;0;;;29/04/2018
+2014;Zaragoza;Historia del arte;Doctorado;Graduado;Mujeres;3;0;0;0;;;29/04/2018
+2014;Zaragoza;Historia Medieval;Doctorado;Graduado;Hombres;1;0;0;0;;;29/04/2018
+2014;Zaragoza;Historia moderna;Doctorado;Graduado;Hombres;1;0;0;0;;;29/04/2018
+2014;Zaragoza;Información y Documentación;Grado;Abandono Voluntario;Hombres;0;5;3;0;;;29/04/2018
+2014;Zaragoza;Información y Documentación;Grado;Abandono Voluntario;Mujeres;0;6;3;0;;;29/04/2018
+2014;Zaragoza;Información y Documentación;Grado;Cambio de estudios sin simultaneidad;Hombres;0;3;2;0;;;29/04/2018
+2014;Zaragoza;Información y Documentación;Grado;Cambio de estudios sin simultaneidad;Mujeres;0;3;3;0;;;29/04/2018
+2014;Zaragoza;Información y Documentación;Grado;Graduado;Mujeres;9;0;0;0;5.43;80.29;29/04/2018
+2014;Zaragoza;Información y Documentación;Grado;Incumple Régimen de permanencia;Mujeres;0;2;2;0;;;29/04/2018
+2014;Zaragoza;Información y Documentación;Grado;Traslado a otra Universidad;Hombres;0;0;0;1;;;29/04/2018
+2014;Zaragoza;Información y Documentación;Grado;Traslado a otra Universidad;Mujeres;0;0;0;1;;;29/04/2018
+2014;Zaragoza;Información y documentación;Doctorado;Graduado;Mujeres;1;0;0;0;;;29/04/2018
+2014;Zaragoza;Ingeniería biomédica;Doctorado;Graduado;Hombres;3;0;0;0;;;29/04/2018
+2014;Zaragoza;Ingeniería biomédica;Doctorado;Graduado;Mujeres;2;0;0;0;;;29/04/2018
+2014;Zaragoza;Ingeniería biomédica;Máster;Abandono Voluntario;Hombres;0;1;1;0;;;29/04/2018
+2014;Zaragoza;Ingeniería biomédica;Máster;Abandono Voluntario;Mujeres;0;1;1;0;;;29/04/2018
+2014;Zaragoza;Ingeniería biomédica;Máster;Graduado;Hombres;3;0;0;0;1.50;86.36;29/04/2018
+2014;Zaragoza;Ingeniería biomédica;Máster;Graduado;Mujeres;2;0;0;0;2.00;90.91;29/04/2018
+2014;Zaragoza;Ingeniería de diseño y fabricación;Doctorado;Graduado;Hombres;1;0;0;0;;;29/04/2018
+2014;Zaragoza;Ingeniería de diseño y fabricación;Doctorado;Graduado;Mujeres;2;0;0;0;;;29/04/2018
+2014;Zaragoza;Ingeniería de Organización Industrial;Grado;Abandono Voluntario;Hombres;0;23;15;0;;;29/04/2018
+2014;Zaragoza;Ingeniería de Organización Industrial;Grado;Abandono Voluntario;Mujeres;0;5;4;0;;;29/04/2018
+2014;Zaragoza;Ingeniería de Organización Industrial;Grado;Cambio de estudios sin simultaneidad;Hombres;0;2;1;0;;;29/04/2018
+2014;Zaragoza;Ingeniería de Organización Industrial;Grado;Graduado;Hombres;110;0;0;0;4.58;92.61;29/04/2018
+2014;Zaragoza;Ingeniería de Organización Industrial;Grado;Graduado;Mujeres;4;0;0;0;4.50;90.08;29/04/2018
+2014;Zaragoza;Ingeniería de Organización Industrial;Grado;Traslado a otra Universidad;Hombres;0;0;0;81;;;29/04/2018
+2014;Zaragoza;Ingeniería de Organización Industrial;Grado;Traslado a otra Universidad;Mujeres;0;0;0;7;;;29/04/2018
+2014;Zaragoza;Ingeniería de sistemas e informática;Doctorado;Graduado;Hombres;11;0;0;0;;;29/04/2018
+2014;Zaragoza;Ingeniería de sistemas e informática;Doctorado;Graduado;Mujeres;3;0;0;0;;;29/04/2018
+2014;Zaragoza;Ingeniería de sistemas e informática;Máster;Abandono Voluntario;Hombres;0;7;4;0;;;29/04/2018
+2014;Zaragoza;Ingeniería de sistemas e informática;Máster;Abandono Voluntario;Mujeres;0;1;0;0;;;29/04/2018
+2014;Zaragoza;Ingeniería de sistemas e informática;Máster;Graduado;Hombres;1;0;0;0;3.00;67.03;29/04/2018
+2014;Zaragoza;Ingeniería de sistemas e informática;Máster;Graduado;Mujeres;1;0;0;0;;100.00;29/04/2018
+2014;Zaragoza;Ingeniería de Tecnologías Industriales;Grado;Abandono Voluntario;Hombres;0;10;8;0;;;29/04/2018
+2014;Zaragoza;Ingeniería de Tecnologías Industriales;Grado;Abandono Voluntario;Mujeres;0;2;1;0;;;29/04/2018
+2014;Zaragoza;Ingeniería de Tecnologías Industriales;Grado;Cambio de estudios sin simultaneidad;Hombres;0;15;5;0;;;29/04/2018
+2014;Zaragoza;Ingeniería de Tecnologías Industriales;Grado;Cambio de estudios sin simultaneidad;Mujeres;0;7;0;0;;;29/04/2018
+2014;Zaragoza;Ingeniería de Tecnologías Industriales;Grado;Graduado;Hombres;80;0;0;0;4.45;90.04;29/04/2018
+2014;Zaragoza;Ingeniería de Tecnologías Industriales;Grado;Graduado;Mujeres;25;0;0;0;4.57;88.00;29/04/2018
+2014;Zaragoza;Ingeniería de Tecnologías Industriales;Grado;Incumple Régimen de permanencia;Hombres;0;20;11;0;;;29/04/2018
+2014;Zaragoza;Ingeniería de Tecnologías Industriales;Grado;Incumple Régimen de permanencia;Mujeres;0;6;3;0;;;29/04/2018
+2014;Zaragoza;Ingeniería de Tecnologías Industriales;Grado;Traslado a otra Universidad;Hombres;0;0;0;5;;;29/04/2018
+2014;Zaragoza;Ingeniería de Tecnologías Industriales;Grado;Traslado a otra Universidad;Mujeres;0;0;0;2;;;29/04/2018
+2014;Zaragoza;Ingeniería de Tecnologías y Servicios de Telecomunicación;Grado;Abandono Voluntario;Hombres;0;19;13;0;;;29/04/2018
+2014;Zaragoza;Ingeniería de Tecnologías y Servicios de Telecomunicación;Grado;Abandono Voluntario;Mujeres;0;3;3;0;;;29/04/2018
+2014;Zaragoza;Ingeniería de Tecnologías y Servicios de Telecomunicación;Grado;Cambio de estudios sin simultaneidad;Hombres;0;2;0;0;;;29/04/2018
+2014;Zaragoza;Ingeniería de Tecnologías y Servicios de Telecomunicación;Grado;Cambio de estudios sin simultaneidad;Mujeres;0;1;1;0;;;29/04/2018
+2014;Zaragoza;Ingeniería de Tecnologías y Servicios de Telecomunicación;Grado;Graduado;Hombres;22;0;0;0;4.47;86.86;29/04/2018
+2014;Zaragoza;Ingeniería de Tecnologías y Servicios de Telecomunicación;Grado;Graduado;Mujeres;7;0;0;0;4.83;88.33;29/04/2018
+2014;Zaragoza;Ingeniería de Tecnologías y Servicios de Telecomunicación;Grado;Incumple Régimen de permanencia;Hombres;0;16;13;0;;;29/04/2018
+2014;Zaragoza;Ingeniería de Tecnologías y Servicios de Telecomunicación;Grado;Incumple Régimen de permanencia;Mujeres;0;6;4;0;;;29/04/2018
+2014;Zaragoza;Ingeniería de Tecnologías y Servicios de Telecomunicación;Grado;Traslado a otra Universidad;Hombres;0;0;0;4;;;29/04/2018
+2014;Zaragoza;Ingeniería de Tecnologías y Servicios de Telecomunicación;Grado;Traslado a otra Universidad;Mujeres;0;0;0;1;;;29/04/2018
+2014;Zaragoza;Ingeniería de telecomunicación;Doctorado;Graduado;Hombres;1;0;0;0;;;29/04/2018
+2014;Zaragoza;Ingeniería Electrica;Grado;Abandono Voluntario;Hombres;0;24;19;0;;;29/04/2018
+2014;Zaragoza;Ingeniería Electrica;Grado;Abandono Voluntario;Mujeres;0;3;3;0;;;29/04/2018
+2014;Zaragoza;Ingeniería Electrica;Grado;Cambio de estudios sin simultaneidad;Hombres;0;5;3;0;;;29/04/2018
+2014;Zaragoza;Ingeniería Electrica;Grado;Graduado;Hombres;32;0;0;0;4.62;91.19;29/04/2018
+2014;Zaragoza;Ingeniería Electrica;Grado;Graduado;Mujeres;5;0;0;0;4.00;100.00;29/04/2018
+2014;Zaragoza;Ingeniería Electrica;Grado;Incumple Régimen de permanencia;Hombres;0;13;11;0;;;29/04/2018
+2014;Zaragoza;Ingeniería Electrica;Grado;Incumple Régimen de permanencia;Mujeres;0;1;1;0;;;29/04/2018
+2014;Zaragoza;Ingeniería Electrica;Grado;Traslado a otra Universidad;Hombres;0;0;0;3;;;29/04/2018
+2014;Zaragoza;Ingeniería Electrónica;Máster;Abandono Voluntario;Hombres;0;5;2;0;;;29/04/2018
+2014;Zaragoza;Ingeniería Electrónica;Máster;Abandono Voluntario;Mujeres;0;2;1;0;;;29/04/2018
+2014;Zaragoza;Ingeniería Electrónica;Máster;Graduado;Hombres;14;0;0;0;1.20;91.36;29/04/2018
+2014;Zaragoza;Ingeniería electrónica;Doctorado;Graduado;Hombres;1;0;0;0;;;29/04/2018
+2014;Zaragoza;Ingeniería Electrónica y Automática;Grado;Abandono Voluntario;Hombres;0;44;35;0;;;29/04/2018
+2014;Zaragoza;Ingeniería Electrónica y Automática;Grado;Abandono Voluntario;Mujeres;0;3;3;0;;;29/04/2018
+2014;Zaragoza;Ingeniería Electrónica y Automática;Grado;Cambio de estudios sin simultaneidad;Hombres;0;7;2;0;;;29/04/2018
+2014;Zaragoza;Ingeniería Electrónica y Automática;Grado;Cambio de estudios sin simultaneidad;Mujeres;0;3;1;0;;;29/04/2018
+2014;Zaragoza;Ingeniería Electrónica y Automática;Grado;Graduado;Hombres;25;0;0;0;4.36;92.87;29/04/2018
+2014;Zaragoza;Ingeniería Electrónica y Automática;Grado;Graduado;Mujeres;5;0;0;0;4.40;92.27;29/04/2018
+2014;Zaragoza;Ingeniería Electrónica y Automática;Grado;Incumple Régimen de permanencia;Hombres;0;13;5;0;;;29/04/2018
+2014;Zaragoza;Ingeniería Electrónica y Automática;Grado;Incumple Régimen de permanencia;Mujeres;0;1;1;0;;;29/04/2018
+2014;Zaragoza;Ingeniería Electrónica y Automática;Grado;Traslado a otra Universidad;Hombres;0;0;0;4;;;29/04/2018
+2014;Zaragoza;Ingeniería Informática;Grado;Abandono Voluntario;Hombres;0;27;13;0;;;29/04/2018
+2014;Zaragoza;Ingeniería Informática;Grado;Cambio de estudios sin simultaneidad;Hombres;0;4;2;0;;;29/04/2018
+2014;Zaragoza;Ingeniería Informática;Grado;Cambio de estudios sin simultaneidad;Mujeres;0;2;2;0;;;29/04/2018
+2014;Zaragoza;Ingeniería Informática;Grado;Graduado;Hombres;31;0;0;0;4.68;88.60;29/04/2018
+2014;Zaragoza;Ingeniería Informática;Grado;Graduado;Mujeres;5;0;0;0;4.80;90.21;29/04/2018
+2014;Zaragoza;Ingeniería Informática;Grado;Incumple Régimen de permanencia;Hombres;0;9;6;0;;;29/04/2018
+2014;Zaragoza;Ingeniería Informática;Grado;Incumple Régimen de permanencia;Mujeres;0;1;0;0;;;29/04/2018
+2014;Zaragoza;Ingeniería Informática;Grado;Traslado a otra Universidad;Hombres;0;0;0;2;;;29/04/2018
+2014;Zaragoza;Ingeniería informática;Doctorado;Graduado;Hombres;1;0;0;0;;;29/04/2018
+2014;Zaragoza;Ingeniería Mecánica;Grado;Abandono Voluntario;Hombres;0;69;44;0;;;29/04/2018
+2014;Zaragoza;Ingeniería Mecánica;Grado;Abandono Voluntario;Mujeres;0;7;3;0;;;29/04/2018
+2014;Zaragoza;Ingeniería Mecánica;Grado;Cambio de estudios sin simultaneidad;Hombres;0;22;10;0;;;29/04/2018
+2014;Zaragoza;Ingeniería Mecánica;Grado;Cambio de estudios sin simultaneidad;Mujeres;0;3;2;0;;;29/04/2018
+2014;Zaragoza;Ingeniería Mecánica;Grado;Graduado;Hombres;75;0;0;0;4.68;89.21;29/04/2018
+2014;Zaragoza;Ingeniería Mecánica;Grado;Graduado;Mujeres;13;0;0;0;4.25;92.08;29/04/2018
+2014;Zaragoza;Ingeniería Mecánica;Grado;Incumple Régimen de permanencia;Hombres;0;40;23;0;;;29/04/2018
+2014;Zaragoza;Ingeniería Mecánica;Grado;Incumple Régimen de permanencia;Mujeres;0;6;4;0;;;29/04/2018
+2014;Zaragoza;Ingeniería Mecánica;Grado;Traslado a otra Universidad;Hombres;0;0;0;8;;;29/04/2018
+2014;Zaragoza;Ingeniería Mecánica;Grado;Traslado a otra Universidad;Mujeres;0;0;0;5;;;29/04/2018
+2014;Zaragoza;Ingeniería Mecánica;Máster;Graduado;Hombres;6;0;0;0;1.00;96.15;29/04/2018
+2014;Zaragoza;Ingeniería Mecánica;Máster;Graduado;Mujeres;2;0;0;0;1.00;100.00;29/04/2018
+2014;Zaragoza;Ingeniería Química;Grado;Abandono Voluntario;Hombres;0;7;6;0;;;29/04/2018
+2014;Zaragoza;Ingeniería Química;Grado;Abandono Voluntario;Mujeres;0;10;2;0;;;29/04/2018
+2014;Zaragoza;Ingeniería Química;Grado;Cambio de estudios sin simultaneidad;Hombres;0;6;3;0;;;29/04/2018
+2014;Zaragoza;Ingeniería Química;Grado;Graduado;Hombres;23;0;0;0;4.81;87.20;29/04/2018
+2014;Zaragoza;Ingeniería Química;Grado;Graduado;Mujeres;30;0;0;0;4.24;94.66;29/04/2018
+2014;Zaragoza;Ingeniería Química;Grado;Incumple Régimen de permanencia;Hombres;0;11;10;0;;;29/04/2018
+2014;Zaragoza;Ingeniería Química;Grado;Incumple Régimen de permanencia;Mujeres;0;5;4;0;;;29/04/2018
+2014;Zaragoza;Ingeniería Química;Grado;Traslado a otra Universidad;Hombres;0;0;0;1;;;29/04/2018
+2014;Zaragoza;Ingeniería Química;Grado;Traslado a otra Universidad;Mujeres;0;0;0;2;;;29/04/2018
+2014;Zaragoza;Ingeniería Química;Máster;Graduado;Hombres;2;0;0;0;1.00;100.00;29/04/2018
+2014;Zaragoza;Ingeniería Química;Máster;Graduado;Mujeres;2;0;0;0;1.00;100.00;29/04/2018
+2014;Zaragoza;Ingeniería química y del medio ambiente;Doctorado;Graduado;Hombres;7;0;0;0;;;29/04/2018
+2014;Zaragoza;Ingeniería química y del medio ambiente;Doctorado;Graduado;Mujeres;7;0;0;0;;;29/04/2018
+2014;Zaragoza;Ingenierio Químico;Licenciatura o equivalente;Abandono Voluntario;Hombres;0;1;0;0;;;29/04/2018
+2014;Zaragoza;Ingenierio Químico;Licenciatura o equivalente;Abandono Voluntario;Mujeres;0;3;0;0;;;29/04/2018
+2014;Zaragoza;Ingenierio Químico;Licenciatura o equivalente;Graduado;Hombres;15;0;0;0;7.93;70.15;29/04/2018
+2014;Zaragoza;Ingenierio Químico;Licenciatura o equivalente;Graduado;Mujeres;8;0;0;0;7.75;65.97;29/04/2018
+2014;Zaragoza;Ingeniero de Telecomunicación;Licenciatura o equivalente;Abandono Voluntario;Hombres;0;1;0;0;;;29/04/2018
+2014;Zaragoza;Ingeniero de Telecomunicación;Licenciatura o equivalente;Graduado;Hombres;20;0;0;0;9.47;66.94;29/04/2018
+2014;Zaragoza;Ingeniero de Telecomunicación;Licenciatura o equivalente;Graduado;Mujeres;8;0;0;0;8.75;78.38;29/04/2018
+2014;Zaragoza;Ingeniero en Diseño Industrial y Desarrollo de Producto;Grado;Abandono Voluntario;Hombres;0;4;0;0;;;29/04/2018
+2014;Zaragoza;Ingeniero en Diseño Industrial y Desarrollo de Producto;Grado;Abandono Voluntario;Mujeres;0;7;0;0;;;29/04/2018
+2014;Zaragoza;Ingeniero en Diseño Industrial y Desarrollo de Producto;Grado;Cambio de estudios sin simultaneidad;Hombres;0;2;2;0;;;29/04/2018
+2014;Zaragoza;Ingeniero en Diseño Industrial y Desarrollo de Producto;Grado;Graduado;Hombres;27;0;0;0;4.67;87.31;29/04/2018
+2014;Zaragoza;Ingeniero en Diseño Industrial y Desarrollo de Producto;Grado;Graduado;Mujeres;44;0;0;0;4.39;90.28;29/04/2018
+2014;Zaragoza;Ingeniero en Diseño Industrial y Desarrollo de Producto;Grado;Incumple Régimen de permanencia;Hombres;0;2;1;0;;;29/04/2018
+2014;Zaragoza;Ingeniero en Diseño Industrial y Desarrollo de Producto;Grado;Incumple Régimen de permanencia;Mujeres;0;2;1;0;;;29/04/2018
+2014;Zaragoza;Ingeniero en Diseño Industrial y Desarrollo de Producto;Grado;Traslado a otra Universidad;Mujeres;0;0;0;2;;;29/04/2018
+2014;Zaragoza;Ingeniero en Informática;Licenciatura o equivalente;Abandono Voluntario;Hombres;0;8;0;0;;;29/04/2018
+2014;Zaragoza;Ingeniero en Informática;Licenciatura o equivalente;Abandono Voluntario;Mujeres;0;2;0;0;;;29/04/2018
+2014;Zaragoza;Ingeniero en Informática;Licenciatura o equivalente;Graduado;Hombres;30;0;0;0;9.37;63.19;29/04/2018
+2014;Zaragoza;Ingeniero en Informática;Licenciatura o equivalente;Graduado;Mujeres;5;0;0;0;7.00;88.80;29/04/2018
+2014;Zaragoza;Ingeniero en Informática;Licenciatura o equivalente;Traslado a otra Universidad;Hombres;0;0;0;2;;;29/04/2018
+2014;Zaragoza;Ingeniero Industrial;Licenciatura o equivalente;Abandono Voluntario;Hombres;0;11;0;0;;;29/04/2018
+2014;Zaragoza;Ingeniero Industrial;Licenciatura o equivalente;Abandono Voluntario;Mujeres;0;4;0;0;;;29/04/2018
+2014;Zaragoza;Ingeniero Industrial;Licenciatura o equivalente;Cambio de estudios sin simultaneidad;Hombres;0;1;0;0;;;29/04/2018
+2014;Zaragoza;Ingeniero Industrial;Licenciatura o equivalente;Graduado;Hombres;124;0;0;0;7.93;71.10;29/04/2018
+2014;Zaragoza;Ingeniero Industrial;Licenciatura o equivalente;Graduado;Mujeres;32;0;0;0;7.33;74.17;29/04/2018
+2014;Zaragoza;Ingeniero Industrial;Licenciatura o equivalente;Traslado a otra Universidad;Hombres;0;0;0;1;;;29/04/2018
+2014;Zaragoza;Ingeniero Técnico en Diseño Industrial;Diplomatura o equivalente;Abandono Voluntario;Mujeres;0;1;0;0;;;29/04/2018
+2014;Zaragoza;Ingeniero Técnico en Electrónica Industrial;Diplomatura o equivalente;Abandono Voluntario;Hombres;0;21;0;0;;;29/04/2018
+2014;Zaragoza;Ingeniero Técnico en Electrónica Industrial;Diplomatura o equivalente;Cambio de estudios sin simultaneidad;Hombres;0;2;0;0;;;29/04/2018
+2014;Zaragoza;Ingeniero Técnico en Electrónica Industrial;Diplomatura o equivalente;Graduado;Hombres;72;0;0;0;13.91;46.42;29/04/2018
+2014;Zaragoza;Ingeniero Técnico en Electrónica Industrial;Diplomatura o equivalente;Graduado;Mujeres;15;0;0;0;15.07;43.08;29/04/2018
+2014;Zaragoza;Ingeniero Técnico en Electrónica Industrial;Diplomatura o equivalente;Traslado a otra Universidad;Hombres;0;0;0;2;;;29/04/2018
+2014;Zaragoza;Ingeniero Técnico Industrial, Esp. Electricidad;Diplomatura o equivalente;Abandono Voluntario;Hombres;0;7;0;0;;;29/04/2018
+2014;Zaragoza;Ingeniero Técnico Industrial, Esp. Electricidad;Diplomatura o equivalente;Cambio de estudios sin simultaneidad;Hombres;0;1;0;0;;;29/04/2018
+2014;Zaragoza;Ingeniero Técnico Industrial, Esp. Electricidad;Diplomatura o equivalente;Graduado;Hombres;27;0;0;0;10.74;51.27;29/04/2018
+2014;Zaragoza;Ingeniero Técnico Industrial, Esp. Electricidad;Diplomatura o equivalente;Graduado;Mujeres;7;0;0;0;9.40;62.03;29/04/2018
+2014;Zaragoza;Ingeniero Técnico Industrial, Esp. Electricidad;Diplomatura o equivalente;Traslado a otra Universidad;Hombres;0;0;0;2;;;29/04/2018
+2014;Zaragoza;Ingeniero Técnico Industrial, Esp. Mecánica;Diplomatura o equivalente;Abandono Voluntario;Hombres;0;11;0;0;;;29/04/2018
+2014;Zaragoza;Ingeniero Técnico Industrial, Esp. Mecánica;Diplomatura o equivalente;Abandono Voluntario;Mujeres;0;2;0;0;;;29/04/2018
+2014;Zaragoza;Ingeniero Técnico Industrial, Esp. Mecánica;Diplomatura o equivalente;Cambio de estudios sin simultaneidad;Hombres;0;1;0;0;;;29/04/2018
+2014;Zaragoza;Ingeniero Técnico Industrial, Esp. Mecánica;Diplomatura o equivalente;Graduado;Hombres;48;0;0;0;10.62;51.41;29/04/2018
+2014;Zaragoza;Ingeniero Técnico Industrial, Esp. Mecánica;Diplomatura o equivalente;Graduado;Mujeres;4;0;0;0;8.67;59.10;29/04/2018
+2014;Zaragoza;Ingeniero Técnico Industrial, Esp. Mecánica;Diplomatura o equivalente;Traslado a otra Universidad;Hombres;0;0;0;2;;;29/04/2018
+2014;Zaragoza;Ingeniero Técnico Industrial, Esp.Química Industrial;Diplomatura o equivalente;Abandono Voluntario;Hombres;0;4;0;0;;;29/04/2018
+2014;Zaragoza;Ingeniero Técnico Industrial, Esp.Química Industrial;Diplomatura o equivalente;Abandono Voluntario;Mujeres;0;4;0;0;;;29/04/2018
+2014;Zaragoza;Ingeniero Técnico Industrial, Esp.Química Industrial;Diplomatura o equivalente;Graduado;Hombres;10;0;0;0;10.25;47.65;29/04/2018
+2014;Zaragoza;Ingeniero Técnico Industrial, Esp.Química Industrial;Diplomatura o equivalente;Graduado;Mujeres;12;0;0;0;11.10;42.88;29/04/2018
+2014;Zaragoza;Ini. a la invest. en ciencia y tecnología de los alimentos;Máster;Graduado;Hombres;2;0;0;0;1.00;100.00;29/04/2018
+2014;Zaragoza;Ini. a la invest. en ciencia y tecnología de los alimentos;Máster;Graduado;Mujeres;13;0;0;0;1.00;100.00;29/04/2018
+2014;Zaragoza;Ini. Invest. Ing. Química y Medio Ambiente;Máster;Abandono Voluntario;Hombres;0;1;0;0;;;29/04/2018
+2014;Zaragoza;Ini. Invest. Ing. Química y Medio Ambiente;Máster;Graduado;Hombres;1;0;0;0;;51.28;29/04/2018
+2014;Zaragoza;Iniciación a la investigación en Ciencias Veterinarias;Máster;Abandono Voluntario;Hombres;0;2;2;0;;;29/04/2018
+2014;Zaragoza;Iniciación a la investigación en Ciencias Veterinarias;Máster;Abandono Voluntario;Mujeres;0;2;2;0;;;29/04/2018
+2014;Zaragoza;Iniciación a la investigación en Ciencias Veterinarias;Máster;Graduado;Hombres;2;0;0;0;1.00;100.00;29/04/2018
+2014;Zaragoza;Iniciación a la investigación en Ciencias Veterinarias;Máster;Graduado;Mujeres;7;0;0;0;1.00;100.00;29/04/2018
+2014;Zaragoza;Iniciación a la investigación en Medicina;Máster;Abandono Voluntario;Mujeres;0;2;0;0;;;29/04/2018
+2014;Zaragoza;Iniciación a la investigación en Medicina;Máster;Graduado;Hombres;9;0;0;0;1.00;100.00;29/04/2018
+2014;Zaragoza;Iniciación a la investigación en Medicina;Máster;Graduado;Mujeres;24;0;0;0;1.42;96.08;29/04/2018
+2014;Zaragoza;Investigación y Estudios Avanzados en Historia;Máster;Abandono Voluntario;Hombres;0;1;0;0;;;29/04/2018
+2014;Zaragoza;Investigación y Estudios Avanzados en Historia;Máster;Graduado;Hombres;9;0;0;0;1.00;100.00;29/04/2018
+2014;Zaragoza;Investigación y Estudios Avanzados en Historia;Máster;Graduado;Mujeres;5;0;0;0;1.50;94.34;29/04/2018
+2014;Zaragoza;Lenguas Modernas;Grado;Abandono Voluntario;Hombres;0;1;1;0;;;29/04/2018
+2014;Zaragoza;Lenguas Modernas;Grado;Abandono Voluntario;Mujeres;0;7;4;0;;;29/04/2018
+2014;Zaragoza;Lenguas Modernas;Grado;Cambio de estudios sin simultaneidad;Hombres;0;1;0;0;;;29/04/2018
+2014;Zaragoza;Lenguas Modernas;Grado;Cambio de estudios sin simultaneidad;Mujeres;0;7;6;0;;;29/04/2018
+2014;Zaragoza;Lenguas Modernas;Grado;Graduado;Hombres;7;0;0;0;4.43;89.67;29/04/2018
+2014;Zaragoza;Lenguas Modernas;Grado;Graduado;Mujeres;23;0;0;0;4.43;94.11;29/04/2018
+2014;Zaragoza;Lenguas Modernas;Grado;Incumple Régimen de permanencia;Hombres;0;1;1;0;;;29/04/2018
+2014;Zaragoza;Lenguas Modernas;Grado;Traslado a otra Universidad;Mujeres;0;0;0;5;;;29/04/2018
+2014;Zaragoza;Licenciado en Administración y Dirección de Empresas;Licenciatura o equivalente;Abandono Voluntario;Hombres;0;9;0;0;;;29/04/2018
+2014;Zaragoza;Licenciado en Administración y Dirección de Empresas;Licenciatura o equivalente;Abandono Voluntario;Mujeres;0;16;0;0;;;29/04/2018
+2014;Zaragoza;Licenciado en Administración y Dirección de Empresas;Licenciatura o equivalente;Cambio de estudios sin simultaneidad;Hombres;0;2;0;0;;;29/04/2018
+2014;Zaragoza;Licenciado en Administración y Dirección de Empresas;Licenciatura o equivalente;Graduado;Hombres;37;0;0;0;7.03;80.16;29/04/2018
+2014;Zaragoza;Licenciado en Administración y Dirección de Empresas;Licenciatura o equivalente;Graduado;Mujeres;57;0;0;0;6.50;84.66;29/04/2018
+2014;Zaragoza;Licenciado en Administración y Dirección de Empresas;Licenciatura o equivalente;Traslado a otra Universidad;Hombres;0;0;0;3;;;29/04/2018
+2014;Zaragoza;Licenciado en Administración y Dirección de Empresas;Licenciatura o equivalente;Traslado a otra Universidad;Mujeres;0;0;0;4;;;29/04/2018
+2014;Zaragoza;Licenciado en Economía;Licenciatura o equivalente;Abandono Voluntario;Hombres;0;15;0;0;;;29/04/2018
+2014;Zaragoza;Licenciado en Economía;Licenciatura o equivalente;Abandono Voluntario;Mujeres;0;10;0;0;;;29/04/2018
+2014;Zaragoza;Licenciado en Economía;Licenciatura o equivalente;Cambio de estudios sin simultaneidad;Hombres;0;2;0;0;;;29/04/2018
+2014;Zaragoza;Licenciado en Economía;Licenciatura o equivalente;Graduado;Hombres;26;0;0;0;8.46;55.15;29/04/2018
+2014;Zaragoza;Licenciado en Economía;Licenciatura o equivalente;Graduado;Mujeres;24;0;0;0;10.50;49.12;29/04/2018
+2014;Zaragoza;Licenciado en Economía;Licenciatura o equivalente;Traslado a otra Universidad;Hombres;0;0;0;3;;;29/04/2018
+2014;Zaragoza;Licenciado en Economía;Licenciatura o equivalente;Traslado a otra Universidad;Mujeres;0;0;0;2;;;29/04/2018
+2014;Zaragoza;Licenciado en Filosofía;Licenciatura o equivalente;Traslado a otra Universidad;Hombres;0;0;0;2;;;29/04/2018
+2014;Zaragoza;Licenciado en Geología;Licenciatura o equivalente;Abandono Voluntario;Hombres;0;1;0;0;;;29/04/2018
+2014;Zaragoza;Licenciado en Geología;Licenciatura o equivalente;Graduado;Mujeres;1;0;0;0;11.00;48.30;29/04/2018
+2014;Zaragoza;Licenciado en Geología;Licenciatura o equivalente;Traslado a otra Universidad;Mujeres;0;0;0;1;;;29/04/2018
+2014;Zaragoza;Licenciado en Matemáticas;Licenciatura o equivalente;Abandono Voluntario;Hombres;0;2;1;0;;;29/04/2018
+2014;Zaragoza;Licenciado en Matemáticas;Licenciatura o equivalente;Abandono Voluntario;Mujeres;0;1;0;0;;;29/04/2018
+2014;Zaragoza;Licenciado en Matemáticas;Licenciatura o equivalente;Cambio de estudios sin simultaneidad;Hombres;0;1;0;0;;;29/04/2018
+2014;Zaragoza;Licenciado en Matemáticas;Licenciatura o equivalente;Graduado;Hombres;2;0;0;0;13.00;42.76;29/04/2018
+2014;Zaragoza;Licenciado en Matemáticas;Licenciatura o equivalente;Graduado;Mujeres;1;0;0;0;;;29/04/2018
+2014;Zaragoza;Licenciado en Matemáticas;Licenciatura o equivalente;Traslado a otra Universidad;Hombres;0;0;0;2;;;29/04/2018
+2014;Zaragoza;Licenciado en Matemáticas;Licenciatura o equivalente;Traslado a otra Universidad;Mujeres;0;0;0;1;;;29/04/2018
+2014;Zaragoza;Licenciado en Psicopedagogía;Licenciatura o equivalente;Abandono Voluntario;Mujeres;0;7;2;0;;;29/04/2018
+2014;Zaragoza;Licenciado en Psicopedagogía;Licenciatura o equivalente;Graduado;Mujeres;19;0;0;0;3.47;82.48;29/04/2018
+2014;Zaragoza;Licenciado en Psicopedagogía;Licenciatura o equivalente;Traslado a otra Universidad;Mujeres;0;0;0;1;;;29/04/2018
+2014;Zaragoza;Lingüística y lengua española;Doctorado;Graduado;Mujeres;1;0;0;0;;;29/04/2018
+2014;Zaragoza;Logística y gestión de la cadena de suministro;Doctorado;Graduado;Hombres;2;0;0;0;;;29/04/2018
+2014;Zaragoza;Logística y gestión de la cadena de suministro;Doctorado;Graduado;Mujeres;1;0;0;0;;;29/04/2018
+2014;Zaragoza;Maestro Audición y Lenguaje;Diplomatura o equivalente;Abandono Voluntario;Mujeres;0;7;0;0;;;29/04/2018
+2014;Zaragoza;Maestro Audición y Lenguaje;Diplomatura o equivalente;Graduado;Mujeres;3;0;0;0;7.00;55.62;29/04/2018
+2014;Zaragoza;Maestro Audición y Lenguaje;Diplomatura o equivalente;Traslado a otra Universidad;Mujeres;0;0;0;1;;;29/04/2018
+2014;Zaragoza;Maestro Educación Especial;Diplomatura o equivalente;Abandono Voluntario;Mujeres;0;6;0;0;;;29/04/2018
+2014;Zaragoza;Maestro Educación Especial;Diplomatura o equivalente;Graduado;Hombres;2;0;0;0;6.00;49.80;29/04/2018
+2014;Zaragoza;Maestro Educación Especial;Diplomatura o equivalente;Graduado;Mujeres;3;0;0;0;7.00;58.13;29/04/2018
+2014;Zaragoza;Maestro Educación Física;Diplomatura o equivalente;Abandono Voluntario;Hombres;0;1;0;0;;;29/04/2018
+2014;Zaragoza;Maestro Educación Física;Diplomatura o equivalente;Abandono Voluntario;Mujeres;0;1;0;0;;;29/04/2018
+2014;Zaragoza;Maestro Educación Física;Diplomatura o equivalente;Graduado;Hombres;2;0;0;0;6.50;52.69;29/04/2018
+2014;Zaragoza;Maestro Educación Física;Diplomatura o equivalente;Traslado a otra Universidad;Hombres;0;0;0;1;;;29/04/2018
+2014;Zaragoza;Maestro Educación Musical;Diplomatura o equivalente;Abandono Voluntario;Hombres;0;3;0;0;;;29/04/2018
+2014;Zaragoza;Maestro Educación Musical;Diplomatura o equivalente;Abandono Voluntario;Mujeres;0;5;0;0;;;29/04/2018
+2014;Zaragoza;Maestro Educación Primaria;Diplomatura o equivalente;Abandono Voluntario;Hombres;0;4;0;0;;;29/04/2018
+2014;Zaragoza;Maestro Educación Primaria;Diplomatura o equivalente;Abandono Voluntario;Mujeres;0;3;0;0;;;29/04/2018
+2014;Zaragoza;Maestro Educación Primaria;Diplomatura o equivalente;Cambio de estudios sin simultaneidad;Hombres;0;1;0;0;;;29/04/2018
+2014;Zaragoza;Maestro Educación Primaria;Diplomatura o equivalente;Graduado;Hombres;1;0;0;0;20.00;32.91;29/04/2018
+2014;Zaragoza;Maestro Educación Primaria;Diplomatura o equivalente;Graduado;Mujeres;3;0;0;0;11.00;55.02;29/04/2018
+2014;Zaragoza;Maestro Educación Primaria;Diplomatura o equivalente;Traslado a otra Universidad;Hombres;0;0;0;1;;;29/04/2018
+2014;Zaragoza;Maestro Educación Primaria;Diplomatura o equivalente;Traslado a otra Universidad;Mujeres;0;0;0;1;;;29/04/2018
+2014;Zaragoza;Maestro Lengua Extranjera;Diplomatura o equivalente;Abandono Voluntario;Hombres;0;2;0;0;;;29/04/2018
+2014;Zaragoza;Maestro Lengua Extranjera;Diplomatura o equivalente;Abandono Voluntario;Mujeres;0;3;0;0;;;29/04/2018
+2014;Zaragoza;Maestro Lengua Extranjera;Diplomatura o equivalente;Graduado;Mujeres;3;0;0;0;17.00;29.91;29/04/2018
+2014;Zaragoza;Maestro Lengua Extranjera;Diplomatura o equivalente;Traslado a otra Universidad;Hombres;0;0;0;1;;;29/04/2018
+2014;Zaragoza;Magisterio en Educación Infantil;Grado;Abandono Voluntario;Hombres;0;1;0;0;;;29/04/2018
+2014;Zaragoza;Magisterio en Educación Infantil;Grado;Abandono Voluntario;Mujeres;0;6;3;0;;;29/04/2018
+2014;Zaragoza;Magisterio en Educación Infantil;Grado;Graduado;Hombres;1;0;0;0;4.00;100.00;29/04/2018
+2014;Zaragoza;Magisterio en Educación Infantil;Grado;Graduado;Mujeres;112;0;0;0;4.04;98.11;29/04/2018
+2014;Zaragoza;Magisterio en Educación Infantil;Grado;Incumple Régimen de permanencia;Hombres;0;1;1;0;;;29/04/2018
+2014;Zaragoza;Magisterio en Educación Infantil;Grado;Traslado a otra Universidad;Hombres;0;0;0;1;;;29/04/2018
+2014;Zaragoza;Magisterio en Educación Infantil;Grado;Traslado a otra Universidad;Mujeres;0;0;0;3;;;29/04/2018
+2014;Zaragoza;Magisterio en Educación Primaria;Grado;Abandono Voluntario;Hombres;0;12;9;0;;;29/04/2018
+2014;Zaragoza;Magisterio en Educación Primaria;Grado;Abandono Voluntario;Mujeres;0;22;14;0;;;29/04/2018
+2014;Zaragoza;Magisterio en Educación Primaria;Grado;Cambio de estudios sin simultaneidad;Mujeres;0;3;3;0;;;29/04/2018
+2014;Zaragoza;Magisterio en Educación Primaria;Grado;Graduado;Hombres;64;0;0;0;4.22;95.09;29/04/2018
+2014;Zaragoza;Magisterio en Educación Primaria;Grado;Graduado;Mujeres;198;0;0;0;4.09;98.29;29/04/2018
+2014;Zaragoza;Magisterio en Educación Primaria;Grado;Incumple Régimen de permanencia;Mujeres;0;2;2;0;;;29/04/2018
+2014;Zaragoza;Magisterio en Educación Primaria;Grado;Traslado a otra Universidad;Hombres;0;0;0;2;;;29/04/2018
+2014;Zaragoza;Magisterio en Educación Primaria;Grado;Traslado a otra Universidad;Mujeres;0;0;0;3;;;29/04/2018
+2014;Zaragoza;Marketing e Investigación de Mercados;Grado;Abandono Voluntario;Hombres;0;30;21;0;;;29/04/2018
+2014;Zaragoza;Marketing e Investigación de Mercados;Grado;Abandono Voluntario;Mujeres;0;17;11;0;;;29/04/2018
+2014;Zaragoza;Marketing e Investigación de Mercados;Grado;Cambio de estudios sin simultaneidad;Hombres;0;4;1;0;;;29/04/2018
+2014;Zaragoza;Marketing e Investigación de Mercados;Grado;Cambio de estudios sin simultaneidad;Mujeres;0;2;1;0;;;29/04/2018
+2014;Zaragoza;Marketing e Investigación de Mercados;Grado;Graduado;Hombres;20;0;0;0;4.25;87.06;29/04/2018
+2014;Zaragoza;Marketing e Investigación de Mercados;Grado;Graduado;Mujeres;34;0;0;0;4.45;89.73;29/04/2018
+2014;Zaragoza;Marketing e Investigación de Mercados;Grado;Incumple Régimen de permanencia;Hombres;0;6;5;0;;;29/04/2018
+2014;Zaragoza;Marketing e Investigación de Mercados;Grado;Incumple Régimen de permanencia;Mujeres;0;4;3;0;;;29/04/2018
+2014;Zaragoza;Marketing e Investigación de Mercados;Grado;Traslado a otra Universidad;Hombres;0;0;0;6;;;29/04/2018
+2014;Zaragoza;Marketing e Investigación de Mercados;Grado;Traslado a otra Universidad;Mujeres;0;0;0;5;;;29/04/2018
+2014;Zaragoza;Matemáticas;Grado;Abandono Voluntario;Hombres;0;5;3;0;;;29/04/2018
+2014;Zaragoza;Matemáticas;Grado;Abandono Voluntario;Mujeres;0;4;1;0;;;29/04/2018
+2014;Zaragoza;Matemáticas;Grado;Cambio de estudios sin simultaneidad;Hombres;0;3;2;0;;;29/04/2018
+2014;Zaragoza;Matemáticas;Grado;Graduado;Hombres;23;0;0;0;4.56;88.04;29/04/2018
+2014;Zaragoza;Matemáticas;Grado;Graduado;Mujeres;7;0;0;0;4.57;90.85;29/04/2018
+2014;Zaragoza;Matemáticas;Grado;Incumple Régimen de permanencia;Hombres;0;4;3;0;;;29/04/2018
+2014;Zaragoza;Matemáticas;Grado;Incumple Régimen de permanencia;Mujeres;0;4;1;0;;;29/04/2018
+2014;Zaragoza;Matemáticas;Grado;Traslado a otra Universidad;Hombres;0;0;0;4;;;29/04/2018
+2014;Zaragoza;Matemáticas;Grado;Traslado a otra Universidad;Mujeres;0;0;0;4;;;29/04/2018
+2014;Zaragoza;Materiales nanoestructurados para aplicaciones nanotecnológicas;Máster;Graduado;Hombres;9;0;0;0;1.22;100.00;29/04/2018
+2014;Zaragoza;Materiales nanoestructurados para aplicaciones nanotecnológicas;Máster;Graduado;Mujeres;8;0;0;0;1.12;100.00;29/04/2018
+2014;Zaragoza;Mecánica Aplicada;Máster;Abandono Voluntario;Hombres;0;1;1;0;;;29/04/2018
+2014;Zaragoza;Mecánica Aplicada;Máster;Abandono Voluntario;Mujeres;0;1;1;0;;;29/04/2018
+2014;Zaragoza;Mecánica Aplicada;Máster;Graduado;Hombres;1;0;0;0;2.00;78.26;29/04/2018
+2014;Zaragoza;Mecánica Aplicada;Máster;Graduado;Mujeres;1;0;0;0;;;29/04/2018
+2014;Zaragoza;Mecánica computacional;Doctorado;Graduado;Hombres;2;0;0;0;;;29/04/2018
+2014;Zaragoza;Mecánica computacional;Doctorado;Graduado;Mujeres;1;0;0;0;;;29/04/2018
+2014;Zaragoza;Mecánica de fluidos;Doctorado;Graduado;Hombres;2;0;0;0;;;29/04/2018
+2014;Zaragoza;Mecánica de fluidos;Doctorado;Graduado;Mujeres;1;0;0;0;;;29/04/2018
+2014;Zaragoza;Medicina;Doctorado;Graduado;Hombres;9;0;0;0;;;29/04/2018
+2014;Zaragoza;Medicina;Doctorado;Graduado;Mujeres;19;0;0;0;;;29/04/2018
+2014;Zaragoza;Medicina;Grado;Abandono Voluntario;Hombres;0;4;3;0;;;29/04/2018
+2014;Zaragoza;Medicina;Grado;Abandono Voluntario;Mujeres;0;3;3;0;;;29/04/2018
+2014;Zaragoza;Medicina;Grado;Graduado;Hombres;60;0;0;0;5.97;98.88;29/04/2018
+2014;Zaragoza;Medicina;Grado;Graduado;Mujeres;168;0;0;0;5.96;98.57;29/04/2018
+2014;Zaragoza;Medicina;Grado;Incumple Régimen de permanencia;Hombres;0;4;2;0;;;29/04/2018
+2014;Zaragoza;Medicina;Grado;Incumple Régimen de permanencia;Mujeres;0;1;0;0;;;29/04/2018
+2014;Zaragoza;Medicina;Grado;Traslado a otra Universidad;Hombres;0;0;0;1;;;29/04/2018
+2014;Zaragoza;Medicina;Grado;Traslado a otra Universidad;Mujeres;0;0;0;1;;;29/04/2018
+2014;Zaragoza;Medicina;Licenciatura o equivalente;Abandono Voluntario;Hombres;0;3;0;0;;;29/04/2018
+2014;Zaragoza;Medicina;Licenciatura o equivalente;Abandono Voluntario;Mujeres;0;2;1;0;;;29/04/2018
+2014;Zaragoza;Medicina;Licenciatura o equivalente;Graduado;Hombres;5;0;0;0;10.00;44.34;29/04/2018
+2014;Zaragoza;Medicina;Licenciatura o equivalente;Graduado;Mujeres;8;0;0;0;9.12;55.47;29/04/2018
+2014;Zaragoza;Medicina y sanidad animal;Doctorado;Graduado;Hombres;4;0;0;0;;;29/04/2018
+2014;Zaragoza;Medicina y sanidad animal;Doctorado;Graduado;Mujeres;3;0;0;0;;;29/04/2018
+2014;Zaragoza;Métodos matemáticos y sus aplicaciones;Doctorado;Graduado;Hombres;2;0;0;0;;;29/04/2018
+2014;Zaragoza;Métodos matemáticos y sus aplicaciones;Doctorado;Graduado;Mujeres;2;0;0;0;;;29/04/2018
+2014;Zaragoza;Modelización e Investigación Matemática, Estadística y Computación;Máster;Graduado;Hombres;10;0;0;0;1.67;88.89;29/04/2018
+2014;Zaragoza;Modelización e Investigación Matemática, Estadística y Computación;Máster;Graduado;Mujeres;4;0;0;0;1.00;100.00;29/04/2018
+2014;Zaragoza;Modelización matemática, estadística y computación;Máster;Abandono Voluntario;Hombres;0;1;0;0;;;29/04/2018
+2014;Zaragoza;Nanotecnología Medioambiental;Máster;Graduado;Hombres;3;0;0;0;1.00;100.00;29/04/2018
+2014;Zaragoza;Nanotecnología Medioambiental;Máster;Graduado;Mujeres;2;0;0;0;1.00;100.00;29/04/2018
+2014;Zaragoza;Nutrición animal;Máster;Graduado;Hombres;8;0;0;0;2.00;100.00;29/04/2018
+2014;Zaragoza;Nutrición animal;Máster;Graduado;Mujeres;11;0;0;0;2.00;100.00;29/04/2018
+2014;Zaragoza;Óptica y Optometría;Grado;Abandono Voluntario;Hombres;0;1;0;0;;;29/04/2018
+2014;Zaragoza;Óptica y Optometría;Grado;Abandono Voluntario;Mujeres;0;6;4;0;;;29/04/2018
+2014;Zaragoza;Óptica y Optometría;Grado;Cambio de estudios sin simultaneidad;Hombres;0;2;2;0;;;29/04/2018
+2014;Zaragoza;Óptica y Optometría;Grado;Cambio de estudios sin simultaneidad;Mujeres;0;3;3;0;;;29/04/2018
+2014;Zaragoza;Óptica y Optometría;Grado;Graduado;Hombres;5;0;0;0;5.25;77.05;29/04/2018
+2014;Zaragoza;Óptica y Optometría;Grado;Graduado;Mujeres;24;0;0;0;4.43;89.82;29/04/2018
+2014;Zaragoza;Óptica y Optometría;Grado;Incumple Régimen de permanencia;Hombres;0;2;2;0;;;29/04/2018
+2014;Zaragoza;Óptica y Optometría;Grado;Incumple Régimen de permanencia;Mujeres;0;2;2;0;;;29/04/2018
+2014;Zaragoza;Óptica y Optometría;Grado;Traslado a otra Universidad;Mujeres;0;0;0;2;;;29/04/2018
+2014;Zaragoza;Ordenación del territorio y medio ambiente;Doctorado;Graduado;Hombres;4;0;0;0;7.00;100.00;29/04/2018
+2014;Zaragoza;Ordenación del territorio y medio ambiente;Doctorado;Graduado;Mujeres;1;0;0;0;;;29/04/2018
+2014;Zaragoza;Ordenación Territorial y Medioambiental;Máster;Graduado;Hombres;8;0;0;0;1.00;100.00;29/04/2018
+2014;Zaragoza;Ordenación Territorial y Medioambiental;Máster;Graduado;Mujeres;4;0;0;0;1.00;100.00;29/04/2018
+2014;Zaragoza;PD Bioquímica y biología molecular;Doctorado;Graduado;Hombres;1;0;0;0;;;29/04/2018
+2014;Zaragoza;PD Calidad, seguridad y tecnología de los alimentos;Doctorado;Graduado;Hombres;1;0;0;0;;;29/04/2018
+2014;Zaragoza;PD Ciencias agrarias y del medio natural;Doctorado;Graduado;Hombres;1;0;0;0;;;29/04/2018
+2014;Zaragoza;PD Ciencias biomédicas y biotecnológicas;Doctorado;Graduado;Hombres;1;0;0;0;;;29/04/2018
+2014;Zaragoza;PD Ciencias biomédicas y biotecnológicas;Doctorado;Graduado;Mujeres;2;0;0;0;;;29/04/2018
+2014;Zaragoza;PD Educación;Doctorado;Graduado;Mujeres;1;0;0;0;;;29/04/2018
+2014;Zaragoza;PD Física;Doctorado;Graduado;Hombres;1;0;0;0;;;29/04/2018
+2014;Zaragoza;PD Física;Doctorado;Graduado;Mujeres;1;0;0;0;;;29/04/2018
+2014;Zaragoza;PD Historia contemporánea;Doctorado;Graduado;Hombres;1;0;0;0;;;29/04/2018
+2014;Zaragoza;PD Ingeniería mecánica;Doctorado;Graduado;Hombres;2;0;0;0;;;29/04/2018
+2014;Zaragoza;PD Lingüística hispánica;Doctorado;Graduado;Hombres;2;0;0;0;;;29/04/2018
+2014;Zaragoza;PD Medicina;Doctorado;Graduado;Hombres;3;0;0;0;;;29/04/2018
+2014;Zaragoza;PD Medicina;Doctorado;Graduado;Mujeres;6;0;0;0;;;29/04/2018
+2014;Zaragoza;PD Medicina y sanidad animal;Doctorado;Graduado;Hombres;1;0;0;0;;;29/04/2018
+2014;Zaragoza;Periodismo;Grado;Abandono Voluntario;Hombres;0;2;1;0;;;29/04/2018
+2014;Zaragoza;Periodismo;Grado;Abandono Voluntario;Mujeres;0;6;3;0;;;29/04/2018
+2014;Zaragoza;Periodismo;Grado;Cambio de estudios sin simultaneidad;Hombres;0;1;0;0;;;29/04/2018
+2014;Zaragoza;Periodismo;Grado;Cambio de estudios sin simultaneidad;Mujeres;0;1;1;0;;;29/04/2018
+2014;Zaragoza;Periodismo;Grado;Graduado;Hombres;21;0;0;0;4.05;99.13;29/04/2018
+2014;Zaragoza;Periodismo;Grado;Graduado;Mujeres;29;0;0;0;4.41;96.72;29/04/2018
+2014;Zaragoza;Periodismo;Grado;Incumple Régimen de permanencia;Mujeres;0;1;1;0;;;29/04/2018
+2014;Zaragoza;Prevención de riesgos laborales;Máster;Abandono Voluntario;Hombres;0;2;2;0;;;29/04/2018
+2014;Zaragoza;Prevención de riesgos laborales;Máster;Abandono Voluntario;Mujeres;0;1;1;0;;;29/04/2018
+2014;Zaragoza;Prevención de riesgos laborales;Máster;Graduado;Hombres;15;0;0;0;1.00;100.00;29/04/2018
+2014;Zaragoza;Prevención de riesgos laborales;Máster;Graduado;Mujeres;6;0;0;0;1.00;100.00;29/04/2018
+2014;Zaragoza;Producción animal;Doctorado;Graduado;Hombres;2;0;0;0;;;29/04/2018
+2014;Zaragoza;Producción animal;Doctorado;Graduado;Mujeres;4;0;0;0;;;29/04/2018
+2014;Zaragoza;Profesorado de E.G.B. Ciencias Humanas;Diplomatura o equivalente;Traslado a otra Universidad;Mujeres;0;0;0;1;;;29/04/2018
+2014;Zaragoza;Profesorado E.S.O., F.P. y Ens. Idiom, Art y Deport;Máster;Abandono Voluntario;Hombres;0;3;2;0;;;29/04/2018
+2014;Zaragoza;Profesorado E.S.O., F.P. y Ens. Idiom, Art y Deport;Máster;Abandono Voluntario;Mujeres;0;3;2;0;;;29/04/2018
+2014;Zaragoza;Profesorado E.S.O., F.P. y Ens. Idiom, Art y Deport;Máster;Graduado;Hombres;111;0;0;0;1.09;97.80;29/04/2018
+2014;Zaragoza;Profesorado E.S.O., F.P. y Ens. Idiom, Art y Deport;Máster;Graduado;Mujeres;210;0;0;0;1.04;99.52;29/04/2018
+2014;Zaragoza;Programa conjunto ADE/Derecho;Grado;Abandono Voluntario;Hombres;0;4;1;0;;;29/04/2018
+2014;Zaragoza;Programa conjunto ADE/Derecho;Grado;Abandono Voluntario;Mujeres;0;4;1;0;;;29/04/2018
+2014;Zaragoza;Programa Conjunto Derecho Administración y Dirección Empresas;Licenciatura o equivalente;Abandono Voluntario;Hombres;0;5;0;0;;;29/04/2018
+2014;Zaragoza;Programa Conjunto Derecho Administración y Dirección Empresas;Licenciatura o equivalente;Abandono Voluntario;Mujeres;0;1;0;0;;;29/04/2018
+2014;Zaragoza;Programa de doctorado RD 778/98;Doctorado;Graduado;Hombres;6;0;0;0;;;29/04/2018
+2014;Zaragoza;Programa de doctorado RD 778/98;Doctorado;Graduado;Mujeres;6;0;0;0;;;29/04/2018
+2014;Zaragoza;Química;Grado;Abandono Voluntario;Hombres;0;12;4;0;;;29/04/2018
+2014;Zaragoza;Química;Grado;Abandono Voluntario;Mujeres;0;9;2;0;;;29/04/2018
+2014;Zaragoza;Química;Grado;Cambio de estudios sin simultaneidad;Hombres;0;3;3;0;;;29/04/2018
+2014;Zaragoza;Química;Grado;Cambio de estudios sin simultaneidad;Mujeres;0;5;3;0;;;29/04/2018
+2014;Zaragoza;Química;Grado;Graduado;Hombres;15;0;0;0;4.77;88.93;29/04/2018
+2014;Zaragoza;Química;Grado;Graduado;Mujeres;18;0;0;0;4.47;92.29;29/04/2018
+2014;Zaragoza;Química;Grado;Incumple Régimen de permanencia;Hombres;0;5;0;0;;;29/04/2018
+2014;Zaragoza;Química;Grado;Incumple Régimen de permanencia;Mujeres;0;5;5;0;;;29/04/2018
+2014;Zaragoza;Química;Grado;Traslado a otra Universidad;Hombres;0;0;0;5;;;29/04/2018
+2014;Zaragoza;Química;Grado;Traslado a otra Universidad;Mujeres;0;0;0;12;;;29/04/2018
+2014;Zaragoza;Química física;Doctorado;Graduado;Hombres;1;0;0;0;;;29/04/2018
+2014;Zaragoza;Química física;Doctorado;Graduado;Mujeres;1;0;0;0;;;29/04/2018
+2014;Zaragoza;Química Industrial;Máster;Graduado;Hombres;1;0;0;0;1.00;100.00;29/04/2018
+2014;Zaragoza;Química Industrial;Máster;Graduado;Mujeres;7;0;0;0;1.00;100.00;29/04/2018
+2014;Zaragoza;Química inorgánica;Doctorado;Graduado;Hombres;4;0;0;0;;;29/04/2018
+2014;Zaragoza;Química inorgánica;Doctorado;Graduado;Mujeres;6;0;0;0;;;29/04/2018
+2014;Zaragoza;Química Molecular y Catálisis Homogénea;Máster;Graduado;Hombres;9;0;0;0;1.00;100.00;29/04/2018
+2014;Zaragoza;Química Molecular y Catálisis Homogénea;Máster;Graduado;Mujeres;6;0;0;0;1.00;100.00;29/04/2018
+2014;Zaragoza;Química orgánica;Doctorado;Graduado;Hombres;2;0;0;0;;;29/04/2018
+2014;Zaragoza;Química orgánica;Doctorado;Graduado;Mujeres;1;0;0;0;;;29/04/2018
+2014;Zaragoza;Química sostenible;Doctorado;Graduado;Mujeres;1;0;0;0;;;29/04/2018
+2014;Zaragoza;Químicas;Licenciatura o equivalente;Abandono Voluntario;Hombres;0;6;0;0;;;29/04/2018
+2014;Zaragoza;Químicas;Licenciatura o equivalente;Abandono Voluntario;Mujeres;0;3;0;0;;;29/04/2018
+2014;Zaragoza;Químicas;Licenciatura o equivalente;Cambio de estudios sin simultaneidad;Hombres;0;2;0;0;;;29/04/2018
+2014;Zaragoza;Químicas;Licenciatura o equivalente;Cambio de estudios sin simultaneidad;Mujeres;0;2;0;0;;;29/04/2018
+2014;Zaragoza;Químicas;Licenciatura o equivalente;Graduado;Hombres;9;0;0;0;7.88;67.28;29/04/2018
+2014;Zaragoza;Químicas;Licenciatura o equivalente;Graduado;Mujeres;16;0;0;0;10.69;55.77;29/04/2018
+2014;Zaragoza;Químicas;Licenciatura o equivalente;Traslado a otra Universidad;Hombres;0;0;0;3;;;29/04/2018
+2014;Zaragoza;Químicas;Licenciatura o equivalente;Traslado a otra Universidad;Mujeres;0;0;0;4;;;29/04/2018
+2014;Zaragoza;Relaciones de Género;Doctorado;Graduado;Hombres;1;0;0;0;;;29/04/2018
+2014;Zaragoza;Relaciones de Género;Doctorado;Graduado;Mujeres;2;0;0;0;;;29/04/2018
+2014;Zaragoza;Relaciones de Género;Máster;Abandono Voluntario;Mujeres;0;1;1;0;;;29/04/2018
+2014;Zaragoza;Relaciones de Género;Máster;Graduado;Hombres;1;0;0;0;1.00;100.00;29/04/2018
+2014;Zaragoza;Relaciones de Género;Máster;Graduado;Mujeres;16;0;0;0;1.06;98.75;29/04/2018
+2014;Zaragoza;Relaciones Laborales;Diplomatura o equivalente;Abandono Voluntario;Hombres;0;7;0;0;;;29/04/2018
+2014;Zaragoza;Relaciones Laborales;Diplomatura o equivalente;Abandono Voluntario;Mujeres;0;4;0;0;;;29/04/2018
+2014;Zaragoza;Relaciones Laborales;Diplomatura o equivalente;Graduado;Hombres;2;0;0;0;9.00;38.62;29/04/2018
+2014;Zaragoza;Relaciones Laborales;Diplomatura o equivalente;Graduado;Mujeres;5;0;0;0;9.25;47.26;29/04/2018
+2014;Zaragoza;Relaciones Laborales;Diplomatura o equivalente;Traslado a otra Universidad;Hombres;0;0;0;2;;;29/04/2018
+2014;Zaragoza;Relaciones Laborales;Diplomatura o equivalente;Traslado a otra Universidad;Mujeres;0;0;0;1;;;29/04/2018
+2014;Zaragoza;Relaciones Laborales y Recursos Humanos;Grado;Abandono Voluntario;Hombres;0;24;16;0;;;29/04/2018
+2014;Zaragoza;Relaciones Laborales y Recursos Humanos;Grado;Abandono Voluntario;Mujeres;0;32;19;0;;;29/04/2018
+2014;Zaragoza;Relaciones Laborales y Recursos Humanos;Grado;Cambio de estudios sin simultaneidad;Hombres;0;3;3;0;;;29/04/2018
+2014;Zaragoza;Relaciones Laborales y Recursos Humanos;Grado;Cambio de estudios sin simultaneidad;Mujeres;0;2;1;0;;;29/04/2018
+2014;Zaragoza;Relaciones Laborales y Recursos Humanos;Grado;Graduado;Hombres;35;0;0;0;4.59;90.93;29/04/2018
+2014;Zaragoza;Relaciones Laborales y Recursos Humanos;Grado;Graduado;Mujeres;58;0;0;0;4.46;92.25;29/04/2018
+2014;Zaragoza;Relaciones Laborales y Recursos Humanos;Grado;Incumple Régimen de permanencia;Hombres;0;7;6;0;;;29/04/2018
+2014;Zaragoza;Relaciones Laborales y Recursos Humanos;Grado;Incumple Régimen de permanencia;Mujeres;0;4;2;0;;;29/04/2018
+2014;Zaragoza;Relaciones Laborales y Recursos Humanos;Grado;Traslado a otra Universidad;Hombres;0;0;0;8;;;29/04/2018
+2014;Zaragoza;Relaciones Laborales y Recursos Humanos;Grado;Traslado a otra Universidad;Mujeres;0;0;0;5;;;29/04/2018
+2014;Zaragoza;Salud pública;Máster;Abandono Voluntario;Hombres;0;2;2;0;;;29/04/2018
+2014;Zaragoza;Salud pública;Máster;Abandono Voluntario;Mujeres;0;4;2;0;;;29/04/2018
+2014;Zaragoza;Salud pública;Máster;Cambio de estudios sin simultaneidad;Mujeres;0;1;1;0;;;29/04/2018
+2014;Zaragoza;Salud pública;Máster;Graduado;Hombres;7;0;0;0;1.17;96.26;29/04/2018
+2014;Zaragoza;Salud pública;Máster;Graduado;Mujeres;17;0;0;0;1.08;98.47;29/04/2018
+2014;Zaragoza;Seguridad global y defensa;Máster;Abandono Voluntario;Hombres;0;1;0;0;;;29/04/2018
+2014;Zaragoza;Seguridad global y defensa;Máster;Abandono Voluntario;Mujeres;0;1;0;0;;;29/04/2018
+2014;Zaragoza;Sistemas Mecánicos;Máster;Abandono Voluntario;Hombres;0;4;2;0;;;29/04/2018
+2014;Zaragoza;Sistemas Mecánicos;Máster;Graduado;Hombres;3;0;0;0;2.00;88.89;29/04/2018
+2014;Zaragoza;Sistemas mecánicos;Doctorado;Graduado;Hombres;5;0;0;0;;;29/04/2018
+2014;Zaragoza;Sistemas mecánicos;Doctorado;Graduado;Mujeres;1;0;0;0;;;29/04/2018
+2014;Zaragoza;Sociología de las Políticas Públicas y Sociales;Máster;Abandono Voluntario;Hombres;0;2;2;0;;;29/04/2018
+2014;Zaragoza;Sociología de las Políticas Públicas y Sociales;Máster;Abandono Voluntario;Mujeres;0;4;2;0;;;29/04/2018
+2014;Zaragoza;Sociología de las Políticas Públicas y Sociales;Máster;Graduado;Hombres;5;0;0;0;1.00;100.00;29/04/2018
+2014;Zaragoza;Sociología de las Políticas Públicas y Sociales;Máster;Graduado;Mujeres;11;0;0;0;1.12;95.04;29/04/2018
+2014;Zaragoza;Sociología de las políticas públicas y sociales;Doctorado;Graduado;Hombres;1;0;0;0;;;29/04/2018
+2014;Zaragoza;Sociología de las políticas públicas y sociales;Doctorado;Graduado;Mujeres;2;0;0;0;;;29/04/2018
+2014;Zaragoza;Tec.Información Geográfica para Ordenación Territorio: Sig/Teled;Máster;Abandono Voluntario;Mujeres;0;1;1;0;;;29/04/2018
+2014;Zaragoza;Tec.Información Geográfica para Ordenación Territorio: Sig/Teled;Máster;Graduado;Hombres;15;0;0;0;1.07;96.61;29/04/2018
+2014;Zaragoza;Tec.Información Geográfica para Ordenación Territorio: Sig/Teled;Máster;Graduado;Mujeres;6;0;0;0;1.00;98.40;29/04/2018
+2014;Zaragoza;Tecnología de la información y comunicaciones en redes móviles;Máster;Graduado;Hombres;2;0;0;0;3.00;79.49;29/04/2018
+2014;Zaragoza;Tecnologías de la información y comunicaciones en redes móviles;Doctorado;Graduado;Hombres;2;0;0;0;;;29/04/2018
+2014;Zaragoza;Terapia Ocupacional;Grado;Abandono Voluntario;Hombres;0;4;3;0;;;29/04/2018
+2014;Zaragoza;Terapia Ocupacional;Grado;Abandono Voluntario;Mujeres;0;9;7;0;;;29/04/2018
+2014;Zaragoza;Terapia Ocupacional;Grado;Cambio de estudios sin simultaneidad;Mujeres;0;3;3;0;;;29/04/2018
+2014;Zaragoza;Terapia Ocupacional;Grado;Graduado;Hombres;13;0;0;0;4.18;91.12;29/04/2018
+2014;Zaragoza;Terapia Ocupacional;Grado;Graduado;Mujeres;64;0;0;0;4.27;92.99;29/04/2018
+2014;Zaragoza;Terapia Ocupacional;Grado;Incumple Régimen de permanencia;Mujeres;0;1;1;0;;;29/04/2018
+2014;Zaragoza;Trabajo Social;Diplomatura o equivalente;Abandono Voluntario;Mujeres;0;3;0;0;;;29/04/2018
+2014;Zaragoza;Trabajo Social;Diplomatura o equivalente;Traslado a otra Universidad;Hombres;0;0;0;3;;;29/04/2018
+2014;Zaragoza;Trabajo Social;Diplomatura o equivalente;Traslado a otra Universidad;Mujeres;0;0;0;2;;;29/04/2018
+2014;Zaragoza;Trabajo Social;Grado;Abandono Voluntario;Hombres;0;5;2;0;;;29/04/2018
+2014;Zaragoza;Trabajo Social;Grado;Abandono Voluntario;Mujeres;0;19;9;0;;;29/04/2018
+2014;Zaragoza;Trabajo Social;Grado;Cambio de estudios sin simultaneidad;Hombres;0;2;2;0;;;29/04/2018
+2014;Zaragoza;Trabajo Social;Grado;Graduado;Hombres;22;0;0;0;4.35;93.21;29/04/2018
+2014;Zaragoza;Trabajo Social;Grado;Graduado;Mujeres;130;0;0;0;4.20;95.47;29/04/2018
+2014;Zaragoza;Trabajo Social;Grado;Incumple Régimen de permanencia;Hombres;0;1;1;0;;;29/04/2018
+2014;Zaragoza;Trabajo Social;Grado;Traslado a otra Universidad;Hombres;0;0;0;4;;;29/04/2018
+2014;Zaragoza;Trabajo Social;Grado;Traslado a otra Universidad;Mujeres;0;0;0;14;;;29/04/2018
+2014;Zaragoza;Traducción de textos especializados;Máster;Graduado;Mujeres;4;0;0;0;1.33;95.24;29/04/2018
+2014;Zaragoza;Turismo;Grado;Abandono Voluntario;Hombres;0;9;4;0;;;29/04/2018
+2014;Zaragoza;Turismo;Grado;Abandono Voluntario;Mujeres;0;13;8;0;;;29/04/2018
+2014;Zaragoza;Turismo;Grado;Cambio de estudios sin simultaneidad;Mujeres;0;4;4;0;;;29/04/2018
+2014;Zaragoza;Turismo;Grado;Graduado;Hombres;16;0;0;0;4.33;94.21;29/04/2018
+2014;Zaragoza;Turismo;Grado;Graduado;Mujeres;32;0;0;0;4.30;94.44;29/04/2018
+2014;Zaragoza;Unión Europea;Máster;Graduado;Hombres;3;0;0;0;1.00;100.00;29/04/2018
+2014;Zaragoza;Unión Europea;Máster;Graduado;Mujeres;2;0;0;0;1.00;100.00;29/04/2018
+2014;Zaragoza;Veterinaria;Grado;Abandono Voluntario;Hombres;0;3;3;0;;;29/04/2018
+2014;Zaragoza;Veterinaria;Grado;Abandono Voluntario;Mujeres;0;3;3;0;;;29/04/2018
+2014;Zaragoza;Veterinaria;Grado;Cambio de estudios sin simultaneidad;Hombres;0;3;2;0;;;29/04/2018
+2014;Zaragoza;Veterinaria;Grado;Cambio de estudios sin simultaneidad;Mujeres;0;1;1;0;;;29/04/2018
+2014;Zaragoza;Veterinaria;Grado;Graduado;Hombres;19;0;0;0;5.00;95.52;29/04/2018
+2014;Zaragoza;Veterinaria;Grado;Graduado;Mujeres;67;0;0;0;5.00;94.92;29/04/2018
+2014;Zaragoza;Veterinaria;Grado;Incumple Régimen de permanencia;Mujeres;0;1;1;0;;;29/04/2018
+2014;Zaragoza;Veterinaria;Grado;Traslado a otra Universidad;Mujeres;0;0;0;5;;;29/04/2018
+2014;Zaragoza;Veterinaria;Licenciatura o equivalente;Abandono Voluntario;Hombres;0;3;0;0;;;29/04/2018
+2014;Zaragoza;Veterinaria;Licenciatura o equivalente;Abandono Voluntario;Mujeres;0;4;0;0;;;29/04/2018
+2014;Zaragoza;Veterinaria;Licenciatura o equivalente;Cambio de estudios sin simultaneidad;Hombres;0;1;0;0;;;29/04/2018
+2014;Zaragoza;Veterinaria;Licenciatura o equivalente;Graduado;Hombres;13;0;0;0;6.69;72.31;29/04/2018
+2014;Zaragoza;Veterinaria;Licenciatura o equivalente;Graduado;Mujeres;56;0;0;0;7.56;64.08;29/04/2018
+2014;Zaragoza;Veterinaria;Licenciatura o equivalente;Traslado a otra Universidad;Hombres;0;0;0;3;;;29/04/2018
+2014;Zaragoza;Veterinaria;Licenciatura o equivalente;Traslado a otra Universidad;Mujeres;0;0;0;1;;;29/04/2018

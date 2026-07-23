@@ -89,16 +89,24 @@ const enrolmentAverage = computed(() =>
 
 /**
  * Convocatorias consumidas: cuántos intentos cuesta cerrar la asignatura.
- * No se puede deducir del reparto de notas, viene de los datos oficiales, y
- * de momento solo existe para un curso académico (por eso lleva su propia
- * etiqueta de año y no sigue al selector de la página).
+ * No se puede deducir del reparto de notas, viene de los datos oficiales.
+ *
+ * Ahora sí sigue al selector de año de la página: los datos oficiales cubren
+ * los mismos doce cursos que las calificaciones. Antes solo había uno y este
+ * KPI enseñaba siempre ese, con su propia etiqueta de año para no engañar.
+ *
+ * Se sigue mostrando el curso al lado porque no todas las asignaturas tienen
+ * dato todos los años: si el seleccionado no lo tiene, cae al más reciente que
+ * sí, y hay que decir cuál es.
  */
 const sittings = computed(() =>
-    averageSittings(props.subjectCode)
+    averageSittings(props.subjectCode, props.year)
+        ?? averageSittings(props.subjectCode)
 );
 
 const sittingsYear = computed(() =>
-    officialResult(props.subjectCode)?.curso ?? null
+    (officialResult(props.subjectCode, props.year)
+        ?? officialResult(props.subjectCode))?.curso ?? null
 );
 
 </script>

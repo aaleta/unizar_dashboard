@@ -27,7 +27,7 @@ ChartJS.register(
 
 const chartData = computed(() => ({
 
-    labels: notasAcceso.map(item => item["Año"]),
+    labels: notasAcceso.map(item => item.anyo),
 
     datasets: [
 
@@ -35,9 +35,7 @@ const chartData = computed(() => ({
 
             label: "Nota media de acceso",
 
-            data: notasAcceso.map(
-                item => item["Nota media en pruebas de acceso"]
-            ),
+            data: notasAcceso.map(item => item.nota_media_admision),
 
             borderColor: "#3b82f6",
 
@@ -57,9 +55,7 @@ const chartData = computed(() => ({
 
             label: "Nota de corte",
 
-            data: notasAcceso.map(
-                item => item["Nota de corte"]
-            ),
+            data: notasAcceso.map(item => item.nota_corte),
 
             borderColor: "#22c55e",
 

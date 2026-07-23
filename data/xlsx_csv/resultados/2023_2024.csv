@@ -1,0 +1,238 @@
+CURSO_ACADEMICO;CENTRO;ESTUDIO;TIPO_ESTUDIO;ALUMNOS_MATRICULADOS;ALUMNOS_NUEVO_INGRESO;PLAZAS_OFERTADAS;ALUMNOS_GRADUADOS;ALUMNOS_ADAPTA_GRADO_MATRI;ALUMNOS_ADAPTA_GRADO_MATRI_NI;ALUMNOS_ADAPTA_GRADO_TITULADO;ALUMNOS_CON_RECONOCIMIENTO;ALUMNOS_MOVILIDAD_ENTRADA;ALUMNOS_MOVILIDAD_SALIDA;CREDITOS_MATRICULADOS;CREDITOS_RECONOCIDOS;DURACION_MEDIA_GRADUADOS;TASA_EXITO;TASA_RENDIMIENTO;TASA_EFICIENCIA;TASA_ABANDONO;TASA_GRADUACION;FECHA_ACTUALIZACION
+2023;Escuela Politécnica Superior;1-Ciencias Ambientales;Grado;169;31;54;28;0;0;0;65;10;12;8749.00;369.50;6.08;86.30;76.05;77.86;;;31/08/2025
+2023;Facultad de Ciencias de la Salud;1-Enfermería;Grado;646;173;176;135;0;0;0;156;18;8;37554.50;1900.50;4.06;96.85;94.14;98.41;;;31/08/2025
+2023;Escuela Universitaria de Enfermería San Jorge de Huesca;1-Enfermería;Grado;208;59;59;43;0;0;0;57;3;11;12297.00;1270.00;4.00;96.75;94.39;97.22;;;31/08/2025
+2023;Escuela Universitaria de Enfermería de Teruel;1-Enfermería;Grado;137;37;36;33;0;0;0;30;2;5;8014.00;437.00;4.12;98.82;97.05;95.08;;;31/08/2025
+2023;Facultad de Ciencias Sociales y Humanas de Teruel;1-Bellas Artes;Grado;171;40;55;39;0;0;0;9;18;18;10016.00;104.50;4.27;96.63;93.66;96.80;;;31/08/2025
+2023;Facultad de Ciencias Sociales y Humanas de Teruel;1-Psicología;Grado;25;0;;18;0;0;0;0;;1;480.00;0.00;5.94;98.39;81.33;81.74;;;31/08/2025
+2023;Facultad de Filosofía y Letras;1-Filosofía;Grado;230;54;60;33;0;0;0;35;29;7;12071.50;546.00;4.77;91.35;76.92;90.59;;;31/08/2025
+2023;Facultad de Filosofía y Letras;1-Periodismo;Grado;235;57;60;42;0;0;0;40;62;20;13594.50;595.00;4.20;96.50;91.92;97.21;;;31/08/2025
+2023;Facultad de Filosofía y Letras;1-Información y Documentación;Grado;50;14;36;9;0;0;0;18;6;2;2376.00;2087.50;4.25;90.48;80.64;94.23;;;31/08/2025
+2023;Facultad de Ciencias de la Salud;1-Fisioterapia;Grado;236;56;60;48;0;0;0;67;6;5;13639.00;755.00;4.08;96.28;93.31;96.58;;;31/08/2025
+2023;Facultad de Ciencias de la Salud;1-Terapia Ocupacional;Grado;275;72;80;61;0;0;0;6;4;3;16779.00;143.00;4.12;94.37;88.55;93.74;;;31/08/2025
+2023;Facultad de Ciencias Sociales y del Trabajo;1-Trabajo Social;Grado;592;158;180;125;1;0;0;57;46;22;34390.00;898.00;4.32;90.98;84.52;91.73;;;31/08/2025
+2023;Escuela de Ingeniería y Arquitectura;1-Ingeniería en Diseño Industrial y Desarrollo de Producto;Grado;374;83;82;79;0;0;0;112;28;33;21382.00;639.50;4.63;87.84;83.22;88.71;;;31/08/2025
+2023;Facultad de Veterinaria;1-Ciencia y Tecnología de los Alimentos;Grado;246;60;60;46;0;0;0;52;13;16;14068.00;610.00;4.98;84.26;78.63;88.88;;;31/08/2025
+2023;Facultad de Ciencias de la Salud y del Deporte;1-Ciencias de la Actividad Física y del Deporte;Grado;276;62;62;55;0;0;0;63;15;15;15351.00;1250.00;4.62;91.43;86.87;94.17;;;31/08/2025
+2023;Facultad de Ciencias;1-Geología;Grado;104;32;47;15;0;0;0;16;12;6;5618.50;70.50;4.86;78.17;70.52;84.26;;;31/08/2025
+2023;Facultad de Ciencias;1-Óptica y Optometría;Grado;206;46;60;41;0;0;0;29;3;2;11855.00;148.50;4.66;86.51;78.60;86.79;;;31/08/2025
+2023;Facultad de Educación;1-Magisterio en Educación Primaria;Grado;1026;240;240;198;2;0;0;51;28;63;58430.00;2112.00;4.36;95.23;92.27;93.97;;;31/08/2025
+2023;Facultad de Ciencias Humanas y de la Educación;1-Magisterio en Educación Primaria;Grado;525;117;120;91;0;0;0;32;3;14;30607.00;1176.00;4.48;89.66;84.41;93.78;;;31/08/2025
+2023;Facultad de Ciencias Sociales y Humanas de Teruel;1-Magisterio en Educación Primaria;Grado;466;116;120;72;0;0;0;29;8;21;26356.00;639.50;4.74;90.07;84.46;89.28;;;31/08/2025
+2023;Facultad de Educación;1-Magisterio en Educación Infantil;Grado;485;119;120;115;0;0;0;27;15;16;28009.00;1042.50;4.25;94.65;92.64;95.86;;;31/08/2025
+2023;Facultad de Ciencias Humanas y de la Educación;1-Magisterio en Educación Infantil;Grado;453;115;120;89;0;0;0;53;3;12;25352.50;1798.00;4.28;90.39;83.61;94.40;;;31/08/2025
+2023;Facultad de Ciencias Sociales y Humanas de Teruel;1-Magisterio en Educación Infantil;Grado;395;112;120;75;0;0;0;64;10;15;22513.00;1117.50;4.44;91.46;88.29;91.42;;;31/08/2025
+2023;Facultad de Medicina;1-Medicina;Grado;1277;197;200;226;0;0;0;671;76;108;76553.50;8980.00;5.99;96.92;94.14;97.57;;;31/08/2025
+2023;Facultad de Ciencias de la Salud y del Deporte;1-Medicina;Grado;87;46;45;0;0;0;0;18;;0;4851.00;625.00;;93.67;90.93;;;;31/08/2025
+2023;Facultad de Filosofía y Letras;1-Estudios Clásicos;Grado;70;21;30;11;0;0;0;13;30;2;3659.50;43.00;5.40;78.23;62.63;86.32;;;31/08/2025
+2023;Facultad de Filosofía y Letras;1-Estudios Ingleses;Grado;405;95;100;69;0;0;0;225;89;30;22272.00;10133.00;5.02;85.21;75.79;84.80;;;31/08/2025
+2023;Facultad de Filosofía y Letras;1-Filología Hispánica;Grado;267;62;70;41;0;0;0;69;110;15;14462.50;993.00;5.00;86.80;75.08;85.78;;;31/08/2025
+2023;Facultad de Filosofía y Letras;1-Historia;Grado;465;135;150;58;0;0;0;88;65;13;25495.00;704.00;5.02;88.17;76.18;90.40;;;31/08/2025
+2023;Facultad de Filosofía y Letras;1-Historia del Arte;Grado;254;55;114;26;0;0;0;186;19;7;12489.50;7379.50;4.90;82.84;65.43;88.89;;;31/08/2025
+2023;Facultad de Ciencias;1-Física;Grado;375;87;85;87;0;0;0;118;9;27;21451.00;2005.50;4.74;88.50;81.12;87.19;;;31/08/2025
+2023;Facultad de Ciencias;1-Biotecnología;Grado;291;66;66;66;0;0;0;90;19;24;16901.00;936.00;4.27;91.44;86.04;93.37;;;31/08/2025
+2023;Facultad de Ciencias;1-Matemáticas;Grado;328;69;70;88;0;0;0;337;13;30;18530.50;14109.00;5.09;86.24;78.42;86.30;;;31/08/2025
+2023;Facultad de Ciencias;1-Química;Grado;590;142;150;74;0;0;0;105;10;11;32673.00;907.50;5.25;78.58;68.93;78.70;;;31/08/2025
+2023;Facultad de Ciencias de la Salud y del Deporte;1-Nutrición Humana y Dietética;Grado;211;52;56;57;0;0;0;72;4;8;11318.00;978.50;4.51;86.97;79.89;95.54;;;31/08/2025
+2023;Facultad de Ciencias de la Salud y del Deporte;1-Odontología;Grado;170;44;36;32;0;0;0;82;4;1;9823.00;1150.50;4.96;96.34;92.10;96.38;;;31/08/2025
+2023;Facultad de Veterinaria;1-Veterinaria;Grado;758;146;146;125;0;0;0;110;26;28;45158.50;1311.50;5.34;90.51;86.86;92.21;;;31/08/2025
+2023;Facultad de Economía y Empresa;1-Administración y Dirección de Empresas;Grado;1585;393;400;273;2;0;0;448;205;106;91536.00;8106.50;5.26;77.92;67.61;87.32;;;31/08/2025
+2023;Facultad de Empresa y Gestión Pública;1-Administración y Dirección de Empresas;Grado;156;46;65;31;1;0;1;50;22;11;8654.00;361.00;5.43;78.47;66.41;80.42;;;31/08/2025
+2023;Facultad de Ciencias Sociales y Humanas de Teruel;1-Administración y Dirección de Empresas;Grado;104;28;45;16;0;0;0;24;20;4;5307.00;167.50;6.21;77.76;66.58;83.56;;;31/08/2025
+2023;Facultad de Derecho;1-Derecho;Grado;1387;305;308;313;0;0;0;572;62;90;80040.50;5377.00;5.05;85.27;78.92;89.58;;;31/08/2025
+2023;Facultad de Economía y Empresa;1-Economía;Grado;578;143;200;82;0;0;0;127;62;21;32897.00;856.00;5.32;77.20;63.13;80.61;;;31/08/2025
+2023;Facultad de Economía y Empresa;1-Finanzas y Contabilidad;Grado;446;134;150;35;0;0;0;89;13;8;24946.00;1837.00;5.69;72.66;56.98;78.06;;;31/08/2025
+2023;Facultad de Filosofía y Letras;1-Geografía y Ordenación del Territorio;Grado;86;20;45;19;0;0;0;19;24;5;4555.00;114.00;4.94;91.93;80.59;91.03;;;31/08/2025
+2023;Facultad de Empresa y Gestión Pública;1-Gestión y Administración Pública;Grado;134;43;45;19;8;0;4;78;4;0;5510.00;2487.50;4.67;92.25;79.08;86.37;;;31/08/2025
+2023;Facultad de Economía y Empresa;1-Marketing e Investigación de Mercados;Grado;570;141;150;99;0;0;0;131;49;28;31564.00;1473.50;5.13;78.11;68.12;85.37;;;31/08/2025
+2023;Facultad de Ciencias Sociales y del Trabajo;1-Relaciones Laborales y Recursos Humanos;Grado;677;166;180;110;1;0;1;137;28;22;37132.00;938.50;5.31;79.46;72.38;86.80;;;31/08/2025
+2023;Escuela Universitaria de Turismo de Zaragoza;1-Turismo;Grado;164;21;72;41;0;0;0;78;5;18;8286.00;2369.00;4.50;90.35;77.44;91.68;;;31/08/2025
+2023;Escuela Politécnica Superior;1-Ingeniería Agroalimentaria y del Medio Rural;Grado;215;51;45;31;0;0;0;70;5;8;11367.00;765.50;5.33;79.76;65.37;77.77;;;31/08/2025
+2023;Escuela Universitaria Politécnica de la Almunia de Doña Godina;1-Ingeniería Civil;Grado;74;28;54;10;1;0;1;17;15;0;3755.00;210.00;6.38;78.86;61.48;76.50;;;31/08/2025
+2023;Escuela Universitaria Politécnica de la Almunia de Doña Godina;1-Arquitectura Técnica;Grado;126;42;45;12;2;1;2;22;24;3;6337.00;494.00;5.67;84.19;68.05;90.64;;;31/08/2025
+2023;Escuela Universitaria Politécnica de la Almunia de Doña Godina;1-Ingeniería de Organización Industrial;Grado;163;40;56;24;0;0;0;131;23;5;6882.00;6462.00;4.56;84.23;68.52;94.69;;;31/08/2025
+2023;Centro Universitario de la Defensa de Zaragoza;1-Ingeniería de Organización Industrial;Grado;1285;313;300;210;0;0;0;177;;0;61269.00;2310.00;5.26;96.41;95.93;92.54;;;31/08/2025
+2023;Escuela de Ingeniería y Arquitectura;1-Ingeniería de Tecnologías Industriales;Grado;703;174;180;105;0;0;0;137;13;54;39836.50;709.00;5.43;79.44;67.16;78.62;;;31/08/2025
+2023;Escuela de Ingeniería y Arquitectura;1-Ingeniería de Tecnologías de Telecomunicación;Grado;279;81;90;33;0;0;0;237;1;8;15517.50;8854.00;5.71;73.41;60.22;75.30;;;31/08/2025
+2023;Escuela de Ingeniería y Arquitectura;1-Ingeniería Eléctrica;Grado;226;70;81;32;2;0;1;51;7;6;11952.00;983.00;5.53;75.96;57.49;74.53;;;31/08/2025
+2023;Escuela de Ingeniería y Arquitectura;1-Ingeniería Electrónica y Automática;Grado;341;103;120;42;0;0;0;221;2;15;18209.00;7493.00;6.43;71.93;56.57;72.15;;;31/08/2025
+2023;Escuela Universitaria Politécnica de Teruel;1-Ingeniería Electrónica y Automática;Grado;82;28;28;14;0;0;0;65;;6;4248.00;2599.00;5.54;86.47;72.48;82.31;;;31/08/2025
+2023;Escuela de Ingeniería y Arquitectura;1-Ingeniería Informática;Grado;508;112;110;99;0;0;0;149;13;23;27230.00;2343.50;4.89;89.95;81.46;87.91;;;31/08/2025
+2023;Escuela Universitaria Politécnica de Teruel;1-Ingeniería Informática;Grado;98;26;28;7;0;0;0;25;2;6;5624.00;253.00;4.67;83.17;73.13;86.52;;;31/08/2025
+2023;Escuela de Ingeniería y Arquitectura;1-Ingeniería Mecánica;Grado;789;208;216;95;1;0;0;531;16;36;41862.00;18453.00;6.00;74.71;61.26;73.72;;;31/08/2025
+2023;Escuela Universitaria Politécnica de la Almunia de Doña Godina;1-Ingeniería Mecatrónica;Grado;245;52;56;44;0;0;0;184;13;4;11968.00;7036.00;6.00;73.69;60.13;79.62;;;31/08/2025
+2023;Escuela de Ingeniería y Arquitectura;1-Ingeniería Química;Grado;314;79;85;59;1;0;1;213;6;13;16475.00;8572.50;5.67;78.59;68.90;75.50;;;31/08/2025
+2023;Facultad de Filosofía y Letras;1-Lenguas Modernas;Grado;195;43;55;26;0;0;0;14;100;10;10473.00;380.00;4.79;77.28;68.52;86.96;;;31/08/2025
+2023;Facultad de Derecho;1-Programa conjunto en Derecho-Administración y Dirección de Empresas;Grado;433;80;80;0;0;0;0;149;9;61;30659.50;345.50;;95.02;90.87;;;;31/08/2025
+2023;Escuela de Ingeniería y Arquitectura;1-Estudios en Arquitectura;Grado;362;70;70;53;0;0;0;77;36;42;20252.00;1262.00;6.47;83.14;76.59;82.79;;;31/08/2025
+2023;Facultad de Ciencias;1-Programa conjunto Física-Matemáticas (FisMat);Grado;67;10;10;;0;0;;27;;7;4631.00;327.50;;98.97;95.71;;;;31/08/2025
+2023;Facultad de Ciencias de la Salud y del Deporte;1-Programa conjunto en Nutrición Humana y Dietética-Ciencias de la Actividad Física y del Deporte;Grado;48;11;10;0;0;0;0;17;;9;3658.00;72.00;;95.04;90.69;;;;31/08/2025
+2023;Escuela de Ingeniería y Arquitectura;1-Programa conjunto en Matemáticas-Ingeniería Informática;Grado;48;10;10;;0;0;;6;;3;3817.00;12.00;;94.22;88.06;;;;31/08/2025
+2023;Escuela Universitaria Politécnica de la Almunia de Doña Godina;1-Programa conjunto en Ingeniería Mecatrónica-Ingeniería de Organización  Industrial;Grado;47;11;10;0;0;0;0;37;;1;3114.00;2278.00;;92.68;87.38;;;;31/08/2025
+2023;Facultad de Ciencias Sociales y Humanas de Teruel;1-Psicología;Grado;328;87;94;57;0;0;0;24;20;34;20226.00;1073.50;3.98;94.41;92.02;97.81;;;31/08/2025
+2023;Escuela Universitaria Politécnica de la Almunia de Doña Godina;1-Ingeniería de Datos en Procesos Industriales;Grado;125;48;60;0;0;0;0;22;3;4;7500.00;248.00;;87.50;80.90;;;;31/08/2025
+2023;Escuela Universitaria Politécnica de Teruel;1-Programa conjunto en Ingeniería Informática-Administración y Dirección de Empresas;Grado;18;9;10;0;0;0;0;6;2;0;1308.00;157.00;;82.76;77.06;;;;31/08/2025
+2023;Facultad de Derecho;5-Derecho;Licenciatura o equivalente;;;;0;;;0;;;;;;;;;;;;31/08/2025
+2023;Facultad de Economía y Empresa;6-Diplomado Ciencias Empresariales;Diplomatura o equivalente;;;;0;;;0;;;;;;;;;;;;31/08/2025
+2023;Facultad de Ciencias;5-Matemáticas;Licenciatura o equivalente;;;;0;;;0;;;;;;;;;;;;31/08/2025
+2023;"Escuela Universitaria de Trabajo Social ""San Vicente de Paul""";6-Trabajo Social;Diplomatura o equivalente;;;;0;;;0;;;;;;;;;;;;31/08/2025
+2023;Facultad de Filosofía y Letras;6-Filología Inglesa;Licenciatura o equivalente;;;;0;;;0;;;;;;;;;;;;31/08/2025
+2023;Facultad de Ciencias;4-Movilidad para 1º y 2º ciclo y grado;Movilidad de entrada;60;0;;;0;0;;0;;0;1688.50;0.00;;100.00;100.00;;;;31/08/2025
+2023;Facultad de Derecho;4-Movilidad para 1º y 2º ciclo y grado;Movilidad de entrada;56;0;;;0;0;;0;;0;1736.00;0.00;;;;;;;31/08/2025
+2023;Facultad de Filosofía y Letras;4-Movilidad para 1º y 2º ciclo y grado;Movilidad de entrada;226;0;;;0;0;;0;47;0;7849.00;0.00;;;;;;;31/08/2025
+2023;Facultad de Medicina;4-Movilidad para 1º y 2º ciclo y grado;Movilidad de entrada;75;0;;;0;0;;0;;0;5023.00;0.00;;;;;;;31/08/2025
+2023;Facultad de Veterinaria;4-Movilidad para 1º y 2º ciclo y grado;Movilidad de entrada;54;0;;;0;0;;0;;0;1703.00;0.00;;;;;;;31/08/2025
+2023;Facultad de Educación;4-Movilidad para 1º y 2º ciclo y grado;Movilidad de entrada;27;0;;;0;0;;0;;0;878.00;0.00;;;;;;;31/08/2025
+2023;Facultad de Ciencias Sociales y del Trabajo;4-Movilidad para 1º y 2º ciclo y grado;Movilidad de entrada;36;0;;;0;0;;0;;0;1121.00;0.00;;;;;;;31/08/2025
+2023;Facultad de Economía y Empresa;4-Movilidad para 1º y 2º ciclo y grado;Movilidad de entrada;205;0;;;0;0;;0;;0;5844.00;0.00;;;;;;;31/08/2025
+2023;Escuela de Ingeniería y Arquitectura;4-Movilidad para 1º y 2º ciclo y grado;Movilidad de entrada;103;0;;;0;0;;0;;0;2932.50;0.00;;;;;;;31/08/2025
+2023;Facultad de Ciencias de la Salud;4-Movilidad para 1º y 2º ciclo y grado;Movilidad de entrada;28;0;;;0;0;;0;;0;921.00;0.00;;100.00;100.00;;;;31/08/2025
+2023;UNITA;4-Movilidad para 1º y 2º ciclo y grado;Movilidad de entrada;23;0;;;0;0;;;;0;0.00;;;;;;;;31/08/2025
+2023;Escuela Universitaria Politécnica de la Almunia de Doña Godina;4-Movilidad para 1º y 2º ciclo y grado;Movilidad de entrada;51;0;;;0;0;;0;;0;1463.00;0.00;;;;;;;31/08/2025
+2023;Escuela Universitaria de Turismo de Zaragoza;4-Movilidad para 1º y 2º ciclo y grado;Movilidad de entrada;5;0;;;0;0;;0;;0;123.00;0.00;;;;;;;31/08/2025
+2023;Escuela Politécnica Superior;4-Movilidad para 1º y 2º ciclo y grado;Movilidad de entrada;13;0;;;0;0;;0;;0;327.00;0.00;;;;;;;31/08/2025
+2023;Facultad de Ciencias Humanas y de la Educación;4-Movilidad para 1º y 2º ciclo y grado;Movilidad de entrada;4;0;;;0;0;;0;;0;108.00;0.00;;;;;;;31/08/2025
+2023;Facultad de Empresa y Gestión Pública;4-Movilidad para 1º y 2º ciclo y grado;Movilidad de entrada;22;0;;;0;0;;0;;0;722.00;0.00;;;;;;;31/08/2025
+2023;Facultad de Ciencias de la Salud y del Deporte;4-Movilidad para 1º y 2º ciclo y grado;Movilidad de entrada;23;0;;;0;0;;0;;0;834.00;0.00;;;;;;;31/08/2025
+2023;Escuela Universitaria de Enfermería San Jorge de Huesca;4-Movilidad para 1º y 2º ciclo y grado;Movilidad de entrada;3;0;;;0;0;;0;;0;102.00;0.00;;;;;;;31/08/2025
+2023;Facultad de Ciencias Sociales y Humanas de Teruel;4-Movilidad para 1º y 2º ciclo y grado;Movilidad de entrada;55;0;;;0;0;;0;;0;1688.00;0.00;;;;;;;31/08/2025
+2023;Escuela Universitaria Politécnica de Teruel;4-Movilidad para 1º y 2º ciclo y grado;Movilidad de entrada;2;0;;;0;0;;0;;0;60.00;0.00;;;;;;;31/08/2025
+2023;Escuela Universitaria de Enfermería de Teruel;4-Movilidad para 1º y 2º ciclo y grado;Movilidad de entrada;2;0;;;0;0;;0;;0;68.00;0.00;;;;;;;31/08/2025
+2023;Facultad de Ciencias Sociales y Humanas de Teruel;6-Maestro Educación Primaria;Diplomatura o equivalente;;;;0;;;0;;;;;;;;;;;;31/08/2025
+2023;Facultad de Economía y Empresa;5-Licenciado en Economía;Licenciatura o equivalente;;;;0;;;0;;;;;;;;;;;;31/08/2025
+2023;Facultad de Ciencias Sociales y del Trabajo;6-Relaciones Laborales;Diplomatura o equivalente;;;;0;;;0;;;;;;;;;;;;31/08/2025
+2023;Facultad de Filosofía y Letras;5-Historia;Licenciatura o equivalente;;;;0;;;0;;;;;;;;;;;;31/08/2025
+2023;Escuela Universitaria de Ingeniería Técnica Industrial;6-Ingeniero Técnico Industrial, Esp. Mecánica;Diplomatura o equivalente;;;;0;;;0;;;;;;;;;;;;31/08/2025
+2023;Escuela Universitaria de Ingeniería Técnica Industrial;6-Ingeniero Técnico en Diseño Industrial;Diplomatura o equivalente;;;;0;;;0;;;;;;;;;;;;31/08/2025
+2023;Facultad de Ciencias;2-Biología Molecular y Celular;Máster;28;26;30;27;0;0;0;0;;0;1632.00;0.00;1.04;100.00;97.79;97.49;;;31/08/2025
+2023;Facultad de Ciencias;2-Física y Tecnologías Físicas;Máster;7;6;30;6;0;0;0;1;4;0;403.00;10.00;1.00;100.00;93.05;98.63;;;31/08/2025
+2023;Facultad de Filosofía y Letras;2-Gestión del Patrimonio Cultural;Máster;39;30;35;27;0;0;0;1;;0;1976.00;12.00;1.24;95.45;87.15;93.64;;;31/08/2025
+2023;Facultad de Filosofía y Letras;2-Tec.Información Geográfica para Ordenación Territorio: Sig/Teled;Máster;33;23;25;19;0;0;0;0;;0;1558.50;0.00;1.53;99.85;83.93;89.04;;;31/08/2025
+2023;Facultad de Ciencias de la Salud;2-Gerontología Social;Máster;42;35;36;29;0;0;0;0;;0;2184.00;0.00;1.14;100.00;92.12;97.97;;;31/08/2025
+2023;Facultad de Ciencias Sociales y del Trabajo;2-Relaciones de Género;Máster;23;16;30;11;0;0;0;1;1;0;990.00;30.00;1.64;97.86;83.03;93.22;;;31/08/2025
+2023;Facultad de Economía y Empresa;2-Contabilidad y Finanzas;Máster;28;17;27;20;0;0;0;0;3;0;1176.00;0.00;1.26;98.44;85.71;94.94;;;31/08/2025
+2023;Facultad de Economía y Empresa;2-Economía;Máster;24;15;30;9;0;0;0;0;2;0;1035.00;0.00;1.12;96.93;64.06;97.30;;;31/08/2025
+2023;Facultad de Medicina;2-Iniciación a la investigación en Medicina;Máster;51;48;60;45;0;0;0;47;;0;2693.00;235.00;1.04;100.00;95.69;98.73;;;31/08/2025
+2023;Escuela de Ingeniería y Arquitectura;2-Ingeniería biomédica;Máster;3;0;;2;0;0;0;0;;0;45.00;0.00;7.00;100.00;66.67;60.98;;;31/08/2025
+2023;Facultad de Empresa y Gestión Pública;2-Dirección y planificación del turismo;Máster;20;11;30;7;0;0;0;0;8;0;750.00;0.00;2.00;100.00;84.40;87.12;;;31/08/2025
+2023;Facultad de Ciencias;4-Movilidad para máster;Movilidad de entrada;14;0;;;0;0;;0;3;0;354.00;0.00;;;;;;;31/08/2025
+2023;Facultad de Filosofía y Letras;4-Movilidad para máster;Movilidad de entrada;3;0;;;0;0;;0;;0;63.00;0.00;;;;;;;31/08/2025
+2023;Facultad de Medicina;4-Movilidad para máster;Movilidad de entrada;1;0;;;0;0;;0;;0;30.00;0.00;;;;;;;31/08/2025
+2023;Facultad de Educación;4-Movilidad para máster;Movilidad de entrada;1;0;;;0;0;;0;;0;35.00;0.00;;;;;;;31/08/2025
+2023;Facultad de Ciencias Sociales y del Trabajo;4-Movilidad para máster;Movilidad de entrada;6;0;;;0;0;;0;;0;169.00;0.00;;;;;;;31/08/2025
+2023;Facultad de Economía y Empresa;4-Movilidad para máster;Movilidad de entrada;2;0;;;0;0;;0;;0;41.00;0.00;;;;;;;31/08/2025
+2023;Escuela de Ingeniería y Arquitectura;4-Movilidad para máster;Movilidad de entrada;35;0;;;0;0;;0;;0;984.50;0.00;;;;;;;31/08/2025
+2023;Escuela Politécnica Superior;4-Movilidad para máster;Movilidad de entrada;1;0;;;0;0;;0;;0;12.00;0.00;;;;;;;31/08/2025
+2023;Facultad de Empresa y Gestión Pública;4-Movilidad para máster;Movilidad de entrada;6;0;;;0;0;;0;;0;306.00;0.00;;;;;;;31/08/2025
+2023;Facultad de Ciencias;2-Materiales nanoestructurados para aplicaciones nanotecnológicas;Máster;12;12;25;10;0;0;0;0;2;0;706.00;0.00;1.00;97.52;94.76;100.00;;;31/08/2025
+2023;Facultad de Economía y Empresa;2-Sociología de las Políticas Públicas y Sociales;Máster;22;15;25;10;0;0;0;0;1;0;982.00;0.00;1.40;100.00;84.73;91.74;;;31/08/2025
+2023;Facultad de Educación;2-Aprendizaje a lo largo de la vida: Iniciación a la investigación;Máster;35;22;40;20;0;0;0;16;;0;1350.00;188.00;1.36;99.37;81.63;84.58;;;31/08/2025
+2023;Facultad de Filosofía y Letras;2-Investigación y Estudios Avanzados en Historia;Máster;8;7;40;6;0;0;0;0;;0;444.00;0.00;1.00;100.00;93.24;100.00;;;31/08/2025
+2023;Facultad de Filosofía y Letras;2-Estudios Avanzados en Historia del Arte;Máster;9;7;35;5;0;0;0;1;3;0;435.00;48.00;1.20;100.00;79.66;96.21;;;31/08/2025
+2023;Escuela de Ingeniería y Arquitectura;2-Energías Renovables y Eficiencia Energética;Máster;10;0;;14;0;0;0;9;;0;148.00;230.00;5.40;100.00;60.81;78.45;;;31/08/2025
+2023;Facultad de Filosofía y Letras;2-Historia Contemporánea;Máster;2;0;;1;0;0;0;0;;0;50.00;0.00;;100.00;60.00;42.86;;;31/08/2025
+2023;Facultad de Filosofía y Letras;2-Ordenación Territorial y Medioambiental;Máster;22;15;25;7;0;0;0;0;2;0;996.00;0.00;1.43;98.41;74.70;92.11;;;31/08/2025
+2023;Escuela de Ingeniería y Arquitectura;2-Ingeniería Electrónica;Máster;25;19;25;15;0;0;0;2;1;0;1134.00;38.00;1.27;93.10;85.71;87.21;;;31/08/2025
+2023;Facultad de Educación;2-Profesorado E.S.O., F.P. y Ens. Idiom, Art y Deport;Máster;613;460;465;445;0;0;0;32;3;0;28960.00;454.00;1.26;98.75;94.05;97.14;;;31/08/2025
+2023;Facultad de Ciencias Humanas y de la Educación;2-Profesorado E.S.O., F.P. y Ens. Idiom, Art y Deport;Máster;29;24;30;22;0;0;0;0;;0;1488.00;0.00;1.05;99.57;93.21;99.55;;;31/08/2025
+2023;Facultad de Ciencias Sociales y Humanas de Teruel;2-Profesorado E.S.O., F.P. y Ens. Idiom, Art y Deport;Máster;15;13;20;12;0;0;0;0;;0;753.00;0.00;1.08;99.20;98.41;99.17;;;31/08/2025
+2023;Facultad de Derecho;2-Prevención de riesgos laborales;Máster;30;26;30;24;0;0;0;6;;0;1843.00;283.00;1.27;100.00;98.05;97.59;;;31/08/2025
+2023;Escuela de Ingeniería y Arquitectura;2-Arquitectura;Máster;38;28;80;32;0;0;0;0;2;0;2013.00;0.00;1.20;99.67;90.46;88.28;;;31/08/2025
+2023;Facultad de Ciencias;2-Modelización e Investigación Matemática, Estadística y Computación;Máster;26;16;17;13;0;0;0;1;5;0;984.00;6.00;2.33;100.00;82.93;86.67;;;31/08/2025
+2023;Facultad de Derecho;2-Abogacía;Máster;160;68;100;82;0;0;0;4;;0;6624.00;74.00;2.11;99.75;98.01;97.94;;;31/08/2025
+2023;Facultad de Ciencias Humanas y de la Educación;2-Estudios Avanzados sobre el Lenguaje, la Comunicación y sus Patologías;Máster;3;0;;1;0;0;0;0;;0;42.00;0.00;;100.00;42.86;74.47;;;31/08/2025
+2023;Escuela de Ingeniería y Arquitectura;2-Ingeniería Química;Máster;33;14;40;14;0;0;0;5;6;0;1518.00;60.00;1.90;99.14;91.30;93.79;;;31/08/2025
+2023;Escuela de Ingeniería y Arquitectura;2-Ingeniería Industrial;Máster;200;76;240;83;0;0;0;13;13;14;9694.00;426.00;2.40;95.85;89.84;93.47;;;31/08/2025
+2023;Escuela de Ingeniería y Arquitectura;2-Ingeniería de Telecomunicación;Máster;31;14;30;10;0;0;0;8;1;0;1512.00;96.00;2.00;97.39;88.89;98.45;;;31/08/2025
+2023;Escuela de Ingeniería y Arquitectura;2-Ingeniería Informática;Máster;10;1;60;6;0;0;0;1;7;0;274.50;9.00;2.00;100.00;88.52;80.28;;;31/08/2025
+2023;Escuela de Ingeniería y Arquitectura;2-Ingeniería Mecánica;Máster;31;18;30;13;0;0;0;1;5;0;1194.00;18.00;1.40;97.20;85.36;95.05;;;31/08/2025
+2023;Facultad de Ciencias;2-Química Industrial;Máster;22;20;50;20;0;0;0;0;;0;1218.00;0.00;1.00;99.48;94.33;100.00;;;31/08/2025
+2023;Facultad de Ciencias;2-Geología: Técnicas y Aplicaciones;Máster;16;11;20;11;0;0;0;0;2;0;762.00;0.00;1.40;100.00;92.13;96.48;;;31/08/2025
+2023;Facultad de Ciencias;2-Química Molecular y Catálisis Homogénea;Máster;20;18;25;19;0;0;0;0;1;1;1168.00;0.00;1.06;100.00;96.31;95.16;;;31/08/2025
+2023;Facultad de Economía y Empresa;2-Auditoría;Máster;42;32;32;28;0;0;0;0;;0;1893.00;0.00;1.16;97.03;93.24;92.46;;;31/08/2025
+2023;Escuela Politécnica Superior;2-Ingeniería Agronómica;Máster;48;17;40;8;0;0;0;7;;1;1405.50;42.00;2.67;91.67;83.60;92.80;;;31/08/2025
+2023;Facultad de Ciencias de la Salud y del Deporte;2-Evaluación y Entrenamiento Físico para la Salud;Máster;20;13;20;10;0;0;0;0;;1;894.00;0.00;2.56;96.27;80.84;78.43;;;31/08/2025
+2023;Facultad de Filosofía y Letras;2-Mundo Antiguo y Patrimonio Arqueológico;Máster;15;10;30;8;0;0;0;0;2;0;632.00;0.00;1.29;100.00;90.82;94.49;;;31/08/2025
+2023;Facultad de Ciencias de la Salud;2-Iniciación a la Investigación en Ciencias de la Enfermería;Máster;;;;0;;;0;;;;;;;;;;;;31/08/2025
+2023;Facultad de Economía y Empresa;2-Dirección, Estrategia y Marketing;Máster;23;19;20;11;0;0;0;0;1;0;1107.00;0.00;1.10;100.00;88.89;98.21;;;31/08/2025
+2023;Facultad de Ciencias Sociales y Humanas de Teruel;2-Psicología General Sanitaria;Máster;63;30;30;30;0;0;0;1;1;0;2712.00;3.00;2.23;100.00;98.01;95.60;;;31/08/2025
+2023;Escuela de Ingeniería y Arquitectura;2-Ingeniería de Diseño de Producto;Máster;16;10;30;7;0;0;0;0;4;0;657.00;0.00;1.40;100.00;86.30;91.60;;;31/08/2025
+2023;Facultad de Filosofía y Letras;2-Consultoría de Información y Comunicación Digital;Máster;34;22;25;15;0;0;0;12;1;0;1422.00;72.00;1.53;96.28;76.69;92.36;;;31/08/2025
+2023;Facultad de Derecho;2-Gestión Administrativa;Máster;14;10;30;9;0;0;0;0;;0;591.00;0.00;1.25;100.00;88.83;95.74;;;31/08/2025
+2023;Facultad de Filosofía y Letras;2-Investigación en Filosofía;Máster;14;11;12;8;0;0;0;0;2;0;705.00;0.00;1.25;100.00;80.43;94.12;;;31/08/2025
+2023;Centro Universitario de la Defensa de Zaragoza;2-Dirección y Gestión de Adquisiciones de Sistemas para la Defensa;Máster;46;23;25;23;0;0;0;3;;0;1398.00;27.00;1.00;100.00;98.28;100.00;;;31/08/2025
+2023;Facultad de Derecho;2-Derecho de la Administración Pública;Máster;30;19;20;8;0;0;0;1;1;0;1245.00;3.00;1.00;97.51;85.06;100.00;;;31/08/2025
+2023;Escuela de Ingeniería y Arquitectura;2-Programa conjunto en Máster Universitario en Ingeniería Industrial-Máster Universitario en Ingeniería Mecánica;Máster;1;0;;;0;0;;0;;0;12.00;0.00;;100.00;100.00;;;;31/08/2025
+2023;Escuela de Ingeniería y Arquitectura;2-Programa conjunto en Máster Universitario en Ingeniería Industrial-Máster Universitario en Energías Renovables y Eficiencia Energética;Máster;11;0;;;0;0;;0;;1;270.00;0.00;;100.00;78.05;;;;31/08/2025
+2023;Facultad de Medicina;2-Cond. genéticos, nutric. y amb. del crec. y desarrollo;Máster;38;20;25;19;0;0;0;0;;0;1198.00;0.00;1.00;100.00;99.25;100.00;;;31/08/2025
+2023;Escuela de Ingeniería y Arquitectura;2-Robótica, Gráficos y Visión por Computador/Robotics, Graphics and Computer Vision;Máster;63;30;30;27;0;0;0;6;13;1;2889.00;48.00;2.00;99.32;92.44;97.54;;;31/08/2025
+2023;Escuela Universitaria Politécnica de Teruel;2-Innovación y Emprendimiento en Tecnologías para la Salud y el Bienestar;Máster;1;0;;1;0;0;0;0;;0;27.00;0.00;4.00;100.00;100.00;100.00;;;31/08/2025
+2023;Facultad de Veterinaria;2-Salud Global: Integración de la Salud Ambiental, Humana y Animal;Máster;19;17;30;18;0;0;0;0;;0;1071.00;0.00;1.12;100.00;98.60;97.31;;;31/08/2025
+2023;Facultad de Filosofía y Letras;2-Enseñanza del Español como Lengua Extranjera;Máster;35;30;30;25;0;0;0;1;1;0;1812.00;6.00;1.12;98.97;95.20;98.22;;;31/08/2025
+2023;Facultad de Ciencias;2-Biofísica y Biotecnología Cuantitativa/Biophysics and Quantitative Biotechnology;Máster;32;17;24;13;0;0;0;1;5;2;1500.00;30.00;2.00;99.58;97.92;100.00;;;31/08/2025
+2023;Facultad de Ciencias;2-Economía Circular;Máster;17;8;40;5;0;0;0;0;;0;813.00;0.00;2.00;100.00;81.55;98.77;;;31/08/2025
+2023;Facultad de Ciencias;2-Física del Universo: Cosmología, Astrofísica, Partículas y Astropartículas;Máster;22;6;30;12;0;0;0;0;2;0;684.00;0.00;2.08;100.00;91.23;94.74;;;31/08/2025
+2023;Facultad de Filosofía y Letras;2-Culturas e Identidades Hispánicas;Máster;3;0;;1;0;0;0;0;;0;96.00;0.00;2.00;100.00;62.50;100.00;;;31/08/2025
+2023;Facultad de Veterinaria;2-Nutrición Animal;Máster;14;14;30;;0;0;;0;;0;840.00;0.00;;100.00;100.00;;;;31/08/2025
+2023;Facultad de Veterinaria;2-Calidad, Seguridad y Tecnología de los Alimentos;Máster;36;19;30;13;0;0;0;0;;0;1677.00;0.00;1.92;100.00;93.74;100.00;;;31/08/2025
+2023;Facultad de Ciencias Sociales y del Trabajo;2-Gestión Estratégica de Recursos Humanos;Máster;57;29;30;21;0;0;0;13;;0;2326.00;226.00;2.00;98.66;94.93;100.00;;;31/08/2025
+2023;Escuela de Ingeniería y Arquitectura;2-Ingeniería Biomédica;Máster;49;27;40;25;0;0;0;6;1;2;2310.00;72.00;1.84;98.51;97.20;96.06;;;31/08/2025
+2023;Escuela de Ingeniería y Arquitectura;2-Energías Renovables y Eficiencia Energética;Máster;35;19;30;11;0;0;0;2;24;0;1422.00;33.00;2.00;99.08;90.93;100.00;;;31/08/2025
+2023;Facultad de Medicina;2-Inmunología Tumoral e Inmunoterapia del Cáncer;Máster;37;20;30;15;0;0;0;0;;0;1731.00;0.00;2.00;100.00;98.27;100.00;;;31/08/2025
+2023;Facultad de Ciencias Humanas y de la Educación;2-Estudios Avanzados sobre el Lenguaje, la Comunicación y sus Patologías;Máster;22;19;20;12;0;0;0;2;;0;1182.00;18.00;1.09;98.82;85.03;98.37;;;31/08/2025
+2023;Facultad de Filosofía y Letras;2-Historia Contemporánea;Máster;13;13;40;11;0;0;0;0;2;0;780.00;0.00;1.00;99.31;91.67;100.00;;;31/08/2025
+2023;Facultad de Ciencias;2-Erasmus Mundus en Ingeniería de Membranas para un Desarrollo Sostenible;Máster;15;15;20;;0;0;;15;;0;442.00;438.00;;100.00;100.00;;;;31/08/2025
+2023;Facultad de Ciencias;2-Economía Circular;Máster;;;;;;;;1;;;;12.00;;;;;;;31/08/2025
+2023;Escuela de Ingeniería y Arquitectura;2-Ingeniería de Telecomunicación;Máster;;;;;;;;17;;;;888.00;;;;;;;31/08/2025
+2023;Escuela de Ingeniería y Arquitectura;2-Ingeniería Industrial;Máster;;;;;;;;3;;;;19.50;;;;;;;31/08/2025
+2023;Escuela de Doctorado;4-Movilidad Doctorado;Movilidad de entrada;2;0;;;0;0;;;2;0;0.00;;;;;;;;31/08/2025
+2023;Escuela de Doctorado;3-PD Ciencias de la antigüedad;Doctorado;34;8;10;4;0;0;0;0;;0;0.00;0.00;6.01;;;;;;31/08/2025
+2023;Escuela de Doctorado;3-PD Estudios ingleses;Doctorado;33;5;10;7;0;0;0;0;;0;0.00;0.00;4.92;;;;;;31/08/2025
+2023;Escuela de Doctorado;3-PD Literaturas hispánicas;Doctorado;23;4;20;3;0;0;0;0;;0;0.00;0.00;4.92;;;;;;31/08/2025
+2023;Escuela de Doctorado;3-PD Filosofía;Doctorado;29;7;8;5;0;0;0;0;;0;0.00;0.00;4.02;;;;;;31/08/2025
+2023;Escuela de Doctorado;3-PD Historia contemporánea;Doctorado;31;9;15;4;0;0;0;0;;0;0.00;0.00;4.77;;;;;;31/08/2025
+2023;Escuela de Doctorado;3-PD Historia del arte;Doctorado;48;14;20;7;0;0;0;0;;0;0.00;0.00;5.72;;;;;;31/08/2025
+2023;Escuela de Doctorado;3-PD Historia, sociedad y cultura: épocas medieval y moderna;Doctorado;24;7;8;3;0;0;0;0;;0;0.00;0.00;5.30;;;;;;31/08/2025
+2023;Escuela de Doctorado;3-PD Lingüística hispánica;Doctorado;21;6;25;5;0;0;0;0;;0;0.00;0.00;4.47;;;;;;31/08/2025
+2023;Escuela de Doctorado;3-PD Bioquímica y biología molecular;Doctorado;107;23;30;33;0;0;0;0;;0;0.00;0.00;4.66;;;;;;31/08/2025
+2023;Escuela de Doctorado;3-PD Calidad, seguridad y tecnología de los alimentos;Doctorado;33;8;15;6;0;0;0;0;;0;0.00;0.00;4.84;;;;;;31/08/2025
+2023;Escuela de Doctorado;3-PD Ciencia analítica en química;Doctorado;32;7;15;6;0;0;0;0;;0;0.00;0.00;4.44;;;;;;31/08/2025
+2023;Escuela de Doctorado;3-PD Física;Doctorado;109;27;50;15;0;0;0;0;;0;0.00;0.00;4.71;;;;;;31/08/2025
+2023;Escuela de Doctorado;3-PD Geología;Doctorado;37;10;11;7;0;0;0;0;;0;0.00;0.00;4.31;;;;;;31/08/2025
+2023;Escuela de Doctorado;3-PD Matemáticas y estadística;Doctorado;30;7;5;6;0;0;0;0;;0;0.00;0.00;3.62;;;;;;31/08/2025
+2023;Escuela de Doctorado;3-PD Producción animal;Doctorado;22;4;6;2;0;0;0;0;;0;0.00;0.00;3.62;;;;;;31/08/2025
+2023;Escuela de Doctorado;3-PD Química física;Doctorado;15;2;10;4;0;0;0;0;;0;0.00;0.00;4.53;;;;;;31/08/2025
+2023;Escuela de Doctorado;3-PD Química inorgánica;Doctorado;40;12;18;5;0;0;0;0;;0;0.00;0.00;4.05;;;;;;31/08/2025
+2023;Escuela de Doctorado;3-PD Química orgánica;Doctorado;41;9;12;8;0;0;0;0;;0;0.00;0.00;4.92;;;;;;31/08/2025
+2023;Escuela de Doctorado;3-PD Ciencias biomédicas y biotecnológicas;Doctorado;41;3;20;10;0;0;0;0;;0;0.00;0.00;5.07;;;;;;31/08/2025
+2023;Escuela de Doctorado;3-PD Ciencias de la salud y del deporte;Doctorado;138;30;30;12;0;0;0;3;;0;0.00;0.00;4.47;;;;;;31/08/2025
+2023;Escuela de Doctorado;3-PD Medicina;Doctorado;287;41;75;31;0;0;0;0;;0;0.00;0.00;4.79;;;;;;31/08/2025
+2023;Escuela de Doctorado;3-PD Medicina y sanidad animal;Doctorado;49;7;15;8;0;0;0;0;;0;0.00;0.00;4.83;;;;;;31/08/2025
+2023;Escuela de Doctorado;3-PD Contabilidad y finanzas;Doctorado;31;11;18;3;0;0;0;0;;0;0.00;0.00;5.52;;;;;;31/08/2025
+2023;Escuela de Doctorado;3-PD Derecho;Doctorado;116;22;30;9;0;0;0;0;;0;0.00;0.00;4.97;;;;;;31/08/2025
+2023;Escuela de Doctorado;3-PD Derechos humanos y libertades fundamentales;Doctorado;43;9;10;6;0;0;0;0;;0;0.00;0.00;4.75;;;;;;31/08/2025
+2023;Escuela de Doctorado;3-PD Economía;Doctorado;47;7;15;9;0;0;0;0;;0;0.00;0.00;5.12;;;;;;31/08/2025
+2023;Escuela de Doctorado;3-PD Economía y gestión de las organizaciones;Doctorado;39;12;20;6;0;0;0;0;;0;0.00;0.00;3.06;;;;;;31/08/2025
+2023;Escuela de Doctorado;3-PD Educación;Doctorado;111;26;25;15;0;0;0;1;;0;0.00;0.00;3.86;;;;;;31/08/2025
+2023;Escuela de Doctorado;3-PD Ordenación del territorio y medio ambiente;Doctorado;46;14;25;5;0;0;0;0;;0;0.00;0.00;4.78;;;;;;31/08/2025
+2023;Escuela de Doctorado;3-PD Relaciones de género y estudios feministas;Doctorado;17;4;30;4;0;0;0;0;;0;0.00;0.00;5.40;;;;;;31/08/2025
+2023;Escuela de Doctorado;3-PD Sociología de las políticas públicas y sociales;Doctorado;56;11;20;9;0;0;0;0;;0;0.00;0.00;4.76;;;;;;31/08/2025
+2023;Escuela de Doctorado;3-PD Ciencias agrarias y del medio natural;Doctorado;54;17;30;7;0;0;0;0;;0;0.00;0.00;4.83;;;;;;31/08/2025
+2023;Escuela de Doctorado;3-PD Energías renovables y eficiencia energética;Doctorado;38;7;15;7;0;0;0;0;;0;0.00;0.00;5.66;;;;;;31/08/2025
+2023;Escuela de Doctorado;3-PD Ingeniería biomédica;Doctorado;62;15;10;10;0;0;0;0;;0;0.00;0.00;4.87;;;;;;31/08/2025
+2023;Escuela de Doctorado;3-PD Ingeniería de diseño y fabricación;Doctorado;38;8;20;4;0;0;0;0;;0;0.00;0.00;5.66;;;;;;31/08/2025
+2023;Escuela de Doctorado;3-PD Ingeniería de sistemas e informática;Doctorado;93;16;30;15;0;0;0;0;;0;0.00;0.00;4.38;;;;;;31/08/2025
+2023;Escuela de Doctorado;3-PD Ingeniería electrónica;Doctorado;33;2;10;6;0;0;0;0;;0;0.00;0.00;4.61;;;;;;31/08/2025
+2023;Escuela de Doctorado;3-PD Ingeniería mecánica;Doctorado;51;8;25;7;0;0;0;0;;0;0.00;0.00;5.12;;;;;;31/08/2025
+2023;Escuela de Doctorado;3-PD Ingeniería química y del medio ambiente;Doctorado;93;22;60;12;0;0;0;0;;0;0.00;0.00;4.49;;;;;;31/08/2025
+2023;Escuela de Doctorado;3-PD Mecánica de fluidos;Doctorado;17;5;3;2;0;0;0;0;;0;0.00;0.00;5.21;;;;;;31/08/2025
+2023;Escuela de Doctorado;3-PD Nuevos territorios en la arquitectura;Doctorado;34;4;10;4;0;0;0;0;;0;0.00;0.00;5.75;;;;;;31/08/2025
+2023;Escuela de Doctorado;3-PD Tecnologías de la información y comunicaciones en redes moviles;Doctorado;15;2;10;;0;0;;0;;0;0.00;0.00;;;;;;;31/08/2025
+2023;Escuela de Doctorado;3-PD Información y Comunicación;Doctorado;37;7;6;10;0;0;0;0;;0;0.00;0.00;4.08;;;;;;31/08/2025
+2023;Escuela de Doctorado;3-PD Patrimonio, Sociedades y Espacios de Frontera;Doctorado;25;5;8;2;0;0;0;0;;0;0.00;0.00;3.68;;;;;;31/08/2025
+2023;Escuela de Doctorado;3-PD Logística y gestión de la cadena de suministro;Doctorado;2;0;8;2;0;0;0;0;;0;0.00;0.00;4.20;;;;;;31/08/2025
+2023;Escuela de Doctorado;3-PD Psicología;Doctorado;47;16;20;4;0;0;0;1;;0;0.00;0.00;4.34;;;;;;31/08/2025
+2023;Escuela de Doctorado;3-PD Sistemas eficientes de producción y calidad agroalimentaria;Doctorado;;;4;;;;;;;;;;;;;;;;31/08/2025
+2023;Escuela de Doctorado;3-PD en Relaciones Laborales y Recursos Humanos;Doctorado;3;3;10;;0;0;;0;;0;0.00;0.00;;;;;;;31/08/2025
+2023;Escuela de Doctorado;3-PD en Salud Global: Determinantes e Interacción de la Salud Humana, Animal y Ambiental;Doctorado;3;3;4;;0;0;;0;;0;0.00;0.00;;;;;;;31/08/2025
+2023;Escuela de Doctorado;3-Programa de Doctorado en Didáctica de las Ciencias Experimentales;Doctorado;3;3;6;;0;0;;0;;0;0.00;0.00;;;;;;;31/08/2025

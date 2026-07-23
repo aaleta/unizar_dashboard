@@ -6,7 +6,9 @@ import {
     RECENT_YEARS,
     MIN_COHORT,
     academicYears,
-    officialYears
+    officialYears,
+    officialAgreement,
+    latestOfficialYear
 } from "@/utils/metrics";
 
 import { DATA_SOURCES } from "@/utils/dataSources";
@@ -17,6 +19,13 @@ import { DATA_SOURCES } from "@/utils/dataSources";
  */
 
 const metrics = Object.values(METRICS);
+
+/**
+ * El desacuerdo entre nuestras tasas y las oficiales, calculado y no escrito a
+ * mano: la Universidad republica los datos y las cifras de esta advertencia
+ * cambian con ellos.
+ */
+const agreement = officialAgreement(latestOfficialYear);
 
 const firstYear = academicYears[0];
 
@@ -204,10 +213,13 @@ const lastYear = academicYears[academicYears.length - 1];
             </li>
 
             <li>
-                <strong>Las tasas oficiales cubren un solo curso.</strong>
-                Los datos abiertos de rendimiento solo están publicados para
-                {{ officialYears.join(", ") }}. La media de convocatorias
-                consumidas procede de ahí y no tiene serie histórica.
+                <strong>Las tasas oficiales no cubren todas las asignaturas
+                todos los años.</strong>
+                Los datos abiertos de rendimiento van de
+                {{ officialYears[0] }} a {{ latestOfficialYear }}, pero una
+                optativa que no se oferta un curso no aparece ese año. La media
+                de convocatorias consumidas procede de ahí: cuando falta, se
+                indica el curso del que sí hay dato.
             </li>
 
             <li>
@@ -215,15 +227,19 @@ const lastYear = academicYears[academicYears.length - 1];
                 Todos los porcentajes de esta web se calculan a partir del
                 reparto de calificaciones, nunca mezclando fuentes. Al
                 contrastarlos con los datos abiertos del curso
-                {{ officialYears[0] }}, 38 de 52 asignaturas coinciden hasta el
-                último decimal, pero en 14 el número de alumnos difiere en uno o
-                dos, con diferencias de hasta 6 puntos en asignaturas pequeñas.
-                Alguna fila oficial es incluso incoherente consigo misma
-                (declara un 100 % de rendimiento con 16 alumnos superados de
-                17). Se ha optado por una sola fuente para las tasas —el reparto
-                de calificaciones, que sí es internamente consistente— y usar
-                los datos oficiales únicamente para la media de convocatorias,
-                que no puede deducirse de las notas.
+                {{ agreement.curso }}, {{ agreement.coinciden }} de
+                {{ agreement.comparables }} asignaturas coinciden hasta el
+                último decimal, pero en {{ agreement.difieren }} el número de
+                alumnos difiere en uno o dos, con diferencias de hasta
+                {{ Math.round(agreement.diferenciaMaxima) }} puntos en
+                asignaturas pequeñas. No es cosa de un curso suelto: el
+                desacuerdo aparece en los doce. Alguna fila oficial es incluso
+                incoherente consigo misma (declara un 100 % de rendimiento con
+                16 alumnos superados de 17). Se ha optado por una sola fuente
+                para las tasas —el reparto de calificaciones, que sí es
+                internamente consistente— y usar los datos oficiales únicamente
+                para la media de convocatorias, que no puede deducirse de las
+                notas.
             </li>
 
             <li>

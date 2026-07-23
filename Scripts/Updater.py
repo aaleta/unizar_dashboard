@@ -1,5 +1,7 @@
 import pandas as pd
 import json
+import re
+import unicodedata
 from pathlib import Path
 
 # Conversion to Json
@@ -12,16 +14,36 @@ df.to_json(
     indent=4
 )
 
-df = pd.read_csv("../data/xlsx_csv/resultados.csv", sep=";")
+# Los nombres de columna de notas_de_corte.xlsx han cambiado ya una vez
+# ("Año" -> "año", "Nota media en pruebas de acceso" -> "nota_media_admision").
+# La web no debe depender de cómo venga rotulada la hoja de cálculo, así que
+# aquí se normalizan a nombres estables y en snake_case, como el resto de JSON.
+CORTE_COLUMNS = {
+    "año": "anyo",
+    "ano": "anyo",
+    "nota_media_admision": "nota_media_admision",
+    "nota media en pruebas de acceso": "nota_media_admision",
+    "nota de corte": "nota_corte",
+    "nota_de_corte": "nota_corte",
+}
 
-df.to_json(
-    "../data/json/ResultadosRaw.json",
-    orient="records",
-    force_ascii=False,
-    indent=4
-)
+df = pd.read_excel("../data/xlsx_csv/notas_de_corte.xlsx")
 
-df = pd.read_excel("../data/xlsx_csv/Notas_de_corte.xlsx")
+df = df.rename(columns={
+    column: CORTE_COLUMNS[column.strip().lower()]
+    for column in df.columns
+    if column.strip().lower() in CORTE_COLUMNS
+})
+
+missing = {"anyo", "nota_media_admision", "nota_corte"} - set(df.columns)
+
+if missing:
+    raise SystemExit(
+        f"notas_de_corte.xlsx: no se reconocen las columnas {sorted(missing)}. "
+        f"Encontradas: {list(df.columns)}. Añádelas a CORTE_COLUMNS."
+    )
+
+df = df[["anyo", "nota_media_admision", "nota_corte"]].sort_values("anyo")
 
 df.to_json(
     "../data/json/NotasDeCorteRaw.json",
@@ -29,6 +51,8 @@ df.to_json(
     force_ascii=False,
     indent=4
 )
+
+print(f"NotasDeCorte: {len(df)} cursos ({df['anyo'].min()}-{df['anyo'].max()})")
 
 # Treatment of data (this makes the files AsigPorCurs.json and AsigClasTroncOpt with the information of notasraw.json,
 # it overwrites the information of this files when executed)#########################################################
@@ -177,18 +201,20 @@ with open(output_file, "w", encoding="utf-8") as f:
 
 
 # Official rates for the Physics degree (success/performance/evaluation rates and
-# average number of exam sittings consumed). ResultadosRaw.json holds every degree
-# in the university (~3.5 MB), so only the Physics rows are kept: the web imports
-# this file directly and must not carry the whole university in its bundle.
-# Subjects are matched to their code by name, the only field both sources share.
+# average number of exam sittings consumed), one CSV per academic year.
+#
+# Cada CSV trae TODA la universidad (~5.500 filas por curso), así que el filtrado
+# a Física se hace aquí, al leer, y no se guarda ningún volcado intermedio: doce
+# cursos completos serían decenas de MB en el repositorio para tirarlos después.
+# (Por eso data/json/ResultadosRaw.json ya no se genera: era ese volcado, de un
+# solo curso. Se puede borrar.)
+#
+# Las asignaturas se emparejan con su código por nombre, el único campo que
+# comparten las dos fuentes.
 
-import unicodedata
-
-input_file = Path("../data/json/ResultadosRaw.json")
+rendimiento_dir = Path("../data/xlsx_csv/rendimiento")
 notas_file = Path("../data/json/NotasRaw.json")
 output_file = Path("../data/json/processed/ResultadosFisica.json")
-
-STUDY = "Grado: Física"
 
 
 def normalize_name(name):
@@ -196,8 +222,18 @@ def normalize_name(name):
     return "".join(c for c in text if unicodedata.category(c) != "Mn")
 
 
-with open(input_file, "r", encoding="utf-8") as f:
-    resultados = json.load(f)
+def normalize_study(name):
+    """
+    El rótulo del estudio no es estable a lo largo de los años: "Física" en los
+    cursos antiguos, "Grado: Física" desde 2017-2018 y "1-Física" en algunos
+    volcados. Se quita el prefijo y se compara el nombre pelado, siempre junto a
+    TIPO_ESTUDIO == "Grado" para no confundirlo con el máster, el doctorado ni
+    con el programa conjunto Física-Matemáticas, que es otra titulación.
+    """
+    text = re.sub(r"^\d+-", "", str(name).strip())
+    text = re.sub(r"^(Grado|Máster|Doctorado):\s*", "", text)
+    return normalize_name(text)
+
 
 with open(notas_file, "r", encoding="utf-8") as f:
     notas = json.load(f)
@@ -208,38 +244,90 @@ for row in notas:
     codes_by_name.setdefault(normalize_name(row["Asignatura"]), row["Código"])
 
 physics_rows = []
-unmatched = []
+unmatched = set()
 
-for row in resultados:
+csv_files = sorted(rendimiento_dir.glob("*.csv"))
 
-    if row["ESTUDIO"] != STUDY:
-        continue
+if not csv_files:
+    raise SystemExit(f"No hay CSV de rendimiento en {rendimiento_dir}")
 
-    code = codes_by_name.get(normalize_name(row["ASIGNATURA"]))
+NUMERIC_FIELDS = [
+    "CURSO_ACADEMICO",
+    "TASA_EXITO",
+    "TASA_RENDIMIENTO",
+    "TASA_EVALUACION",
+    "ALUMNOS_EVALUADOS",
+    "ALUMNOS_SUPERADOS",
+    "ALUMNOS_PRESENTADOS",
+    "MEDIA_CONVOCATORIAS_CONSUMIDAS",
+]
 
-    if code is None:
-        unmatched.append(row["ASIGNATURA"])
-        continue
+for csv_file in csv_files:
 
-    physics_rows.append({
-        "code": code,
-        "anyo_academico": row["CURSO_ACADEMICO"],
-        "asignatura": row["ASIGNATURA"].strip(),
-        "clase": row["CLASE_ASIGNATURA"],
-        "tasa_exito": row["TASA_EXITO"],
-        "tasa_rendimiento": row["TASA_RENDIMIENTO"],
-        "tasa_evaluacion": row["TASA_EVALUACION"],
-        "alumnos_evaluados": row["ALUMNOS_EVALUADOS"],
-        "alumnos_superados": row["ALUMNOS_SUPERADOS"],
-        "alumnos_presentados": row["ALUMNOS_PRESENTADOS"],
-        "media_convocatorias": row["MEDIA_CONVOCATORIAS_CONSUMIDAS"],
-        "fecha_actualizacion": row["FECHA_ACTUALIZACION"],
-    })
+    # Todo como texto y las columnas numéricas se convierten después, a mano.
+    # Algunos volcados de la Universidad traen saltos de línea dentro del nombre
+    # de la asignatura sin entrecomillar: eso parte el registro en dos y corre
+    # todas las columnas. Son ~60 filas de 61.000 y ninguna es de Física, pero si
+    # se deja que pandas deduzca el tipo, un solo curso contaminado convierte
+    # CURSO_ACADEMICO en texto y el resto del proceso empieza a mentir en
+    # silencio. Leyendo en texto, esas filas simplemente no pasan el filtro.
+    rendimiento = pd.read_csv(
+        csv_file,
+        sep=";",
+        encoding="utf-8-sig",
+        dtype=str
+    )
 
-print(f"ResultadosFisica: {len(physics_rows)} filas")
+    fisica = rendimiento[
+        (rendimiento["TIPO_ESTUDIO"] == "Grado")
+        & (rendimiento["ESTUDIO"].map(normalize_study) == "fisica")
+    ].copy()
+
+    for field in NUMERIC_FIELDS:
+        fisica[field] = pd.to_numeric(fisica[field], errors="coerce")
+
+    fisica["CURSO_ACADEMICO"] = fisica["CURSO_ACADEMICO"].astype("Int64")
+
+    for row in fisica.to_dict("records"):
+
+        code = codes_by_name.get(normalize_name(row["ASIGNATURA"]))
+
+        if code is None:
+            unmatched.add(row["ASIGNATURA"].strip())
+            continue
+
+        physics_rows.append({
+            "code": int(code),
+            "anyo_academico": int(row["CURSO_ACADEMICO"]),
+            "asignatura": row["ASIGNATURA"].strip(),
+            "clase": row["CLASE_ASIGNATURA"],
+            "tasa_exito": row["TASA_EXITO"],
+            "tasa_rendimiento": row["TASA_RENDIMIENTO"],
+            "tasa_evaluacion": row["TASA_EVALUACION"],
+            "alumnos_evaluados": row["ALUMNOS_EVALUADOS"],
+            "alumnos_superados": row["ALUMNOS_SUPERADOS"],
+            "alumnos_presentados": row["ALUMNOS_PRESENTADOS"],
+            "media_convocatorias": row["MEDIA_CONVOCATORIAS_CONSUMIDAS"],
+            "fecha_actualizacion": row["FECHA_ACTUALIZACION"],
+        })
+
+# NaN no es JSON válido y json.dump lo escribiría como NaN a secas, que luego
+# revienta al importarlo. Un dato que falta es null, no cero.
+physics_rows = json.loads(
+    pd.DataFrame(physics_rows).to_json(orient="records", force_ascii=False)
+)
+
+physics_rows.sort(key=lambda r: (r["anyo_academico"], r["code"]))
+
+years = sorted({row["anyo_academico"] for row in physics_rows})
+
+print(
+    f"ResultadosFisica: {len(physics_rows)} filas, "
+    f"{len(years)} cursos ({years[0]}-{years[-1]})"
+)
 
 if unmatched:
-    print(f"  sin código (no están en notas.xlsx): {unmatched}")
+    print(f"  sin código (no están en notas.xlsx): {sorted(unmatched)}")
 
 with open(output_file, "w", encoding="utf-8") as f:
     json.dump(
@@ -427,12 +515,18 @@ def escribir_frescura():
         "resultados": {
             "label": "Tasas oficiales de rendimiento",
             "ultimo_curso": curso(max(r["anyo_academico"] for r in resultados_fisica)),
-            "actualizado": resultados_fisica[0]["fecha_actualizacion"],
+            # La fecha de la fila más reciente, no la de la primera: ahora hay
+            # doce cursos y el orden es ascendente, así que la primera fila es
+            # la más ANTIGUA y daría una fecha de actualización falsa.
+            "actualizado": max(
+                resultados_fisica,
+                key=lambda r: r["anyo_academico"]
+            )["fecha_actualizacion"],
             "fuente": "https://zaguan.unizar.es/collection/opendata-academico-rendimiento-asignatura-titulacion?ln=en",
         },
         "notas_corte": {
             "label": "Notas de corte y de acceso",
-            "ultimo_curso": str(ultimo("../data/json/NotasDeCorteRaw.json", "Año")),
+            "ultimo_curso": str(ultimo("../data/json/NotasDeCorteRaw.json", "anyo")),
             "fuente": "https://estudios.unizar.es/",
         },
         "guias": {

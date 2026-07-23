@@ -1,32 +1,82 @@
 [
     {
-        "Año":2020,
-        "Nota media en pruebas de acceso":12.691,
-        "Nota de corte":11.934
+        "anyo":2010,
+        "nota_media_admision":9.265,
+        "nota_corte":5.0
     },
     {
-        "Año":2021,
-        "Nota media en pruebas de acceso":12.871,
-        "Nota de corte":12.117
+        "anyo":2011,
+        "nota_media_admision":9.585,
+        "nota_corte":5.0
     },
     {
-        "Año":2022,
-        "Nota media en pruebas de acceso":12.738,
-        "Nota de corte":11.321
+        "anyo":2012,
+        "nota_media_admision":9.59,
+        "nota_corte":5.0
     },
     {
-        "Año":2023,
-        "Nota media en pruebas de acceso":12.421,
-        "Nota de corte":11.652
+        "anyo":2013,
+        "nota_media_admision":9.793,
+        "nota_corte":5.0
     },
     {
-        "Año":2024,
-        "Nota media en pruebas de acceso":12.877,
-        "Nota de corte":12.163
+        "anyo":2014,
+        "nota_media_admision":10.217,
+        "nota_corte":5.0
     },
     {
-        "Año":2025,
-        "Nota media en pruebas de acceso":12.08,
-        "Nota de corte":10.375
+        "anyo":2015,
+        "nota_media_admision":10.926,
+        "nota_corte":7.726
+    },
+    {
+        "anyo":2016,
+        "nota_media_admision":11.462,
+        "nota_corte":9.814
+    },
+    {
+        "anyo":2017,
+        "nota_media_admision":12.109,
+        "nota_corte":10.645
+    },
+    {
+        "anyo":2018,
+        "nota_media_admision":12.149,
+        "nota_corte":11.042
+    },
+    {
+        "anyo":2019,
+        "nota_media_admision":12.513,
+        "nota_corte":11.209
+    },
+    {
+        "anyo":2020,
+        "nota_media_admision":12.778,
+        "nota_corte":11.934
+    },
+    {
+        "anyo":2021,
+        "nota_media_admision":12.954,
+        "nota_corte":12.117
+    },
+    {
+        "anyo":2022,
+        "nota_media_admision":12.755,
+        "nota_corte":11.321
+    },
+    {
+        "anyo":2023,
+        "nota_media_admision":12.554,
+        "nota_corte":11.652
+    },
+    {
+        "anyo":2024,
+        "nota_media_admision":12.877,
+        "nota_corte":12.163
+    },
+    {
+        "anyo":2025,
+        "nota_media_admision":12.085,
+        "nota_corte":10.375
     }
 ]
