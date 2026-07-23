@@ -539,3 +539,101 @@ with open("../data/json/processed/TimeTableData.json", "w", encoding="utf-8") as
 print("Datos Guardados")
 
 
+#Scraper de Examenes, tampoco hace freshness
+import requests
+from bs4 import BeautifulSoup
+import json
+import re
+
+
+def es_fecha(texto):
+    """Comprueba si un texto tiene formato dd-mm-yyyy"""
+    return bool(re.match(r"\d{2}-\d{2}-\d{4}", texto))
+
+
+def scrape_examenes(url):
+
+    response = requests.get(url)
+    response.raise_for_status()
+
+    soup = BeautifulSoup(response.text, "html.parser")
+
+    resultado = {}
+
+    containers = soup.find_all("div", class_="tab-container")
+
+    for container in containers:
+
+        tab_id = container.get("id")
+        examenes = []
+
+        tabla = container.find("table", class_="listado-examenes")
+
+        if tabla is None:
+            resultado[tab_id] = examenes
+            continue
+
+
+        curso_actual = None
+        asignatura_actual = None
+
+
+        for fila in tabla.find_all("tr"):
+
+            celdas = fila.find_all("td")
+
+            if not celdas:
+                continue
+
+            valores = [
+                celda.get_text(strip=True)
+                for celda in celdas
+            ]
+
+
+            # Caso fila completa:
+            # curso | asignatura | fecha | ...
+            if len(valores) >= 3 and not es_fecha(valores[0]):
+
+                curso_actual = valores[0]
+                asignatura_actual = valores[1]
+                fecha = valores[2]
+
+
+            # Caso fila secundaria:
+            # fecha | tipo | modalidad
+            elif es_fecha(valores[0]):
+
+                fecha = valores[0]
+
+
+            else:
+                continue
+
+
+            examenes.append({
+                "curso": curso_actual,
+                "asignatura": asignatura_actual,
+                "fecha_examen": fecha
+            })
+
+
+        resultado[tab_id] = examenes
+
+
+    return resultado
+
+
+
+url = "http://155.210.84.118/publicacion/2627/examenes/listado/titulacion?id=447#"
+
+datos = scrape_examenes(url)
+
+
+with open("../data/json/Processed/Examenes.json", "w", encoding="utf-8") as f:
+    json.dump(
+        datos,
+        f,
+        indent=4,
+        ensure_ascii=False
+    )
