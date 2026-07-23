@@ -93,7 +93,7 @@ const router = createRouter({
         {
             path: "/profesorado",
             name: "faculty",
-            component: () => import("@/components/Dashboard/ProfWeb.vue"),
+            component: () => import("@/views/Faculty.vue"),
             meta: {
                 header: "inner",
                 eyebrow: "Más",

@@ -108,10 +108,22 @@ const buildGraph = rows => {
 
     });
 
+    /**
+     * Los campos estructurados (fullName, subjects, years, weight, shared) van
+     * junto a los que espera vis-network (id, label, value, title).
+     *
+     * El dato ya se calculaba, pero solo sobrevivía dentro de la cadena
+     * `title` del tooltip. La ficha de profesor del móvil lo necesita como
+     * dato, y sacarlo de ahí a base de parsear texto sería absurdo: es el
+     * mismo cálculo, expuesto en vez de escondido.
+     */
     const nodes = [...professors.values()].map(professor => ({
         id: professor.id,
         label: professor.label,
         value: professor.subjects.size,
+        fullName: professor.fullName,
+        subjects: [...professor.subjects],
+        years: [...professor.years].sort(),
         title:
             `${professor.fullName}\n` +
             `${professor.subjects.size} asignatura(s) distintas\n` +
@@ -126,6 +138,8 @@ const buildGraph = rows => {
             from,
             to,
             value: data.weight,
+            weight: data.weight,
+            shared: data.shared,
             title:
                 `Peso de colaboración: ${data.weight.toFixed(2)}\n` +
                 `${data.shared} asignatura(s)-curso compartidas`

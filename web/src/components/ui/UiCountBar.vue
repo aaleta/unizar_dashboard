@@ -30,6 +30,13 @@ const props = defineProps({
         default: null
     },
 
+    // Apunte bajo la cifra ("13 comp."). Cuando el peso por sí solo no basta:
+    // un 2,53 no dice si son trece asignaturas juntas o dos muy estrechas.
+    sub: {
+        type: String,
+        default: null
+    },
+
     label: {
         type: String,
         default: null
@@ -71,9 +78,13 @@ const pct = computed(() => {
 
     <span
         v-if="display !== null"
-        class="value num"
+        class="value"
     >
-        {{ display }}
+        <span class="num">{{ display }}</span>
+        <span
+            v-if="sub"
+            class="sub"
+        >{{ sub }}</span>
     </span>
 
 </div>
@@ -138,7 +149,7 @@ const pct = computed(() => {
 
     flex:none;
 
-    width:34px;
+    width:46px;
 
     text-align:right;
 
@@ -147,6 +158,16 @@ const pct = computed(() => {
     font-weight:500;
 
     color:var(--ink-muted);
+
+}
+
+.sub{
+
+    display:block;
+
+    font-size:7.5px;
+
+    color:var(--ink-faint);
 
 }
 

@@ -640,7 +640,54 @@ la metodología.
 
 ---
 
-## Fase 7 — Pantallas secundarias (las 4 del roll-up)
+## Fase 7 — Pantallas secundarias (las 4 del roll-up) · ✅ **COMPLETADA**
+
+### Resultado
+
+| Pantalla | Ficheros |
+|---|---|
+| Profesorado | `composables/useProfessorNetwork.js` · `composables/useViewport.js` · `views/Faculty.vue` |
+| Fight Mode | `composables/useFight.js` · `views/FightMode.vue` (reescrita) |
+| Metodología | `views/Methodology.vue` (reescrita, **texto intacto**) |
+| Acerca de | `views/About.vue` (contenido real) |
+
+**D1 queda demostrada, no solo argumentada.** Comprobado con el navegador: a 402px se ve la
+lista persona a persona y **no** hay grafo; a 1200px se ve el grafo y **no** hay lista. Y en el
+build, `vis-network`/`cytoscape` **no aparecen en el chunk principal**: viven en `ProfWeb`
+(515 kB JS + 221 kB CSS) que solo se pide por encima de 900px. `Faculty` pesa 5 kB.
+
+Ese es el patrón para todo lo que el escritorio agregue y el móvil no pueda tener: composable de
+datos compartido + componente de presentación por viewport + carga diferida. Nunca una segunda
+copia de la aplicación.
+
+**El cambio aditivo a `NodesLinks.js`** (riesgo 3 de la fase 0) ya está: `weight`, `shared`,
+`fullName`, `subjects` y `years` salen como campos propios en vez de vivir dentro de la cadena
+`title` del tooltip. `value` y `title` se dejan intactos, así que el grafo de escritorio sigue
+igual. Los pesos coinciden con los del mock hasta el céntimo (2,53 / 1,64 / 1,12 / 0,99 / 0,96),
+que es la señal de que el modelo es el mismo.
+
+**Fight Mode conserva la regla de los matriculados:** cuatro duelos entre troncales, cinco
+cuando las dos son optativas. Verificado cambiando los contendientes en el navegador. Si falta
+un dato el duelo queda en empate en vez de inventarse un ganador.
+
+**Acerca de deja los tres huecos de colaborador sin rellenar**, en gris de marcador. Inventar
+nombres en la página que dice quién responde de los datos sería la peor forma posible de
+estrenar una web que va de no fiarse de los rumores.
+
+### Un formateo que no se puede delegar
+
+`(2003).toLocaleString("es-ES")` devuelve **"2003"** en Chrome headless: reconoce el locale pero
+no aplica la agrupación, porque está compilado con ICU reducido. Para meter un punto cada tres
+dígitos en una web que solo está en español, la dependencia no compensa el riesgo — se formatea
+a mano.
+
+### Cosas que se dejan como están
+
+- Algún nombre del profesorado viene en mayúsculas desde el scraper (`GUILLERMO ROYO CAL…`).
+  Normalizar mayúsculas en nombres españoles —con sus «de», «la», «Mª»— rompe más de lo que
+  arregla. Se muestra tal y como lo publica la fuente.
+- El hamburguesa que el mock dibuja en el héroe de la portada **no se implementa**: con la barra
+  de pestañas y la hoja "Más" no tiene nada que abrir, y duplicar navegación confunde.
 
 ### 7a. Profesorado `#6a` (`/profesorado`) — *el rediseño más profundo* · **la única divergencia real**
 El grafo de fuerzas (267 nodos / 2.003 aristas) es ilegible en móvil, así que el móvil va
