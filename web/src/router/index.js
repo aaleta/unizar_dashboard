@@ -50,6 +50,12 @@ const router = createRouter({
         },
 
         {
+            path: "/TimeTable",
+            name: "timetable",
+            component: () => import("@/views/MountYourCourse.vue")
+        },
+
+        {
             path: "/metodologia",
             name: "methodology",
             component: () => import("@/views/Methodology.vue")
