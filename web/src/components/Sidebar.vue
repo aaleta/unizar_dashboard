@@ -29,7 +29,8 @@ const SECTIONS = [
             { to: "/profesorado", label: "Profesorado" },
             { to: "/fight-mode", label: "Fight Mode" },
             { to: "/metodologia", label: "Metodología" },
-            { to: "/TimeTable", label: "Monta tu Horario" }
+            { to: "/TimeTable", label: "Monta tu Horario" },
+            { to: "/Exams", label: "Comprueba los Exámenes"}
         ]
     }
 ];

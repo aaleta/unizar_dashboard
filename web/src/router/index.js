@@ -56,6 +56,12 @@ const router = createRouter({
         },
 
         {
+            path: "/Exams",
+            name: "exams",
+            component: () => import("@/views/MountYourExams.vue")
+        },
+
+        {
             path: "/metodologia",
             name: "methodology",
             component: () => import("@/views/Methodology.vue")
