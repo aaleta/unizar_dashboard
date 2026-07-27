@@ -6,7 +6,7 @@ import subjects from "../../../data/json/processed/AsignaturasClasificadasOptTro
 
 import SubjSelectorSchedule from "@/components/Dashboard/SubjSelectorSchedule.vue";
 import TimeTable from "@/components/Dashboard/TimeTable.vue";
-import CollisionList from "@/components/Dashboard/CollisionList.vue";
+import SummarySelectedSubjTimetable from "@/components/Dashboard/SummarySelectedSubjTimetable.vue";
 
 /*
 |--------------------------------------------------------------------------
@@ -20,13 +20,10 @@ const selectedSubjects = ref([]);
 /*
 Groups selected by the user.
 
-Future structure:
-
+Structure maps subject code to the selected group:
 {
-    26901:{
-        T:"1",
-        P:"2"
-    }
+    26901: "447-1-0",
+    26902: "447-1-1"
 }
 */
 const selectedGroups = ref({});
@@ -42,13 +39,18 @@ const selectedEvents = computed(() => {
 
     for (const subject of selectedSubjects.value) {
         const code = String(subject.code);
+        const targetGroup = selectedGroups.value[code];
 
         /*
-        Find all timetable entries
-        belonging to this subject
+        Find all timetable entries belonging to this subject
+        that are Theory ("T") and belong to the chosen group.
         */
         const subjectTimetable = timetableData.filter(event => {
-            return event.Asignatura.startsWith(code);
+            return (
+                event.Asignatura.startsWith(code) &&
+                event.TipoActividad === "T" &&
+                event["Curso-Grupo"] === targetGroup
+            );
         });
 
         subjectTimetable.forEach(event => {
@@ -60,7 +62,6 @@ const selectedEvents = computed(() => {
                 day: event.Dia,
                 start: event.HoraIni,
                 end: event.HoraFin
-                
             });
         });
     }
@@ -124,10 +125,8 @@ const collisions = computed(() => {
 
 <template>
 <div class="mount-course">
-
     <aside class="course-sidebar">
-
-        <h2>Mount your course</h2>
+        <h2>Monta tu horario</h2>
 
         <SubjSelectorSchedule
             class="selector-flex"
@@ -136,33 +135,24 @@ const collisions = computed(() => {
             v-model:selectedGroups="selectedGroups"
         />
 
-        <CollisionList
+        <SummarySelectedSubjTimetable
             class="collision-flex"
-            :collisions="collisions"
+            :selected-subjects="selectedSubjects"
+            @update:selectedSubjects="selectedSubjects = $event"
         />
-
     </aside>
 
     <main class="content">
-
         <TimeTable
             :events="selectedEvents"
             :collisions="collisions"
         />
-
     </main>
-
 </div>
 </template>
 
 <style scoped>
-
 .mount-course {
-    /*
-    Sidebar.vue is position:fixed and 220px wide, so it
-    doesn't take up space in normal flow — without this
-    margin, our own content would render underneath it.
-    */
     margin-left: 220px;
     height: 100vh;
     display: grid;
@@ -176,16 +166,6 @@ const collisions = computed(() => {
     overflow: hidden;
     background: #050b18;
 }
-
-/*
-|--------------------------------------------------------------------------
-| Course sidebar (subject selector + collision list)
-|--------------------------------------------------------------------------
-|
-| Named "course-sidebar" rather than "sidebar" so it isn't
-| confused with the permanent app navigation in Sidebar.vue.
-|--------------------------------------------------------------------------
-*/
 
 .course-sidebar {
     min-width: 0;
@@ -204,11 +184,6 @@ const collisions = computed(() => {
     text-shadow: 0 0 12px rgba(0,150,255,.8);
 }
 
-/*
-Give each panel a share of the sidebar's height so both
-scroll internally instead of the whole sidebar scrolling.
-*/
-
 .selector-flex {
     flex: 3 1 0;
     min-height: 0;
@@ -219,12 +194,6 @@ scroll internally instead of the whole sidebar scrolling.
     min-height: 0;
 }
 
-/*
-|--------------------------------------------------------------------------
-| Main content
-|--------------------------------------------------------------------------
-*/
-
 .content {
     min-width: 0;
     min-height: 0;
@@ -233,20 +202,10 @@ scroll internally instead of the whole sidebar scrolling.
     overflow: hidden;
 }
 
-/*
- Make timetable occupy available space
-*/
-
 .content :deep(.timetable) {
     flex: 1;
     min-height: 0;
 }
-
-/*
-|--------------------------------------------------------------------------
-| Scrollbars
-|--------------------------------------------------------------------------
-*/
 
 .course-sidebar::-webkit-scrollbar {
     width: 6px;
@@ -257,35 +216,15 @@ scroll internally instead of the whole sidebar scrolling.
     border-radius: 10px;
 }
 
-/*
-|--------------------------------------------------------------------------
-| Laptop sizes
-|--------------------------------------------------------------------------
-*/
-
 @media(max-width:1200px){
-
     .mount-course {
         grid-template-columns:
             minmax(220px,25%)
             minmax(0,1fr);
     }
-
 }
 
-/*
-|--------------------------------------------------------------------------
-| Mobile
-|--------------------------------------------------------------------------
-|
-| Matches Sidebar.vue's own breakpoint (768px), where the
-| permanent nav switches from a fixed left rail to a fixed
-| 64px bottom bar.
-|--------------------------------------------------------------------------
-*/
-
 @media(max-width:768px){
-
     .mount-course {
         display: flex;
         flex-direction: column;
@@ -294,7 +233,6 @@ scroll internally instead of the whole sidebar scrolling.
         min-height: 100vh;
         overflow: visible;
         padding: .8rem;
-        /* clears the fixed 64px bottom nav bar */
         padding-bottom: calc(64px + .8rem);
     }
 
@@ -321,7 +259,5 @@ scroll internally instead of the whole sidebar scrolling.
         height: auto;
         min-height: 600px;
     }
-
 }
-
 </style>

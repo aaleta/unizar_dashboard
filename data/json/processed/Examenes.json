@@ -46,11 +46,6 @@
             "fecha_examen": "22-12-2026"
         },
         {
-            "curso": "1",
-            "asignatura": "26958 - Grafos y combinatoria (plan a extinguir)",
-            "fecha_examen": "22-12-2026"
-        },
-        {
             "curso": "2",
             "asignatura": "26911 - Técnicas físicas I",
             "fecha_examen": "14-01-2027"
@@ -157,11 +152,6 @@
         }
     ],
     "tab-E2": [
-        {
-            "curso": "1",
-            "asignatura": "26904 - Informática",
-            "fecha_examen": "13-05-2027"
-        },
         {
             "curso": "1",
             "asignatura": "26905 - Fundamentos de física II",
@@ -378,6 +368,11 @@
             "curso": "1",
             "asignatura": "26908 - Cálculo diferencial",
             "fecha_examen": "18-06-2027"
+        },
+        {
+            "curso": "1",
+            "asignatura": "26958 - Grafos y combinatoria (plan a extinguir)",
+            "fecha_examen": "30-06-2027"
         },
         {
             "curso": "1",

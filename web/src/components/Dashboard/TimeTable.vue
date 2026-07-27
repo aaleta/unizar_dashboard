@@ -30,11 +30,11 @@ const props = defineProps({
 */
 
 const days = [
-    { id:1, name:"Monday" },
-    { id:2, name:"Tuesday" },
-    { id:3, name:"Wednesday" },
-    { id:4, name:"Thursday" },
-    { id:5, name:"Friday" }
+    { id:1, name:"Lunes" },
+    { id:2, name:"Martes" },
+    { id:3, name:"Miércoles" },
+    { id:4, name:"Jueves" },
+    { id:5, name:"Viernes" }
 ];
 
 const hours = [
@@ -173,7 +173,7 @@ function eventStyle(event){
 <div class="timetable">
 
     <h3>
-        Timetable
+        Horario Resultante
     </h3>
 
     <!-- Scrolls both ways: the grid has a minimum width,

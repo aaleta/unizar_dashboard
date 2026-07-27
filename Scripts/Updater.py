@@ -502,11 +502,13 @@ def FilterData(content):
             try:
                 filteredElement = {
                     "Asignatura": subj["title"],
-                    "Curso-Grupo": subj["subgrupo"],
+                    "TipoActividad" : subj["actividad"],
+                    "Curso-Grupo": "-".join((subj["subgrupo"]).split("-")[:3]),
                     "Semestre": subj["periodo_de_clases"],
                     "HoraIni": subj["h_ini"],
                     "HoraFin": subj["h_fin"],
                     "Dia": subj["wday"]
+
                 }
     
                 filteredContent.append(filteredElement)
