@@ -102,15 +102,14 @@ const router = createRouter({
         },
 
         {
-            path: "/TimeTable",
-            name: "timetable",
-            component: () => import("@/views/MountYourCourse.vue")
-        },
-
-        {
-            path: "/Exams",
-            name: "exams",
-            component: () => import("@/views/MountYourExams.vue")
+            path: "/horario",
+            name: "schedule",
+            component: () => import("@/views/Schedule.vue"),
+            meta: {
+                header: "inner",
+                eyebrow: "Más",
+                title: "Monta tu horario"
+            }
         },
 
         {
@@ -170,6 +169,10 @@ const router = createRouter({
         },
         { path: "/ProfWeb", redirect: "/profesorado" },
         { path: "/fight-mode", redirect: "/fight" },
+        // El horario y los exámenes nacieron como dos páginas; ahora son dos
+        // pestañas de la misma.
+        { path: "/TimeTable", redirect: "/horario" },
+        { path: "/Exams", redirect: { path: "/horario", query: { vista: "examenes" } } },
 
         /* ---------------- Solo en desarrollo ---------------- */
 

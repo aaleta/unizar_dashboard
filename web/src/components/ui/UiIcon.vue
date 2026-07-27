@@ -58,6 +58,9 @@ const PATHS = {
     close: '<path d="M5 5l14 14M19 5L5 19" stroke-linecap="round" />',
 
     // Destinos del menú "Más"
+    calendar:
+        '<rect x="4" y="5" width="16" height="15.5" rx="2" />' +
+        '<path d="M4 9.5h16M8.5 3v4M15.5 3v4" stroke-linecap="round" />',
     teachers:
         '<circle cx="7" cy="8" r="3" />' +
         '<circle cx="17" cy="8" r="3" />' +

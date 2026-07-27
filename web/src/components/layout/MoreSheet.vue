@@ -31,6 +31,12 @@ const emit = defineEmits(["close"]);
 
 const DESTINATIONS = [
     {
+        to: "/horario",
+        title: "Monta tu horario",
+        subtitle: "Tus clases y exámenes, sin choques.",
+        icon: "calendar"
+    },
+    {
         to: "/profesorado",
         title: "Profesorado",
         subtitle: "Quién imparte qué y con quién.",

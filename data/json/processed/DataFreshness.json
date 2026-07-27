@@ -19,5 +19,10 @@
         "label": "Profesorado y guías docentes",
         "ultimo_curso": "2026-2027",
         "fuente": "https://sia.unizar.es/"
+    },
+    "horarios": {
+        "label": "Horarios y fechas de examen",
+        "ultimo_curso": "2026-2027",
+        "fuente": "http://155.210.84.118/publicacion/2627"
     }
 }

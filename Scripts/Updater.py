@@ -536,12 +536,180 @@ def escribir_frescura():
             ),
             "fuente": "https://sia.unizar.es/",
         },
+        "horarios": {
+            "label": "Horarios y fechas de examen",
+            "ultimo_curso": curso_de_publicacion(),
+            "fuente": BASE_PUBLICACION,
+        },
     }
 
     with open("../data/json/processed/DataFreshness.json", "w", encoding="utf-8") as f:
         json.dump(frescura, f, ensure_ascii=False, indent=4)
 
     print("DataFreshness:", {k: v["ultimo_curso"] for k, v in frescura.items()})
+
+
+
+######################################################################################
+
+
+# Horarios de clase y fechas de examen, de la publicación del centro.
+#
+# El centro publica cada curso académico bajo un identificador propio
+# (2627 = curso 2026-2027). Al cambiar de curso solo hay que actualizar
+# PUBLICACION: la URL, el JSON y la frescura salen de ahí.
+
+PUBLICACION = "2627"
+TITULACION = "447"
+BASE_PUBLICACION = f"http://155.210.84.118/publicacion/{PUBLICACION}"
+
+
+def curso_de_publicacion():
+    """'2627' -> '2026-2027'."""
+    inicio = 2000 + int(PUBLICACION[:2])
+    return f"{inicio}-{inicio + 1}"
+
+
+def descargar_horario(curso, grupo, semestre):
+    respuesta = requests.post(
+        f"{BASE_PUBLICACION}/horarios/tabla/series",
+        json={
+            "curso": curso,
+            "grupo": grupo,
+            "periodo": semestre,
+            "__curso": f"{TITULACION}-1",
+            "__grupo": grupo,
+            "__periodo": semestre,
+        },
+    )
+    respuesta.raise_for_status()
+
+    # Pausa entre peticiones para no martillear el servidor del centro.
+    time.sleep(1)
+
+    return respuesta.json()
+
+
+def actualizar_horario():
+
+    bloques = []
+
+    for anyo in range(1, 5):
+
+        # Cuarto solo tiene un grupo de teoría; el resto tienen dos.
+        grupos = [0] if anyo == 4 else [0, 1]
+
+        for grupo in grupos:
+            for semestre in ("S1", "S2"):
+                bloques.append(descargar_horario(
+                    f"{TITULACION}-{anyo}",
+                    f"{TITULACION}-{anyo}-{grupo}",
+                    semestre,
+                ))
+                print(f"Horario: curso {anyo}, grupo {grupo}, {semestre} descargado")
+
+    eventos = []
+    vistos = set()
+
+    for bloque in bloques:
+        for serie in bloque:
+            for clase in serie.get("data", []):
+
+                try:
+                    evento = {
+                        "Asignatura": clase["title"],
+                        "TipoActividad": clase["actividad"],
+                        "Curso-Grupo": "-".join(clase["subgrupo"].split("-")[:3]),
+                        "Semestre": clase["periodo_de_clases"],
+                        "HoraIni": clase["h_ini"],
+                        "HoraFin": clase["h_fin"],
+                        "Dia": clase["wday"],
+                    }
+                except KeyError:
+                    # Filas decorativas de la tabla (cabeceras, huecos) que no
+                    # describen una clase.
+                    continue
+
+                # El servidor repite series entre peticiones (el mismo
+                # laboratorio aparece al pedir cada grupo): sin esto el JSON
+                # sale con filas duplicadas y la web pintaría la clase dos veces.
+                clave = json.dumps(evento, sort_keys=True, ensure_ascii=False)
+
+                if clave in vistos:
+                    continue
+
+                vistos.add(clave)
+                eventos.append(evento)
+
+    with open("../data/json/processed/TimeTableData.json", "w", encoding="utf-8") as f:
+        json.dump(eventos, f, indent=4, ensure_ascii=False)
+
+    print(f"Horario: {len(eventos)} clases guardadas ({curso_de_publicacion()})")
+
+
+def es_fecha(texto):
+    """Comprueba si un texto tiene formato dd-mm-yyyy."""
+    return bool(re.match(r"\d{2}-\d{2}-\d{4}", texto))
+
+
+def actualizar_examenes():
+
+    respuesta = requests.get(f"{BASE_PUBLICACION}/examenes/listado/titulacion?id={TITULACION}")
+    respuesta.raise_for_status()
+
+    soup = BeautifulSoup(respuesta.text, "html.parser")
+
+    resultado = {}
+
+    # Una pestaña por convocatoria (tab-E1, tab-E2, tab-E3…).
+    for container in soup.find_all("div", class_="tab-container"):
+
+        examenes = []
+        tabla = container.find("table", class_="listado-examenes")
+
+        if tabla is not None:
+
+            # La tabla mezcla dos tipos de fila: la primera de cada asignatura
+            # trae curso y nombre, y las siguientes solo la fecha de otra
+            # sesión. Curso y asignatura se arrastran de la última fila
+            # completa vista.
+            curso_actual = None
+            asignatura_actual = None
+
+            for fila in tabla.find_all("tr"):
+
+                valores = [
+                    celda.get_text(strip=True)
+                    for celda in fila.find_all("td")
+                ]
+
+                if not valores:
+                    continue
+
+                if len(valores) >= 3 and not es_fecha(valores[0]):
+                    curso_actual = valores[0]
+                    asignatura_actual = valores[1]
+                    fecha = valores[2]
+                elif es_fecha(valores[0]):
+                    fecha = valores[0]
+                else:
+                    continue
+
+                examenes.append({
+                    "curso": curso_actual,
+                    "asignatura": asignatura_actual,
+                    "fecha_examen": fecha,
+                })
+
+        resultado[container.get("id")] = examenes
+
+    with open("../data/json/processed/Examenes.json", "w", encoding="utf-8") as f:
+        json.dump(resultado, f, indent=4, ensure_ascii=False)
+
+    print(
+        "Exámenes:",
+        {convocatoria: len(examenes) for convocatoria, examenes in resultado.items()},
+    )
 
 
 if __name__ == "__main__":
@@ -553,183 +721,8 @@ if __name__ == "__main__":
     else:
         print("\nNo se extrajeron datos nuevos para guardar en cuanto a profesores o guias docentes.")
 
+    actualizar_horario()
+    actualizar_examenes()
+
     # Siempre al final: necesita todos los ficheros ya escritos.
     escribir_frescura()
-
-
-
-#Scraper del Horario, guuarda un Json con el Horario completo del curso, no no ejecuta Freshness
-import requests
-import json
-import time
-
-print("Comienza el scraping del horario:")
-
-def makePetition(course, group, semester):
-    url = "http://155.210.84.118/publicacion/2627/horarios/tabla/series"
-
-    payload = {
-        "curso": course,
-        "grupo": group,
-        "periodo": semester,
-        "__curso": "447-1",
-        "__grupo": group,
-        "__periodo": semester
-    }
-
-    response = requests.post(
-        url=url,
-        json=payload
-    )
-
-    if(response.status_code == 200):
-        print(f"Datos de curso {payload['curso']}, grupo {payload['grupo']}, semestre {payload['periodo']} leido correctamente.")
-
-    time.sleep(1)
-
-    return response.json()
-
-def FilterData(content):
-    filteredContent = []
-    for element in content:
-        for subj in element["data"]:
-            try:
-                filteredElement = {
-                    "Asignatura": subj["title"],
-                    "TipoActividad" : subj["actividad"],
-                    "Curso-Grupo": "-".join((subj["subgrupo"]).split("-")[:3]),
-                    "Semestre": subj["periodo_de_clases"],
-                    "HoraIni": subj["h_ini"],
-                    "HoraFin": subj["h_fin"],
-                    "Dia": subj["wday"]
-
-                }
-    
-                filteredContent.append(filteredElement)
-                print("Asignatura Filtrada")
-            except KeyError:
-                continue
-
-    return filteredContent
-
-content = []
-
-for i in range(4):
-    for j in range(2):
-        for k in range(2):
-            if(i+1 == 4):
-                if(j == 0):
-                    JsonResponse = makePetition(f"447-{i+1}", f"447-{i+1}-{j}", f"S{k+1}")
-                    content.append(JsonResponse) 
-            else:
-                JsonResponse = makePetition(f"447-{i+1}", f"447-{i+1}-{j}", f"S{k+1}")
-                content.append(JsonResponse)
-
-print("Datos Leidos Correctamente")
-
-Content = FilterData(content)
-
-with open("../data/json/processed/TimeTableData.json", "w", encoding="utf-8") as f:
-    json.dump(Content, f, indent=4, ensure_ascii=False)
-
-print("Datos Guardados")
-
-
-#Scraper de Examenes, tampoco hace freshness
-import requests
-from bs4 import BeautifulSoup
-import json
-import re
-
-
-def es_fecha(texto):
-    """Comprueba si un texto tiene formato dd-mm-yyyy"""
-    return bool(re.match(r"\d{2}-\d{2}-\d{4}", texto))
-
-
-def scrape_examenes(url):
-
-    response = requests.get(url)
-    response.raise_for_status()
-
-    soup = BeautifulSoup(response.text, "html.parser")
-
-    resultado = {}
-
-    containers = soup.find_all("div", class_="tab-container")
-
-    for container in containers:
-
-        tab_id = container.get("id")
-        examenes = []
-
-        tabla = container.find("table", class_="listado-examenes")
-
-        if tabla is None:
-            resultado[tab_id] = examenes
-            continue
-
-
-        curso_actual = None
-        asignatura_actual = None
-
-
-        for fila in tabla.find_all("tr"):
-
-            celdas = fila.find_all("td")
-
-            if not celdas:
-                continue
-
-            valores = [
-                celda.get_text(strip=True)
-                for celda in celdas
-            ]
-
-
-            # Caso fila completa:
-            # curso | asignatura | fecha | ...
-            if len(valores) >= 3 and not es_fecha(valores[0]):
-
-                curso_actual = valores[0]
-                asignatura_actual = valores[1]
-                fecha = valores[2]
-
-
-            # Caso fila secundaria:
-            # fecha | tipo | modalidad
-            elif es_fecha(valores[0]):
-
-                fecha = valores[0]
-
-
-            else:
-                continue
-
-
-            examenes.append({
-                "curso": curso_actual,
-                "asignatura": asignatura_actual,
-                "fecha_examen": fecha
-            })
-
-
-        resultado[tab_id] = examenes
-
-
-    return resultado
-
-
-
-url = "http://155.210.84.118/publicacion/2627/examenes/listado/titulacion?id=447#"
-
-datos = scrape_examenes(url)
-
-
-with open("../data/json/Processed/Examenes.json", "w", encoding="utf-8") as f:
-    json.dump(
-        datos,
-        f,
-        indent=4,
-        ensure_ascii=False
-    )

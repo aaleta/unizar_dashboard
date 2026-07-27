@@ -39,6 +39,13 @@ export const DATA_SOURCES = [
         description:
             "Profesorado asignado y enlaces a la guía docente de cada asignatura, " +
             "extraídos de la web de la Universidad."
+    },
+    {
+        key: "horarios",
+        ...freshness.horarios,
+        description:
+            "Horario semanal de clases y fechas de examen de cada convocatoria, " +
+            "según la publicación oficial del centro."
     }
 ];
 
