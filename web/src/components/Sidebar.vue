@@ -28,7 +28,7 @@ const SECTIONS = [
         links: [
             { to: "/profesorado", label: "Profesorado" },
             { to: "/fight-mode", label: "Fight Mode" },
-            { to: "/metodologia", label: "Metodología" },
+            { to: "/metodologia", label: "Metodología y fuentes" },
             { to: "/horario", label: "Monta tu horario" }
         ]
     }

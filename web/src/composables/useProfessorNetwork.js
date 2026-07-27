@@ -51,26 +51,39 @@ collaborators.forEach(list => list.sort((a, b) => b.weight - a.weight));
 
 const byId = new Map(graph.nodes.map(node => [node.id, node]));
 
+/** El curso de la última guía docente publicada: quien aparece ahí, está activo. */
+const latestYear = availableYears[availableYears.length - 1];
+
 const people = graph.nodes
-    .map(node => ({
-        id: node.id,
-        name: node.fullName,
-        subjects: node.subjects,
-        years: node.years,
-        nSubjects: node.subjects.length,
-        nCollaborators: collaborators.get(node.id)?.length ?? 0,
-        search: normalize(node.fullName)
-    }))
-    // Ordenados por alcance: con cuánta gente distinta ha coincidido. Es la
-    // medida que mejor separa a quien lleva media carrera de quien dio una
-    // asignatura un año.
+    .map(node => {
+
+        const edges = collaborators.get(node.id) ?? [];
+
+        return {
+            id: node.id,
+            name: node.fullName,
+            subjects: node.subjects,
+            years: node.years,
+            nSubjects: node.subjects.length,
+            nCollaborators: edges.length,
+            // Cuántas asignaturas-curso ha compartido en total.
+            nCollaborations: edges.reduce((sum, edge) => sum + edge.shared, 0),
+            // La suma de sus pesos 1/n: cuánta docencia compartida acumula.
+            totalWeight: edges.reduce((sum, edge) => sum + edge.weight, 0),
+            active: node.years.includes(latestYear),
+            search: normalize(node.fullName)
+        };
+
+    })
+    // Ordenados por peso acumulado: la misma magnitud que dimensiona las
+    // barras de la ficha, para que la lista y la ficha cuenten lo mismo.
     .sort((a, b) =>
-        b.nCollaborators - a.nCollaborators || b.nSubjects - a.nSubjects
+        b.totalWeight - a.totalWeight || b.nSubjects - a.nSubjects
     );
 
 const peopleById = new Map(people.map(person => [person.id, person]));
 
-export const useProfessorNetwork = (querySource, selectedSource) => {
+export const useProfessorNetwork = (querySource, selectedSource, activeOnlySource) => {
 
     const read = source =>
         typeof source === "function" ? source() : unref(source);
@@ -79,9 +92,13 @@ export const useProfessorNetwork = (querySource, selectedSource) => {
 
         const needle = normalize(String(read(querySource) ?? "").trim());
 
-        return needle
-            ? people.filter(person => person.search.includes(needle))
+        const pool = read(activeOnlySource)
+            ? people.filter(person => person.active)
             : people;
+
+        return needle
+            ? pool.filter(person => person.search.includes(needle))
+            : pool;
 
     });
 
@@ -96,9 +113,11 @@ export const useProfessorNetwork = (querySource, selectedSource) => {
 
         return {
             ...person,
-            subjectNames: person.subjects
-                .map(code => subjectName(code))
-                .sort((a, b) => a.localeCompare(b, "es")),
+            // Código y nombre juntos: la píldora de la ficha enlaza a la
+            // asignatura, y para eso hace falta el código.
+            subjectItems: person.subjects
+                .map(code => ({ code, name: subjectName(code) }))
+                .sort((a, b) => a.name.localeCompare(b.name, "es")),
             topCollaborators: (collaborators.get(person.id) ?? [])
                 .slice(0, 5)
                 .map(item => ({
@@ -119,6 +138,7 @@ export const useProfessorNetwork = (querySource, selectedSource) => {
 
         totals: {
             professors: graph.nodes.length,
+            active: people.filter(person => person.active).length,
             collaborations: graph.edges.length,
             years: availableYears.length
         }

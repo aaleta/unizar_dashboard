@@ -50,7 +50,7 @@ const DESTINATIONS = [
     },
     {
         to: "/metodologia",
-        title: "Metodología",
+        title: "Metodología y fuentes",
         subtitle: "Qué mide cada tasa y sus fuentes.",
         icon: "document"
     },

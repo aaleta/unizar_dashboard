@@ -23,12 +23,13 @@ import { ref } from "vue";
 import { useDegreeMap } from "@/composables/useDegreeMap";
 import { difficultyFill, difficultyInk } from "@/theme/difficulty";
 
+import UiIcon from "@/components/ui/UiIcon.vue";
 import UiSectionHeader from "@/components/ui/UiSectionHeader.vue";
 
 /** Cuántas asignaturas se ven antes de tener que pedir el resto. */
 const PREVIEW = 4;
 
-const { courses, kindestCourse, totals } = useDegreeMap();
+const { courses, totals } = useDegreeMap();
 
 // Qué grupos ha desplegado el usuario. La clave es "3-optativas" y similares.
 const expanded = ref(new Set());
@@ -54,17 +55,6 @@ const shown = (list, key) =>
 /** Redondeo a entero: "aprueban 76,6 % de media" es precisión fingida. */
 const pct = value =>
     value === null ? "—" : `${Math.round(value)}%`;
-
-/**
- * Cuarto se colapsa en una tarjeta en lugar de listar sus asignaturas: casi
- * todas rondan el 5 % de no superación y una lista de seis filas verdes no
- * dice nada que no diga la frase. Sus asignaturas siguen a un toque, en la
- * vista de curso.
- */
-const isCollapsed = course => course.number === 4;
-
-const kindestNote = course =>
-    course.number === kindestCourse ? " · el curso más amable" : "";
 
 </script>
 
@@ -107,52 +97,102 @@ const kindestNote = course =>
             <div class="heading">
 
                 <h2>
+                    <!-- La flecha dice "esto se abre": el título solo, en
+                         navy, se leía como un rótulo y nadie lo tocaba. -->
                     <RouterLink :to="`/grado/${course.number}`">
                         {{ course.name }}
+                        <UiIcon
+                            name="chevronRight"
+                            :size="12"
+                            :width="2.4"
+                            class="headingChevron"
+                        />
                     </RouterLink>
                 </h2>
 
-                <span
-                    v-if="!isCollapsed(course)"
-                    class="caption"
-                >
+                <span class="caption">
                     aprueban {{ pct(course.avgPass) }} de media
                 </span>
 
             </div>
 
-            <!-- Cuarto: una frase en vez de seis filas. -->
-            <p
-                v-if="isCollapsed(course)"
-                class="summary"
-            >
-                {{ course.troncales.length }} troncales · aprueban
-                <strong>{{ pct(course.avgPass) }}</strong>
-                de media{{ kindestNote(course) }}
-            </p>
+            <UiSectionHeader
+                label="Troncales"
+                :count="course.troncales.length"
+                hint="% que no aprueba"
+                class="group"
+            />
 
-            <template v-else>
+            <ul class="rows">
+
+                <li
+                    v-for="subject in shown(course.troncales, `${course.number}-t`)"
+                    :key="subject.code"
+                >
+                    <RouterLink
+                        :to="`/asignatura/${subject.code}`"
+                        class="row"
+                    >
+                        <span
+                            class="dot"
+                            :style="{ background: difficultyFill(subject.noSuperacion) }"
+                        ></span>
+                        <span class="name">{{ subject.name }}</span>
+                        <span
+                            v-if="subject.smallCohort"
+                            class="warn"
+                            title="Menos de 10 matriculados: el porcentaje baila mucho"
+                        >⚠</span>
+                        <span
+                            class="value num"
+                            :style="{ color: difficultyInk(subject.noSuperacion, true) }"
+                        >{{ pct(subject.noSuperacion) }}</span>
+                        <UiIcon
+                            name="chevronRight"
+                            :size="11"
+                            :width="2"
+                            class="rowChevron"
+                        />
+                    </RouterLink>
+                </li>
+
+                <li v-if="course.troncales.length > PREVIEW">
+                    <button
+                        type="button"
+                        class="more"
+                        @click="toggle(`${course.number}-t`)"
+                    >
+                        {{ expanded.has(`${course.number}-t`)
+                            ? "− ver menos"
+                            : `＋ ${course.troncales.length - PREVIEW} troncales más` }}
+                    </button>
+                </li>
+
+            </ul>
+
+            <template v-if="course.optativas.length">
 
                 <UiSectionHeader
-                    label="Troncales"
-                    :count="course.troncales.length"
+                    label="Optativas"
+                    :count="course.optativas.length"
                     hint="% que no aprueba"
+                    tone="gold"
                     class="group"
                 />
 
                 <ul class="rows">
 
                     <li
-                        v-for="subject in shown(course.troncales, `${course.number}-t`)"
+                        v-for="subject in shown(course.optativas, `${course.number}-o`)"
                         :key="subject.code"
                     >
                         <RouterLink
                             :to="`/asignatura/${subject.code}`"
-                            class="row"
+                            class="row optative"
                         >
                             <span
-                                class="dot"
-                                :style="{ background: difficultyFill(subject.noSuperacion) }"
+                                class="dot hollow"
+                                :style="{ borderColor: difficultyFill(subject.noSuperacion) }"
                             ></span>
                             <span class="name">{{ subject.name }}</span>
                             <span
@@ -164,75 +204,28 @@ const kindestNote = course =>
                                 class="value num"
                                 :style="{ color: difficultyInk(subject.noSuperacion, true) }"
                             >{{ pct(subject.noSuperacion) }}</span>
+                            <UiIcon
+                                name="chevronRight"
+                                :size="11"
+                                :width="2"
+                                class="rowChevron"
+                            />
                         </RouterLink>
                     </li>
 
-                    <li v-if="course.troncales.length > PREVIEW">
+                    <li v-if="course.optativas.length > PREVIEW">
                         <button
                             type="button"
                             class="more"
-                            @click="toggle(`${course.number}-t`)"
+                            @click="toggle(`${course.number}-o`)"
                         >
-                            {{ expanded.has(`${course.number}-t`)
+                            {{ expanded.has(`${course.number}-o`)
                                 ? "− ver menos"
-                                : `＋ ${course.troncales.length - PREVIEW} troncales más` }}
+                                : `＋ ${course.optativas.length - PREVIEW} optativas más` }}
                         </button>
                     </li>
 
                 </ul>
-
-                <template v-if="course.optativas.length">
-
-                    <UiSectionHeader
-                        label="Optativas"
-                        :count="course.optativas.length"
-                        hint="% que no aprueba"
-                        tone="gold"
-                        class="group"
-                    />
-
-                    <ul class="rows">
-
-                        <li
-                            v-for="subject in shown(course.optativas, `${course.number}-o`)"
-                            :key="subject.code"
-                        >
-                            <RouterLink
-                                :to="`/asignatura/${subject.code}`"
-                                class="row optative"
-                            >
-                                <span
-                                    class="dot hollow"
-                                    :style="{ borderColor: difficultyFill(subject.noSuperacion) }"
-                                ></span>
-                                <span class="name">{{ subject.name }}</span>
-                                <span
-                                    v-if="subject.smallCohort"
-                                    class="warn"
-                                    title="Menos de 10 matriculados: el porcentaje baila mucho"
-                                >⚠</span>
-                                <span
-                                    class="value num"
-                                    :style="{ color: difficultyInk(subject.noSuperacion, true) }"
-                                >{{ pct(subject.noSuperacion) }}</span>
-                            </RouterLink>
-                        </li>
-
-                        <li v-if="course.optativas.length > PREVIEW">
-                            <button
-                                type="button"
-                                class="more"
-                                @click="toggle(`${course.number}-o`)"
-                            >
-                                {{ expanded.has(`${course.number}-o`)
-                                    ? "− ver menos"
-                                    : `＋ ${course.optativas.length - PREVIEW} optativas más` }}
-                            </button>
-                        </li>
-
-                    </ul>
-
-                </template>
 
             </template>
 
@@ -435,23 +428,21 @@ const kindestNote = course =>
 
 }
 
-.summary{
+.headingChevron{
 
-    margin:9px 0 0;
+    vertical-align:-1px;
 
-    padding:11px 13px;
+    color:var(--navy);
 
-    background:var(--navy-wash);
+}
 
-    border:1px solid var(--navy-wash-line);
+.rowChevron{
 
-    border-radius:9px;
+    flex:none;
 
-    font-size:12px;
+    margin-left:-2px;
 
-    line-height:var(--leading-snug);
-
-    color:var(--navy-soft);
+    color:var(--ink-chevron);
 
 }
 

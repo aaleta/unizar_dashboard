@@ -6,7 +6,7 @@ Estadísticas del Grado en Física de la Universidad de Zaragoza.
 
 - **Notas**: https://estudios.unizar.es/informe/resultados-academicos?estudio_id=20250124
 - **Resultados**: https://zaguan.unizar.es/collection/opendata-academico-rendimiento-asignatura-titulacion?ln=en
-- **Profesores y guías docentes**: se extraen directamente de la web (scraper en `Scripts/Updater.py`).
+- **Profesores y guías docentes**: se extraen directamente de la web (scraper en `scripts/updater.py`).
 
 Todos los porcentajes de la web salen de `notas.xlsx`. De `xlsx_csv/rendimiento/`
 (un CSV por curso) solo se usa la **media de convocatorias consumidas**, que no
@@ -24,11 +24,11 @@ los que hay datos.
 ## Actualizar
 
 ```sh
-uv run ./Scripts/Updater.py     # desde ./Scripts
+uv run ./scripts/updater.py     # desde ./scripts
 cd web && npm run build && npm run deploy
 ```
 
-`Updater.py` genera, en `data/json/processed/`:
+`updater.py` genera, en `data/json/processed/`:
 
 | Fichero | Contenido |
 |---|---|

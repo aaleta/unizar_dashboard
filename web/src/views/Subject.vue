@@ -22,10 +22,10 @@ import { useRoute } from "vue-router";
 
 import { useSubject } from "@/composables/useSubject";
 import { usePageHeader } from "@/composables/usePageHeader";
-import { difficultyFill } from "@/theme/difficulty";
 import { gradeColor } from "@/theme/gradePalette";
 import { readableInk } from "@/theme/contrast";
 
+import LineChart from "@/components/charts/LineChart.vue";
 import UiCallout from "@/components/ui/UiCallout.vue";
 import UiKpiCard from "@/components/ui/UiKpiCard.vue";
 import UiMeterRow from "@/components/ui/UiMeterRow.vue";
@@ -112,21 +112,27 @@ const verdict = computed(() => {
 
 });
 
-/** Alto de cada barra de la serie, en px, con la más alta a tope. */
-const HISTORY_HEIGHT = 78;
-
-const historyMax = computed(() =>
-    Math.max(...history.value.map(point => point.value), 1)
-);
-
-const barHeight = value =>
-    Math.max(3, Math.round((value / historyMax.value) * HISTORY_HEIGHT));
-
 const shortYear = academicYear =>
     academicYear
         .split("-")
         .map(part => part.slice(-2))
         .join("-");
+
+/**
+ * La serie histórica como línea: la pregunta es "¿sube o baja?", y una línea
+ * enseña la pendiente de un vistazo donde doce barras piden compararse una a
+ * una. Un solo color (el cálido de las gráficas), porque una línea no puede
+ * subir por la rampa tramo a tramo sin fragmentarse.
+ */
+const historyChart = computed(() => ({
+    labels: history.value.map(point => shortYear(point.year)),
+    series: [{
+        label: "No superan",
+        values: history.value.map(point => point.value)
+    }]
+}));
+
+const HISTORY_COLORS = ["var(--chart-line-2)"];
 
 const historyNote = computed(() => {
 
@@ -322,43 +328,10 @@ const comparison = computed(() => {
 
     </section>
 
-    <!-- Serie histórica ------------------------------------------------ -->
-    <section
-        v-if="history.length > 1"
-        class="section"
-    >
-
-        <h2>No superan, curso a curso</h2>
-
-        <p
-            v-if="historyNote"
-            class="lead"
-        >
-            {{ historyNote }}
-        </p>
-
-        <div class="history">
-            <div
-                v-for="(point, index) in history"
-                :key="point.year"
-                class="bar"
-                :class="{ latest: index === history.length - 1 }"
-            >
-                <span class="barValue num">{{ Math.round(point.value) }}</span>
-                <div
-                    class="barFill"
-                    :style="{
-                        height: `${barHeight(point.value)}px`,
-                        background: difficultyFill(point.value)
-                    }"
-                ></div>
-                <span class="barYear num">{{ shortYear(point.year) }}</span>
-            </div>
-        </div>
-
-    </section>
-
     <!-- Frente al curso ------------------------------------------------ -->
+    <!-- Antes que la serie histórica: esta comparación depende del año
+         elegido arriba y la serie no, así que lo que cambia con el selector
+         queda junto a él. -->
     <section
         v-if="comparison"
         class="section"
@@ -399,6 +372,31 @@ const comparison = computed(() => {
             </p>
 
         </div>
+
+    </section>
+
+    <!-- Serie histórica ------------------------------------------------ -->
+    <section
+        v-if="history.length > 1"
+        class="section"
+    >
+
+        <h2>No superan, curso a curso</h2>
+
+        <p
+            v-if="historyNote"
+            class="lead"
+        >
+            {{ historyNote }}
+        </p>
+
+        <LineChart
+            :series="historyChart.series"
+            :labels="historyChart.labels"
+            :colors="HISTORY_COLORS"
+            :y-min="0"
+            :format-value="value => `${Math.round(value)}%`"
+        />
 
     </section>
 
@@ -706,77 +704,6 @@ h2{
     font-weight:500;
 
     color:var(--ink-soft);
-
-}
-
-/* Serie histórica ----------------------------------------------------- */
-
-.history{
-
-    display:flex;
-
-    align-items:flex-end;
-
-    gap:9px;
-
-    height:110px;
-
-    padding:0 2px;
-
-    /* Doce cursos no caben en 320px sin apretarlos hasta lo ilegible. */
-    overflow-x:auto;
-
-}
-
-.bar{
-
-    flex:1;
-
-    min-width:22px;
-
-    display:flex;
-
-    flex-direction:column;
-
-    align-items:center;
-
-    gap:4px;
-
-}
-
-.barValue,
-.barYear{
-
-    font-size:8px;
-
-    font-weight:400;
-
-    color:var(--ink-faint);
-
-}
-
-.barYear{
-
-    font-size:7.5px;
-
-    white-space:nowrap;
-
-}
-
-.bar.latest .barValue,
-.bar.latest .barYear{
-
-    font-weight:600;
-
-    color:var(--warn-title);
-
-}
-
-.barFill{
-
-    width:100%;
-
-    border-radius:4px 4px 0 0;
 
 }
 

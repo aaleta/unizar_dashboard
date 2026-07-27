@@ -1,7 +1,7 @@
 /**
  * Procedencia y actualidad de cada conjunto de datos.
  *
- * Las fechas salen de DataFreshness.json, que genera Scripts/Updater.py a partir
+ * Las fechas salen de DataFreshness.json, que genera scripts/updater.py a partir
  * de los propios ficheros: la portada afirmaba "datos del curso 2024-2025" para
  * todo, y de las cuatro fuentes solo una lo cumplía.
  *

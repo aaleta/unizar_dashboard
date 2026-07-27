@@ -1,0 +1,21 @@
+{
+    "name": "Estadísticas del Grado en Física · Unizar",
+    "short_name": "Física Unizar",
+    "description": "Estadísticas del Grado en Física de la Universidad de Zaragoza, a partir de los datos oficiales.",
+    "start_url": "./",
+    "display": "standalone",
+    "background_color": "#f4efe6",
+    "theme_color": "#223d71",
+    "icons": [
+        {
+            "src": "app-icon-192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "app-icon-512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ]
+}

@@ -48,6 +48,17 @@ const props = defineProps({
     formatValue: {
         type: Function,
         default: value => String(Math.round(value))
+    },
+
+    /**
+     * Mínimo fijo del eje Y. Sin él, el eje se ajusta a los datos (lo que
+     * quieren las notas de acceso, que viven entre 5 y 13); con él, la serie
+     * se lee sobre una base absoluta (un porcentaje contra 0 no exagera la
+     * variación).
+     */
+    yMin: {
+        type: Number,
+        default: null
     }
 
 });
@@ -71,7 +82,10 @@ const bounds = computed(() => {
     const max = Math.max(...flat.value);
     const margin = (max - min) * 0.08 || 1;
 
-    return { min: min - margin, max: max + margin };
+    return {
+        min: props.yMin ?? min - margin,
+        max: max + margin
+    };
 
 });
 

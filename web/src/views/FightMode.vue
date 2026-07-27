@@ -18,8 +18,8 @@ import { useFight } from "@/composables/useFight";
 import { allSubjects, subjectName } from "@/utils/metrics";
 import { difficultyInk } from "@/theme/difficulty";
 
-/** Dos troncales duras de cursos distintos: un duelo con algo que mirar. */
-const DEFAULTS = [26907, 26918];
+/** Física computacional contra el TFG: un duelo con algo que mirar. */
+const DEFAULTS = [26918, 26931];
 
 const firstCode = ref(DEFAULTS[0]);
 const secondCode = ref(DEFAULTS[1]);
@@ -63,7 +63,10 @@ const valueColor = (duel, side) => {
 
     <header class="intro">
         <h1>Fight Mode</h1>
-        <p>Dos asignaturas entran. Los datos deciden.</p>
+        <p>
+            Mejor comparar asignaturas del mismo tipo: optativas con
+            optativas, troncales con troncales.
+        </p>
     </header>
 
     <!-- Contendientes ------------------------------------------------- -->

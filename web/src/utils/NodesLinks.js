@@ -24,6 +24,38 @@ const normalize = name =>
         .toLowerCase()
         .trim();
 
+/**
+ * Palabras que en un nombre espa\u00f1ol van en min\u00fascula: "Mar\u00eda de la Fuente",
+ * no "Mar\u00eda De La Fuente".
+ */
+const CONNECTORS = new Set([
+    "de", "del", "la", "las", "los", "el",
+    "y", "e", "i", "da", "do", "das", "dos",
+    "van", "von", "der", "di"
+]);
+
+/**
+ * Las gu\u00edas escriben algunos nombres EN MAY\u00daSCULAS y otros no; aqu\u00ed se
+ * uniformizan a may\u00fascula inicial por palabra, conectores aparte. A mano y
+ * no con una librer\u00eda: las de "title case" que hay en npm est\u00e1n pensadas
+ * para titulares en ingl\u00e9s (manejan "iPhone" y "McDonald", no "del" ni
+ * "de la"), as\u00ed que habr\u00eda que corregirlas con exactamente este c\u00f3digo.
+ */
+const titleCase = name =>
+    name
+        .trim()
+        .toLowerCase()
+        .split(/\s+/)
+        .map((word, index) =>
+            index > 0 && CONNECTORS.has(word)
+                ? word
+                : word
+                    .split("-")
+                    .map(part => part.charAt(0).toUpperCase() + part.slice(1))
+                    .join("-")
+        )
+        .join(" ");
+
 const shortName = name => {
 
     const parts = name.split(" ");
@@ -66,8 +98,8 @@ const buildGraph = rows => {
 
                     professors.set(id, {
                         id,
-                        label: shortName(name),
-                        fullName: name.trim(),
+                        label: shortName(titleCase(name)),
+                        fullName: titleCase(name),
                         subjects: new Set(),
                         years: new Set()
                     });

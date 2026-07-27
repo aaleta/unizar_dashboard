@@ -24,8 +24,8 @@ import { useProfessorNetwork } from "@/composables/useProfessorNetwork";
 import { useViewport } from "@/composables/useViewport";
 
 import UiCallout from "@/components/ui/UiCallout.vue";
+import UiChip from "@/components/ui/UiChip.vue";
 import UiCountBar from "@/components/ui/UiCountBar.vue";
-import UiPill from "@/components/ui/UiPill.vue";
 import UiSearchField from "@/components/ui/UiSearchField.vue";
 import UiStat from "@/components/ui/UiStat.vue";
 
@@ -41,9 +41,18 @@ const { isDesktop } = useViewport();
 const query = ref("");
 const selectedId = ref("");
 
+/**
+ * En el móvil se arranca con el claustro ACTIVO —quien aparece en la última
+ * guía docente publicada—: la pregunta habitual es "¿con quién voy a dar
+ * clase?", no "¿quién la dio hace ocho años?". El histórico queda a un toque.
+ * (En escritorio el modo se cambia con el selector de curso del grafo.)
+ */
+const activeOnly = ref(true);
+
 const { results, selected, totals } = useProfessorNetwork(
     () => query.value,
-    () => selectedId.value
+    () => selectedId.value,
+    () => activeOnly.value
 );
 
 const expanded = ref(false);
@@ -97,6 +106,11 @@ const thousands = value =>
                 tone="navy"
             />
             <UiStat
+                :value="thousands(totals.active)"
+                label="en activo"
+                tone="navy"
+            />
+            <UiStat
                 :value="thousands(totals.collaborations)"
                 label="colaboraciones"
             />
@@ -112,8 +126,8 @@ const thousands = value =>
         tone="structural"
         class="hint"
     >
-        La <strong>madeja completa</strong> se explora mejor en pantalla
-        grande. Aquí vas persona a persona.
+        La <strong>red completa</strong> se explora mejor en pantalla
+        grande. Aquí solo se muestra persona a persona.
     </UiCallout>
 
     <div class="finder">
@@ -123,6 +137,21 @@ const thousands = value =>
             placeholder="Buscar profesor…"
             label="Buscar profesor"
         />
+
+        <div class="modes">
+            <UiChip
+                :active="activeOnly"
+                @click="activeOnly = true"
+            >
+                En activo · {{ thousands(totals.active) }}
+            </UiChip>
+            <UiChip
+                :active="!activeOnly"
+                @click="activeOnly = false"
+            >
+                Todos · {{ thousands(totals.professors) }}
+            </UiChip>
+        </div>
 
         <p
             v-if="!results.length"
@@ -149,8 +178,9 @@ const thousands = value =>
                     <span class="personBody">
                         <span class="personName">{{ person.name }}</span>
                         <span class="personMeta num">
+                            índice {{ decimal(person.totalWeight) }} ·
                             {{ person.nSubjects }} asignaturas ·
-                            {{ person.nCollaborators }} colaboradores
+                            {{ person.nCollaborations }} colaboraciones
                         </span>
                     </span>
                 </button>
@@ -191,12 +221,14 @@ const thousands = value =>
             <p class="eyebrow blockLabel">Imparte</p>
 
             <div class="pills">
-                <UiPill
-                    v-for="name in selected.subjectNames"
-                    :key="name"
+                <RouterLink
+                    v-for="subject in selected.subjectItems"
+                    :key="subject.code"
+                    :to="`/asignatura/${subject.code}`"
+                    class="subjectPill"
                 >
-                    {{ name }}
-                </UiPill>
+                    {{ subject.name }} →
+                </RouterLink>
             </div>
 
             <template v-if="selected.topCollaborators.length">
@@ -222,9 +254,10 @@ const thousands = value =>
     </section>
 
     <p class="footnote">
-        Peso = suma de 1/n por asignatura y curso, donde n es el número de
-        profesores de esa asignatura ese año · el TFG se excluye porque lo firma
-        medio departamento.
+        Índice = suma de 1/n por asignatura y curso, donde n es el número de
+        profesores de esa asignatura ese año · en activo = aparecen en la guía
+        docente más reciente · el TFG se excluye porque lo firma medio
+        departamento.
     </p>
 
 </div>
@@ -284,6 +317,16 @@ h1{
 .finder{
 
     margin-top:14px;
+
+}
+
+.modes{
+
+    display:flex;
+
+    gap:6px;
+
+    margin-top:9px;
 
 }
 
@@ -478,6 +521,41 @@ h2{
     flex-wrap:wrap;
 
     gap:6px;
+
+}
+
+/* Como una UiPill, pero pulsable: lleva a la ficha de la asignatura. */
+.subjectPill{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    padding:4px 9px;
+
+    border:1px solid var(--navy-line);
+
+    border-radius:var(--radius-pill);
+
+    font-family:var(--font-mono);
+
+    font-size:var(--text-eyebrow);
+
+    font-weight:600;
+
+    letter-spacing:.4px;
+
+    text-transform:uppercase;
+
+    text-decoration:none;
+
+    color:var(--navy);
+
+}
+
+.subjectPill:active{
+
+    background:var(--navy-wash);
 
 }
 

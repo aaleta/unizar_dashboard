@@ -226,7 +226,8 @@ const meta = row => [
     </div>
 
     <p class="footnote">
-        Debes cursar un mínimo de optativas · medias de 3 cursos ·
+        En 3º deberías cursar 15 créditos optativos (3 asignaturas) y en 4º
+        20 créditos (4 asignaturas) · medias de 3 cursos ·
         ⚠ = menos de 10 alumnos.
     </p>
 

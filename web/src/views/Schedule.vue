@@ -374,7 +374,7 @@ const examClashLine = date =>
 
 /* Al listado oficial de asignaturas del plan, donde cada una enlaza su guía.
    La URL lleva el curso (2026) codificado: al cambiar de curso hay que
-   actualizarla junto con PUBLICACION en el Updater. */
+   actualizarla junto con PUBLICACION en scripts/updater.py. */
 .guideLink{
 
     color:var(--navy);

@@ -18,19 +18,36 @@ import { computed } from "vue";
 import { useDegree } from "@/composables/useDegree";
 import { DATA_SOURCES } from "@/utils/dataSources";
 import { difficultyInk } from "@/theme/difficulty";
+import { courseRate } from "@/utils/metrics";
 
 import LineChart from "@/components/charts/LineChart.vue";
 import UiKpiCard from "@/components/ui/UiKpiCard.vue";
+import UiMeterRow from "@/components/ui/UiMeterRow.vue";
 
 const {
     cutoff,
     rates,
     sittings,
     admission,
-    passTrend,
     hardest,
     recentYears
 } = useDegree();
+
+/**
+ * La dificultad estimada de cada curso: el % que no supera sus troncales.
+ * Es la adaptación del panel de escritorio que comparaba los cuatro cursos,
+ * y responde antes que ninguna serie temporal a la pregunta del visitante
+ * nuevo: ¿dónde está lo gordo?
+ */
+const yearDifficulty = ["1", "2", "3", "4"].map(course => ({
+    label: `${course}º`,
+    course,
+    value: courseRate(course, "noSuperacion")
+}));
+
+const hardestYear = yearDifficulty.reduce(
+    (worst, year) => (year.value > worst.value ? year : worst)
+).course;
 
 /** Coma decimal: es una web en español y las notas se escriben con coma. */
 const decimal = (value, digits = 2) =>
@@ -81,21 +98,6 @@ const admissionNote = computed(() => {
     };
 
 });
-
-const trendMax = computed(() =>
-    Math.max(...passTrend.map(point => point.value))
-);
-
-const trendHeight = value =>
-    Math.max(4, Math.round((value / trendMax.value) * 74));
-
-const shortYear = year =>
-    year.split("-").map(part => part.slice(-2)).join("-");
-
-const trendEnds = computed(() => ({
-    first: passTrend[0],
-    last: passTrend[passTrend.length - 1]
-}));
 
 </script>
 
@@ -210,28 +212,31 @@ const trendEnds = computed(() => ({
 
         </RouterLink>
 
-        <!-- Tendencia ------------------------------------------------ -->
+        <!-- Dificultad por curso -------------------------------------- -->
         <section class="panel">
 
-            <h2>¿Aprueba más gente que antes?</h2>
+            <h2>¿Qué curso cuesta más?</h2>
 
-            <p class="lead">Tasa de las troncales, curso a curso.</p>
+            <p class="lead">
+                % que no supera las troncales de cada curso, de media.
+            </p>
 
-            <div class="trend">
-                <div
-                    v-for="(point, index) in passTrend"
-                    :key="point.year"
-                    class="trendBar"
-                    :class="{ latest: index === passTrend.length - 1 }"
-                    :style="{ height: `${trendHeight(point.value)}px` }"
-                    :title="`${point.year}: ${pct(point.value)}`"
-                ></div>
+            <div class="yearBars">
+                <UiMeterRow
+                    v-for="year in yearDifficulty"
+                    :key="year.label"
+                    :label="year.label"
+                    :value="year.value"
+                    :label-width="26"
+                />
             </div>
 
-            <div class="trendAxis num">
-                <span>{{ shortYear(trendEnds.first.year) }} · {{ pct(trendEnds.first.value) }}</span>
-                <span>{{ shortYear(trendEnds.last.year) }} · {{ pct(trendEnds.last.value) }}</span>
-            </div>
+            <p class="yearNote">
+                Media ponderada de los últimos {{ recentYears }} cursos.
+                <RouterLink :to="`/grado/${hardestYear}`">
+                    Ver {{ hardestYear }}º →
+                </RouterLink>
+            </p>
 
         </section>
 
@@ -257,11 +262,6 @@ const trendEnds = computed(() => ({
             </p>
 
         </section>
-
-        <p class="disclaimer">
-            Cada fuente se actualiza por su cuenta: una sola fecha para todas
-            sería falsa · cálculo propio, código abierto.
-        </p>
 
     </div>
 
@@ -586,54 +586,35 @@ h2{
 
 }
 
-/* Tendencia ----------------------------------------------------------- */
+/* Dificultad por curso ------------------------------------------------- */
 
-.trend{
-
-    display:flex;
-
-    align-items:flex-end;
-
-    gap:5px;
-
-    height:74px;
-
-}
-
-.trendBar{
-
-    flex:1;
-
-    border-radius:3px 3px 0 0;
-
-    /* Gris de recuento: la altura ya dice la tasa, el color no añade nada y
-       usar la rampa aquí diría que un curso entero "es difícil". */
-    background:var(--count-fill);
-
-    opacity:.55;
-
-}
-
-/* Solo el último se destaca: es el "ahora" contra el que se lee el resto. */
-.trendBar.latest{
-
-    opacity:1;
-
-}
-
-.trendAxis{
+.yearBars{
 
     display:flex;
 
-    justify-content:space-between;
+    flex-direction:column;
 
-    margin-top:6px;
+    gap:8px;
 
-    font-size:7.5px;
+}
 
-    font-weight:400;
+.yearNote{
+
+    margin:10px 0 0;
+
+    font-family:var(--font-mono);
+
+    font-size:var(--text-num-sm);
 
     color:var(--ink-faint);
+
+}
+
+.yearNote a{
+
+    color:var(--navy);
+
+    font-weight:600;
 
 }
 
@@ -726,24 +707,6 @@ h2{
     font-size:12px;
 
     font-weight:600;
-
-}
-
-.disclaimer{
-
-    margin:14px 0 0;
-
-    padding-top:14px;
-
-    border-top:1px solid var(--line-rule);
-
-    font-family:var(--font-mono);
-
-    font-size:var(--text-footnote);
-
-    line-height:1.6;
-
-    color:var(--ink-faint);
 
 }
 

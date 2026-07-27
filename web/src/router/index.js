@@ -119,7 +119,7 @@ const router = createRouter({
             meta: {
                 header: "inner",
                 eyebrow: "Más",
-                title: "Metodología"
+                title: "Metodología y fuentes"
             }
         },
 

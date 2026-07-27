@@ -20,7 +20,9 @@ import { useRoute } from "vue-router";
 
 import { useCourse } from "@/composables/useCourse";
 import { usePageHeader } from "@/composables/usePageHeader";
+import { courseSeries } from "@/utils/metrics";
 
+import LineChart from "@/components/charts/LineChart.vue";
 import UiCallout from "@/components/ui/UiCallout.vue";
 import UiMeterRow from "@/components/ui/UiMeterRow.vue";
 import UiSectionHeader from "@/components/ui/UiSectionHeader.vue";
@@ -66,6 +68,32 @@ const pct = value =>
     value === null ? "—" : `${Math.round(value)}%`;
 
 const ordinal = course => `${course}º`;
+
+const shortYear = academicYear =>
+    academicYear
+        .split("-")
+        .map(part => part.slice(-2))
+        .join("-");
+
+/**
+ * Cómo ha evolucionado la dificultad del curso entero: la media ponderada de
+ * no superación de sus troncales, año a año. La línea responde a la pregunta
+ * que las tarjetas no pueden: ¿este curso siempre fue así?
+ */
+const difficultyHistory = computed(() =>
+    courseSeries(String(number.value), "noSuperacion")
+        .filter(point => point.value !== null)
+);
+
+const historyChart = computed(() => ({
+    labels: difficultyHistory.value.map(point => shortYear(point.year)),
+    series: [{
+        label: "No superan las troncales",
+        values: difficultyHistory.value.map(point => point.value)
+    }]
+}));
+
+const HISTORY_COLORS = ["var(--chart-line-2)"];
 
 </script>
 
@@ -129,6 +157,29 @@ const ordinal = course => `${course}º`;
                 :label="subject.name"
                 :value="subject.noSuperacion"
             />
+        </div>
+
+    </section>
+
+    <section
+        v-if="difficultyHistory.length > 1"
+        class="section"
+    >
+
+        <h2>Dificultad del curso</h2>
+
+        <div class="panel">
+            <LineChart
+                :series="historyChart.series"
+                :labels="historyChart.labels"
+                :colors="HISTORY_COLORS"
+                :y-min="0"
+                :format-value="value => `${Math.round(value)}%`"
+            />
+            <p class="chartNote">
+                % que no supera las troncales de {{ ordinal(number) }},
+                media ponderada de cada curso académico.
+            </p>
         </div>
 
     </section>
@@ -368,6 +419,20 @@ h2{
     border-radius:12px;
 
     box-shadow:var(--shadow-card);
+
+}
+
+.chartNote{
+
+    margin:2px 0 0;
+
+    font-family:var(--font-mono);
+
+    font-size:var(--text-footnote);
+
+    line-height:1.5;
+
+    color:var(--ink-faint);
 
 }
 

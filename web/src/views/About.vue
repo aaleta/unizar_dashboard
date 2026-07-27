@@ -2,28 +2,44 @@
 
 /**
  * Acerca de: la página humana.
- *
- * Los huecos de colaborador se dejan SIN RELLENAR a propósito. El handoff lo
- * pide explícitamente y es lo correcto: inventar nombres en la página que
- * dice quién responde de los datos sería la peor forma posible de estrenar
- * una web que va de no fiarse de los rumores.
- *
- * El único crédito real es @aaleta, que es quien mantiene el repositorio.
  */
 
 import UiCallout from "@/components/ui/UiCallout.vue";
 
 const REPO = "https://github.com/aaleta/unizar_dashboard";
 
+const BIFI = "https://bifi.es/";
+
 /**
- * Plantillas a rellenar. Se ven en gris de marcador de posición para que
- * nadie las confunda con personas reales.
+ * El avatar sale de la foto pública de GitHub (github.com/<usuario>.png):
+ * una imagen menos que mantener y siempre al día con el perfil. Claude no es
+ * un usuario sino una app de GitHub, así que trae su avatar y su enlace
+ * explícitos.
  */
-const SLOTS = [
-    { role: "Idea y contenidos" },
-    { role: "Diseño y frontend" },
-    { role: "Revisión y datos" }
+const PEOPLE = [
+    {
+        name: "Alberto Aleta",
+        handle: "aaleta",
+        role: "Idea · Mantenimiento",
+        url: "https://github.com/aaleta"
+    },
+    {
+        name: "Marcos Lizano",
+        handle: "Marcos9001",
+        role: "Primera versión de la web",
+        url: "https://github.com/Marcos9001"
+    },
+    {
+        name: "Claude",
+        handle: "claude",
+        role: "Diseño · Implementación",
+        url: "https://github.com/apps/claude",
+        avatarUrl: "https://avatars.githubusercontent.com/in/1236702?s=96&v=4"
+    }
 ];
+
+const avatar = person =>
+    person.avatarUrl ?? `https://github.com/${person.handle}.png?size=96`;
 
 const HOW = [
     {
@@ -32,12 +48,7 @@ const HOW = [
             + "la Universidad de Zaragoza, más las notas de corte."
     },
     {
-        title: "Un cálculo, una vez.",
-        text: "Cada tasa se define en un único sitio, con la nomenclatura "
-            + "oficial, y nada se recalcula por su cuenta."
-    },
-    {
-        title: "Todo a la vista.",
+        title: "Código abierto.",
         text: "El código y los datos procesados son públicos: cualquiera puede "
             + "revisar, corregir o reutilizar."
     }
@@ -70,40 +81,41 @@ const HOW = [
             <div class="rule"></div>
         </div>
 
-        <a
-            class="person"
-            :href="REPO"
-            target="_blank"
-            rel="noopener noreferrer"
-        >
-            <span
-                class="avatar"
-                aria-hidden="true"
-            >AA</span>
-            <span class="personBody">
-                <span class="personName">@aaleta</span>
-                <span class="personRole">Mantenimiento · datos · scraper</span>
-            </span>
-            <span class="personGo">GitHub →</span>
-        </a>
-
-        <p class="eyebrow slotsLabel">Colaboradores · por rellenar</p>
-
-        <ul class="slots">
-            <li
-                v-for="slot in SLOTS"
-                :key="slot.role"
+        <div class="people">
+            <a
+                v-for="person in PEOPLE"
+                :key="person.handle"
+                class="person"
+                :href="person.url"
+                target="_blank"
+                rel="noopener noreferrer"
             >
-                <span
-                    class="avatar small"
-                    aria-hidden="true"
-                >··</span>
+                <img
+                    class="avatar"
+                    :src="avatar(person)"
+                    alt=""
+                    loading="lazy"
+                >
                 <span class="personBody">
-                    <span class="slotName">Nombre Apellido</span>
-                    <span class="personRole">{{ slot.role }}</span>
+                    <span class="personName">
+                        {{ person.name }}
+                        <span class="personHandle num">@{{ person.handle }}</span>
+                    </span>
+                    <span class="personRole">{{ person.role }}</span>
                 </span>
-            </li>
-        </ul>
+                <span class="personGo">GitHub →</span>
+            </a>
+        </div>
+
+        <p class="context">
+            Desarrollado como Prácticas Externas en el
+            <a
+                :href="BIFI"
+                target="_blank"
+                rel="noopener noreferrer"
+            >Instituto de Biocomputación y Física de Sistemas Complejos
+            (BIFI)</a>.
+        </p>
 
     </section>
 
@@ -152,8 +164,9 @@ const HOW = [
     >
         Los números describen resultados agregados de cursos pasados; no miden
         la calidad de la docencia ni la valía de quien la imparte o la cursa.
-        Una asignatura difícil puede estar magníficamente dada. Úsalo para
-        organizarte, no para etiquetar.
+        Una asignatura difícil puede estar magníficamente dada, y una
+        asignatura fácil se puede suspender. Úsalo para organizarte, no para
+        etiquetar.
     </UiCallout>
 
     <p class="footnote">
@@ -245,6 +258,16 @@ h2{
 
 /* Personas -------------------------------------------------------------- */
 
+.people{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:8px;
+
+}
+
 .person{
 
     display:flex;
@@ -269,12 +292,6 @@ h2{
 
 .avatar{
 
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
     width:42px;
 
     height:42px;
@@ -283,29 +300,10 @@ h2{
 
     border-radius:50%;
 
-    background:var(--navy);
-
-    color:var(--gold);
-
-    font-family:var(--font-serif);
-
-    font-size:17px;
-
-    font-weight:700;
-
-}
-
-.avatar.small{
-
-    width:34px;
-
-    height:34px;
-
+    /* Se ve mientras carga la foto y si el perfil no tiene ninguna. */
     background:var(--navy-wash);
 
-    color:var(--navy-avatar);
-
-    font-size:13px;
+    object-fit:cover;
 
 }
 
@@ -324,6 +322,18 @@ h2{
     font-size:13.5px;
 
     font-weight:700;
+
+}
+
+.personHandle{
+
+    margin-left:4px;
+
+    font-size:var(--text-num-sm);
+
+    font-weight:400;
+
+    color:var(--ink-soft);
 
 }
 
@@ -351,58 +361,23 @@ h2{
 
 }
 
-.slotsLabel{
+.context{
 
-    margin:14px 0 8px;
+    margin:12px 0 0;
 
-    font-size:var(--text-footnote);
+    font-size:var(--text-body-xs);
 
-}
+    line-height:1.55;
 
-.slots{
-
-    display:flex;
-
-    flex-direction:column;
-
-    gap:8px;
-
-    margin:0;
-
-    padding:0;
-
-    list-style:none;
+    color:var(--ink-muted);
 
 }
 
-.slots li{
+.context a{
 
-    display:flex;
-
-    align-items:center;
-
-    gap:12px;
-
-    padding:11px 13px;
-
-    background:var(--surface);
-
-    border:1px solid var(--line);
-
-    border-radius:12px;
-
-}
-
-/* Gris de marcador: estos huecos son plantillas, no personas. */
-.slotName{
-
-    display:block;
-
-    font-size:var(--text-body);
+    color:var(--navy);
 
     font-weight:600;
-
-    color:var(--ink-placeholder);
 
 }
 
