@@ -1,0 +1,598 @@
+{
+    "tab-E1": [
+        {
+            "curso": "1",
+            "asignatura": "26900 - Fundamentos de física I",
+            "fecha_examen": "16-01-2027"
+        },
+        {
+            "curso": "1",
+            "asignatura": "26901 - Química",
+            "fecha_examen": "17-12-2026"
+        },
+        {
+            "curso": "1",
+            "asignatura": "26901 - Química",
+            "fecha_examen": "13-01-2027"
+        },
+        {
+            "curso": "1",
+            "asignatura": "26902 - Álgebra I",
+            "fecha_examen": "08-01-2027"
+        },
+        {
+            "curso": "1",
+            "asignatura": "26903 - Análisis matemático",
+            "fecha_examen": "19-12-2026"
+        },
+        {
+            "curso": "1",
+            "asignatura": "26904 - Informática",
+            "fecha_examen": "11-01-2027"
+        },
+        {
+            "curso": "1",
+            "asignatura": "26904 - Informática",
+            "fecha_examen": "11-01-2027"
+        },
+        {
+            "curso": "1",
+            "asignatura": "26909 - Biología (plan a extinguir)",
+            "fecha_examen": "22-12-2026"
+        },
+        {
+            "curso": "1",
+            "asignatura": "26910 - Geología (plan a extinguir)",
+            "fecha_examen": "22-12-2026"
+        },
+        {
+            "curso": "2",
+            "asignatura": "26911 - Técnicas físicas I",
+            "fecha_examen": "14-01-2027"
+        },
+        {
+            "curso": "2",
+            "asignatura": "26912 - Mecánica clásica I",
+            "fecha_examen": "12-01-2027"
+        },
+        {
+            "curso": "2",
+            "asignatura": "26913 - Cálculo integral y geometría",
+            "fecha_examen": "18-12-2026"
+        },
+        {
+            "curso": "2",
+            "asignatura": "26914 - Ecuaciones diferenciales",
+            "fecha_examen": "21-12-2026"
+        },
+        {
+            "curso": "2",
+            "asignatura": "26915 - Electromagnetismo",
+            "fecha_examen": "16-12-2026"
+        },
+        {
+            "curso": "2",
+            "asignatura": "26915 - Electromagnetismo",
+            "fecha_examen": "16-12-2026"
+        },
+        {
+            "curso": "3",
+            "asignatura": "26920 - Técnicas físicas II",
+            "fecha_examen": "11-01-2027"
+        },
+        {
+            "curso": "3",
+            "asignatura": "26921 - Física cuántica I",
+            "fecha_examen": "15-01-2027"
+        },
+        {
+            "curso": "3",
+            "asignatura": "26922 - Termodinámica",
+            "fecha_examen": "09-01-2027"
+        },
+        {
+            "curso": "3",
+            "asignatura": "26923 - Óptica",
+            "fecha_examen": "22-12-2026"
+        },
+        {
+            "curso": "3",
+            "asignatura": "26932 - Astronomía y astrofísica",
+            "fecha_examen": "17-12-2026"
+        },
+        {
+            "curso": "3",
+            "asignatura": "26935 - Física de fluidos",
+            "fecha_examen": "13-01-2027"
+        },
+        {
+            "curso": "3",
+            "asignatura": "26938 - Historia de la ciencia",
+            "fecha_examen": "16-12-2026"
+        },
+        {
+            "curso": "4",
+            "asignatura": "26926 - Estado sólido I",
+            "fecha_examen": "08-01-2027"
+        },
+        {
+            "curso": "4",
+            "asignatura": "26927 - Técnicas físicas III",
+            "fecha_examen": "13-01-2027"
+        },
+        {
+            "curso": "4",
+            "asignatura": "26928 - Electrónica física",
+            "fecha_examen": "17-12-2026"
+        },
+        {
+            "curso": "4",
+            "asignatura": "26929 - Física nuclear y partículas",
+            "fecha_examen": "16-01-2027"
+        },
+        {
+            "curso": "4",
+            "asignatura": "26936 - Gestión empresarial y proyectos",
+            "fecha_examen": "11-01-2027"
+        },
+        {
+            "curso": "4",
+            "asignatura": "26946 - Dosimetría y radioprotección",
+            "fecha_examen": "21-12-2026"
+        },
+        {
+            "curso": "4",
+            "asignatura": "26953 - Mecánica cuántica",
+            "fecha_examen": "12-01-2027"
+        },
+        {
+            "curso": "4",
+            "asignatura": "26957 - Sistemas digitales",
+            "fecha_examen": "18-12-2026"
+        }
+    ],
+    "tab-E2": [
+        {
+            "curso": "1",
+            "asignatura": "26905 - Fundamentos de física II",
+            "fecha_examen": "14-05-2027"
+        },
+        {
+            "curso": "1",
+            "asignatura": "26906 - Laboratorio de física",
+            "fecha_examen": "25-05-2027"
+        },
+        {
+            "curso": "1",
+            "asignatura": "26907 - Álgebra II",
+            "fecha_examen": "19-05-2027"
+        },
+        {
+            "curso": "1",
+            "asignatura": "26907 - Álgebra II",
+            "fecha_examen": "19-05-2027"
+        },
+        {
+            "curso": "1",
+            "asignatura": "26908 - Cálculo diferencial",
+            "fecha_examen": "10-05-2027"
+        },
+        {
+            "curso": "1",
+            "asignatura": "26909 - Biología (plan a extinguir)",
+            "fecha_examen": "28-05-2027"
+        },
+        {
+            "curso": "1",
+            "asignatura": "26910 - Geología (plan a extinguir)",
+            "fecha_examen": "28-05-2027"
+        },
+        {
+            "curso": "1",
+            "asignatura": "26958 - Grafos y combinatoria (plan a extinguir)",
+            "fecha_examen": "28-05-2027"
+        },
+        {
+            "curso": "1",
+            "asignatura": "26999 - Probabilidad y Estadística",
+            "fecha_examen": "28-05-2027"
+        },
+        {
+            "curso": "1",
+            "asignatura": "26999 - Probabilidad y Estadística",
+            "fecha_examen": "28-05-2027"
+        },
+        {
+            "curso": "2",
+            "asignatura": "26911 - Técnicas físicas I",
+            "fecha_examen": "12-05-2027"
+        },
+        {
+            "curso": "2",
+            "asignatura": "26911 - Técnicas físicas I",
+            "fecha_examen": "12-05-2027"
+        },
+        {
+            "curso": "2",
+            "asignatura": "26916 - Mecánica clásica II",
+            "fecha_examen": "17-05-2027"
+        },
+        {
+            "curso": "2",
+            "asignatura": "26917 - Métodos matemáticos para la física",
+            "fecha_examen": "24-05-2027"
+        },
+        {
+            "curso": "2",
+            "asignatura": "26918 - Física computacional",
+            "fecha_examen": "21-05-2027"
+        },
+        {
+            "curso": "2",
+            "asignatura": "26918 - Física computacional",
+            "fecha_examen": "21-05-2027"
+        },
+        {
+            "curso": "2",
+            "asignatura": "26919 - Ondas electromagnéticas",
+            "fecha_examen": "27-05-2027"
+        },
+        {
+            "curso": "3",
+            "asignatura": "26920 - Técnicas físicas II",
+            "fecha_examen": "20-05-2027"
+        },
+        {
+            "curso": "3",
+            "asignatura": "26924 - Física cuántica II",
+            "fecha_examen": "11-05-2027"
+        },
+        {
+            "curso": "3",
+            "asignatura": "26925 - Física estadística",
+            "fecha_examen": "28-05-2027"
+        },
+        {
+            "curso": "3",
+            "asignatura": "26933 - Caos y sistemas dinámicos no lineales",
+            "fecha_examen": "26-05-2027"
+        },
+        {
+            "curso": "3",
+            "asignatura": "26937 - Gravitación y cosmología",
+            "fecha_examen": "14-05-2027"
+        },
+        {
+            "curso": "3",
+            "asignatura": "26940 - Láser y aplicaciones",
+            "fecha_examen": "13-05-2027"
+        },
+        {
+            "curso": "3",
+            "asignatura": "26941 - Micro y nano sistemas",
+            "fecha_examen": "13-05-2027"
+        },
+        {
+            "curso": "3",
+            "asignatura": "26942 - Microondas: propagación y antenas",
+            "fecha_examen": "18-05-2027"
+        },
+        {
+            "curso": "3",
+            "asignatura": "26944 - Aplicaciones de la difracción y de la interferometría",
+            "fecha_examen": "18-05-2027"
+        },
+        {
+            "curso": "4",
+            "asignatura": "26930 - Estado sólido II",
+            "fecha_examen": "19-05-2027"
+        },
+        {
+            "curso": "4",
+            "asignatura": "26945 - Dispositivos y sistemas fotónicos",
+            "fecha_examen": "12-05-2027"
+        },
+        {
+            "curso": "4",
+            "asignatura": "26947 - Espectroscopia",
+            "fecha_examen": "27-05-2027"
+        },
+        {
+            "curso": "4",
+            "asignatura": "26949 - Física biológica",
+            "fecha_examen": "10-05-2027"
+        },
+        {
+            "curso": "4",
+            "asignatura": "26950 - Física de altas energías",
+            "fecha_examen": "15-05-2027"
+        },
+        {
+            "curso": "4",
+            "asignatura": "26951 - Física y tecnología nuclear",
+            "fecha_examen": "12-05-2027"
+        },
+        {
+            "curso": "4",
+            "asignatura": "26952 - Geofísica",
+            "fecha_examen": "24-05-2027"
+        }
+    ],
+    "tab-E3": [
+        {
+            "curso": "1",
+            "asignatura": "26900 - Fundamentos de física I",
+            "fecha_examen": "14-06-2027"
+        },
+        {
+            "curso": "1",
+            "asignatura": "26901 - Química",
+            "fecha_examen": "16-06-2027"
+        },
+        {
+            "curso": "1",
+            "asignatura": "26902 - Álgebra I",
+            "fecha_examen": "21-06-2027"
+        },
+        {
+            "curso": "1",
+            "asignatura": "26903 - Análisis matemático",
+            "fecha_examen": "15-06-2027"
+        },
+        {
+            "curso": "1",
+            "asignatura": "26904 - Informática",
+            "fecha_examen": "17-06-2027"
+        },
+        {
+            "curso": "1",
+            "asignatura": "26905 - Fundamentos de física II",
+            "fecha_examen": "28-06-2027"
+        },
+        {
+            "curso": "1",
+            "asignatura": "26906 - Laboratorio de física",
+            "fecha_examen": "01-07-2027"
+        },
+        {
+            "curso": "1",
+            "asignatura": "26907 - Álgebra II",
+            "fecha_examen": "25-06-2027"
+        },
+        {
+            "curso": "1",
+            "asignatura": "26907 - Álgebra II",
+            "fecha_examen": "25-06-2027"
+        },
+        {
+            "curso": "1",
+            "asignatura": "26908 - Cálculo diferencial",
+            "fecha_examen": "18-06-2027"
+        },
+        {
+            "curso": "1",
+            "asignatura": "26958 - Grafos y combinatoria (plan a extinguir)",
+            "fecha_examen": "30-06-2027"
+        },
+        {
+            "curso": "1",
+            "asignatura": "26999 - Probabilidad y Estadística",
+            "fecha_examen": "30-06-2027"
+        },
+        {
+            "curso": "1",
+            "asignatura": "26999 - Probabilidad y Estadística",
+            "fecha_examen": "30-06-2027"
+        },
+        {
+            "curso": "2",
+            "asignatura": "26911 - Técnicas físicas I",
+            "fecha_examen": "14-06-2027"
+        },
+        {
+            "curso": "2",
+            "asignatura": "26911 - Técnicas físicas I",
+            "fecha_examen": "15-06-2027"
+        },
+        {
+            "curso": "2",
+            "asignatura": "26912 - Mecánica clásica I",
+            "fecha_examen": "18-06-2027"
+        },
+        {
+            "curso": "2",
+            "asignatura": "26913 - Cálculo integral y geometría",
+            "fecha_examen": "16-06-2027"
+        },
+        {
+            "curso": "2",
+            "asignatura": "26914 - Ecuaciones diferenciales",
+            "fecha_examen": "19-06-2027"
+        },
+        {
+            "curso": "2",
+            "asignatura": "26915 - Electromagnetismo",
+            "fecha_examen": "24-06-2027"
+        },
+        {
+            "curso": "2",
+            "asignatura": "26915 - Electromagnetismo",
+            "fecha_examen": "24-06-2027"
+        },
+        {
+            "curso": "2",
+            "asignatura": "26916 - Mecánica clásica II",
+            "fecha_examen": "01-07-2027"
+        },
+        {
+            "curso": "2",
+            "asignatura": "26917 - Métodos matemáticos para la física",
+            "fecha_examen": "17-06-2027"
+        },
+        {
+            "curso": "2",
+            "asignatura": "26918 - Física computacional",
+            "fecha_examen": "29-06-2027"
+        },
+        {
+            "curso": "2",
+            "asignatura": "26918 - Física computacional",
+            "fecha_examen": "29-06-2027"
+        },
+        {
+            "curso": "2",
+            "asignatura": "26919 - Ondas electromagnéticas",
+            "fecha_examen": "21-06-2027"
+        },
+        {
+            "curso": "3",
+            "asignatura": "26920 - Técnicas físicas II",
+            "fecha_examen": "21-06-2027"
+        },
+        {
+            "curso": "3",
+            "asignatura": "26921 - Física cuántica I",
+            "fecha_examen": "18-06-2027"
+        },
+        {
+            "curso": "3",
+            "asignatura": "26922 - Termodinámica",
+            "fecha_examen": "14-06-2027"
+        },
+        {
+            "curso": "3",
+            "asignatura": "26923 - Óptica",
+            "fecha_examen": "16-06-2027"
+        },
+        {
+            "curso": "3",
+            "asignatura": "26924 - Física cuántica II",
+            "fecha_examen": "01-07-2027"
+        },
+        {
+            "curso": "3",
+            "asignatura": "26925 - Física estadística",
+            "fecha_examen": "28-06-2027"
+        },
+        {
+            "curso": "3",
+            "asignatura": "26932 - Astronomía y astrofísica",
+            "fecha_examen": "22-06-2027"
+        },
+        {
+            "curso": "3",
+            "asignatura": "26933 - Caos y sistemas dinámicos no lineales",
+            "fecha_examen": "24-06-2027"
+        },
+        {
+            "curso": "3",
+            "asignatura": "26935 - Física de fluidos",
+            "fecha_examen": "15-06-2027"
+        },
+        {
+            "curso": "3",
+            "asignatura": "26937 - Gravitación y cosmología",
+            "fecha_examen": "30-06-2027"
+        },
+        {
+            "curso": "3",
+            "asignatura": "26938 - Historia de la ciencia",
+            "fecha_examen": "17-06-2027"
+        },
+        {
+            "curso": "3",
+            "asignatura": "26940 - Láser y aplicaciones",
+            "fecha_examen": "30-06-2027"
+        },
+        {
+            "curso": "3",
+            "asignatura": "26941 - Micro y nano sistemas",
+            "fecha_examen": "30-06-2027"
+        },
+        {
+            "curso": "3",
+            "asignatura": "26942 - Microondas: propagación y antenas",
+            "fecha_examen": "25-06-2027"
+        },
+        {
+            "curso": "3",
+            "asignatura": "26944 - Aplicaciones de la difracción y de la interferometría",
+            "fecha_examen": "25-06-2027"
+        },
+        {
+            "curso": "4",
+            "asignatura": "26926 - Estado sólido I",
+            "fecha_examen": "14-06-2027"
+        },
+        {
+            "curso": "4",
+            "asignatura": "26927 - Técnicas físicas III",
+            "fecha_examen": "29-06-2027"
+        },
+        {
+            "curso": "4",
+            "asignatura": "26928 - Electrónica física",
+            "fecha_examen": "17-06-2027"
+        },
+        {
+            "curso": "4",
+            "asignatura": "26929 - Física nuclear y partículas",
+            "fecha_examen": "21-06-2027"
+        },
+        {
+            "curso": "4",
+            "asignatura": "26930 - Estado sólido II",
+            "fecha_examen": "25-06-2027"
+        },
+        {
+            "curso": "4",
+            "asignatura": "26936 - Gestión empresarial y proyectos",
+            "fecha_examen": "15-06-2027"
+        },
+        {
+            "curso": "4",
+            "asignatura": "26945 - Dispositivos y sistemas fotónicos",
+            "fecha_examen": "28-06-2027"
+        },
+        {
+            "curso": "4",
+            "asignatura": "26946 - Dosimetría y radioprotección",
+            "fecha_examen": "16-06-2027"
+        },
+        {
+            "curso": "4",
+            "asignatura": "26947 - Espectroscopia",
+            "fecha_examen": "22-06-2027"
+        },
+        {
+            "curso": "4",
+            "asignatura": "26949 - Física biológica",
+            "fecha_examen": "29-06-2027"
+        },
+        {
+            "curso": "4",
+            "asignatura": "26950 - Física de altas energías",
+            "fecha_examen": "01-07-2027"
+        },
+        {
+            "curso": "4",
+            "asignatura": "26951 - Física y tecnología nuclear",
+            "fecha_examen": "28-06-2027"
+        },
+        {
+            "curso": "4",
+            "asignatura": "26952 - Geofísica",
+            "fecha_examen": "23-06-2027"
+        },
+        {
+            "curso": "4",
+            "asignatura": "26953 - Mecánica cuántica",
+            "fecha_examen": "15-06-2027"
+        },
+        {
+            "curso": "4",
+            "asignatura": "26957 - Sistemas digitales",
+            "fecha_examen": "18-06-2027"
+        }
+    ]
+}

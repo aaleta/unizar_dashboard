@@ -555,3 +555,181 @@ if __name__ == "__main__":
 
     # Siempre al final: necesita todos los ficheros ya escritos.
     escribir_frescura()
+
+
+
+#Scraper del Horario, guuarda un Json con el Horario completo del curso, no no ejecuta Freshness
+import requests
+import json
+import time
+
+print("Comienza el scraping del horario:")
+
+def makePetition(course, group, semester):
+    url = "http://155.210.84.118/publicacion/2627/horarios/tabla/series"
+
+    payload = {
+        "curso": course,
+        "grupo": group,
+        "periodo": semester,
+        "__curso": "447-1",
+        "__grupo": group,
+        "__periodo": semester
+    }
+
+    response = requests.post(
+        url=url,
+        json=payload
+    )
+
+    if(response.status_code == 200):
+        print(f"Datos de curso {payload['curso']}, grupo {payload['grupo']}, semestre {payload['periodo']} leido correctamente.")
+
+    time.sleep(1)
+
+    return response.json()
+
+def FilterData(content):
+    filteredContent = []
+    for element in content:
+        for subj in element["data"]:
+            try:
+                filteredElement = {
+                    "Asignatura": subj["title"],
+                    "TipoActividad" : subj["actividad"],
+                    "Curso-Grupo": "-".join((subj["subgrupo"]).split("-")[:3]),
+                    "Semestre": subj["periodo_de_clases"],
+                    "HoraIni": subj["h_ini"],
+                    "HoraFin": subj["h_fin"],
+                    "Dia": subj["wday"]
+
+                }
+    
+                filteredContent.append(filteredElement)
+                print("Asignatura Filtrada")
+            except KeyError:
+                continue
+
+    return filteredContent
+
+content = []
+
+for i in range(4):
+    for j in range(2):
+        for k in range(2):
+            if(i+1 == 4):
+                if(j == 0):
+                    JsonResponse = makePetition(f"447-{i+1}", f"447-{i+1}-{j}", f"S{k+1}")
+                    content.append(JsonResponse) 
+            else:
+                JsonResponse = makePetition(f"447-{i+1}", f"447-{i+1}-{j}", f"S{k+1}")
+                content.append(JsonResponse)
+
+print("Datos Leidos Correctamente")
+
+Content = FilterData(content)
+
+with open("../data/json/processed/TimeTableData.json", "w", encoding="utf-8") as f:
+    json.dump(Content, f, indent=4, ensure_ascii=False)
+
+print("Datos Guardados")
+
+
+#Scraper de Examenes, tampoco hace freshness
+import requests
+from bs4 import BeautifulSoup
+import json
+import re
+
+
+def es_fecha(texto):
+    """Comprueba si un texto tiene formato dd-mm-yyyy"""
+    return bool(re.match(r"\d{2}-\d{2}-\d{4}", texto))
+
+
+def scrape_examenes(url):
+
+    response = requests.get(url)
+    response.raise_for_status()
+
+    soup = BeautifulSoup(response.text, "html.parser")
+
+    resultado = {}
+
+    containers = soup.find_all("div", class_="tab-container")
+
+    for container in containers:
+
+        tab_id = container.get("id")
+        examenes = []
+
+        tabla = container.find("table", class_="listado-examenes")
+
+        if tabla is None:
+            resultado[tab_id] = examenes
+            continue
+
+
+        curso_actual = None
+        asignatura_actual = None
+
+
+        for fila in tabla.find_all("tr"):
+
+            celdas = fila.find_all("td")
+
+            if not celdas:
+                continue
+
+            valores = [
+                celda.get_text(strip=True)
+                for celda in celdas
+            ]
+
+
+            # Caso fila completa:
+            # curso | asignatura | fecha | ...
+            if len(valores) >= 3 and not es_fecha(valores[0]):
+
+                curso_actual = valores[0]
+                asignatura_actual = valores[1]
+                fecha = valores[2]
+
+
+            # Caso fila secundaria:
+            # fecha | tipo | modalidad
+            elif es_fecha(valores[0]):
+
+                fecha = valores[0]
+
+
+            else:
+                continue
+
+
+            examenes.append({
+                "curso": curso_actual,
+                "asignatura": asignatura_actual,
+                "fecha_examen": fecha
+            })
+
+
+        resultado[tab_id] = examenes
+
+
+    return resultado
+
+
+
+url = "http://155.210.84.118/publicacion/2627/examenes/listado/titulacion?id=447#"
+
+datos = scrape_examenes(url)
+
+
+with open("../data/json/Processed/Examenes.json", "w", encoding="utf-8") as f:
+    json.dump(
+        datos,
+        f,
+        indent=4,
+        ensure_ascii=False
+    )
