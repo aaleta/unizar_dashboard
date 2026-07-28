@@ -22,12 +22,16 @@
 
 }
 
+/**
+ * Sin `overflow-x` aquí: en cuanto se declara, aunque sea `hidden`, html y
+ * body pasan a ser contenedores de desplazamiento y la cabecera `sticky` deja
+ * de pegarse arriba. Estaba puesto para contener las bandas a sangre, que ya
+ * no existen — el título de cada pantalla va en la columna de contenido.
+ */
 html,
 body{
 
     margin:0;
-
-    overflow-x:hidden;
 
 }
 
@@ -44,26 +48,6 @@ body{
     min-height:100dvh;
 
     background:var(--paper);
-
-}
-
-/**
- * Bandas a sangre: se salen del ancho del contenido y cruzan la pantalla.
- *
- * El contenido va centrado con un ancho máximo, pero las bandas navy —el héroe
- * de la portada, la fila de cifras del mapa— tienen que llegar de borde a
- * borde: si se quedan del ancho de la columna, en un portátil parecen una caja
- * azul suelta debajo de la cabecera, que es exactamente lo que parecían.
- *
- * El margen negativo las estira y el relleno equivalente devuelve su contenido
- * a la columna. Con `overflow-x:hidden` en el body, la barra de desplazamiento
- * no provoca desbordamiento.
- */
-.fullBleed{
-
-    margin-inline:calc(50% - 50vw);
-
-    padding-inline:calc(50vw - 50%);
 
 }
 

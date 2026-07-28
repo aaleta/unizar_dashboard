@@ -9,9 +9,9 @@
  * de forma en cada pantalla. Ahora el titular sale de un solo sitio y todas
  * las pantallas empiezan igual.
  *
- * Sigue el mismo navy que la cabecera para que las dos bandas se lean como
- * una sola pieza, pero NO es sticky: se va al bajar y deja la pantalla para
- * el contenido, que es lo que se ha venido a ver.
+ * Va en tinta sobre el papel, no en una segunda banda navy: la banda de arriba
+ * es la marca y se queda fija, y el título es de la página, así que pertenece
+ * a la página y se va con ella al bajar.
  */
 
 defineProps({
@@ -38,15 +38,11 @@ defineProps({
 
 <style scoped>
 
+/* Sin relleno inferior: el hueco hasta el contenido lo pone el `padding-top`
+   que cada pantalla ya tenía. Poner otro aquí los sumaría a los dos. */
 .band{
 
-    background:var(--navy-surface);
-
-    padding:15px var(--gutter) 17px;
-
-    /* Sube 1px para que no se vea costura con la cabecera al hacer zoom. El
-       filete de oro no se tapa: la cabecera es sticky y pinta por encima. */
-    margin-top:-1px;
+    padding:18px var(--gutter) 0;
 
 }
 
@@ -58,13 +54,13 @@ defineProps({
 
     font-family:var(--font-serif);
 
-    font-size:var(--text-h1);
+    font-size:var(--text-h1-lg);
 
     font-weight:700;
 
     line-height:1.15;
 
-    color:var(--ink-on-navy);
+    color:var(--ink);
 
     /* Los títulos largos —el nombre de una asignatura— parten mejor por
        donde el sentido lo pide que por donde cae el ancho. */
