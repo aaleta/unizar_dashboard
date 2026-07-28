@@ -7,9 +7,9 @@
  * lo bastante como para que parezca que el toque no ha hecho nada.
  *
  * Por eso NO se enseña nada durante los primeros 180 ms. Un indicador que
- * parpadea en cada navegación instantánea molesta más de lo que informa, y el
- * handoff pide animación contenida. Si la pantalla llega antes de ese plazo,
- * el usuario no ve absolutamente nada — que es lo correcto.
+ * parpadea en cada navegación instantánea molesta más de lo que informa. Si
+ * la pantalla llega antes de ese plazo, el usuario no ve absolutamente nada
+ * — que es lo correcto.
  */
 
 import { ref } from "vue";

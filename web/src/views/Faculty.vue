@@ -30,7 +30,7 @@ import UiSearchField from "@/components/ui/UiSearchField.vue";
 import UiStat from "@/components/ui/UiStat.vue";
 
 const FullGraph = defineAsyncComponent(() =>
-    import("@/components/Dashboard/ProfWeb.vue")
+    import("@/components/network/ProfWeb.vue")
 );
 
 /** Cuántas personas se ven antes de tener que pedir el resto. */
@@ -451,7 +451,7 @@ const thousands = value =>
 
     font-size:9.5px;
 
-    color:var(--ink-faint-2);
+    color:var(--ink-faint);
 
     cursor:pointer;
 

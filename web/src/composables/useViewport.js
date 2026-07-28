@@ -1,14 +1,14 @@
 /**
  * ¿Estamos en una pantalla grande?
  *
- * Se crea AHORA y no antes porque hasta ahora no había nada que conmutar. De
- * las once pantallas del rediseño solo una diverge de verdad: la red de
- * profesores, que en el móvil va persona a persona y en escritorio es un grafo
- * de 267 nodos. Todo lo demás es la misma pantalla a otro ancho, y para eso
- * está el CSS.
+ * Solo una pantalla diverge de verdad entre móvil y escritorio: la red de
+ * profesores, que en móvil va persona a persona y en escritorio es un grafo de
+ * 267 nodos. Lo demás es la misma pantalla a otro ancho, y de eso se encarga
+ * el CSS. Antes de añadir un consumidor nuevo, comprobar que el caso no se
+ * resuelve con una media query.
  *
- * Un único matchMedia compartido por todos los consumidores: cada llamada a
- * useViewport() devuelve el mismo ref, no crea un listener nuevo.
+ * Un único matchMedia compartido: cada llamada devuelve el mismo ref, no crea
+ * un listener nuevo.
  */
 
 import { ref } from "vue";

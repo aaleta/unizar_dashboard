@@ -428,10 +428,8 @@ const pct = value =>
 
     gap:9px;
 
-    /* El mock dibuja estas filas a unos 31px, pero el handoff exige 44px de
-       objetivo táctil "en todas partes, incluidas las filas de lista". Cuando
-       las dos cosas se contradicen manda la regla de accesibilidad: la lista
-       queda algo más larga, y a cambio nadie falla el toque. */
+    /* 44px de objetivo táctil también aquí: la lista queda algo más larga y a
+       cambio nadie falla el toque. */
     min-height:var(--touch-target);
 
     padding:7px 11px;
@@ -534,7 +532,7 @@ const pct = value =>
 
     font-size:10px;
 
-    color:var(--ink-faint-2);
+    color:var(--ink-faint);
 
     cursor:pointer;
 

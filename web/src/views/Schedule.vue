@@ -18,9 +18,9 @@ import { useRoute, useRouter } from "vue-router";
 
 import { convocatoriaLabel, useSchedule, WEEKDAYS } from "@/composables/useSchedule";
 
-import ExamCalendar from "@/components/Dashboard/ExamCalendar.vue";
-import SchedulePicker from "@/components/Dashboard/SchedulePicker.vue";
-import WeekTimetable from "@/components/Dashboard/WeekTimetable.vue";
+import ExamCalendar from "@/components/schedule/ExamCalendar.vue";
+import SchedulePicker from "@/components/schedule/SchedulePicker.vue";
+import WeekTimetable from "@/components/schedule/WeekTimetable.vue";
 import UiCallout from "@/components/ui/UiCallout.vue";
 import UiChip from "@/components/ui/UiChip.vue";
 

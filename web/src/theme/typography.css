@@ -12,10 +12,9 @@
  * alinean en columna, se comparan de un vistazo y no bailan al cambiar de
  * dígito. Un porcentaje escrito en Public Sans es un error, no un matiz.
  *
- * Los tamaños del handoff están medidos a 402px (el ancho del mock). Los
- * titulares escalan de forma fluida entre 320px y 480px; el texto pequeño no
- * escala, porque por debajo de 11px deja de leerse y "proporcional" no es
- * excusa para eso.
+ * Los tamaños están medidos a 402px de ancho. Los titulares escalan de forma
+ * fluida entre 320px y 480px; el texto pequeño no escala, porque por debajo
+ * de 11px deja de leerse y "proporcional" no es excusa para eso.
  */
 
 :root{
@@ -49,7 +48,6 @@
     --text-nav:9px;
     --text-footnote:8.5px;
 
-    --leading-tight:1.15;
     --leading-snug:1.35;
     --leading-body:1.5;
 
@@ -82,9 +80,10 @@ body{
 /* ------------------------------------------------------------------ *
  * Utilidades tipográficas
  * ------------------------------------------------------------------ *
- * Son tres patrones que se repiten en las once pantallas. Como clases
- * globales se escriben una vez; como estilos sueltos por componente
- * acabarían divergiendo.
+ * Dos patrones que se repiten en las once pantallas. Como clases globales se
+ * escriben una vez; como estilos sueltos por componente acabarían divergiendo.
+ * Para los titulares no hay clase: van con var(--font-serif) desde el propio
+ * componente, porque cada uno ajusta además tamaño e interlineado.
  */
 
 /** Cualquier cifra visible. Tabular para que las columnas cuadren. */
@@ -112,14 +111,5 @@ body{
     text-transform:uppercase;
 
     color:var(--ink-soft);
-
-}
-
-/** Titulares y nombres de asignatura. */
-.serif{
-
-    font-family:var(--font-serif);
-
-    font-weight:600;
 
 }

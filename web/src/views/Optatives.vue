@@ -355,7 +355,7 @@ h2{
 
     font-size:10px;
 
-    color:var(--ink-faint-2);
+    color:var(--ink-faint);
 
     cursor:pointer;
 

@@ -621,17 +621,6 @@ export const courseSeries = (course, metricKey) =>
         value: courseRateForYear(course, metricKey, year)
     }));
 
-/** Métrica agregada de todo el grado (solo troncales: las cursa todo el mundo). */
-export const degreeRate = (metricKey, years = RECENT_YEARS) => {
-
-    const rows = allCoreSubjects.flatMap(subject =>
-        lastYears(subjectRows(subject.code), years)
-    );
-
-    return weightedRate(rows, metricKey);
-
-};
-
 /** Métrica del grado restringida a una lista concreta de cursos académicos. */
 export const degreeRateForPeriod = (metricKey, years) => {
 
@@ -644,31 +633,6 @@ export const degreeRateForPeriod = (metricKey, years) => {
     return weightedRate(rows, metricKey);
 
 };
-
-/** Ranking del grado por una métrica, de mayor a menor. */
-export const rankSubjects = (subjectList, metricKey) =>
-    subjectList
-        .map(subject => ({
-            code: subject.code,
-            name: subjectName(subject.code),
-            value: subjectRate(subject.code, metricKey)
-        }))
-        .filter(item => item.value !== null)
-        .sort((a, b) => b.value - a.value);
-
-/* ------------------------------------------------------------------ *
- * Formato
- * ------------------------------------------------------------------ */
-
-export const formatPct = (value, decimals = 1) =>
-    value === null || value === undefined
-        ? "—"
-        : `${value.toFixed(decimals)} %`;
-
-export const formatNumber = (value, decimals = 0) =>
-    value === null || value === undefined
-        ? "—"
-        : value.toFixed(decimals);
 
 /** Cohorte demasiado pequeña para que los porcentajes signifiquen algo. */
 export const isSmallCohort = students => students > 0 && students < MIN_COHORT;

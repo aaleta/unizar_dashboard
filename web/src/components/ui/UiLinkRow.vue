@@ -9,8 +9,8 @@
  * invente su propio alto y su propio padding.
  *
  * Alto mínimo de 44px: es una lista para el dedo, y una fila de 30px se falla
- * más de lo que se acierta. Cuando el mock dibuja filas más apretadas es
- * porque el contenido es corto, no porque el objetivo táctil deba encogerse.
+ * más de lo que se acierta. Que el contenido sea corto no es motivo para
+ * encoger el objetivo táctil.
  */
 
 defineProps({

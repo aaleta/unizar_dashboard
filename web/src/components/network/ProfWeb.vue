@@ -105,10 +105,7 @@ watch(isAggregated, aggregated => {
 
 .page{
 
-    /* Sin barra lateral: el hueco de 220px ya no reserva nada. */
-    margin-left:0;
-
-    width:calc(100% - 220px);
+    width:100%;
 
     min-height:100vh;
 

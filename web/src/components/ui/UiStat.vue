@@ -7,9 +7,9 @@
  * y va en mono; el rótulo es pequeño y tenue, porque quien mira ya sabe lo que
  * busca y lee el número primero.
  *
- * `tone` sirve para lo que el handoff pide en varias pantallas: el recuento de
- * troncales en navy y el de optativas en oro, para que la división del grado
- * se lea sin explicarla. Sigue siendo estructura, no una magnitud.
+ * `tone` tiñe el recuento de troncales en navy y el de optativas en oro, para
+ * que la división del grado se lea sin explicarla. Sigue siendo estructura,
+ * no una magnitud.
  */
 
 defineProps({

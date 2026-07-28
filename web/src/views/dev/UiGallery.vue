@@ -53,8 +53,8 @@ const sortKey = ref("noSuperacion");
     <header class="intro">
         <h1>Primitivas</h1>
         <p>
-            Solo en desarrollo. Comparar con
-            <code>design_handoff_physics_mobile/prototype/</code>.
+            Solo en desarrollo. Inventario vivo del sistema de diseño: si una
+            primitiva no aparece aquí, no existe.
         </p>
     </header>
 
@@ -65,8 +65,8 @@ const sortKey = ref("noSuperacion");
         <p class="note">
             El único color que codifica una magnitud. De más dura a más
             asequible, más el caso «sin datos». Las dos columnas de la derecha
-            son el mismo dato con el tono grande (handoff) y el pequeño
-            (oscurecido hasta AA) — comprobar que el pequeño se lee.
+            son el mismo dato con el tono grande y el pequeño (oscurecido
+            hasta AA) — comprobar que el pequeño se lee.
         </p>
 
         <UiCard>

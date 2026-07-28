@@ -49,7 +49,4 @@ export const DATA_SOURCES = [
     }
 ];
 
-/** Curso académico de los datos de calificaciones, para la portada. */
-export const gradesYear = freshness.notas.ultimo_curso;
-
 export default freshness;

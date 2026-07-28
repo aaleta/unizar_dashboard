@@ -12,10 +12,6 @@
  * Mismo principio que metrics.js: si cada componente eligiera su umbral, la
  * misma asignatura saldría naranja en una pantalla y roja en la siguiente, y
  * el lector no tendría forma de saber cuál creerse.
- *
- * Los tramos salen del handoff de diseño (§5). La web no tenía hasta ahora
- * ninguna escala equivalente con la que alinearlos: solo un umbral suelto en
- * Subjects.vue que marcaba en rojo a partir del 30 %, que esta rampa sustituye.
  */
 
 /**
@@ -23,18 +19,13 @@
  *
  * Tres tonos por tramo, y no es redundancia:
  *
- *   fill      superficie: el punto, la barra. El color del handoff.
- *   ink       la cifra GRANDE (la KPI de 23px). El tono del handoff, que a ese
- *             tamaño cumple AA (basta 3:1 para texto grande).
- *   inkSmall  la cifra pequeña (11-13px, las filas de las listas). El mismo
- *             tono oscurecido hasta 4.5:1 sobre papel Y sobre blanco.
+ *   fill      superficie: el punto, la barra.
+ *   ink       la cifra GRANDE (la KPI de 23px), donde basta 3:1.
+ *   inkSmall  la cifra pequeña (11-13px de las listas), oscurecida hasta
+ *             4,5:1 sobre papel Y sobre blanco.
  *
- * El motivo de `inkSmall`: los tonos del handoff se quedan entre 3,1 y 3,7 de
- * contraste. Vale para un numeral de 23px, pero el 61% de una fila de lista va
- * a 11px, y ahí 3,5:1 no lo lee cualquiera. Como la web va de datos públicos
- * de una universidad, no leerse no es una opción.
- *
- * El tramo más duro no necesita ajuste: ya iba a 6:1.
+ * Sin `inkSmall` el 61% de una fila se quedaría en 3,5:1 a 11px, y esto son
+ * datos públicos de una universidad: no leerse no es una opción.
  */
 const RAMP = [
     { from: 45, fill: "#9a3b23", ink: "#9a3b23", inkSmall: "#9a3b23", label: "muy dura" },
