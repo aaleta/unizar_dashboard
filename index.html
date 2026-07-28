@@ -2,16 +2,24 @@
 <html lang="es">
   <head>
     <meta charset="UTF-8">
-    <!-- Pestaña del navegador: el favicon del BIFI. Icono de app instalada
-         (manifest + apple-touch-icon): la "D" pixelada histórica de la web. -->
-    <link rel="icon" href="/unizar_dashboard/favicon.ico">
+    <!-- Pestaña del navegador e icono de app instalada: el sello histórico de
+         la Facultad de Ciencias (1923), sobre el papel de la aplicación.
+
+         El .ico va primero y con un tamaño declarado: así los navegadores que
+         entienden SVG se quedan con el vectorial —nítido a cualquier tamaño y
+         con las letras del anillo en blanco si el sistema está en oscuro— y
+         los que no, siguen teniendo su mapa de bits de 16/32/48. -->
+    <link rel="icon" href="/unizar_dashboard/favicon.ico" sizes="32x32">
+    <link rel="icon" href="/unizar_dashboard/favicon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="/unizar_dashboard/apple-touch-icon.png">
     <link rel="manifest" href="/unizar_dashboard/manifest.webmanifest">
-    <meta name="theme-color" content="#223d71">
+    <!-- El mismo azul que la cabecera: la barra del navegador es su
+         continuación, y un tono distinto se lee como una costura. -->
+    <meta name="theme-color" content="#1b3559">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard Unizar</title>
-    <script type="module" crossorigin src="/unizar_dashboard/assets/index-kpUg2J8U.js"></script>
-    <link rel="stylesheet" crossorigin href="/unizar_dashboard/assets/index-CUziIEJV.css">
+    <script type="module" crossorigin src="/unizar_dashboard/assets/index-BNB7VcAb.js"></script>
+    <link rel="stylesheet" crossorigin href="/unizar_dashboard/assets/index-CHwS9KL7.css">
   </head>
   <body>
     <div id="app"></div>
