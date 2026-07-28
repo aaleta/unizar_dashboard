@@ -127,11 +127,11 @@ const activeKey = computed(() =>
 
     background:var(--surface);
 
-    border-top:1px solid var(--line-tab);
+    border-top:var(--rule-strong) solid var(--line-tab);
 
 }
 
-/* La banda blanca cruza toda la pantalla, pero las cuatro pestañas se agrupan
+/* La banda cruza toda la pantalla, pero las cuatro pestañas se agrupan
    en el ancho del contenido: repartidas por 1400px quedarían tan separadas que
    dejarían de leerse como una barra. */
 .inner{
@@ -147,6 +147,15 @@ const activeKey = computed(() =>
     margin:0 auto;
 
     padding:0 6px;
+
+}
+
+/* Rejilla de un píxel: las pestañas se separan con la regla que deja el
+   propio hueco entre ellas, no con espacio en blanco. Es el mismo recurso que
+   usa una tabla impresa para no tener que dibujar cada celda. */
+.inner .tab + .tab{
+
+    border-left:var(--rule) solid var(--line-inner);
 
 }
 
@@ -172,7 +181,7 @@ const activeKey = computed(() =>
 
     color:var(--ink-tab);
 
-    font-family:var(--font-sans);
+    font-family:var(--font-mono);
 
     text-decoration:none;
 
@@ -184,19 +193,27 @@ const activeKey = computed(() =>
 
     font-size:var(--text-nav);
 
-    font-weight:500;
+    font-weight:600;
+
+    letter-spacing:var(--track-label);
+
+    text-transform:uppercase;
 
 }
 
+/* La activa no cambia de color: se entinta. La barra roja de arriba la ata a
+   la regla roja de la cabecera, que es el otro extremo de la pantalla. */
 .tab.active{
 
-    color:var(--navy);
+    color:var(--ink);
+
+    box-shadow:inset 0 3px 0 var(--accent);
 
 }
 
 .tab.active .label{
 
-    font-weight:600;
+    font-weight:700;
 
 }
 

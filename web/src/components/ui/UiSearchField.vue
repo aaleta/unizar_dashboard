@@ -91,15 +91,19 @@ const model = defineModel({ type: String, default: "" });
 
     background:var(--surface);
 
-    border:1px solid var(--line-strong);
+    border:var(--rule-strong) solid var(--line-strong);
 
     border-radius:var(--radius-control);
 
 }
 
+/* Al enfocar, la caja se entinta de rojo por dentro y por fuera: es el único
+   control de la pantalla que acepta escritura y tiene que notarse. */
 .field:focus-within{
 
-    border-color:var(--navy);
+    border-color:var(--accent);
+
+    box-shadow:inset 0 0 0 var(--rule) var(--accent);
 
 }
 
@@ -125,7 +129,7 @@ const model = defineModel({ type: String, default: "" });
 
     padding:0;
 
-    font-family:var(--font-sans);
+    font-family:var(--font-mono);
 
     font-size:13px;
 

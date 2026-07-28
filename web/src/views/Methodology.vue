@@ -7,7 +7,7 @@
  * divide entre qué, ni con qué datos, ni desde cuándo.
  *
  * En el móvil la tabla ancha del escritorio se rompe en tarjetas apiladas. La
- * píldora del denominador va en navy porque es metadato estructural: dice
+ * píldora del denominador va en carbón porque es metadato estructural: dice
  * SOBRE QUÉ se calcula el indicador, no lo dura que es una asignatura.
  *
  * El texto es el mismo que tenía la web: es la parte que menos se debe tocar
@@ -321,13 +321,17 @@ h1{
 
     margin:0 0 6px;
 
-    font-family:var(--font-serif);
+    font-family:var(--font-display);
 
     font-size:var(--text-h1);
 
-    font-weight:700;
+    font-weight:900;
 
-    line-height:1.15;
+    letter-spacing:var(--track-display-tight);
+
+    text-transform:uppercase;
+
+    line-height:.92;
 
 }
 
@@ -353,11 +357,17 @@ h2{
 
     margin:0 0 10px;
 
-    font-family:var(--font-serif);
+    font-family:var(--font-display);
 
     font-size:var(--text-section);
 
-    font-weight:600;
+    font-weight:900;
+
+    letter-spacing:var(--track-display);
+
+    text-transform:uppercase;
+
+    line-height:1;
 
 }
 
@@ -408,7 +418,7 @@ h2{
 
     background:var(--surface);
 
-    border:1px solid var(--line);
+    border:var(--rule-strong) solid var(--line);
 
     border-radius:var(--radius-card);
 
@@ -416,13 +426,19 @@ h2{
 
 }
 
+/* El número de cada recuento se compone como el folio de una página impresa:
+   mono, rojo y con su propia regla vertical separándolo del texto. */
 .countNumber{
 
     flex:none;
 
-    color:var(--gold-ink);
+    padding-right:10px;
 
-    font-size:13px;
+    border-right:var(--rule) solid var(--line-inner);
+
+    color:var(--accent-ink);
+
+    font-size:14px;
 
 }
 
@@ -468,7 +484,7 @@ h2{
 
     background:var(--surface);
 
-    border:1px solid var(--line);
+    border:var(--rule-strong) solid var(--line);
 
     border-radius:var(--radius-card);
 
@@ -492,11 +508,17 @@ h3{
 
     margin:0;
 
-    font-family:var(--font-serif);
+    font-family:var(--font-display);
 
     font-size:var(--text-card-title);
 
-    font-weight:600;
+    font-weight:800;
+
+    letter-spacing:var(--track-display);
+
+    text-transform:uppercase;
+
+    line-height:1.1;
 
 }
 
@@ -536,7 +558,7 @@ h3{
 
     background:var(--surface);
 
-    border:1px solid var(--line);
+    border:var(--rule-strong) solid var(--line);
 
     border-radius:var(--radius-card);
 
@@ -564,9 +586,19 @@ h3{
 
     gap:12px;
 
-    margin-top:8px;
+    margin-top:9px;
+
+    padding-top:8px;
+
+    border-top:var(--rule) solid var(--line-inner);
+
+    font-family:var(--font-mono);
 
     font-size:var(--text-eyebrow);
+
+    letter-spacing:.06em;
+
+    text-transform:uppercase;
 
     color:var(--ink-soft);
 
@@ -580,9 +612,15 @@ h3{
 
     min-height:var(--touch-target);
 
-    font-size:var(--text-body-xs);
+    font-family:var(--font-mono);
+
+    font-size:var(--text-eyebrow);
 
     font-weight:600;
+
+    letter-spacing:var(--track-label);
+
+    text-transform:uppercase;
 
 }
 
@@ -614,7 +652,7 @@ h3{
 
     background:var(--surface);
 
-    border:1px solid var(--line);
+    border:var(--rule-strong) solid var(--line);
 
     border-radius:var(--radius-card);
 
@@ -646,11 +684,13 @@ h3{
 
     flex:none;
 
-    border-radius:8px;
+    border:var(--rule) solid var(--ink);
 
-    background:var(--navy-wash);
+    border-radius:0;
 
-    color:var(--navy);
+    background:var(--carbon-wash);
+
+    color:var(--ink);
 
     font-size:13px;
 

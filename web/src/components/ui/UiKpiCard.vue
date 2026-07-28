@@ -8,9 +8,14 @@
  *
  * Sobre el color de la variación: NO significa "sube" o "baja", significa
  * "mejor" o "peor". Que la no superación suba 19 pp es malo y va en rojo; que
- * los aprobados suban 2 pp es bueno y va en verde. Por eso hace falta
+ * los aprobados suban 2 pp es bueno y se queda en carbón. Por eso hace falta
  * `higherIsBetter`: sin él, el color diría lo contrario en la mitad de los
  * casos. Es la misma decisión que ya tomaba el KpiCard de escritorio.
+ *
+ * Que "mejor" no tenga tinta propia es deliberado (ver --delta-good en
+ * tokens.css): la paleta solo tiene una tinta directa y se la lleva el
+ * deterioro. La flecha ▲/▼ va escrita al lado, así que la dirección no
+ * depende del color en ningún caso.
  *
  * `tone="difficulty"` pinta la cifra con la rampa. Solo vale para la tasa de
  * no superación: es la única que mide dificultad.
@@ -156,27 +161,33 @@ const valueColor = computed(() =>
 
     background:var(--surface);
 
-    border:1px solid var(--line);
+    border:var(--rule-strong) solid var(--line);
 
     border-radius:var(--radius-card);
 
     box-shadow:var(--shadow-card);
 
-    padding:12px 13px;
+    padding:11px 12px 12px;
 
     min-width:0;
 
 }
 
+/* El rótulo va separado de su cifra por una regla, como la casilla de un
+   formulario técnico: primero cómo se llama el dato, luego el dato. */
 .label{
+
+    padding-bottom:5px;
+
+    border-bottom:var(--rule) solid var(--line-inner);
 
     font-family:var(--font-mono);
 
     font-size:var(--text-eyebrow-sm);
 
-    font-weight:500;
+    font-weight:600;
 
-    letter-spacing:.4px;
+    letter-spacing:var(--track-label);
 
     text-transform:uppercase;
 
@@ -184,21 +195,28 @@ const valueColor = computed(() =>
 
 }
 
+/* La variación baja de línea cuando no cabe al lado de la cifra: a 320px de
+   ancho, "10,375" y su delta no entran juntos en media columna, y la cifra no
+   se recorta ni se encoge por nada. */
 .line{
 
     display:flex;
 
+    flex-wrap:wrap;
+
     align-items:baseline;
 
-    gap:6px;
+    gap:2px 6px;
 
-    margin-top:5px;
+    margin-top:6px;
 
 }
 
 .value{
 
     font-size:var(--text-kpi);
+
+    letter-spacing:-.03em;
 
     line-height:1;
 
@@ -234,9 +252,13 @@ const valueColor = computed(() =>
 
 .reference{
 
-    margin-top:4px;
+    margin-top:5px;
+
+    font-family:var(--font-mono);
 
     font-size:var(--text-eyebrow);
+
+    letter-spacing:.04em;
 
     color:var(--ink-faint);
 

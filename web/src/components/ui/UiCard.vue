@@ -49,6 +49,10 @@ defineProps({
 
 <style scoped>
 
+/* Nada de sombras: lo que delimita una tarjeta es su regla de tinta. Por eso
+   el borde es de dos píxeles y del color del texto — es la misma tinta, y el
+   ojo lo lee como una caja dibujada, no como una superficie flotando. */
+
 .card{
 
     display:block;
@@ -71,7 +75,7 @@ defineProps({
 
     background:var(--surface);
 
-    border:1px solid var(--line);
+    border:var(--rule-strong) solid var(--line);
 
 }
 
@@ -79,18 +83,19 @@ defineProps({
 
     background:var(--surface-alt);
 
-    border:1px dashed var(--line-dashed);
+    border:var(--rule) dashed var(--line-dashed);
 
-    /* Sin sombra: lo discontinuo debe parecer más ligero, no igual. */
+    /* Regla fina y discontinua: lo elegible tiene que pesar menos que lo
+       obligatorio, y aquí el peso es literalmente el grosor del trazo. */
     box-shadow:none;
 
 }
 
 .structural{
 
-    background:var(--navy-wash);
+    background:var(--carbon-wash);
 
-    border:1px solid var(--navy-wash-line);
+    border:var(--rule-strong) solid var(--carbon-wash-line);
 
     box-shadow:none;
 
@@ -101,15 +106,20 @@ a.card{
 
     color:inherit;
 
-    transition:border-color .15s,transform .15s;
+    text-decoration:none;
+
+    transition:border-color .1s steps(1),transform .1s steps(1);
 
 }
 
+/* Al pulsar, la tarjeta se desplaza un píxel y su regla pasa a rojo: el gesto
+   de un sello que se apoya, no el de un botón de goma. `steps(1)` corta la
+   interpolación — aquí nada se desliza. */
 a.card:active{
 
-    transform:scale(.995);
+    transform:translate(1px,1px);
 
-    border-color:var(--line-strong);
+    border-color:var(--accent);
 
 }
 

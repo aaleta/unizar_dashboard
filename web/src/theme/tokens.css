@@ -6,14 +6,26 @@
  * las métricas, aplicado al aspecto.
  *
  * ------------------------------------------------------------------------
+ * LA DIRECCIÓN — "Ficha técnica"
+ * ------------------------------------------------------------------------
+ * Esto no es una app: es un documento técnico impreso. Papel sin blanquear,
+ * tinta de carbón, un rojo de aviación como única tinta directa y una trama de
+ * seguridad amarilla para lo que pide cautela. Nada flota, nada tiene esquinas
+ * redondeadas y nada proyecta sombra difusa: las cajas se delimitan con reglas
+ * de tinta, como en un manual de instrumentación.
+ *
+ * Tres tintas y un sustrato. Si hace falta una cuarta, casi siempre lo que
+ * hace falta en realidad es un peso, un tamaño o una regla.
+ *
+ * ------------------------------------------------------------------------
  * EL CONTRATO DE COLOR — la regla que gobierna todo lo demás
  * ------------------------------------------------------------------------
  * La credibilidad de esta web depende de que el color NO mienta. Hay cuatro
  * papeles y no pueden mezclarse:
  *
- *   1. NAVY      → estructura y cromo. Cabeceras, pestaña activa, botones,
- *                  enlaces, contadores estructurales, la línea del timeline.
- *                  El navy NUNCA codifica una magnitud.
+ *   1. CARBÓN    → estructura y cromo. Cabeceras, pestaña activa, reglas,
+ *                  contadores estructurales, la línea del timeline.
+ *                  El carbón NUNCA codifica una magnitud.
  *   2. RAMPA     → dificultad, y solo dificultad (tasa de no superación).
  *                  Vive en theme/difficulty.js, no aquí.
  *   3. GRIS      → recuentos y cantidades (matrículas, peso de colaboración).
@@ -21,7 +33,8 @@
  *   4. NOTAS     → el desglose No presentado→MH, y nada más.
  *                  Vive en theme/gradePalette.js, no aquí.
  *
- * El oro es decoración y el ganador de Fight Mode; tampoco es un dato.
+ * El rojo es lo pulsable y lo que avisa; no es un dato. El amarillo de
+ * seguridad marca cautela metodológica (muestras pequeñas) y tampoco lo es.
  *
  * Ante la duda: ¿esto es estructura, dificultad, un recuento o una categoría
  * de nota?
@@ -30,164 +43,208 @@
 :root{
 
     /* ---------------------------------------------------------------- *
-     * Marca
-     * ---------------------------------------------------------------- */
-
-    /* Azul corporativo de Unizar (PANTONE 653C). */
-    --navy:#223d71;
-    --navy-soft:#3a4667;          /* Navy legible sobre fondo claro */
-    --navy-faint:#aeb9d1;         /* Subtítulos y eyebrows SOBRE el navy */
-    --navy-line:#c3ccdd;          /* Bordes de píldora navy */
-    --navy-line-soft:#cdd4e0;     /* Bordes de control (selector de año) */
-    --navy-wash:#eef0f5;          /* Fondo de aviso estructural */
-    --navy-wash-line:#dfe3ec;
-
-    /* Oro heráldico: decoración y ganador de Fight Mode. Nunca un dato. */
-    --gold:#cba44c;
-    --gold-ink:#85662d;           /* Oro legible como texto */
-    --gold-wash:#fbf5e7;
-    --gold-line:#e7d3a2;          /* Borde del veredicto */
-    --gold-strong:#8a6619;        /* Título del veredicto sobre gold-wash */
-    --gold-soft:#866d40;          /* Detalle del veredicto sobre gold-wash */
-
-    /* Sobre superficies navy claras y oscuras */
-    --on-navy-soft:#c4cee0;       /* Párrafo del héroe sobre navy */
-    --navy-meta:#606e88;          /* Metadatos sobre navy-wash */
-    --navy-avatar:#5d6d8c;        /* Avatar de hueco por rellenar */
-
-    /* ---------------------------------------------------------------- *
-     * Gráficas
+     * Sustrato — el papel
      * ---------------------------------------------------------------- *
-     * Las dos líneas de "notas de acceso" (handoff §7.2). Ojo: el naranja
-     * coincide con un tramo de la rampa de dificultad. Se acepta porque una
-     * gráfica con leyenda y ejes propios no se lee como una tasa de
-     * suspensos, pero es el único sitio donde los dos usos se rozan.
+     * Cartulina de documentación sin blanquear. No es blanco: el blanco puro
+     * delata la pantalla, y toda la dirección depende de que esto parezca
+     * impreso.
      */
 
-    --chart-line-1:#4c6699;       /* Nota media de acceso */
-    --chart-line-2:#c4642f;       /* Nota de corte */
+    --paper:#e9e6dd;              /* Fondo de la aplicación */
+    --surface:#f6f4ee;            /* Hoja pegada sobre el papel: la tarjeta */
+    --surface-alt:#e3e0d4;        /* Otro papel: tarjeta de optativa */
+    --surface-sunken:#dbd7c9;     /* Banda hundida: cabecera de tabla */
+    --surface-muted:#dfdbcd;      /* Botón sobre tarjeta */
 
     /* ---------------------------------------------------------------- *
-     * Superficies
-     * ---------------------------------------------------------------- */
-
-    --paper:#f4efe6;              /* Fondo de la aplicación */
-    --surface:#fff;               /* Tarjeta */
-    --surface-alt:#fcfaf5;        /* Tarjeta de optativa */
-    --surface-sunken:#ece5d7;     /* Cabecera de tabla ordenable */
-    --surface-muted:#f1ece2;      /* Botón redondo sobre tarjeta blanca */
-
-    /* ---------------------------------------------------------------- *
-     * Líneas
-     * ---------------------------------------------------------------- */
-
-    --line:#e7ded0;               /* Borde de tarjeta, divisor por defecto */
-    --line-inner:#f0eadd;         /* Divisor DENTRO de una tarjeta */
-    --line-rule:#e7e0d2;          /* Regla de pie de sección */
-    --line-strong:#ddd3c2;        /* Borde de control (buscador, cabecera) */
-    --line-tab:#e2d8c6;           /* Borde superior de la barra de pestañas */
-    --line-chip:#cdc3b0;          /* Borde de chip inactivo */
-    --line-dashed:#cdbf9e;        /* Borde discontinuo de optativa */
-    --line-spine:#d7cdb9;         /* Línea vertical del mapa del grado */
-    --line-row:#e9e2d4;           /* Separador entre filas de una lista densa */
-
-    /* ---------------------------------------------------------------- *
-     * Texto
+     * Tinta
      * ---------------------------------------------------------------- *
-     * El handoff define CUATRO niveles de gris apagado (#8A8275, #A49A86,
-     * #948C7E, #9A9182). Sobre papel dan entre 2,4:1 y 3,3:1 de contraste, y
-     * el texto normal necesita 4,5:1. No es un matiz: son los eyebrows, las
-     * líneas de metadatos, las notas al pie y los enlaces "＋ N más" —
-     * contenido real, y alguno además pulsable.
-     *
-     * Aquí está el problema: por encima de 4,5:1 sobre este fondo ya no caben
-     * cuatro grises distinguibles. Cualquier gris que cumpla acaba pegado a
-     * los demás. Así que la escala baja a DOS niveles y la jerarquía la
-     * sostienen el tamaño y el peso, que es lo que el diseño ya hacía de
-     * todas formas: estos textos van a 8,5–10px frente a los 12,5px del
-     * cuerpo, y esa diferencia se lee mucho antes que un matiz de gris.
+     * Dos niveles de gris apagado y no cuatro, por la misma razón de siempre:
+     * por encima de 4,5:1 sobre este papel no caben cuatro grises que se
+     * distingan. La jerarquía la sostienen el tamaño, el peso y las
+     * mayúsculas, que es lo que de verdad se lee.
      */
 
-    --ink:#23201b;                /* Primario */
-    --ink-2:#4a463e;              /* Secundario */
-    --ink-3:#5f584c;              /* Etiqueta de chip inactivo */
-    --ink-muted:#6e675c;          /* Apoyo (4,9:1) — el del handoff, ya cumplía */
-    --ink-soft:#736c61;           /* Eyebrows y metadatos (4,5:1) */
-    --ink-faint:#716b5f;          /* Notas al pie y cifras de apoyo (4,5:1) */
-    --ink-faint-2:#716b5f;        /* Alias: ya no se distinguía del anterior */
-    --ink-placeholder:#776f64;    /* Placeholder y huecos por rellenar */
-    --ink-icon:#8a8275;           /* Iconos de control (no es texto: 3:1) */
-    --ink-on-navy:#fff;           /* Texto sobre superficie navy */
-    --ink-tab:#7b7569;            /* Pestaña inactiva de la barra inferior */
-    --ink-chevron:#8d8578;        /* Flechas de "seguir" (icono: basta 3:1) */
+    --ink:#14140f;                /* Carbón. Primario y color de las reglas */
+    --ink-2:#33302a;              /* Secundario */
+    --ink-3:#403d34;              /* Etiqueta de chip inactivo */
+    --ink-muted:#55524a;          /* Apoyo (7,0:1) */
+    --ink-soft:#5b584e;           /* Eyebrows y metadatos (6,5:1) */
+    --ink-faint:#5f5c52;          /* Notas al pie y cifras de apoyo (6,2:1) */
+    --ink-faint-2:#5f5c52;        /* Alias: no se distinguía del anterior */
+    --ink-placeholder:#68655a;    /* Placeholder y huecos por rellenar */
+    --ink-icon:#7a7669;           /* Iconos de control (no es texto: 3:1) */
+    --ink-tab:#5b584e;            /* Pestaña inactiva de la barra inferior */
+    --ink-chevron:#7a7669;        /* Flechas de "seguir" (icono: basta 3:1) */
 
     /* ---------------------------------------------------------------- *
-     * Recuentos — barras grises. Una cantidad NO es una dificultad.
+     * Carbón estructural — el bloque de tinta
+     * ---------------------------------------------------------------- *
+     * Donde antes había una banda azul corporativa ahora hay un bloque de
+     * tinta plena. Es el mismo papel que el resto de la web, pero entintado
+     * del todo: cabecera, nodos del mapa, chip activo, pestaña seleccionada.
+     */
+
+    --carbon:#14140f;             /* Relleno del bloque */
+    --carbon-ink:#2b2822;         /* Texto estructural SOBRE papel */
+    --carbon-faint:#b6b1a1;       /* Texto secundario SOBRE el bloque (8,5:1) */
+    --carbon-line:#14140f;        /* Borde de píldora estructural */
+    --control-line:#14140f;       /* Borde de control (selector, buscador) */
+    --carbon-wash:#dcd8c9;        /* Panel plano, sin entintar del todo */
+    --carbon-wash-line:#14140f;   /* Su regla: tinta plena, no un gris tímido */
+
+    --on-carbon:#f6f4ee;          /* Texto sobre el bloque */
+    --on-carbon-soft:#c3beac;     /* Párrafo sobre el bloque (9,5:1) */
+    --carbon-meta:#55524a;        /* Metadatos sobre carbon-wash */
+    --carbon-avatar:#6e6a5c;      /* Avatar de hueco por rellenar */
+
+    /* ---------------------------------------------------------------- *
+     * Rojo de aviación — la única tinta directa
+     * ---------------------------------------------------------------- *
+     * Lo pulsable, lo que avisa y lo que gana el Fight Mode. Un solo rojo con
+     * dos densidades: el vivo para superficies y reglas, el apagado para
+     * cuando ese rojo tiene que leerse como texto pequeño sobre papel.
+     */
+
+    --accent:#d3220f;             /* Rojo vivo: reglas, marcadores, rellenos */
+    --accent-ink:#a91a0b;         /* Rojo legible como texto (5,2:1) */
+    --accent-strong:#8b1408;      /* Titular sobre accent-wash */
+    --accent-soft:#6b3128;        /* Detalle sobre accent-wash */
+    --accent-wash:#f0e2dc;        /* Papel con una pasada de rojo */
+    --accent-line:#d3220f;        /* Regla de la caja de acento */
+
+    /* ---------------------------------------------------------------- *
+     * Amarillo de seguridad — cautela, no alarma
+     * ---------------------------------------------------------------- *
+     * La tercera tinta, y la más restringida: solo el aviso de cohorte
+     * pequeña y la trama diagonal de peligro. Un 61 % de suspensos con seis
+     * matriculados no es una asignatura dura, es una muestra corta; decirlo
+     * en rojo sería mentir y decirlo en negro sería no decirlo.
+     */
+
+    --caution:#e0a800;            /* Marcador y trama */
+    --caution-ink:#645000;        /* El mismo amarillo legible como texto */
+    --caution-bg:#ece3c8;
+    --caution-line:#14140f;
+
+    /* Trama diagonal de peligro. Se usa como `background-image` en las
+       cabeceras de aviso; con 8px de paso se lee a tamaño de móvil sin
+       vibrar al desplazar. */
+    --hazard-stripes:repeating-linear-gradient(
+        -45deg,
+        var(--caution) 0 6px,
+        var(--ink) 6px 12px
+    );
+
+    /* Grano del papel. Una sola tesela SVG de 120px sin `mix-blend-mode`:
+       tiñe sin obligar al navegador a componer una capa aparte en cada
+       desplazamiento, que es lo que de verdad se nota en un móvil. */
+    --paper-grain:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)' opacity='.055'/%3E%3C/svg%3E");
+
+    /* ---------------------------------------------------------------- *
+     * Gráficas — dos tintas, como una impresión a dos colores
      * ---------------------------------------------------------------- */
 
-    --count-fill:#a89a86;
-    --count-track:#efe7d7;
+    --chart-line-1:#14140f;       /* Nota media de acceso */
+    --chart-line-2:#d3220f;       /* Nota de corte */
+
+    /* ---------------------------------------------------------------- *
+     * Reglas
+     * ---------------------------------------------------------------- *
+     * El borde es el elemento estructural de esta dirección: no hay sombras
+     * que separen las cajas, las separa la tinta. Por eso el borde exterior
+     * es carbón pleno y solo los divisores internos bajan a gris.
+     */
+
+    --line:#14140f;               /* Borde de tarjeta, divisor por defecto */
+    --line-inner:#c6c1b1;         /* Divisor DENTRO de una tarjeta */
+    --line-rule:#14140f;          /* Regla de pie de sección */
+    --line-strong:#14140f;        /* Borde de control (buscador, cabecera) */
+    --line-tab:#14140f;           /* Borde superior de la barra de pestañas */
+    --line-chip:#14140f;          /* Borde de chip inactivo */
+    --line-dashed:#6e6a5c;        /* Borde discontinuo de optativa */
+    --line-spine:#14140f;         /* Línea vertical del mapa del grado */
+    --line-row:#c6c1b1;           /* Separador entre filas de una lista densa */
+
+    /* Grosores. Dos y solo dos: el pelo y la regla. Un tercer grosor no se
+       distingue a 402px de ancho, solo ensucia. */
+    --rule:1px;
+    --rule-strong:2px;
+
+    /* ---------------------------------------------------------------- *
+     * Recuentos — barras de tinta. Una cantidad NO es una dificultad.
+     * ---------------------------------------------------------------- */
+
+    --count-fill:#4e4b41;
+    --count-track:#d6d2c4;
 
     /* ---------------------------------------------------------------- *
      * Avisos
      * ---------------------------------------------------------------- */
 
     /* "Dura": la asignatura más difícil, la advertencia con peso. */
-    --warn-bg:#f9ece7;
-    --warn-line:#f0d6cb;
-    --warn-title:#8f3521;
-    --warn-body:#8c6053;
-    --warn-caption:#86645a;       /* Rótulo bajo la cifra del aviso */
-
-    /* Cohorte pequeña: el ⚠ y su nota. Llama la atención sin alarmar.
-       El handoff fija el glifo y el texto; el fondo y el borde se derivan de
-       ellos para poder montar el aviso completo. */
-    --attention:#c89a2e;
-    --attention-ink:#806e32;
-    --attention-bg:#fbf6e8;
-    --attention-line:#eee0bd;
+    --warn-bg:#f0e2dc;
+    --warn-line:#d3220f;
+    --warn-title:#a91a0b;
+    --warn-body:#4a2a22;
+    --warn-caption:#6b3128;       /* Rótulo bajo la cifra del aviso */
 
     /* ---------------------------------------------------------------- *
-     * Variación (deltas)
+     * Variación (deltas) — dúo, no tríada
      * ---------------------------------------------------------------- *
-     * Ojo: el color dice "mejor o peor", no "sube o baja". Subir un 19 pp de
-     * no superación es malo y va en rojo; subir un 2 pp de aprobados es bueno
-     * y va en verde. Quien pinta el delta decide el signo, no el token.
+     * El color dice "mejor o peor", no "sube o baja". Y aquí solo hay dos
+     * tintas para decirlo: lo que empeora va en rojo y lo que mejora va en
+     * carbón. Que mejorar no lleve color propio es deliberado — la mejora es
+     * lo esperable y el signo (+/−) ya está escrito al lado; lo que merece
+     * una tinta directa es el deterioro. Quien pinta el delta decide el
+     * signo, no el token.
      */
 
-    --delta-good:#4a6a44;
-    --delta-bad:#b5482f;
-    --delta-flat:#6e675c;
+    --delta-good:#14140f;
+    --delta-bad:#a91a0b;
+    --delta-flat:#5f5c52;
 
     /* ---------------------------------------------------------------- *
-     * Radios
-     * ---------------------------------------------------------------- */
+     * Radios — ninguno.
+     * ---------------------------------------------------------------- *
+     * Se mantienen los nombres porque los componentes los consumen y porque
+     * documentan qué era cada cosa, pero todos valen 0: en esta dirección no
+     * hay una sola esquina redondeada. Si alguna vuelve, vuelve aquí.
+     */
 
-    --radius-row:8px;             /* Fila de asignatura */
-    --radius-control:9px;         /* Botón, buscador */
-    --radius-card:11px;
-    --radius-card-lg:14px;
-    --radius-sheet:16px;          /* Hoja desplegable "Más" */
-    --radius-pill:999px;
+    --radius-row:0;
+    --radius-control:0;
+    --radius-card:0;
+    --radius-card-lg:0;
+    --radius-sheet:0;
+    --radius-pill:0;
 
     /* ---------------------------------------------------------------- *
-     * Sombras — escasas a propósito: esto es papel, no material design.
-     * ---------------------------------------------------------------- */
+     * Sombras — una, y es dura
+     * ---------------------------------------------------------------- *
+     * Nada difuso. Lo único que se despega del papel es lo que está
+     * literalmente encima (la hoja modal), y se despega con un desplazamiento
+     * sólido de tinta, como un recorte con su sombra impresa.
+     */
 
-    --shadow-card:0 1px 3px rgba(35,32,27,.05);
-    --shadow-sheet:0 14px 34px rgba(20,18,14,.30);
-    --shadow-medallion:0 2px 6px rgba(34,61,113,.28);
+    --shadow-card:none;
+    --shadow-hard:4px 4px 0 var(--ink);
+    --shadow-sheet:6px 6px 0 var(--ink);
+    --shadow-medallion:3px 3px 0 var(--ink);
 
-    --scrim:rgba(24,20,14,.44);
+    --scrim:rgba(20,20,15,.58);
 
     /* ---------------------------------------------------------------- *
      * Espaciado y medidas
-     * ---------------------------------------------------------------- */
+     * ---------------------------------------------------------------- *
+     * Todo en múltiplos de 4 salvo el margen lateral. Un ritmo que se puede
+     * contar es la mitad de la sensación de "esto está trazado, no dibujado".
+     */
 
     --gutter:16px;                /* Margen horizontal del contenido */
-    --gap-row:7px;                /* Entre filas de una lista */
-    --gap-card:9px;               /* Entre tarjetas de una rejilla */
-    --gap-section:16px;           /* Ritmo vertical entre secciones */
+    --gap-row:4px;                /* Entre filas de una lista */
+    --gap-card:8px;               /* Entre tarjetas de una rejilla */
+    --gap-section:20px;           /* Ritmo vertical entre secciones */
     --pad-card:12px 13px;
 
     --tab-bar-height:62px;

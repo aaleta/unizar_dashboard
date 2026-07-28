@@ -93,7 +93,9 @@ defineEmits(["sort"]);
 
     background:var(--surface-sunken);
 
-    border-bottom:1px solid var(--line-strong);
+    border-top:var(--rule) solid var(--line-strong);
+
+    border-bottom:var(--rule-strong) solid var(--line-strong);
 
 }
 
@@ -106,7 +108,7 @@ defineEmits(["sort"]);
 
     font-weight:600;
 
-    letter-spacing:.4px;
+    letter-spacing:var(--track-label);
 
     text-transform:uppercase;
 
@@ -171,9 +173,13 @@ defineEmits(["sort"]);
 
 }
 
+/* La métrica por la que se ordena lleva su propia regla debajo: el mismo
+   gesto que el chip de ordenar, para que se lean como el mismo control. */
 .metric.active{
 
-    color:var(--navy);
+    color:var(--ink);
+
+    box-shadow:0 3px 0 -1px var(--accent);
 
 }
 

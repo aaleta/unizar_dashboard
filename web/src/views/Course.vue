@@ -130,13 +130,13 @@ const HISTORY_COLORS = ["var(--chart-line-2)"];
             <UiStat
                 :value="troncales.length"
                 label="troncales"
-                tone="navy"
+                tone="carbon"
             />
             <UiStat
                 v-if="optativas.length"
                 :value="optativas.length"
                 label="optativas"
-                tone="gold"
+                tone="accent"
             />
         </div>
 
@@ -230,7 +230,7 @@ const HISTORY_COLORS = ["var(--chart-line-2)"];
         <UiSectionHeader
             label="Optativas"
             :count="optativas.length"
-            tone="gold"
+            tone="accent"
         />
 
         <!-- En 1º las optativas son las especiales (Biología, Geología,
@@ -332,17 +332,21 @@ const HISTORY_COLORS = ["var(--chart-line-2)"];
 
     flex:none;
 
-    border-radius:50%;
+    border-radius:0;
 
-    background:var(--navy);
+    background:var(--carbon);
 
-    color:var(--ink-on-navy);
+    color:var(--on-carbon);
 
-    font-family:var(--font-serif);
+    font-family:var(--font-display);
 
     font-size:13px;
 
-    font-weight:700;
+    font-weight:900;
+
+    letter-spacing:-.03em;
+
+    line-height:1;
 
 }
 
@@ -350,13 +354,17 @@ h1{
 
     margin:0;
 
-    font-family:var(--font-serif);
+    font-family:var(--font-display);
 
-    font-size:26px;
+    font-size:var(--text-h1);
 
-    font-weight:700;
+    font-weight:900;
 
-    line-height:1;
+    letter-spacing:var(--track-display-tight);
+
+    text-transform:uppercase;
+
+    line-height:.92;
 
 }
 
@@ -365,6 +373,8 @@ h1{
     margin:0 0 14px;
 
     font-size:var(--text-body-sm);
+
+    line-height:1.5;
 
     color:var(--ink-soft);
 
@@ -396,19 +406,29 @@ h1{
 
 .section{
 
-    margin-top:18px;
+    margin-top:var(--gap-section);
 
 }
 
 h2{
 
-    margin:0 0 11px;
+    margin:0 0 10px;
 
-    font-family:var(--font-serif);
+    padding-bottom:6px;
+
+    border-bottom:var(--rule-strong) solid var(--line);
+
+    font-family:var(--font-display);
 
     font-size:var(--text-section);
 
-    font-weight:600;
+    font-weight:900;
+
+    letter-spacing:var(--track-display);
+
+    text-transform:uppercase;
+
+    line-height:1;
 
 }
 
@@ -424,9 +444,9 @@ h2{
 
     background:var(--surface);
 
-    border:1px solid var(--line);
+    border:var(--rule-strong) solid var(--line);
 
-    border-radius:12px;
+    border-radius:0;
 
     box-shadow:var(--shadow-card);
 
@@ -502,7 +522,7 @@ h2{
 
 .more:active{
 
-    color:var(--navy);
+    color:var(--accent-ink);
 
 }
 

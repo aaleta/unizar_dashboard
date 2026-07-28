@@ -4,7 +4,7 @@
  * El orden importa: tokens y tipografía se importan antes que nada para que
  * las variables existan cuando se usen aquí abajo.
  *
- * OJO — rediseño en curso: el tema pasa de oscuro a papel cálido, pero las
+ * OJO — rediseño en curso: el tema pasa de oscuro a papel técnico, pero las
  * vistas de escritorio aún no migradas siguen pintando sus colores oscuros a
  * pelo y se ven mal a partir de aquí. Es la consecuencia asumida de rehacer
  * primero el móvil (ver MOBILE_REDESIGN_PLAN.md), no un fallo suelto.
@@ -43,17 +43,24 @@ body{
        deja un hueco al final. dvh mide el viewport que de verdad se ve. */
     min-height:100dvh;
 
-    background:var(--paper);
+    /* El grano va como imagen de fondo del propio contenedor, no como capa
+       fija con `mix-blend-mode`: una capa que compone encima de todo obliga
+       al navegador a rehacer la mezcla en cada desplazamiento, y eso en un
+       móvil de gama media se nota. Así el coste es una tesela de 120px que se
+       repite y ya está. */
+    background-color:var(--paper);
+
+    background-image:var(--paper-grain);
 
 }
 
 /**
  * Bandas a sangre: se salen del ancho del contenido y cruzan la pantalla.
  *
- * El contenido va centrado con un ancho máximo, pero las bandas navy —el héroe
- * de la portada, la fila de cifras del mapa— tienen que llegar de borde a
- * borde: si se quedan del ancho de la columna, en un portátil parecen una caja
- * azul suelta debajo de la cabecera, que es exactamente lo que parecían.
+ * El contenido va centrado con un ancho máximo, pero las bandas de tinta —el
+ * héroe de la portada, la fila de cifras del mapa— tienen que llegar de borde
+ * a borde: si se quedan del ancho de la columna, en un portátil parecen una
+ * caja suelta debajo de la cabecera, que es exactamente lo que parecían.
  *
  * El margen negativo las estira y el relleno equivalente devuelve su contenido
  * a la columna. Con `overflow-x:hidden` en el body, la barra de desplazamiento
@@ -75,18 +82,34 @@ button{
 
 }
 
+/**
+ * Los enlaces van en rojo y subrayados.
+ *
+ * En una web de tinta negra sobre papel, el color por sí solo ya no puede
+ * marcar lo pulsable: casi todo es negro. El rojo es la única tinta directa y
+ * el subrayado es la señal que funciona aunque no se distinga el rojo. Van
+ * juntos a propósito.
+ *
+ * El rojo de texto es `--accent-ink`, no `--accent`: el vivo se queda en
+ * 4,2:1 sobre papel y esto es texto pequeño.
+ */
 a{
 
-    color:var(--navy);
+    color:var(--accent-ink);
 
-    text-decoration:none;
+    text-decoration:underline;
+
+    text-underline-offset:2px;
+
+    text-decoration-thickness:1px;
 
 }
 
-/* Quien navega con teclado tiene derecho a saber dónde está. */
+/* Quien navega con teclado tiene derecho a saber dónde está. Y el foco, como
+   todo lo demás aquí, es un rectángulo de tinta. */
 :focus-visible{
 
-    outline:2px solid var(--navy);
+    outline:var(--rule-strong) solid var(--accent);
 
     outline-offset:2px;
 

@@ -1,7 +1,7 @@
 <script setup>
 
 /**
- * La carcasa: cabecera navy arriba, contenido en medio, pestañas abajo.
+ * La carcasa: bloque de tinta arriba, contenido en medio, pestañas abajo.
  *
  * Qué cabecera lleva cada pantalla sale de `meta` en el router, no de la
  * propia vista. Así el mapa de navegación —quién cuelga de quién, qué eyebrow
@@ -113,11 +113,11 @@ watch(() => route.fullPath, () => {
 
     z-index:9;
 
-    height:2px;
+    height:3px;
 
     overflow:hidden;
 
-    background:var(--line);
+    background:var(--carbon-wash);
 
 }
 
@@ -131,9 +131,11 @@ watch(() => route.fullPath, () => {
 
     height:100%;
 
-    background:var(--navy);
+    background:var(--accent);
 
-    animation:slide 1s ease-in-out infinite;
+    /* A saltos, no deslizándose: es una aguja de instrumento, no una
+       animación de material design. */
+    animation:slide 1s steps(8,end) infinite;
 
 }
 

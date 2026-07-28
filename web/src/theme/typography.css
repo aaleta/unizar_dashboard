@@ -1,35 +1,48 @@
 /**
  * Escala tipográfica.
  *
- * Tres familias con tres papeles que no se cruzan:
+ * Dos familias con tres papeles que no se cruzan:
  *
- *   Spectral        → titulares, cabeceras de sección, nombres de asignatura.
- *   Public Sans     → cuerpo, etiquetas de interfaz, botones.
- *   IBM Plex Mono   → TODAS las cifras y porcentajes, los eyebrows, los
- *                     metadatos y los códigos.
+ *   Public Sans Display → titulares y cabeceras de sección. Eje recortado a
+ *                         700..900 (ver fonts.css): aquí no hay titulares
+ *                         flojos.
+ *   Public Sans         → cuerpo, nombres de asignatura, botones.
+ *   IBM Plex Mono       → TODAS las cifras y porcentajes, los eyebrows, los
+ *                         metadatos y los códigos.
  *
  * Lo de la mono es lo importante: los números son el producto. En mono se
  * alinean en columna, se comparan de un vistazo y no bailan al cambiar de
  * dígito. Un porcentaje escrito en Public Sans es un error, no un matiz.
  *
- * Los tamaños del handoff están medidos a 402px (el ancho del mock). Los
- * titulares escalan de forma fluida entre 320px y 480px; el texto pequeño no
- * escala, porque por debajo de 11px deja de leerse y "proporcional" no es
- * excusa para eso.
+ * ------------------------------------------------------------------------
+ * EL CONTRASTE DE ESCALA
+ * ------------------------------------------------------------------------
+ * Con una sola familia de texto, la jerarquía la tiene que sostener entera la
+ * escala, y por eso es brutal a propósito: de los 8,5px de una nota al pie a
+ * los 44px de un titular hay un factor de cinco. En el diseño anterior ese
+ * factor era de dos y pico, y la diferencia entre un titular y un subtítulo la
+ * ponía el cambio de serif a sans. Retirada la serif, el salto tiene que
+ * verse: un titular ocupa el ancho de la pantalla, se aprieta hasta -0,04em y
+ * se compone en mayúsculas.
+ *
+ * Los tamaños pequeños del handoff están medidos a 402px (el ancho del mock) y
+ * no escalan, porque por debajo de 11px deja de leerse y "proporcional" no es
+ * excusa para eso. Los titulares sí escalan de forma fluida entre 320px y
+ * 480px.
  */
 
 :root{
 
-    --font-serif:'Spectral',Georgia,'Times New Roman',serif;
+    --font-display:'Public Sans Display','Public Sans',system-ui,sans-serif;
     --font-sans:'Public Sans',system-ui,-apple-system,'Segoe UI',sans-serif;
     --font-mono:'IBM Plex Mono','SF Mono',Menlo,Consolas,monospace;
 
-    /* Titulares — fluidos: 22→27px y 25→30px entre 320px y 480px de ancho. */
-    --text-h1:clamp(22px,calc(12px + 3.125vw),27px);
-    --text-h1-lg:clamp(25px,calc(14.3px + 3.34vw),30px);
+    /* Titulares — fluidos: 30→40px y 34→46px entre 320px y 480px de ancho. */
+    --text-h1:clamp(30px,calc(-2px + 10vw),40px);
+    --text-h1-lg:clamp(34px,calc(-4.4px + 12vw),46px);
 
-    /* Secciones y tarjetas — el rango es de 1px, no merece fluidez. */
-    --text-section:16px;
+    /* Secciones y tarjetas */
+    --text-section:17px;
     --text-card-title:14.5px;
 
     /* Cuerpo */
@@ -38,7 +51,7 @@
     --text-body-xs:11px;
 
     /* Cifras. La KPI grande es el elemento con más peso de cada pantalla. */
-    --text-kpi:23px;
+    --text-kpi:27px;
     --text-metric:15.5px;
     --text-num:11px;
     --text-num-sm:10px;
@@ -49,9 +62,17 @@
     --text-nav:9px;
     --text-footnote:8.5px;
 
-    --leading-tight:1.15;
+    --leading-tight:1.05;
     --leading-snug:1.35;
     --leading-body:1.5;
+
+    /* Tracking. Los titulares se aprietan hasta que las letras forman un
+       bloque; los rótulos en mono se abren hasta que parecen picados a
+       máquina. Son los dos extremos del mismo gesto. */
+    --track-display:-.035em;
+    --track-display-tight:-.045em;
+    --track-label:.14em;
+    --track-label-wide:.2em;
 
 }
 
@@ -96,9 +117,17 @@ body{
 
     font-weight:600;
 
+    letter-spacing:-.01em;
+
 }
 
-/** Etiqueta pequeña en mayúsculas que rotula un bloque. */
+/**
+ * Etiqueta pequeña en mayúsculas que rotula un bloque.
+ *
+ * El letter-spacing es la mitad del gesto: a 9px y con las letras pegadas,
+ * una etiqueta en mayúsculas es una mancha. Abierta, es una fila de
+ * caracteres contados, que es justo lo que tiene que parecer.
+ */
 .eyebrow{
 
     font-family:var(--font-mono);
@@ -107,7 +136,7 @@ body{
 
     font-weight:600;
 
-    letter-spacing:.5px;
+    letter-spacing:var(--track-label);
 
     text-transform:uppercase;
 
@@ -115,11 +144,17 @@ body{
 
 }
 
-/** Titulares y nombres de asignatura. */
-.serif{
+/** Titulares y cabeceras: bloque de tinta, mayúsculas, apretado. */
+.display{
 
-    font-family:var(--font-serif);
+    font-family:var(--font-display);
 
-    font-weight:600;
+    font-weight:900;
+
+    letter-spacing:var(--track-display);
+
+    line-height:var(--leading-tight);
+
+    text-transform:uppercase;
 
 }

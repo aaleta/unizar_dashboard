@@ -66,9 +66,10 @@ web/src/
 
 Reglas que conviene no romper:
 
-- **El color no miente.** Navy = estructura; la rampa = dificultad y nada más;
-  gris = recuentos; la paleta categórica = calificaciones. Está escrito en la
-  cabecera de `theme/tokens.css`.
+- **El color no miente.** Carbón = estructura; la rampa = dificultad y nada
+  más; gris = recuentos; la paleta categórica = calificaciones. Está escrito en
+  la cabecera de `theme/tokens.css`, junto con la dirección visual vigente
+  (ver `DESIGN_NOTES.md`).
 - **Ninguna cifra se escribe a mano.** Todo sale de `utils/metrics.js`.
 - **Ningún color fuera de `theme/`.**
 - **Contraste AA** en las diez pantallas. Los grises del diseño original no

@@ -1,11 +1,13 @@
 <script setup>
 
 /**
- * El punto de dificultad que precede a cada asignatura.
+ * La marca de dificultad que precede a cada asignatura. Un cuadro, no un
+ * punto: en esta dirección no hay curvas, y un cuadro entintado se parece
+ * bastante más a la casilla de una tabla de control que a una pastilla.
  *
  * Dos informaciones en un solo glifo:
  *   - el COLOR es la tasa de no superación (rampa de dificultad);
- *   - la FORMA es el carácter: relleno = troncal, anillo hueco = optativa.
+ *   - la FORMA es el carácter: relleno = troncal, marco hueco = optativa.
  *
  * Separar así los dos ejes es lo que permite leer el mapa del grado de un
  * vistazo sin leyenda.
@@ -41,8 +43,8 @@ const color = computed(() => difficultyFill(props.value));
 const style = computed(() => ({
     width: `${props.size}px`,
     height: `${props.size}px`,
-    // El anillo se hace con el borde, así el hueco deja ver el fondo real de
-    // la fila (blanco en troncales, papel en optativas) sin tener que saberlo.
+    // El marco se hace con el borde, así el hueco deja ver el fondo real de
+    // la fila (tarjeta en troncales, papel en optativas) sin tener que saberlo.
     background: props.hollow ? "transparent" : color.value,
     border: props.hollow ? `2px solid ${color.value}` : "none"
 }));
@@ -65,8 +67,6 @@ const style = computed(() => ({
 .dot{
 
     display:inline-block;
-
-    border-radius:50%;
 
     flex:none;
 

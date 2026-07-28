@@ -218,7 +218,7 @@ const label = hour => `${String(hour).padStart(2, "0")}:00`;
 
     background:var(--surface);
 
-    border:1px solid var(--line);
+    border:var(--rule-strong) solid var(--line);
 
     border-radius:var(--radius-card);
 
@@ -232,7 +232,7 @@ const label = hour => `${String(hour).padStart(2, "0")}:00`;
 
     display:flex;
 
-    border-bottom:1px solid var(--line-strong);
+    border-bottom:var(--rule-strong) solid var(--line-strong);
 
     background:var(--surface-sunken);
 
@@ -262,7 +262,7 @@ const label = hour => `${String(hour).padStart(2, "0")}:00`;
 
     font-weight:600;
 
-    letter-spacing:.4px;
+    letter-spacing:var(--track-label);
 
     text-transform:uppercase;
 
@@ -294,9 +294,13 @@ const label = hour => `${String(hour).padStart(2, "0")}:00`;
 
     transform:translateY(-45%);
 
+    font-family:var(--font-mono);
+
     font-size:8px;
 
-    font-weight:500;
+    font-weight:600;
+
+    letter-spacing:.02em;
 
     color:var(--ink-faint);
 
@@ -317,7 +321,7 @@ const label = hour => `${String(hour).padStart(2, "0")}:00`;
 
     min-width:0;
 
-    border-left:1px solid var(--line-inner);
+    border-left:var(--rule) solid var(--line-inner);
 
     /* Una línea tenue por hora, sin un elemento por celda. */
     background-image:linear-gradient(var(--line-inner) 1px,transparent 1px);
@@ -342,13 +346,15 @@ const label = hour => `${String(hour).padStart(2, "0")}:00`;
 
     overflow:hidden;
 
-    border-radius:5px;
+    border-radius:0;
 
-    border:1px solid var(--navy-wash-line);
+    border:var(--rule) solid var(--carbon-wash-line);
 
-    border-left:3px solid var(--navy);
+    /* El canto izquierdo, más grueso, es lo que hace legible una rejilla de
+       bloques pequeños: se distingue el tipo de clase sin leer nada. */
+    border-left:4px solid var(--carbon);
 
-    background:var(--navy-wash);
+    background:var(--carbon-wash);
 
 }
 
@@ -360,7 +366,7 @@ const label = hour => `${String(hour).padStart(2, "0")}:00`;
 
     border-color:var(--line-dashed);
 
-    border-left-color:var(--gold-ink);
+    border-left:4px solid var(--accent-ink);
 
     background:var(--surface-alt);
 
@@ -372,7 +378,7 @@ const label = hour => `${String(hour).padStart(2, "0")}:00`;
 
     border-color:var(--warn-line);
 
-    border-left-color:var(--warn-title);
+    border-left:4px solid var(--warn-title);
 
     background:var(--warn-bg);
 
@@ -382,7 +388,9 @@ const label = hour => `${String(hour).padStart(2, "0")}:00`;
 
     font-size:9.5px;
 
-    font-weight:600;
+    font-weight:700;
+
+    letter-spacing:-.01em;
 
     line-height:1.2;
 
@@ -408,9 +416,11 @@ const label = hour => `${String(hour).padStart(2, "0")}:00`;
 
     margin-top:auto;
 
+    font-family:var(--font-mono);
+
     font-size:8px;
 
-    font-weight:500;
+    font-weight:600;
 
     color:var(--ink-soft);
 

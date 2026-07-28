@@ -323,7 +323,7 @@ const groupLabel = group => `Grupo ${group.split("-").pop()}`;
 
     background:var(--surface);
 
-    border:1px solid var(--line);
+    border:var(--rule-strong) solid var(--line);
 
     border-radius:var(--radius-card);
 
@@ -365,9 +365,15 @@ const groupLabel = group => `Grupo ${group.split("-").pop()}`;
 
     font-family:var(--font-mono);
 
-    font-size:var(--text-num-sm);
+    font-size:var(--text-eyebrow);
 
-    color:var(--navy);
+    font-weight:600;
+
+    letter-spacing:var(--track-label);
+
+    text-transform:uppercase;
+
+    color:var(--accent-ink);
 
 }
 
@@ -375,7 +381,7 @@ const groupLabel = group => `Grupo ${group.split("-").pop()}`;
 
     color:var(--ink-chevron);
 
-    transition:transform .15s;
+    transition:transform .1s steps(2);
 
 }
 
@@ -409,11 +415,11 @@ const groupLabel = group => `Grupo ${group.split("-").pop()}`;
 
     max-width:100%;
 
-    padding:5px 6px 5px 10px;
+    padding:4px 5px 4px 9px;
 
-    background:var(--navy-wash);
+    background:var(--carbon-wash);
 
-    border:1px solid var(--navy-wash-line);
+    border:var(--rule) solid var(--carbon-wash-line);
 
     border-radius:var(--radius-pill);
 
@@ -431,9 +437,9 @@ const groupLabel = group => `Grupo ${group.split("-").pop()}`;
 
     font-size:var(--text-body-sm);
 
-    font-weight:600;
+    font-weight:700;
 
-    color:var(--navy-soft);
+    color:var(--ink);
 
 }
 
@@ -443,13 +449,13 @@ const groupLabel = group => `Grupo ${group.split("-").pop()}`;
 
     padding:2px 4px;
 
-    border:1px solid var(--navy-line-soft);
+    border:var(--rule) solid var(--control-line);
 
-    border-radius:6px;
+    border-radius:0;
 
     background:var(--surface);
 
-    color:var(--navy);
+    color:var(--ink);
 
     font-size:var(--text-num-sm);
 
@@ -475,13 +481,21 @@ const groupLabel = group => `Grupo ${group.split("-").pop()}`;
 
     border:none;
 
-    border-radius:50%;
+    border-radius:0;
 
     background:var(--surface);
 
     color:var(--ink-soft);
 
     cursor:pointer;
+
+}
+
+.remove:active{
+
+    background:var(--accent);
+
+    color:var(--on-carbon);
 
 }
 
@@ -526,11 +540,11 @@ const groupLabel = group => `Grupo ${group.split("-").pop()}`;
 
 .clear:active{
 
-    color:var(--navy);
+    color:var(--accent-ink);
 
 }
 
-/* En la misma familia tipográfica que "vaciar", pero en navy: es la acción
+/* En la misma familia tipográfica que "vaciar", pero entintado: es la acción
    útil del bloque, no una limpieza. */
 .rotate{
 
@@ -548,7 +562,7 @@ const groupLabel = group => `Grupo ${group.split("-").pop()}`;
 
     font-weight:600;
 
-    color:var(--navy);
+    color:var(--ink);
 
     cursor:pointer;
 
@@ -556,7 +570,7 @@ const groupLabel = group => `Grupo ${group.split("-").pop()}`;
 
 .rotate:active{
 
-    color:var(--ink);
+    color:var(--accent-ink);
 
 }
 
@@ -576,7 +590,7 @@ const groupLabel = group => `Grupo ${group.split("-").pop()}`;
 
     padding:11px 13px 6px;
 
-    border-top:1px solid var(--line-inner);
+    border-top:var(--rule-strong) solid var(--line-inner);
 
 }
 
@@ -657,7 +671,7 @@ const groupLabel = group => `Grupo ${group.split("-").pop()}`;
 
     border:none;
 
-    border-bottom:1px solid var(--line-row);
+    border-bottom:var(--rule) solid var(--line-row);
 
     background:none;
 
@@ -683,25 +697,25 @@ li:last-child .row{
 
     flex:none;
 
-    width:17px;
+    width:18px;
 
-    height:17px;
+    height:18px;
 
-    border:1.5px solid var(--line-chip);
+    border:var(--rule-strong) solid var(--line-chip);
 
-    border-radius:5px;
+    border-radius:0;
 
     background:var(--surface);
 
-    color:var(--ink-on-navy);
+    color:var(--on-carbon);
 
 }
 
 .check.on{
 
-    background:var(--navy);
+    background:var(--carbon);
 
-    border-color:var(--navy);
+    border-color:var(--carbon);
 
 }
 
@@ -741,11 +755,15 @@ li:last-child .row{
 
     display:block;
 
+    font-family:var(--font-display);
+
     font-size:13.5px;
 
-    font-weight:600;
+    font-weight:700;
 
-    line-height:1.25;
+    letter-spacing:-.01em;
+
+    line-height:1.18;
 
 }
 
@@ -753,11 +771,15 @@ li:last-child .row{
 
     display:block;
 
-    margin-top:1px;
+    margin-top:2px;
 
     font-family:var(--font-mono);
 
     font-size:var(--text-eyebrow);
+
+    letter-spacing:.06em;
+
+    text-transform:uppercase;
 
     color:var(--ink-soft);
 
@@ -791,7 +813,7 @@ li:last-child .row{
 
 .more:active{
 
-    color:var(--navy);
+    color:var(--accent-ink);
 
 }
 

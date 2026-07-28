@@ -3,11 +3,11 @@
 /**
  * Aviso destacado. Tres tonos, tres significados distintos:
  *
- *   structural → contexto neutro ("6 troncales, aprueban el 94%"). Navy,
+ *   structural → contexto neutro ("6 troncales, aprueban el 94%"). Carbón,
  *                porque es estructura, no un dato malo.
  *   hard       → la advertencia con peso ("la troncal más dura del grado").
  *                Usa la paleta cálida de la rampa, que es lo que describe.
- *   attention  → cohorte pequeña, datos poco fiables. Amarillo: pide cautela,
+ *   caution    → cohorte pequeña, datos poco fiables. Amarillo: pide cautela,
  *                no alarma. Un suspenso alto con 6 alumnos no es una asignatura
  *                dura, es una muestra pequeña, y decirlo en rojo mentiría.
  */
@@ -17,7 +17,7 @@ defineProps({
     tone: {
         type: String,
         default: "structural",
-        validator: value => ["structural", "hard", "attention"].includes(value)
+        validator: value => ["structural", "hard", "caution"].includes(value)
     },
 
     title: {
@@ -65,23 +65,23 @@ defineProps({
 
     align-items:flex-start;
 
-    gap:9px;
+    gap:10px;
 
     padding:11px 13px;
 
     border-radius:var(--radius-card);
 
-    border:1px solid;
+    border:var(--rule-strong) solid;
 
 }
 
+/* Cuadro, no punto. Un círculo es una gota; un cuadrado es una marca hecha
+   con el canto de un sello, que es lo que toda esta dirección imita. */
 .marker{
 
     width:9px;
 
     height:9px;
-
-    border-radius:50%;
 
     flex:none;
 
@@ -98,11 +98,17 @@ defineProps({
 
 .title{
 
+    font-family:var(--font-display);
+
     font-size:var(--text-body);
 
-    font-weight:700;
+    font-weight:800;
 
-    line-height:var(--leading-snug);
+    letter-spacing:var(--track-display);
+
+    text-transform:uppercase;
+
+    line-height:1.2;
 
 }
 
@@ -123,27 +129,27 @@ defineProps({
 
 .structural{
 
-    background:var(--navy-wash);
+    background:var(--carbon-wash);
 
-    border-color:var(--navy-wash-line);
+    border-color:var(--carbon-wash-line);
 
 }
 
 .structural .marker{
 
-    background:var(--navy);
+    background:var(--carbon);
 
 }
 
 .structural .title{
 
-    color:var(--navy);
+    color:var(--carbon);
 
 }
 
 .structural .text{
 
-    color:var(--navy-soft);
+    color:var(--carbon-ink);
 
 }
 
@@ -173,24 +179,29 @@ defineProps({
 
 }
 
-.attention{
+.caution{
 
-    background:var(--attention-bg);
+    background:var(--caution-bg);
 
-    border-color:var(--attention-line);
-
-}
-
-.attention .marker{
-
-    background:var(--attention);
+    border-color:var(--caution-line);
 
 }
 
-.attention .title,
-.attention .text{
+/* El amarillo de seguridad sobre papel claro tiene poquísimo contraste: solo
+   se ve porque va encerrado en tinta. El borde no es adorno, es lo que hace
+   visible el marcador. */
+.caution .marker{
 
-    color:var(--attention-ink);
+    background:var(--caution);
+
+    border:var(--rule) solid var(--ink);
+
+}
+
+.caution .title,
+.caution .text{
+
+    color:var(--caution-ink);
 
 }
 

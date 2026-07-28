@@ -1,9 +1,9 @@
 <script setup>
 
 /**
- * La banda navy de arriba, en dos versiones:
+ * La banda de tinta de arriba, en dos versiones:
  *
- *   identidad → la marca. Tesela dorada con la "F" y el nombre del grado.
+ *   identidad → la marca. Cuadro rojo con la "F" y el nombre del grado.
  *               Es para las pantallas raíz, a las que se llega por pestaña.
  *   interior  → chevron de vuelta, eyebrow con la ruta padre y título.
  *               Es para las pantallas a las que se llega desde otra.
@@ -122,17 +122,21 @@ const goBack = () => {
 
     z-index:10;
 
-    background:var(--navy);
+    background:var(--carbon);
 
-    color:var(--ink-on-navy);
+    color:var(--on-carbon);
+
+    /* La única regla roja que aparece en TODAS las pantallas. Es la firma de
+       la dirección: bloque de tinta cortado por la tinta directa. */
+    border-bottom:3px solid var(--accent);
 
     /* El relleno superior absorbe la muesca del móvil. En un navegador de
        escritorio env() vale 0 y no se nota. */
-    padding:calc(12px + env(safe-area-inset-top)) var(--gutter) 13px;
+    padding:calc(12px + env(safe-area-inset-top)) var(--gutter) 12px;
 
 }
 
-/* La banda navy ocupa todo el ancho, pero su contenido se alinea con el del
+/* La banda de tinta ocupa todo el ancho, pero su contenido se alinea con el del
    resto de la pantalla: en un portátil, el logotipo pegado al borde izquierdo
    mientras el contenido va centrado se ve como un fallo. */
 .inner{
@@ -157,33 +161,41 @@ const goBack = () => {
 
     justify-content:center;
 
-    width:24px;
+    width:26px;
 
-    height:24px;
+    height:26px;
 
     flex:none;
 
-    border-radius:6px;
+    background:var(--accent);
 
-    background:var(--gold);
+    color:var(--on-carbon);
 
-    color:var(--navy);
+    font-family:var(--font-display);
 
-    font-family:var(--font-serif);
+    font-size:16px;
 
-    font-size:14px;
+    font-weight:900;
 
-    font-weight:700;
+    letter-spacing:-.04em;
+
+    line-height:1;
 
 }
 
 .brand{
 
-    font-family:var(--font-serif);
+    font-family:var(--font-display);
 
-    font-size:17px;
+    font-size:16px;
 
-    font-weight:600;
+    font-weight:900;
+
+    letter-spacing:var(--track-display-tight);
+
+    text-transform:uppercase;
+
+    line-height:1;
 
 }
 
@@ -197,21 +209,19 @@ const goBack = () => {
 
     position:relative;
 
-    width:30px;
+    width:28px;
 
-    height:30px;
+    height:28px;
 
     flex:none;
 
     padding:0;
 
-    border:none;
+    border:var(--rule) solid var(--carbon-faint);
 
-    border-radius:8px;
+    background:none;
 
-    background:rgba(255,255,255,.12);
-
-    color:var(--navy-faint);
+    color:var(--carbon-faint);
 
     cursor:pointer;
 
@@ -238,7 +248,11 @@ const goBack = () => {
 
 .back:active{
 
-    background:rgba(255,255,255,.2);
+    background:var(--accent);
+
+    border-color:var(--accent);
+
+    color:var(--on-carbon);
 
 }
 
@@ -250,7 +264,7 @@ const goBack = () => {
 
     min-width:0;
 
-    line-height:var(--leading-tight);
+    line-height:1.15;
 
 }
 
@@ -260,25 +274,29 @@ const goBack = () => {
 
     font-size:var(--text-eyebrow-sm);
 
-    font-weight:500;
+    font-weight:600;
 
-    letter-spacing:.4px;
+    letter-spacing:var(--track-label-wide);
 
     text-transform:uppercase;
 
-    /* Sobre navy el gris del papel no se ve: este azul claro es el que el
-       diseño reserva para el texto secundario dentro de la banda. */
-    color:var(--navy-faint);
+    /* Sobre el bloque de tinta, el gris del papel se apaga: este es el tono
+       que el diseño reserva para el texto secundario dentro de la banda. */
+    color:var(--carbon-faint);
 
 }
 
 .title{
 
-    font-family:var(--font-serif);
+    font-family:var(--font-display);
 
-    font-size:14px;
+    font-size:15px;
 
-    font-weight:600;
+    font-weight:800;
+
+    letter-spacing:var(--track-display);
+
+    text-transform:uppercase;
 
     overflow:hidden;
 

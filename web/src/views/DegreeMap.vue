@@ -11,7 +11,7 @@
  * Dos ejes, dos codificaciones que no se pisan:
  *   - el COLOR del punto y de la cifra es la dificultad (rampa);
  *   - la FORMA distingue troncal (relleno) de optativa (anillo).
- * El navy de los nodos y de los contadores es estructura, nunca magnitud.
+ * El carbón de los nodos y de los contadores es estructura, nunca magnitud.
  *
  * Cada curso muestra las más duras primero y esconde el resto tras un "＋ N
  * más". Es lo contrario de una tabla: aquí no se viene a consultar las 54,
@@ -62,7 +62,7 @@ const pct = value =>
 
 <div class="screen">
 
-    <!-- Continúa la banda navy de la cabecera: son las cifras estructurales
+    <!-- Continúa la banda de tinta de la cabecera: son las cifras estructurales
          del grado, no datos que haya que comparar. Se va con el scroll y la
          cabecera se queda, que es lo que hace falta al bajar. -->
     <div class="totals fullBleed">
@@ -98,7 +98,7 @@ const pct = value =>
 
                 <h2>
                     <!-- La flecha dice "esto se abre": el título solo, en
-                         navy, se leía como un rótulo y nadie lo tocaba. -->
+                         tinta, se leía como un rótulo y nadie lo tocaba. -->
                     <RouterLink :to="`/grado/${course.number}`">
                         {{ course.name }}
                         <UiIcon
@@ -176,7 +176,7 @@ const pct = value =>
                     label="Optativas"
                     :count="course.optativas.length"
                     hint="% que no aprueba"
-                    tone="gold"
+                    tone="accent"
                     class="group"
                 />
 
@@ -254,14 +254,16 @@ const pct = value =>
 
 .totals{
 
-    background:var(--navy);
+    background:var(--carbon);
 
-    padding-bottom:12px;
+    padding-bottom:13px;
 
     /* Sube 1px para tapar cualquier costura con la cabecera al hacer zoom. */
     margin-top:-1px;
 
-    padding-top:1px;
+    padding-top:2px;
+
+    border-bottom:3px solid var(--accent);
 
 }
 
@@ -285,11 +287,13 @@ const pct = value =>
 
     font-size:9.5px;
 
-    letter-spacing:.3px;
+    font-weight:600;
+
+    letter-spacing:var(--track-label);
 
     text-transform:uppercase;
 
-    color:var(--navy-faint);
+    color:var(--carbon-faint);
 
 }
 
@@ -313,7 +317,7 @@ const pct = value =>
 
     bottom:14px;
 
-    width:2px;
+    width:var(--rule-strong);
 
     background:var(--line-spine);
 
@@ -335,6 +339,8 @@ const pct = value =>
 
 .node{
 
+    text-decoration:none;
+
     position:absolute;
 
     left:0;
@@ -347,21 +353,25 @@ const pct = value =>
 
     justify-content:center;
 
-    width:21px;
+    width:22px;
 
-    height:21px;
+    height:22px;
 
-    border-radius:50%;
+    border-radius:0;
 
-    background:var(--navy);
+    background:var(--carbon);
 
-    color:var(--ink-on-navy);
+    color:var(--on-carbon);
 
-    font-family:var(--font-serif);
+    font-family:var(--font-display);
 
     font-size:11px;
 
-    font-weight:700;
+    font-weight:900;
+
+    letter-spacing:-.03em;
+
+    line-height:1;
 
     /* Por encima de la línea, que le pasa justo por detrás. */
     z-index:1;
@@ -406,19 +416,25 @@ const pct = value =>
 
     margin:0;
 
-    font-family:var(--font-serif);
+    font-family:var(--font-display);
 
-    font-size:18px;
+    font-size:21px;
 
-    font-weight:700;
+    font-weight:900;
 
-    line-height:1.1;
+    letter-spacing:var(--track-display);
+
+    text-transform:uppercase;
+
+    line-height:1;
 
 }
 
 .heading h2 a{
 
-    color:var(--navy);
+    color:var(--ink);
+
+    text-decoration:none;
 
 }
 
@@ -428,6 +444,12 @@ const pct = value =>
 
     font-size:9.5px;
 
+    font-weight:600;
+
+    letter-spacing:var(--track-label);
+
+    text-transform:uppercase;
+
     color:var(--ink-soft);
 
 }
@@ -436,7 +458,7 @@ const pct = value =>
 
     vertical-align:-1px;
 
-    color:var(--navy);
+    color:var(--accent);
 
 }
 
@@ -490,17 +512,21 @@ const pct = value =>
 
     background:var(--surface);
 
-    border:1px solid var(--line);
+    border:var(--rule) solid var(--line);
 
     border-radius:var(--radius-row);
 
     color:var(--ink);
 
+    text-decoration:none;
+
 }
 
 .row:active{
 
-    border-color:var(--line-strong);
+    border-color:var(--accent);
+
+    background:var(--carbon-wash);
 
 }
 
@@ -524,7 +550,7 @@ const pct = value =>
 
     flex:none;
 
-    border-radius:50%;
+    border-radius:0;
 
 }
 
@@ -532,7 +558,7 @@ const pct = value =>
 
     background:transparent;
 
-    border:2px solid;
+    border:var(--rule) solid;
 
     box-sizing:border-box;
 
@@ -554,7 +580,7 @@ const pct = value =>
 
     font-size:10px;
 
-    color:var(--attention);
+    color:var(--caution-ink);
 
 }
 
@@ -594,11 +620,13 @@ const pct = value =>
 
 .more:active{
 
-    color:var(--navy);
+    color:var(--accent-ink);
 
 }
 
 .asList{
+
+    text-decoration:none;
 
     display:flex;
 
@@ -608,9 +636,15 @@ const pct = value =>
 
     padding:0 var(--gutter);
 
-    font-size:var(--text-body-sm);
+    font-family:var(--font-mono);
+
+    font-size:var(--text-eyebrow);
 
     font-weight:600;
+
+    letter-spacing:var(--track-label);
+
+    text-transform:uppercase;
 
 }
 

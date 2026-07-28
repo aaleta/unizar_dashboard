@@ -6,16 +6,18 @@
  * Solo informa; no se pulsa (para eso está UiChip). En mono y mayúsculas
  * porque es metadato, no prosa.
  *
- * El tono navy marca lo estructural —el carácter de la asignatura, el curso,
- * el denominador de un indicador—; el neutro, lo accesorio, como el código.
+ * El tono carbón marca lo estructural —el carácter de la asignatura, el curso,
+ * el denominador de un indicador—; el neutro, lo accesorio, como el código; y
+ * el rojo, lo elegible (las optativas), que es la única familia de la web que
+ * no es obligatoria y merece la única tinta directa que hay.
  */
 
 defineProps({
 
     tone: {
         type: String,
-        default: "navy",
-        validator: value => ["navy", "neutral", "gold"].includes(value)
+        default: "carbon",
+        validator: value => ["carbon", "neutral", "accent"].includes(value)
     }
 
 });
@@ -41,11 +43,11 @@ defineProps({
 
     align-items:center;
 
-    padding:3px 8px;
+    padding:3px 7px;
 
     border-radius:var(--radius-pill);
 
-    border:1px solid;
+    border:var(--rule) solid;
 
     font-family:var(--font-mono);
 
@@ -53,33 +55,37 @@ defineProps({
 
     font-weight:600;
 
+    letter-spacing:var(--track-label);
+
+    text-transform:uppercase;
+
     line-height:1.5;
 
     white-space:nowrap;
 
 }
 
-.navy{
+.carbon{
 
-    border-color:var(--navy-line);
+    border-color:var(--carbon-line);
 
-    color:var(--navy);
+    color:var(--ink);
 
 }
 
 .neutral{
 
-    border-color:var(--line-strong);
+    border-color:var(--line-dashed);
 
     color:var(--ink-soft);
 
 }
 
-.gold{
+.accent{
 
-    border-color:var(--gold);
+    border-color:var(--accent);
 
-    color:var(--gold-ink);
+    color:var(--accent-ink);
 
 }
 

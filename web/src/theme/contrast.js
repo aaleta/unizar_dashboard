@@ -2,7 +2,7 @@
  * Elegir tinta legible sobre un fondo de color.
  *
  * Vive en theme/ y no en la vista que lo usa por la misma razón que el resto
- * de los colores: estas dos constantes son `--ink` y `--ink-on-navy`, y si se
+ * de los colores: estas dos constantes son `--ink` y `--on-carbon`, y si se
  * escribieran sueltas en un componente serían dos colores fuera del único
  * sitio donde deben estar.
  *
@@ -12,8 +12,8 @@
  * para dos colores que no cambian.
  */
 
-const INK = "#23201b";
-const ON_DARK = "#ffffff";
+const INK = "#14140f";
+const ON_DARK = "#f6f4ee";
 
 const luminance = color => {
 
@@ -52,6 +52,6 @@ export const readableInk = (background, minimum = 4.5) => {
 
     if (Math.max(dark, light) < minimum) return null;
 
-    return dark >= light ? "var(--ink)" : "var(--ink-on-navy)";
+    return dark >= light ? "var(--ink)" : "var(--on-carbon)";
 
 };

@@ -106,7 +106,7 @@ const admissionNote = computed(() => {
 
 <div class="screen">
 
-    <!-- Héroe: continúa la banda navy de la cabecera ------------------- -->
+    <!-- Héroe: continúa la banda de tinta de la cabecera ---------------- -->
     <section class="hero fullBleed">
 
         <div class="motif" aria-hidden="true">
@@ -280,14 +280,18 @@ const admissionNote = computed(() => {
 
     overflow:hidden;
 
-    background:var(--navy);
+    background:var(--carbon);
 
-    padding-top:2px;
+    padding-top:6px;
 
-    padding-bottom:18px;
+    padding-bottom:22px;
 
     /* Sube 1px para que no se vea costura con la cabecera. */
     margin-top:-1px;
+
+    /* Cierra el bloque de tinta contra el papel con la misma regla roja que lo
+       abre bajo la cabecera. Entre las dos, la portada es una banda cerrada. */
+    border-bottom:3px solid var(--accent);
 
 }
 
@@ -305,8 +309,10 @@ const admissionNote = computed(() => {
 
 }
 
-/* Círculos concéntricos: decoración, no dato. En oro tenue porque el oro es
-   justo lo que en esta web no significa nada. */
+/* Marcas de registro: decoración, no dato. Dos cuadros concéntricos girados
+   45°, como las cruces de registro que llevan las planchas de imprenta en la
+   esquina del pliego. En rojo tenue porque el rojo es justo lo que aquí no
+   está midiendo nada. */
 .motif{
 
     position:absolute;
@@ -321,51 +327,61 @@ const admissionNote = computed(() => {
 
     position:absolute;
 
-    border-radius:50%;
+    border:var(--rule-strong) solid var(--accent);
 
-    border:1.5px solid rgba(201,162,75,.35);
+    opacity:.45;
+
+    transform:rotate(45deg);
 
 }
 
 .ring.big{
 
-    right:-24px;
+    right:-30px;
 
-    top:-28px;
+    top:-34px;
 
-    width:120px;
+    width:118px;
 
-    height:120px;
+    height:118px;
 
 }
 
 .ring.small{
 
-    right:6px;
+    right:2px;
 
-    top:2px;
+    top:-2px;
 
-    width:74px;
+    width:70px;
 
-    height:74px;
+    height:70px;
 
-    border-color:rgba(201,162,75,.22);
+    opacity:.25;
 
 }
 
+/* El titular de portada es el elemento más grande de toda la web y no compite
+   con nada: cruza la pantalla de lado a lado, en mayúsculas y apretado hasta
+   que las letras forman un bloque. Toda la jerarquía tipográfica se mide
+   contra esto. */
 h1{
 
-    margin:16px 0 8px;
+    margin:18px 0 10px;
 
-    font-family:var(--font-serif);
+    font-family:var(--font-display);
 
-    font-size:24px;
+    font-size:var(--text-h1-lg);
 
-    font-weight:700;
+    font-weight:900;
 
-    line-height:1.15;
+    letter-spacing:var(--track-display-tight);
 
-    color:var(--ink-on-navy);
+    text-transform:uppercase;
+
+    line-height:.92;
+
+    color:var(--on-carbon);
 
 }
 
@@ -373,13 +389,19 @@ h1{
 
     margin:0;
 
-    max-width:290px;
+    max-width:300px;
 
-    font-size:12px;
+    padding-top:9px;
 
-    line-height:1.55;
+    border-top:var(--rule) solid var(--carbon-faint);
 
-    color:var(--on-navy-soft);
+    font-family:var(--font-mono);
+
+    font-size:10.5px;
+
+    line-height:1.6;
+
+    color:var(--on-carbon-soft);
 
 }
 
@@ -403,13 +425,13 @@ h1{
 
 .panel{
 
-    margin-top:16px;
+    margin-top:var(--gap-section);
 
-    padding:15px 15px 12px;
+    padding:14px 14px 12px;
 
     background:var(--surface);
 
-    border:1px solid var(--line);
+    border:var(--rule-strong) solid var(--line);
 
     border-radius:var(--radius-card-lg);
 
@@ -427,17 +449,27 @@ h1{
 
     gap:10px;
 
+    padding-bottom:7px;
+
+    border-bottom:var(--rule-strong) solid var(--line);
+
 }
 
 h2{
 
     margin:0;
 
-    font-family:var(--font-serif);
+    font-family:var(--font-display);
 
-    font-size:15px;
+    font-size:var(--text-section);
 
-    font-weight:600;
+    font-weight:900;
+
+    letter-spacing:var(--track-display);
+
+    text-transform:uppercase;
+
+    line-height:1;
 
 }
 
@@ -445,7 +477,9 @@ h2{
 
     font-size:var(--text-footnote);
 
-    font-weight:400;
+    font-weight:600;
+
+    letter-spacing:.06em;
 
     color:var(--ink-faint);
 
@@ -453,9 +487,11 @@ h2{
 
 .lead{
 
-    margin:3px 0 13px;
+    margin:7px 0 13px;
 
     font-size:10.5px;
+
+    line-height:1.45;
 
     color:var(--ink-soft);
 
@@ -467,7 +503,7 @@ h2{
 
     padding-top:10px;
 
-    border-top:1px solid var(--line-inner);
+    border-top:var(--rule) solid var(--line-inner);
 
     font-size:10.5px;
 
@@ -485,21 +521,34 @@ h2{
 
 /* La más dura --------------------------------------------------------- */
 
+/* El único aviso con peso de la portada. Va marcado con la trama diagonal de
+   seguridad en el canto izquierdo: es la señal que en cualquier manual
+   industrial significa "esto de aquí es lo que hay que mirar". */
 .hardest{
+
+    text-decoration:none;
 
     display:flex;
 
     gap:12px;
 
-    margin-top:16px;
+    margin-top:var(--gap-section);
 
-    padding:14px 15px;
+    padding:13px 14px 13px 12px;
 
     background:var(--warn-bg);
 
-    border:1px solid var(--warn-line);
+    border:var(--rule-strong) solid var(--warn-line);
+
+    border-left-width:0;
 
     border-radius:var(--radius-card-lg);
+
+    background-image:var(--hazard-stripes);
+
+    background-size:8px 100%;
+
+    background-repeat:repeat-y;
 
     color:var(--ink);
 
@@ -511,13 +560,17 @@ h2{
 
     width:46px;
 
+    margin-left:8px;
+
     text-align:center;
 
 }
 
 .hardestValue .num{
 
-    font-size:21px;
+    font-size:26px;
+
+    letter-spacing:-.04em;
 
     line-height:1;
 
@@ -527,9 +580,15 @@ h2{
 
     display:block;
 
-    margin-top:3px;
+    margin-top:4px;
+
+    font-family:var(--font-mono);
 
     font-size:8px;
+
+    letter-spacing:.08em;
+
+    text-transform:uppercase;
 
     line-height:1.2;
 
@@ -545,7 +604,7 @@ h2{
 
     padding-left:12px;
 
-    border-left:1px solid var(--warn-line);
+    border-left:var(--rule) solid var(--warn-line);
 
 }
 
@@ -553,21 +612,27 @@ h2{
 
     font-size:8px;
 
+    letter-spacing:var(--track-label-wide);
+
     color:var(--delta-bad);
 
 }
 
 .hardestName{
 
-    margin-top:2px;
+    margin-top:3px;
 
-    font-family:var(--font-serif);
+    font-family:var(--font-display);
 
-    font-size:16px;
+    font-size:17px;
 
-    font-weight:600;
+    font-weight:800;
 
-    line-height:1.15;
+    letter-spacing:var(--track-display);
+
+    text-transform:uppercase;
+
+    line-height:1;
 
 }
 
@@ -585,9 +650,19 @@ h2{
 
 .hardestGo{
 
-    color:var(--warn-title);
+    margin-top:5px;
+
+    font-family:var(--font-mono);
+
+    font-size:var(--text-eyebrow);
 
     font-weight:600;
+
+    letter-spacing:var(--track-label);
+
+    text-transform:uppercase;
+
+    color:var(--warn-title);
 
 }
 
@@ -617,7 +692,7 @@ h2{
 
 .yearNote a{
 
-    color:var(--navy);
+    color:var(--accent-ink);
 
     font-weight:600;
 
@@ -627,7 +702,7 @@ h2{
 
 .freshness{
 
-    margin-top:16px;
+    margin-top:var(--gap-section);
 
 }
 
@@ -649,7 +724,7 @@ h2{
 
     background:var(--surface);
 
-    border:1px solid var(--line);
+    border:var(--rule-strong) solid var(--line);
 
     border-radius:var(--radius-card);
 
@@ -673,7 +748,7 @@ h2{
 
 .sources li + li{
 
-    border-top:1px solid var(--line-inner);
+    border-top:var(--rule) solid var(--line-inner);
 
 }
 
@@ -688,6 +763,8 @@ h2{
 .sourceYear{
 
     font-size:var(--text-num-sm);
+
+    letter-spacing:.02em;
 
     color:var(--ink);
 
@@ -709,9 +786,15 @@ h2{
 
     min-height:var(--touch-target);
 
-    font-size:12px;
+    font-family:var(--font-mono);
+
+    font-size:var(--text-eyebrow);
 
     font-weight:600;
+
+    letter-spacing:var(--track-label);
+
+    text-transform:uppercase;
 
 }
 

@@ -8,7 +8,7 @@
  * busca y lee el número primero.
  *
  * `tone` sirve para lo que el handoff pide en varias pantallas: el recuento de
- * troncales en navy y el de optativas en oro, para que la división del grado
+ * troncales en carbón y el de optativas en rojo, para que la división del grado
  * se lea sin explicarla. Sigue siendo estructura, no una magnitud.
  */
 
@@ -28,7 +28,7 @@ defineProps({
     tone: {
         type: String,
         default: "ink",
-        validator: value => ["ink", "navy", "gold"].includes(value)
+        validator: value => ["ink", "carbon", "accent"].includes(value)
     }
 
 });
@@ -64,9 +64,11 @@ defineProps({
 
 .value{
 
-    font-size:19px;
+    font-size:22px;
 
-    line-height:1.1;
+    letter-spacing:-.03em;
+
+    line-height:1;
 
 }
 
@@ -76,23 +78,31 @@ defineProps({
 
 }
 
-.navy{
+.carbon{
 
-    color:var(--navy);
+    color:var(--ink);
 
 }
 
-.gold{
+.accent{
 
-    color:var(--gold-ink);
+    color:var(--accent-ink);
 
 }
 
 .label{
 
-    margin-top:2px;
+    margin-top:3px;
+
+    font-family:var(--font-mono);
 
     font-size:var(--text-eyebrow);
+
+    font-weight:600;
+
+    letter-spacing:var(--track-label);
+
+    text-transform:uppercase;
 
     color:var(--ink-soft);
 

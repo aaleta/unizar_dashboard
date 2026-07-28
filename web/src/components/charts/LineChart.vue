@@ -227,17 +227,19 @@ const describe = computed(() =>
             :stroke="path.color"
             fill="none"
             stroke-width="2.4"
-            stroke-linejoin="round"
-            stroke-linecap="round"
+            stroke-linejoin="miter"
+            stroke-linecap="butt"
         />
 
-        <!-- Un punto en el último valor: es el que la gente busca. -->
-        <circle
+        <!-- Una marca en el último valor: es el que la gente busca. Cuadrada,
+             como el resto de las marcas de la web. -->
+        <rect
             v-for="path in paths"
             :key="`dot-${path.label}`"
-            :cx="path.last.x"
-            :cy="path.last.y"
-            r="3"
+            :x="path.last.x - 3"
+            :y="path.last.y - 3"
+            width="6"
+            height="6"
             :fill="path.color"
         />
 
@@ -282,9 +284,17 @@ const describe = computed(() =>
 
     align-items:center;
 
-    gap:5px;
+    gap:6px;
 
-    font-size:var(--text-num-sm);
+    font-family:var(--font-mono);
+
+    font-size:var(--text-eyebrow);
+
+    font-weight:600;
+
+    letter-spacing:.06em;
+
+    text-transform:uppercase;
 
     color:var(--ink-muted);
 
@@ -292,11 +302,11 @@ const describe = computed(() =>
 
 .swatch{
 
-    width:14px;
+    width:16px;
 
     height:3px;
 
-    border-radius:2px;
+    border-radius:0;
 
 }
 
@@ -314,7 +324,7 @@ svg{
 
     stroke:var(--line);
 
-    stroke-width:1;
+    stroke-width:2;
 
 }
 
@@ -322,7 +332,9 @@ svg{
 
     font-family:var(--font-mono);
 
-    font-size:7.5px;
+    font-size:8px;
+
+    letter-spacing:.04em;
 
     fill:var(--ink-faint);
 

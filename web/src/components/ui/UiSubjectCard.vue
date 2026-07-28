@@ -200,29 +200,35 @@ const secondaryStat = computed(() =>
 
     display:block;
 
-    padding:13px 14px;
+    padding:12px 13px 11px;
 
     background:var(--surface);
 
-    border:1px solid var(--line);
+    border:var(--rule-strong) solid var(--line);
 
-    border-radius:12px;
+    border-radius:var(--radius-card);
 
     box-shadow:var(--shadow-card);
 
     color:var(--ink);
 
+    text-decoration:none;
+
 }
 
 .card:active{
 
-    border-color:var(--line-strong);
+    border-color:var(--accent);
 
 }
 
+/* La optativa es otro papel y otro trazo: fondo más apagado y regla fina
+   discontinua. Se distingue de la troncal hojeando, sin leer una palabra. */
 .card.optative{
 
     background:var(--surface-alt);
+
+    border-width:var(--rule);
 
     border-style:dashed;
 
@@ -254,19 +260,23 @@ const secondaryStat = computed(() =>
 
 .name{
 
-    font-family:var(--font-serif);
+    font-family:var(--font-display);
 
-    font-size:15px;
+    font-size:15.5px;
 
-    font-weight:600;
+    font-weight:700;
 
-    line-height:1.2;
+    letter-spacing:-.015em;
+
+    line-height:1.12;
 
 }
 
+/* El amarillo de seguridad no se lee sobre papel a 12px: para el glifo se
+   usa su versión entintada, que sí cumple el contraste. */
 .warn{
 
-    color:var(--attention);
+    color:var(--caution-ink);
 
     font-size:12px;
 
@@ -279,6 +289,10 @@ const secondaryStat = computed(() =>
     font-family:var(--font-mono);
 
     font-size:var(--text-eyebrow);
+
+    letter-spacing:.06em;
+
+    text-transform:uppercase;
 
     color:var(--ink-soft);
 
@@ -294,7 +308,9 @@ const secondaryStat = computed(() =>
 
 .headline .value{
 
-    font-size:var(--text-metric);
+    font-size:18px;
+
+    letter-spacing:-.03em;
 
     line-height:1;
 
@@ -302,9 +318,15 @@ const secondaryStat = computed(() =>
 
 .caption{
 
-    margin-top:2px;
+    margin-top:3px;
+
+    font-family:var(--font-mono);
 
     font-size:8px;
+
+    letter-spacing:.1em;
+
+    text-transform:uppercase;
 
     color:var(--ink-faint);
 
@@ -320,7 +342,7 @@ const secondaryStat = computed(() =>
 
     line-height:var(--leading-snug);
 
-    color:var(--attention-ink);
+    color:var(--caution-ink);
 
 }
 
@@ -330,19 +352,23 @@ const secondaryStat = computed(() =>
 
     align-items:center;
 
-    gap:16px;
+    gap:14px;
 
     margin-top:11px;
 
-    padding-top:10px;
+    padding-top:9px;
 
-    border-top:1px solid var(--line-inner);
+    border-top:var(--rule) solid var(--line-inner);
 
 }
 
 .stat{
 
-    font-size:10.5px;
+    font-family:var(--font-mono);
+
+    font-size:10px;
+
+    letter-spacing:.03em;
 
     color:var(--ink-muted);
 
@@ -360,11 +386,17 @@ const secondaryStat = computed(() =>
 
     margin-left:auto;
 
-    font-size:var(--text-body-xs);
+    font-family:var(--font-mono);
+
+    font-size:var(--text-eyebrow);
 
     font-weight:600;
 
-    color:var(--navy);
+    letter-spacing:var(--track-label);
+
+    text-transform:uppercase;
+
+    color:var(--accent-ink);
 
 }
 

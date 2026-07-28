@@ -175,7 +175,7 @@ const examClashLine = date =>
         </p>
 
         <UiCallout
-            tone="attention"
+            tone="caution"
             title="Las prácticas van aparte"
         >
             Aquí solo se tienen en cuenta las clases de teoría. Las prácticas
@@ -304,17 +304,23 @@ const examClashLine = date =>
 
 /* Dos pestañas del mismo contenido: un conmutador segmentado, no chips
    sueltos — cambiar de vista no es filtrar. */
+/* Sin relleno interior y con la regla entre las dos mitades: el conmutador es
+   una casilla partida en dos, no dos botones dentro de una caja. */
 .switch{
 
     display:flex;
 
-    padding:3px;
-
     background:var(--surface);
 
-    border:1px solid var(--line-strong);
+    border:var(--rule-strong) solid var(--line-strong);
 
     border-radius:var(--radius-control);
+
+}
+
+.switchTab + .switchTab{
+
+    border-left:var(--rule-strong) solid var(--line-strong);
 
 }
 
@@ -322,19 +328,23 @@ const examClashLine = date =>
 
     flex:1;
 
-    min-height:38px;
+    min-height:40px;
 
     border:none;
 
-    border-radius:7px;
+    border-radius:0;
 
     background:none;
 
-    font-family:var(--font-sans);
+    font-family:var(--font-mono);
 
-    font-size:var(--text-body);
+    font-size:var(--text-eyebrow);
 
     font-weight:600;
+
+    letter-spacing:var(--track-label);
+
+    text-transform:uppercase;
 
     color:var(--ink-3);
 
@@ -344,9 +354,9 @@ const examClashLine = date =>
 
 .switchTab.active{
 
-    background:var(--navy);
+    background:var(--carbon);
 
-    color:var(--ink-on-navy);
+    color:var(--on-carbon);
 
 }
 
@@ -377,7 +387,7 @@ const examClashLine = date =>
    actualizarla junto con PUBLICACION en scripts/updater.py. */
 .guideLink{
 
-    color:var(--navy);
+    color:var(--accent-ink);
 
     font-weight:600;
 
@@ -421,7 +431,7 @@ const examClashLine = date =>
 
     padding-top:10px;
 
-    border-top:1px solid var(--line-rule);
+    border-top:var(--rule-strong) solid var(--line-rule);
 
     font-family:var(--font-mono);
 

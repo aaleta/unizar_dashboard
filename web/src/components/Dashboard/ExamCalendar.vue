@@ -12,7 +12,7 @@
  * Debajo de cada mes va la leyenda día → asignatura: una celda marcada dice
  * CUÁNDO, pero no QUÉ, y en una celda de 40px no cabe un nombre.
  *
- * El día con un examen se marca en navy (estructura); el día con dos
+ * El día con un examen se marca entintado (estructura); el día con dos
  * asignaturas es un choque y pasa al tono de aviso, como en el resto de la
  * pantalla.
  */
@@ -147,7 +147,9 @@ const WEEKDAY_LETTERS = ["L", "M", "X", "J", "V", "S", "D"];
 
     font-size:var(--text-num);
 
-    color:var(--navy);
+    letter-spacing:var(--track-label);
+
+    color:var(--ink);
 
 }
 
@@ -155,7 +157,7 @@ const WEEKDAY_LETTERS = ["L", "M", "X", "J", "V", "S", "D"];
 
     flex:1;
 
-    height:1px;
+    height:var(--rule-strong);
 
     background:var(--line-rule);
 
@@ -179,7 +181,7 @@ const WEEKDAY_LETTERS = ["L", "M", "X", "J", "V", "S", "D"];
 
     background:var(--surface);
 
-    border:1px solid var(--line);
+    border:var(--rule-strong) solid var(--line);
 
     border-radius:var(--radius-card);
 
@@ -195,17 +197,23 @@ const WEEKDAY_LETTERS = ["L", "M", "X", "J", "V", "S", "D"];
 
 .monthName{
 
-    margin:0 0 8px;
+    margin:0 0 9px;
 
-    font-family:var(--font-serif);
+    padding-bottom:6px;
+
+    border-bottom:var(--rule) solid var(--line-inner);
+
+    font-family:var(--font-display);
 
     font-size:var(--text-card-title);
 
-    font-weight:600;
+    font-weight:800;
+
+    letter-spacing:var(--track-display);
 
     color:var(--ink);
 
-    text-transform:capitalize;
+    text-transform:uppercase;
 
 }
 
@@ -236,7 +244,7 @@ const WEEKDAY_LETTERS = ["L", "M", "X", "J", "V", "S", "D"];
 
     font-weight:600;
 
-    letter-spacing:.4px;
+    letter-spacing:var(--track-label);
 
     color:var(--ink-soft);
 
@@ -262,7 +270,7 @@ const WEEKDAY_LETTERS = ["L", "M", "X", "J", "V", "S", "D"];
 
     aspect-ratio:1;
 
-    border-radius:7px;
+    border-radius:0;
 
     background:var(--paper);
 
@@ -294,18 +302,21 @@ const WEEKDAY_LETTERS = ["L", "M", "X", "J", "V", "S", "D"];
 
 .cellNum{
 
+    font-family:var(--font-mono);
+
     font-size:var(--text-num);
 
-    font-weight:500;
+    font-weight:600;
 
     color:var(--ink-muted);
 
 }
 
-/* Día con examen: navy, estructura. */
+/* Día con examen: entintado del todo. Es estructura del calendario, no una
+   magnitud. */
 .cell.exam{
 
-    background:var(--navy);
+    background:var(--carbon);
 
 }
 
@@ -313,14 +324,15 @@ const WEEKDAY_LETTERS = ["L", "M", "X", "J", "V", "S", "D"];
 
     font-weight:600;
 
-    color:var(--ink-on-navy);
+    color:var(--on-carbon);
 
 }
 
-/* Día con dos asignaturas: el aviso de verdad. */
+/* Día con dos asignaturas: el aviso de verdad, y el único sitio del
+   calendario donde entra la tinta roja. */
 .cell.clash{
 
-    background:var(--warn-title);
+    background:var(--accent);
 
 }
 
@@ -330,7 +342,7 @@ const WEEKDAY_LETTERS = ["L", "M", "X", "J", "V", "S", "D"];
 
     padding:6px 1px 0;
 
-    border-top:1px solid var(--line-inner);
+    border-top:var(--rule) solid var(--line-inner);
 
     list-style:none;
 
@@ -358,7 +370,11 @@ const WEEKDAY_LETTERS = ["L", "M", "X", "J", "V", "S", "D"];
 
     width:44px;
 
+    font-family:var(--font-mono);
+
     font-size:var(--text-num-sm);
+
+    font-weight:600;
 
     color:var(--ink-soft);
 

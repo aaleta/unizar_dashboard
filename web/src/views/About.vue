@@ -190,13 +190,17 @@ h1{
 
     margin:0;
 
-    font-family:var(--font-serif);
+    font-family:var(--font-display);
 
-    font-size:22px;
+    font-size:var(--text-h1);
 
-    font-weight:700;
+    font-weight:900;
 
-    line-height:1.22;
+    letter-spacing:var(--track-display-tight);
+
+    text-transform:uppercase;
+
+    line-height:.92;
 
     text-wrap:pretty;
 
@@ -236,13 +240,19 @@ h2{
 
     margin:0;
 
-    font-family:var(--font-serif);
+    font-family:var(--font-display);
 
     font-size:var(--text-section);
 
-    font-weight:600;
+    font-weight:900;
 
-    color:var(--navy);
+    letter-spacing:var(--track-display);
+
+    text-transform:uppercase;
+
+    line-height:1;
+
+    color:var(--ink);
 
 }
 
@@ -250,7 +260,7 @@ h2{
 
     flex:1;
 
-    height:1px;
+    height:var(--rule-strong);
 
     background:var(--line-tab);
 
@@ -278,32 +288,42 @@ h2{
 
     min-height:var(--touch-target);
 
-    padding:13px 14px;
+    padding:12px 13px;
 
     background:var(--surface);
 
-    border:1px solid var(--line);
+    border:var(--rule-strong) solid var(--line);
 
-    border-radius:13px;
+    border-radius:0;
 
     color:var(--ink);
 
+    text-decoration:none;
+
 }
 
+/* La foto va encerrada en tinta, como una fotografía pegada en una ficha:
+   sin marco flota sobre el papel y se le ve el recorte. */
 .avatar{
 
-    width:42px;
+    width:44px;
 
-    height:42px;
+    height:44px;
 
     flex:none;
 
-    border-radius:50%;
+    border:var(--rule) solid var(--ink);
+
+    border-radius:0;
 
     /* Se ve mientras carga la foto y si el perfil no tiene ninguna. */
-    background:var(--navy-wash);
+    background:var(--carbon-wash);
 
     object-fit:cover;
+
+    /* En blanco y negro y con algo más de contraste: en una web impresa a dos
+       tintas, un retrato a todo color es lo único que delataría la pantalla. */
+    filter:grayscale(1) contrast(1.12);
 
 }
 
@@ -319,19 +339,27 @@ h2{
 
     display:block;
 
+    font-family:var(--font-display);
+
     font-size:13.5px;
 
-    font-weight:700;
+    font-weight:800;
+
+    letter-spacing:-.01em;
 
 }
 
 .personHandle{
 
-    margin-left:4px;
+    margin-left:5px;
+
+    font-family:var(--font-mono);
 
     font-size:var(--text-num-sm);
 
     font-weight:400;
+
+    letter-spacing:.02em;
 
     color:var(--ink-soft);
 
@@ -353,11 +381,17 @@ h2{
 
     flex:none;
 
-    font-size:var(--text-body-xs);
+    font-family:var(--font-mono);
+
+    font-size:var(--text-eyebrow);
 
     font-weight:600;
 
-    color:var(--navy);
+    letter-spacing:var(--track-label);
+
+    text-transform:uppercase;
+
+    color:var(--accent-ink);
 
 }
 
@@ -374,8 +408,6 @@ h2{
 }
 
 .context a{
-
-    color:var(--navy);
 
     font-weight:600;
 
@@ -401,11 +433,11 @@ h2{
 
 .how li{
 
-    padding:12px 13px;
+    padding:11px 13px;
 
     background:var(--surface);
 
-    border:1px solid var(--line);
+    border:var(--rule-strong) solid var(--line);
 
     border-radius:var(--radius-card);
 
@@ -421,9 +453,15 @@ h2{
 
     display:block;
 
-    font-family:var(--font-serif);
+    font-family:var(--font-display);
 
     font-size:var(--text-card-title);
+
+    font-weight:800;
+
+    letter-spacing:var(--track-display);
+
+    text-transform:uppercase;
 
     color:var(--ink);
 
@@ -443,9 +481,15 @@ h2{
 
     min-height:var(--touch-target);
 
-    font-size:var(--text-body-sm);
+    font-family:var(--font-mono);
+
+    font-size:var(--text-eyebrow);
 
     font-weight:600;
+
+    letter-spacing:var(--track-label);
+
+    text-transform:uppercase;
 
 }
 
@@ -463,31 +507,45 @@ h2{
 
     padding:14px 15px;
 
-    background:var(--navy);
+    background:var(--carbon);
+
+    border-left:6px solid var(--accent);
 
     border-radius:var(--radius-card-lg);
 
-    color:var(--ink-on-navy);
+    color:var(--on-carbon);
+
+    text-decoration:none;
 
 }
 
 .repoTitle{
 
-    font-family:var(--font-serif);
+    font-family:var(--font-display);
 
     font-size:var(--text-section);
 
-    font-weight:600;
+    font-weight:900;
+
+    letter-spacing:var(--track-display);
+
+    text-transform:uppercase;
+
+    line-height:1;
 
 }
 
 .repoUrl{
 
+    font-family:var(--font-mono);
+
     font-size:var(--text-num-sm);
 
     font-weight:400;
 
-    color:var(--navy-faint);
+    letter-spacing:.02em;
+
+    color:var(--carbon-faint);
 
 }
 
@@ -503,7 +561,7 @@ h2{
 
     padding-top:12px;
 
-    border-top:1px solid var(--line-rule);
+    border-top:var(--rule-strong) solid var(--line-rule);
 
     font-family:var(--font-mono);
 

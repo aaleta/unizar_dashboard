@@ -202,7 +202,7 @@ const meta = row => [
 
     padding:13px var(--gutter) 11px;
 
-    border-bottom:1px solid var(--line-rule);
+    border-bottom:var(--rule-strong) solid var(--line-rule);
 
 }
 
@@ -225,9 +225,9 @@ const meta = row => [
 
     min-height:var(--touch-target);
 
-    padding:6px 11px;
+    padding:6px 10px;
 
-    border:1px solid var(--line-chip);
+    border:var(--rule-strong) solid var(--line-chip);
 
     border-radius:var(--radius-pill);
 
@@ -235,21 +235,25 @@ const meta = row => [
 
     color:var(--ink-3);
 
-    font-family:var(--font-sans);
+    font-family:var(--font-mono);
 
-    font-size:var(--text-body-sm);
+    font-size:var(--text-eyebrow);
 
     font-weight:600;
+
+    letter-spacing:var(--track-label);
+
+    text-transform:uppercase;
 
 }
 
 .courseChip select.active{
 
-    background:var(--navy);
+    background:var(--carbon);
 
-    border-color:var(--navy);
+    border-color:var(--carbon);
 
-    color:var(--ink-on-navy);
+    color:var(--on-carbon);
 
 }
 
@@ -275,15 +279,19 @@ const meta = row => [
 
     padding:11px var(--gutter);
 
-    border-bottom:1px solid var(--line-row);
+    border-bottom:var(--rule) solid var(--line-row);
 
     color:var(--ink);
+
+    text-decoration:none;
 
 }
 
 .row:active{
 
-    background:var(--navy-wash);
+    background:var(--carbon-wash);
+
+    box-shadow:inset 4px 0 0 var(--accent);
 
 }
 
@@ -295,7 +303,7 @@ const meta = row => [
 
     flex:none;
 
-    border-radius:50%;
+    border-radius:0;
 
 }
 
@@ -303,7 +311,7 @@ const meta = row => [
 
     background:transparent;
 
-    border:2px solid;
+    border:var(--rule) solid;
 
     box-sizing:border-box;
 
@@ -321,11 +329,15 @@ const meta = row => [
 
     display:block;
 
+    font-family:var(--font-display);
+
     font-size:14px;
 
-    font-weight:600;
+    font-weight:700;
 
-    line-height:1.2;
+    letter-spacing:-.015em;
+
+    line-height:1.15;
 
     white-space:nowrap;
 
@@ -337,7 +349,7 @@ const meta = row => [
 
 .warn{
 
-    color:var(--attention);
+    color:var(--caution-ink);
 
 }
 
@@ -350,6 +362,10 @@ const meta = row => [
     font-family:var(--font-mono);
 
     font-size:var(--text-eyebrow);
+
+    letter-spacing:.06em;
+
+    text-transform:uppercase;
 
     color:var(--ink-soft);
 
@@ -391,7 +407,7 @@ const meta = row => [
 
 .more:active{
 
-    color:var(--navy);
+    color:var(--accent-ink);
 
 }
 
@@ -415,7 +431,7 @@ const meta = row => [
 
     padding:12px var(--gutter) 0;
 
-    border-top:1px solid var(--line-rule);
+    border-top:var(--rule-strong) solid var(--line-rule);
 
     font-family:var(--font-mono);
 

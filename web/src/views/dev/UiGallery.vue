@@ -228,7 +228,7 @@ const sortKey = ref("noSuperacion");
                 más amable.
             </UiCallout>
 
-            <UiCallout tone="attention">
+            <UiCallout tone="caution">
                 Menos de 10 alumnos: los porcentajes bailan mucho.
             </UiCallout>
 
@@ -283,7 +283,7 @@ const sortKey = ref("noSuperacion");
                 <UiPill>TRONCAL</UiPill>
                 <UiPill>1º CURSO</UiPill>
                 <UiPill tone="neutral">CÓD. 26907</UiPill>
-                <UiPill tone="gold">OPTATIVA</UiPill>
+                <UiPill tone="accent">OPTATIVA</UiPill>
             </div>
 
             <div class="spacer"></div>
@@ -299,7 +299,7 @@ const sortKey = ref("noSuperacion");
             <UiSectionHeader
                 label="Optativas"
                 :count="21"
-                tone="gold"
+                tone="accent"
             />
 
             <div class="spacer"></div>
@@ -308,7 +308,7 @@ const sortKey = ref("noSuperacion");
                 <UiStat
                     value="21"
                     label="optativas"
-                    tone="gold"
+                    tone="accent"
                 />
                 <UiStat
                     value="528"
@@ -442,11 +442,17 @@ const sortKey = ref("noSuperacion");
 
     margin:0 0 4px;
 
-    font-family:var(--font-serif);
+    font-family:var(--font-display);
 
     font-size:var(--text-h1);
 
-    font-weight:700;
+    font-weight:900;
+
+    letter-spacing:var(--track-display-tight);
+
+    text-transform:uppercase;
+
+    line-height:.92;
 
 }
 
@@ -472,11 +478,17 @@ h2{
 
     margin:0 0 6px;
 
-    font-family:var(--font-serif);
+    font-family:var(--font-display);
 
     font-size:var(--text-section);
 
-    font-weight:600;
+    font-weight:900;
+
+    letter-spacing:var(--track-display);
+
+    text-transform:uppercase;
+
+    line-height:1;
 
 }
 
@@ -506,7 +518,7 @@ h2{
 
 .rampRow + .rampRow{
 
-    border-top:1px solid var(--line-inner);
+    border-top:var(--rule) solid var(--line-inner);
 
 }
 
@@ -522,7 +534,7 @@ h2{
 
     font-size:var(--text-num-sm);
 
-    font-weight:400;
+    font-weight:600;
 
     color:var(--ink-faint);
 
@@ -574,9 +586,11 @@ h2{
 
     display:flex;
 
-    height:18px;
+    height:20px;
 
-    border-radius:5px;
+    border:var(--rule) solid var(--ink);
+
+    border-radius:0;
 
     overflow:hidden;
 
@@ -618,11 +632,13 @@ h2{
 
 .legendDot{
 
-    width:8px;
+    width:9px;
 
-    height:8px;
+    height:9px;
 
-    border-radius:2px;
+    border:var(--rule) solid var(--ink);
+
+    border-radius:0;
 
 }
 

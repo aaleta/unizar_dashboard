@@ -123,13 +123,14 @@ const pct = computed(() => {
 
 }
 
+/* Igual que en UiMeterRow: encerrada en tinta, sin redondear. */
 .track{
 
     flex:1;
 
-    height:8px;
+    height:10px;
 
-    border-radius:5px;
+    border:var(--rule) solid var(--ink);
 
     background:var(--count-track);
 
@@ -155,7 +156,7 @@ const pct = computed(() => {
 
     font-size:var(--text-num-sm);
 
-    font-weight:500;
+    font-weight:600;
 
     color:var(--ink-muted);
 
@@ -166,6 +167,10 @@ const pct = computed(() => {
     display:block;
 
     font-size:7.5px;
+
+    letter-spacing:.06em;
+
+    text-transform:uppercase;
 
     color:var(--ink-faint);
 

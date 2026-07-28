@@ -4,11 +4,11 @@
  * Cabecera de grupo dentro de una pantalla: "TRONCALES · 12" con su línea y,
  * a la derecha, el rótulo de la columna ("% que no aprueba").
  *
- * El contador va pegado al título y en navy porque es estructura del grado
+ * El contador va pegado al título y en carbón porque es estructura del grado
  * —cuántas asignaturas hay—, no una medida de nada. La misma cifra en la rampa
  * de dificultad diría algo falso.
  *
- * El tono `gold` es el de las optativas, que es como se distingue el bloque
+ * El tono `accent` es el de las optativas, que es como se distingue el bloque
  * elegible del obligatorio sin repetir la palabra en cada fila.
  */
 
@@ -33,8 +33,8 @@ defineProps({
 
     tone: {
         type: String,
-        default: "navy",
-        validator: value => ["navy", "gold", "muted"].includes(value)
+        default: "carbon",
+        validator: value => ["carbon", "accent", "muted"].includes(value)
     }
 
 });
@@ -67,13 +67,16 @@ defineProps({
 
 <style scoped>
 
+/* La regla no acompaña al rótulo: lo continúa. Por eso el rótulo se pega a
+   ella sin margen y la regla llega hasta el borde del contenido — es una
+   cabecera de listado impreso, no un título con adorno. */
 .header{
 
     display:flex;
 
     align-items:center;
 
-    gap:7px;
+    gap:8px;
 
 }
 
@@ -85,7 +88,7 @@ defineProps({
 
     font-weight:600;
 
-    letter-spacing:.5px;
+    letter-spacing:var(--track-label);
 
     text-transform:uppercase;
 
@@ -93,15 +96,15 @@ defineProps({
 
 }
 
-.navy{
+.carbon{
 
-    color:var(--navy);
+    color:var(--carbon);
 
 }
 
-.gold{
+.accent{
 
-    color:var(--gold-ink);
+    color:var(--accent-ink);
 
 }
 
@@ -115,7 +118,7 @@ defineProps({
 
     flex:1;
 
-    height:1px;
+    height:var(--rule-strong);
 
     background:var(--line);
 
@@ -126,6 +129,10 @@ defineProps({
     font-family:var(--font-mono);
 
     font-size:var(--text-footnote);
+
+    letter-spacing:.06em;
+
+    text-transform:uppercase;
 
     color:var(--ink-faint);
 

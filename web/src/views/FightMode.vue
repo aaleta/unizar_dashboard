@@ -3,9 +3,9 @@
 /**
  * Fight Mode. La broma de la casa, con los datos en serio.
  *
- * El oro marca al ganador y es lo único que hace en toda la web: no codifica
- * ninguna magnitud, solo dice "esta gana". El navy sigue siendo estructura —el
- * medallón VS, los nombres de las columnas— y las cifras de dificultad siguen
+ * El rojo marca al ganador, y aquí eso es todo lo que hace: no codifica
+ * ninguna magnitud, solo dice "esta gana". El carbón sigue siendo estructura —el
+ * * la tesela VS, los nombres de las columnas— y las cifras de dificultad siguen
  * subiendo por la rampa, igual que en cualquier otra pantalla.
  *
  * Que sea un juego no autoriza a mentir: si falta un dato el duelo queda en
@@ -229,11 +229,17 @@ h1{
 
     margin:0;
 
-    font-family:var(--font-serif);
+    font-family:var(--font-display);
 
-    font-size:26px;
+    font-size:var(--text-h1);
 
-    font-weight:700;
+    font-weight:900;
+
+    letter-spacing:var(--track-display-tight);
+
+    text-transform:uppercase;
+
+    line-height:.92;
 
 }
 
@@ -273,9 +279,9 @@ h1{
 
     background:var(--surface);
 
-    border:1px solid var(--line);
+    border:var(--rule-strong) solid var(--line);
 
-    border-radius:13px;
+    border-radius:0;
 
     text-align:center;
 
@@ -304,13 +310,15 @@ h1{
 
     display:block;
 
-    font-family:var(--font-serif);
+    font-family:var(--font-display);
 
     font-size:14.5px;
 
-    font-weight:600;
+    font-weight:800;
 
-    line-height:1.2;
+    letter-spacing:-.015em;
+
+    line-height:1.12;
 
 }
 
@@ -318,11 +326,15 @@ h1{
 
     display:block;
 
-    margin-top:4px;
+    margin-top:5px;
+
+    font-family:var(--font-mono);
 
     font-size:var(--text-eyebrow-sm);
 
-    font-weight:400;
+    font-weight:600;
+
+    letter-spacing:var(--track-label);
 
     text-transform:uppercase;
 
@@ -334,18 +346,29 @@ h1{
 
     display:block;
 
-    margin-top:9px;
+    margin-top:10px;
 
-    font-size:var(--text-num-sm);
+    padding-top:8px;
+
+    border-top:var(--rule) solid var(--line-inner);
+
+    font-family:var(--font-mono);
+
+    font-size:var(--text-eyebrow);
 
     font-weight:600;
 
-    color:var(--navy);
+    letter-spacing:var(--track-label);
+
+    text-transform:uppercase;
+
+    color:var(--accent-ink);
 
 }
 
-/* El medallón VS: la única sombra fuerte de la web. Y sirve para algo —
-   intercambia los lados— en vez de ser solo un adorno. */
+/* La tesela VS: la única cosa de la pantalla con sombra, y es una sombra
+   dura, de tinta desplazada. Y sirve para algo —intercambia los lados— en vez
+   de ser solo un adorno. */
 .medallion{
 
     flex:none;
@@ -358,17 +381,26 @@ h1{
 
     border:none;
 
-    border-radius:50%;
+    border-radius:0;
 
-    background:var(--navy);
+    background:var(--carbon);
 
-    color:var(--gold);
+    /* El rótulo va en papel y no en rojo: el rojo vivo sobre carbón se queda
+       en 3,5:1 y esto es texto de 15px. El rojo entra por el canto inferior,
+       que es donde no tiene que leerse nadie. */
+    color:var(--on-carbon);
 
-    font-family:var(--font-serif);
+    border-bottom:3px solid var(--accent);
+
+    font-family:var(--font-display);
 
     font-size:15px;
 
-    font-weight:700;
+    font-weight:900;
+
+    letter-spacing:-.03em;
+
+    line-height:1;
 
     box-shadow:var(--shadow-medallion);
 
@@ -378,7 +410,9 @@ h1{
 
 .medallion:active{
 
-    transform:scale(.94);
+    transform:translate(3px,3px);
+
+    box-shadow:none;
 
 }
 
@@ -396,19 +430,19 @@ h1{
 
     padding:12px 14px;
 
-    background:var(--gold-wash);
+    background:var(--accent-wash);
 
-    border:1px solid var(--gold-line);
+    border:var(--rule-strong) solid var(--accent-line);
 
-    border-radius:12px;
+    border-radius:0;
 
 }
 
 .verdict.tie{
 
-    background:var(--navy-wash);
+    background:var(--carbon-wash);
 
-    border-color:var(--navy-wash-line);
+    border-color:var(--carbon-wash-line);
 
 }
 
@@ -426,12 +460,13 @@ h1{
 
     flex:none;
 
-    border-radius:50%;
+    border-radius:0;
 
-    background:var(--gold);
+    background:var(--accent);
 
-    /* Navy sobre oro, no blanco: el blanco sobre oro se queda en 2,4:1. */
-    color:var(--navy);
+    /* Papel sobre rojo, no carbón: el carbón sobre el rojo vivo se queda en
+       3,5:1 y el papel llega a 4,8:1. */
+    color:var(--on-carbon);
 
     font-size:16px;
 
@@ -439,25 +474,33 @@ h1{
 
 .verdict.tie .trophy{
 
-    background:var(--navy);
+    background:var(--carbon);
+
+    color:var(--on-carbon);
 
 }
 
 .verdictText{
 
-    font-size:13px;
+    font-family:var(--font-display);
 
-    font-weight:700;
+    font-size:13.5px;
 
-    line-height:1.25;
+    font-weight:800;
 
-    color:var(--gold-strong);
+    letter-spacing:var(--track-display);
+
+    text-transform:uppercase;
+
+    line-height:1.12;
+
+    color:var(--accent-strong);
 
 }
 
 .verdict.tie .verdictText{
 
-    color:var(--navy);
+    color:var(--ink);
 
 }
 
@@ -475,13 +518,13 @@ h1{
 
     line-height:1.35;
 
-    color:var(--gold-soft);
+    color:var(--accent-soft);
 
 }
 
 .verdict.tie .verdictDetail{
 
-    color:var(--navy-soft);
+    color:var(--carbon-ink);
 
 }
 
@@ -491,17 +534,17 @@ h1{
 
     padding:12px 14px;
 
-    background:var(--navy-wash);
+    background:var(--carbon-wash);
 
-    border:1px solid var(--navy-wash-line);
+    border:var(--rule-strong) solid var(--carbon-wash-line);
 
-    border-radius:12px;
+    border-radius:0;
 
     font-size:var(--text-body-xs);
 
     line-height:1.45;
 
-    color:var(--navy-soft);
+    color:var(--carbon-ink);
 
 }
 
@@ -545,7 +588,11 @@ h1{
 
     font-weight:600;
 
-    color:var(--navy);
+    letter-spacing:.06em;
+
+    text-transform:uppercase;
+
+    color:var(--ink);
 
     text-align:center;
 
@@ -565,19 +612,20 @@ h1{
 
     background:var(--surface);
 
-    border:1px solid var(--line);
+    border:var(--rule) solid var(--line);
 
-    border-radius:10px;
+    border-radius:0;
 
     text-align:center;
 
 }
 
+/* La ganadora no cambia de tamaño ni se ilumina: se entinta el marco. */
 .cell.won{
 
-    background:var(--gold-wash);
+    background:var(--accent-wash);
 
-    border:1.5px solid var(--gold);
+    border:var(--rule-strong) solid var(--accent);
 
 }
 
@@ -591,21 +639,33 @@ h1{
 
     display:block;
 
-    margin-top:1px;
+    margin-top:2px;
+
+    font-family:var(--font-mono);
 
     font-size:8px;
 
     font-weight:600;
 
-    color:var(--gold-ink);
+    letter-spacing:var(--track-label);
+
+    text-transform:uppercase;
+
+    color:var(--accent-ink);
 
 }
 
 .duelLabel{
 
-    font-size:9.5px;
+    font-family:var(--font-mono);
 
-    line-height:1.25;
+    font-size:9px;
+
+    letter-spacing:.04em;
+
+    text-transform:uppercase;
+
+    line-height:1.3;
 
     text-align:center;
 
@@ -619,7 +679,7 @@ h1{
 
     padding-top:12px;
 
-    border-top:1px solid var(--line-rule);
+    border-top:var(--rule-strong) solid var(--line-rule);
 
     font-family:var(--font-mono);
 

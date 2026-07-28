@@ -277,10 +277,12 @@ watch(() => props.open, async isOpen => {
 
     background:var(--surface);
 
-    border:1px solid var(--line-tab);
+    border:var(--rule-strong) solid var(--line-tab);
 
     border-radius:var(--radius-sheet);
 
+    /* La única cosa de toda la web que se despega del papel, y se despega con
+       un desplazamiento sólido de tinta: un recorte con su sombra impresa. */
     box-shadow:var(--shadow-sheet);
 
 }
@@ -293,9 +295,11 @@ watch(() => props.open, async isOpen => {
 
     justify-content:space-between;
 
-    padding:11px 14px 9px;
+    padding:10px 13px 9px;
 
-    border-bottom:1px solid var(--line-inner);
+    background:var(--carbon);
+
+    color:var(--on-carbon);
 
 }
 
@@ -303,7 +307,11 @@ watch(() => props.open, async isOpen => {
 
     font-size:var(--text-footnote);
 
+    letter-spacing:var(--track-label-wide);
+
     text-transform:uppercase;
+
+    color:var(--carbon-faint);
 
 }
 
@@ -323,13 +331,11 @@ watch(() => props.open, async isOpen => {
 
     padding:0;
 
-    border:none;
+    border:var(--rule) solid var(--carbon-faint);
 
-    border-radius:50%;
+    background:none;
 
-    background:var(--surface-muted);
-
-    color:var(--ink-soft);
+    color:var(--carbon-faint);
 
     cursor:pointer;
 
@@ -363,7 +369,7 @@ watch(() => props.open, async isOpen => {
 
     min-height:var(--touch-target);
 
-    padding:12px 13px;
+    padding:11px 13px;
 
     color:var(--ink);
 
@@ -371,23 +377,38 @@ watch(() => props.open, async isOpen => {
 
 }
 
+/* Aquí la regla SÍ va de lado a lado. En una hoja de destinos, cada fila es
+   una entrada de índice y el índice se lee mejor rayado entero; el recorte a
+   los lados era una concesión al aspecto de tarjeta que esta dirección ya no
+   tiene. */
 .row + .row{
 
-    /* Línea entre filas, pero sin llegar a los bordes: una regla de lado a
-       lado corta la tarjeta en trozos y parece que son cuatro tarjetas. */
-    background-image:linear-gradient(var(--line-inner),var(--line-inner));
-
-    background-size:calc(100% - 26px) 1px;
-
-    background-position:13px 0;
-
-    background-repeat:no-repeat;
+    border-top:var(--rule) solid var(--line-inner);
 
 }
 
 .row:active{
 
-    background-color:var(--navy-wash);
+    background-color:var(--carbon);
+
+    color:var(--on-carbon);
+
+}
+
+.row:active .subtitle,
+.row:active .chevron{
+
+    color:var(--carbon-faint);
+
+}
+
+.row:active .tile{
+
+    background:var(--accent);
+
+    border-color:var(--accent);
+
+    color:var(--on-carbon);
 
 }
 
@@ -399,27 +420,29 @@ watch(() => props.open, async isOpen => {
 
     justify-content:center;
 
-    width:34px;
+    width:32px;
 
-    height:34px;
+    height:32px;
 
     flex:none;
 
-    border-radius:9px;
+    border:var(--rule) solid var(--line);
 
-    background:var(--navy-wash);
+    background:var(--carbon-wash);
 
-    color:var(--navy);
+    color:var(--ink);
 
 }
 
 .badge{
 
-    font-family:var(--font-serif);
+    font-family:var(--font-display);
 
     font-size:12px;
 
-    font-weight:700;
+    font-weight:900;
+
+    letter-spacing:-.02em;
 
 }
 
@@ -437,17 +460,25 @@ watch(() => props.open, async isOpen => {
 
 .text .title{
 
+    font-family:var(--font-display);
+
     font-size:13.5px;
 
-    font-weight:700;
+    font-weight:800;
+
+    letter-spacing:-.01em;
 
 }
 
 .subtitle{
 
-    margin-top:1px;
+    margin-top:2px;
 
-    font-size:var(--text-num-sm);
+    font-family:var(--font-mono);
+
+    font-size:9px;
+
+    letter-spacing:.02em;
 
     line-height:var(--leading-snug);
 
@@ -485,9 +516,9 @@ watch(() => props.open, async isOpen => {
 
     background:var(--surface);
 
-    border-right:1px solid var(--line-tab);
+    border-right:var(--rule-strong) solid var(--line-tab);
 
-    border-bottom:1px solid var(--line-tab);
+    border-bottom:var(--rule-strong) solid var(--line-tab);
 
     transform:rotate(45deg);
 
@@ -503,7 +534,7 @@ watch(() => props.open, async isOpen => {
 .sheet-enter-active .sheet,
 .sheet-leave-active .sheet{
 
-    transition:transform .18s cubic-bezier(.2,.8,.3,1),opacity .18s ease;
+    transition:transform .12s steps(3),opacity .12s ease;
 
 }
 

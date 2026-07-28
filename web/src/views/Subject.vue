@@ -219,7 +219,7 @@ const comparison = computed(() => {
 
         <UiCallout
             v-if="smallCohort"
-            tone="attention"
+            tone="caution"
             class="verdict"
         >
             Solo {{ enrolled }} matriculados en {{ year }}: los porcentajes
@@ -513,13 +513,15 @@ h1{
 
     margin:0;
 
-    font-family:var(--font-serif);
+    font-family:var(--font-display);
 
-    font-size:var(--text-h1-lg);
+    font-size:var(--text-h1);
 
-    font-weight:700;
+    font-weight:800;
 
-    line-height:1.1;
+    letter-spacing:var(--track-display-tight);
+
+    line-height:.96;
 
 }
 
@@ -555,11 +557,17 @@ h2{
 
     margin:0;
 
-    font-family:var(--font-serif);
+    font-family:var(--font-display);
 
     font-size:var(--text-section);
 
-    font-weight:600;
+    font-weight:900;
+
+    letter-spacing:var(--track-display);
+
+    text-transform:uppercase;
+
+    line-height:1;
 
 }
 
@@ -585,9 +593,9 @@ h2{
 
     background:var(--surface);
 
-    border:1px solid var(--line);
+    border:var(--rule-strong) solid var(--line);
 
-    border-radius:12px;
+    border-radius:0;
 
     box-shadow:var(--shadow-card);
 
@@ -610,17 +618,23 @@ h2{
 
     padding:4px 9px;
 
-    border:1px solid var(--navy-line-soft);
+    border:var(--rule-strong) solid var(--control-line);
 
-    border-radius:7px;
+    border-radius:0;
 
     background:var(--surface);
 
-    color:var(--navy);
+    color:var(--ink);
 
     font-family:var(--font-mono);
 
     font-size:10px;
+
+    font-weight:600;
+
+    letter-spacing:.06em;
+
+    text-transform:uppercase;
 
 }
 
@@ -638,17 +652,28 @@ h2{
 
 /* Distribución -------------------------------------------------------- */
 
+/* La barra apilada va encerrada en tinta: con seis tintas planas seguidas,
+   el marco es lo que impide que el tramo más claro se derrame sobre el papel
+   y deje de verse dónde acaba. */
 .stack{
 
     display:flex;
 
-    height:34px;
+    height:36px;
 
-    border:1px solid var(--line);
+    border:var(--rule-strong) solid var(--line);
 
-    border-radius:8px;
+    border-radius:0;
 
     overflow:hidden;
+
+}
+
+/* Y cada tramo se separa del siguiente con un pelo de tinta, que es lo que
+   hace una separación de colores impresa. */
+.slice + .slice{
+
+    border-left:var(--rule) solid var(--ink);
 
 }
 
@@ -698,13 +723,15 @@ h2{
 
 .swatch{
 
-    width:8px;
+    width:9px;
 
-    height:8px;
+    height:9px;
 
     flex:none;
 
-    border-radius:2px;
+    border:var(--rule) solid var(--ink);
+
+    border-radius:0;
 
 }
 
@@ -724,7 +751,7 @@ h2{
 
 .legendCount{
 
-    font-weight:500;
+    font-weight:600;
 
     color:var(--ink-soft);
 
@@ -736,7 +763,7 @@ h2{
 
     padding-top:11px;
 
-    border-top:1px solid var(--line-inner);
+    border-top:var(--rule) solid var(--line-inner);
 
     font-size:var(--text-body-xs);
 
@@ -756,9 +783,15 @@ h2{
 
 .teachingYear{
 
+    font-family:var(--font-mono);
+
     font-size:var(--text-eyebrow);
 
-    font-weight:400;
+    font-weight:600;
+
+    letter-spacing:var(--track-label);
+
+    text-transform:uppercase;
 
     color:var(--ink-faint);
 
@@ -794,15 +827,15 @@ h2{
 
 .teacherDot{
 
-    width:6px;
+    width:7px;
 
-    height:6px;
+    height:7px;
 
     flex:none;
 
-    border-radius:50%;
+    border-radius:0;
 
-    background:var(--navy);
+    background:var(--ink);
 
 }
 
@@ -816,6 +849,8 @@ h2{
 
 }
 
+/* Los botones son casillas de tinta: sin radio, con regla de dos píxeles y
+   rótulo en mono y mayúsculas. El primario va entintado del todo. */
 .button{
 
     display:inline-flex;
@@ -824,29 +859,53 @@ h2{
 
     min-height:var(--touch-target);
 
-    padding:9px 14px;
+    padding:9px 13px;
 
-    border:1px solid var(--navy-line-soft);
+    border:var(--rule-strong) solid var(--control-line);
 
     border-radius:var(--radius-control);
 
     background:var(--surface);
 
-    color:var(--navy);
+    color:var(--ink);
 
-    font-size:12px;
+    font-family:var(--font-mono);
+
+    font-size:var(--text-eyebrow);
 
     font-weight:600;
+
+    letter-spacing:var(--track-label);
+
+    text-transform:uppercase;
+
+    text-decoration:none;
+
+}
+
+.button:active{
+
+    transform:translate(1px,1px);
+
+    border-color:var(--accent);
 
 }
 
 .button.primary{
 
-    background:var(--navy);
+    background:var(--carbon);
 
-    border-color:var(--navy);
+    border-color:var(--carbon);
 
-    color:var(--ink-on-navy);
+    color:var(--on-carbon);
+
+}
+
+.button.primary:active{
+
+    background:var(--accent);
+
+    border-color:var(--accent);
 
 }
 

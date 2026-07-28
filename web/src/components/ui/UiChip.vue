@@ -5,9 +5,12 @@
  *
  * Es un <button>, no un <span> con @click: se alcanza con teclado, se anuncia
  * como control y responde a Enter y Espacio sin escribir nada. `aria-pressed`
- * dice si está activo, que es justo lo que el relleno navy indica en pantalla.
+ * dice si está activo, que es justo lo que el relleno de tinta indica en
+ * pantalla.
  *
- * El activo va relleno de navy porque un filtro es estructura, no un dato.
+ * El activo va entintado del todo porque un filtro es estructura, no un dato.
+ * Y entintado del todo significa eso: fondo carbón y texto en papel, sin
+ * medias tintas.
  */
 
 defineProps({
@@ -18,9 +21,15 @@ defineProps({
     },
 
     /**
-     * Píldora para FILTRAR (quitar cosas de la lista), rectángulo para ORDENAR
+     * `pill` para FILTRAR (quitar cosas de la lista), `rounded` para ORDENAR
      * (las mismas cosas en otro orden). Son gestos distintos y el diseño los
      * distingue por la forma, no solo por dónde están.
+     *
+     * Sin radios que los separen, la distinción pasa al encuadre: el filtro
+     * es una casilla cerrada con regla de dos píxeles —marcas o no marcas—;
+     * el orden es un rótulo con una barra debajo, como la pestaña de un
+     * archivador. Los nombres de la prop se quedan como estaban: describen el
+     * papel, no la geometría.
      */
     shape: {
         type: String,
@@ -58,19 +67,23 @@ defineProps({
        la fila; dejarlo en 30px reales haría fallar a la mitad de los toques. */
     position:relative;
 
-    padding:6px 11px;
+    padding:6px 10px;
 
-    border:1px solid var(--line-chip);
+    border:var(--rule-strong) solid var(--line-chip);
 
     background:var(--surface);
 
     color:var(--ink-3);
 
-    font-family:var(--font-sans);
+    font-family:var(--font-mono);
 
-    font-size:var(--text-body-sm);
+    font-size:var(--text-eyebrow);
 
     font-weight:600;
+
+    letter-spacing:var(--track-label);
+
+    text-transform:uppercase;
 
     line-height:1.4;
 
@@ -78,7 +91,7 @@ defineProps({
 
     cursor:pointer;
 
-    transition:background .15s,border-color .15s,color .15s;
+    transition:background .1s steps(1),border-color .1s steps(1),color .1s steps(1);
 
 }
 
@@ -88,11 +101,20 @@ defineProps({
 
 }
 
+/* El de ordenar no lleva casilla: solo el rótulo y su barra. Al activarse la
+   barra se entinta y engorda, que es lo que hace una pestaña de archivador
+   cuando la sacas. */
 .chip.rounded{
 
-    border-radius:8px;
+    border-radius:0;
 
-    padding:7px 11px;
+    padding:6px 2px;
+
+    border:none;
+
+    border-bottom:var(--rule-strong) solid var(--line-inner);
+
+    background:none;
 
 }
 
@@ -110,19 +132,27 @@ defineProps({
 
 }
 
-.chip.active{
+.chip.pill.active{
 
-    background:var(--navy);
+    background:var(--carbon);
 
-    border-color:var(--navy);
+    border-color:var(--carbon);
 
-    color:var(--ink-on-navy);
+    color:var(--on-carbon);
+
+}
+
+.chip.rounded.active{
+
+    border-bottom-color:var(--accent);
+
+    color:var(--ink);
 
 }
 
 .chip:active{
 
-    transform:scale(.97);
+    transform:translate(1px,1px);
 
 }
 

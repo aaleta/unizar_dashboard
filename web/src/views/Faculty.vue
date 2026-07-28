@@ -103,12 +103,12 @@ const thousands = value =>
             <UiStat
                 :value="thousands(totals.professors)"
                 label="profesores"
-                tone="navy"
+                tone="carbon"
             />
             <UiStat
                 :value="thousands(totals.active)"
                 label="en activo"
-                tone="navy"
+                tone="carbon"
             />
             <UiStat
                 :value="thousands(totals.collaborations)"
@@ -297,13 +297,17 @@ h1{
 
     margin:0 0 5px;
 
-    font-family:var(--font-serif);
+    font-family:var(--font-display);
 
-    font-size:22px;
+    font-size:var(--text-h1);
 
-    font-weight:700;
+    font-weight:900;
 
-    line-height:1.15;
+    letter-spacing:var(--track-display-tight);
+
+    text-transform:uppercase;
+
+    line-height:.92;
 
 }
 
@@ -361,9 +365,9 @@ h1{
 
     background:var(--surface);
 
-    border:1px solid var(--line);
+    border:var(--rule-strong) solid var(--line);
 
-    border-radius:12px;
+    border-radius:0;
 
     overflow:hidden;
 
@@ -372,7 +376,7 @@ h1{
 .people li + li .person,
 .people li + li .more{
 
-    border-top:1px solid var(--line-inner);
+    border-top:var(--rule) solid var(--line-inner);
 
 }
 
@@ -400,10 +404,10 @@ h1{
 
 .person.active{
 
-    background:var(--navy-wash);
+    background:var(--carbon-wash);
 
     /* Por dentro, para que seleccionar no desplace el contenido de la fila. */
-    box-shadow:inset 3px 0 0 var(--navy);
+    box-shadow:inset 4px 0 0 var(--accent);
 
 }
 
@@ -419,9 +423,13 @@ h1{
 
     display:block;
 
+    font-family:var(--font-display);
+
     font-size:13px;
 
-    font-weight:600;
+    font-weight:700;
+
+    letter-spacing:-.01em;
 
     color:var(--ink);
 
@@ -433,9 +441,13 @@ h1{
 
     margin-top:2px;
 
+    font-family:var(--font-mono);
+
     font-size:var(--text-eyebrow);
 
-    font-weight:400;
+    letter-spacing:.06em;
+
+    text-transform:uppercase;
 
     color:var(--ink-soft);
 
@@ -443,7 +455,7 @@ h1{
 
 .person.active .personMeta{
 
-    color:var(--navy-meta);
+    color:var(--carbon-meta);
 
 }
 
@@ -483,17 +495,17 @@ h1{
 
     margin:0 0 8px;
 
-    color:var(--navy);
+    color:var(--accent-ink);
 
 }
 
 .card{
 
-    padding:15px 15px 13px;
+    padding:14px 14px 13px;
 
     background:var(--surface);
 
-    border:1px solid var(--line);
+    border:var(--rule-strong) solid var(--line);
 
     border-radius:var(--radius-card-lg);
 
@@ -505,23 +517,29 @@ h2{
 
     margin:0;
 
-    font-family:var(--font-serif);
+    font-family:var(--font-display);
 
     font-size:17px;
 
-    font-weight:600;
+    font-weight:800;
 
-    line-height:1.2;
+    letter-spacing:var(--track-display);
+
+    line-height:1.1;
 
 }
 
 .cardMeta{
 
-    margin:4px 0 0;
+    margin:5px 0 0;
+
+    font-family:var(--font-mono);
 
     font-size:9.5px;
 
-    font-weight:400;
+    letter-spacing:.06em;
+
+    text-transform:uppercase;
 
     color:var(--ink-soft);
 
@@ -552,9 +570,9 @@ h2{
 
     align-items:center;
 
-    padding:4px 9px;
+    padding:4px 8px;
 
-    border:1px solid var(--navy-line);
+    border:var(--rule) solid var(--carbon-line);
 
     border-radius:var(--radius-pill);
 
@@ -564,26 +582,32 @@ h2{
 
     font-weight:600;
 
-    letter-spacing:.4px;
+    letter-spacing:var(--track-label);
 
     text-transform:uppercase;
 
     text-decoration:none;
 
-    color:var(--navy);
+    color:var(--ink);
 
 }
 
 .subjectPill:active{
 
-    background:var(--navy-wash);
+    background:var(--carbon);
+
+    border-color:var(--carbon);
+
+    color:var(--on-carbon);
 
 }
 
 /* El histórico, en gris: sigue siendo enlace, pero ya no es docencia actual. */
 .subjectPill.past{
 
-    border-color:var(--line);
+    border-style:dashed;
+
+    border-color:var(--line-dashed);
 
     color:var(--ink-soft);
 
@@ -605,7 +629,7 @@ h2{
 
     padding-top:12px;
 
-    border-top:1px solid var(--line-rule);
+    border-top:var(--rule-strong) solid var(--line-rule);
 
     font-family:var(--font-mono);
 

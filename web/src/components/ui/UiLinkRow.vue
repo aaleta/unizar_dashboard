@@ -32,7 +32,7 @@ defineProps({
         default: false
     },
 
-    // Marca la fila abierta: borde navy a la izquierda y fondo estructural.
+    // Marca la fila abierta: barra de tinta a la izquierda y fondo estructural.
     selected: {
         type: Boolean,
         default: false
@@ -117,7 +117,7 @@ defineProps({
 
     background:var(--surface);
 
-    border:1px solid var(--line);
+    border:var(--rule) solid var(--line);
 
 }
 
@@ -125,7 +125,7 @@ defineProps({
 
     background:transparent;
 
-    border:1px dashed var(--line-dashed);
+    border:var(--rule) dashed var(--line-dashed);
 
 }
 
@@ -133,31 +133,33 @@ defineProps({
 
     background:none;
 
-    border:1px solid transparent;
+    border:var(--rule) solid transparent;
 
 }
 
 .tappable{
 
-    transition:background .15s,border-color .15s;
+    transition:background .1s steps(1),border-color .1s steps(1);
 
 }
 
 .tappable:active{
 
-    background:var(--navy-wash);
+    background:var(--carbon-wash);
+
+    border-color:var(--accent);
 
 }
 
 .selected{
 
-    background:var(--navy-wash);
+    background:var(--carbon-wash);
 
-    border-color:var(--navy-wash-line);
+    border-color:var(--carbon-wash-line);
 
     /* El borde izquierdo marca la fila abierta sin desplazar el contenido:
        se pinta por dentro, así la fila no cambia de tamaño al seleccionarse. */
-    box-shadow:inset 3px 0 0 var(--navy);
+    box-shadow:inset 4px 0 0 var(--accent);
 
 }
 

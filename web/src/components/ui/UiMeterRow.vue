@@ -155,13 +155,16 @@ const text = computed(() =>
 
 }
 
+/* La barra va encerrada en tinta y sin redondear: es una regleta de medida,
+   no una batería cargándose. El marco además fija dónde está el 100 %, que en
+   una barra sin caja hay que adivinar. */
 .track{
 
     flex:1;
 
-    height:9px;
+    height:10px;
 
-    border-radius:5px;
+    border:var(--rule) solid var(--ink);
 
     background:var(--count-track);
 
@@ -183,7 +186,7 @@ const text = computed(() =>
 
     flex:none;
 
-    width:34px;
+    width:36px;
 
     text-align:right;
 

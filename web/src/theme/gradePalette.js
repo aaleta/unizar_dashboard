@@ -2,8 +2,16 @@
  * Paleta de calificaciones: el desglose No presentado → Matrícula de honor.
  *
  * Es CATEGÓRICA, no una escala. No presentado no es "menos" que suspenso ni
- * más que aprobado: son categorías distintas. Por eso son seis tonos que se
+ * más que aprobado: son categorías distintas. Por eso son seis tintas que se
  * distinguen entre sí, y no un degradado.
+ *
+ * Es el único sitio de la web donde hacen falta seis colores a la vez, y por
+ * tanto el único que sale de las tres tintas de la dirección. Se resuelve como
+ * lo haría una imprenta: seis tintas planas, todas apagadas, ninguna con el
+ * brillo de una paleta de interfaz. Y alternando claro/oscuro por posición, no
+ * solo por matiz — en una barra apilada lo que separa dos tramos contiguos es
+ * el salto de luminosidad, que es lo único que también funciona sin ver el
+ * color. Cada par contiguo va por encima de 2,5:1.
  *
  * Se usa exclusivamente en la barra apilada de la ficha y en su leyenda. Fuera
  * de ahí, un aprobado no tiene color.
@@ -14,13 +22,13 @@
  */
 
 export const GRADE_COLORS = {
-    "No pre": "#b9b0a1",
-    "Sus": "#b5482f",
-    "Apr": "#6e9a6a",
-    "Not": "#4e86a0",
-    "Sob": "#7e6ba6",
-    "MH": "#d2a03f"
+    "No pre": "#bdb8a6",
+    "Sus": "#b0170b",
+    "Apr": "#d3a12e",
+    "Not": "#2e5c74",
+    "Sob": "#8fa07c",
+    "MH": "#14140f"
 };
 
 /** Color de una categoría; gris neutro si apareciera una desconocida. */
-export const gradeColor = key => GRADE_COLORS[key] ?? "#c7bfb0";
+export const gradeColor = key => GRADE_COLORS[key] ?? "#7d7869";
