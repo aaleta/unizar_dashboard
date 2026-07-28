@@ -405,7 +405,7 @@ watch(() => props.open, async isOpen => {
 
     flex:none;
 
-    border-radius:9px;
+    border-radius:var(--radius-control);
 
     background:var(--navy-wash);
 

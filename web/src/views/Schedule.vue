@@ -326,7 +326,7 @@ const examClashLine = date =>
 
     border:none;
 
-    border-radius:7px;
+    border-radius:var(--radius-control);
 
     background:none;
 

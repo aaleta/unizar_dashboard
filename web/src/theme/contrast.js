@@ -12,7 +12,7 @@
  * para dos colores que no cambian.
  */
 
-const INK = "#23201b";
+const INK = "#17181a";
 const ON_DARK = "#ffffff";
 
 const luminance = color => {

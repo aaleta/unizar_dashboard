@@ -37,11 +37,11 @@
  * El tramo más duro no necesita ajuste: ya iba a 6:1.
  */
 const RAMP = [
-    { from: 45, fill: "#9a3b23", ink: "#9a3b23", inkSmall: "#9a3b23", label: "muy dura" },
-    { from: 33, fill: "#c4642f", ink: "#c4642f", inkSmall: "#a95628", label: "dura" },
-    { from: 22, fill: "#d69a46", ink: "#a8813a", inkSmall: "#88682f", label: "exigente" },
-    { from: 15, fill: "#d8c168", ink: "#8a7a3f", inkSmall: "#796b37", label: "moderada" },
-    { from: 0, fill: "#8aa07a", ink: "#6f8a5f", inkSmall: "#5c734f", label: "asequible" }
+    { from: 45, fill: "#a03018", ink: "#a03018", inkSmall: "#a03018", label: "muy dura" },
+    { from: 33, fill: "#c25a24", ink: "#b5501e", inkSmall: "#9c451d", label: "dura" },
+    { from: 22, fill: "#d19335", ink: "#906c22", inkSmall: "#7c5c1e", label: "exigente" },
+    { from: 15, fill: "#ccb84f", ink: "#7c7030", inkSmall: "#6c622a", label: "moderada" },
+    { from: 0, fill: "#7d9a6d", ink: "#587c4a", inkSmall: "#47643c", label: "asequible" }
 ];
 
 /**
@@ -49,9 +49,9 @@ const RAMP = [
  * mentiría.
  */
 const UNKNOWN = {
-    fill: "#c7bfb0",
-    ink: "#8a8275",
-    inkSmall: "#6e675c",
+    fill: "#c4c5bf",
+    ink: "#767981",
+    inkSmall: "#5d6066",
     label: "sin datos"
 };
 

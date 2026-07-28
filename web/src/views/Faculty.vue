@@ -363,7 +363,7 @@ h1{
 
     border:1px solid var(--line);
 
-    border-radius:12px;
+    border-radius:var(--radius-card-lg);
 
     overflow:hidden;
 

@@ -646,7 +646,7 @@ h3{
 
     flex:none;
 
-    border-radius:8px;
+    border-radius:var(--radius-control);
 
     background:var(--navy-wash);
 

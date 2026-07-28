@@ -587,7 +587,7 @@ h2{
 
     border:1px solid var(--line);
 
-    border-radius:12px;
+    border-radius:var(--radius-card-lg);
 
     box-shadow:var(--shadow-card);
 
@@ -612,7 +612,7 @@ h2{
 
     border:1px solid var(--navy-line-soft);
 
-    border-radius:7px;
+    border-radius:var(--radius-control);
 
     background:var(--surface);
 
@@ -646,7 +646,7 @@ h2{
 
     border:1px solid var(--line);
 
-    border-radius:8px;
+    border-radius:var(--radius-control);
 
     overflow:hidden;
 
@@ -704,7 +704,7 @@ h2{
 
     flex:none;
 
-    border-radius:2px;
+    border-radius:var(--radius-bar);
 
 }
 

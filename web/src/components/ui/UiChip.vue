@@ -90,7 +90,7 @@ defineProps({
 
 .chip.rounded{
 
-    border-radius:8px;
+    border-radius:var(--radius-control);
 
     padding:7px 11px;
 

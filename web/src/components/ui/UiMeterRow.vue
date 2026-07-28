@@ -161,7 +161,7 @@ const text = computed(() =>
 
     height:9px;
 
-    border-radius:5px;
+    border-radius:var(--radius-bar);
 
     background:var(--count-track);
 

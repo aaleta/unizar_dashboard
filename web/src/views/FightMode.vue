@@ -275,7 +275,7 @@ h1{
 
     border:1px solid var(--line);
 
-    border-radius:13px;
+    border-radius:var(--radius-card-lg);
 
     text-align:center;
 
@@ -400,7 +400,7 @@ h1{
 
     border:1px solid var(--gold-line);
 
-    border-radius:12px;
+    border-radius:var(--radius-card-lg);
 
 }
 
@@ -495,7 +495,7 @@ h1{
 
     border:1px solid var(--navy-wash-line);
 
-    border-radius:12px;
+    border-radius:var(--radius-card-lg);
 
     font-size:var(--text-body-xs);
 
@@ -567,7 +567,7 @@ h1{
 
     border:1px solid var(--line);
 
-    border-radius:10px;
+    border-radius:var(--radius-card);
 
     text-align:center;
 

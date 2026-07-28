@@ -426,7 +426,7 @@ h2{
 
     border:1px solid var(--line);
 
-    border-radius:12px;
+    border-radius:var(--radius-card-lg);
 
     box-shadow:var(--shadow-card);
 

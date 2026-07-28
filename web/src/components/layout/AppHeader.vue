@@ -163,7 +163,7 @@ const goBack = () => {
 
     flex:none;
 
-    border-radius:6px;
+    border-radius:var(--radius-control);
 
     background:var(--gold);
 
@@ -183,7 +183,7 @@ const goBack = () => {
 
     font-size:17px;
 
-    font-weight:600;
+    font-weight:800;
 
 }
 
@@ -207,9 +207,9 @@ const goBack = () => {
 
     border:none;
 
-    border-radius:8px;
+    border-radius:var(--radius-control);
 
-    background:rgba(255,255,255,.12);
+    background:var(--chrome-overlay);
 
     color:var(--navy-faint);
 
@@ -238,7 +238,7 @@ const goBack = () => {
 
 .back:active{
 
-    background:rgba(255,255,255,.2);
+    background:var(--chrome-overlay-strong);
 
 }
 
@@ -278,7 +278,7 @@ const goBack = () => {
 
     font-size:14px;
 
-    font-weight:600;
+    font-weight:700;
 
     overflow:hidden;
 

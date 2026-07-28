@@ -14,13 +14,13 @@
  */
 
 export const GRADE_COLORS = {
-    "No pre": "#b9b0a1",
-    "Sus": "#b5482f",
-    "Apr": "#6e9a6a",
-    "Not": "#4e86a0",
-    "Sob": "#7e6ba6",
-    "MH": "#d2a03f"
+    "No pre": "#a9aaa4",
+    "Sus": "#b23c22",
+    "Apr": "#619159",
+    "Not": "#4581aa",
+    "Sob": "#7767b0",
+    "MH": "#c99e2f"
 };
 
 /** Color de una categoría; gris neutro si apareciera una desconocida. */
-export const gradeColor = key => GRADE_COLORS[key] ?? "#c7bfb0";
+export const gradeColor = key => GRADE_COLORS[key] ?? "#c4c5bf";

@@ -1,9 +1,18 @@
 /**
- * Tokens de diseño. Única fuente de color, radio, sombra y espaciado.
+ * Tokens de diseño — propuesta «Cartel». Única fuente de color, radio,
+ * sombra y espaciado.
  *
  * Ningún componente debe escribir un color a pelo: si hace falta uno que no
  * está aquí, se añade aquí. Es el mismo principio que ya aplica metrics.js a
  * las métricas, aplicado al aspecto.
+ *
+ * ------------------------------------------------------------------------
+ * LA DIRECCIÓN — estilo tipográfico internacional
+ * ------------------------------------------------------------------------
+ * Papel blanco, tinta casi negra, filetes de imprenta en lugar de sombras,
+ * esquinas vivas y UN solo color estructural: un cobalto eléctrico. Las
+ * tarjetas no "flotan": se delimitan con un borde de 1px, como los módulos
+ * de una retícula impresa.
  *
  * ------------------------------------------------------------------------
  * EL CONTRATO DE COLOR — la regla que gobierna todo lo demás
@@ -11,9 +20,15 @@
  * La credibilidad de esta web depende de que el color NO mienta. Hay cuatro
  * papeles y no pueden mezclarse:
  *
- *   1. NAVY      → estructura y cromo. Cabeceras, pestaña activa, botones,
+ *   1. COBALTO   → estructura y cromo. Cabeceras, pestaña activa, botones,
  *                  enlaces, contadores estructurales, la línea del timeline.
- *                  El navy NUNCA codifica una magnitud.
+ *                  El cobalto NUNCA codifica una magnitud. (Los tokens
+ *                  conservan el nombre histórico `--navy` para no tocar
+ *                  todos los componentes: el papel es el mismo, cambia la
+ *                  tinta.) El cobalto es además el ÚNICO azul saturado de la
+ *                  interfaz: por eso puede ser eléctrico sin ambigüedad, y
+ *                  por eso el cromo no puede ser rojo, naranja ni verde —
+ *                  ese espectro entero lo ocupa la rampa de dificultad.
  *   2. RAMPA     → dificultad, y solo dificultad (tasa de no superación).
  *                  Vive en theme/difficulty.js, no aquí.
  *   3. GRIS      → recuentos y cantidades (matrículas, peso de colaboración).
@@ -21,7 +36,7 @@
  *   4. NOTAS     → el desglose No presentado→MH, y nada más.
  *                  Vive en theme/gradePalette.js, no aquí.
  *
- * El oro es decoración y el ganador de Fight Mode; tampoco es un dato.
+ * El ocre es decoración y el ganador de Fight Mode; tampoco es un dato.
  *
  * Ante la duda: ¿esto es estructura, dificultad, un recuento o una categoría
  * de nota?
@@ -30,30 +45,39 @@
 :root{
 
     /* ---------------------------------------------------------------- *
-     * Marca
+     * Cromo estructural — cobalto
      * ---------------------------------------------------------------- */
 
-    /* Azul corporativo de Unizar (PANTONE 653C). */
-    --navy:#223d71;
-    --navy-soft:#3a4667;          /* Navy legible sobre fondo claro */
-    --navy-faint:#aeb9d1;         /* Subtítulos y eyebrows SOBRE el navy */
-    --navy-line:#c3ccdd;          /* Bordes de píldora navy */
-    --navy-line-soft:#cdd4e0;     /* Bordes de control (selector de año) */
-    --navy-wash:#eef0f5;          /* Fondo de aviso estructural */
-    --navy-wash-line:#dfe3ec;
+    /* El azul de la casa en versión cartel: eléctrico, inconfundible,
+       imposible de leer como un dato. 7,8:1 con texto blanco encima. */
+    --navy:#1c3ac6;
+    --navy-soft:#2438a0;          /* Cobalto legible sobre fondo claro */
+    --navy-faint:#c3cdf7;         /* Subtítulos y eyebrows SOBRE el cobalto */
+    --navy-line:#c4cdf2;          /* Bordes de píldora cobalto */
+    --navy-line-soft:#ccd2ea;     /* Bordes de control (selector de año) */
+    --navy-wash:#eef0fb;          /* Fondo de aviso estructural */
+    --navy-wash-line:#dde2f6;
 
-    /* Oro heráldico: decoración y ganador de Fight Mode. Nunca un dato. */
-    --gold:#cba44c;
-    --gold-ink:#85662d;           /* Oro legible como texto */
-    --gold-wash:#fbf5e7;
-    --gold-line:#e7d3a2;          /* Borde del veredicto */
-    --gold-strong:#8a6619;        /* Título del veredicto sobre gold-wash */
-    --gold-soft:#866d40;          /* Detalle del veredicto sobre gold-wash */
+    /* Ocre heráldico: decoración y ganador de Fight Mode. Nunca un dato. */
+    --gold:#c29a2b;
+    --gold-ink:#7d6414;           /* Ocre legible como texto */
+    --gold-wash:#faf5e4;
+    --gold-line:#e4d194;          /* Borde del veredicto */
+    --gold-strong:#79600f;        /* Título del veredicto sobre gold-wash */
+    --gold-soft:#77682e;          /* Detalle del veredicto sobre gold-wash */
 
-    /* Sobre superficies navy claras y oscuras */
-    --on-navy-soft:#c4cee0;       /* Párrafo del héroe sobre navy */
-    --navy-meta:#606e88;          /* Metadatos sobre navy-wash */
-    --navy-avatar:#5d6d8c;        /* Avatar de hueco por rellenar */
+    /* Anillos decorativos del héroe (el motivo de la portada). */
+    --gold-ring:rgba(194,154,43,.38);
+    --gold-ring-soft:rgba(194,154,43,.24);
+
+    /* Sobre superficies cobalto claras y oscuras */
+    --on-navy-soft:#ccd6f8;       /* Párrafo del héroe sobre cobalto */
+    --navy-meta:#4a5384;          /* Metadatos sobre navy-wash */
+    --navy-avatar:#4c5aa0;        /* Avatar de hueco por rellenar */
+
+    /* Controles translúcidos SOBRE la banda cobalto (botón de la cabecera). */
+    --chrome-overlay:rgba(255,255,255,.14);
+    --chrome-overlay-strong:rgba(255,255,255,.24);
 
     /* ---------------------------------------------------------------- *
      * Gráficas
@@ -64,88 +88,79 @@
      * suspensos, pero es el único sitio donde los dos usos se rozan.
      */
 
-    --chart-line-1:#4c6699;       /* Nota media de acceso */
-    --chart-line-2:#c4642f;       /* Nota de corte */
+    --chart-line-1:#3a55c8;       /* Nota media de acceso */
+    --chart-line-2:#c05a2a;       /* Nota de corte */
 
     /* ---------------------------------------------------------------- *
-     * Superficies
+     * Superficies — blanco sobre blanco, separado por filetes
      * ---------------------------------------------------------------- */
 
-    --paper:#f4efe6;              /* Fondo de la aplicación */
+    --paper:#f5f5f2;              /* Fondo de la aplicación: blanco offset */
     --surface:#fff;               /* Tarjeta */
-    --surface-alt:#fcfaf5;        /* Tarjeta de optativa */
-    --surface-sunken:#ece5d7;     /* Cabecera de tabla ordenable */
-    --surface-muted:#f1ece2;      /* Botón redondo sobre tarjeta blanca */
+    --surface-alt:#fbfbf7;        /* Tarjeta de optativa */
+    --surface-sunken:#eaeae4;     /* Cabecera de tabla ordenable */
+    --surface-muted:#efefe9;      /* Botón redondo sobre tarjeta blanca */
 
     /* ---------------------------------------------------------------- *
-     * Líneas
+     * Líneas — el sistema de elevación de esta propuesta ES la línea
      * ---------------------------------------------------------------- */
 
-    --line:#e7ded0;               /* Borde de tarjeta, divisor por defecto */
-    --line-inner:#f0eadd;         /* Divisor DENTRO de una tarjeta */
-    --line-rule:#e7e0d2;          /* Regla de pie de sección */
-    --line-strong:#ddd3c2;        /* Borde de control (buscador, cabecera) */
-    --line-tab:#e2d8c6;           /* Borde superior de la barra de pestañas */
-    --line-chip:#cdc3b0;          /* Borde de chip inactivo */
-    --line-dashed:#cdbf9e;        /* Borde discontinuo de optativa */
-    --line-spine:#d7cdb9;         /* Línea vertical del mapa del grado */
-    --line-row:#e9e2d4;           /* Separador entre filas de una lista densa */
+    --line:#d6d7d1;               /* Borde de tarjeta, divisor por defecto */
+    --line-inner:#e8e8e3;         /* Divisor DENTRO de una tarjeta */
+    --line-rule:#dcddd7;          /* Regla de pie de sección */
+    --line-strong:#c2c3bd;        /* Borde de control (buscador, cabecera) */
+    --line-tab:#d2d3cd;           /* Borde superior de la barra de pestañas */
+    --line-chip:#b4b5af;          /* Borde de chip inactivo */
+    --line-dashed:#d3c48f;        /* Borde discontinuo de optativa (ocre) */
+    --line-spine:#c6c7c1;         /* Línea vertical del mapa del grado */
+    --line-row:#e3e4de;           /* Separador entre filas de una lista densa */
 
     /* ---------------------------------------------------------------- *
      * Texto
      * ---------------------------------------------------------------- *
-     * El handoff define CUATRO niveles de gris apagado (#8A8275, #A49A86,
-     * #948C7E, #9A9182). Sobre papel dan entre 2,4:1 y 3,3:1 de contraste, y
-     * el texto normal necesita 4,5:1. No es un matiz: son los eyebrows, las
-     * líneas de metadatos, las notas al pie y los enlaces "＋ N más" —
-     * contenido real, y alguno además pulsable.
-     *
-     * Aquí está el problema: por encima de 4,5:1 sobre este fondo ya no caben
-     * cuatro grises distinguibles. Cualquier gris que cumpla acaba pegado a
-     * los demás. Así que la escala baja a DOS niveles y la jerarquía la
-     * sostienen el tamaño y el peso, que es lo que el diseño ya hacía de
-     * todas formas: estos textos van a 8,5–10px frente a los 12,5px del
-     * cuerpo, y esa diferencia se lee mucho antes que un matiz de gris.
+     * Grises fríos y neutros, sin la calidez de la propuesta base: aquí la
+     * temperatura la pone el cobalto, no el papel. La jerarquía se sigue
+     * sosteniendo en tamaño y peso; los grises solo la acompañan. Todos los
+     * niveles de texto cumplen 4,5:1 sobre papel Y sobre blanco (los
+     * puramente icónicos, 3:1).
      */
 
-    --ink:#23201b;                /* Primario */
-    --ink-2:#4a463e;              /* Secundario */
-    --ink-3:#5f584c;              /* Etiqueta de chip inactivo */
-    --ink-muted:#6e675c;          /* Apoyo (4,9:1) — el del handoff, ya cumplía */
-    --ink-soft:#736c61;           /* Eyebrows y metadatos (4,5:1) */
-    --ink-faint:#716b5f;          /* Notas al pie y cifras de apoyo (4,5:1) */
-    --ink-faint-2:#716b5f;        /* Alias: ya no se distinguía del anterior */
-    --ink-placeholder:#776f64;    /* Placeholder y huecos por rellenar */
-    --ink-icon:#8a8275;           /* Iconos de control (no es texto: 3:1) */
-    --ink-on-navy:#fff;           /* Texto sobre superficie navy */
-    --ink-tab:#7b7569;            /* Pestaña inactiva de la barra inferior */
-    --ink-chevron:#8d8578;        /* Flechas de "seguir" (icono: basta 3:1) */
+    --ink:#17181a;                /* Primario */
+    --ink-2:#43454a;              /* Secundario */
+    --ink-3:#55575d;              /* Etiqueta de chip inactivo */
+    --ink-muted:#5d6066;          /* Apoyo */
+    --ink-soft:#63666d;           /* Eyebrows y metadatos */
+    --ink-faint:#63666d;          /* Notas al pie y cifras de apoyo */
+    --ink-faint-2:#63666d;        /* Alias: ya no se distinguía del anterior */
+    --ink-placeholder:#60636a;    /* Placeholder y huecos por rellenar */
+    --ink-icon:#83868d;           /* Iconos de control (no es texto: 3:1) */
+    --ink-on-navy:#fff;           /* Texto sobre superficie cobalto */
+    --ink-tab:#5f6268;            /* Pestaña inactiva de la barra inferior */
+    --ink-chevron:#7f828a;        /* Flechas de "seguir" (icono: basta 3:1) */
 
     /* ---------------------------------------------------------------- *
      * Recuentos — barras grises. Una cantidad NO es una dificultad.
      * ---------------------------------------------------------------- */
 
-    --count-fill:#a89a86;
-    --count-track:#efe7d7;
+    --count-fill:#82847e;
+    --count-track:#ecece6;
 
     /* ---------------------------------------------------------------- *
      * Avisos
      * ---------------------------------------------------------------- */
 
     /* "Dura": la asignatura más difícil, la advertencia con peso. */
-    --warn-bg:#f9ece7;
-    --warn-line:#f0d6cb;
-    --warn-title:#8f3521;
-    --warn-body:#8c6053;
-    --warn-caption:#86645a;       /* Rótulo bajo la cifra del aviso */
+    --warn-bg:#faeeea;
+    --warn-line:#eed5cc;
+    --warn-title:#96311b;
+    --warn-body:#7f544a;
+    --warn-caption:#7d5a52;       /* Rótulo bajo la cifra del aviso */
 
-    /* Cohorte pequeña: el ⚠ y su nota. Llama la atención sin alarmar.
-       El handoff fija el glifo y el texto; el fondo y el borde se derivan de
-       ellos para poder montar el aviso completo. */
-    --attention:#c89a2e;
-    --attention-ink:#806e32;
-    --attention-bg:#fbf6e8;
-    --attention-line:#eee0bd;
+    /* Cohorte pequeña: el ⚠ y su nota. Llama la atención sin alarmar. */
+    --attention:#a17c1a;
+    --attention-ink:#755f1d;
+    --attention-bg:#faf5e2;
+    --attention-line:#e9dcae;
 
     /* ---------------------------------------------------------------- *
      * Variación (deltas)
@@ -155,30 +170,34 @@
      * y va en verde. Quien pinta el delta decide el signo, no el token.
      */
 
-    --delta-good:#4a6a44;
-    --delta-bad:#b5482f;
-    --delta-flat:#6e675c;
+    --delta-good:#2e6b40;
+    --delta-bad:#b23c22;
+    --delta-flat:#5d6066;
 
     /* ---------------------------------------------------------------- *
-     * Radios
+     * Radios — esquinas vivas: esto es una retícula impresa, no una app
+     * de burbujas. El único redondeo real es el círculo (50%), que es
+     * geometría, no ornamento.
      * ---------------------------------------------------------------- */
 
-    --radius-row:8px;             /* Fila de asignatura */
-    --radius-control:9px;         /* Botón, buscador */
-    --radius-card:11px;
-    --radius-card-lg:14px;
-    --radius-sheet:16px;          /* Hoja desplegable "Más" */
-    --radius-pill:999px;
+    --radius-row:2px;             /* Fila de asignatura */
+    --radius-control:2px;         /* Botón, buscador */
+    --radius-card:2px;
+    --radius-card-lg:2px;
+    --radius-sheet:4px;           /* Hoja desplegable "Más" */
+    --radius-pill:3px;            /* Las "píldoras" son etiquetas rectangulares */
+    --radius-bar:1px;             /* Barras de datos y muestras de leyenda */
 
     /* ---------------------------------------------------------------- *
-     * Sombras — escasas a propósito: esto es papel, no material design.
+     * Sombras — casi ninguna: la separación la hacen los filetes. Solo
+     * conserva sombra lo que de verdad está POR ENCIMA de la página.
      * ---------------------------------------------------------------- */
 
-    --shadow-card:0 1px 3px rgba(35,32,27,.05);
-    --shadow-sheet:0 14px 34px rgba(20,18,14,.30);
-    --shadow-medallion:0 2px 6px rgba(34,61,113,.28);
+    --shadow-card:none;
+    --shadow-sheet:0 10px 30px rgba(16,17,20,.28);
+    --shadow-medallion:0 0 0 1px rgba(23,24,26,.10);
 
-    --scrim:rgba(24,20,14,.44);
+    --scrim:rgba(16,17,20,.5);
 
     /* ---------------------------------------------------------------- *
      * Espaciado y medidas

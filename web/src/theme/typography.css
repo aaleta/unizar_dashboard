@@ -1,28 +1,35 @@
 /**
- * Escala tipográfica.
+ * Escala tipográfica — propuesta «Cartel».
  *
- * Tres familias con tres papeles que no se cruzan:
+ * Dos familias con tres voces que no se cruzan:
  *
- *   Spectral        → titulares, cabeceras de sección, nombres de asignatura.
- *   Public Sans     → cuerpo, etiquetas de interfaz, botones.
- *   IBM Plex Mono   → TODAS las cifras y porcentajes, los eyebrows, los
- *                     metadatos y los códigos.
+ *   Archivo negra y ancha  → titulares, cabeceras de sección, nombres de
+ *                            asignatura. La voz de cartel.
+ *   Archivo de labor       → cuerpo, etiquetas de interfaz, botones.
+ *   Spline Sans Mono       → TODAS las cifras y porcentajes, los eyebrows,
+ *                            los metadatos y los códigos.
  *
  * Lo de la mono es lo importante: los números son el producto. En mono se
  * alinean en columna, se comparan de un vistazo y no bailan al cambiar de
- * dígito. Un porcentaje escrito en Public Sans es un error, no un matiz.
+ * dígito. Un porcentaje escrito en la grotesca de labor es un error, no un
+ * matiz.
  *
- * Los tamaños del handoff están medidos a 402px (el ancho del mock). Los
- * titulares escalan de forma fluida entre 320px y 480px; el texto pequeño no
- * escala, porque por debajo de 11px deja de leerse y "proporcional" no es
- * excusa para eso.
+ * Las dos primeras voces salen del MISMO fichero: Archivo es variable en
+ * peso y anchura, y el titular es simplemente Archivo a peso 800 y anchura
+ * 110%. Por eso la clase histórica `.serif` sigue existiendo con su nombre:
+ * marca "voz de titular", aunque la letra ya no tenga remates.
+ *
+ * Los tamaños del handoff están medidos a 402px (el ancho del mock) y se
+ * conservan: el rediseño cambia la voz, no la caja. Los titulares escalan de
+ * forma fluida entre 320px y 480px; el texto pequeño no escala, porque por
+ * debajo de 11px deja de leerse y "proporcional" no es excusa para eso.
  */
 
 :root{
 
-    --font-serif:'Spectral',Georgia,'Times New Roman',serif;
-    --font-sans:'Public Sans',system-ui,-apple-system,'Segoe UI',sans-serif;
-    --font-mono:'IBM Plex Mono','SF Mono',Menlo,Consolas,monospace;
+    --font-serif:'Archivo',system-ui,-apple-system,'Segoe UI',sans-serif;
+    --font-sans:'Archivo',system-ui,-apple-system,'Segoe UI',sans-serif;
+    --font-mono:'Spline Sans Mono','SF Mono',Menlo,Consolas,monospace;
 
     /* Titulares — fluidos: 22→27px y 25→30px entre 320px y 480px de ancho. */
     --text-h1:clamp(22px,calc(12px + 3.125vw),27px);
@@ -107,7 +114,7 @@ body{
 
     font-weight:600;
 
-    letter-spacing:.5px;
+    letter-spacing:.7px;
 
     text-transform:uppercase;
 
@@ -115,11 +122,24 @@ body{
 
 }
 
-/** Titulares y nombres de asignatura. */
+/**
+ * Titulares y nombres de asignatura: la voz de cartel.
+ *
+ * El nombre `.serif` se conserva aunque Archivo no lleve remates: en las
+ * once pantallas la clase significa "voz de titular" y renombrarla tocaría
+ * cada plantilla sin cambiar nada de lo que se ve.
+ *
+ * La anchura 110% y el tracking negativo son lo que hace cartel a la
+ * grotesca; a peso 800 y esos tamaños, Archivo aguanta ambos sin cerrarse.
+ */
 .serif{
 
     font-family:var(--font-serif);
 
-    font-weight:600;
+    font-weight:800;
+
+    font-stretch:110%;
+
+    letter-spacing:-.01em;
 
 }

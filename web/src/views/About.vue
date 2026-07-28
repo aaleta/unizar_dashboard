@@ -284,7 +284,7 @@ h2{
 
     border:1px solid var(--line);
 
-    border-radius:13px;
+    border-radius:var(--radius-card-lg);
 
     color:var(--ink);
 
