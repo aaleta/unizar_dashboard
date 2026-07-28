@@ -1,0 +1,5 @@
+# Lo genera npm y lo reescribe en cada install: no es código que se formatee.
+package-lock.json
+
+# Salida de la construcción.
+dist/

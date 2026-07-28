@@ -1,20 +1,17 @@
-import { fileURLToPath, URL } from 'node:url'
+import { fileURLToPath, URL } from "node:url";
 
-import { defineConfig } from 'vite'
-import vue from '@vitejs/plugin-vue'
-import vueDevTools from 'vite-plugin-vue-devtools'
+import { defineConfig } from "vite";
+import vue from "@vitejs/plugin-vue";
+import vueDevTools from "vite-plugin-vue-devtools";
 
 export default defineConfig(({ mode }) => ({
-  plugins: [
-    vue(),
-    mode === 'development' && vueDevTools(),
-  ].filter(Boolean),
+    plugins: [vue(), mode === "development" && vueDevTools()].filter(Boolean),
 
-  resolve: {
-    alias: {
-      '@': fileURLToPath(new URL('./src', import.meta.url)),
+    resolve: {
+        alias: {
+            "@": fileURLToPath(new URL("./src", import.meta.url))
+        }
     },
-  },
 
-  base: '/unizar_dashboard/',
-}))
+    base: "/unizar_dashboard/"
+}));
