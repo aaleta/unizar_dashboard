@@ -10,7 +10,7 @@
 
 import { computed, unref } from "vue";
 
-import guias from "../../../data/json/processed/Profesores_GuiasDoc.json";
+import guias from "../../../data/json/processed/profesores_guias_doc.json";
 
 import {
     METRICS,

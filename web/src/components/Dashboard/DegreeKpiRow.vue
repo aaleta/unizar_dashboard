@@ -4,7 +4,7 @@ import { computed } from "vue";
 
 import KpiCard from "./KpiCard.vue";
 
-import notasAcceso from "../../../../data/json/NotasDeCorteRaw.json";
+import notasAcceso from "../../../../data/json/notas_de_corte_raw.json";
 
 import {
     RECENT_YEARS,

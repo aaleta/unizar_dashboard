@@ -1,7 +1,7 @@
 {
     "notas": {
         "label": "Calificaciones por asignatura",
-        "ultimo_curso": "2024-2025",
+        "ultimo_curso": "2025-2026",
         "fuente": "https://estudios.unizar.es/informe/resultados-academicos?estudio_id=20250124"
     },
     "resultados": {
@@ -18,7 +18,7 @@
     "guias": {
         "label": "Profesorado y guías docentes",
         "ultimo_curso": "2026-2027",
-        "fuente": "https://sia.unizar.es/"
+        "fuente": "https://estudios.unizar.es/"
     },
     "horarios": {
         "label": "Horarios y fechas de examen",

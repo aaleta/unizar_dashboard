@@ -11,7 +11,7 @@
 
 import { computed } from "vue";
 
-import corte from "../../../data/json/NotasDeCorteRaw.json";
+import corte from "../../../data/json/notas_de_corte_raw.json";
 
 import {
     RECENT_YEARS,
@@ -20,6 +20,7 @@ import {
     degreeRateForPeriod,
     allCoreSubjects,
     averageSittings,
+    officialResult,
     subjectRate,
     subjectName,
     subjectInfo,
@@ -108,6 +109,29 @@ export const useDegree = () => {
 
     });
 
+    /**
+     * De qué curso académico sale esa media. El dato por asignatura es el
+     * oficial más reciente, así que se calcula y no se escribe: si un año la
+     * Universidad publicara unas troncales sí y otras no, "curso X" pasaría
+     * solo a "hasta X" en vez de afirmar un año que no es.
+     */
+    const sittingsYear = computed(() => {
+
+        const years = new Set(
+            allCoreSubjects
+                .map(subject => officialResult(subject.code))
+                .filter(row => row && row.media_convocatorias !== null)
+                .map(row => row.curso)
+        );
+
+        if (!years.size) return null;
+
+        const latest = [...years].sort().pop();
+
+        return years.size === 1 ? `curso ${latest}` : `hasta ${latest}`;
+
+    });
+
     const cutoff = computed(() => {
 
         const last = admission[admission.length - 1];
@@ -134,6 +158,8 @@ export const useDegree = () => {
         ]),
 
         sittings,
+
+        sittingsYear,
 
         admission,
 

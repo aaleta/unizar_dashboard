@@ -233,12 +233,22 @@ const HISTORY_COLORS = ["var(--chart-line-2)"];
             tone="gold"
         />
 
+        <!-- En 1º las optativas son las especiales (Biología, Geología,
+             Grafos), que no están en la bolsa: enlazar ahí a una lista donde
+             no aparecen solo despistaría. -->
         <p class="note">
             <template v-if="alsoInCourses.length">
                 Muchas se ofertan también en
                 {{ alsoInCourses.map(ordinal).join(" y ") }}.
             </template>
-            <RouterLink to="/optativas">Ver todas las optativas →</RouterLink>
+            <template v-if="number === 1">
+                Optativas especiales de primero: se cursan fuera de la bolsa
+                de optativas de 3º y 4º.
+            </template>
+            <RouterLink
+                v-else
+                to="/optativas"
+            >Ver todas las optativas →</RouterLink>
         </p>
 
         <div class="cards">

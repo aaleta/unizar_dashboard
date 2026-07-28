@@ -28,6 +28,7 @@ const {
     cutoff,
     rates,
     sittings,
+    sittingsYear,
     admission,
     hardest,
     recentYears
@@ -151,7 +152,7 @@ const admissionNote = computed(() => {
                 label="Convocatorias"
                 :value="decimal(sittings)"
                 :delta="null"
-                reference="media por troncal · dato oficial"
+                :reference="`media por troncal · ${sittingsYear ?? 'dato oficial'}`"
             />
 
         </section>
@@ -297,6 +298,10 @@ const admissionNote = computed(() => {
     max-width:var(--content-max);
 
     margin:0 auto;
+
+    /* El mismo margen lateral que el contenido: la banda llega al borde,
+       pero el texto no. */
+    padding-inline:var(--gutter);
 
 }
 

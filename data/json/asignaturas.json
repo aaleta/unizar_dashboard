@@ -1,5 +1,5 @@
 {
-    "descripcion": "Catálogo del Grado en Física, mantenido A MANO: es la única fuente de verdad sobre qué asignaturas existen, de qué curso son y si son troncales u optativas. Los scripts y la web NO deducen esta clasificación de los datos de notas; si aparece una asignatura nueva, hay que añadirla aquí (scripts/updater.py avisa de códigos sin catalogar). \"bolsa_optativas\": false marca las optativas especiales de primero (Biología, Geología, Grafos y combinatoria) que se cursan fuera de la bolsa normal de optativas: cuentan como optativas a todos los efectos, pero no aparecen en la sección Optativas.",
+    "descripcion": "Catálogo del Grado en Física, mantenido A MANO: es la única fuente de verdad sobre qué asignaturas existen, de qué curso son y si son troncales u optativas. Los scripts y la web NO deducen esta clasificación de los datos de notas; si aparece una asignatura nueva, hay que añadirla aquí (scripts/updater.py avisa de códigos sin catalogar). \"bolsa_optativas\": false marca las optativas especiales de primero (Biología, Geología, Grafos y combinatoria) que se cursan fuera de la bolsa normal de optativas: cuentan como optativas a todos los efectos, pero no aparecen en la sección Optativas. \"se_alterna_con\": <codigo> marca las optativas de oferta bienal, que se alternan con otra (Física de la atmósfera ↔ Geofísica, Iluminación y colorimetría ↔ Aplicaciones de la difracción y de la interferometría): la ficha lo avisa, y el horario deshabilita las que no están en la publicación del curso.",
     "asignaturas": [
         {
             "codigo": 26903,
@@ -227,7 +227,8 @@
                 3,
                 4
             ],
-            "tipo": "optativa"
+            "tipo": "optativa",
+            "se_alterna_con": 26939
         },
         {
             "codigo": 26932,
@@ -307,7 +308,8 @@
             "cursos": [
                 3
             ],
-            "tipo": "optativa"
+            "tipo": "optativa",
+            "se_alterna_con": 26952
         },
         {
             "codigo": 26951,
@@ -325,7 +327,8 @@
                 3,
                 4
             ],
-            "tipo": "optativa"
+            "tipo": "optativa",
+            "se_alterna_con": 26934
         },
         {
             "codigo": 26936,
@@ -360,7 +363,8 @@
             "cursos": [
                 3
             ],
-            "tipo": "optativa"
+            "tipo": "optativa",
+            "se_alterna_con": 26944
         },
         {
             "codigo": 26940,

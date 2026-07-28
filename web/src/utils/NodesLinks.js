@@ -1,4 +1,4 @@
-import datos from "../../../data/json/processed/Profesores_GuiasDoc.json";
+import datos from "../../../data/json/processed/profesores_guias_doc.json";
 
 /**
  * Construye la red de colaboración docente.

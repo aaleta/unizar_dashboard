@@ -22,6 +22,7 @@ import { useRoute } from "vue-router";
 
 import { useSubject } from "@/composables/useSubject";
 import { usePageHeader } from "@/composables/usePageHeader";
+import { subjectName } from "@/utils/metrics";
 import { gradeColor } from "@/theme/gradePalette";
 import { readableInk } from "@/theme/contrast";
 
@@ -85,6 +86,17 @@ const pct = (value, decimals = 0) =>
 
 const isOptative = computed(() => info.value?.tipo === "optativa");
 
+/** Con quién se alterna, si es una optativa de oferta bienal. */
+const alternatesWith = computed(() => {
+
+    const partner = info.value?.seAlternaCon;
+
+    return partner
+        ? { code: partner, name: subjectName(partner) }
+        : null;
+
+});
+
 /** El indicador que encabeza la ficha: cuánta gente no la supera. */
 const headline = computed(() =>
     kpis.value.find(kpi => kpi.key === "noSuperacion")?.value ?? null
@@ -127,7 +139,7 @@ const shortYear = academicYear =>
 const historyChart = computed(() => ({
     labels: history.value.map(point => shortYear(point.year)),
     series: [{
-        label: "No superan",
+        label: "Suspensos + No presentados",
         values: history.value.map(point => point.value)
     }]
 }));
@@ -212,6 +224,17 @@ const comparison = computed(() => {
         >
             Solo {{ enrolled }} matriculados en {{ year }}: los porcentajes
             bailan mucho. Mejor mirar los recuentos absolutos.
+        </UiCallout>
+
+        <UiCallout
+            v-if="alternatesWith"
+            tone="structural"
+            class="verdict"
+        >
+            No se oferta todos los cursos: se alterna año a año con
+            <RouterLink :to="`/asignatura/${alternatesWith.code}`">{{
+                alternatesWith.name
+            }}</RouterLink>.
         </UiCallout>
 
     </header>
@@ -381,7 +404,7 @@ const comparison = computed(() => {
         class="section"
     >
 
-        <h2>No superan, curso a curso</h2>
+        <h2>Evolución de no aprobados</h2>
 
         <p
             v-if="historyNote"

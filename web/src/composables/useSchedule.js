@@ -9,18 +9,22 @@
  * ficha y volver obligaría a empezar de cero.
  *
  * Fuentes:
- *   - TimeTableData.json  → clases (solo teoría lleva día y hora estables).
- *   - Examenes.json       → fechas de examen por convocatoria (tab-E1…).
- *   - AsignaturasClasificadasOptTronc.json → nombres y carácter; las
- *     asignaturas nuevas del plan que aún no tienen estadísticas (p. ej.
+ *   - horarios.json     → clases (solo teoría lleva día y hora estables).
+ *   - examenes.json     → fechas de examen por convocatoria (tab-E1…).
+ *   - asignaturas.json  → nombres y carácter (el catálogo del grado); las
+ *     asignaturas nuevas del plan que aún no están catalogadas (p. ej.
  *     Probabilidad y Estadística) se completan desde los propios exámenes.
  */
 
 import { computed, ref, watch } from "vue";
 
-import classification from "../../../data/json/processed/AsignaturasClasificadasOptTronc.json";
-import examData from "../../../data/json/processed/Examenes.json";
-import timetableData from "../../../data/json/processed/TimeTableData.json";
+import catalogo from "../../../data/json/asignaturas.json";
+import examData from "../../../data/json/processed/examenes.json";
+import timetableData from "../../../data/json/processed/horarios.json";
+import freshness from "../../../data/json/processed/data_freshness.json";
+
+/** El curso académico de la publicación de horarios y exámenes del centro. */
+export const publicationYear = freshness.horarios.ultimo_curso;
 
 export const WEEKDAYS = ["Lunes", "Martes", "Miércoles", "Jueves", "Viernes"];
 
@@ -55,14 +59,9 @@ const catalogue = (() => {
 
     };
 
-    for (const [tipo, byCourse] of [
-        ["troncal", classification.troncales],
-        ["optativa", classification.optativas]
-    ]) {
-        for (const [course, subjects] of Object.entries(byCourse)) {
-            for (const subject of subjects) {
-                add(subject.code, subject.name, tipo, Number(course));
-            }
+    for (const subject of catalogo.asignaturas) {
+        for (const curso of subject.cursos) {
+            add(subject.codigo, subject.nombre, subject.tipo, curso);
         }
     }
 
@@ -202,6 +201,27 @@ const allExams = (() => {
 
 })();
 
+/* ------------------------------------------------------------------ *
+ * Disponibilidad: hay optativas de oferta bienal (Física de la atmósfera ⇄
+ * Geofísica, Iluminación y colorimetría ⇄ Aplicaciones de la difracción) que
+ * este curso no están en la publicación del centro. Siguen en la lista para
+ * que se vea que existen, pero no se pueden elegir: un horario con una
+ * asignatura que no se oferta sería mentira.
+ *
+ * Solo se aplica a optativas: una troncal sin horario publicado (el TFG) se
+ * cursa igualmente.
+ * ------------------------------------------------------------------ */
+
+const publishedCodes = new Set([
+    ...timetableData.map(row => row.Asignatura.split(" ")[0]),
+    ...allExams.map(exam => exam.code)
+]);
+
+catalogue.forEach(subject => {
+    subject.available =
+        subject.tipo !== "optativa" || publishedCodes.has(subject.code);
+});
+
 /**
  * La publicación numera las convocatorias E1/E2/E3, pero nadie las llama así:
  * E1 son los exámenes del primer semestre, E2 los del segundo y E3 la
@@ -266,7 +286,11 @@ const restore = () => {
 
         if (!saved) return;
 
-        selectedCodes.value = (saved.codes ?? []).filter(code => catalogueByCode.has(code));
+        // Una selección guardada puede traer una optativa que este curso ya
+        // no se oferta (cambia con cada publicación): se descarta al restaurar.
+        selectedCodes.value = (saved.codes ?? []).filter(
+            code => catalogueByCode.get(code)?.available
+        );
         groupChoice.value = saved.groups ?? {};
 
         if (saved.semester === "S1" || saved.semester === "S2") {
@@ -321,6 +345,8 @@ export const useSchedule = () => {
 
         }
 
+        if (!catalogueByCode.get(code)?.available) return;
+
         selectedCodes.value = [...selectedCodes.value, code];
 
         const available = groupsByCode.get(code) ?? [];
@@ -341,6 +367,45 @@ export const useSchedule = () => {
     };
 
     const groupsFor = code => groupsByCode.get(code) ?? [];
+
+    /** En qué semestres tiene teoría una asignatura: ["S1"], ["S1","S2"]… */
+    const semestersFor = code => {
+
+        const semesters = new Set();
+
+        for (const event of theoryEvents) {
+            if (event.code === code) semesters.add(event.semester);
+        }
+
+        return Array.from(semesters).sort();
+
+    };
+
+    /**
+     * Pasa TODAS las asignaturas elegidas a su siguiente grupo de teoría.
+     * Quien va de tardes va de tardes a todo, así que cambiar los grupos uno
+     * a uno era el mismo toque repetido seis veces. Con dos grupos es un
+     * vaivén (mañana ⇄ tarde); si alguna tuviera tres, rota.
+     */
+    const rotateGroups = () => {
+
+        const groups = { ...groupChoice.value };
+
+        for (const code of selectedCodes.value) {
+
+            const available = groupsByCode.get(code) ?? [];
+
+            if (available.length < 2) continue;
+
+            const current = available.indexOf(groups[code] ?? available[0]);
+
+            groups[code] = available[(current + 1) % available.length];
+
+        }
+
+        groupChoice.value = groups;
+
+    };
 
     /* ---------------- Clases ---------------- */
 
@@ -566,6 +631,7 @@ export const useSchedule = () => {
     return {
 
         catalogue,
+        publicationYear,
         convocatorias,
         convocatoriaSpans,
 
@@ -577,6 +643,8 @@ export const useSchedule = () => {
         groupChoice,
         groupsFor,
         setGroup,
+        semestersFor,
+        rotateGroups,
 
         semester,
         classEvents,

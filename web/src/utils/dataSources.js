@@ -1,7 +1,7 @@
 /**
  * Procedencia y actualidad de cada conjunto de datos.
  *
- * Las fechas salen de DataFreshness.json, que genera scripts/updater.py a partir
+ * Las fechas salen de data_freshness.json, que genera scripts/updater.py a partir
  * de los propios ficheros: la portada afirmaba "datos del curso 2024-2025" para
  * todo, y de las cuatro fuentes solo una lo cumplía.
  *
@@ -9,7 +9,7 @@
  * los 300 kB de guías docentes en la página de inicio solo para leer un año.
  */
 
-import freshness from "../../../data/json/processed/DataFreshness.json";
+import freshness from "../../../data/json/processed/data_freshness.json";
 
 export const DATA_SOURCES = [
     {

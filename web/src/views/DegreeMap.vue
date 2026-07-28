@@ -277,6 +277,10 @@ const pct = value =>
 
     margin:0 auto;
 
+    /* El mismo margen lateral que el contenido: la banda llega al borde,
+       pero las cifras no. */
+    padding-inline:var(--gutter);
+
     font-family:var(--font-mono);
 
     font-size:9.5px;

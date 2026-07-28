@@ -14,7 +14,7 @@ import {
 
 import { Line } from "vue-chartjs";
 
-import notasAcceso from "../../../../data/json/NotasDeCorteRaw.json";
+import notasAcceso from "../../../../data/json/notas_de_corte_raw.json";
 
 ChartJS.register(
     CategoryScale,

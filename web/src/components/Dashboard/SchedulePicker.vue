@@ -25,13 +25,16 @@ import UiSearchField from "@/components/ui/UiSearchField.vue";
 
 const {
     catalogue,
+    publicationYear,
     selectedSubjects,
     isSelected,
     toggle,
     clear,
     groupChoice,
     groupsFor,
-    setGroup
+    setGroup,
+    semestersFor,
+    rotateGroups
 } = useSchedule();
 
 /** Cuántas filas se ven antes de tener que pedir el resto. */
@@ -51,8 +54,15 @@ const results = computed(() => {
 
     return catalogue.filter(subject => {
 
-        if (course.value !== "todos" && !subject.courses.includes(course.value)) {
-            return false;
+        // Los chips de curso enseñan solo las troncales de ese año: las
+        // optativas no son "de un curso" de verdad (se ofertan en 3º y 4º a
+        // la vez) y tienen su propio chip.
+        if (course.value === "optativas") {
+            if (subject.tipo !== "optativa") return false;
+        } else if (course.value !== "todos") {
+            if (subject.tipo !== "troncal" || !subject.courses.includes(course.value)) {
+                return false;
+            }
         }
 
         return !needle || normalize(subject.name).includes(needle);
@@ -65,10 +75,22 @@ const visible = computed(() =>
     expanded.value ? results.value : results.value.slice(0, PREVIEW)
 );
 
-const meta = subject => [
-    subject.tipo === "troncal" ? "Troncal" : "Optativa",
-    subject.courses.map(c => `${c}º`).join(" y ")
-].join(" · ");
+const meta = subject => {
+
+    const semesters = semestersFor(subject.code);
+
+    return [
+        subject.tipo === "troncal" ? "Troncal" : "Optativa",
+        subject.courses.map(c => `${c}º`).join(" y "),
+        semesters.length ? semesters.join(" y ") : null
+    ].filter(Boolean).join(" · ");
+
+};
+
+/** Con un solo grupo por asignatura no hay nada que intercambiar. */
+const canRotate = computed(() =>
+    selectedSubjects.value.some(subject => groupsFor(subject.code).length > 1)
+);
 
 /** "447-3-6" → "Grupo 6". */
 const groupLabel = group => `Grupo ${group.split("-").pop()}`;
@@ -155,6 +177,17 @@ const groupLabel = group => `Grupo ${group.split("-").pop()}`;
             vaciar
         </button>
 
+        <!-- Quien va de tardes, va de tardes a todo: un toque cambia el
+             grupo de todas las asignaturas a la vez. -->
+        <button
+            v-if="canRotate"
+            type="button"
+            class="rotate"
+            @click="rotateGroups"
+        >
+            ⇄ cambiar todos de grupo
+        </button>
+
     </div>
 
     <p
@@ -190,6 +223,15 @@ const groupLabel = group => `Grupo ${group.split("-").pop()}`;
             >
                 {{ n }}º
             </UiChip>
+            <UiChip
+                :active="course === 'optativas'"
+                @click="course = 'optativas'"
+            >
+                <!-- En pantallas muy estrechas la palabra completa echa la
+                     fila de chips a dos líneas. -->
+                <span class="optFull">Optativas</span>
+                <span class="optShort" aria-hidden="true">Opt.</span>
+            </UiChip>
         </div>
 
         <p
@@ -208,9 +250,14 @@ const groupLabel = group => `Grupo ${group.split("-").pop()}`;
                 v-for="subject in visible"
                 :key="subject.code"
             >
+                <!-- Las optativas que no están en la publicación de este curso
+                     se ven pero no se marcan: que existan es información; que
+                     entraran al horario sería mentira. -->
                 <button
                     type="button"
                     class="row"
+                    :class="{ off: !subject.available }"
+                    :disabled="!subject.available"
                     :aria-pressed="isSelected(subject.code)"
                     @click="toggle(subject.code)"
                 >
@@ -239,7 +286,12 @@ const groupLabel = group => `Grupo ${group.split("-").pop()}`;
 
                     <span class="identity">
                         <span class="name">{{ subject.name }}</span>
-                        <span class="meta">{{ meta(subject) }}</span>
+                        <span class="meta">
+                            {{ meta(subject) }}<template
+                                v-if="!subject.available"
+                            > · <span class="unavailable">no se oferta en
+                            {{ publicationYear }}</span></template>
+                        </span>
                     </span>
 
                 </button>
@@ -478,6 +530,36 @@ const groupLabel = group => `Grupo ${group.split("-").pop()}`;
 
 }
 
+/* En la misma familia tipográfica que "vaciar", pero en navy: es la acción
+   útil del bloque, no una limpieza. */
+.rotate{
+
+    min-height:30px;
+
+    padding:0 7px;
+
+    border:none;
+
+    background:none;
+
+    font-family:var(--font-mono);
+
+    font-size:var(--text-num-sm);
+
+    font-weight:600;
+
+    color:var(--navy);
+
+    cursor:pointer;
+
+}
+
+.rotate:active{
+
+    color:var(--ink);
+
+}
+
 .hint{
 
     margin:0;
@@ -507,6 +589,45 @@ const groupLabel = group => `Grupo ${group.split("-").pop()}`;
     gap:6px;
 
     margin-top:9px;
+
+}
+
+.optShort{
+
+    display:none;
+
+}
+
+/* Por debajo de ~380px los seis chips no caben en una línea: "Optativas"
+   pasa a "Opt." y los chips se aprietan lo justo para que la fila aguante
+   entera hasta los 320px. */
+@media (max-width:379px){
+
+    .optFull{
+
+        display:none;
+
+    }
+
+    .optShort{
+
+        display:inline;
+
+    }
+
+    .chips{
+
+        gap:4px;
+
+    }
+
+    .chips :deep(.chip){
+
+        padding-left:7px;
+
+        padding-right:7px;
+
+    }
 
 }
 
@@ -589,6 +710,30 @@ li:last-child .row{
     flex:1;
 
     min-width:0;
+
+}
+
+.row.off{
+
+    cursor:default;
+
+}
+
+.row.off .name{
+
+    color:var(--ink-faint);
+
+}
+
+.row.off .check{
+
+    border-style:dashed;
+
+}
+
+.unavailable{
+
+    color:var(--delta-bad);
 
 }
 

@@ -2,7 +2,7 @@
 
 import { ref, computed, watch } from "vue";
 
-import asignaturas from "../../../../data/json/processed/Profesores_GuiasDoc.json";
+import asignaturas from "../../../../data/json/processed/profesores_guias_doc.json";
 
 const props = defineProps({
 

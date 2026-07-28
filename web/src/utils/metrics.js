@@ -7,7 +7,7 @@
  * presentados en otro, en la misma pantalla).
  *
  * Nomenclatura oficial de Unizar (la misma que usan los informes de calidad
- * y el fichero ResultadosRaw.json):
+ * y el fichero resultados_fisica.json):
  *
  *   matriculados = No pre + Sus + Apr + Not + Sob + MH
  *   presentados  = matriculados - No pre
@@ -21,9 +21,9 @@
  * 100 - tasa de rendimiento, y aquí se llama TASA DE NO SUPERACIÓN.
  */
 
-import notas from "../../../data/json/NotasRaw.json";
-import subjects from "../../../data/json/processed/AsignaturasClasificadasOptTronc.json";
-import resultados from "../../../data/json/processed/ResultadosFisica.json";
+import notas from "../../../data/json/notas_raw.json";
+import catalogo from "../../../data/json/asignaturas.json";
+import resultados from "../../../data/json/processed/resultados_fisica.json";
 
 /** Nº de cursos académicos que se agregan en las métricas "recientes". */
 export const RECENT_YEARS = 3;
@@ -304,7 +304,7 @@ export const academicYears = [
 ].sort();
 
 /* ------------------------------------------------------------------ *
- * Datos oficiales (ResultadosFisica.json)
+ * Datos oficiales (resultados_fisica.json)
  * ------------------------------------------------------------------ *
  * Publicados por la propia Unizar. Aportan una métrica que no se puede
  * derivar de las calificaciones —la media de convocatorias consumidas— y
@@ -478,46 +478,39 @@ export const subjectSeries = (code, metricKey) =>
 
 /* ------------------------------------------------------------------ *
  * Catálogo de asignaturas
- * ------------------------------------------------------------------ */
+ * ------------------------------------------------------------------ *
+ * Qué asignaturas tiene el grado, de qué curso son y si son troncales u
+ * optativas viene del catálogo mantenido a mano (data/json/asignaturas.json),
+ * no de reglas deducidas de los datos: el plan de estudios es información
+ * oficial, y deducirlo clasificaba mal las optativas especiales de primero.
+ *
+ * `enBolsa` (bolsa_optativas) distingue las optativas normales de las
+ * especiales de primero (Biología, Geología, Grafos y combinatoria): estas
+ * cuentan como optativas a todos los efectos, pero se eligen fuera de la
+ * bolsa y por eso no aparecen en la sección Optativas.
+ */
 
-const COURSES = ["1", "2", "3", "4"];
+const subjectIndex = new Map(
+    catalogo.asignaturas.map(subject => [
+        subject.codigo,
+        {
+            code: subject.codigo,
+            name: subject.nombre,
+            tipo: subject.tipo,
+            courses: subject.cursos.map(String),
+            enBolsa: subject.tipo === "optativa"
+                && subject.bolsa_optativas !== false,
+            // Optativas de oferta bienal: el código de la asignatura con la
+            // que se alternan, o null si se oferta todos los cursos.
+            seAlternaCon: subject.se_alterna_con ?? null
+        }
+    ])
+);
 
-const subjectIndex = new Map();
-
-const register = (subject, course, tipo) => {
-
-    const code = Number(subject.code);
-    const existing = subjectIndex.get(code);
-
-    if (existing) {
-
-        if (!existing.courses.includes(course)) existing.courses.push(course);
-
-        return;
-
-    }
-
-    subjectIndex.set(code, {
-        code,
-        name: subject.name.trim(),
-        tipo,
-        courses: [course]
-    });
-
-};
-
-COURSES.forEach(course => {
-
-    (subjects.troncales[course] ?? []).forEach(s => register(s, course, "troncal"));
-
-    (subjects.optativas[course] ?? []).forEach(s => register(s, course, "optativa"));
-
-});
-
-/** { code, name, tipo: 'troncal'|'optativa', courses: ['3','4'] } o null. */
+/** { code, name, tipo: 'troncal'|'optativa', courses: ['3','4'], enBolsa } o null. */
 export const subjectInfo = code => subjectIndex.get(Number(code)) ?? null;
 
-/** Nombre de la asignatura, con respaldo en NotasRaw si no está catalogada. */
+/** Nombre de la asignatura, con respaldo en las notas si no está catalogada. */
 export const subjectName = code => {
 
     const info = subjectInfo(code);
@@ -568,30 +561,33 @@ export const subjectSummary = code => {
 
 /** Troncales de un curso. */
 export const coreSubjects = course =>
-    subjects.troncales[String(course)] ?? [];
+    allSubjects.filter(subject =>
+        subject.tipo === "troncal" && subject.courses.includes(String(course))
+    );
 
-/** Optativas de un curso. */
+/** Optativas de un curso, especiales incluidas. */
 export const optionalSubjectsOf = course =>
-    subjects.optativas[String(course)] ?? [];
+    allSubjects.filter(subject =>
+        subject.tipo === "optativa" && subject.courses.includes(String(course))
+    );
 
-/** Todas las optativas del grado, sin duplicados (3º y 4º comparten muchas). */
-export const allOptionalSubjects = [
-    ...new Map(
-        [
-            ...(subjects.optativas["3"] ?? []),
-            ...(subjects.optativas["4"] ?? [])
-        ].map(subject => [subject.code, subject])
-    ).values()
-];
+/** Todas las optativas del grado, especiales de primero incluidas. */
+export const allOptionalSubjects = allSubjects.filter(
+    subject => subject.tipo === "optativa"
+);
 
-/** Todas las troncales del grado, sin duplicados. */
-export const allCoreSubjects = [
-    ...new Map(
-        COURSES
-            .flatMap(course => subjects.troncales[course] ?? [])
-            .map(subject => [subject.code, subject])
-    ).values()
-];
+/**
+ * La bolsa de optativas entre las que se elige en 3º y 4º: todas menos las
+ * especiales de primero. Es lo que lista la sección Optativas.
+ */
+export const poolOptionalSubjects = allOptionalSubjects.filter(
+    subject => subject.enBolsa
+);
+
+/** Todas las troncales del grado. */
+export const allCoreSubjects = allSubjects.filter(
+    subject => subject.tipo === "troncal"
+);
 
 /* ------------------------------------------------------------------ *
  * Agregados por curso (1º–4º)

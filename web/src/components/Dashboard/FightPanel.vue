@@ -1,25 +1,13 @@
 <script setup>
 
 import { ref, computed } from "vue";
-import subjects from "../../../../data/json/processed/AsignaturasClasificadasOptTronc.json";
+import catalogo from "../../../../data/json/asignaturas.json";
 
 const emit = defineEmits(["fight"]);
 
-const allSubjects = [];
-
-Object.values(subjects.troncales).forEach(course => {
-    allSubjects.push(...course);
-});
-
-Object.values(subjects.optativas).forEach(course => {
-    allSubjects.push(...course);
-});
-
-const subjectList = [
-    ...new Map(
-        allSubjects.map(s => [s.code, s])
-    ).values()
-].sort((a,b)=>a.name.localeCompare(b.name));
+const subjectList = catalogo.asignaturas
+    .map(s => ({ code: s.codigo, name: s.nombre }))
+    .sort((a,b)=>a.name.localeCompare(b.name));
 
 const fighter1 = ref("");
 const fighter2 = ref("");

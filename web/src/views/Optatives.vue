@@ -21,7 +21,7 @@ import { computed, ref } from "vue";
 
 import { useSubjectList } from "@/composables/useSubjectList";
 import {
-    allOptionalSubjects,
+    poolOptionalSubjects,
     weightedRate,
     subjectRows,
     lastYears
@@ -48,7 +48,9 @@ const {
     total,
     empty
 } = useSubjectList({
-    source: allOptionalSubjects,
+    // La bolsa de 3º y 4º: las optativas especiales de primero (Biología,
+    // Geología, Grafos y combinatoria) no se eligen aquí y no se listan.
+    source: poolOptionalSubjects,
     sort: "enrolment",
     descending: true
 });
@@ -70,10 +72,10 @@ const visible = computed(() =>
     expanded.value ? results.value : results.value.slice(0, PREVIEW)
 );
 
-/** Media ponderada de aprobados de TODAS las optativas del grado. */
+/** Media ponderada de aprobados de las optativas de la bolsa. */
 const averagePass = computed(() => {
 
-    const allRows = allOptionalSubjects.flatMap(subject =>
+    const allRows = poolOptionalSubjects.flatMap(subject =>
         lastYears(subjectRows(subject.code))
     );
 
@@ -119,7 +121,7 @@ const meta = row => [
         <h1>Optativas</h1>
 
         <p class="lead">
-            Todas las del grado, con sus estadísticas y su ficha.
+            La bolsa de 3º y 4º, con sus estadísticas y su ficha.
         </p>
 
         <div class="stats">
