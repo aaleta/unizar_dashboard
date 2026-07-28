@@ -3,8 +3,14 @@
   <head>
     <meta charset="UTF-8">
     <!-- Pestaña del navegador e icono de app instalada: el sello histórico de
-         la Facultad de Ciencias (1923), sobre el papel de la aplicación. -->
-    <link rel="icon" href="/favicon.ico" sizes="any">
+         la Facultad de Ciencias (1923), sobre el papel de la aplicación.
+
+         El .ico va primero y con un tamaño declarado: así los navegadores que
+         entienden SVG se quedan con el vectorial —nítido a cualquier tamaño y
+         con las letras del anillo en blanco si el sistema está en oscuro— y
+         los que no, siguen teniendo su mapa de bits de 16/32/48. -->
+    <link rel="icon" href="/favicon.ico" sizes="32x32">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
     <link rel="manifest" href="/manifest.webmanifest">
     <!-- El mismo azul que la cabecera: la barra del navegador es su
