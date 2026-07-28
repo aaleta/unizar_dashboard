@@ -196,6 +196,6 @@ const valueColor = computed(() =>
 
     font-size: var(--text-eyebrow);
 
-    color: var(--ink-faint);
+    color: var(--ink-soft);
 }
 </style>

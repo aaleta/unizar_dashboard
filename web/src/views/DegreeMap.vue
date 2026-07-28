@@ -490,7 +490,7 @@ const pct = value => (value === null ? "—" : `${Math.round(value)}%`);
 
     font-size: 10px;
 
-    color: var(--ink-faint);
+    color: var(--ink-soft);
 
     cursor: pointer;
 }

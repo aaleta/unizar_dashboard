@@ -137,6 +137,6 @@ const pct = computed(() => {
 
     font-size: 7.5px;
 
-    color: var(--ink-faint);
+    color: var(--ink-soft);
 }
 </style>

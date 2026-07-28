@@ -447,7 +447,7 @@ h2 {
 
     font-weight: 400;
 
-    color: var(--ink-faint);
+    color: var(--ink-soft);
 
     width: 52px;
 
@@ -463,7 +463,7 @@ h2 {
 
     line-height: 1;
 
-    color: var(--ink-faint);
+    color: var(--ink-soft);
 }
 
 .rampValue {
@@ -473,7 +473,7 @@ h2 {
 
     text-align: right;
 
-    color: var(--ink-faint);
+    color: var(--ink-soft);
 }
 
 .dotRow {

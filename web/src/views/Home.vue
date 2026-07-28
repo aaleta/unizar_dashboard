@@ -291,7 +291,7 @@ h2 {
 
     font-weight: 400;
 
-    color: var(--ink-faint);
+    color: var(--ink-soft);
 }
 
 .lead {
@@ -437,7 +437,7 @@ h2 {
 
     font-size: var(--text-num-sm);
 
-    color: var(--ink-faint);
+    color: var(--ink-soft);
 }
 
 .yearNote a {

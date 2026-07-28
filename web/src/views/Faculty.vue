@@ -379,7 +379,7 @@ const thousands = value => String(value).replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
     font-size: 9.5px;
 
-    color: var(--ink-faint);
+    color: var(--ink-soft);
 
     cursor: pointer;
 }
@@ -501,7 +501,7 @@ h2 {
 
     line-height: 1.6;
 
-    color: var(--ink-faint);
+    color: var(--ink-soft);
 }
 
 .emptyState {

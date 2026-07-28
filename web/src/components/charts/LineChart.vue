@@ -327,6 +327,6 @@ svg {
 
     font-size: 7.5px;
 
-    fill: var(--ink-faint);
+    fill: var(--ink-soft);
 }
 </style>

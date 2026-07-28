@@ -138,7 +138,7 @@ const WEEKDAY_LETTERS = ["L", "M", "X", "J", "V", "S", "D"];
 
     font-size: var(--text-footnote);
 
-    color: var(--ink-faint);
+    color: var(--ink-soft);
 }
 
 .month {

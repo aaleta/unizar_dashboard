@@ -125,8 +125,7 @@
     --ink-2: #4a463e; /* Secundario */
     --ink-3: #5f584c; /* Etiqueta de chip inactivo */
     --ink-muted: #6e675c; /* Apoyo (4,9:1) */
-    --ink-soft: #736c61; /* Eyebrows y metadatos (4,5:1) */
-    --ink-faint: #716b5f; /* Notas al pie y cifras de apoyo (4,5:1) */
+    --ink-soft: #736c61; /* Eyebrows, metadatos y notas al pie (4,5:1) */
     --ink-placeholder: #776f64; /* Placeholder y huecos por rellenar */
     --ink-icon: #8a8275; /* Iconos de control (no es texto: 3:1) */
     --ink-on-navy: #fff; /* Texto sobre superficie navy */

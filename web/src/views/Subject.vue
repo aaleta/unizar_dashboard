@@ -643,7 +643,7 @@ h2 {
 
     font-weight: 400;
 
-    color: var(--ink-faint);
+    color: var(--ink-soft);
 }
 
 .teachers {

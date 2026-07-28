@@ -253,7 +253,7 @@ const secondaryStat = computed(() =>
 
     font-size: 8px;
 
-    color: var(--ink-faint);
+    color: var(--ink-soft);
 }
 
 .cohort {

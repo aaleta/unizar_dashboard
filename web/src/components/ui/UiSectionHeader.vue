@@ -99,7 +99,7 @@ defineProps({
 
     font-size: var(--text-footnote);
 
-    color: var(--ink-faint);
+    color: var(--ink-soft);
 
     white-space: nowrap;
 }

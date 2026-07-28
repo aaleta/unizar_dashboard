@@ -141,6 +141,6 @@ defineProps({
 .chevron {
     flex: none;
 
-    color: var(--ink-faint);
+    color: var(--ink-soft);
 }
 </style>

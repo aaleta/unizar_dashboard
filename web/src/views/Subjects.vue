@@ -340,7 +340,7 @@ const meta = row =>
 
     font-size: 10px;
 
-    color: var(--ink-faint);
+    color: var(--ink-soft);
 
     cursor: pointer;
 }
@@ -374,7 +374,7 @@ const meta = row =>
 
     line-height: 1.6;
 
-    color: var(--ink-faint);
+    color: var(--ink-soft);
 }
 
 .visuallyHidden {

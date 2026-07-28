@@ -259,7 +259,7 @@ const label = hour => `${String(hour).padStart(2, "0")}:00`;
 
     font-weight: 500;
 
-    color: var(--ink-faint);
+    color: var(--ink-soft);
 }
 
 /* La primera etiqueta pegada al borde superior no se trunca. */

@@ -518,6 +518,6 @@ const valueColor = (duel, side) => {
 
     line-height: 1.6;
 
-    color: var(--ink-faint);
+    color: var(--ink-soft);
 }
 </style>

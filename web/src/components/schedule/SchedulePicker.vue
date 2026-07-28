@@ -453,7 +453,7 @@ const groupLabel = group => `Grupo ${group.split("-").pop()}`;
 
     font-size: var(--text-num-sm);
 
-    color: var(--ink-faint);
+    color: var(--ink-soft);
 
     cursor: pointer;
 }
@@ -616,7 +616,7 @@ li:last-child .row {
 }
 
 .row.off .name {
-    color: var(--ink-faint);
+    color: var(--ink-soft);
 }
 
 .row.off .check {
@@ -668,7 +668,7 @@ li:last-child .row {
 
     font-size: 10px;
 
-    color: var(--ink-faint);
+    color: var(--ink-soft);
 
     cursor: pointer;
 }

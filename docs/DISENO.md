@@ -99,8 +99,8 @@ Radios: `--radius-row` 8px, `--radius-control` 9px, `--radius-card` 11px,
 ## 4. Accesibilidad: las dos reglas que no se negocian
 
 **Contraste.** Texto normal a 4,5:1 como mínimo, sobre el fondo real en el que
-va a caer. Solo hay **dos** niveles de gris apagado (`--ink-soft`,
-`--ink-faint`) y no es por falta de ganas: sobre este papel, por encima de
+va a caer. Solo hay **dos** niveles de gris apagado (`--ink-muted`,
+`--ink-soft`) y no es por falta de ganas: sobre este papel, por encima de
 4,5:1 no caben más sin que se peguen entre sí. La jerarquía la sostienen el
 tamaño y el peso, no el matiz de gris. Hay un comprobador en
 `theme/contrast.js`.

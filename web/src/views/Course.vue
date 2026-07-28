@@ -279,7 +279,7 @@ const HISTORY_COLORS = ["var(--chart-line-2)"];
 
     line-height: 1.5;
 
-    color: var(--ink-faint);
+    color: var(--ink-soft);
 }
 
 .section {
@@ -323,7 +323,7 @@ h2 {
 
     line-height: 1.5;
 
-    color: var(--ink-faint);
+    color: var(--ink-soft);
 }
 
 .note {
@@ -367,7 +367,7 @@ h2 {
 
     font-size: 10px;
 
-    color: var(--ink-faint);
+    color: var(--ink-soft);
 
     cursor: pointer;
 }
