@@ -43,7 +43,17 @@ body{
        deja un hueco al final. dvh mide el viewport que de verdad se ve. */
     min-height:100dvh;
 
-    background:var(--paper);
+    /* El papel milimetrado: trama fina de 8px y regla mayor de 40px, ambas
+       teñidas de petróleo. Las tarjetas blancas tapan la retícula y quedan
+       como gráficas pegadas en un cuaderno de prácticas; el patrón solo
+       asoma en los márgenes y entre secciones. Son gradientes repetidos
+       estáticos: se rasterizan una vez y no cuestan nada al hacer scroll. */
+    background-color:var(--paper);
+    background-image:
+        repeating-linear-gradient(to right,var(--grid-major) 0 1px,transparent 1px 40px),
+        repeating-linear-gradient(to bottom,var(--grid-major) 0 1px,transparent 1px 40px),
+        repeating-linear-gradient(to right,var(--grid-minor) 0 1px,transparent 1px 8px),
+        repeating-linear-gradient(to bottom,var(--grid-minor) 0 1px,transparent 1px 8px);
 
 }
 

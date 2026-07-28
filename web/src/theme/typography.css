@@ -1,16 +1,21 @@
 /**
  * Escala tipográfica.
  *
- * Tres familias con tres papeles que no se cruzan:
+ * DOS familias con papeles que no se cruzan:
  *
- *   Spectral        → titulares, cabeceras de sección, nombres de asignatura.
- *   Public Sans     → cuerpo, etiquetas de interfaz, botones.
+ *   IBM Plex Sans   → titulares, cabeceras de sección, nombres de asignatura,
+ *                     cuerpo, etiquetas de interfaz, botones.
  *   IBM Plex Mono   → TODAS las cifras y porcentajes, los eyebrows, los
  *                     metadatos y los códigos.
  *
  * Lo de la mono es lo importante: los números son el producto. En mono se
  * alinean en columna, se comparan de un vistazo y no bailan al cambiar de
- * dígito. Un porcentaje escrito en Public Sans es un error, no un matiz.
+ * dígito. Un porcentaje escrito en la sans es un error, no un matiz.
+ *
+ * Plex Sans y Plex Mono son superfamilia: mismas proporciones, mismo color
+ * tipográfico. El titular se distingue del cuerpo por PESO y tracking, no por
+ * cambiar de familia — es la voz de un manual de instrumento, y deja la web
+ * en dos ficheros de fuente por subconjunto.
  *
  * Los tamaños del handoff están medidos a 402px (el ancho del mock). Los
  * titulares escalan de forma fluida entre 320px y 480px; el texto pequeño no
@@ -20,8 +25,7 @@
 
 :root{
 
-    --font-serif:'Spectral',Georgia,'Times New Roman',serif;
-    --font-sans:'Public Sans',system-ui,-apple-system,'Segoe UI',sans-serif;
+    --font-sans:'IBM Plex Sans',system-ui,-apple-system,'Segoe UI',sans-serif;
     --font-mono:'IBM Plex Mono','SF Mono',Menlo,Consolas,monospace;
 
     /* Titulares — fluidos: 22→27px y 25→30px entre 320px y 480px de ancho. */
@@ -115,11 +119,20 @@ body{
 
 }
 
-/** Titulares y nombres de asignatura. */
+/**
+ * Titulares y nombres de asignatura.
+ *
+ * El nombre de la clase es legado del tema anterior (Spectral, una serif);
+ * se conserva para no tocar 13 ficheros en un restyle. Hoy el titular es la
+ * misma Plex Sans del cuerpo subida a 650 de peso —el eje variable lo da
+ * gratis— y con el tracking recogido, que a partir de 14px ya se nota.
+ */
 .serif{
 
-    font-family:var(--font-serif);
+    font-family:var(--font-sans);
 
-    font-weight:600;
+    font-weight:650;
+
+    letter-spacing:-0.01em;
 
 }

@@ -14,7 +14,7 @@
  */
 
 export const GRADE_COLORS = {
-    "No pre": "#b9b0a1",
+    "No pre": "#b3b8ae",
     "Sus": "#b5482f",
     "Apr": "#6e9a6a",
     "Not": "#4e86a0",
@@ -23,4 +23,4 @@ export const GRADE_COLORS = {
 };
 
 /** Color de una categoría; gris neutro si apareciera una desconocida. */
-export const gradeColor = key => GRADE_COLORS[key] ?? "#c7bfb0";
+export const gradeColor = key => GRADE_COLORS[key] ?? "#c1c7bf";

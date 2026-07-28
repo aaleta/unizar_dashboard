@@ -323,7 +323,7 @@ const admissionNote = computed(() => {
 
     border-radius:50%;
 
-    border:1.5px solid rgba(201,162,75,.35);
+    border:1.5px solid var(--gold-halo);
 
 }
 
@@ -349,7 +349,7 @@ const admissionNote = computed(() => {
 
     height:74px;
 
-    border-color:rgba(201,162,75,.22);
+    border-color:var(--gold-halo-soft);
 
 }
 

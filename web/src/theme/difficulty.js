@@ -49,9 +49,9 @@ const RAMP = [
  * mentiría.
  */
 const UNKNOWN = {
-    fill: "#c7bfb0",
-    ink: "#8a8275",
-    inkSmall: "#6e675c",
+    fill: "#c1c7bf",
+    ink: "#767d73",
+    inkSmall: "#5f665d",
     label: "sin datos"
 };
 

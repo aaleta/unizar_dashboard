@@ -4,8 +4,8 @@
     "description": "Estadísticas del Grado en Física de la Universidad de Zaragoza, a partir de los datos oficiales.",
     "start_url": "./",
     "display": "standalone",
-    "background_color": "#f4efe6",
-    "theme_color": "#223d71",
+    "background_color": "#f6f7f4",
+    "theme_color": "#17545c",
     "icons": [
         {
             "src": "app-icon-192.png",
