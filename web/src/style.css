@@ -57,18 +57,6 @@ a {
     text-decoration: none;
 }
 
-/* El enlace suelto dentro de un párrafo o de una lista no tiene alrededor
-   nada que lo delate: ni tarjeta, ni fila, ni pestaña. Sin subrayado solo lo
-   distingue el color, y quien no separa el navy del gris del texto no ve que
-   ahí hay un enlace. Va acotado a la prosa: los enlaces que ya son tarjeta,
-   fila o pestaña siguen limpios. */
-p a,
-li a {
-    text-decoration: underline;
-
-    text-underline-offset: 0.15em;
-}
-
 /* Quien navega con teclado tiene derecho a saber dónde está. */
 :focus-visible {
     outline: 2px solid var(--navy);
