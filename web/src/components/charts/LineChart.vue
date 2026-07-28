@@ -6,7 +6,7 @@
  * Por qué no chart.js, que ya es dependencia: en el móvil hay UNA gráfica de
  * líneas. Traer una librería de dibujo entera —y su capa de tematizado, y su
  * canvas— para un solo gráfico sale caro en bytes y en peleas con el estilo:
- * este diseño quiere ejes en mono, sin rejilla y con los tonos del papel, que
+ * este diseño quiere ejes en mono, guías de puntos y los tonos del papel, que
  * en chart.js es media hora de opciones y aquí son cuatro atributos.
  *
  * En SVG además el texto es texto: se puede seleccionar, lo lee un lector de
@@ -139,6 +139,16 @@ const yTicks = computed(() => {
 });
 
 /**
+ * Guías horizontales, a la altura de cada marca del eje Y. Sin ellas hay que
+ * estimar a ojo dónde cae un punto entre dos números del eje, y a 118px de
+ * alto ese ojo se equivoca.
+ *
+ * La de abajo se cae: su altura es exactamente la del eje X, así que solo
+ * serviría para ensuciar de puntos una línea que ya está pintada.
+ */
+const yGrid = computed(() => yTicks.value.slice(0, -1));
+
+/**
  * Con dieciséis años no caben dieciséis etiquetas en 300px: se reparten
  * uniformemente las que quepan, siempre incluyendo la primera y la última,
  * que son las que sitúan la serie.
@@ -209,6 +219,17 @@ const describe = computed(() =>
             :x2="WIDTH - PAD.right"
             :y2="HEIGHT - PAD.bottom"
             class="axis"
+        />
+
+        <!-- Antes que las líneas: la rejilla va detrás del dato, no encima. -->
+        <line
+            v-for="tick in yGrid"
+            :key="`grid-${tick.value}`"
+            :x1="PAD.left"
+            :y1="tick.y"
+            :x2="WIDTH - PAD.right"
+            :y2="tick.y"
+            class="grid"
         />
 
         <text
@@ -315,6 +336,18 @@ svg{
     stroke:var(--line);
 
     stroke-width:1;
+
+}
+
+/* Mismo color que el eje: lo que la separa es el trazo discontinuo, que a
+   igualdad de tinta pesa la mitad. La guía orienta, no compite. */
+.grid{
+
+    stroke:var(--line);
+
+    stroke-width:1;
+
+    stroke-dasharray:2 4;
 
 }
 

@@ -376,7 +376,17 @@ h2{
 
 }
 
+/* La cifra se centra contra el bloque de texto, que es más alto: alineada
+   arriba se quedaba colgando junto al eyebrow. Se centra el CONTENIDO de la
+   columna, no la columna, para que el filete que la separa siga recorriendo
+   la tarjeta entera. */
 .hardestValue{
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
 
     flex:none;
 
