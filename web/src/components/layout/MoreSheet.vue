@@ -50,7 +50,7 @@ const DESTINATIONS = [
     },
     {
         to: "/metodologia",
-        title: "Metodología y fuentes",
+        title: "Fuentes y metodología",
         subtitle: "Qué mide cada tasa y sus fuentes.",
         icon: "document"
     },
@@ -198,7 +198,6 @@ watch(() => props.open, async isOpen => {
 
                 <span
                     class="tile"
-                    :class="{ gold: destination.badge }"
                     aria-hidden="true"
                 >
                     <span
@@ -414,12 +413,6 @@ watch(() => props.open, async isOpen => {
 
 }
 
-.tile.gold{
-
-    background:var(--gold-wash);
-
-}
-
 .badge{
 
     font-family:var(--font-serif);
@@ -427,8 +420,6 @@ watch(() => props.open, async isOpen => {
     font-size:12px;
 
     font-weight:700;
-
-    color:var(--gold-ink);
 
 }
 

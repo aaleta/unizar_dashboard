@@ -1,0 +1,459 @@
+{
+    "descripcion": "Catálogo del Grado en Física, mantenido A MANO: es la única fuente de verdad sobre qué asignaturas existen, de qué curso son y si son troncales u optativas. Los scripts y la web NO deducen esta clasificación de los datos de notas; si aparece una asignatura nueva, hay que añadirla aquí (scripts/updater.py avisa de códigos sin catalogar). \"bolsa_optativas\": false marca las optativas especiales de primero (Biología, Geología, Grafos y combinatoria) que se cursan fuera de la bolsa normal de optativas: cuentan como optativas a todos los efectos, pero no aparecen en la sección Optativas.",
+    "asignaturas": [
+        {
+            "codigo": 26903,
+            "nombre": "Análisis matemático",
+            "cursos": [
+                1
+            ],
+            "tipo": "troncal"
+        },
+        {
+            "codigo": 26908,
+            "nombre": "Cálculo diferencial",
+            "cursos": [
+                1
+            ],
+            "tipo": "troncal"
+        },
+        {
+            "codigo": 26900,
+            "nombre": "Fundamentos de física I",
+            "cursos": [
+                1
+            ],
+            "tipo": "troncal"
+        },
+        {
+            "codigo": 26905,
+            "nombre": "Fundamentos de física II",
+            "cursos": [
+                1
+            ],
+            "tipo": "troncal"
+        },
+        {
+            "codigo": 26904,
+            "nombre": "Informática",
+            "cursos": [
+                1
+            ],
+            "tipo": "troncal"
+        },
+        {
+            "codigo": 26906,
+            "nombre": "Laboratorio de física",
+            "cursos": [
+                1
+            ],
+            "tipo": "troncal"
+        },
+        {
+            "codigo": 26901,
+            "nombre": "Química",
+            "cursos": [
+                1
+            ],
+            "tipo": "troncal"
+        },
+        {
+            "codigo": 26902,
+            "nombre": "Álgebra I",
+            "cursos": [
+                1
+            ],
+            "tipo": "troncal"
+        },
+        {
+            "codigo": 26907,
+            "nombre": "Álgebra II",
+            "cursos": [
+                1
+            ],
+            "tipo": "troncal"
+        },
+        {
+            "codigo": 26909,
+            "nombre": "Biología",
+            "cursos": [
+                1
+            ],
+            "tipo": "optativa",
+            "bolsa_optativas": false
+        },
+        {
+            "codigo": 26910,
+            "nombre": "Geología",
+            "cursos": [
+                1
+            ],
+            "tipo": "optativa",
+            "bolsa_optativas": false
+        },
+        {
+            "codigo": 26958,
+            "nombre": "Grafos y combinatoria",
+            "cursos": [
+                1
+            ],
+            "tipo": "optativa",
+            "bolsa_optativas": false
+        },
+        {
+            "codigo": 26913,
+            "nombre": "Cálculo integral y geometría",
+            "cursos": [
+                2
+            ],
+            "tipo": "troncal"
+        },
+        {
+            "codigo": 26914,
+            "nombre": "Ecuaciones diferenciales",
+            "cursos": [
+                2
+            ],
+            "tipo": "troncal"
+        },
+        {
+            "codigo": 26915,
+            "nombre": "Electromagnetismo",
+            "cursos": [
+                2
+            ],
+            "tipo": "troncal"
+        },
+        {
+            "codigo": 26918,
+            "nombre": "Física computacional",
+            "cursos": [
+                2
+            ],
+            "tipo": "troncal"
+        },
+        {
+            "codigo": 26912,
+            "nombre": "Mecánica clásica I",
+            "cursos": [
+                2
+            ],
+            "tipo": "troncal"
+        },
+        {
+            "codigo": 26916,
+            "nombre": "Mecánica clásica II",
+            "cursos": [
+                2
+            ],
+            "tipo": "troncal"
+        },
+        {
+            "codigo": 26917,
+            "nombre": "Métodos matemáticos para la física",
+            "cursos": [
+                2
+            ],
+            "tipo": "troncal"
+        },
+        {
+            "codigo": 26919,
+            "nombre": "Ondas electromagnéticas",
+            "cursos": [
+                2
+            ],
+            "tipo": "troncal"
+        },
+        {
+            "codigo": 26911,
+            "nombre": "Técnicas físicas I",
+            "cursos": [
+                2
+            ],
+            "tipo": "troncal"
+        },
+        {
+            "codigo": 26921,
+            "nombre": "Física cuántica I",
+            "cursos": [
+                3
+            ],
+            "tipo": "troncal"
+        },
+        {
+            "codigo": 26924,
+            "nombre": "Física cuántica II",
+            "cursos": [
+                3
+            ],
+            "tipo": "troncal"
+        },
+        {
+            "codigo": 26925,
+            "nombre": "Física estadística",
+            "cursos": [
+                3
+            ],
+            "tipo": "troncal"
+        },
+        {
+            "codigo": 26922,
+            "nombre": "Termodinámica",
+            "cursos": [
+                3
+            ],
+            "tipo": "troncal"
+        },
+        {
+            "codigo": 26920,
+            "nombre": "Técnicas físicas II",
+            "cursos": [
+                3
+            ],
+            "tipo": "troncal"
+        },
+        {
+            "codigo": 26923,
+            "nombre": "Óptica",
+            "cursos": [
+                3
+            ],
+            "tipo": "troncal"
+        },
+        {
+            "codigo": 26944,
+            "nombre": "Aplicaciones de la difracción y de la interferometría",
+            "cursos": [
+                3,
+                4
+            ],
+            "tipo": "optativa"
+        },
+        {
+            "codigo": 26932,
+            "nombre": "Astronomía y astrofísica",
+            "cursos": [
+                3,
+                4
+            ],
+            "tipo": "optativa"
+        },
+        {
+            "codigo": 26933,
+            "nombre": "Caos y sistemas dinámicos no lineales",
+            "cursos": [
+                3,
+                4
+            ],
+            "tipo": "optativa"
+        },
+        {
+            "codigo": 26945,
+            "nombre": "Dispositivos y sistemas fotónicos",
+            "cursos": [
+                3,
+                4
+            ],
+            "tipo": "optativa"
+        },
+        {
+            "codigo": 26946,
+            "nombre": "Dosimetría y radioprotección",
+            "cursos": [
+                3,
+                4
+            ],
+            "tipo": "optativa"
+        },
+        {
+            "codigo": 26947,
+            "nombre": "Espectroscopia",
+            "cursos": [
+                3,
+                4
+            ],
+            "tipo": "optativa"
+        },
+        {
+            "codigo": 26949,
+            "nombre": "Física biológica",
+            "cursos": [
+                3,
+                4
+            ],
+            "tipo": "optativa"
+        },
+        {
+            "codigo": 26950,
+            "nombre": "Física de altas energías",
+            "cursos": [
+                3,
+                4
+            ],
+            "tipo": "optativa"
+        },
+        {
+            "codigo": 26935,
+            "nombre": "Física de fluidos",
+            "cursos": [
+                3,
+                4
+            ],
+            "tipo": "optativa"
+        },
+        {
+            "codigo": 26934,
+            "nombre": "Física de la atmósfera",
+            "cursos": [
+                3
+            ],
+            "tipo": "optativa"
+        },
+        {
+            "codigo": 26951,
+            "nombre": "Física y tecnología nuclear",
+            "cursos": [
+                3,
+                4
+            ],
+            "tipo": "optativa"
+        },
+        {
+            "codigo": 26952,
+            "nombre": "Geofísica",
+            "cursos": [
+                3,
+                4
+            ],
+            "tipo": "optativa"
+        },
+        {
+            "codigo": 26936,
+            "nombre": "Gestión empresarial y proyectos",
+            "cursos": [
+                3,
+                4
+            ],
+            "tipo": "optativa"
+        },
+        {
+            "codigo": 26937,
+            "nombre": "Gravitación y cosmología",
+            "cursos": [
+                3,
+                4
+            ],
+            "tipo": "optativa"
+        },
+        {
+            "codigo": 26938,
+            "nombre": "Historia de la ciencia",
+            "cursos": [
+                3,
+                4
+            ],
+            "tipo": "optativa"
+        },
+        {
+            "codigo": 26939,
+            "nombre": "Iluminación y colorimetría",
+            "cursos": [
+                3
+            ],
+            "tipo": "optativa"
+        },
+        {
+            "codigo": 26940,
+            "nombre": "Láser y aplicaciones",
+            "cursos": [
+                3,
+                4
+            ],
+            "tipo": "optativa"
+        },
+        {
+            "codigo": 26953,
+            "nombre": "Mecánica cuántica",
+            "cursos": [
+                3,
+                4
+            ],
+            "tipo": "optativa"
+        },
+        {
+            "codigo": 26941,
+            "nombre": "Micro y nano sistemas",
+            "cursos": [
+                3,
+                4
+            ],
+            "tipo": "optativa"
+        },
+        {
+            "codigo": 26942,
+            "nombre": "Microondas: propagación y antenas",
+            "cursos": [
+                3,
+                4
+            ],
+            "tipo": "optativa"
+        },
+        {
+            "codigo": 26957,
+            "nombre": "Sistemas digitales",
+            "cursos": [
+                3,
+                4
+            ],
+            "tipo": "optativa"
+        },
+        {
+            "codigo": 26928,
+            "nombre": "Electrónica física",
+            "cursos": [
+                4
+            ],
+            "tipo": "troncal"
+        },
+        {
+            "codigo": 26926,
+            "nombre": "Estado sólido I",
+            "cursos": [
+                4
+            ],
+            "tipo": "troncal"
+        },
+        {
+            "codigo": 26930,
+            "nombre": "Estado sólido II",
+            "cursos": [
+                4
+            ],
+            "tipo": "troncal"
+        },
+        {
+            "codigo": 26929,
+            "nombre": "Física nuclear y partículas",
+            "cursos": [
+                4
+            ],
+            "tipo": "troncal"
+        },
+        {
+            "codigo": 26931,
+            "nombre": "Trabajo fin de Grado",
+            "cursos": [
+                4
+            ],
+            "tipo": "troncal"
+        },
+        {
+            "codigo": 26927,
+            "nombre": "Técnicas físicas III",
+            "cursos": [
+                4
+            ],
+            "tipo": "troncal"
+        }
+    ]
+}

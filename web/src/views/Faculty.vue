@@ -218,18 +218,39 @@ const thousands = value =>
                 {{ selected.nCollaborators }} colaboradores
             </p>
 
-            <p class="eyebrow blockLabel">Imparte</p>
+            <template v-if="selected.currentSubjectItems.length">
 
-            <div class="pills">
-                <RouterLink
-                    v-for="subject in selected.subjectItems"
-                    :key="subject.code"
-                    :to="`/asignatura/${subject.code}`"
-                    class="subjectPill"
-                >
-                    {{ subject.name }} →
-                </RouterLink>
-            </div>
+                <p class="eyebrow blockLabel">Imparte este curso</p>
+
+                <div class="pills">
+                    <RouterLink
+                        v-for="subject in selected.currentSubjectItems"
+                        :key="subject.code"
+                        :to="`/asignatura/${subject.code}`"
+                        class="subjectPill"
+                    >
+                        {{ subject.name }} →
+                    </RouterLink>
+                </div>
+
+            </template>
+
+            <template v-if="selected.pastSubjectItems.length">
+
+                <p class="eyebrow blockLabel">Ha impartido alguna vez</p>
+
+                <div class="pills">
+                    <RouterLink
+                        v-for="subject in selected.pastSubjectItems"
+                        :key="subject.code"
+                        :to="`/asignatura/${subject.code}`"
+                        class="subjectPill past"
+                    >
+                        {{ subject.name }} →
+                    </RouterLink>
+                </div>
+
+            </template>
 
             <template v-if="selected.topCollaborators.length">
 
@@ -556,6 +577,15 @@ h2{
 .subjectPill:active{
 
     background:var(--navy-wash);
+
+}
+
+/* El histórico, en gris: sigue siendo enlace, pero ya no es docencia actual. */
+.subjectPill.past{
+
+    border-color:var(--line);
+
+    color:var(--ink-soft);
 
 }
 

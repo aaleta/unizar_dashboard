@@ -78,7 +78,7 @@ const LIMITS = [
 
     <header class="intro">
 
-        <h1>Metodología y fuentes</h1>
+        <h1>Fuentes y metodología</h1>
 
         <p class="lead">
             Qué significa cada indicador, de dónde salen los datos y qué
@@ -296,7 +296,8 @@ const LIMITS = [
                     Los indicadores describen resultados académicos agregados. No
                     miden la calidad de la docencia ni el desempeño del
                     profesorado: una asignatura difícil puede estar
-                    excelentemente impartida.
+                    excelentemente impartida. Tampoco miden la valía del
+                    alumnado: una asignatura fácil también puede suspenderse.
                 </div>
             </li>
 

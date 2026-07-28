@@ -54,6 +54,15 @@ const byId = new Map(graph.nodes.map(node => [node.id, node]));
 /** El curso de la última guía docente publicada: quien aparece ahí, está activo. */
 const latestYear = availableYears[availableYears.length - 1];
 
+/**
+ * Qué asignaturas imparte cada profesor ESTE curso. El grafo agregado mezcla
+ * toda la historia; la ficha separa "imparte ahora" de "ha impartido", y esa
+ * distinción solo está en el grafo del último curso.
+ */
+const currentSubjects = new Map(
+    cache[latestYear].nodes.map(node => [node.id, new Set(node.subjects)])
+);
+
 const people = graph.nodes
     .map(node => {
 
@@ -111,13 +120,20 @@ export const useProfessorNetwork = (querySource, selectedSource, activeOnlySourc
 
         if (!person) return null;
 
+        // Código y nombre juntos: la píldora de la ficha enlaza a la
+        // asignatura, y para eso hace falta el código.
+        const subjectItems = person.subjects
+            .map(code => ({ code, name: subjectName(code) }))
+            .sort((a, b) => a.name.localeCompare(b.name, "es"));
+
+        const current = currentSubjects.get(person.id) ?? new Set();
+
         return {
             ...person,
-            // Código y nombre juntos: la píldora de la ficha enlaza a la
-            // asignatura, y para eso hace falta el código.
-            subjectItems: person.subjects
-                .map(code => ({ code, name: subjectName(code) }))
-                .sort((a, b) => a.name.localeCompare(b.name, "es")),
+            currentSubjectItems:
+                subjectItems.filter(subject => current.has(subject.code)),
+            pastSubjectItems:
+                subjectItems.filter(subject => !current.has(subject.code)),
             topCollaborators: (collaborators.get(person.id) ?? [])
                 .slice(0, 5)
                 .map(item => ({
