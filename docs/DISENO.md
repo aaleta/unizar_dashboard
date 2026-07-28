@@ -105,6 +105,22 @@ va a caer. Solo hay **dos** niveles de gris apagado (`--ink-soft`,
 tamaño y el peso, no el matiz de gris. Hay un comprobador en
 `theme/contrast.js`.
 
+Las razones anotadas en `tokens.css` están medidas **sobre el papel**, que es
+donde cae casi todo. Sobre `--surface-sunken`, que es más oscuro, los grises
+apagados dejan de cumplir: `--ink-soft` baja a 4,14:1 y `--ink-muted` a
+4,46:1. Ahí hay que subir a `--ink-2`. Es el caso de las cabeceras de día del
+horario, y es el ejemplo de por qué la regla dice *sobre el fondo real*: el
+token no sabe dónde lo van a poner.
+
+**Un solo `<main>` por página.** La carcasa (`AppShell`) ya abre el suyo, así
+que una vista que abra otro deja dos landmarks `main` en el documento, que no
+vale. Las vistas empiezan en un `<div>` o en un `<section>`.
+
+**El ARIA que se copia sin mirar no sirve.** `aria-sort` es de `th` y de
+`columnheader`: en un `<button>` no lo lee nadie. Un control que ordena dice
+lo que hace con `aria-pressed` y una etiqueta explícita («Ordenar por X», o
+«X, ordenado de mayor a menor» cuando está activo). Ver `UiSortHeader`.
+
 **Objetivo táctil de 44px** (`--touch-target`), también en las filas de lista.
 Que el contenido de una fila sea corto no es motivo para encogerla. Si el
 diseño pide filas de 31px y la accesibilidad pide 44, manda la accesibilidad:
@@ -235,6 +251,12 @@ Lo que sale de ahí, por si hay que leerlo sin la herramienta delante:
   rojo una asignatura por estar muy matriculada.
 - Poner una cifra en una fuente que no sea la mono.
 - Bajar de 44px un objetivo táctil, o de 4,5:1 un texto.
+- Subrayar los enlaces de continuo. Se probó dentro de la prosa (`p a`, `li a`)
+  y con la cantidad de enlaces que hay en el texto la página queda emborronada
+  de rayas. Los enlaces se distinguen por el navy. Queda abierto lo que eso no
+  resuelve —el color como única señal— y la salida sensata es un navy más
+  separado del gris del cuerpo, o el subrayado solo en `:hover` y
+  `:focus-visible`, que no está encendido todo el rato.
 - Añadir una sombra donde basta un borde, o un degradado en cualquier sitio.
 - Redondear, estimar o "mejorar" un dato en la capa de presentación: quien
   pinta recibe la cifra ya formateada. El qué se cuenta y con qué denominador
