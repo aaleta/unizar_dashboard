@@ -114,6 +114,11 @@
      * pulsable—, así que cumplen. La jerarquía la sostienen el tamaño y el
      * peso: 8,5–10px frente a los 12,5px del cuerpo se lee mucho antes que
      * un matiz de gris.
+     *
+     * Las razones anotadas abajo son SOBRE EL PAPEL. Sobre `--surface-sunken`,
+     * que es más oscuro, los dos grises apagados se quedan por debajo de
+     * 4,5:1 (`--ink-soft` cae a 4,14:1 y `--ink-muted` a 4,46:1): ahí hay que
+     * bajar a `--ink-2`.
      */
 
     --ink: #23201b; /* Primario */

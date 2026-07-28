@@ -48,12 +48,15 @@ defineEmits(["sort"]);
                 type="button"
                 class="metric"
                 :class="{ active: metric.key === activeKey }"
-                :aria-sort="
+                :aria-pressed="metric.key === activeKey"
+                :aria-label="
                     metric.key === activeKey
-                        ? descending
-                            ? 'descending'
-                            : 'ascending'
-                        : 'none'
+                        ? `${metric.label}, ordenado ${
+                              descending
+                                  ? 'de mayor a menor'
+                                  : 'de menor a mayor'
+                          }`
+                        : `Ordenar por ${metric.label}`
                 "
                 @click="$emit('sort', metric.key)"
             >

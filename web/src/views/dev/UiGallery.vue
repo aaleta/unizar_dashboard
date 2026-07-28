@@ -45,7 +45,9 @@ const sortKey = ref("noSuperacion");
 </script>
 
 <template>
-    <main class="gallery">
+    <!-- Un div, no un <main>: la vista se monta dentro del <main> de AppShell
+         y dos landmarks main en la misma página no valen. -->
+    <div class="gallery">
         <header class="intro">
             <h1>Primitivas</h1>
             <p>
@@ -358,7 +360,7 @@ const sortKey = ref("noSuperacion");
                 </UiLinkRow>
             </div>
         </section>
-    </main>
+    </div>
 </template>
 
 <style scoped>

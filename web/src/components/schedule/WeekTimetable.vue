@@ -231,7 +231,9 @@ const label = hour => `${String(hour).padStart(2, "0")}:00`;
 
     text-transform: uppercase;
 
-    color: var(--ink-soft);
+    /* Sobre el fondo hundido, más oscuro que el papel, los grises apagados se
+       quedan cortos: aquí se usa la tinta secundaria, que sí cumple. */
+    color: var(--ink-2);
 }
 
 .body {
