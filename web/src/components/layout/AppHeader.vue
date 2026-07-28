@@ -1,68 +1,21 @@
 <script setup>
 
 /**
- * La banda navy de arriba, en dos versiones:
+ * La banda de marca de arriba. Es la misma en todas las pantallas: logotipo
+ * de la Universidad en negativo, filete y el nombre de la aplicación.
  *
- *   identidad → la marca. Logotipo de la Universidad en negativo, un filete
- *               vertical y el nombre del grado. Es para las pantallas raíz,
- *               a las que se llega por pestaña.
- *   interior  → chevron de vuelta, eyebrow con la ruta padre y título.
- *               Es para las pantallas a las que se llega desde otra.
+ * No lleva props a propósito. Antes tenía dos versiones —marca en las
+ * pantallas raíz, chevron y título en las de dentro— y el resultado era que
+ * la cabecera cambiaba de forma según dónde estuvieras. Ahora la cabecera es
+ * un punto fijo y quien dice en qué pantalla estás es la banda de título que
+ * va justo debajo (AppPageTitle).
  *
- * El eyebrow existe porque el título solo no dice de dónde vienes: "Ficha de
- * asignatura" puede haberse abierto desde el mapa del grado, desde la lista o
- * desde optativas, y saber en qué rama estás es la mitad de la orientación.
- *
- * La flecha de vuelta usa el historial cuando lo hay y cae a la ruta padre
- * cuando no: alguien que entra directo por un enlace compartido no tiene
- * historial, y un botón "atrás" que no hace nada es peor que no ponerlo.
+ * Sin flecha de volver: se vuelve con el gesto o el botón atrás del sistema,
+ * y a las pantallas raíz con la barra de pestañas de abajo.
  */
-
-import { useRouter } from "vue-router";
-
-import UiIcon from "@/components/ui/UiIcon.vue";
 
 // Pasa por Vite para que el fichero se versione y se cachee como el resto.
 import logoNegativo from "@/assets/logo-unizar-negativo.svg";
-
-const props = defineProps({
-
-    variant: {
-        type: String,
-        default: "identity",
-        validator: value => ["identity", "inner"].includes(value)
-    },
-
-    title: {
-        type: String,
-        default: null
-    },
-
-    eyebrow: {
-        type: String,
-        default: null
-    },
-
-    // Ruta padre a la que volver si no hay historial propio.
-    back: {
-        type: String,
-        default: "/"
-    }
-
-});
-
-const router = useRouter();
-
-const goBack = () => {
-
-    if (window.history.state?.back) {
-        router.back();
-        return;
-    }
-
-    router.push(props.back);
-
-};
 
 </script>
 
@@ -72,49 +25,20 @@ const goBack = () => {
 
     <div class="inner">
 
-        <template v-if="variant === 'identity'">
+        <!-- El alt es información, no adorno: quien no ve el logotipo
+             tiene que saber igualmente de qué universidad se trata. -->
+        <img
+            class="logo"
+            :src="logoNegativo"
+            alt="Universidad de Zaragoza"
+        >
 
-            <!-- El alt es información, no adorno: quien no ve el logotipo
-                 tiene que saber igualmente de qué universidad se trata. -->
-            <img
-                class="logo"
-                :src="logoNegativo"
-                alt="Universidad de Zaragoza"
-            >
+        <span
+            class="divider"
+            aria-hidden="true"
+        ></span>
 
-            <span
-                class="divider"
-                aria-hidden="true"
-            ></span>
-
-            <span class="brand">{{ title || "Grado en Física" }}</span>
-
-        </template>
-
-        <template v-else>
-
-            <button
-                type="button"
-                class="back"
-                aria-label="Volver"
-                @click="goBack"
-            >
-                <UiIcon
-                    name="chevronLeft"
-                    :size="14"
-                    :width="2"
-                />
-            </button>
-
-            <span class="titles">
-                <span
-                    v-if="eyebrow"
-                    class="eyebrow"
-                >{{ eyebrow }}</span>
-                <span class="title">{{ title }}</span>
-            </span>
-
-        </template>
+        <span class="brand">Dashboard del Grado en Física</span>
 
     </div>
 
@@ -126,8 +50,8 @@ const goBack = () => {
 
 .header{
 
-    /* Pegada arriba: en una lista de 54 asignaturas, perder de vista de qué
-       pantalla se trata en cuanto bajas un poco desorienta. */
+    /* Pegada arriba: es el único elemento que no se mueve en toda la
+       aplicación, y eso es justo lo que la hace servir de referencia. */
     position:sticky;
 
     top:0;
@@ -177,8 +101,8 @@ const goBack = () => {
 
 }
 
-/* Separa la marca de la Universidad del nombre del grado: son dos cosas
-   distintas y sin la línea se leen como un solo bloque. */
+/* Separa la marca de la Universidad del nombre de la aplicación: son dos
+   cosas distintas y sin la línea se leen como un solo bloque. */
 .divider{
 
     width:1px;
@@ -201,101 +125,8 @@ const goBack = () => {
 
     color:var(--ink-on-navy);
 
-}
-
-.back{
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    position:relative;
-
-    width:30px;
-
-    height:30px;
-
-    flex:none;
-
-    padding:0;
-
-    border:none;
-
-    border-radius:8px;
-
-    background:rgba(255,255,255,.12);
-
-    color:var(--navy-faint);
-
-    cursor:pointer;
-
-}
-
-/* El botón mide 30px, pero lo que responde al dedo llega a 44px. */
-.back::after{
-
-    content:"";
-
-    position:absolute;
-
-    left:50%;
-
-    top:50%;
-
-    width:var(--touch-target);
-
-    height:var(--touch-target);
-
-    transform:translate(-50%,-50%);
-
-}
-
-.back:active{
-
-    background:rgba(255,255,255,.2);
-
-}
-
-.titles{
-
-    display:flex;
-
-    flex-direction:column;
-
-    min-width:0;
-
-    line-height:var(--leading-tight);
-
-}
-
-.titles .eyebrow{
-
-    font-family:var(--font-mono);
-
-    font-size:var(--text-eyebrow-sm);
-
-    font-weight:500;
-
-    letter-spacing:.4px;
-
-    text-transform:uppercase;
-
-    /* Sobre navy el gris del papel no se ve: este azul claro es el que el
-       diseño reserva para el texto secundario dentro de la banda. */
-    color:var(--navy-faint);
-
-}
-
-.title{
-
-    font-family:var(--font-serif);
-
-    font-size:14px;
-
-    font-weight:600;
-
+    /* En una pantalla estrecha el nombre completo no cabe en una línea y
+       partirlo dejaría la banda de dos alturas. Antes que eso, se recorta. */
     overflow:hidden;
 
     text-overflow:ellipsis;

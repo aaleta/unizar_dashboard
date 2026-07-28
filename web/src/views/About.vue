@@ -62,7 +62,9 @@ const HOW = [
 
     <header class="intro">
 
-        <h1>Una herramienta hecha por estudiantes, para estudiantes.</h1>
+        <!-- No es el título de la pantalla —ese va en la banda de arriba—,
+             es la frase con la que abre. Por eso no es un h1. -->
+        <p class="statement">Una herramienta hecha por estudiantes, para estudiantes.</p>
 
         <p>
             Elegir asignaturas se hacía a base de rumores de pasillo. Quisimos
@@ -186,7 +188,9 @@ const HOW = [
 
 }
 
-h1{
+/* Con `.intro` delante para ganar a `.intro p`, que ahora también la
+   alcanzaría: la frase de apertura es un párrafo, pero no se lee como uno. */
+.intro .statement{
 
     margin:0;
 

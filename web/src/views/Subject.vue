@@ -70,13 +70,10 @@ watch(code, () => {
     selectedYear.value = "";
 });
 
+// El titular de la ficha es el nombre de la asignatura: es lo que se ha
+// venido a ver, y repetir "Ficha de asignatura" no orienta a nadie.
 usePageHeader(() => ({
-    header: "inner",
-    eyebrow: courseName.value
-        ? `El Grado · ${courseName.value}`
-        : "El Grado",
-    title: "Ficha de asignatura",
-    back: course.value ? `/grado/${course.value}` : "/grado"
+    title: name.value || "Ficha de asignatura"
 }));
 
 const pct = (value, decimals = 0) =>
@@ -205,8 +202,6 @@ const comparison = computed(() => {
             </UiPill>
             <UiPill tone="neutral">Cód. {{ code }}</UiPill>
         </div>
-
-        <h1>{{ name }}</h1>
 
         <UiCallout
             v-if="verdict"
@@ -506,20 +501,6 @@ const comparison = computed(() => {
     gap:6px;
 
     margin-bottom:9px;
-
-}
-
-h1{
-
-    margin:0;
-
-    font-family:var(--font-serif);
-
-    font-size:var(--text-h1-lg);
-
-    font-weight:700;
-
-    line-height:1.1;
 
 }
 

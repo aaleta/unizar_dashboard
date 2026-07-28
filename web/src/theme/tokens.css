@@ -62,10 +62,8 @@
     --gold-soft:#866d40;          /* Detalle del veredicto sobre gold-wash */
 
     /* Sobre superficies navy claras y oscuras */
-    --on-navy-soft:#c4cee0;       /* Párrafo del héroe sobre navy */
     --on-navy-divider:rgba(176,141,63,.6);  /* Filete vertical entre el
                                      logotipo y el título de la cabecera */
-    --on-navy-meta:#b9c6dd;       /* Metadatos sobre navy-surface (7,2:1) */
     --navy-meta:#606e88;          /* Metadatos sobre navy-wash */
     --navy-avatar:#5d6d8c;        /* Avatar de hueco por rellenar */
 

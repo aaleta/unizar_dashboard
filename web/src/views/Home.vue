@@ -106,19 +106,6 @@ const admissionNote = computed(() => {
 
 <div class="screen">
 
-    <!-- Héroe: continúa la banda navy de la cabecera ------------------- -->
-    <section class="hero fullBleed">
-
-        <div class="heroInner">
-            <h1>Estadísticas del<br>Grado en Física</h1>
-            <p>
-                Calculadas a partir de la información oficial que publica la
-                propia Universidad de Zaragoza.
-            </p>
-        </div>
-
-    </section>
-
     <div class="body">
 
         <!-- Cuatro cifras -------------------------------------------- -->
@@ -266,63 +253,6 @@ const admissionNote = computed(() => {
 </template>
 
 <style scoped>
-
-/* Héroe --------------------------------------------------------------- */
-
-.hero{
-
-    background:var(--navy-surface);
-
-    padding-top:2px;
-
-    padding-bottom:18px;
-
-    /* Sube 1px para que no se vea costura con la cabecera. */
-    margin-top:-1px;
-
-}
-
-.heroInner{
-
-    max-width:var(--content-max);
-
-    margin:0 auto;
-
-    /* El mismo margen lateral que el contenido: la banda llega al borde,
-       pero el texto no. */
-    padding-inline:var(--gutter);
-
-}
-
-h1{
-
-    margin:16px 0 8px;
-
-    font-family:var(--font-serif);
-
-    font-size:24px;
-
-    font-weight:700;
-
-    line-height:1.15;
-
-    color:var(--ink-on-navy);
-
-}
-
-.hero p{
-
-    margin:0;
-
-    max-width:290px;
-
-    font-size:12px;
-
-    line-height:1.55;
-
-    color:var(--on-navy-soft);
-
-}
 
 /* Cuerpo -------------------------------------------------------------- */
 

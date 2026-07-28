@@ -47,10 +47,7 @@ const {
 } = useCourse(() => route.params.curso);
 
 usePageHeader(() => ({
-    header: "inner",
-    eyebrow: "El Grado",
-    title: name.value ? `${name.value} · vista de curso` : "Vista de curso",
-    back: "/grado"
+    title: name.value ? `Curso ${name.value.toLowerCase()}` : "Vista de curso"
 }));
 
 const showAllCore = ref(false);
@@ -105,14 +102,6 @@ const HISTORY_COLORS = ["var(--chart-line-2)"];
 >
 
     <header class="intro">
-
-        <div class="title">
-            <span
-                class="badge"
-                aria-hidden="true"
-            >{{ number }}</span>
-            <h1>{{ name }}</h1>
-        </div>
 
         <p class="lead">
             Estadísticas del curso y acceso a la ficha de cada asignatura.
@@ -303,60 +292,6 @@ const HISTORY_COLORS = ["var(--chart-line-2)"];
 .screen{
 
     padding:16px var(--gutter) 8px;
-
-}
-
-.intro .title{
-
-    display:flex;
-
-    align-items:center;
-
-    gap:9px;
-
-    margin-bottom:8px;
-
-}
-
-.badge{
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    width:26px;
-
-    height:26px;
-
-    flex:none;
-
-    border-radius:50%;
-
-    background:var(--navy);
-
-    color:var(--ink-on-navy);
-
-    font-family:var(--font-serif);
-
-    font-size:13px;
-
-    font-weight:700;
-
-}
-
-h1{
-
-    margin:0;
-
-    font-family:var(--font-serif);
-
-    font-size:26px;
-
-    font-weight:700;
-
-    line-height:1;
 
 }
 

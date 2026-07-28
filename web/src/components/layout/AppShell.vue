@@ -1,12 +1,12 @@
 <script setup>
 
 /**
- * La carcasa: cabecera navy arriba, contenido en medio, pestañas abajo.
+ * La carcasa: marca arriba, banda de título debajo, contenido en medio y
+ * pestañas abajo. Ese orden es el mismo en las once pantallas.
  *
- * Qué cabecera lleva cada pantalla sale de `meta` en el router, no de la
- * propia vista. Así el mapa de navegación —quién cuelga de quién, qué eyebrow
- * lleva cada rama— se lee de un vistazo en un solo fichero, en vez de estar
- * repartido por once componentes.
+ * El título de cada pantalla sale de `meta` en el router, no de la propia
+ * vista. Así la lista entera de títulos se lee de un vistazo en un solo
+ * fichero, en vez de estar repartida por once componentes.
  *
  * El desplazamiento es el del documento, no el de un contenedor interno: es lo
  * que permite que la barra de direcciones del móvil se recoja al bajar. Un
@@ -25,21 +25,18 @@ import { pageHeader } from "@/composables/usePageHeader";
 import { navigationLoading } from "@/composables/useNavigationProgress";
 
 import AppHeader from "./AppHeader.vue";
+import AppPageTitle from "./AppPageTitle.vue";
 import BottomTabBar from "./BottomTabBar.vue";
 import MoreSheet from "./MoreSheet.vue";
 
 const route = useRoute();
 
 /**
- * El `meta` de la ruta manda salvo que la pantalla afine su cabecera con
- * usePageHeader: hay títulos que no se saben hasta tener los datos delante.
+ * El `meta` de la ruta manda salvo que la pantalla afine su título con
+ * usePageHeader: hay títulos que no se saben hasta tener los datos delante,
+ * como el nombre de la asignatura de una ficha.
  */
-const header = computed(() => ({
-    variant: "identity",
-    back: "/",
-    ...route.meta,
-    ...pageHeader.value
-}));
+const title = computed(() => pageHeader.value?.title ?? route.meta.title ?? null);
 
 const sheetOpen = ref(false);
 
@@ -55,12 +52,7 @@ watch(() => route.fullPath, () => {
 
 <div class="shell">
 
-    <AppHeader
-        :variant="header.header || header.variant"
-        :title="header.title"
-        :eyebrow="header.eyebrow"
-        :back="header.back"
-    />
+    <AppHeader />
 
     <!-- Barra de carga: solo aparece si la pantalla tarda. `aria-hidden` a
          propósito — el cambio de página ya se anuncia solo, y un "cargando"
@@ -72,6 +64,7 @@ watch(() => route.fullPath, () => {
     ></div>
 
     <main class="body">
+        <AppPageTitle :title="title" />
         <div class="content">
             <slot />
         </div>

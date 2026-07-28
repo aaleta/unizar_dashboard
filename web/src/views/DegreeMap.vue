@@ -62,17 +62,6 @@ const pct = value =>
 
 <div class="screen">
 
-    <!-- Continúa la banda navy de la cabecera: son las cifras estructurales
-         del grado, no datos que haya que comparar. Se va con el scroll y la
-         cabecera se queda, que es lo que hace falta al bajar. -->
-    <div class="totals fullBleed">
-        <div class="totalsInner">
-            <span>{{ totals.courses }} cursos</span>
-            <span>{{ totals.troncales }} troncales</span>
-            <span>{{ totals.optativas }} optativas</span>
-        </div>
-    </div>
-
     <div class="spine">
 
         <div
@@ -249,47 +238,6 @@ const pct = value =>
 .screen{
 
     padding-bottom:8px;
-
-}
-
-.totals{
-
-    background:var(--navy-surface);
-
-    padding-bottom:12px;
-
-    /* Sube 1px para tapar cualquier costura con la cabecera al hacer zoom. */
-    margin-top:-1px;
-
-    padding-top:1px;
-
-}
-
-.totalsInner{
-
-    display:flex;
-
-    flex-wrap:wrap;
-
-    gap:14px;
-
-    max-width:var(--content-max);
-
-    margin:0 auto;
-
-    /* El mismo margen lateral que el contenido: la banda llega al borde,
-       pero las cifras no. */
-    padding-inline:var(--gutter);
-
-    font-family:var(--font-mono);
-
-    font-size:9.5px;
-
-    letter-spacing:.3px;
-
-    text-transform:uppercase;
-
-    color:var(--on-navy-meta);
 
 }
 

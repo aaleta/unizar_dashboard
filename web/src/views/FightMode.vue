@@ -62,7 +62,6 @@ const valueColor = (duel, side) => {
 <div class="screen">
 
     <header class="intro">
-        <h1>Fight Mode</h1>
         <p>
             Mejor comparar asignaturas del mismo tipo: optativas con
             optativas, troncales con troncales.
@@ -222,18 +221,6 @@ const valueColor = (duel, side) => {
 .intro{
 
     text-align:center;
-
-}
-
-h1{
-
-    margin:0;
-
-    font-family:var(--font-serif);
-
-    font-size:26px;
-
-    font-weight:700;
 
 }
 

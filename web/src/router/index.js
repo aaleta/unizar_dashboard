@@ -7,16 +7,12 @@ import HomeView from "@/views/Home.vue";
  * /dashboard/:code…) se mantienen como redirecciones para no romper enlaces
  * ni marcadores ya compartidos.
  *
- * `meta` describe la cabecera de cada pantalla, y con ella el mapa de
- * navegación entero:
+ * `meta.title` es lo que se lee en la banda de título, debajo de la marca.
+ * Es el h1 de la pantalla, así que se escribe como un titular y no como una
+ * etiqueta de menú. Los dos que dependen de los datos —el curso y la ficha
+ * de asignatura— los afina la propia vista con usePageHeader.
  *
- *   header  "identity" (marca) en las pantallas raíz, a las que se llega por
- *           pestaña; "inner" (chevron + eyebrow + título) en las demás.
- *   eyebrow de qué rama cuelga la pantalla, en mayúsculas.
- *   back    a dónde volver si no hay historial: quien abre un enlace
- *           compartido entra directo y su botón "atrás" no tiene a dónde ir.
- *
- * Está aquí y no en cada vista para poder leer la jerarquía de un vistazo.
+ * Está aquí y no en cada vista para poder leer todos los títulos juntos.
  */
 const router = createRouter({
 
@@ -29,10 +25,7 @@ const router = createRouter({
             name: "home",
             component: HomeView,
             meta: {
-                header: "identity",
-
-                /* El logotipo ya dice la universidad; repetirla sobra. */
-                title: "Grado en Física"
+                title: "Estadísticas globales del grado"
             }
         },
 
@@ -41,8 +34,7 @@ const router = createRouter({
             name: "degree",
             component: () => import("@/views/DegreeMap.vue"),
             meta: {
-                header: "identity",
-                title: "El Grado en Física"
+                title: "Estructura del grado"
             }
         },
 
@@ -51,10 +43,7 @@ const router = createRouter({
             name: "course",
             component: () => import("@/views/Course.vue"),
             meta: {
-                header: "inner",
-                eyebrow: "El Grado",
-                title: "Vista de curso",
-                back: "/grado"
+                title: "Vista de curso"
             }
         },
 
@@ -63,10 +52,7 @@ const router = createRouter({
             name: "subjects",
             component: () => import("@/views/Subjects.vue"),
             meta: {
-                header: "inner",
-                eyebrow: "El Grado",
-                title: "Todas las asignaturas",
-                back: "/grado"
+                title: "Todas las asignaturas"
             }
         },
 
@@ -75,10 +61,7 @@ const router = createRouter({
             name: "subject",
             component: () => import("@/views/Subject.vue"),
             meta: {
-                header: "inner",
-                eyebrow: "El Grado",
-                title: "Ficha de asignatura",
-                back: "/grado"
+                title: "Ficha de asignatura"
             }
         },
 
@@ -87,8 +70,7 @@ const router = createRouter({
             name: "optatives",
             component: () => import("@/views/Optatives.vue"),
             meta: {
-                header: "identity",
-                title: "Optativas"
+                title: "Optativas del grado"
             }
         },
 
@@ -97,8 +79,6 @@ const router = createRouter({
             name: "faculty",
             component: () => import("@/views/Faculty.vue"),
             meta: {
-                header: "inner",
-                eyebrow: "Más",
                 title: "Profesorado"
             }
         },
@@ -108,8 +88,6 @@ const router = createRouter({
             name: "schedule",
             component: () => import("@/views/Schedule.vue"),
             meta: {
-                header: "inner",
-                eyebrow: "Más",
                 title: "Monta tu horario"
             }
         },
@@ -119,8 +97,6 @@ const router = createRouter({
             name: "methodology",
             component: () => import("@/views/Methodology.vue"),
             meta: {
-                header: "inner",
-                eyebrow: "Más",
                 title: "Fuentes y metodología"
             }
         },
@@ -130,8 +106,6 @@ const router = createRouter({
             name: "fight",
             component: () => import("@/views/FightMode.vue"),
             meta: {
-                header: "inner",
-                eyebrow: "Más",
                 title: "Fight Mode"
             }
         },
@@ -141,8 +115,6 @@ const router = createRouter({
             name: "about",
             component: () => import("@/views/About.vue"),
             meta: {
-                header: "inner",
-                eyebrow: "Más",
                 title: "Acerca de"
             }
         },
@@ -192,8 +164,6 @@ const router = createRouter({
                 name: "dev-ui",
                 component: () => import("@/views/dev/UiGallery.vue"),
                 meta: {
-                    header: "inner",
-                    eyebrow: "Desarrollo",
                     title: "Primitivas"
                 }
             }]

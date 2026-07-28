@@ -78,8 +78,6 @@ const LIMITS = [
 
     <header class="intro">
 
-        <h1>Fuentes y metodología</h1>
-
         <p class="lead">
             Qué significa cada indicador, de dónde salen los datos y qué
             limitaciones tienen. Si una cifra de esta web no cuadra con otra que
@@ -314,20 +312,6 @@ const LIMITS = [
 .screen{
 
     padding:15px var(--gutter) 8px;
-
-}
-
-h1{
-
-    margin:0 0 6px;
-
-    font-family:var(--font-serif);
-
-    font-size:var(--text-h1);
-
-    font-weight:700;
-
-    line-height:1.15;
 
 }
 

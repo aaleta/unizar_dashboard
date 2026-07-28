@@ -1,11 +1,10 @@
 /**
- * Deja que una pantalla afine su propia cabecera.
+ * Deja que una pantalla afine su propio título.
  *
- * Lo normal es que la cabecera salga del `meta` de la ruta, que es donde se
- * lee la jerarquía de un vistazo. Pero hay títulos que no se saben hasta
- * cargar los datos: la ficha de una asignatura de primero lleva el eyebrow
- * "EL GRADO · PRIMERO", y de qué curso es no está en la ruta, está en el
- * catálogo.
+ * Lo normal es que el título salga del `meta` de la ruta, que es donde se
+ * leen todos juntos. Pero hay dos que no se saben hasta cargar los datos: la
+ * ficha de asignatura se titula con el nombre de la asignatura, y ese nombre
+ * no está en la ruta, está en el catálogo.
  *
  * Se guarda en un ref de módulo, no en un provide/inject, porque hay un solo
  * AppShell y una sola pantalla activa a la vez: montar una infraestructura de
@@ -26,8 +25,8 @@ export const pageHeader = override;
  * Llamar SIEMPRE desde el setup del componente: registra un onUnmounted y
  * fuera del setup no habría instancia a la que colgarlo.
  *
- * @param source objeto { title, eyebrow, back } o función que lo devuelva
- *               (si depende de datos que cambian, pasar la función).
+ * @param source objeto { title } o función que lo devuelva (si depende de
+ *               datos que cambian, pasar la función).
  */
 export const usePageHeader = source => {
 

@@ -118,8 +118,6 @@ const meta = row => [
 
     <header class="intro">
 
-        <h1>Optativas</h1>
-
         <p class="lead">
             La bolsa de 3º y 4º, con sus estadísticas y su ficha.
         </p>
@@ -242,18 +240,6 @@ const meta = row => [
 .screen{
 
     padding:15px var(--gutter) 8px;
-
-}
-
-h1{
-
-    margin:0 0 3px;
-
-    font-family:var(--font-serif);
-
-    font-size:var(--text-h1-lg);
-
-    font-weight:700;
 
 }
 

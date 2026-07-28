@@ -92,8 +92,6 @@ const thousands = value =>
 
     <header class="intro">
 
-        <h1>Red de colaboración</h1>
-
         <p class="lead">
             Quién comparte asignatura con quién. Cada colaboración pesa 1/n por
             asignatura y curso.
@@ -290,20 +288,6 @@ const thousands = value =>
 .screen{
 
     padding:15px var(--gutter) 8px;
-
-}
-
-h1{
-
-    margin:0 0 5px;
-
-    font-family:var(--font-serif);
-
-    font-size:22px;
-
-    font-weight:700;
-
-    line-height:1.15;
 
 }
 
