@@ -1,0 +1,1 @@
+import{U as e,bt as t,dt as n,lt as r,tt as i}from"./index-CO5-K2i0.js";var a=e({__name:`UiPill`,props:{tone:{type:String,default:`navy`,validator:e=>[`navy`,`neutral`,`gold`].includes(e)}},setup(e){return(a,o)=>(r(),i(`span`,{class:t([`pill`,e.tone])},[n(a.$slots,`default`,{},void 0,!0)],2))}},[[`__scopeId`,`data-v-8c86293c`]]);export{a as t};
