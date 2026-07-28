@@ -60,6 +60,7 @@ anteriores: menos peticiones, mismo peso.
 - `web/src/theme/gradePalette.js` — categorías retintadas
 - `web/src/theme/contrast.js` — literal de tinta actualizado
 - `web/src/views/{Home,Course,Faculty,About,Subject,Schedule,Methodology,Optatives,FightMode}.vue`, `web/src/components/ui/{UiSubjectCard,UiChip,UiCountBar,UiMeterRow}.vue`, `web/src/components/layout/{AppHeader,MoreSheet}.vue` — valores sueltos (radios, rgba) sustituidos por tokens; peso de titular de la cabecera
+- `web/src/assets/uz-escudo-neg.svg` + `web/src/components/layout/AppHeader.vue` — la tesela «F» se sustituye por el escudo oficial de la Universidad en negativo (blanco sobre la banda cobalto) con eyebrow institucional
 
 Sin cambios de estructura, copy, componentes ni comportamiento. La versión de
 escritorio sin migrar queda como estaba.

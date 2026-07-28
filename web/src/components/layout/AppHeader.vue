@@ -1,9 +1,10 @@
 <script setup>
 
 /**
- * La banda navy de arriba, en dos versiones:
+ * La banda cobalto de arriba, en dos versiones:
  *
- *   identidad → la marca. Tesela dorada con la "F" y el nombre del grado.
+ *   identidad → la marca. Escudo de la Universidad en negativo, eyebrow
+ *               institucional y el nombre del grado.
  *               Es para las pantallas raíz, a las que se llega por pestaña.
  *   interior  → chevron de vuelta, eyebrow con la ruta padre y título.
  *               Es para las pantallas a las que se llega desde otra.
@@ -20,6 +21,8 @@
 import { useRouter } from "vue-router";
 
 import UiIcon from "@/components/ui/UiIcon.vue";
+
+import escudoNeg from "@/assets/uz-escudo-neg.svg";
 
 const props = defineProps({
 
@@ -70,12 +73,16 @@ const goBack = () => {
 
         <template v-if="variant === 'identity'">
 
-            <span
-                class="mark"
-                aria-hidden="true"
-            >F</span>
+            <img
+                class="escudo"
+                :src="escudoNeg"
+                alt=""
+            >
 
-            <span class="brand">{{ title || "El Grado en Física" }}</span>
+            <span class="titles">
+                <span class="eyebrow">Universidad de Zaragoza</span>
+                <span class="brand">{{ title || "El Grado en Física" }}</span>
+            </span>
 
         </template>
 
@@ -149,31 +156,15 @@ const goBack = () => {
 
 }
 
-.mark{
+/* El escudo va en negativo: sobre el cobalto, el azul del original
+   desaparecería; en blanco funciona sobre cualquier banda oscura. */
+.escudo{
 
-    display:flex;
+    height:32px;
 
-    align-items:center;
-
-    justify-content:center;
-
-    width:24px;
-
-    height:24px;
+    width:auto;
 
     flex:none;
-
-    border-radius:var(--radius-control);
-
-    background:var(--gold);
-
-    color:var(--navy);
-
-    font-family:var(--font-serif);
-
-    font-size:14px;
-
-    font-weight:700;
 
 }
 
