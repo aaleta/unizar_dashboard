@@ -127,7 +127,7 @@ const model = defineModel({ type: String, default: "" });
 
     font-family:var(--font-sans);
 
-    font-size:13px;
+    font-size:var(--text-body);
 
     color:var(--ink);
 
@@ -139,7 +139,7 @@ const model = defineModel({ type: String, default: "" });
 
     .input{
 
-        font-size:16px;
+        font-size:var(--text-input);
 
     }
 

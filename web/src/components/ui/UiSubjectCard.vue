@@ -206,7 +206,7 @@ const secondaryStat = computed(() =>
 
     border:1px solid var(--line);
 
-    border-radius:12px;
+    border-radius:var(--radius-card-lg);
 
     box-shadow:var(--shadow-card);
 
@@ -256,11 +256,11 @@ const secondaryStat = computed(() =>
 
     font-family:var(--font-serif);
 
-    font-size:15px;
+    font-size:var(--text-lead);
 
     font-weight:600;
 
-    line-height:1.2;
+    line-height:var(--leading-tight);
 
 }
 
@@ -268,7 +268,7 @@ const secondaryStat = computed(() =>
 
     color:var(--attention);
 
-    font-size:12px;
+    font-size:var(--text-body-sm);
 
 }
 
@@ -276,7 +276,7 @@ const secondaryStat = computed(() =>
 
     margin-top:3px;
 
-    font-family:var(--font-mono);
+    font-family:var(--font-sans);
 
     font-size:var(--text-eyebrow);
 
@@ -296,7 +296,7 @@ const secondaryStat = computed(() =>
 
     font-size:var(--text-metric);
 
-    line-height:1;
+    line-height:var(--leading-none);
 
 }
 
@@ -304,7 +304,7 @@ const secondaryStat = computed(() =>
 
     margin-top:2px;
 
-    font-size:8px;
+    font-size:var(--text-micro);
 
     color:var(--ink-faint);
 
@@ -316,7 +316,7 @@ const secondaryStat = computed(() =>
 
     min-width:0;
 
-    font-size:9.5px;
+    font-size:var(--text-nav);
 
     line-height:var(--leading-snug);
 
@@ -342,7 +342,7 @@ const secondaryStat = computed(() =>
 
 .stat{
 
-    font-size:10.5px;
+    font-size:var(--text-caption);
 
     color:var(--ink-muted);
 

@@ -100,13 +100,13 @@ defineEmits(["sort"]);
 .label,
 .metric{
 
-    font-family:var(--font-mono);
+    font-family:var(--font-sans);
 
     font-size:var(--text-eyebrow);
 
     font-weight:600;
 
-    letter-spacing:.4px;
+    letter-spacing:var(--tracking-eyebrow);
 
     text-transform:uppercase;
 

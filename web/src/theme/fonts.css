@@ -1,131 +1,69 @@
 /**
- * Fuentes del rediseño móvil, auto-hospedadas.
+ * Fuentes de la dirección "Tinta", auto-hospedadas.
  *
- * Spectral (titulares) · Public Sans (interfaz) · IBM Plex Mono (TODAS las
- * cifras y las etiquetas "eyebrow"). Ver §5 del handoff de diseño.
+ * DOS familias, ni una más:
+ *
+ *   Newsreader       → titulares, cabeceras y nombres de asignatura.
+ *   Instrument Sans  → todo lo demás, cifras incluidas.
+ *
+ * Antes eran tres (una serif, una sans y una mono solo para las cifras). La
+ * mono se ha ido: Instrument Sans trae cifras tabulares de verdad (`tnum`), y
+ * la utilidad `.num` las activa, así que las columnas siguen cuadrando sin
+ * arrastrar una tercera familia. El resultado pesa la mitad —107 kB frente a
+ * 219 kB, y en una pantalla en español solo se descargan los dos subconjuntos
+ * `latin`, 71 kB— que en un móvil con datos es la diferencia que se nota.
+ *
+ * Las dos son VARIABLES en el eje de peso, así que un fichero por subconjunto
+ * cubre de 400 a 700. Newsreader viene además con un eje óptico (`opsz`) que
+ * aquí no hace falta: está fijado a 20 con fontTools antes de guardarla, lo que
+ * quita la mitad del fichero. Si algún día se quiere el eje óptico completo hay
+ * que volver a generar el .woff2 desde la variable original, no basta con
+ * declararlo.
  *
  * Se sirven desde el propio dominio en vez de fonts.googleapis.com: evita un
  * tercer origen en una web pública de la Universidad, el parpadeo de la
  * petición de red y la fuga de IPs de los visitantes a Google.
- *
- * Public Sans es VARIABLE: un único fichero cubre el eje 100..900, así que se
- * declara una sola vez por subconjunto con `font-weight:100 900`. Declararla
- * con pesos sueltos (400, 500, 600, 700) apuntando todos al mismo fichero haría
- * que el navegador sintetizara las negritas en vez de usar el eje real.
- * Spectral e IBM Plex Mono sí son estáticas: un fichero por peso.
  *
  * Solo se incluyen los subconjuntos latin y latin-ext: el contenido es español
  * y los nombres de asignaturas y profesores caben de sobra ahí. Vite versiona
  * los .woff2 y reescribe estas rutas respetando `base`, así que no se tocan a
  * mano.
  *
- * Para añadir un peso hay que traer también su fichero, no basta con declararlo.
+ * Ambas familias están bajo SIL Open Font License 1.1.
  */
 
 @font-face{
-    font-family:'IBM Plex Mono';
+    font-family:'Newsreader';
     font-style:normal;
-    font-weight:400;
+    font-weight:400 700;
     font-display:swap;
-    src:url('../assets/fonts/ibm-plex-mono-400-latin-ext.woff2') format('woff2');
+    src:url('../assets/fonts/newsreader-var-latin-ext.woff2') format('woff2');
     unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
 
 @font-face{
-    font-family:'IBM Plex Mono';
+    font-family:'Newsreader';
     font-style:normal;
-    font-weight:400;
+    font-weight:400 700;
     font-display:swap;
-    src:url('../assets/fonts/ibm-plex-mono-400-latin.woff2') format('woff2');
+    src:url('../assets/fonts/newsreader-var-latin.woff2') format('woff2');
     unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
 @font-face{
-    font-family:'IBM Plex Mono';
+    font-family:'Instrument Sans';
     font-style:normal;
-    font-weight:500;
+    font-weight:400 700;
     font-display:swap;
-    src:url('../assets/fonts/ibm-plex-mono-500-latin-ext.woff2') format('woff2');
+    src:url('../assets/fonts/instrument-sans-var-latin-ext.woff2') format('woff2');
     unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
 
 @font-face{
-    font-family:'IBM Plex Mono';
+    font-family:'Instrument Sans';
     font-style:normal;
-    font-weight:500;
+    font-weight:400 700;
     font-display:swap;
-    src:url('../assets/fonts/ibm-plex-mono-500-latin.woff2') format('woff2');
-    unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-
-@font-face{
-    font-family:'IBM Plex Mono';
-    font-style:normal;
-    font-weight:600;
-    font-display:swap;
-    src:url('../assets/fonts/ibm-plex-mono-600-latin-ext.woff2') format('woff2');
-    unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
-}
-
-@font-face{
-    font-family:'IBM Plex Mono';
-    font-style:normal;
-    font-weight:600;
-    font-display:swap;
-    src:url('../assets/fonts/ibm-plex-mono-600-latin.woff2') format('woff2');
-    unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-
-@font-face{
-    font-family:'Spectral';
-    font-style:normal;
-    font-weight:600;
-    font-display:swap;
-    src:url('../assets/fonts/spectral-600-latin-ext.woff2') format('woff2');
-    unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
-}
-
-@font-face{
-    font-family:'Spectral';
-    font-style:normal;
-    font-weight:600;
-    font-display:swap;
-    src:url('../assets/fonts/spectral-600-latin.woff2') format('woff2');
-    unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-
-@font-face{
-    font-family:'Spectral';
-    font-style:normal;
-    font-weight:700;
-    font-display:swap;
-    src:url('../assets/fonts/spectral-700-latin-ext.woff2') format('woff2');
-    unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
-}
-
-@font-face{
-    font-family:'Spectral';
-    font-style:normal;
-    font-weight:700;
-    font-display:swap;
-    src:url('../assets/fonts/spectral-700-latin.woff2') format('woff2');
-    unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-
-@font-face{
-    font-family:'Public Sans';
-    font-style:normal;
-    font-weight:100 900;
-    font-display:swap;
-    src:url('../assets/fonts/public-sans-var-latin-ext.woff2') format('woff2');
-    unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
-}
-
-@font-face{
-    font-family:'Public Sans';
-    font-style:normal;
-    font-weight:100 900;
-    font-display:swap;
-    src:url('../assets/fonts/public-sans-var-latin.woff2') format('woff2');
+    src:url('../assets/fonts/instrument-sans-var-latin.woff2') format('woff2');
     unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }

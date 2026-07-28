@@ -163,7 +163,7 @@ const WEEKDAY_LETTERS = ["L", "M", "X", "J", "V", "S", "D"];
 
 .periodSpan{
 
-    font-family:var(--font-mono);
+    font-family:var(--font-sans);
 
     font-size:var(--text-footnote);
 
@@ -230,13 +230,13 @@ const WEEKDAY_LETTERS = ["L", "M", "X", "J", "V", "S", "D"];
 
     text-align:center;
 
-    font-family:var(--font-mono);
+    font-family:var(--font-sans);
 
     font-size:var(--text-footnote);
 
     font-weight:600;
 
-    letter-spacing:.4px;
+    letter-spacing:var(--tracking-eyebrow);
 
     color:var(--ink-soft);
 
@@ -262,7 +262,7 @@ const WEEKDAY_LETTERS = ["L", "M", "X", "J", "V", "S", "D"];
 
     aspect-ratio:1;
 
-    border-radius:7px;
+    border-radius:var(--radius-control);
 
     background:var(--paper);
 
@@ -372,7 +372,7 @@ const WEEKDAY_LETTERS = ["L", "M", "X", "J", "V", "S", "D"];
 
     font-weight:600;
 
-    line-height:1.3;
+    line-height:var(--leading-snug);
 
     color:var(--ink-2);
 

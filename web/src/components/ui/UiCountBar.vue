@@ -129,7 +129,7 @@ const pct = computed(() => {
 
     height:8px;
 
-    border-radius:5px;
+    border-radius:var(--radius-sm);
 
     background:var(--count-track);
 
@@ -165,7 +165,7 @@ const pct = computed(() => {
 
     display:block;
 
-    font-size:7.5px;
+    font-size:var(--text-micro);
 
     color:var(--ink-faint);
 

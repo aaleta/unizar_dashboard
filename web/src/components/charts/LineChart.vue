@@ -6,7 +6,7 @@
  * Por qué no chart.js, que ya es dependencia: en el móvil hay UNA gráfica de
  * líneas. Traer una librería de dibujo entera —y su capa de tematizado, y su
  * canvas— para un solo gráfico sale caro en bytes y en peleas con el estilo:
- * este diseño quiere ejes en mono, sin rejilla y con los tonos del papel, que
+ * este diseño quiere ejes diminutos, sin rejilla y con los tonos del papel, que
  * en chart.js es media hora de opciones y aquí son cuatro atributos.
  *
  * En SVG además el texto es texto: se puede seleccionar, lo lee un lector de
@@ -296,7 +296,7 @@ const describe = computed(() =>
 
     height:3px;
 
-    border-radius:2px;
+    border-radius:var(--radius-xs);
 
 }
 
@@ -320,9 +320,9 @@ svg{
 
 .tick{
 
-    font-family:var(--font-mono);
+    font-family:var(--font-sans);
 
-    font-size:7.5px;
+    font-size:var(--text-micro);
 
     fill:var(--ink-faint);
 

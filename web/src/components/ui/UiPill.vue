@@ -3,8 +3,8 @@
 /**
  * Etiqueta de metadato: TRONCAL, 1º CURSO, CÓD. 26907, ÷ matriculados.
  *
- * Solo informa; no se pulsa (para eso está UiChip). En mono y mayúsculas
- * porque es metadato, no prosa.
+ * Solo informa; no se pulsa (para eso está UiChip). Pequeña y con tracking
+ * ancho porque es metadato, no prosa.
  *
  * El tono navy marca lo estructural —el carácter de la asignatura, el curso,
  * el denominador de un indicador—; el neutro, lo accesorio, como el código.
@@ -15,7 +15,7 @@ defineProps({
     tone: {
         type: String,
         default: "navy",
-        validator: value => ["navy", "neutral", "gold"].includes(value)
+        validator: value => ["navy", "neutral", "verd"].includes(value)
     }
 
 });
@@ -47,13 +47,15 @@ defineProps({
 
     border:1px solid;
 
-    font-family:var(--font-mono);
+    font-family:var(--font-sans);
 
     font-size:var(--text-eyebrow);
 
     font-weight:600;
 
-    line-height:1.5;
+    letter-spacing:var(--tracking-eyebrow);
+
+    line-height:var(--leading-body);
 
     white-space:nowrap;
 
@@ -75,11 +77,11 @@ defineProps({
 
 }
 
-.gold{
+.verd{
 
-    border-color:var(--gold);
+    border-color:var(--verd);
 
-    color:var(--gold-ink);
+    color:var(--verd-ink);
 
 }
 

@@ -1,9 +1,9 @@
 <script setup>
 
 /**
- * La banda navy de arriba, en dos versiones:
+ * La banda de tinta de arriba, en dos versiones:
  *
- *   identidad → la marca. Tesela dorada con la "F" y el nombre del grado.
+ *   identidad → la marca. Tesela de hueso con la "F" y el nombre del grado.
  *               Es para las pantallas raíz, a las que se llega por pestaña.
  *   interior  → chevron de vuelta, eyebrow con la ruta padre y título.
  *               Es para las pantallas a las que se llega desde otra.
@@ -163,15 +163,18 @@ const goBack = () => {
 
     flex:none;
 
-    border-radius:6px;
+    border-radius:var(--radius-xs);
 
-    background:var(--gold);
+    /* Hueso sobre prusia, no verdín: el verdín ya significa "elegible" en el
+       resto de la web y una marca no elige nada. Invertido —papel encima de
+       tinta— la tesela se lee como el cliché de una cabecera impresa. */
+    background:var(--bone);
 
     color:var(--navy);
 
     font-family:var(--font-serif);
 
-    font-size:14px;
+    font-size:var(--text-lead);
 
     font-weight:700;
 
@@ -181,7 +184,7 @@ const goBack = () => {
 
     font-family:var(--font-serif);
 
-    font-size:17px;
+    font-size:var(--text-section);
 
     font-weight:600;
 
@@ -207,9 +210,9 @@ const goBack = () => {
 
     border:none;
 
-    border-radius:8px;
+    border-radius:var(--radius-card);
 
-    background:rgba(255,255,255,.12);
+    background:var(--surface-on-navy);
 
     color:var(--navy-faint);
 
@@ -238,7 +241,7 @@ const goBack = () => {
 
 .back:active{
 
-    background:rgba(255,255,255,.2);
+    background:var(--surface-on-navy-active);
 
 }
 
@@ -256,13 +259,13 @@ const goBack = () => {
 
 .titles .eyebrow{
 
-    font-family:var(--font-mono);
+    font-family:var(--font-sans);
 
     font-size:var(--text-eyebrow-sm);
 
     font-weight:500;
 
-    letter-spacing:.4px;
+    letter-spacing:var(--tracking-eyebrow);
 
     text-transform:uppercase;
 
@@ -276,7 +279,7 @@ const goBack = () => {
 
     font-family:var(--font-serif);
 
-    font-size:14px;
+    font-size:var(--text-card-title);
 
     font-weight:600;
 

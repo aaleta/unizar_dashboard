@@ -133,8 +133,8 @@ const shortYear = academicYear =>
 /**
  * La serie histórica como línea: la pregunta es "¿sube o baja?", y una línea
  * enseña la pendiente de un vistazo donde doce barras piden compararse una a
- * una. Un solo color (el cálido de las gráficas), porque una línea no puede
- * subir por la rampa tramo a tramo sin fragmentarse.
+ * una. Un solo óxido fijo, porque una línea no puede subir por la rampa tramo
+ * a tramo sin fragmentarse.
  */
 const historyChart = computed(() => ({
     labels: history.value.map(point => shortYear(point.year)),
@@ -144,7 +144,7 @@ const historyChart = computed(() => ({
     }]
 }));
 
-const HISTORY_COLORS = ["var(--chart-line-2)"];
+const HISTORY_COLORS = ["var(--chart-line-difficulty)"];
 
 const historyNote = computed(() => {
 
@@ -519,7 +519,7 @@ h1{
 
     font-weight:700;
 
-    line-height:1.1;
+    line-height:var(--leading-tight);
 
 }
 
@@ -533,7 +533,7 @@ h1{
 
 .section{
 
-    margin-top:18px;
+    margin-top:var(--gap-section);
 
 }
 
@@ -573,7 +573,7 @@ h2{
 
     margin:0 0 11px;
 
-    font-size:10.5px;
+    font-size:var(--text-caption);
 
     color:var(--ink-soft);
 
@@ -587,7 +587,7 @@ h2{
 
     border:1px solid var(--line);
 
-    border-radius:12px;
+    border-radius:var(--radius-card-lg);
 
     box-shadow:var(--shadow-card);
 
@@ -612,15 +612,15 @@ h2{
 
     border:1px solid var(--navy-line-soft);
 
-    border-radius:7px;
+    border-radius:var(--radius-control);
 
     background:var(--surface);
 
     color:var(--navy);
 
-    font-family:var(--font-mono);
+    font-family:var(--font-sans);
 
-    font-size:10px;
+    font-size:var(--text-num-sm);
 
 }
 
@@ -646,7 +646,7 @@ h2{
 
     border:1px solid var(--line);
 
-    border-radius:8px;
+    border-radius:var(--radius-card);
 
     overflow:hidden;
 
@@ -704,7 +704,7 @@ h2{
 
     flex:none;
 
-    border-radius:2px;
+    border-radius:var(--radius-xs);
 
 }
 
@@ -740,7 +740,7 @@ h2{
 
     font-size:var(--text-body-xs);
 
-    line-height:1.5;
+    line-height:var(--leading-body);
 
     color:var(--ink-muted);
 
@@ -800,7 +800,7 @@ h2{
 
     flex:none;
 
-    border-radius:50%;
+    border-radius:var(--radius-dot);
 
     background:var(--navy);
 
@@ -834,7 +834,7 @@ h2{
 
     color:var(--navy);
 
-    font-size:12px;
+    font-size:var(--text-body-sm);
 
     font-weight:600;
 

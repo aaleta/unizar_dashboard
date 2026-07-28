@@ -4,10 +4,10 @@
  * El orden importa: tokens y tipografía se importan antes que nada para que
  * las variables existan cuando se usen aquí abajo.
  *
- * OJO — rediseño en curso: el tema pasa de oscuro a papel cálido, pero las
- * vistas de escritorio aún no migradas siguen pintando sus colores oscuros a
- * pelo y se ven mal a partir de aquí. Es la consecuencia asumida de rehacer
- * primero el móvil (ver MOBILE_REDESIGN_PLAN.md), no un fallo suelto.
+ * OJO — rediseño en curso: el tema es papel hueso con tinta, pero las vistas de
+ * escritorio aún no migradas siguen pintando sus colores oscuros a pelo y se
+ * ven mal a partir de aquí. Es la consecuencia asumida de rehacer primero el
+ * móvil (ver MOBILE_REDESIGN_PLAN.md), no un fallo suelto.
  */
 
 @import "./theme/fonts.css";
@@ -89,6 +89,18 @@ a{
     outline:2px solid var(--navy);
 
     outline-offset:2px;
+
+    border-radius:var(--radius-xs);
+
+}
+
+/* La selección se pinta con el propio verdín en lugar del azul del sistema:
+   es un rastro de rotulador sobre el papel, no una capa de otro sitio. */
+::selection{
+
+    background:var(--verd-wash);
+
+    color:var(--ink);
 
 }
 

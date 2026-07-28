@@ -283,7 +283,7 @@ const sortKey = ref("noSuperacion");
                 <UiPill>TRONCAL</UiPill>
                 <UiPill>1º CURSO</UiPill>
                 <UiPill tone="neutral">CÓD. 26907</UiPill>
-                <UiPill tone="gold">OPTATIVA</UiPill>
+                <UiPill tone="verd">OPTATIVA</UiPill>
             </div>
 
             <div class="spacer"></div>
@@ -299,7 +299,7 @@ const sortKey = ref("noSuperacion");
             <UiSectionHeader
                 label="Optativas"
                 :count="21"
-                tone="gold"
+                tone="verd"
             />
 
             <div class="spacer"></div>
@@ -308,7 +308,7 @@ const sortKey = ref("noSuperacion");
                 <UiStat
                     value="21"
                     label="optativas"
-                    tone="gold"
+                    tone="verd"
                 />
                 <UiStat
                     value="528"
@@ -462,7 +462,7 @@ const sortKey = ref("noSuperacion");
 
 code{
 
-    font-family:var(--font-mono);
+    font-family:var(--font-sans);
 
     font-size:var(--text-num-sm);
 
@@ -540,7 +540,7 @@ h2{
 
     text-align:right;
 
-    line-height:1;
+    line-height:var(--leading-none);
 
     color:var(--ink-faint);
 
@@ -576,7 +576,7 @@ h2{
 
     height:18px;
 
-    border-radius:5px;
+    border-radius:var(--radius-sm);
 
     overflow:hidden;
 
@@ -608,7 +608,7 @@ h2{
 
     gap:5px;
 
-    font-family:var(--font-mono);
+    font-family:var(--font-sans);
 
     font-size:var(--text-eyebrow);
 
@@ -622,7 +622,7 @@ h2{
 
     height:8px;
 
-    border-radius:2px;
+    border-radius:var(--radius-xs);
 
 }
 

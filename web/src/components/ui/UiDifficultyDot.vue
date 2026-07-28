@@ -13,7 +13,7 @@
 
 import { computed } from "vue";
 
-import { difficultyFill, difficultyLabel } from "@/theme/difficulty";
+import { difficultyFill, difficultyInk, difficultyLabel } from "@/theme/difficulty";
 
 const props = defineProps({
 
@@ -38,13 +38,23 @@ const props = defineProps({
 
 const color = computed(() => difficultyFill(props.value));
 
+/**
+ * El contorno va con el tono OSCURO del mismo tramo, no con el relleno.
+ *
+ * Es lo que salva la parte baja de la rampa: un punto de "asequible" es un
+ * barro claro que sobre papel contrasta 2:1, o sea, un punto que se adivina
+ * más que se ve. Un filete de su propia familia le da un borde de 3:1 sin
+ * cambiar de color ni sacar el punto de la escala.
+ */
+const edge = computed(() => difficultyInk(props.value));
+
 const style = computed(() => ({
     width: `${props.size}px`,
     height: `${props.size}px`,
     // El anillo se hace con el borde, así el hueco deja ver el fondo real de
     // la fila (blanco en troncales, papel en optativas) sin tener que saberlo.
     background: props.hollow ? "transparent" : color.value,
-    border: props.hollow ? `2px solid ${color.value}` : "none"
+    border: props.hollow ? `2px solid ${edge.value}` : `1px solid ${edge.value}`
 }));
 
 </script>
@@ -66,7 +76,7 @@ const style = computed(() => ({
 
     display:inline-block;
 
-    border-radius:50%;
+    border-radius:var(--radius-dot);
 
     flex:none;
 

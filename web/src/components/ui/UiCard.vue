@@ -101,7 +101,7 @@ a.card{
 
     color:inherit;
 
-    transition:border-color .15s,transform .15s;
+    transition:border-color var(--dur-press) var(--ease-out),transform var(--dur-press) var(--ease-out);
 
 }
 

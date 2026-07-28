@@ -93,7 +93,9 @@ const historyChart = computed(() => ({
     }]
 }));
 
-const HISTORY_COLORS = ["var(--chart-line-2)"];
+/** La serie habla de no superación, así que va en óxido, no en el ocre de las
+    notas de acceso: el ocre está reservado a la cautela estadística. */
+const HISTORY_COLORS = ["var(--chart-line-difficulty)"];
 
 </script>
 
@@ -136,7 +138,7 @@ const HISTORY_COLORS = ["var(--chart-line-2)"];
                 v-if="optativas.length"
                 :value="optativas.length"
                 label="optativas"
-                tone="gold"
+                tone="verd"
             />
         </div>
 
@@ -230,7 +232,7 @@ const HISTORY_COLORS = ["var(--chart-line-2)"];
         <UiSectionHeader
             label="Optativas"
             :count="optativas.length"
-            tone="gold"
+            tone="verd"
         />
 
         <!-- En 1º las optativas son las especiales (Biología, Geología,
@@ -332,7 +334,7 @@ const HISTORY_COLORS = ["var(--chart-line-2)"];
 
     flex:none;
 
-    border-radius:50%;
+    border-radius:var(--radius-dot);
 
     background:var(--navy);
 
@@ -340,7 +342,7 @@ const HISTORY_COLORS = ["var(--chart-line-2)"];
 
     font-family:var(--font-serif);
 
-    font-size:13px;
+    font-size:var(--text-body);
 
     font-weight:700;
 
@@ -352,11 +354,11 @@ h1{
 
     font-family:var(--font-serif);
 
-    font-size:26px;
+    font-size:var(--text-h1-lg);
 
     font-weight:700;
 
-    line-height:1;
+    line-height:var(--leading-none);
 
 }
 
@@ -384,11 +386,11 @@ h1{
 
     margin:12px 0 0;
 
-    font-family:var(--font-mono);
+    font-family:var(--font-sans);
 
     font-size:var(--text-footnote);
 
-    line-height:1.5;
+    line-height:var(--leading-body);
 
     color:var(--ink-faint);
 
@@ -396,7 +398,7 @@ h1{
 
 .section{
 
-    margin-top:18px;
+    margin-top:var(--gap-section);
 
 }
 
@@ -426,7 +428,7 @@ h2{
 
     border:1px solid var(--line);
 
-    border-radius:12px;
+    border-radius:var(--radius-card-lg);
 
     box-shadow:var(--shadow-card);
 
@@ -436,11 +438,11 @@ h2{
 
     margin:2px 0 0;
 
-    font-family:var(--font-mono);
+    font-family:var(--font-sans);
 
     font-size:var(--text-footnote);
 
-    line-height:1.5;
+    line-height:var(--leading-body);
 
     color:var(--ink-faint);
 
@@ -452,7 +454,7 @@ h2{
 
     font-size:var(--text-num-sm);
 
-    line-height:1.5;
+    line-height:var(--leading-body);
 
     color:var(--ink-soft);
 
@@ -490,9 +492,9 @@ h2{
 
     background:none;
 
-    font-family:var(--font-mono);
+    font-family:var(--font-sans);
 
-    font-size:10px;
+    font-size:var(--text-num-sm);
 
     color:var(--ink-faint-2);
 

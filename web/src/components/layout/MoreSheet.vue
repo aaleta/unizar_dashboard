@@ -325,7 +325,7 @@ watch(() => props.open, async isOpen => {
 
     border:none;
 
-    border-radius:50%;
+    border-radius:var(--radius-dot);
 
     background:var(--surface-muted);
 
@@ -405,7 +405,7 @@ watch(() => props.open, async isOpen => {
 
     flex:none;
 
-    border-radius:9px;
+    border-radius:var(--radius-card);
 
     background:var(--navy-wash);
 
@@ -417,7 +417,7 @@ watch(() => props.open, async isOpen => {
 
     font-family:var(--font-serif);
 
-    font-size:12px;
+    font-size:var(--text-body-sm);
 
     font-weight:700;
 
@@ -437,7 +437,7 @@ watch(() => props.open, async isOpen => {
 
 .text .title{
 
-    font-size:13.5px;
+    font-size:var(--text-body);
 
     font-weight:700;
 
@@ -496,14 +496,14 @@ watch(() => props.open, async isOpen => {
 .sheet-enter-active,
 .sheet-leave-active{
 
-    transition:opacity .18s ease;
+    transition:opacity var(--dur-enter) var(--ease-out);
 
 }
 
 .sheet-enter-active .sheet,
 .sheet-leave-active .sheet{
 
-    transition:transform .18s cubic-bezier(.2,.8,.3,1),opacity .18s ease;
+    transition:transform var(--dur-enter) var(--ease-out),opacity var(--dur-enter) var(--ease-out);
 
 }
 

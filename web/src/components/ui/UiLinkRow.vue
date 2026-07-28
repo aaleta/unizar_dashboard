@@ -139,7 +139,7 @@ defineProps({
 
 .tappable{
 
-    transition:background .15s,border-color .15s;
+    transition:background var(--dur-press) var(--ease-out),border-color var(--dur-press) var(--ease-out);
 
 }
 

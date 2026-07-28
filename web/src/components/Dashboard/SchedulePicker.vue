@@ -363,7 +363,7 @@ const groupLabel = group => `Grupo ${group.split("-").pop()}`;
 
 .headAction{
 
-    font-family:var(--font-mono);
+    font-family:var(--font-sans);
 
     font-size:var(--text-num-sm);
 
@@ -375,7 +375,7 @@ const groupLabel = group => `Grupo ${group.split("-").pop()}`;
 
     color:var(--ink-chevron);
 
-    transition:transform .15s;
+    transition:transform var(--dur-press) var(--ease-out);
 
 }
 
@@ -445,7 +445,7 @@ const groupLabel = group => `Grupo ${group.split("-").pop()}`;
 
     border:1px solid var(--navy-line-soft);
 
-    border-radius:6px;
+    border-radius:var(--radius-control);
 
     background:var(--surface);
 
@@ -475,7 +475,7 @@ const groupLabel = group => `Grupo ${group.split("-").pop()}`;
 
     border:none;
 
-    border-radius:50%;
+    border-radius:var(--radius-dot);
 
     background:var(--surface);
 
@@ -514,7 +514,7 @@ const groupLabel = group => `Grupo ${group.split("-").pop()}`;
 
     background:none;
 
-    font-family:var(--font-mono);
+    font-family:var(--font-sans);
 
     font-size:var(--text-num-sm);
 
@@ -542,7 +542,7 @@ const groupLabel = group => `Grupo ${group.split("-").pop()}`;
 
     background:none;
 
-    font-family:var(--font-mono);
+    font-family:var(--font-sans);
 
     font-size:var(--text-num-sm);
 
@@ -687,9 +687,9 @@ li:last-child .row{
 
     height:17px;
 
-    border:1.5px solid var(--line-chip);
+    border:1px solid var(--line-chip);
 
-    border-radius:5px;
+    border-radius:var(--radius-sm);
 
     background:var(--surface);
 
@@ -741,11 +741,11 @@ li:last-child .row{
 
     display:block;
 
-    font-size:13.5px;
+    font-size:var(--text-body);
 
     font-weight:600;
 
-    line-height:1.25;
+    line-height:var(--leading-snug);
 
 }
 
@@ -755,7 +755,7 @@ li:last-child .row{
 
     margin-top:1px;
 
-    font-family:var(--font-mono);
+    font-family:var(--font-sans);
 
     font-size:var(--text-eyebrow);
 
@@ -779,9 +779,9 @@ li:last-child .row{
 
     background:none;
 
-    font-family:var(--font-mono);
+    font-family:var(--font-sans);
 
-    font-size:10px;
+    font-size:var(--text-num-sm);
 
     color:var(--ink-faint);
 

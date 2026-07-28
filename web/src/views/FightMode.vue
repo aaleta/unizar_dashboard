@@ -3,10 +3,11 @@
 /**
  * Fight Mode. La broma de la casa, con los datos en serio.
  *
- * El oro marca al ganador y es lo único que hace en toda la web: no codifica
- * ninguna magnitud, solo dice "esta gana". El navy sigue siendo estructura —el
- * medallón VS, los nombres de las columnas— y las cifras de dificultad siguen
- * subiendo por la rampa, igual que en cualquier otra pantalla.
+ * El verdín marca al ganador, igual que marca lo elegible en el resto de la
+ * web: no codifica ninguna magnitud, solo dice "esta gana". El azul sigue
+ * siendo estructura —el medallón VS, los nombres de las columnas— y las cifras
+ * de dificultad siguen subiendo por la rampa, igual que en cualquier otra
+ * pantalla.
  *
  * Que sea un juego no autoriza a mentir: si falta un dato el duelo queda en
  * empate en vez de inventarse un ganador.
@@ -231,7 +232,7 @@ h1{
 
     font-family:var(--font-serif);
 
-    font-size:26px;
+    font-size:var(--text-h1-lg);
 
     font-weight:700;
 
@@ -275,7 +276,7 @@ h1{
 
     border:1px solid var(--line);
 
-    border-radius:13px;
+    border-radius:var(--radius-card-lg);
 
     text-align:center;
 
@@ -306,11 +307,11 @@ h1{
 
     font-family:var(--font-serif);
 
-    font-size:14.5px;
+    font-size:var(--text-card-title);
 
     font-weight:600;
 
-    line-height:1.2;
+    line-height:var(--leading-tight);
 
 }
 
@@ -358,15 +359,17 @@ h1{
 
     border:none;
 
-    border-radius:50%;
+    border-radius:var(--radius-dot);
 
     background:var(--navy);
 
-    color:var(--gold);
+    /* El VS no es un ganador, así que no lleva verdín: es el rótulo de un
+       medallón y va en el blanco de la banda. */
+    color:var(--ink-on-navy);
 
     font-family:var(--font-serif);
 
-    font-size:15px;
+    font-size:var(--text-lead);
 
     font-weight:700;
 
@@ -396,11 +399,11 @@ h1{
 
     padding:12px 14px;
 
-    background:var(--gold-wash);
+    background:var(--verd-wash);
 
-    border:1px solid var(--gold-line);
+    border:1px solid var(--verd-line);
 
-    border-radius:12px;
+    border-radius:var(--radius-card-lg);
 
 }
 
@@ -426,14 +429,15 @@ h1{
 
     flex:none;
 
-    border-radius:50%;
+    border-radius:var(--radius-dot);
 
-    background:var(--gold);
+    background:var(--verd);
 
-    /* Navy sobre oro, no blanco: el blanco sobre oro se queda en 2,4:1. */
-    color:var(--navy);
+    /* Blanco sobre verdín, no tinta: el verdín es lo bastante oscuro para
+       sostener texto claro (4,7:1) y la tinta encima se quedaría en 2,4:1. */
+    color:var(--ink-on-navy);
 
-    font-size:16px;
+    font-size:var(--text-metric);
 
 }
 
@@ -445,13 +449,13 @@ h1{
 
 .verdictText{
 
-    font-size:13px;
+    font-size:var(--text-body);
 
     font-weight:700;
 
-    line-height:1.25;
+    line-height:var(--leading-snug);
 
-    color:var(--gold-strong);
+    color:var(--verd-strong);
 
 }
 
@@ -471,11 +475,11 @@ h1{
 
     margin-top:2px;
 
-    font-size:10.5px;
+    font-size:var(--text-caption);
 
-    line-height:1.35;
+    line-height:var(--leading-snug);
 
-    color:var(--gold-soft);
+    color:var(--verd-soft);
 
 }
 
@@ -495,11 +499,11 @@ h1{
 
     border:1px solid var(--navy-wash-line);
 
-    border-radius:12px;
+    border-radius:var(--radius-card-lg);
 
     font-size:var(--text-body-xs);
 
-    line-height:1.45;
+    line-height:var(--leading-body);
 
     color:var(--navy-soft);
 
@@ -539,7 +543,7 @@ h1{
 
 .head{
 
-    font-family:var(--font-mono);
+    font-family:var(--font-sans);
 
     font-size:var(--text-eyebrow);
 
@@ -567,7 +571,7 @@ h1{
 
     border:1px solid var(--line);
 
-    border-radius:10px;
+    border-radius:var(--radius-card-lg);
 
     text-align:center;
 
@@ -575,9 +579,9 @@ h1{
 
 .cell.won{
 
-    background:var(--gold-wash);
+    background:var(--verd-wash);
 
-    border:1.5px solid var(--gold);
+    border:1px solid var(--verd);
 
 }
 
@@ -593,19 +597,19 @@ h1{
 
     margin-top:1px;
 
-    font-size:8px;
+    font-size:var(--text-micro);
 
     font-weight:600;
 
-    color:var(--gold-ink);
+    color:var(--verd-ink);
 
 }
 
 .duelLabel{
 
-    font-size:9.5px;
+    font-size:var(--text-nav);
 
-    line-height:1.25;
+    line-height:var(--leading-snug);
 
     text-align:center;
 
@@ -621,11 +625,11 @@ h1{
 
     border-top:1px solid var(--line-rule);
 
-    font-family:var(--font-mono);
+    font-family:var(--font-sans);
 
     font-size:var(--text-footnote);
 
-    line-height:1.6;
+    line-height:var(--leading-relaxed);
 
     color:var(--ink-faint);
 

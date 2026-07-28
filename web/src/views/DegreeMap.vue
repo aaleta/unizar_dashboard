@@ -176,7 +176,7 @@ const pct = value =>
                     label="Optativas"
                     :count="course.optativas.length"
                     hint="% que no aprueba"
-                    tone="gold"
+                    tone="verd"
                     class="group"
                 />
 
@@ -281,11 +281,11 @@ const pct = value =>
        pero las cifras no. */
     padding-inline:var(--gutter);
 
-    font-family:var(--font-mono);
+    font-family:var(--font-sans);
 
-    font-size:9.5px;
+    font-size:var(--text-nav);
 
-    letter-spacing:.3px;
+    letter-spacing:var(--tracking-eyebrow);
 
     text-transform:uppercase;
 
@@ -351,7 +351,7 @@ const pct = value =>
 
     height:21px;
 
-    border-radius:50%;
+    border-radius:var(--radius-dot);
 
     background:var(--navy);
 
@@ -359,7 +359,7 @@ const pct = value =>
 
     font-family:var(--font-serif);
 
-    font-size:11px;
+    font-size:var(--text-body-xs);
 
     font-weight:700;
 
@@ -408,11 +408,11 @@ const pct = value =>
 
     font-family:var(--font-serif);
 
-    font-size:18px;
+    font-size:var(--text-subhead);
 
     font-weight:700;
 
-    line-height:1.1;
+    line-height:var(--leading-tight);
 
 }
 
@@ -424,9 +424,9 @@ const pct = value =>
 
 .caption{
 
-    font-family:var(--font-mono);
+    font-family:var(--font-sans);
 
-    font-size:9.5px;
+    font-size:var(--text-nav);
 
     color:var(--ink-soft);
 
@@ -462,7 +462,7 @@ const pct = value =>
 
     flex-direction:column;
 
-    gap:6px;
+    gap:var(--gap-row);
 
     margin:0;
 
@@ -524,7 +524,7 @@ const pct = value =>
 
     flex:none;
 
-    border-radius:50%;
+    border-radius:var(--radius-dot);
 
 }
 
@@ -552,7 +552,7 @@ const pct = value =>
 
     flex:none;
 
-    font-size:10px;
+    font-size:var(--text-num-sm);
 
     color:var(--attention);
 
@@ -582,9 +582,9 @@ const pct = value =>
 
     text-align:left;
 
-    font-family:var(--font-mono);
+    font-family:var(--font-sans);
 
-    font-size:10px;
+    font-size:var(--text-num-sm);
 
     color:var(--ink-faint-2);
 

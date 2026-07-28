@@ -81,7 +81,7 @@ defineProps({
 
     height:9px;
 
-    border-radius:50%;
+    border-radius:var(--radius-dot);
 
     flex:none;
 

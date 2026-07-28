@@ -305,8 +305,9 @@ const admissionNote = computed(() => {
 
 }
 
-/* Círculos concéntricos: decoración, no dato. En oro tenue porque el oro es
-   justo lo que en esta web no significa nada. */
+/* Círculos concéntricos: decoración, no dato. Un filete de blanco al 20%, que
+   es lo único que se puede pintar sobre la banda sin que parezca significar
+   algo. */
 .motif{
 
     position:absolute;
@@ -321,9 +322,9 @@ const admissionNote = computed(() => {
 
     position:absolute;
 
-    border-radius:50%;
+    border-radius:var(--radius-dot);
 
-    border:1.5px solid rgba(201,162,75,.35);
+    border:1px solid var(--line-on-navy);
 
 }
 
@@ -349,7 +350,7 @@ const admissionNote = computed(() => {
 
     height:74px;
 
-    border-color:rgba(201,162,75,.22);
+    border-color:var(--line-on-navy-soft);
 
 }
 
@@ -359,11 +360,11 @@ h1{
 
     font-family:var(--font-serif);
 
-    font-size:24px;
+    font-size:var(--text-h1);
 
     font-weight:700;
 
-    line-height:1.15;
+    line-height:var(--leading-tight);
 
     color:var(--ink-on-navy);
 
@@ -375,9 +376,9 @@ h1{
 
     max-width:290px;
 
-    font-size:12px;
+    font-size:var(--text-body-sm);
 
-    line-height:1.55;
+    line-height:var(--leading-body);
 
     color:var(--on-navy-soft);
 
@@ -435,7 +436,7 @@ h2{
 
     font-family:var(--font-serif);
 
-    font-size:15px;
+    font-size:var(--text-lead);
 
     font-weight:600;
 
@@ -455,7 +456,7 @@ h2{
 
     margin:3px 0 13px;
 
-    font-size:10.5px;
+    font-size:var(--text-caption);
 
     color:var(--ink-soft);
 
@@ -469,9 +470,9 @@ h2{
 
     border-top:1px solid var(--line-inner);
 
-    font-size:10.5px;
+    font-size:var(--text-caption);
 
-    line-height:1.45;
+    line-height:var(--leading-body);
 
     color:var(--ink-muted);
 
@@ -517,9 +518,9 @@ h2{
 
 .hardestValue .num{
 
-    font-size:21px;
+    font-size:var(--text-display);
 
-    line-height:1;
+    line-height:var(--leading-none);
 
 }
 
@@ -529,9 +530,9 @@ h2{
 
     margin-top:3px;
 
-    font-size:8px;
+    font-size:var(--text-micro);
 
-    line-height:1.2;
+    line-height:var(--leading-tight);
 
     color:var(--warn-caption);
 
@@ -551,7 +552,7 @@ h2{
 
 .hardestEyebrow{
 
-    font-size:8px;
+    font-size:var(--text-micro);
 
     color:var(--delta-bad);
 
@@ -563,11 +564,11 @@ h2{
 
     font-family:var(--font-serif);
 
-    font-size:16px;
+    font-size:var(--text-metric);
 
     font-weight:600;
 
-    line-height:1.15;
+    line-height:var(--leading-tight);
 
 }
 
@@ -575,9 +576,9 @@ h2{
 
     margin-top:3px;
 
-    font-size:10.5px;
+    font-size:var(--text-caption);
 
-    line-height:1.4;
+    line-height:var(--leading-body);
 
     color:var(--warn-body);
 
@@ -607,7 +608,7 @@ h2{
 
     margin:10px 0 0;
 
-    font-family:var(--font-mono);
+    font-family:var(--font-sans);
 
     font-size:var(--text-num-sm);
 
@@ -709,7 +710,7 @@ h2{
 
     min-height:var(--touch-target);
 
-    font-size:12px;
+    font-size:var(--text-body-sm);
 
     font-weight:600;
 

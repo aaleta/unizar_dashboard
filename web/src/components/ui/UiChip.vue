@@ -72,13 +72,13 @@ defineProps({
 
     font-weight:600;
 
-    line-height:1.4;
+    line-height:var(--leading-body);
 
     white-space:nowrap;
 
     cursor:pointer;
 
-    transition:background .15s,border-color .15s,color .15s;
+    transition:background var(--dur-press) var(--ease-out),border-color var(--dur-press) var(--ease-out),color var(--dur-press) var(--ease-out);
 
 }
 
@@ -90,7 +90,7 @@ defineProps({
 
 .chip.rounded{
 
-    border-radius:8px;
+    border-radius:var(--radius-card);
 
     padding:7px 11px;
 

@@ -170,13 +170,13 @@ const valueColor = computed(() =>
 
 .label{
 
-    font-family:var(--font-mono);
+    font-family:var(--font-sans);
 
     font-size:var(--text-eyebrow-sm);
 
     font-weight:500;
 
-    letter-spacing:.4px;
+    letter-spacing:var(--tracking-eyebrow);
 
     text-transform:uppercase;
 
@@ -200,7 +200,7 @@ const valueColor = computed(() =>
 
     font-size:var(--text-kpi);
 
-    line-height:1;
+    line-height:var(--leading-none);
 
 }
 

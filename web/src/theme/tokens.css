@@ -1,30 +1,51 @@
 /**
- * Tokens de diseño. Única fuente de color, radio, sombra y espaciado.
+ * Tokens de diseño — dirección "Tinta". Única fuente de color, radio, sombra
+ * y espaciado.
  *
  * Ningún componente debe escribir un color a pelo: si hace falta uno que no
  * está aquí, se añade aquí. Es el mismo principio que ya aplica metrics.js a
  * las métricas, aplicado al aspecto.
  *
  * ------------------------------------------------------------------------
+ * LA IDEA — pigmentos sobre papel
+ * ------------------------------------------------------------------------
+ * Toda la paleta sale de cuatro pigmentos de imprenta y de nada más: negro de
+ * humo, azul de Prusia, verdín de cobre y óxido de hierro, sobre un papel
+ * hueso. No hay ningún color "de interfaz" inventado, y no hay ni un degradado:
+ * si algo tiene color es porque significa algo.
+ *
+ * ------------------------------------------------------------------------
  * EL CONTRATO DE COLOR — la regla que gobierna todo lo demás
  * ------------------------------------------------------------------------
- * La credibilidad de esta web depende de que el color NO mienta. Hay cuatro
+ * La credibilidad de esta web depende de que el color NO mienta. Hay cinco
  * papeles y no pueden mezclarse:
  *
- *   1. NAVY      → estructura y cromo. Cabeceras, pestaña activa, botones,
+ *   1. PRUSIA    → estructura y cromo. Cabeceras, pestaña activa, botones,
  *                  enlaces, contadores estructurales, la línea del timeline.
- *                  El navy NUNCA codifica una magnitud.
+ *                  El azul NUNCA codifica una magnitud.
  *   2. RAMPA     → dificultad, y solo dificultad (tasa de no superación).
  *                  Vive en theme/difficulty.js, no aquí.
  *   3. GRIS      → recuentos y cantidades (matrículas, peso de colaboración).
  *                  Una cantidad no es una dificultad, así que va en gris.
  *   4. NOTAS     → el desglose No presentado→MH, y nada más.
  *                  Vive en theme/gradePalette.js, no aquí.
+ *   5. VERDÍN    → lo que se elige: optativas, y el ganador de Fight Mode.
+ *                  Tampoco es un dato; es una categoría de la estructura.
  *
- * El oro es decoración y el ganador de Fight Mode; tampoco es un dato.
+ * El ocre es la única nota amarilla del sistema y está reservado a la cautela
+ * estadística (cohortes pequeñas). Que sea el único amarillo es lo que lo hace
+ * visible.
  *
- * Ante la duda: ¿esto es estructura, dificultad, un recuento o una categoría
- * de nota?
+ * Ante la duda: ¿esto es estructura, dificultad, un recuento, una categoría de
+ * nota o algo elegible?
+ *
+ * ------------------------------------------------------------------------
+ * CONTRASTE
+ * ------------------------------------------------------------------------
+ * Todos los tonos de texto de este fichero se han medido contra los fondos
+ * sobre los que se pintan de verdad —papel, tarjeta blanca y cabecera de tabla—
+ * y llegan a 4,5:1. Los que rotulan iconos y no texto se quedan en 3:1 a
+ * propósito, que es su mínimo. Los números están en DESIGN_NOTES.md.
  */
 
 :root{
@@ -33,162 +54,198 @@
      * Marca
      * ---------------------------------------------------------------- */
 
-    /* Azul corporativo de Unizar (PANTONE 653C). */
-    --navy:#223d71;
-    --navy-soft:#3a4667;          /* Navy legible sobre fondo claro */
-    --navy-faint:#aeb9d1;         /* Subtítulos y eyebrows SOBRE el navy */
-    --navy-line:#c3ccdd;          /* Bordes de píldora navy */
-    --navy-line-soft:#cdd4e0;     /* Bordes de control (selector de año) */
-    --navy-wash:#eef0f5;          /* Fondo de aviso estructural */
-    --navy-wash-line:#dfe3ec;
+    /* Azul de Prusia: el azul de la Universidad llevado a peso de tinta.
+       Es el color de la estructura, nunca el de una medida. */
+    --navy:#173d52;
+    --navy-soft:#2c4e62;          /* Prusia legible sobre fondo claro */
+    --navy-faint:#9fb6c2;         /* Subtítulos y eyebrows SOBRE el prusia */
+    --navy-line:#b9c8d1;          /* Bordes de píldora azul */
+    --navy-line-soft:#c7d2d9;     /* Bordes de control (selector de año) */
+    --navy-wash:#e8edf0;          /* Fondo de aviso estructural */
+    --navy-wash-line:#d8e1e6;
 
-    /* Oro heráldico: decoración y ganador de Fight Mode. Nunca un dato. */
-    --gold:#cba44c;
-    --gold-ink:#85662d;           /* Oro legible como texto */
-    --gold-wash:#fbf5e7;
-    --gold-line:#e7d3a2;          /* Borde del veredicto */
-    --gold-strong:#8a6619;        /* Título del veredicto sobre gold-wash */
-    --gold-soft:#866d40;          /* Detalle del veredicto sobre gold-wash */
+    /* Verdín de cobre: lo elegible y el ganador de Fight Mode. Nunca un dato. */
+    --verd:#3e7f6e;
+    --verd-ink:#2a5e50;           /* Verdín legible como texto */
+    --verd-wash:#e9f0ed;
+    --verd-line:#c3d6cf;          /* Borde del veredicto */
+    --verd-strong:#1f4a3f;        /* Título del veredicto sobre verd-wash */
+    --verd-soft:#3a5c53;          /* Detalle del veredicto sobre verd-wash */
 
-    /* Sobre superficies navy claras y oscuras */
-    --on-navy-soft:#c4cee0;       /* Párrafo del héroe sobre navy */
-    --navy-meta:#606e88;          /* Metadatos sobre navy-wash */
-    --navy-avatar:#5d6d8c;        /* Avatar de hueco por rellenar */
+    /* Hueso: el reverso del prusia. Es lo que lleva la tesela de la marca. */
+    --bone:#ede9df;
+
+    /* Sobre superficies prusia claras y oscuras */
+    --on-navy-soft:#b6c7d1;       /* Párrafo del héroe sobre prusia */
+    --navy-meta:#4f6472;          /* Metadatos sobre navy-wash */
+    --navy-avatar:#54707e;        /* Avatar de hueco por rellenar */
+
+    /* Dentro de la banda prusia no valen ni los filetes de papel ni las
+       superficies claras: se pintan con el propio blanco a baja opacidad, que
+       es lo único que se comporta igual sea cual sea el azul de debajo. */
+    --line-on-navy:rgba(255,255,255,.20);
+    --line-on-navy-soft:rgba(255,255,255,.12);
+    --surface-on-navy:rgba(255,255,255,.10);
+    --surface-on-navy-active:rgba(255,255,255,.18);
 
     /* ---------------------------------------------------------------- *
      * Gráficas
      * ---------------------------------------------------------------- *
-     * Las dos líneas de "notas de acceso" (handoff §7.2). Ojo: el naranja
-     * coincide con un tramo de la rampa de dificultad. Se acepta porque una
-     * gráfica con leyenda y ejes propios no se lee como una tasa de
-     * suspensos, pero es el único sitio donde los dos usos se rozan.
+     * Las dos líneas de "notas de acceso". Prusia y ocre: es la pareja del
+     * sistema que mejor aguanta una daltonía, y —a diferencia del naranja que
+     * había antes— ninguna de las dos se confunde con un tramo de la rampa de
+     * dificultad, que ahora es toda de la familia del óxido.
      */
 
-    --chart-line-1:#4c6699;       /* Nota media de acceso */
-    --chart-line-2:#c4642f;       /* Nota de corte */
+    --chart-line-1:#245a78;       /* Nota media de acceso */
+    --chart-line-2:#a87f1e;       /* Nota de corte */
+
+    /* La serie histórica de no superación SÍ habla de dificultad, así que va en
+       óxido. Es un tono fijo y no un punto de la rampa a propósito: una línea
+       identifica una serie, no codifica el valor de cada vértice; si subiera y
+       bajara por la rampa diría dos cosas con el mismo trazo. */
+    --chart-line-difficulty:#93472f;
 
     /* ---------------------------------------------------------------- *
      * Superficies
-     * ---------------------------------------------------------------- */
+     * ---------------------------------------------------------------- *
+     * El papel es hueso frío, no crema: deja que el blanco de la tarjeta se
+     * lea como blanco. La jerarquía entre superficies es deliberadamente
+     * corta —lo que separa una tarjeta del fondo es su filete de 1px, no un
+     * salto de tono ni una sombra.
+     */
 
-    --paper:#f4efe6;              /* Fondo de la aplicación */
+    --paper:#f1efe9;              /* Fondo de la aplicación */
     --surface:#fff;               /* Tarjeta */
-    --surface-alt:#fcfaf5;        /* Tarjeta de optativa */
-    --surface-sunken:#ece5d7;     /* Cabecera de tabla ordenable */
-    --surface-muted:#f1ece2;      /* Botón redondo sobre tarjeta blanca */
+    --surface-alt:#faf8f3;        /* Tarjeta de optativa */
+    --surface-sunken:#e8e4da;     /* Cabecera de tabla ordenable */
+    --surface-muted:#f0ede4;      /* Botón redondo sobre tarjeta blanca */
 
     /* ---------------------------------------------------------------- *
      * Líneas
-     * ---------------------------------------------------------------- */
+     * ---------------------------------------------------------------- *
+     * Con las sombras fuera, el filete es lo único que dibuja una caja. Por eso
+     * hay tantos: cada uno está calibrado contra el fondo concreto sobre el que
+     * cae, para que todos pesen lo mismo a la vista.
+     */
 
-    --line:#e7ded0;               /* Borde de tarjeta, divisor por defecto */
-    --line-inner:#f0eadd;         /* Divisor DENTRO de una tarjeta */
-    --line-rule:#e7e0d2;          /* Regla de pie de sección */
-    --line-strong:#ddd3c2;        /* Borde de control (buscador, cabecera) */
-    --line-tab:#e2d8c6;           /* Borde superior de la barra de pestañas */
-    --line-chip:#cdc3b0;          /* Borde de chip inactivo */
-    --line-dashed:#cdbf9e;        /* Borde discontinuo de optativa */
-    --line-spine:#d7cdb9;         /* Línea vertical del mapa del grado */
-    --line-row:#e9e2d4;           /* Separador entre filas de una lista densa */
+    --line:#e2ded4;               /* Borde de tarjeta, divisor por defecto */
+    --line-inner:#edeae1;         /* Divisor DENTRO de una tarjeta */
+    --line-rule:#e2ded4;          /* Regla de pie de sección */
+    --line-strong:#d5d0c4;        /* Borde de control (buscador, cabecera) */
+    --line-tab:#dcd7cb;           /* Borde superior de la barra de pestañas */
+    --line-chip:#c6c0b2;          /* Borde de chip inactivo */
+    --line-dashed:#c9c2b0;        /* Borde discontinuo de optativa */
+    --line-spine:#d2ccbe;         /* Línea vertical del mapa del grado */
+    --line-row:#e7e3d9;           /* Separador entre filas de una lista densa */
 
     /* ---------------------------------------------------------------- *
      * Texto
      * ---------------------------------------------------------------- *
-     * El handoff define CUATRO niveles de gris apagado (#8A8275, #A49A86,
-     * #948C7E, #9A9182). Sobre papel dan entre 2,4:1 y 3,3:1 de contraste, y
-     * el texto normal necesita 4,5:1. No es un matiz: son los eyebrows, las
-     * líneas de metadatos, las notas al pie y los enlaces "＋ N más" —
-     * contenido real, y alguno además pulsable.
+     * Negro de humo: gris muy oscuro con sesgo frío, nunca #000. Sobre papel
+     * cálido, una tinta fría es lo que hace que el papel parezca papel.
      *
-     * Aquí está el problema: por encima de 4,5:1 sobre este fondo ya no caben
-     * cuatro grises distinguibles. Cualquier gris que cumpla acaba pegado a
-     * los demás. Así que la escala baja a DOS niveles y la jerarquía la
-     * sostienen el tamaño y el peso, que es lo que el diseño ya hacía de
-     * todas formas: estos textos van a 8,5–10px frente a los 12,5px del
-     * cuerpo, y esa diferencia se lee mucho antes que un matiz de gris.
+     * La escala es de DOS niveles apagados y no de cuatro. Por encima de 4,5:1
+     * sobre este fondo no caben cuatro grises que se distingan entre sí:
+     * cualquiera que cumpla acaba pegado a los demás. La jerarquía la sostienen
+     * el tamaño y el peso —estos textos van a 9–11px frente a los 13px del
+     * cuerpo—, que se lee mucho antes que un matiz de gris.
      */
 
-    --ink:#23201b;                /* Primario */
-    --ink-2:#4a463e;              /* Secundario */
-    --ink-3:#5f584c;              /* Etiqueta de chip inactivo */
-    --ink-muted:#6e675c;          /* Apoyo (4,9:1) — el del handoff, ya cumplía */
-    --ink-soft:#736c61;           /* Eyebrows y metadatos (4,5:1) */
-    --ink-faint:#716b5f;          /* Notas al pie y cifras de apoyo (4,5:1) */
-    --ink-faint-2:#716b5f;        /* Alias: ya no se distinguía del anterior */
-    --ink-placeholder:#776f64;    /* Placeholder y huecos por rellenar */
-    --ink-icon:#8a8275;           /* Iconos de control (no es texto: 3:1) */
-    --ink-on-navy:#fff;           /* Texto sobre superficie navy */
-    --ink-tab:#7b7569;            /* Pestaña inactiva de la barra inferior */
-    --ink-chevron:#8d8578;        /* Flechas de "seguir" (icono: basta 3:1) */
+    --ink:#1b1d1f;                /* Primario */
+    --ink-2:#3e4247;              /* Secundario */
+    --ink-3:#4f545a;              /* Etiqueta de chip inactivo */
+    --ink-muted:#5b6066;          /* Apoyo */
+    --ink-soft:#5f646a;           /* Eyebrows y metadatos */
+    --ink-faint:#5f646a;          /* Notas al pie y cifras de apoyo */
+    --ink-faint-2:#5f646a;        /* Alias: ya no se distinguía del anterior */
+    --ink-placeholder:#666b71;    /* Placeholder y huecos por rellenar */
+    --ink-icon:#7a8087;           /* Iconos de control (no es texto: 3:1) */
+    --ink-on-navy:#fff;           /* Texto sobre superficie prusia */
+    --ink-tab:#686d73;            /* Pestaña inactiva de la barra inferior */
+    --ink-chevron:#848a91;        /* Flechas de "seguir" (icono: basta 3:1) */
 
     /* ---------------------------------------------------------------- *
      * Recuentos — barras grises. Una cantidad NO es una dificultad.
      * ---------------------------------------------------------------- */
 
-    --count-fill:#a89a86;
-    --count-track:#efe7d7;
+    --count-fill:#877f70;
+    --count-track:#e7e3d9;
 
     /* ---------------------------------------------------------------- *
      * Avisos
      * ---------------------------------------------------------------- */
 
-    /* "Dura": la asignatura más difícil, la advertencia con peso. */
-    --warn-bg:#f9ece7;
-    --warn-line:#f0d6cb;
-    --warn-title:#8f3521;
-    --warn-body:#8c6053;
-    --warn-caption:#86645a;       /* Rótulo bajo la cifra del aviso */
+    /* "Dura": la asignatura más difícil. Es óxido, la misma familia que la
+       rampa, porque habla exactamente de lo mismo. */
+    --warn-bg:#f7ede8;
+    --warn-line:#ead5ca;
+    --warn-title:#8a3423;
+    --warn-body:#7a4f41;
+    --warn-caption:#7a4f41;       /* Rótulo bajo la cifra del aviso */
 
-    /* Cohorte pequeña: el ⚠ y su nota. Llama la atención sin alarmar.
-       El handoff fija el glifo y el texto; el fondo y el borde se derivan de
-       ellos para poder montar el aviso completo. */
-    --attention:#c89a2e;
-    --attention-ink:#806e32;
-    --attention-bg:#fbf6e8;
-    --attention-line:#eee0bd;
+    /* Cohorte pequeña: el ⚠ y su nota. No habla de dificultad sino de cuánto
+       fiarse del dato, así que es el único ocre del sistema. */
+    --attention:#a87f1e;
+    --attention-ink:#6f5410;
+    --attention-bg:#f7f1e1;
+    --attention-line:#e5d9b8;
 
     /* ---------------------------------------------------------------- *
      * Variación (deltas)
      * ---------------------------------------------------------------- *
      * Ojo: el color dice "mejor o peor", no "sube o baja". Subir un 19 pp de
-     * no superación es malo y va en rojo; subir un 2 pp de aprobados es bueno
-     * y va en verde. Quien pinta el delta decide el signo, no el token.
+     * no superación es malo y va en óxido; subir un 2 pp de aprobados es bueno
+     * y va en verdín. Quien pinta el delta decide el signo, no el token.
+     *
+     * No son colores nuevos: son el verdín y el óxido que ya están en el
+     * sistema. Un semáforo verde-ámbar-rojo aquí sería un cuarto vocabulario
+     * cromático para decir algo que la flecha ▲▼ ya dice.
      */
 
-    --delta-good:#4a6a44;
-    --delta-bad:#b5482f;
-    --delta-flat:#6e675c;
+    --delta-good:#2a5e50;
+    --delta-bad:#9a3b29;
+    --delta-flat:#5f646a;
 
     /* ---------------------------------------------------------------- *
-     * Radios
+     * Radios — de imprenta, no de aplicación. Una esquina de 4px se lee como
+     * un corte de guillotina; una de 14px, como un botón de sistema.
      * ---------------------------------------------------------------- */
 
-    --radius-row:8px;             /* Fila de asignatura */
-    --radius-control:9px;         /* Botón, buscador */
-    --radius-card:11px;
-    --radius-card-lg:14px;
-    --radius-sheet:16px;          /* Hoja desplegable "Más" */
-    --radius-pill:999px;
+    --radius-xs:2px;              /* Muesca de gráfica, marca de leyenda */
+    --radius-sm:4px;              /* Barra de progreso, celda de horario */
+    --radius-row:5px;             /* Fila de asignatura */
+    --radius-control:6px;         /* Botón, buscador */
+    --radius-card:6px;
+    --radius-card-lg:8px;
+    --radius-sheet:12px;          /* Hoja desplegable "Más" */
+    --radius-pill:999px;          /* SOLO etiquetas y puntos, nunca una caja */
+    --radius-dot:50%;
 
     /* ---------------------------------------------------------------- *
-     * Sombras — escasas a propósito: esto es papel, no material design.
+     * Sombras — no hay. Esto es tinta sobre papel: lo que separa una tarjeta
+     * del fondo es su filete, no una penumbra. La única excepción es la hoja
+     * desplegable, que de verdad se levanta por encima de la pantalla.
      * ---------------------------------------------------------------- */
 
-    --shadow-card:0 1px 3px rgba(35,32,27,.05);
-    --shadow-sheet:0 14px 34px rgba(20,18,14,.30);
-    --shadow-medallion:0 2px 6px rgba(34,61,113,.28);
+    --shadow-card:none;
+    --shadow-sheet:0 -1px 0 rgba(27,29,31,.08),0 18px 44px rgba(23,25,27,.22);
+    --shadow-medallion:none;
 
-    --scrim:rgba(24,20,14,.44);
+    --scrim:rgba(23,25,27,.42);
 
     /* ---------------------------------------------------------------- *
      * Espaciado y medidas
-     * ---------------------------------------------------------------- */
+     * ---------------------------------------------------------------- *
+     * Las secciones respiran más que las filas: el aire entre bloques es lo
+     * que hace de índice cuando se hojea con el pulgar.
+     */
 
-    --gutter:16px;                /* Margen horizontal del contenido */
-    --gap-row:7px;                /* Entre filas de una lista */
-    --gap-card:9px;               /* Entre tarjetas de una rejilla */
-    --gap-section:16px;           /* Ritmo vertical entre secciones */
-    --pad-card:12px 13px;
+    --gutter:18px;                /* Margen horizontal del contenido */
+    --gap-row:6px;                /* Entre filas de una lista */
+    --gap-card:8px;               /* Entre tarjetas de una rejilla */
+    --gap-section:22px;           /* Ritmo vertical entre secciones */
+    --pad-card:14px 15px;
 
     --tab-bar-height:62px;
 
@@ -198,5 +255,13 @@
     /* El mock está dibujado a 402px. En pantallas anchas el contenido se
        contiene en lugar de estirarse hasta lo ilegible. */
     --content-max:520px;
+
+    /* ---------------------------------------------------------------- *
+     * Movimiento — corto y sin rebote. Se nota si falta, no si está.
+     * ---------------------------------------------------------------- */
+
+    --ease-out:cubic-bezier(.16,1,.3,1);
+    --dur-press:120ms;
+    --dur-enter:260ms;
 
 }

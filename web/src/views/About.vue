@@ -192,11 +192,11 @@ h1{
 
     font-family:var(--font-serif);
 
-    font-size:22px;
+    font-size:var(--text-h1);
 
     font-weight:700;
 
-    line-height:1.22;
+    line-height:var(--leading-tight);
 
     text-wrap:pretty;
 
@@ -208,7 +208,7 @@ h1{
 
     font-size:var(--text-body);
 
-    line-height:1.6;
+    line-height:var(--leading-relaxed);
 
     color:var(--ink-2);
 
@@ -216,7 +216,7 @@ h1{
 
 .section{
 
-    margin-top:20px;
+    margin-top:var(--gap-section);
 
 }
 
@@ -284,7 +284,7 @@ h2{
 
     border:1px solid var(--line);
 
-    border-radius:13px;
+    border-radius:var(--radius-card-lg);
 
     color:var(--ink);
 
@@ -298,7 +298,7 @@ h2{
 
     flex:none;
 
-    border-radius:50%;
+    border-radius:var(--radius-dot);
 
     /* Se ve mientras carga la foto y si el perfil no tiene ninguna. */
     background:var(--navy-wash);
@@ -319,7 +319,7 @@ h2{
 
     display:block;
 
-    font-size:13.5px;
+    font-size:var(--text-body);
 
     font-weight:700;
 
@@ -367,7 +367,7 @@ h2{
 
     font-size:var(--text-body-xs);
 
-    line-height:1.55;
+    line-height:var(--leading-body);
 
     color:var(--ink-muted);
 
@@ -411,7 +411,7 @@ h2{
 
     font-size:var(--text-body-sm);
 
-    line-height:1.55;
+    line-height:var(--leading-body);
 
     color:var(--ink-muted);
 
@@ -505,11 +505,11 @@ h2{
 
     border-top:1px solid var(--line-rule);
 
-    font-family:var(--font-mono);
+    font-family:var(--font-sans);
 
     font-size:var(--text-footnote);
 
-    line-height:1.6;
+    line-height:var(--leading-relaxed);
 
     color:var(--ink-faint);
 

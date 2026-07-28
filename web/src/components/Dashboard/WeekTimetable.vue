@@ -256,13 +256,13 @@ const label = hour => `${String(hour).padStart(2, "0")}:00`;
 
     text-align:center;
 
-    font-family:var(--font-mono);
+    font-family:var(--font-sans);
 
     font-size:var(--text-eyebrow);
 
     font-weight:600;
 
-    letter-spacing:.4px;
+    letter-spacing:var(--tracking-eyebrow);
 
     text-transform:uppercase;
 
@@ -294,7 +294,7 @@ const label = hour => `${String(hour).padStart(2, "0")}:00`;
 
     transform:translateY(-45%);
 
-    font-size:8px;
+    font-size:var(--text-micro);
 
     font-weight:500;
 
@@ -342,7 +342,7 @@ const label = hour => `${String(hour).padStart(2, "0")}:00`;
 
     overflow:hidden;
 
-    border-radius:5px;
+    border-radius:var(--radius-sm);
 
     border:1px solid var(--navy-wash-line);
 
@@ -360,7 +360,7 @@ const label = hour => `${String(hour).padStart(2, "0")}:00`;
 
     border-color:var(--line-dashed);
 
-    border-left-color:var(--gold-ink);
+    border-left-color:var(--verd-ink);
 
     background:var(--surface-alt);
 
@@ -380,11 +380,11 @@ const label = hour => `${String(hour).padStart(2, "0")}:00`;
 
 .eventName{
 
-    font-size:9.5px;
+    font-size:var(--text-nav);
 
     font-weight:600;
 
-    line-height:1.2;
+    line-height:var(--leading-tight);
 
     color:var(--ink);
 
@@ -408,7 +408,7 @@ const label = hour => `${String(hour).padStart(2, "0")}:00`;
 
     margin-top:auto;
 
-    font-size:8px;
+    font-size:var(--text-micro);
 
     font-weight:500;
 

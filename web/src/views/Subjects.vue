@@ -295,7 +295,7 @@ const meta = row => [
 
     flex:none;
 
-    border-radius:50%;
+    border-radius:var(--radius-dot);
 
 }
 
@@ -321,11 +321,11 @@ const meta = row => [
 
     display:block;
 
-    font-size:14px;
+    font-size:var(--text-card-title);
 
     font-weight:600;
 
-    line-height:1.2;
+    line-height:var(--leading-tight);
 
     white-space:nowrap;
 
@@ -347,7 +347,7 @@ const meta = row => [
 
     margin-top:2px;
 
-    font-family:var(--font-mono);
+    font-family:var(--font-sans);
 
     font-size:var(--text-eyebrow);
 
@@ -379,9 +379,9 @@ const meta = row => [
 
     background:none;
 
-    font-family:var(--font-mono);
+    font-family:var(--font-sans);
 
-    font-size:10px;
+    font-size:var(--text-num-sm);
 
     color:var(--ink-faint-2);
 
@@ -417,11 +417,11 @@ const meta = row => [
 
     border-top:1px solid var(--line-rule);
 
-    font-family:var(--font-mono);
+    font-family:var(--font-sans);
 
     font-size:var(--text-footnote);
 
-    line-height:1.6;
+    line-height:var(--leading-relaxed);
 
     color:var(--ink-faint);
 

@@ -326,7 +326,7 @@ const examClashLine = date =>
 
     border:none;
 
-    border-radius:7px;
+    border-radius:var(--radius-control);
 
     background:none;
 
@@ -391,11 +391,11 @@ const examClashLine = date =>
 
     margin:0;
 
-    font-family:var(--font-mono);
+    font-family:var(--font-sans);
 
     font-size:var(--text-num-sm);
 
-    line-height:1.7;
+    line-height:var(--leading-relaxed);
 
     color:var(--ink-soft);
 
@@ -423,11 +423,11 @@ const examClashLine = date =>
 
     border-top:1px solid var(--line-rule);
 
-    font-family:var(--font-mono);
+    font-family:var(--font-sans);
 
     font-size:var(--text-footnote);
 
-    line-height:1.6;
+    line-height:var(--leading-relaxed);
 
     color:var(--ink-faint);
 

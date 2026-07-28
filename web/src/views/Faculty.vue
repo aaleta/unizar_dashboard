@@ -299,11 +299,11 @@ h1{
 
     font-family:var(--font-serif);
 
-    font-size:22px;
+    font-size:var(--text-h1);
 
     font-weight:700;
 
-    line-height:1.15;
+    line-height:var(--leading-tight);
 
 }
 
@@ -313,7 +313,7 @@ h1{
 
     font-size:var(--text-body-sm);
 
-    line-height:1.5;
+    line-height:var(--leading-body);
 
     color:var(--ink-soft);
 
@@ -363,7 +363,7 @@ h1{
 
     border:1px solid var(--line);
 
-    border-radius:12px;
+    border-radius:var(--radius-card-lg);
 
     overflow:hidden;
 
@@ -419,7 +419,7 @@ h1{
 
     display:block;
 
-    font-size:13px;
+    font-size:var(--text-body);
 
     font-weight:600;
 
@@ -463,9 +463,9 @@ h1{
 
     background:none;
 
-    font-family:var(--font-mono);
+    font-family:var(--font-sans);
 
-    font-size:9.5px;
+    font-size:var(--text-nav);
 
     color:var(--ink-faint-2);
 
@@ -507,11 +507,11 @@ h2{
 
     font-family:var(--font-serif);
 
-    font-size:17px;
+    font-size:var(--text-section);
 
     font-weight:600;
 
-    line-height:1.2;
+    line-height:var(--leading-tight);
 
 }
 
@@ -519,7 +519,7 @@ h2{
 
     margin:4px 0 0;
 
-    font-size:9.5px;
+    font-size:var(--text-nav);
 
     font-weight:400;
 
@@ -558,13 +558,13 @@ h2{
 
     border-radius:var(--radius-pill);
 
-    font-family:var(--font-mono);
+    font-family:var(--font-sans);
 
     font-size:var(--text-eyebrow);
 
     font-weight:600;
 
-    letter-spacing:.4px;
+    letter-spacing:var(--tracking-eyebrow);
 
     text-transform:uppercase;
 
@@ -607,11 +607,11 @@ h2{
 
     border-top:1px solid var(--line-rule);
 
-    font-family:var(--font-mono);
+    font-family:var(--font-sans);
 
     font-size:var(--text-footnote);
 
-    line-height:1.6;
+    line-height:var(--leading-relaxed);
 
     color:var(--ink-faint);
 

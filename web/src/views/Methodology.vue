@@ -327,7 +327,7 @@ h1{
 
     font-weight:700;
 
-    line-height:1.15;
+    line-height:var(--leading-tight);
 
 }
 
@@ -345,7 +345,7 @@ h1{
 
 .section{
 
-    margin-top:22px;
+    margin-top:var(--gap-section);
 
 }
 
@@ -367,7 +367,7 @@ h2{
 
     font-size:var(--text-body-sm);
 
-    line-height:1.55;
+    line-height:var(--leading-body);
 
     color:var(--ink-2);
 
@@ -420,9 +420,11 @@ h2{
 
     flex:none;
 
-    color:var(--gold-ink);
+    /* Azul y no verdín: numerar los tres recuentos es estructura del texto,
+       y el verdín en esta web quiere decir "esto se elige". */
+    color:var(--navy);
 
-    font-size:13px;
+    font-size:var(--text-body);
 
 }
 
@@ -430,7 +432,7 @@ h2{
 
     font-size:var(--text-body-sm);
 
-    line-height:1.5;
+    line-height:var(--leading-body);
 
     color:var(--ink-2);
 
@@ -506,7 +508,7 @@ h3{
 
     font-size:var(--text-body-xs);
 
-    line-height:1.5;
+    line-height:var(--leading-body);
 
     color:var(--ink-muted);
 
@@ -550,7 +552,7 @@ h3{
 
     font-size:var(--text-body-xs);
 
-    line-height:1.5;
+    line-height:var(--leading-body);
 
     color:var(--ink-muted);
 
@@ -620,7 +622,7 @@ h3{
 
     font-size:var(--text-body-xs);
 
-    line-height:1.55;
+    line-height:var(--leading-body);
 
     color:var(--ink-muted);
 
@@ -646,13 +648,13 @@ h3{
 
     flex:none;
 
-    border-radius:8px;
+    border-radius:var(--radius-card);
 
     background:var(--navy-wash);
 
     color:var(--navy);
 
-    font-size:13px;
+    font-size:var(--text-body);
 
 }
 

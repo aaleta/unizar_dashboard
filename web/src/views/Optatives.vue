@@ -128,7 +128,7 @@ const meta = row => [
             <UiStat
                 :value="total"
                 label="optativas"
-                tone="gold"
+                tone="verd"
             />
             <UiStat
                 :value="enrolmentPerYear"
@@ -279,7 +279,7 @@ h1{
 
 .section{
 
-    margin-top:16px;
+    margin-top:var(--gap-section);
 
 }
 
@@ -309,7 +309,7 @@ h2{
 
     border:1px solid var(--line);
 
-    border-radius:12px;
+    border-radius:var(--radius-card-lg);
 
     box-shadow:var(--shadow-card);
 
@@ -365,9 +365,9 @@ h2{
 
     background:none;
 
-    font-family:var(--font-mono);
+    font-family:var(--font-sans);
 
-    font-size:10px;
+    font-size:var(--text-num-sm);
 
     color:var(--ink-faint-2);
 
@@ -403,11 +403,11 @@ h2{
 
     border-top:1px solid var(--line-rule);
 
-    font-family:var(--font-mono);
+    font-family:var(--font-sans);
 
     font-size:var(--text-footnote);
 
-    line-height:1.6;
+    line-height:var(--leading-relaxed);
 
     color:var(--ink-faint);
 

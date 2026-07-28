@@ -8,7 +8,7 @@
  * —cuántas asignaturas hay—, no una medida de nada. La misma cifra en la rampa
  * de dificultad diría algo falso.
  *
- * El tono `gold` es el de las optativas, que es como se distingue el bloque
+ * El tono `verd` es el de las optativas, que es como se distingue el bloque
  * elegible del obligatorio sin repetir la palabra en cada fila.
  */
 
@@ -34,7 +34,7 @@ defineProps({
     tone: {
         type: String,
         default: "navy",
-        validator: value => ["navy", "gold", "muted"].includes(value)
+        validator: value => ["navy", "verd", "muted"].includes(value)
     }
 
 });
@@ -79,13 +79,13 @@ defineProps({
 
 .label{
 
-    font-family:var(--font-mono);
+    font-family:var(--font-sans);
 
     font-size:var(--text-eyebrow);
 
     font-weight:600;
 
-    letter-spacing:.5px;
+    letter-spacing:var(--tracking-eyebrow);
 
     text-transform:uppercase;
 
@@ -99,9 +99,9 @@ defineProps({
 
 }
 
-.gold{
+.verd{
 
-    color:var(--gold-ink);
+    color:var(--verd-ink);
 
 }
 
@@ -123,7 +123,7 @@ defineProps({
 
 .hint{
 
-    font-family:var(--font-mono);
+    font-family:var(--font-sans);
 
     font-size:var(--text-footnote);
 
