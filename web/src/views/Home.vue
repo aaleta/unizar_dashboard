@@ -109,11 +109,6 @@ const admissionNote = computed(() => {
     <!-- Héroe: continúa la banda navy de la cabecera ------------------- -->
     <section class="hero fullBleed">
 
-        <div class="motif" aria-hidden="true">
-            <span class="ring big"></span>
-            <span class="ring small"></span>
-        </div>
-
         <div class="heroInner">
             <h1>Estadísticas del<br>Grado en Física</h1>
             <p>
@@ -276,10 +271,6 @@ const admissionNote = computed(() => {
 
 .hero{
 
-    position:relative;
-
-    overflow:hidden;
-
     background:var(--navy-surface);
 
     padding-top:2px;
@@ -293,8 +284,6 @@ const admissionNote = computed(() => {
 
 .heroInner{
 
-    position:relative;
-
     max-width:var(--content-max);
 
     margin:0 auto;
@@ -302,54 +291,6 @@ const admissionNote = computed(() => {
     /* El mismo margen lateral que el contenido: la banda llega al borde,
        pero el texto no. */
     padding-inline:var(--gutter);
-
-}
-
-/* Círculos concéntricos: decoración, no dato. En oro tenue porque el oro es
-   justo lo que en esta web no significa nada. */
-.motif{
-
-    position:absolute;
-
-    inset:0;
-
-    pointer-events:none;
-
-}
-
-.ring{
-
-    position:absolute;
-
-    border-radius:50%;
-
-    border:1.5px solid rgba(201,162,75,.35);
-
-}
-
-.ring.big{
-
-    right:-24px;
-
-    top:-28px;
-
-    width:120px;
-
-    height:120px;
-
-}
-
-.ring.small{
-
-    right:6px;
-
-    top:2px;
-
-    width:74px;
-
-    height:74px;
-
-    border-color:rgba(201,162,75,.22);
 
 }
 
