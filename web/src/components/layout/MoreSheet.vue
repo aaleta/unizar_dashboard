@@ -30,7 +30,7 @@ const DESTINATIONS = [
     {
         to: "/horario",
         title: "Monta tu horario",
-        subtitle: "Tus clases y exámenes, sin choques.",
+        subtitle: "Tus clases y exámenes, sin solapamientos.",
         icon: "calendar"
     },
     {
@@ -42,7 +42,7 @@ const DESTINATIONS = [
     {
         to: "/fight",
         title: "Fight Mode",
-        subtitle: "Dos asignaturas cara a cara.",
+        subtitle: "Enfrenta dos asignaturas.",
         badge: "VS"
     },
     {
