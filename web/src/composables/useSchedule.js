@@ -29,8 +29,18 @@ export const publicationYear = freshness.horarios.ultimo_curso;
 export const WEEKDAYS = ["Lunes", "Martes", "Miércoles", "Jueves", "Viernes"];
 
 export const MONTHS = [
-    "enero", "febrero", "marzo", "abril", "mayo", "junio",
-    "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"
+    "enero",
+    "febrero",
+    "marzo",
+    "abril",
+    "mayo",
+    "junio",
+    "julio",
+    "agosto",
+    "septiembre",
+    "octubre",
+    "noviembre",
+    "diciembre"
 ];
 
 const STORAGE_KEY = "fisica-horario";
@@ -40,11 +50,9 @@ const STORAGE_KEY = "fisica-horario";
  * ------------------------------------------------------------------ */
 
 const catalogue = (() => {
-
     const byCode = new Map();
 
     const add = (code, name, tipo, course) => {
-
         const key = String(code);
 
         if (!byCode.has(key)) {
@@ -56,7 +64,6 @@ const catalogue = (() => {
         if (course !== null && !entry.courses.includes(course)) {
             entry.courses.push(course);
         }
-
     };
 
     for (const subject of catalogo.asignaturas) {
@@ -69,13 +76,16 @@ const catalogue = (() => {
     // exámenes pero no en el catálogo histórico.
     for (const entries of Object.values(examData)) {
         for (const entry of entries) {
-
             const [code, ...rest] = entry.asignatura.split(" - ");
 
             if (!byCode.has(code)) {
-                add(code, rest.join(" - "), "troncal", Number(entry.curso) || null);
+                add(
+                    code,
+                    rest.join(" - "),
+                    "troncal",
+                    Number(entry.curso) || null
+                );
             }
-
         }
     }
 
@@ -84,10 +94,11 @@ const catalogue = (() => {
             (a.courses[0] ?? 9) - (b.courses[0] ?? 9) ||
             a.name.localeCompare(b.name, "es")
     );
-
 })();
 
-const catalogueByCode = new Map(catalogue.map(subject => [subject.code, subject]));
+const catalogueByCode = new Map(
+    catalogue.map(subject => [subject.code, subject])
+);
 
 /* ------------------------------------------------------------------ *
  * Clases: solo teoría con día asignado. Las prácticas y laboratorios de la
@@ -101,18 +112,22 @@ const toMinutes = time => {
 };
 
 const theoryEvents = (() => {
-
     const seen = new Set();
     const events = [];
 
     for (const raw of timetableData) {
-
         if (raw.TipoActividad !== "T" || raw.Dia == null) continue;
 
         // El origen trae filas repetidas (la misma serie llega en varias
         // peticiones del scraper); una clase duplicada partiría su celda en
         // dos como si fuera un choque.
-        const key = [raw.Asignatura, raw["Curso-Grupo"], raw.Semestre, raw.Dia, raw.HoraIni].join("|");
+        const key = [
+            raw.Asignatura,
+            raw["Curso-Grupo"],
+            raw.Semestre,
+            raw.Dia,
+            raw.HoraIni
+        ].join("|");
 
         if (seen.has(key)) continue;
 
@@ -128,30 +143,24 @@ const theoryEvents = (() => {
             startMin: toMinutes(raw.HoraIni),
             endMin: toMinutes(raw.HoraFin)
         });
-
     }
 
     return events;
-
 })();
 
 /** code → grupos con teoría, ordenados ("447-1-0", "447-1-1"…). */
 const groupsByCode = (() => {
-
     const map = new Map();
 
     for (const event of theoryEvents) {
-
         if (!map.has(event.code)) map.set(event.code, new Set());
 
         map.get(event.code).add(event.group);
-
     }
 
     return new Map(
         Array.from(map, ([code, groups]) => [code, Array.from(groups).sort()])
     );
-
 })();
 
 /* ------------------------------------------------------------------ *
@@ -159,7 +168,6 @@ const groupsByCode = (() => {
  * ------------------------------------------------------------------ */
 
 const parseDate = dateStr => {
-
     const [day, month, year] = dateStr.split("-").map(Number);
 
     return {
@@ -168,17 +176,14 @@ const parseDate = dateStr => {
         year,
         key: `${year}-${String(month).padStart(2, "0")}-${String(day).padStart(2, "0")}`
     };
-
 };
 
 const allExams = (() => {
-
     const seen = new Set();
     const exams = [];
 
     for (const [tab, entries] of Object.entries(examData)) {
         for (const entry of entries) {
-
             const code = entry.asignatura.split(" - ")[0];
             const key = `${code}|${entry.fecha_examen}|${tab}`;
 
@@ -193,12 +198,10 @@ const allExams = (() => {
                 date: entry.fecha_examen,
                 ...parseDate(entry.fecha_examen)
             });
-
         }
     }
 
     return exams.sort((a, b) => a.key.localeCompare(b.key));
-
 })();
 
 /* ------------------------------------------------------------------ *
@@ -241,11 +244,9 @@ const convocatorias = Object.keys(examData);
 
 /** Convocatoria → "ene–feb 2027", para explicar qué es E1 sin inventarlo. */
 const convocatoriaSpans = (() => {
-
     const spans = {};
 
     for (const tab of convocatorias) {
-
         const exams = allExams.filter(exam => exam.convocatoria === tab);
 
         if (!exams.length) continue;
@@ -258,15 +259,15 @@ const convocatoriaSpans = (() => {
         if (first.month === last.month && first.year === last.year) {
             spans[tab] = `${shortMonth(first.month)} ${first.year}`;
         } else if (first.year === last.year) {
-            spans[tab] = `${shortMonth(first.month)}–${shortMonth(last.month)} ${last.year}`;
+            spans[tab] =
+                `${shortMonth(first.month)}–${shortMonth(last.month)} ${last.year}`;
         } else {
-            spans[tab] = `${shortMonth(first.month)} ${first.year} – ${shortMonth(last.month)} ${last.year}`;
+            spans[tab] =
+                `${shortMonth(first.month)} ${first.year} – ${shortMonth(last.month)} ${last.year}`;
         }
-
     }
 
     return spans;
-
 })();
 
 /* ------------------------------------------------------------------ *
@@ -279,9 +280,7 @@ const semester = ref("S1");
 const convocatoria = ref("all");
 
 const restore = () => {
-
     try {
-
         const saved = JSON.parse(localStorage.getItem(STORAGE_KEY));
 
         if (!saved) return;
@@ -296,33 +295,35 @@ const restore = () => {
         if (saved.semester === "S1" || saved.semester === "S2") {
             semester.value = saved.semester;
         }
-
     } catch {
         /* Un localStorage corrupto no debe tumbar la pantalla. */
     }
-
 };
 
 restore();
 
-watch([selectedCodes, groupChoice, semester], () => {
-
-    try {
-        localStorage.setItem(STORAGE_KEY, JSON.stringify({
-            codes: selectedCodes.value,
-            groups: groupChoice.value,
-            semester: semester.value
-        }));
-    } catch {
-        /* Sin almacenamiento (modo privado), la selección simplemente no persiste. */
-    }
-
-}, { deep: true });
+watch(
+    [selectedCodes, groupChoice, semester],
+    () => {
+        try {
+            localStorage.setItem(
+                STORAGE_KEY,
+                JSON.stringify({
+                    codes: selectedCodes.value,
+                    groups: groupChoice.value,
+                    semester: semester.value
+                })
+            );
+        } catch {
+            /* Sin almacenamiento (modo privado), la selección simplemente no persiste. */
+        }
+    },
+    { deep: true }
+);
 
 /* ------------------------------------------------------------------ */
 
 export const useSchedule = () => {
-
     const selectedSubjects = computed(() =>
         selectedCodes.value
             .map(code => catalogueByCode.get(code))
@@ -332,9 +333,7 @@ export const useSchedule = () => {
     const isSelected = code => selectedCodes.value.includes(code);
 
     const toggle = code => {
-
         if (isSelected(code)) {
-
             selectedCodes.value = selectedCodes.value.filter(c => c !== code);
 
             const groups = { ...groupChoice.value };
@@ -342,7 +341,6 @@ export const useSchedule = () => {
             groupChoice.value = groups;
 
             return;
-
         }
 
         if (!catalogueByCode.get(code)?.available) return;
@@ -354,7 +352,6 @@ export const useSchedule = () => {
         if (available.length) {
             groupChoice.value = { ...groupChoice.value, [code]: available[0] };
         }
-
     };
 
     const clear = () => {
@@ -370,7 +367,6 @@ export const useSchedule = () => {
 
     /** En qué semestres tiene teoría una asignatura: ["S1"], ["S1","S2"]… */
     const semestersFor = code => {
-
         const semesters = new Set();
 
         for (const event of theoryEvents) {
@@ -378,7 +374,6 @@ export const useSchedule = () => {
         }
 
         return Array.from(semesters).sort();
-
     };
 
     /**
@@ -388,11 +383,9 @@ export const useSchedule = () => {
      * vaivén (mañana ⇄ tarde); si alguna tuviera tres, rota.
      */
     const rotateGroups = () => {
-
         const groups = { ...groupChoice.value };
 
         for (const code of selectedCodes.value) {
-
             const available = groupsByCode.get(code) ?? [];
 
             if (available.length < 2) continue;
@@ -400,11 +393,9 @@ export const useSchedule = () => {
             const current = available.indexOf(groups[code] ?? available[0]);
 
             groups[code] = available[(current + 1) % available.length];
-
         }
 
         groupChoice.value = groups;
-
     };
 
     /* ---------------- Clases ---------------- */
@@ -412,12 +403,15 @@ export const useSchedule = () => {
     /** Clases de teoría de la selección, del grupo elegido y semestre activo. */
     const classEvents = computed(() =>
         theoryEvents
-            .filter(event =>
-                isSelected(event.code) &&
-                event.semester === semester.value &&
-                // Sin elección guardada se cae al primer grupo: dejar pasar
-                // todos pintaría la misma clase una vez por grupo.
-                event.group === (groupChoice.value[event.code] ?? groupsByCode.get(event.code)?.[0])
+            .filter(
+                event =>
+                    isSelected(event.code) &&
+                    event.semester === semester.value &&
+                    // Sin elección guardada se cae al primer grupo: dejar pasar
+                    // todos pintaría la misma clase una vez por grupo.
+                    event.group ===
+                        (groupChoice.value[event.code] ??
+                            groupsByCode.get(event.code)?.[0])
             )
             .map(event => ({
                 ...event,
@@ -432,13 +426,11 @@ export const useSchedule = () => {
      * misma asignatura nunca chocan entre sí.
      */
     const classClashes = computed(() => {
-
         const clashes = [];
         const events = classEvents.value;
 
         for (let i = 0; i < events.length; i++) {
             for (let j = i + 1; j < events.length; j++) {
-
                 const a = events[i];
                 const b = events[j];
 
@@ -447,12 +439,10 @@ export const useSchedule = () => {
                 if (a.startMin < b.endMin && b.startMin < a.endMin) {
                     clashes.push({ a, b });
                 }
-
             }
         }
 
         return clashes;
-
     });
 
     /**
@@ -463,8 +453,11 @@ export const useSchedule = () => {
      */
     const missingFromGrid = computed(() =>
         selectedSubjects.value
-            .filter(subject =>
-                !classEvents.value.some(event => event.code === subject.code)
+            .filter(
+                subject =>
+                    !classEvents.value.some(
+                        event => event.code === subject.code
+                    )
             )
             .map(subject => ({
                 ...subject,
@@ -479,9 +472,11 @@ export const useSchedule = () => {
     /** Exámenes de la selección en la convocatoria activa, en orden de fecha. */
     const examEvents = computed(() =>
         allExams
-            .filter(exam =>
-                isSelected(exam.code) &&
-                (convocatoria.value === "all" || exam.convocatoria === convocatoria.value)
+            .filter(
+                exam =>
+                    isSelected(exam.code) &&
+                    (convocatoria.value === "all" ||
+                        exam.convocatoria === convocatoria.value)
             )
             .map(exam => ({
                 ...exam,
@@ -491,32 +486,31 @@ export const useSchedule = () => {
 
     /** Un día con dos asignaturas distintas es un choque de verdad. */
     const examDays = computed(() => {
-
         const byDate = new Map();
 
         for (const exam of examEvents.value) {
-
             if (!byDate.has(exam.key)) {
                 byDate.set(exam.key, {
                     key: exam.key,
                     day: exam.day,
                     month: exam.month,
                     year: exam.year,
-                    weekday: new Date(exam.year, exam.month - 1, exam.day)
-                        .toLocaleDateString("es-ES", { weekday: "short" }),
+                    weekday: new Date(
+                        exam.year,
+                        exam.month - 1,
+                        exam.day
+                    ).toLocaleDateString("es-ES", { weekday: "short" }),
                     exams: []
                 });
             }
 
             byDate.get(exam.key).exams.push(exam);
-
         }
 
         return Array.from(byDate.values()).map(date => ({
             ...date,
             clash: new Set(date.exams.map(exam => exam.code)).size > 1
         }));
-
     });
 
     /**
@@ -525,7 +519,6 @@ export const useSchedule = () => {
      * antes del día 1 y después del último.
      */
     const buildMonthWeeks = (year, month, examsByDay) => {
-
         const daysInMonth = new Date(year, month, 0).getDate();
         const leadingBlanks = (new Date(year, month - 1, 1).getDay() + 6) % 7;
 
@@ -534,7 +527,6 @@ export const useSchedule = () => {
         for (let i = 0; i < leadingBlanks; i++) cells.push(null);
 
         for (let day = 1; day <= daysInMonth; day++) {
-
             const exams = examsByDay.get(day) ?? [];
 
             cells.push({
@@ -542,7 +534,6 @@ export const useSchedule = () => {
                 exams,
                 clash: new Set(exams.map(exam => exam.code)).size > 1
             });
-
         }
 
         while (cells.length % 7 !== 0) cells.push(null);
@@ -554,7 +545,6 @@ export const useSchedule = () => {
         }
 
         return weeks;
-
     };
 
     /**
@@ -564,21 +554,21 @@ export const useSchedule = () => {
      * con junio en la misma cuadrícula no informa de nada.
      */
     const examPeriods = computed(() => {
-
         const periods = [];
 
         for (const tab of convocatorias) {
+            if (convocatoria.value !== "all" && tab !== convocatoria.value)
+                continue;
 
-            if (convocatoria.value !== "all" && tab !== convocatoria.value) continue;
-
-            const exams = examEvents.value.filter(exam => exam.convocatoria === tab);
+            const exams = examEvents.value.filter(
+                exam => exam.convocatoria === tab
+            );
 
             if (!exams.length) continue;
 
             const byMonth = new Map();
 
             for (const exam of exams) {
-
                 const key = `${exam.year}-${exam.month}`;
 
                 if (!byMonth.has(key)) {
@@ -595,7 +585,6 @@ export const useSchedule = () => {
                 if (!month.byDay.has(exam.day)) month.byDay.set(exam.day, []);
 
                 month.byDay.get(exam.day).push(exam);
-
             }
 
             periods.push({
@@ -607,29 +596,39 @@ export const useSchedule = () => {
                     .map(month => ({
                         key: month.key,
                         label: `${MONTHS[month.month - 1]} ${month.year}`,
-                        weeks: buildMonthWeeks(month.year, month.month, month.byDay),
+                        weeks: buildMonthWeeks(
+                            month.year,
+                            month.month,
+                            month.byDay
+                        ),
                         days: Array.from(month.byDay.entries())
                             .sort((a, b) => a[0] - b[0])
                             .map(([day, exams]) => ({
                                 day,
-                                weekday: new Date(month.year, month.month - 1, day)
-                                    .toLocaleDateString("es-ES", { weekday: "short" }),
+                                weekday: new Date(
+                                    month.year,
+                                    month.month - 1,
+                                    day
+                                ).toLocaleDateString("es-ES", {
+                                    weekday: "short"
+                                }),
                                 exams,
-                                clash: new Set(exams.map(exam => exam.code)).size > 1
+                                clash:
+                                    new Set(exams.map(exam => exam.code)).size >
+                                    1
                             }))
                     }))
             });
-
         }
 
         return periods;
-
     });
 
-    const examClashes = computed(() => examDays.value.filter(date => date.clash));
+    const examClashes = computed(() =>
+        examDays.value.filter(date => date.clash)
+    );
 
     return {
-
         catalogue,
         publicationYear,
         convocatorias,
@@ -656,7 +655,5 @@ export const useSchedule = () => {
         examDays,
         examPeriods,
         examClashes
-
     };
-
 };

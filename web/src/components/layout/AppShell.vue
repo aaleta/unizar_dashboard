@@ -1,5 +1,4 @@
 <script setup>
-
 /**
  * La carcasa: marca arriba, banda de título debajo, contenido en medio y
  * pestañas abajo. Ese orden es el mismo en las once pantallas.
@@ -36,124 +35,109 @@ const route = useRoute();
  * usePageHeader: hay títulos que no se saben hasta tener los datos delante,
  * como el nombre de la asignatura de una ficha.
  */
-const title = computed(() => pageHeader.value?.title ?? route.meta.title ?? null);
+const title = computed(
+    () => pageHeader.value?.title ?? route.meta.title ?? null
+);
 
 const sheetOpen = ref(false);
 
 // Si se navega por cualquier otra vía (un enlace de dentro, el botón atrás del
 // navegador), la hoja no debe quedarse abierta sobre una pantalla distinta.
-watch(() => route.fullPath, () => {
-    sheetOpen.value = false;
-});
-
+watch(
+    () => route.fullPath,
+    () => {
+        sheetOpen.value = false;
+    }
+);
 </script>
 
 <template>
+    <div class="shell">
+        <AppHeader />
 
-<div class="shell">
-
-    <AppHeader />
-
-    <!-- Barra de carga: solo aparece si la pantalla tarda. `aria-hidden` a
+        <!-- Barra de carga: solo aparece si la pantalla tarda. `aria-hidden` a
          propósito — el cambio de página ya se anuncia solo, y un "cargando"
          hablado en cada toque sería ruido. -->
-    <div
-        v-if="navigationLoading"
-        class="progress"
-        aria-hidden="true"
-    ></div>
+        <div v-if="navigationLoading" class="progress" aria-hidden="true"></div>
 
-    <main class="body">
-        <AppPageTitle :title="title" />
-        <div class="content">
-            <slot />
-        </div>
-    </main>
+        <main class="body">
+            <AppPageTitle :title="title" />
+            <div class="content">
+                <slot />
+            </div>
+        </main>
 
-    <BottomTabBar
-        :sheet-open="sheetOpen"
-        @toggle-sheet="sheetOpen = !sheetOpen"
-    />
+        <BottomTabBar
+            :sheet-open="sheetOpen"
+            @toggle-sheet="sheetOpen = !sheetOpen"
+        />
 
-    <MoreSheet
-        :open="sheetOpen"
-        @close="sheetOpen = false"
-    />
-
-</div>
-
+        <MoreSheet :open="sheetOpen" @close="sheetOpen = false" />
+    </div>
 </template>
 
 <style scoped>
+.shell {
+    display: flex;
 
-.shell{
+    flex-direction: column;
 
-    display:flex;
-
-    flex-direction:column;
-
-    min-height:100dvh;
-
+    min-height: 100dvh;
 }
 
 /* Pegada bajo la cabecera, que es sticky: la barra tiene que verse aunque se
    haya bajado un poco antes de tocar el enlace. */
-.progress{
+.progress {
+    position: sticky;
 
-    position:sticky;
+    top: 0;
 
-    top:0;
+    z-index: 9;
 
-    z-index:9;
+    height: 2px;
 
-    height:2px;
+    overflow: hidden;
 
-    overflow:hidden;
-
-    background:var(--line);
-
+    background: var(--line);
 }
 
-.progress::after{
+.progress::after {
+    content: "";
 
-    content:"";
+    display: block;
 
-    display:block;
+    width: 40%;
 
-    width:40%;
+    height: 100%;
 
-    height:100%;
+    background: var(--navy);
 
-    background:var(--navy);
-
-    animation:slide 1s ease-in-out infinite;
-
+    animation: slide 1s ease-in-out infinite;
 }
 
-@keyframes slide{
+@keyframes slide {
+    from {
+        transform: translateX(-100%);
+    }
 
-    from{ transform:translateX(-100%); }
-
-    to{ transform:translateX(350%); }
-
+    to {
+        transform: translateX(350%);
+    }
 }
 
-.body{
-
-    flex:1;
+.body {
+    flex: 1;
 
     /* Hueco para que la barra fija no tape el final del contenido: nadie
        debería tener que adivinar que queda una fila más debajo. */
-    padding-bottom:calc(var(--tab-bar-height) + env(safe-area-inset-bottom) + 12px);
-
+    padding-bottom: calc(
+        var(--tab-bar-height) + env(safe-area-inset-bottom) + 12px
+    );
 }
 
-.content{
+.content {
+    max-width: var(--content-max);
 
-    max-width:var(--content-max);
-
-    margin:0 auto;
-
+    margin: 0 auto;
 }
-
 </style>

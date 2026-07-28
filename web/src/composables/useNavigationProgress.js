@@ -21,22 +21,17 @@ const loading = ref(false);
 let timer = null;
 
 export const useNavigationProgress = router => {
-
     router.beforeEach((to, from, next) => {
-
         // La primera carga ya enseña el HTML de arranque: no hace falta barra.
         if (from.name !== undefined) {
-
             clearTimeout(timer);
 
             timer = setTimeout(() => {
                 loading.value = true;
             }, DELAY);
-
         }
 
         next();
-
     });
 
     const stop = () => {
@@ -49,7 +44,6 @@ export const useNavigationProgress = router => {
     // Si un trozo no se puede descargar (se cayó la red a mitad de camino) la
     // barra no puede quedarse girando para siempre.
     router.onError(stop);
-
 };
 
 export const navigationLoading = loading;

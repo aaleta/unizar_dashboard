@@ -1,5 +1,4 @@
 <script setup>
-
 /**
  * El calendario de exámenes: una cuadrícula mensual por convocatoria.
  *
@@ -18,371 +17,303 @@
  */
 
 defineProps({
-
     // De useSchedule.examPeriods: { tab, label ("E1"), span ("dic 2026 –
     // ene 2027"), months: [{ key, label, weeks, days }] }
     periods: {
         type: Array,
         required: true
     }
-
 });
 
 const WEEKDAY_LETTERS = ["L", "M", "X", "J", "V", "S", "D"];
-
 </script>
 
 <template>
-
-<div class="calendars">
-
-    <section
-        v-for="period in periods"
-        :key="period.tab"
-        class="period"
-    >
-
-        <div class="periodHead">
-            <span class="periodName eyebrow">Convocatoria {{ period.label }}</span>
-            <span class="rule"></span>
-            <span class="periodSpan">{{ period.span }}</span>
-        </div>
-
-        <div
-            v-for="month in period.months"
-            :key="month.key"
-            class="month"
-        >
-
-            <p class="monthName">{{ month.label }}</p>
-
-            <div
-                class="grid"
-                role="img"
-                :aria-label="`${month.label}: ${month.days.length} días con examen`"
-            >
-
-                <span
-                    v-for="(letter, index) in WEEKDAY_LETTERS"
-                    :key="'h' + index"
-                    class="weekday"
-                    :class="{ sunday: index === 6 }"
+    <div class="calendars">
+        <section v-for="period in periods" :key="period.tab" class="period">
+            <div class="periodHead">
+                <span class="periodName eyebrow"
+                    >Convocatoria {{ period.label }}</span
                 >
-                    {{ letter }}
-                </span>
-
-                <template
-                    v-for="(week, weekIndex) in month.weeks"
-                    :key="weekIndex"
-                >
-                    <span
-                        v-for="(cell, cellIndex) in week"
-                        :key="weekIndex + '-' + cellIndex"
-                        class="cell"
-                        :class="{
-                            blank: cell === null,
-                            sunday: cellIndex === 6,
-                            exam: cell?.exams.length,
-                            clash: cell?.clash
-                        }"
-                    >
-                        <template v-if="cell !== null">
-                            <span class="cellNum num">{{ cell.day }}</span>
-                        </template>
-                    </span>
-                </template>
-
+                <span class="rule"></span>
+                <span class="periodSpan">{{ period.span }}</span>
             </div>
 
-            <!-- Leyenda: qué examen es cada día marcado -->
-            <ul class="legend">
-                <li
-                    v-for="date in month.days"
-                    :key="date.day"
-                    class="legendRow"
-                    :class="{ clash: date.clash }"
+            <div v-for="month in period.months" :key="month.key" class="month">
+                <p class="monthName">{{ month.label }}</p>
+
+                <div
+                    class="grid"
+                    role="img"
+                    :aria-label="`${month.label}: ${month.days.length} días con examen`"
                 >
-                    <span class="legendDay num">{{ date.day }} {{ date.weekday }}</span>
-                    <span class="legendNames">
-                        {{ date.exams.map(exam => exam.name).join(" y ") }}<template
-                            v-if="date.clash"
-                        > ⚠</template>
+                    <span
+                        v-for="(letter, index) in WEEKDAY_LETTERS"
+                        :key="'h' + index"
+                        class="weekday"
+                        :class="{ sunday: index === 6 }"
+                    >
+                        {{ letter }}
                     </span>
-                </li>
-            </ul>
 
-        </div>
+                    <template
+                        v-for="(week, weekIndex) in month.weeks"
+                        :key="weekIndex"
+                    >
+                        <span
+                            v-for="(cell, cellIndex) in week"
+                            :key="weekIndex + '-' + cellIndex"
+                            class="cell"
+                            :class="{
+                                blank: cell === null,
+                                sunday: cellIndex === 6,
+                                exam: cell?.exams.length,
+                                clash: cell?.clash
+                            }"
+                        >
+                            <template v-if="cell !== null">
+                                <span class="cellNum num">{{ cell.day }}</span>
+                            </template>
+                        </span>
+                    </template>
+                </div>
 
-    </section>
-
-</div>
-
+                <!-- Leyenda: qué examen es cada día marcado -->
+                <ul class="legend">
+                    <li
+                        v-for="date in month.days"
+                        :key="date.day"
+                        class="legendRow"
+                        :class="{ clash: date.clash }"
+                    >
+                        <span class="legendDay num"
+                            >{{ date.day }} {{ date.weekday }}</span
+                        >
+                        <span class="legendNames">
+                            {{ date.exams.map(exam => exam.name).join(" y ")
+                            }}<template v-if="date.clash"> ⚠</template>
+                        </span>
+                    </li>
+                </ul>
+            </div>
+        </section>
+    </div>
 </template>
 
 <style scoped>
+.calendars {
+    display: flex;
 
-.calendars{
+    flex-direction: column;
 
-    display:flex;
-
-    flex-direction:column;
-
-    gap:18px;
-
+    gap: 18px;
 }
 
-.periodHead{
+.periodHead {
+    display: flex;
 
-    display:flex;
+    align-items: center;
 
-    align-items:center;
-
-    gap:7px;
-
+    gap: 7px;
 }
 
 /* Más grande que un eyebrow normal: es el título de todo un bloque de
    calendarios, no el rótulo de una tarjeta. */
-.periodName{
+.periodName {
+    font-size: var(--text-num);
 
-    font-size:var(--text-num);
-
-    color:var(--navy);
-
+    color: var(--navy);
 }
 
-.rule{
+.rule {
+    flex: 1;
 
-    flex:1;
+    height: 1px;
 
-    height:1px;
-
-    background:var(--line-rule);
-
+    background: var(--line-rule);
 }
 
-.periodSpan{
+.periodSpan {
+    font-family: var(--font-mono);
 
-    font-family:var(--font-mono);
+    font-size: var(--text-footnote);
 
-    font-size:var(--text-footnote);
-
-    color:var(--ink-faint);
-
+    color: var(--ink-faint);
 }
 
-.month{
+.month {
+    margin-top: 9px;
 
-    margin-top:9px;
+    padding: 11px 12px 8px;
 
-    padding:11px 12px 8px;
+    background: var(--surface);
 
-    background:var(--surface);
+    border: 1px solid var(--line);
 
-    border:1px solid var(--line);
+    border-radius: var(--radius-card);
 
-    border-radius:var(--radius-card);
-
-    box-shadow:var(--shadow-card);
-
+    box-shadow: var(--shadow-card);
 }
 
-.month + .month{
-
-    margin-top:var(--gap-card);
-
+.month + .month {
+    margin-top: var(--gap-card);
 }
 
-.monthName{
+.monthName {
+    margin: 0 0 8px;
 
-    margin:0 0 8px;
+    font-family: var(--font-serif);
 
-    font-family:var(--font-serif);
+    font-size: var(--text-card-title);
 
-    font-size:var(--text-card-title);
+    font-weight: 600;
 
-    font-weight:600;
+    color: var(--ink);
 
-    color:var(--ink);
-
-    text-transform:capitalize;
-
+    text-transform: capitalize;
 }
 
-.grid{
+.grid {
+    display: grid;
 
-    display:grid;
+    grid-template-columns: repeat(7, 1fr);
 
-    grid-template-columns:repeat(7,1fr);
-
-    gap:2px;
+    gap: 2px;
 
     /* Las casillas son cuadradas (aspect-ratio + max-height) y no llegan a
        llenar su columna: sin esto se pegan al borde izquierdo del carril y
        quedan descentradas respecto a su letra de cabecera. */
-    justify-items:center;
-
+    justify-items: center;
 }
 
-.weekday{
+.weekday {
+    padding-bottom: 3px;
 
-    padding-bottom:3px;
+    text-align: center;
 
-    text-align:center;
+    font-family: var(--font-mono);
 
-    font-family:var(--font-mono);
+    font-size: var(--text-footnote);
 
-    font-size:var(--text-footnote);
+    font-weight: 600;
 
-    font-weight:600;
+    letter-spacing: 0.4px;
 
-    letter-spacing:.4px;
-
-    color:var(--ink-soft);
-
+    color: var(--ink-soft);
 }
 
-.weekday.sunday{
-
-    color:var(--ink-icon);
-
+.weekday.sunday {
+    color: var(--ink-icon);
 }
 
-.cell{
+.cell {
+    display: flex;
 
-    display:flex;
+    align-items: center;
 
-    align-items:center;
+    justify-content: center;
 
-    justify-content:center;
+    width: 100%;
 
-    width:100%;
+    max-width: 40px;
 
-    max-width:40px;
+    aspect-ratio: 1;
 
-    aspect-ratio:1;
+    border-radius: 7px;
 
-    border-radius:7px;
-
-    background:var(--paper);
-
+    background: var(--paper);
 }
 
-.cell.blank{
-
-    background:none;
-
+.cell.blank {
+    background: none;
 }
 
 /* Solo el domingo se apaga: es el único día en que nunca hay examen. El
    sábado es lectivo para exámenes y se pinta como cualquier otro día. Sin
    fondo, como los huecos fuera del mes, y con la cifra desvaída: una casilla
    que no puede recibir nada no debe parecer disponible. */
-.cell.sunday:not(.blank){
-
-    background:none;
-
+.cell.sunday:not(.blank) {
+    background: none;
 }
 
-.cell.sunday:not(.blank) .cellNum{
+.cell.sunday:not(.blank) .cellNum {
+    color: var(--ink-icon);
 
-    color:var(--ink-icon);
-
-    font-weight:400;
-
+    font-weight: 400;
 }
 
-.cellNum{
+.cellNum {
+    font-size: var(--text-num);
 
-    font-size:var(--text-num);
+    font-weight: 500;
 
-    font-weight:500;
-
-    color:var(--ink-muted);
-
+    color: var(--ink-muted);
 }
 
 /* Día con examen: navy, estructura. */
-.cell.exam{
-
-    background:var(--navy);
-
+.cell.exam {
+    background: var(--navy);
 }
 
-.cell.exam .cellNum{
+.cell.exam .cellNum {
+    font-weight: 600;
 
-    font-weight:600;
-
-    color:var(--ink-on-navy);
-
+    color: var(--ink-on-navy);
 }
 
 /* Día con dos asignaturas: el aviso de verdad. */
-.cell.clash{
-
-    background:var(--warn-title);
-
+.cell.clash {
+    background: var(--warn-title);
 }
 
-.legend{
+.legend {
+    margin: 8px 0 0;
 
-    margin:8px 0 0;
+    padding: 6px 1px 0;
 
-    padding:6px 1px 0;
+    border-top: 1px solid var(--line-inner);
 
-    border-top:1px solid var(--line-inner);
+    list-style: none;
 
-    list-style:none;
+    display: flex;
 
-    display:flex;
+    flex-direction: column;
 
-    flex-direction:column;
-
-    gap:3px;
-
+    gap: 3px;
 }
 
-.legendRow{
+.legendRow {
+    display: flex;
 
-    display:flex;
+    align-items: baseline;
 
-    align-items:baseline;
-
-    gap:8px;
-
+    gap: 8px;
 }
 
-.legendDay{
+.legendDay {
+    flex: none;
 
-    flex:none;
+    width: 44px;
 
-    width:44px;
+    font-size: var(--text-num-sm);
 
-    font-size:var(--text-num-sm);
-
-    color:var(--ink-soft);
-
+    color: var(--ink-soft);
 }
 
-.legendNames{
+.legendNames {
+    min-width: 0;
 
-    min-width:0;
+    font-size: var(--text-body-sm);
 
-    font-size:var(--text-body-sm);
+    font-weight: 600;
 
-    font-weight:600;
+    line-height: 1.3;
 
-    line-height:1.3;
-
-    color:var(--ink-2);
-
+    color: var(--ink-2);
 }
 
 .legendRow.clash .legendDay,
-.legendRow.clash .legendNames{
-
-    color:var(--warn-title);
-
+.legendRow.clash .legendNames {
+    color: var(--warn-title);
 }
-
 </style>

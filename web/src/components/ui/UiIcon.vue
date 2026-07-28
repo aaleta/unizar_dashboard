@@ -1,5 +1,4 @@
 <script setup>
-
 /**
  * Iconos de línea, en un solo sitio.
  *
@@ -13,7 +12,6 @@
  */
 
 defineProps({
-
     name: {
         type: String,
         required: true
@@ -35,11 +33,9 @@ defineProps({
         type: String,
         default: null
     }
-
 });
 
 const PATHS = {
-
     // Barra de pestañas
     home: '<path d="M3 11l9-7 9 7M5 10v9h14v-9" />',
     layers:
@@ -53,8 +49,10 @@ const PATHS = {
         '<path d="M9 6h11M9 12h11M9 18h11" stroke-linecap="round" />',
 
     // Navegación
-    chevronLeft: '<path d="M15 4l-7 8 7 8" stroke-linecap="round" stroke-linejoin="round" />',
-    chevronRight: '<path d="M9 4l7 8-7 8" stroke-linecap="round" stroke-linejoin="round" />',
+    chevronLeft:
+        '<path d="M15 4l-7 8 7 8" stroke-linecap="round" stroke-linejoin="round" />',
+    chevronRight:
+        '<path d="M9 4l7 8-7 8" stroke-linecap="round" stroke-linejoin="round" />',
     close: '<path d="M5 5l14 14M19 5L5 19" stroke-linecap="round" />',
 
     // Destinos del menú "Más"
@@ -76,28 +74,24 @@ const PATHS = {
     search:
         '<circle cx="11" cy="11" r="7" stroke-width="2" />' +
         '<path d="M20 20l-3.5-3.5" stroke-width="2" stroke-linecap="round" />'
-
 };
-
 </script>
 
 <template>
-
-<svg
-    :width="size"
-    :height="size"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    :stroke-width="width"
-    stroke-linejoin="round"
-    :role="title ? 'img' : undefined"
-    :aria-hidden="title ? undefined : 'true'"
-    :aria-label="title || undefined"
->
-    <!-- eslint-disable-next-line vue/no-v-html -- Cadenas literales de este
+    <svg
+        :width="size"
+        :height="size"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        :stroke-width="width"
+        stroke-linejoin="round"
+        :role="title ? 'img' : undefined"
+        :aria-hidden="title ? undefined : 'true'"
+        :aria-label="title || undefined"
+    >
+        <!-- eslint-disable-next-line vue/no-v-html -- Cadenas literales de este
          mismo fichero, nunca datos: no hay superficie de inyección. -->
-    <g v-html="PATHS[name]"></g>
-</svg>
-
+        <g v-html="PATHS[name]"></g>
+    </svg>
 </template>

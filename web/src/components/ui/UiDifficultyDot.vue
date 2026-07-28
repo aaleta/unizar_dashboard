@@ -1,5 +1,4 @@
 <script setup>
-
 /**
  * El punto de dificultad que precede a cada asignatura.
  *
@@ -16,7 +15,6 @@ import { computed } from "vue";
 import { difficultyFill, difficultyLabel } from "@/theme/difficulty";
 
 const props = defineProps({
-
     // Tasa de no superación en %. null = sin datos (gris neutro, no verde).
     value: {
         type: Number,
@@ -33,7 +31,6 @@ const props = defineProps({
         type: Number,
         default: 8
     }
-
 });
 
 const color = computed(() => difficultyFill(props.value));
@@ -46,30 +43,23 @@ const style = computed(() => ({
     background: props.hollow ? "transparent" : color.value,
     border: props.hollow ? `2px solid ${color.value}` : "none"
 }));
-
 </script>
 
 <template>
-
-<span
-    class="dot"
-    :style="style"
-    role="img"
-    :aria-label="`Dificultad: ${difficultyLabel(value)}`"
-></span>
-
+    <span
+        class="dot"
+        :style="style"
+        role="img"
+        :aria-label="`Dificultad: ${difficultyLabel(value)}`"
+    ></span>
 </template>
 
 <style scoped>
+.dot {
+    display: inline-block;
 
-.dot{
+    border-radius: 50%;
 
-    display:inline-block;
-
-    border-radius:50%;
-
-    flex:none;
-
+    flex: none;
 }
-
 </style>

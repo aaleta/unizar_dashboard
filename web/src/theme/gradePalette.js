@@ -15,11 +15,11 @@
 
 export const GRADE_COLORS = {
     "No pre": "#b9b0a1",
-    "Sus": "#b5482f",
-    "Apr": "#6e9a6a",
-    "Not": "#4e86a0",
-    "Sob": "#7e6ba6",
-    "MH": "#d2a03f"
+    Sus: "#b5482f",
+    Apr: "#6e9a6a",
+    Not: "#4e86a0",
+    Sob: "#7e6ba6",
+    MH: "#d2a03f"
 };
 
 /** Color de una categoría; gris neutro si apareciera una desconocida. */

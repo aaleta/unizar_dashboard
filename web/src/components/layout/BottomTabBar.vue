@@ -1,5 +1,4 @@
 <script setup>
-
 /**
  * Las cuatro pestañas fijas de abajo.
  *
@@ -21,12 +20,10 @@ import { useRoute } from "vue-router";
 import UiIcon from "@/components/ui/UiIcon.vue";
 
 defineProps({
-
     sheetOpen: {
         type: Boolean,
         default: false
     }
-
 });
 
 defineEmits(["toggle-sheet"]);
@@ -47,9 +44,9 @@ const TABS = [
         icon: "layers",
         to: "/grado",
         matches: path =>
-            path.startsWith("/grado")
-            || path.startsWith("/asignatura")
-            || path.startsWith("/curso")
+            path.startsWith("/grado") ||
+            path.startsWith("/asignatura") ||
+            path.startsWith("/curso")
     },
     {
         key: "optativas",
@@ -60,144 +57,120 @@ const TABS = [
     }
 ];
 
-const activeKey = computed(() =>
-    TABS.find(tab => tab.matches(route.path))?.key ?? null
+const activeKey = computed(
+    () => TABS.find(tab => tab.matches(route.path))?.key ?? null
 );
-
 </script>
 
 <template>
+    <nav class="bar" aria-label="Secciones">
+        <div class="inner">
+            <RouterLink
+                v-for="tab in TABS"
+                :key="tab.key"
+                :to="tab.to"
+                class="tab"
+                :class="{ active: !sheetOpen && activeKey === tab.key }"
+                :aria-current="activeKey === tab.key ? 'page' : undefined"
+            >
+                <UiIcon :name="tab.icon" />
+                <span class="label">{{ tab.label }}</span>
+            </RouterLink>
 
-<nav
-    class="bar"
-    aria-label="Secciones"
->
-
-  <div class="inner">
-
-    <RouterLink
-        v-for="tab in TABS"
-        :key="tab.key"
-        :to="tab.to"
-        class="tab"
-        :class="{ active: !sheetOpen && activeKey === tab.key }"
-        :aria-current="activeKey === tab.key ? 'page' : undefined"
-    >
-        <UiIcon :name="tab.icon" />
-        <span class="label">{{ tab.label }}</span>
-    </RouterLink>
-
-    <button
-        type="button"
-        class="tab"
-        :class="{ active: sheetOpen }"
-        aria-haspopup="dialog"
-        :aria-expanded="sheetOpen"
-        @click="$emit('toggle-sheet')"
-    >
-        <UiIcon name="dots" />
-        <span class="label">Más</span>
-    </button>
-
-  </div>
-
-</nav>
-
+            <button
+                type="button"
+                class="tab"
+                :class="{ active: sheetOpen }"
+                aria-haspopup="dialog"
+                :aria-expanded="sheetOpen"
+                @click="$emit('toggle-sheet')"
+            >
+                <UiIcon name="dots" />
+                <span class="label">Más</span>
+            </button>
+        </div>
+    </nav>
 </template>
 
 <style scoped>
+.bar {
+    position: fixed;
 
-.bar{
+    left: 0;
 
-    position:fixed;
+    right: 0;
 
-    left:0;
+    bottom: 0;
 
-    right:0;
-
-    bottom:0;
-
-    z-index:20;
+    z-index: 20;
 
     /* El alto son 62px de barra más lo que ocupe la barra de gestos del
        teléfono, que si no se come la fila de etiquetas. */
-    height:calc(var(--tab-bar-height) + env(safe-area-inset-bottom));
+    height: calc(var(--tab-bar-height) + env(safe-area-inset-bottom));
 
-    padding-bottom:env(safe-area-inset-bottom);
+    padding-bottom: env(safe-area-inset-bottom);
 
-    background:var(--surface);
+    background: var(--surface);
 
-    border-top:1px solid var(--line-tab);
-
+    border-top: 1px solid var(--line-tab);
 }
 
 /* La banda blanca cruza toda la pantalla, pero las cuatro pestañas se agrupan
    en el ancho del contenido: repartidas por 1400px quedarían tan separadas que
    dejarían de leerse como una barra. */
-.inner{
+.inner {
+    display: flex;
 
-    display:flex;
+    align-items: stretch;
 
-    align-items:stretch;
+    height: 100%;
 
-    height:100%;
+    max-width: var(--content-max);
 
-    max-width:var(--content-max);
+    margin: 0 auto;
 
-    margin:0 auto;
-
-    padding:0 6px;
-
+    padding: 0 6px;
 }
 
-.tab{
+.tab {
+    flex: 1;
 
-    flex:1;
+    display: flex;
 
-    display:flex;
+    flex-direction: column;
 
-    flex-direction:column;
+    align-items: center;
 
-    align-items:center;
+    justify-content: center;
 
-    justify-content:center;
+    gap: 3px;
 
-    gap:3px;
+    padding: 0;
 
-    padding:0;
+    border: none;
 
-    border:none;
+    background: none;
 
-    background:none;
+    color: var(--ink-tab);
 
-    color:var(--ink-tab);
+    font-family: var(--font-sans);
 
-    font-family:var(--font-sans);
+    text-decoration: none;
 
-    text-decoration:none;
-
-    cursor:pointer;
-
+    cursor: pointer;
 }
 
-.label{
+.label {
+    font-size: var(--text-nav);
 
-    font-size:var(--text-nav);
-
-    font-weight:500;
-
+    font-weight: 500;
 }
 
-.tab.active{
-
-    color:var(--navy);
-
+.tab.active {
+    color: var(--navy);
 }
 
-.tab.active .label{
-
-    font-weight:600;
-
+.tab.active .label {
+    font-weight: 600;
 }
-
 </style>

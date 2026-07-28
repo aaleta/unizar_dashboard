@@ -27,44 +27,47 @@
  * de nota?
  */
 
-:root{
-
+:root {
     /* ---------------------------------------------------------------- *
      * Marca
      * ---------------------------------------------------------------- */
 
     /* Azul corporativo de Unizar (PANTONE 653C). */
-    --navy:#223d71;
+    --navy: #223d71;
 
     /* El azul de las superficies grandes: cabecera, héroe de la portada y
        banda de totales del mapa. Es más oscuro que el corporativo porque
        encima va texto blanco y una mancha de ese tamaño necesita el
        contraste (12,4:1 frente a 10,6:1). El navy de arriba sigue siendo la
        tinta de la marca; este es solo el color de las manchas. */
-    --navy-surface:#1b3559;
+    --navy-surface: #1b3559;
 
-    --navy-soft:#3a4667;          /* Navy legible sobre fondo claro */
-    --navy-faint:#aeb9d1;         /* Subtítulos y eyebrows SOBRE el navy */
-    --navy-line:#c3ccdd;          /* Bordes de píldora navy */
-    --navy-line-soft:#cdd4e0;     /* Bordes de control (selector de año) */
-    --navy-wash:#eef0f5;          /* Fondo de aviso estructural */
-    --navy-wash-line:#dfe3ec;
+    --navy-soft: #3a4667; /* Navy legible sobre fondo claro */
+    --navy-faint: #aeb9d1; /* Subtítulos y eyebrows SOBRE el navy */
+    --navy-line: #c3ccdd; /* Bordes de píldora navy */
+    --navy-line-soft: #cdd4e0; /* Bordes de control (selector de año) */
+    --navy-wash: #eef0f5; /* Fondo de aviso estructural */
+    --navy-wash-line: #dfe3ec;
 
     /* Oro heráldico: decoración y ganador de Fight Mode. Nunca un dato. */
-    --gold:#cba44c;
-    --gold-rule:#b08d3f;          /* Filete de 2px bajo la cabecera. Único
-                                     uso ESTRUCTURAL del oro: es una línea,
-                                     no una magnitud. */
-    --gold-ink:#85662d;           /* Oro legible como texto */
-    --gold-wash:#fbf5e7;
-    --gold-line:#e7d3a2;          /* Borde del veredicto */
-    --gold-strong:#8a6619;        /* Título del veredicto sobre gold-wash */
-    --gold-soft:#866d40;          /* Detalle del veredicto sobre gold-wash */
+    --gold: #cba44c;
+
+    /* Filete de 2px bajo la cabecera. Único uso ESTRUCTURAL del oro: es una
+       línea, no una magnitud. */
+    --gold-rule: #b08d3f;
+
+    --gold-ink: #85662d; /* Oro legible como texto */
+    --gold-wash: #fbf5e7;
+    --gold-line: #e7d3a2; /* Borde del veredicto */
+    --gold-strong: #8a6619; /* Título del veredicto sobre gold-wash */
+    --gold-soft: #866d40; /* Detalle del veredicto sobre gold-wash */
 
     /* Sobre superficies navy claras y oscuras */
-    --on-navy-divider:rgba(176,141,63,.6);  /* Filete vertical entre el
-                                     logotipo y el título de la cabecera */
-    --navy-meta:#606e88;          /* Metadatos sobre navy-wash */
+
+    /* Filete vertical entre el logotipo y el título de la cabecera. */
+    --on-navy-divider: rgba(176, 141, 63, 0.6);
+
+    --navy-meta: #606e88; /* Metadatos sobre navy-wash */
 
     /* ---------------------------------------------------------------- *
      * Gráficas
@@ -75,32 +78,32 @@
      * único sitio donde los dos usos se rozan.
      */
 
-    --chart-line-1:#4c6699;       /* Nota media de acceso */
-    --chart-line-2:#c4642f;       /* Nota de corte */
+    --chart-line-1: #4c6699; /* Nota media de acceso */
+    --chart-line-2: #c4642f; /* Nota de corte */
 
     /* ---------------------------------------------------------------- *
      * Superficies
      * ---------------------------------------------------------------- */
 
-    --paper:#f8f5ee;              /* Fondo de la aplicación */
-    --surface:#fff;               /* Tarjeta */
-    --surface-alt:#fcfaf5;        /* Tarjeta de optativa */
-    --surface-sunken:#ece5d7;     /* Cabecera de tabla ordenable */
-    --surface-muted:#f1ece2;      /* Botón redondo sobre tarjeta blanca */
+    --paper: #f8f5ee; /* Fondo de la aplicación */
+    --surface: #fff; /* Tarjeta */
+    --surface-alt: #fcfaf5; /* Tarjeta de optativa */
+    --surface-sunken: #ece5d7; /* Cabecera de tabla ordenable */
+    --surface-muted: #f1ece2; /* Botón redondo sobre tarjeta blanca */
 
     /* ---------------------------------------------------------------- *
      * Líneas
      * ---------------------------------------------------------------- */
 
-    --line:#e7ded0;               /* Borde de tarjeta, divisor por defecto */
-    --line-inner:#f0eadd;         /* Divisor DENTRO de una tarjeta */
-    --line-rule:#e7e0d2;          /* Regla de pie de sección */
-    --line-strong:#ddd3c2;        /* Borde de control (buscador, cabecera) */
-    --line-tab:#e2d8c6;           /* Borde superior de la barra de pestañas */
-    --line-chip:#cdc3b0;          /* Borde de chip inactivo */
-    --line-dashed:#cdbf9e;        /* Borde discontinuo de optativa */
-    --line-spine:#d7cdb9;         /* Línea vertical del mapa del grado */
-    --line-row:#e9e2d4;           /* Separador entre filas de una lista densa */
+    --line: #e7ded0; /* Borde de tarjeta, divisor por defecto */
+    --line-inner: #f0eadd; /* Divisor DENTRO de una tarjeta */
+    --line-rule: #e7e0d2; /* Regla de pie de sección */
+    --line-strong: #ddd3c2; /* Borde de control (buscador, cabecera) */
+    --line-tab: #e2d8c6; /* Borde superior de la barra de pestañas */
+    --line-chip: #cdc3b0; /* Borde de chip inactivo */
+    --line-dashed: #cdbf9e; /* Borde discontinuo de optativa */
+    --line-spine: #d7cdb9; /* Línea vertical del mapa del grado */
+    --line-row: #e9e2d4; /* Separador entre filas de una lista densa */
 
     /* ---------------------------------------------------------------- *
      * Texto
@@ -113,41 +116,41 @@
      * un matiz de gris.
      */
 
-    --ink:#23201b;                /* Primario */
-    --ink-2:#4a463e;              /* Secundario */
-    --ink-3:#5f584c;              /* Etiqueta de chip inactivo */
-    --ink-muted:#6e675c;          /* Apoyo (4,9:1) */
-    --ink-soft:#736c61;           /* Eyebrows y metadatos (4,5:1) */
-    --ink-faint:#716b5f;          /* Notas al pie y cifras de apoyo (4,5:1) */
-    --ink-placeholder:#776f64;    /* Placeholder y huecos por rellenar */
-    --ink-icon:#8a8275;           /* Iconos de control (no es texto: 3:1) */
-    --ink-on-navy:#fff;           /* Texto sobre superficie navy */
-    --ink-tab:#7b7569;            /* Pestaña inactiva de la barra inferior */
-    --ink-chevron:#8d8578;        /* Flechas de "seguir" (icono: basta 3:1) */
+    --ink: #23201b; /* Primario */
+    --ink-2: #4a463e; /* Secundario */
+    --ink-3: #5f584c; /* Etiqueta de chip inactivo */
+    --ink-muted: #6e675c; /* Apoyo (4,9:1) */
+    --ink-soft: #736c61; /* Eyebrows y metadatos (4,5:1) */
+    --ink-faint: #716b5f; /* Notas al pie y cifras de apoyo (4,5:1) */
+    --ink-placeholder: #776f64; /* Placeholder y huecos por rellenar */
+    --ink-icon: #8a8275; /* Iconos de control (no es texto: 3:1) */
+    --ink-on-navy: #fff; /* Texto sobre superficie navy */
+    --ink-tab: #7b7569; /* Pestaña inactiva de la barra inferior */
+    --ink-chevron: #8d8578; /* Flechas de "seguir" (icono: basta 3:1) */
 
     /* ---------------------------------------------------------------- *
      * Recuentos — barras grises. Una cantidad NO es una dificultad.
      * ---------------------------------------------------------------- */
 
-    --count-fill:#a89a86;
-    --count-track:#efe7d7;
+    --count-fill: #a89a86;
+    --count-track: #efe7d7;
 
     /* ---------------------------------------------------------------- *
      * Avisos
      * ---------------------------------------------------------------- */
 
     /* "Dura": la asignatura más difícil, la advertencia con peso. */
-    --warn-bg:#f9ece7;
-    --warn-line:#f0d6cb;
-    --warn-title:#8f3521;
-    --warn-body:#8c6053;
-    --warn-caption:#86645a;       /* Rótulo bajo la cifra del aviso */
+    --warn-bg: #f9ece7;
+    --warn-line: #f0d6cb;
+    --warn-title: #8f3521;
+    --warn-body: #8c6053;
+    --warn-caption: #86645a; /* Rótulo bajo la cifra del aviso */
 
     /* Cohorte pequeña: el ⚠ y su nota. Llama la atención sin alarmar. */
-    --attention:#c89a2e;
-    --attention-ink:#806e32;
-    --attention-bg:#fbf6e8;
-    --attention-line:#eee0bd;
+    --attention: #c89a2e;
+    --attention-ink: #806e32;
+    --attention-bg: #fbf6e8;
+    --attention-line: #eee0bd;
 
     /* ---------------------------------------------------------------- *
      * Variación (deltas)
@@ -157,46 +160,45 @@
      * y va en verde. Quien pinta el delta decide el signo, no el token.
      */
 
-    --delta-good:#4a6a44;
-    --delta-bad:#b5482f;
-    --delta-flat:#6e675c;
+    --delta-good: #4a6a44;
+    --delta-bad: #b5482f;
+    --delta-flat: #6e675c;
 
     /* ---------------------------------------------------------------- *
      * Radios
      * ---------------------------------------------------------------- */
 
-    --radius-row:8px;             /* Fila de asignatura */
-    --radius-control:9px;         /* Botón, buscador */
-    --radius-card:11px;
-    --radius-card-lg:14px;
-    --radius-sheet:16px;          /* Hoja desplegable "Más" */
-    --radius-pill:999px;
+    --radius-row: 8px; /* Fila de asignatura */
+    --radius-control: 9px; /* Botón, buscador */
+    --radius-card: 11px;
+    --radius-card-lg: 14px;
+    --radius-sheet: 16px; /* Hoja desplegable "Más" */
+    --radius-pill: 999px;
 
     /* ---------------------------------------------------------------- *
      * Sombras — escasas a propósito: esto es papel, no material design.
      * ---------------------------------------------------------------- */
 
-    --shadow-card:0 1px 3px rgba(35,32,27,.05);
-    --shadow-sheet:0 14px 34px rgba(20,18,14,.30);
-    --shadow-medallion:0 2px 6px rgba(34,61,113,.28);
+    --shadow-card: 0 1px 3px rgba(35, 32, 27, 0.05);
+    --shadow-sheet: 0 14px 34px rgba(20, 18, 14, 0.3);
+    --shadow-medallion: 0 2px 6px rgba(34, 61, 113, 0.28);
 
-    --scrim:rgba(24,20,14,.44);
+    --scrim: rgba(24, 20, 14, 0.44);
 
     /* ---------------------------------------------------------------- *
      * Espaciado y medidas
      * ---------------------------------------------------------------- */
 
-    --gutter:16px;                /* Margen horizontal del contenido */
-    --gap-card:9px;               /* Entre tarjetas de una rejilla */
-    --pad-card:12px 13px;
+    --gutter: 16px; /* Margen horizontal del contenido */
+    --gap-card: 9px; /* Entre tarjetas de una rejilla */
+    --pad-card: 12px 13px;
 
-    --tab-bar-height:62px;
+    --tab-bar-height: 62px;
 
     /* Mínimo táctil. No es decorativo: por debajo de esto la gente falla. */
-    --touch-target:44px;
+    --touch-target: 44px;
 
     /* El mock está dibujado a 402px. En pantallas anchas el contenido se
        contiene en lugar de estirarse hasta lo ilegible. */
-    --content-max:520px;
-
+    --content-max: 520px;
 }

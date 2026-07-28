@@ -15,11 +15,9 @@ import HomeView from "@/views/Home.vue";
  * Está aquí y no en cada vista para poder leer todos los títulos juntos.
  */
 const router = createRouter({
-
     history: createWebHashHistory(import.meta.env.BASE_URL),
 
     routes: [
-
         {
             path: "/",
             name: "home",
@@ -146,7 +144,10 @@ const router = createRouter({
         // El horario y los exámenes nacieron como dos páginas; ahora son dos
         // pestañas de la misma.
         { path: "/TimeTable", redirect: "/horario" },
-        { path: "/Exams", redirect: { path: "/horario", query: { vista: "examenes" } } },
+        {
+            path: "/Exams",
+            redirect: { path: "/horario", query: { vista: "examenes" } }
+        },
 
         /* ---------------- Solo en desarrollo ---------------- */
 
@@ -159,26 +160,26 @@ const router = createRouter({
          * portada.
          */
         ...(import.meta.env.DEV
-            ? [{
-                path: "/dev/ui",
-                name: "dev-ui",
-                component: () => import("@/views/dev/UiGallery.vue"),
-                meta: {
-                    title: "Primitivas"
-                }
-            }]
+            ? [
+                  {
+                      path: "/dev/ui",
+                      name: "dev-ui",
+                      component: () => import("@/views/dev/UiGallery.vue"),
+                      meta: {
+                          title: "Primitivas"
+                      }
+                  }
+              ]
             : []),
 
         {
             path: "/:pathMatch(.*)*",
             redirect: "/"
         }
-
     ],
 
     // Al cambiar de página se empieza arriba, no a media altura de la anterior.
     scrollBehavior: () => ({ top: 0 })
-
 });
 
 export default router;

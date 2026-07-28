@@ -1,5 +1,4 @@
 <script setup>
-
 import { ref, computed, watch } from "vue";
 
 import ProfGraph from "./ProfGraph.vue";
@@ -20,257 +19,197 @@ const minWeight = ref(0.5);
  * 0,5), así que el umbral por defecto del agregado escondería casi todo.
  */
 watch(isAggregated, aggregated => {
-
     minWeight.value = aggregated ? 0.5 : 0;
-
 });
-
 </script>
 
 <template>
+    <div class="page">
+        <header class="hero">
+            <h1>Red de colaboración docente</h1>
 
-<div class="page">
+            <p>
+                Cada nodo es un profesor y cada enlace, una asignatura
+                compartida. Compartir una asignatura de dos profesores pesa más
+                que compartir una de veinte: cada pareja suma
+                <strong>1/n</strong> por asignatura y curso, donde <em>n</em> es
+                el número de profesores de esa asignatura ese año.
+            </p>
+        </header>
 
-    <header class="hero">
+        <div class="controls">
+            <label class="control">
+                <span class="controlLabel">Curso académico</span>
 
-        <h1>Red de colaboración docente</h1>
+                <select v-model="selectedYear">
+                    <option :value="ALL_YEARS">
+                        Todos los años (agregado)
+                    </option>
 
-        <p>
-            Cada nodo es un profesor y cada enlace, una asignatura compartida.
-            Compartir una asignatura de dos profesores pesa más que compartir
-            una de veinte: cada pareja suma <strong>1/n</strong> por asignatura
-            y curso, donde <em>n</em> es el número de profesores de esa
-            asignatura ese año.
-        </p>
+                    <option v-for="year in years" :key="year" :value="year">
+                        {{ year }}
+                    </option>
+                </select>
+            </label>
 
-    </header>
+            <label class="control grow">
+                <span class="controlLabel">
+                    Peso mínimo de colaboración: {{ minWeight.toFixed(2) }}
+                </span>
 
-    <div class="controls">
+                <input
+                    v-model.number="minWeight"
+                    type="range"
+                    min="0"
+                    max="2"
+                    step="0.05"
+                />
 
-        <label class="control">
+                <span class="hint">
+                    Sube el filtro para quedarte solo con las colaboraciones
+                    estrechas y repetidas.
+                </span>
+            </label>
+        </div>
 
-            <span class="controlLabel">Curso académico</span>
-
-            <select v-model="selectedYear">
-
-                <option :value="ALL_YEARS">
-                    Todos los años (agregado)
-                </option>
-
-                <option
-                    v-for="year in years"
-                    :key="year"
-                    :value="year"
-                >
-                    {{ year }}
-                </option>
-
-            </select>
-
-        </label>
-
-        <label class="control grow">
-
-            <span class="controlLabel">
-                Peso mínimo de colaboración: {{ minWeight.toFixed(2) }}
-            </span>
-
-            <input
-                v-model.number="minWeight"
-                type="range"
-                min="0"
-                max="2"
-                step="0.05"
-            >
-
-            <span class="hint">
-                Sube el filtro para quedarte solo con las colaboraciones
-                estrechas y repetidas.
-            </span>
-
-        </label>
-
+        <ProfGraph :year="selectedYear" :min-weight="minWeight" />
     </div>
-
-    <ProfGraph
-        :year="selectedYear"
-        :min-weight="minWeight"
-    />
-
-</div>
-
 </template>
 
 <style scoped>
+.page {
+    width: 100%;
 
-.page{
+    min-height: 100vh;
 
-    width:100%;
+    padding: 50px;
 
-    min-height:100vh;
+    box-sizing: border-box;
 
-    padding:50px;
+    background: #0f172a;
 
-    box-sizing:border-box;
-
-    background:#0f172a;
-
-    color:white;
-
+    color: white;
 }
 
-.hero{
+.hero {
+    max-width: 1400px;
 
-    max-width:1400px;
-
-    margin:0 auto 26px;
-
+    margin: 0 auto 26px;
 }
 
-.hero h1{
+.hero h1 {
+    margin: 0 0 12px;
 
-    margin:0 0 12px;
-
-    font-size:2.6rem;
-
+    font-size: 2.6rem;
 }
 
-.hero p{
+.hero p {
+    max-width: 820px;
 
-    max-width:820px;
+    margin: 0;
 
-    margin:0;
+    color: #94a3b8;
 
-    color:#94a3b8;
+    font-size: 1rem;
 
-    font-size:1rem;
-
-    line-height:1.65;
-
+    line-height: 1.65;
 }
 
-.hero strong{
-
-    color:white;
-
+.hero strong {
+    color: white;
 }
 
-.controls{
+.controls {
+    display: flex;
 
-    display:flex;
+    flex-wrap: wrap;
 
-    flex-wrap:wrap;
+    gap: 28px;
 
-    gap:28px;
+    max-width: 1400px;
 
-    max-width:1400px;
-
-    margin:0 auto 22px;
-
+    margin: 0 auto 22px;
 }
 
-.control{
+.control {
+    display: flex;
 
-    display:flex;
+    flex-direction: column;
 
-    flex-direction:column;
-
-    gap:8px;
-
+    gap: 8px;
 }
 
-.control.grow{
+.control.grow {
+    flex: 1;
 
-    flex:1;
+    min-width: 260px;
 
-    min-width:260px;
-
-    max-width:460px;
-
+    max-width: 460px;
 }
 
-.controlLabel{
+.controlLabel {
+    color: #94a3b8;
 
-    color:#94a3b8;
+    font-size: 0.75rem;
 
-    font-size:.75rem;
+    font-weight: 600;
 
-    font-weight:600;
+    text-transform: uppercase;
 
-    text-transform:uppercase;
-
-    letter-spacing:.5px;
-
+    letter-spacing: 0.5px;
 }
 
-.control select{
+.control select {
+    background: #1e293b;
 
-    background:#1e293b;
+    color: white;
 
-    color:white;
+    border: 1px solid #334155;
 
-    border:1px solid #334155;
+    border-radius: 10px;
 
-    border-radius:10px;
+    padding: 10px 14px;
 
-    padding:10px 14px;
+    font-size: 0.95rem;
 
-    font-size:.95rem;
-
-    cursor:pointer;
-
+    cursor: pointer;
 }
 
-.control select:focus{
+.control select:focus {
+    outline: none;
 
-    outline:none;
-
-    border-color:#38bdf8;
-
+    border-color: #38bdf8;
 }
 
-.control input[type=range]{
+.control input[type="range"] {
+    accent-color: #38bdf8;
 
-    accent-color:#38bdf8;
-
-    cursor:pointer;
-
+    cursor: pointer;
 }
 
-.hint{
+.hint {
+    color: #64748b;
 
-    color:#64748b;
+    font-size: 0.75rem;
 
-    font-size:.75rem;
-
-    line-height:1.4;
-
+    line-height: 1.4;
 }
 
-@media(max-width:768px){
+@media (max-width: 768px) {
+    .page {
+        margin-left: 0;
 
-    .page{
+        width: 100%;
 
-        margin-left:0;
-
-        width:100%;
-
-        padding:24px 16px 90px;
-
+        padding: 24px 16px 90px;
     }
 
-    .hero h1{
-
-        font-size:1.9rem;
-
+    .hero h1 {
+        font-size: 1.9rem;
     }
 
-    .controls{
-
-        gap:18px;
-
+    .controls {
+        gap: 18px;
     }
-
 }
-
 </style>

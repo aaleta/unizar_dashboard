@@ -1,5 +1,4 @@
 <script setup>
-
 /**
  * Profesorado. La ÚNICA pantalla del rediseño que diverge de verdad entre
  * móvil y escritorio.
@@ -29,8 +28,8 @@ import UiCountBar from "@/components/ui/UiCountBar.vue";
 import UiSearchField from "@/components/ui/UiSearchField.vue";
 import UiStat from "@/components/ui/UiStat.vue";
 
-const FullGraph = defineAsyncComponent(() =>
-    import("@/components/network/ProfWeb.vue")
+const FullGraph = defineAsyncComponent(
+    () => import("@/components/network/ProfWeb.vue")
 );
 
 /** Cuántas personas se ven antes de tener que pedir el resto. */
@@ -61,8 +60,8 @@ const visible = computed(() =>
     expanded.value ? results.value : results.value.slice(0, PREVIEW)
 );
 
-const topWeight = computed(() =>
-    selected.value?.topCollaborators[0]?.weight ?? 1
+const topWeight = computed(
+    () => selected.value?.topCollaborators[0]?.weight ?? 1
 );
 
 const decimal = value => value.toFixed(2).replace(".", ",");
@@ -75,542 +74,443 @@ const decimal = value => value.toFixed(2).replace(".", ",");
  * "2003" tan tranquilos. Para meter un punto cada tres dígitos en una web que
  * solo está en español, la dependencia no compensa el riesgo.
  */
-const thousands = value =>
-    String(value).replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-
+const thousands = value => String(value).replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 </script>
 
 <template>
+    <!-- Pantalla ancha: la madeja completa, tal cual estaba. -->
+    <FullGraph v-if="isDesktop" />
 
-<!-- Pantalla ancha: la madeja completa, tal cual estaba. -->
-<FullGraph v-if="isDesktop" />
-
-<div
-    v-else
-    class="screen"
->
-
-    <header class="intro">
-
-        <p class="lead">
-            Quién comparte asignatura con quién. Cada colaboración pesa 1/n por
-            asignatura y curso.
-        </p>
-
-        <div class="stats">
-            <UiStat
-                :value="thousands(totals.professors)"
-                label="profesores"
-                tone="navy"
-            />
-            <UiStat
-                :value="thousands(totals.active)"
-                label="en activo"
-                tone="navy"
-            />
-            <UiStat
-                :value="thousands(totals.collaborations)"
-                label="colaboraciones"
-            />
-            <UiStat
-                :value="totals.years"
-                label="cursos"
-            />
-        </div>
-
-    </header>
-
-    <UiCallout
-        tone="structural"
-        class="hint"
-    >
-        La <strong>red completa</strong> se explora mejor en pantalla
-        grande. Aquí solo se muestra persona a persona.
-    </UiCallout>
-
-    <div class="finder">
-
-        <UiSearchField
-            v-model="query"
-            placeholder="Buscar profesor…"
-            label="Buscar profesor"
-        />
-
-        <div class="modes">
-            <UiChip
-                :active="activeOnly"
-                @click="activeOnly = true"
-            >
-                En activo · {{ thousands(totals.active) }}
-            </UiChip>
-            <UiChip
-                :active="!activeOnly"
-                @click="activeOnly = false"
-            >
-                Todos · {{ thousands(totals.professors) }}
-            </UiChip>
-        </div>
-
-        <p
-            v-if="!results.length"
-            class="emptyState"
-        >
-            Ningún profesor coincide con la búsqueda.
-        </p>
-
-        <ul
-            v-else
-            class="people"
-        >
-            <li
-                v-for="person in visible"
-                :key="person.id"
-            >
-                <button
-                    type="button"
-                    class="person"
-                    :class="{ active: selected && person.id === selected.id }"
-                    :aria-pressed="selected ? person.id === selected.id : false"
-                    @click="selectedId = person.id"
-                >
-                    <span class="personBody">
-                        <span class="personName">{{ person.name }}</span>
-                        <span class="personMeta num">
-                            índice {{ decimal(person.totalWeight) }} ·
-                            {{ person.nSubjects }} asignaturas ·
-                            {{ person.nCollaborations }} colaboraciones
-                        </span>
-                    </span>
-                </button>
-            </li>
-
-            <li v-if="results.length > PREVIEW">
-                <button
-                    type="button"
-                    class="more"
-                    @click="expanded = !expanded"
-                >
-                    {{ expanded
-                        ? "− ver menos"
-                        : `＋ ${results.length - PREVIEW} profesores más` }}
-                </button>
-            </li>
-        </ul>
-
-    </div>
-
-    <section
-        v-if="selected"
-        class="sheet"
-    >
-
-        <p class="eyebrow sheetEyebrow">Ficha abierta</p>
-
-        <div class="card">
-
-            <h2>{{ selected.name }}</h2>
-
-            <p class="cardMeta num">
-                {{ selected.nSubjects }} asignaturas ·
-                {{ selected.years.length }} cursos ·
-                {{ selected.nCollaborators }} colaboradores
+    <div v-else class="screen">
+        <header class="intro">
+            <p class="lead">
+                Quién comparte asignatura con quién. Cada colaboración pesa 1/n
+                por asignatura y curso.
             </p>
 
-            <template v-if="selected.currentSubjectItems.length">
+            <div class="stats">
+                <UiStat
+                    :value="thousands(totals.professors)"
+                    label="profesores"
+                    tone="navy"
+                />
+                <UiStat
+                    :value="thousands(totals.active)"
+                    label="en activo"
+                    tone="navy"
+                />
+                <UiStat
+                    :value="thousands(totals.collaborations)"
+                    label="colaboraciones"
+                />
+                <UiStat :value="totals.years" label="cursos" />
+            </div>
+        </header>
 
-                <p class="eyebrow blockLabel">Imparte este curso</p>
+        <UiCallout tone="structural" class="hint">
+            La <strong>red completa</strong> se explora mejor en pantalla
+            grande. Aquí solo se muestra persona a persona.
+        </UiCallout>
 
-                <div class="pills">
-                    <RouterLink
-                        v-for="subject in selected.currentSubjectItems"
-                        :key="subject.code"
-                        :to="`/asignatura/${subject.code}`"
-                        class="subjectPill"
+        <div class="finder">
+            <UiSearchField
+                v-model="query"
+                placeholder="Buscar profesor…"
+                label="Buscar profesor"
+            />
+
+            <div class="modes">
+                <UiChip :active="activeOnly" @click="activeOnly = true">
+                    En activo · {{ thousands(totals.active) }}
+                </UiChip>
+                <UiChip :active="!activeOnly" @click="activeOnly = false">
+                    Todos · {{ thousands(totals.professors) }}
+                </UiChip>
+            </div>
+
+            <p v-if="!results.length" class="emptyState">
+                Ningún profesor coincide con la búsqueda.
+            </p>
+
+            <ul v-else class="people">
+                <li v-for="person in visible" :key="person.id">
+                    <button
+                        type="button"
+                        class="person"
+                        :class="{
+                            active: selected && person.id === selected.id
+                        }"
+                        :aria-pressed="
+                            selected ? person.id === selected.id : false
+                        "
+                        @click="selectedId = person.id"
                     >
-                        {{ subject.name }} →
-                    </RouterLink>
-                </div>
+                        <span class="personBody">
+                            <span class="personName">{{ person.name }}</span>
+                            <span class="personMeta num">
+                                índice {{ decimal(person.totalWeight) }} ·
+                                {{ person.nSubjects }} asignaturas ·
+                                {{ person.nCollaborations }} colaboraciones
+                            </span>
+                        </span>
+                    </button>
+                </li>
 
-            </template>
-
-            <template v-if="selected.pastSubjectItems.length">
-
-                <p class="eyebrow blockLabel">Ha impartido alguna vez</p>
-
-                <div class="pills">
-                    <RouterLink
-                        v-for="subject in selected.pastSubjectItems"
-                        :key="subject.code"
-                        :to="`/asignatura/${subject.code}`"
-                        class="subjectPill past"
+                <li v-if="results.length > PREVIEW">
+                    <button
+                        type="button"
+                        class="more"
+                        @click="expanded = !expanded"
                     >
-                        {{ subject.name }} →
-                    </RouterLink>
-                </div>
-
-            </template>
-
-            <template v-if="selected.topCollaborators.length">
-
-                <p class="eyebrow blockLabel">Colabora más con</p>
-
-                <div class="bars">
-                    <UiCountBar
-                        v-for="mate in selected.topCollaborators"
-                        :key="mate.id"
-                        :label="mate.name"
-                        :value="mate.weight"
-                        :max="topWeight"
-                        :display="decimal(mate.weight)"
-                        :sub="`${mate.shared} comp.`"
-                    />
-                </div>
-
-            </template>
-
+                        {{
+                            expanded
+                                ? "− ver menos"
+                                : `＋ ${results.length - PREVIEW} profesores más`
+                        }}
+                    </button>
+                </li>
+            </ul>
         </div>
 
-    </section>
+        <section v-if="selected" class="sheet">
+            <p class="eyebrow sheetEyebrow">Ficha abierta</p>
 
-    <p class="footnote">
-        Índice = suma de 1/n por asignatura y curso, donde n es el número de
-        profesores de esa asignatura ese año · en activo = aparecen en la guía
-        docente más reciente · el TFG se excluye porque lo firma medio
-        departamento.
-    </p>
+            <div class="card">
+                <h2>{{ selected.name }}</h2>
 
-</div>
+                <p class="cardMeta num">
+                    {{ selected.nSubjects }} asignaturas ·
+                    {{ selected.years.length }} cursos ·
+                    {{ selected.nCollaborators }} colaboradores
+                </p>
 
+                <template v-if="selected.currentSubjectItems.length">
+                    <p class="eyebrow blockLabel">Imparte este curso</p>
+
+                    <div class="pills">
+                        <RouterLink
+                            v-for="subject in selected.currentSubjectItems"
+                            :key="subject.code"
+                            :to="`/asignatura/${subject.code}`"
+                            class="subjectPill"
+                        >
+                            {{ subject.name }} →
+                        </RouterLink>
+                    </div>
+                </template>
+
+                <template v-if="selected.pastSubjectItems.length">
+                    <p class="eyebrow blockLabel">Ha impartido alguna vez</p>
+
+                    <div class="pills">
+                        <RouterLink
+                            v-for="subject in selected.pastSubjectItems"
+                            :key="subject.code"
+                            :to="`/asignatura/${subject.code}`"
+                            class="subjectPill past"
+                        >
+                            {{ subject.name }} →
+                        </RouterLink>
+                    </div>
+                </template>
+
+                <template v-if="selected.topCollaborators.length">
+                    <p class="eyebrow blockLabel">Colabora más con</p>
+
+                    <div class="bars">
+                        <UiCountBar
+                            v-for="mate in selected.topCollaborators"
+                            :key="mate.id"
+                            :label="mate.name"
+                            :value="mate.weight"
+                            :max="topWeight"
+                            :display="decimal(mate.weight)"
+                            :sub="`${mate.shared} comp.`"
+                        />
+                    </div>
+                </template>
+            </div>
+        </section>
+
+        <p class="footnote">
+            Índice = suma de 1/n por asignatura y curso, donde n es el número de
+            profesores de esa asignatura ese año · en activo = aparecen en la
+            guía docente más reciente · el TFG se excluye porque lo firma medio
+            departamento.
+        </p>
+    </div>
 </template>
 
 <style scoped>
-
-.screen{
-
-    padding:15px var(--gutter) 8px;
-
+.screen {
+    padding: 15px var(--gutter) 8px;
 }
 
-.lead{
+.lead {
+    margin: 0 0 13px;
 
-    margin:0 0 13px;
+    font-size: var(--text-body-sm);
 
-    font-size:var(--text-body-sm);
+    line-height: 1.5;
 
-    line-height:1.5;
-
-    color:var(--ink-soft);
-
+    color: var(--ink-soft);
 }
 
-.stats{
+.stats {
+    display: flex;
 
-    display:flex;
+    flex-wrap: wrap;
 
-    flex-wrap:wrap;
-
-    gap:22px;
-
+    gap: 22px;
 }
 
-.hint{
-
-    margin-top:14px;
-
+.hint {
+    margin-top: 14px;
 }
 
-.finder{
-
-    margin-top:14px;
-
+.finder {
+    margin-top: 14px;
 }
 
-.modes{
+.modes {
+    display: flex;
 
-    display:flex;
+    gap: 6px;
 
-    gap:6px;
-
-    margin-top:9px;
-
+    margin-top: 9px;
 }
 
-.people{
+.people {
+    margin: 11px 0 0;
 
-    margin:11px 0 0;
+    padding: 0;
 
-    padding:0;
+    list-style: none;
 
-    list-style:none;
+    background: var(--surface);
 
-    background:var(--surface);
+    border: 1px solid var(--line);
 
-    border:1px solid var(--line);
+    border-radius: 12px;
 
-    border-radius:12px;
-
-    overflow:hidden;
-
+    overflow: hidden;
 }
 
 .people li + li .person,
-.people li + li .more{
-
-    border-top:1px solid var(--line-inner);
-
+.people li + li .more {
+    border-top: 1px solid var(--line-inner);
 }
 
-.person{
+.person {
+    display: flex;
 
-    display:flex;
+    align-items: center;
 
-    align-items:center;
+    width: 100%;
 
-    width:100%;
+    min-height: var(--touch-target);
 
-    min-height:var(--touch-target);
+    padding: 11px 13px;
 
-    padding:11px 13px;
+    border: none;
 
-    border:none;
+    background: none;
 
-    background:none;
+    text-align: left;
 
-    text-align:left;
-
-    cursor:pointer;
-
+    cursor: pointer;
 }
 
-.person.active{
-
-    background:var(--navy-wash);
+.person.active {
+    background: var(--navy-wash);
 
     /* Por dentro, para que seleccionar no desplace el contenido de la fila. */
-    box-shadow:inset 3px 0 0 var(--navy);
-
+    box-shadow: inset 3px 0 0 var(--navy);
 }
 
-.personBody{
+.personBody {
+    flex: 1;
 
-    flex:1;
-
-    min-width:0;
-
+    min-width: 0;
 }
 
-.personName{
+.personName {
+    display: block;
 
-    display:block;
+    font-size: 13px;
 
-    font-size:13px;
+    font-weight: 600;
 
-    font-weight:600;
-
-    color:var(--ink);
-
+    color: var(--ink);
 }
 
-.personMeta{
+.personMeta {
+    display: block;
 
-    display:block;
+    margin-top: 2px;
 
-    margin-top:2px;
+    font-size: var(--text-eyebrow);
 
-    font-size:var(--text-eyebrow);
+    font-weight: 400;
 
-    font-weight:400;
-
-    color:var(--ink-soft);
-
+    color: var(--ink-soft);
 }
 
-.person.active .personMeta{
-
-    color:var(--navy-meta);
-
+.person.active .personMeta {
+    color: var(--navy-meta);
 }
 
-.more{
+.more {
+    display: flex;
 
-    display:flex;
+    align-items: center;
 
-    align-items:center;
+    width: 100%;
 
-    width:100%;
+    min-height: var(--touch-target);
 
-    min-height:var(--touch-target);
+    padding: 9px 13px;
 
-    padding:9px 13px;
+    border: none;
 
-    border:none;
+    background: none;
 
-    background:none;
+    font-family: var(--font-mono);
 
-    font-family:var(--font-mono);
+    font-size: 9.5px;
 
-    font-size:9.5px;
+    color: var(--ink-faint);
 
-    color:var(--ink-faint);
-
-    cursor:pointer;
-
+    cursor: pointer;
 }
 
-.sheet{
-
-    margin-top:14px;
-
+.sheet {
+    margin-top: 14px;
 }
 
-.sheetEyebrow{
+.sheetEyebrow {
+    margin: 0 0 8px;
 
-    margin:0 0 8px;
-
-    color:var(--navy);
-
+    color: var(--navy);
 }
 
-.card{
+.card {
+    padding: 15px 15px 13px;
 
-    padding:15px 15px 13px;
+    background: var(--surface);
 
-    background:var(--surface);
+    border: 1px solid var(--line);
 
-    border:1px solid var(--line);
+    border-radius: var(--radius-card-lg);
 
-    border-radius:var(--radius-card-lg);
-
-    box-shadow:var(--shadow-card);
-
+    box-shadow: var(--shadow-card);
 }
 
-h2{
+h2 {
+    margin: 0;
 
-    margin:0;
+    font-family: var(--font-serif);
 
-    font-family:var(--font-serif);
+    font-size: 17px;
 
-    font-size:17px;
+    font-weight: 600;
 
-    font-weight:600;
-
-    line-height:1.2;
-
+    line-height: 1.2;
 }
 
-.cardMeta{
+.cardMeta {
+    margin: 4px 0 0;
 
-    margin:4px 0 0;
+    font-size: 9.5px;
 
-    font-size:9.5px;
+    font-weight: 400;
 
-    font-weight:400;
-
-    color:var(--ink-soft);
-
+    color: var(--ink-soft);
 }
 
-.blockLabel{
+.blockLabel {
+    margin: 14px 0 8px;
 
-    margin:14px 0 8px;
-
-    font-size:var(--text-footnote);
-
+    font-size: var(--text-footnote);
 }
 
-.pills{
+.pills {
+    display: flex;
 
-    display:flex;
+    flex-wrap: wrap;
 
-    flex-wrap:wrap;
-
-    gap:6px;
-
+    gap: 6px;
 }
 
 /* Como una UiPill, pero pulsable: lleva a la ficha de la asignatura. */
-.subjectPill{
+.subjectPill {
+    display: inline-flex;
 
-    display:inline-flex;
+    align-items: center;
 
-    align-items:center;
+    padding: 4px 9px;
 
-    padding:4px 9px;
+    border: 1px solid var(--navy-line);
 
-    border:1px solid var(--navy-line);
+    border-radius: var(--radius-pill);
 
-    border-radius:var(--radius-pill);
+    font-family: var(--font-mono);
 
-    font-family:var(--font-mono);
+    font-size: var(--text-eyebrow);
 
-    font-size:var(--text-eyebrow);
+    font-weight: 600;
 
-    font-weight:600;
+    letter-spacing: 0.4px;
 
-    letter-spacing:.4px;
+    text-transform: uppercase;
 
-    text-transform:uppercase;
+    text-decoration: none;
 
-    text-decoration:none;
-
-    color:var(--navy);
-
+    color: var(--navy);
 }
 
-.subjectPill:active{
-
-    background:var(--navy-wash);
-
+.subjectPill:active {
+    background: var(--navy-wash);
 }
 
 /* El histórico, en gris: sigue siendo enlace, pero ya no es docencia actual. */
-.subjectPill.past{
+.subjectPill.past {
+    border-color: var(--line);
 
-    border-color:var(--line);
-
-    color:var(--ink-soft);
-
+    color: var(--ink-soft);
 }
 
-.bars{
+.bars {
+    display: flex;
 
-    display:flex;
+    flex-direction: column;
 
-    flex-direction:column;
-
-    gap:10px;
-
+    gap: 10px;
 }
 
-.footnote{
+.footnote {
+    margin: 16px 0 0;
 
-    margin:16px 0 0;
+    padding-top: 12px;
 
-    padding-top:12px;
+    border-top: 1px solid var(--line-rule);
 
-    border-top:1px solid var(--line-rule);
+    font-family: var(--font-mono);
 
-    font-family:var(--font-mono);
+    font-size: var(--text-footnote);
 
-    font-size:var(--text-footnote);
+    line-height: 1.6;
 
-    line-height:1.6;
-
-    color:var(--ink-faint);
-
+    color: var(--ink-faint);
 }
 
-.emptyState{
+.emptyState {
+    margin: 16px 0 0;
 
-    margin:16px 0 0;
+    text-align: center;
 
-    text-align:center;
+    font-size: var(--text-body);
 
-    font-size:var(--text-body);
-
-    color:var(--ink-soft);
-
+    color: var(--ink-soft);
 }
-
 </style>

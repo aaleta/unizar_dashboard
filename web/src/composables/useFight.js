@@ -26,11 +26,9 @@ import {
 const read = source =>
     typeof source === "function" ? source() : unref(source);
 
-const pct = value =>
-    value === null ? "—" : `${Math.round(value)}%`;
+const pct = value => (value === null ? "—" : `${Math.round(value)}%`);
 
 const describe = code => {
-
     const info = subjectInfo(code);
 
     return {
@@ -42,20 +40,18 @@ const describe = code => {
             ? `${info.tipo === "optativa" ? "Optativa" : "Troncal"} · ${info.courses.map(c => `${c}º`).join(" y ")}`
             : ""
     };
-
 };
 
 export const useFight = (firstSource, secondSource) => {
-
     const first = computed(() => describe(Number(read(firstSource))));
     const second = computed(() => describe(Number(read(secondSource))));
 
-    const bothOptional = computed(() =>
-        first.value.tipo === "optativa" && second.value.tipo === "optativa"
+    const bothOptional = computed(
+        () =>
+            first.value.tipo === "optativa" && second.value.tipo === "optativa"
     );
 
     const duels = computed(() => {
-
         const rate = (key, label) => ({
             key,
             label: label ?? METRICS[key].label,
@@ -88,17 +84,22 @@ export const useFight = (firstSource, secondSource) => {
             ...duel,
             // 0 = empate o sin datos. No se inventa un ganador cuando falta
             // una de las dos cifras.
-            winner: duel.first === null || duel.second === null || duel.first === duel.second
-                ? 0
-                : (duel.higherIsBetter
-                    ? (duel.first > duel.second ? 1 : 2)
-                    : (duel.first < duel.second ? 1 : 2))
+            winner:
+                duel.first === null ||
+                duel.second === null ||
+                duel.first === duel.second
+                    ? 0
+                    : duel.higherIsBetter
+                      ? duel.first > duel.second
+                          ? 1
+                          : 2
+                      : duel.first < duel.second
+                        ? 1
+                        : 2
         }));
-
     });
 
     const score = computed(() => {
-
         const wins = [0, 0, 0];
 
         duels.value.forEach(duel => {
@@ -106,11 +107,9 @@ export const useFight = (firstSource, secondSource) => {
         });
 
         return { first: wins[1], second: wins[2], ties: wins[0] };
-
     });
 
     const verdict = computed(() => {
-
         const { first: a, second: b } = score.value;
 
         if (first.value.code === second.value.code) return null;
@@ -130,11 +129,11 @@ export const useFight = (firstSource, secondSource) => {
             winner: a > b ? 1 : 2,
             text: `Gana ${champion.name}`,
             score: `${Math.max(a, b)}–${Math.min(a, b)}`,
-            detail: Math.min(a, b) === 0
-                ? "Gana en todas las categorías."
-                : "Gana en la mayoría de las categorías."
+            detail:
+                Math.min(a, b) === 0
+                    ? "Gana en todas las categorías."
+                    : "Gana en la mayoría de las categorías."
         };
-
     });
 
     return {
@@ -146,5 +145,4 @@ export const useFight = (firstSource, secondSource) => {
         bothOptional,
         recentYears: RECENT_YEARS
     };
-
 };

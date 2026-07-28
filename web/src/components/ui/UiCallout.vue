@@ -1,5 +1,4 @@
 <script setup>
-
 /**
  * Aviso destacado. Tres tonos, tres significados distintos:
  *
@@ -13,7 +12,6 @@
  */
 
 defineProps({
-
     tone: {
         type: String,
         default: "structural",
@@ -24,174 +22,124 @@ defineProps({
         type: String,
         default: null
     }
-
 });
-
 </script>
 
 <template>
+    <div class="callout" :class="tone">
+        <span class="marker"></span>
 
-<div
-    class="callout"
-    :class="tone"
->
+        <div class="body">
+            <div v-if="title" class="title">
+                {{ title }}
+            </div>
 
-    <span class="marker"></span>
-
-    <div class="body">
-
-        <div
-            v-if="title"
-            class="title"
-        >
-            {{ title }}
+            <div class="text">
+                <slot />
+            </div>
         </div>
-
-        <div class="text">
-            <slot />
-        </div>
-
     </div>
-
-</div>
-
 </template>
 
 <style scoped>
+.callout {
+    display: flex;
 
-.callout{
+    align-items: flex-start;
 
-    display:flex;
+    gap: 9px;
 
-    align-items:flex-start;
+    padding: 11px 13px;
 
-    gap:9px;
+    border-radius: var(--radius-card);
 
-    padding:11px 13px;
-
-    border-radius:var(--radius-card);
-
-    border:1px solid;
-
+    border: 1px solid;
 }
 
-.marker{
+.marker {
+    width: 9px;
 
-    width:9px;
+    height: 9px;
 
-    height:9px;
+    border-radius: 50%;
 
-    border-radius:50%;
-
-    flex:none;
+    flex: none;
 
     /* Alineado con la primera línea de texto, no con el borde de la caja. */
-    margin-top:3px;
-
+    margin-top: 3px;
 }
 
-.body{
-
-    min-width:0;
-
+.body {
+    min-width: 0;
 }
 
-.title{
+.title {
+    font-size: var(--text-body);
 
-    font-size:var(--text-body);
+    font-weight: 700;
 
-    font-weight:700;
-
-    line-height:var(--leading-snug);
-
+    line-height: var(--leading-snug);
 }
 
-.text{
+.text {
+    font-size: var(--text-body-xs);
 
-    font-size:var(--text-body-xs);
-
-    line-height:var(--leading-snug);
-
+    line-height: var(--leading-snug);
 }
 
 /* Sin título, el texto es el mensaje y carga el peso. */
-.body:not(:has(.title)) .text{
-
-    font-weight:500;
-
+.body:not(:has(.title)) .text {
+    font-weight: 500;
 }
 
-.structural{
+.structural {
+    background: var(--navy-wash);
 
-    background:var(--navy-wash);
-
-    border-color:var(--navy-wash-line);
-
+    border-color: var(--navy-wash-line);
 }
 
-.structural .marker{
-
-    background:var(--navy);
-
+.structural .marker {
+    background: var(--navy);
 }
 
-.structural .title{
-
-    color:var(--navy);
-
+.structural .title {
+    color: var(--navy);
 }
 
-.structural .text{
-
-    color:var(--navy-soft);
-
+.structural .text {
+    color: var(--navy-soft);
 }
 
-.hard{
+.hard {
+    background: var(--warn-bg);
 
-    background:var(--warn-bg);
-
-    border-color:var(--warn-line);
-
+    border-color: var(--warn-line);
 }
 
-.hard .marker{
-
-    background:var(--warn-title);
-
+.hard .marker {
+    background: var(--warn-title);
 }
 
-.hard .title{
-
-    color:var(--warn-title);
-
+.hard .title {
+    color: var(--warn-title);
 }
 
-.hard .text{
-
-    color:var(--warn-body);
-
+.hard .text {
+    color: var(--warn-body);
 }
 
-.attention{
+.attention {
+    background: var(--attention-bg);
 
-    background:var(--attention-bg);
-
-    border-color:var(--attention-line);
-
+    border-color: var(--attention-line);
 }
 
-.attention .marker{
-
-    background:var(--attention);
-
+.attention .marker {
+    background: var(--attention);
 }
 
 .attention .title,
-.attention .text{
-
-    color:var(--attention-ink);
-
+.attention .text {
+    color: var(--attention-ink);
 }
-
 </style>

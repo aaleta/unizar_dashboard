@@ -16,10 +16,8 @@
 
 *,
 *::before,
-*::after{
-
-    box-sizing:border-box;
-
+*::after {
+    box-sizing: border-box;
 }
 
 /**
@@ -29,68 +27,54 @@
  * no existen — el título de cada pantalla va en la columna de contenido.
  */
 html,
-body{
-
-    margin:0;
-
+body {
+    margin: 0;
 }
 
-#app{
+#app {
+    margin: 0;
+    padding: 0;
 
-    margin:0;
-    padding:0;
-
-    width:100%;
-    min-height:100vh;
+    width: 100%;
+    min-height: 100vh;
 
     /* Con la barra de direcciones de los móviles, 100vh se pasa de largo y
        deja un hueco al final. dvh mide el viewport que de verdad se ve. */
-    min-height:100dvh;
+    min-height: 100dvh;
 
-    background:var(--paper);
-
+    background: var(--paper);
 }
 
 /* La navegación es táctil: el resalte azul de iOS al tocar sobra. */
 a,
-button{
-
-    -webkit-tap-highlight-color:transparent;
-
+button {
+    -webkit-tap-highlight-color: transparent;
 }
 
-a{
+a {
+    color: var(--navy);
 
-    color:var(--navy);
-
-    text-decoration:none;
-
+    text-decoration: none;
 }
 
 /* Quien navega con teclado tiene derecho a saber dónde está. */
-:focus-visible{
+:focus-visible {
+    outline: 2px solid var(--navy);
 
-    outline:2px solid var(--navy);
-
-    outline-offset:2px;
-
+    outline-offset: 2px;
 }
 
 /* Respeta a quien ha pedido que las cosas no se muevan. */
-@media (prefers-reduced-motion:reduce){
-
+@media (prefers-reduced-motion: reduce) {
     *,
     *::before,
-    *::after{
+    *::after {
+        animation-duration: 0.01ms !important;
 
-        animation-duration:.01ms !important;
+        animation-iteration-count: 1 !important;
 
-        animation-iteration-count:1 !important;
+        transition-duration: 0.01ms !important;
 
-        transition-duration:.01ms !important;
-
-        scroll-behavior:auto !important;
-
+        scroll-behavior: auto !important;
     }
-
 }

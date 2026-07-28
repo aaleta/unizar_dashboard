@@ -39,17 +39,14 @@ const NAMES = {
  * hueco no es un 0 % y no debería colarse entre las fáciles.
  */
 const byDifficulty = (a, b) => {
-
     if (a.noSuperacion === null) return 1;
 
     if (b.noSuperacion === null) return -1;
 
     return b.noSuperacion - a.noSuperacion;
-
 };
 
 const describe = subject => {
-
     const summary = subjectSummary(subject.code);
 
     return {
@@ -61,13 +58,13 @@ const describe = subject => {
         // como en el resto de listas: ver la nota en useSubjectList.js.
         smallCohort: isSmallCohort(Math.round(summary.enrolment))
     };
-
 };
 
 const buildCourse = number => {
-
     const troncales = coreSubjects(number).map(describe).sort(byDifficulty);
-    const optativas = optionalSubjectsOf(number).map(describe).sort(byDifficulty);
+    const optativas = optionalSubjectsOf(number)
+        .map(describe)
+        .sort(byDifficulty);
 
     return {
         number,
@@ -79,7 +76,6 @@ const buildCourse = number => {
         troncales,
         optativas
     };
-
 };
 
 const courses = COURSES.map(buildCourse);
@@ -92,14 +88,14 @@ const courses = COURSES.map(buildCourse);
  */
 const kindest = courses.reduce(
     (best, course) =>
-        course.avgPass !== null && (best === null || course.avgPass > best.avgPass)
+        course.avgPass !== null &&
+        (best === null || course.avgPass > best.avgPass)
             ? course
             : best,
     null
 );
 
 export const useDegreeMap = () => ({
-
     courses,
 
     kindestCourse: kindest?.number ?? null,
@@ -109,5 +105,4 @@ export const useDegreeMap = () => ({
         troncales: allCoreSubjects.length,
         optativas: allOptionalSubjects.length
     }
-
 });

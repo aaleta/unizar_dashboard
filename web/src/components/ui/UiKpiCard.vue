@@ -1,5 +1,4 @@
 <script setup>
-
 /**
  * Tarjeta de indicador: rótulo, cifra grande y variación.
  *
@@ -21,7 +20,6 @@ import { computed } from "vue";
 import { difficultyInk } from "@/theme/difficulty";
 
 const props = defineProps({
-
     label: {
         type: String,
         required: true
@@ -72,23 +70,19 @@ const props = defineProps({
         type: Number,
         default: null
     }
-
 });
 
-const meaningful = computed(() =>
-    props.delta !== null && Math.abs(props.delta) >= props.deltaThreshold
+const meaningful = computed(
+    () => props.delta !== null && Math.abs(props.delta) >= props.deltaThreshold
 );
 
 const deltaTone = computed(() => {
-
     if (!meaningful.value) return "flat";
 
     return props.delta > 0 === props.higherIsBetter ? "good" : "bad";
-
 });
 
 const deltaText = computed(() => {
-
     if (props.delta === null) return null;
 
     if (!meaningful.value) return "sin cambios";
@@ -101,7 +95,6 @@ const deltaText = computed(() => {
     const amount = Math.abs(props.delta).toFixed(decimals).replace(".", ",");
 
     return `${arrow} ${amount} ${props.deltaUnit}`.trim();
-
 });
 
 const valueColor = computed(() =>
@@ -109,137 +102,100 @@ const valueColor = computed(() =>
         ? difficultyInk(props.difficultyValue)
         : "var(--ink)"
 );
-
 </script>
 
 <template>
+    <div class="kpi">
+        <div class="label">
+            {{ label }}
+        </div>
 
-<div class="kpi">
+        <div class="line">
+            <span class="value num" :style="{ color: valueColor }">
+                {{ value }}
+            </span>
 
-    <div class="label">
-        {{ label }}
+            <span v-if="deltaText" class="delta" :class="deltaTone">
+                {{ deltaText }}
+            </span>
+        </div>
+
+        <div v-if="reference" class="reference">
+            {{ reference }}
+        </div>
     </div>
-
-    <div class="line">
-
-        <span
-            class="value num"
-            :style="{ color: valueColor }"
-        >
-            {{ value }}
-        </span>
-
-        <span
-            v-if="deltaText"
-            class="delta"
-            :class="deltaTone"
-        >
-            {{ deltaText }}
-        </span>
-
-    </div>
-
-    <div
-        v-if="reference"
-        class="reference"
-    >
-        {{ reference }}
-    </div>
-
-</div>
-
 </template>
 
 <style scoped>
+.kpi {
+    background: var(--surface);
 
-.kpi{
+    border: 1px solid var(--line);
 
-    background:var(--surface);
+    border-radius: var(--radius-card);
 
-    border:1px solid var(--line);
+    box-shadow: var(--shadow-card);
 
-    border-radius:var(--radius-card);
+    padding: 12px 13px;
 
-    box-shadow:var(--shadow-card);
-
-    padding:12px 13px;
-
-    min-width:0;
-
+    min-width: 0;
 }
 
-.label{
+.label {
+    font-family: var(--font-mono);
 
-    font-family:var(--font-mono);
+    font-size: var(--text-eyebrow-sm);
 
-    font-size:var(--text-eyebrow-sm);
+    font-weight: 500;
 
-    font-weight:500;
+    letter-spacing: 0.4px;
 
-    letter-spacing:.4px;
+    text-transform: uppercase;
 
-    text-transform:uppercase;
-
-    color:var(--ink-soft);
-
+    color: var(--ink-soft);
 }
 
-.line{
+.line {
+    display: flex;
 
-    display:flex;
+    align-items: baseline;
 
-    align-items:baseline;
+    gap: 6px;
 
-    gap:6px;
-
-    margin-top:5px;
-
+    margin-top: 5px;
 }
 
-.value{
+.value {
+    font-size: var(--text-kpi);
 
-    font-size:var(--text-kpi);
-
-    line-height:1;
-
+    line-height: 1;
 }
 
-.delta{
+.delta {
+    font-size: var(--text-num-sm);
 
-    font-size:var(--text-num-sm);
+    font-weight: 700;
 
-    font-weight:700;
-
-    white-space:nowrap;
-
+    white-space: nowrap;
 }
 
-.delta.good{
-
-    color:var(--delta-good);
-
+.delta.good {
+    color: var(--delta-good);
 }
 
-.delta.bad{
-
-    color:var(--delta-bad);
-
+.delta.bad {
+    color: var(--delta-bad);
 }
 
-.delta.flat{
-
-    color:var(--delta-flat);
-
+.delta.flat {
+    color: var(--delta-flat);
 }
 
-.reference{
+.reference {
+    margin-top: 4px;
 
-    margin-top:4px;
+    font-size: var(--text-eyebrow);
 
-    font-size:var(--text-eyebrow);
-
-    color:var(--ink-faint);
-
+    color: var(--ink-faint);
 }
-
 </style>

@@ -1,5 +1,4 @@
 <script setup>
-
 /**
  * Galería de primitivas. Solo existe en desarrollo (ver router/index.js).
  *
@@ -43,634 +42,528 @@ const SORT_METRICS = [
 const search = ref("");
 const filter = ref("todas");
 const sortKey = ref("noSuperacion");
-
 </script>
 
 <template>
+    <main class="gallery">
+        <header class="intro">
+            <h1>Primitivas</h1>
+            <p>
+                Solo en desarrollo. Inventario vivo del sistema de diseño: si
+                una primitiva no aparece aquí, no existe.
+            </p>
+        </header>
 
-<main class="gallery">
+        <section>
+            <h2>Rampa de dificultad</h2>
 
-    <header class="intro">
-        <h1>Primitivas</h1>
-        <p>
-            Solo en desarrollo. Inventario vivo del sistema de diseño: si una
-            primitiva no aparece aquí, no existe.
-        </p>
-    </header>
+            <p class="note">
+                El único color que codifica una magnitud. De más dura a más
+                asequible, más el caso «sin datos». Las dos columnas de la
+                derecha son el mismo dato con el tono grande y el pequeño
+                (oscurecido hasta AA) — comprobar que el pequeño se lee.
+            </p>
 
-    <section>
-
-        <h2>Rampa de dificultad</h2>
-
-        <p class="note">
-            El único color que codifica una magnitud. De más dura a más
-            asequible, más el caso «sin datos». Las dos columnas de la derecha
-            son el mismo dato con el tono grande y el pequeño (oscurecido
-            hasta AA) — comprobar que el pequeño se lee.
-        </p>
-
-        <UiCard>
-            <div
-                v-for="(band, index) in difficultyRamp"
-                :key="band.label"
-                class="rampRow"
-            >
-                <UiDifficultyDot :value="RAMP_SAMPLES[index]" />
-                <span class="rampLabel">{{ band.label }}</span>
-                <span class="rampFrom num">≥ {{ band.from }}%</span>
-                <span
-                    class="rampBig num"
-                    :style="{ color: difficultyInk(RAMP_SAMPLES[index]) }"
-                >
-                    {{ RAMP_SAMPLES[index] }}%
-                </span>
-                <span
-                    class="rampValue num"
-                    :style="{ color: difficultyInk(RAMP_SAMPLES[index], true) }"
-                >
-                    {{ RAMP_SAMPLES[index] }}%
-                </span>
-            </div>
-            <div class="rampRow">
-                <UiDifficultyDot :value="null" />
-                <span class="rampLabel">sin datos</span>
-                <span class="rampFrom num">—</span>
-                <span class="rampBig num">—</span>
-                <span class="rampValue num">—</span>
-            </div>
-        </UiCard>
-
-    </section>
-
-    <section>
-
-        <h2>Punto: troncal vs. optativa</h2>
-
-        <p class="note">
-            El color dice cuánto cuesta; la forma, si es obligatoria. Relleno =
-            troncal, anillo = optativa.
-        </p>
-
-        <UiCard>
-            <div class="dotRow">
-                <UiDifficultyDot
-                    v-for="value in RAMP_SAMPLES"
-                    :key="`solid-${value}`"
-                    :value="value"
-                />
-            </div>
-            <div class="dotRow">
-                <UiDifficultyDot
-                    v-for="value in RAMP_SAMPLES"
-                    :key="`hollow-${value}`"
-                    :value="value"
-                    hollow
-                />
-            </div>
-        </UiCard>
-
-    </section>
-
-    <section>
-
-        <h2>Paleta de calificaciones</h2>
-
-        <p class="note">
-            Categórica, no una escala: «no presentado» no es menos que
-            «suspenso». Solo se usa en la barra apilada de la ficha.
-        </p>
-
-        <UiCard>
-            <div class="stack">
+            <UiCard>
                 <div
-                    v-for="(color, key) in GRADE_COLORS"
-                    :key="key"
-                    class="stackSlice"
-                    :style="{ background: color }"
-                ></div>
-            </div>
-            <div class="legend">
-                <span
-                    v-for="(color, key) in GRADE_COLORS"
-                    :key="key"
-                    class="legendItem"
+                    v-for="(band, index) in difficultyRamp"
+                    :key="band.label"
+                    class="rampRow"
                 >
+                    <UiDifficultyDot :value="RAMP_SAMPLES[index]" />
+                    <span class="rampLabel">{{ band.label }}</span>
+                    <span class="rampFrom num">≥ {{ band.from }}%</span>
                     <span
-                        class="legendDot"
-                        :style="{ background: color }"
-                    ></span>
-                    {{ key }}
-                </span>
-            </div>
-        </UiCard>
-
-    </section>
-
-    <section>
-
-        <h2>Recuentos</h2>
-
-        <p class="note">
-            Siempre gris. Una cantidad no es una dificultad.
-        </p>
-
-        <UiCard>
-            <UiCountBar
-                label="Gravitación y cosmología"
-                :value="58"
-                :max="58"
-                display="58"
-            />
-            <UiCountBar
-                label="Caos y sist. dinámicos"
-                :value="56"
-                :max="58"
-                display="56"
-            />
-            <UiCountBar
-                label="Astronomía y astrofísica"
-                :value="47"
-                :max="58"
-                display="47"
-            />
-        </UiCard>
-
-    </section>
-
-    <section>
-
-        <h2>Tarjetas</h2>
-
-        <div class="cards">
-            <UiCard>Troncal · sólida</UiCard>
-            <UiCard variant="dashed">Optativa · discontinua</UiCard>
-            <UiCard variant="structural">Estructural · contexto</UiCard>
-        </div>
-
-    </section>
-
-    <section>
-
-        <h2>Avisos</h2>
-
-        <div class="cards">
-
-            <UiCallout
-                tone="hard"
-                title="La troncal más dura del grado ahora mismo"
-            >
-                1ª de 12 troncales de 1º por no superación — y la tendencia
-                empeora.
-            </UiCallout>
-
-            <UiCallout tone="structural">
-                6 troncales · aprueban <strong>94%</strong> de media · el curso
-                más amable.
-            </UiCallout>
-
-            <UiCallout tone="attention">
-                Menos de 10 alumnos: los porcentajes bailan mucho.
-            </UiCallout>
-
-        </div>
-
-    </section>
-
-    <section>
-
-        <h2>Indicadores</h2>
-
-        <div class="kpis">
-            <UiKpiCard
-                label="No superan"
-                value="61%"
-                :delta="19"
-                :higher-is-better="false"
-                tone="difficulty"
-                :difficulty-value="61"
-                reference="vs. media de 3 cursos"
-            />
-            <UiKpiCard
-                label="Aprueban"
-                value="39%"
-                :delta="-18"
-                reference="vs. media de 3 cursos"
-            />
-            <UiKpiCard
-                label="Convocatorias"
-                value="1,57"
-                :delta="null"
-                reference="dato oficial"
-            />
-            <UiKpiCard
-                label="Matriculados"
-                value="139"
-                :delta="0.2"
-                delta-unit="pp"
-                reference="media 3 cursos: 127"
-            />
-        </div>
-
-    </section>
-
-    <section>
-
-        <h2>Etiquetas y cabeceras</h2>
-
-        <UiCard>
-
-            <div class="inline">
-                <UiPill>TRONCAL</UiPill>
-                <UiPill>1º CURSO</UiPill>
-                <UiPill tone="neutral">CÓD. 26907</UiPill>
-                <UiPill tone="gold">OPTATIVA</UiPill>
-            </div>
-
-            <div class="spacer"></div>
-
-            <UiSectionHeader
-                label="Troncales"
-                :count="12"
-                hint="% que no aprueba"
-            />
-
-            <div class="spacer"></div>
-
-            <UiSectionHeader
-                label="Optativas"
-                :count="21"
-                tone="gold"
-            />
-
-            <div class="spacer"></div>
-
-            <div class="inline">
-                <UiStat
-                    value="21"
-                    label="optativas"
-                    tone="gold"
-                />
-                <UiStat
-                    value="528"
-                    label="matrículas al año"
-                />
-                <UiStat
-                    value="96%"
-                    label="aprueban de media"
-                />
-            </div>
-
-        </UiCard>
-
-    </section>
-
-    <section>
-
-        <h2>Controles</h2>
-
-        <UiSearchField
-            v-model="search"
-            placeholder="Buscar entre 54 asignaturas…"
-        />
-
-        <div class="inline chips">
-            <UiChip
-                v-for="option in ['todas', 'troncales', 'optativas']"
-                :key="option"
-                :active="filter === option"
-                @click="filter = option"
-            >
-                {{ option }}
-            </UiChip>
-        </div>
-
-        <p class="note">
-            Filtro activo: <strong>{{ filter }}</strong> · búsqueda:
-            <strong>{{ search || "—" }}</strong>
-        </p>
-
-        <UiSortHeader
-            :metrics="SORT_METRICS"
-            :active-key="sortKey"
-            @sort="sortKey = $event"
-        />
-
-    </section>
-
-    <section>
-
-        <h2>Filas</h2>
-
-        <div class="rows">
-
-            <UiLinkRow to="/">
-                <template #lead>
-                    <UiDifficultyDot :value="53" />
-                </template>
-                Álgebra II
-                <template #trail>
+                        class="rampBig num"
+                        :style="{ color: difficultyInk(RAMP_SAMPLES[index]) }"
+                    >
+                        {{ RAMP_SAMPLES[index] }}%
+                    </span>
                     <span
-                        class="num"
-                        :style="{ color: difficultyInk(53, true) }"
-                    >53%</span>
-                </template>
-            </UiLinkRow>
+                        class="rampValue num"
+                        :style="{
+                            color: difficultyInk(RAMP_SAMPLES[index], true)
+                        }"
+                    >
+                        {{ RAMP_SAMPLES[index] }}%
+                    </span>
+                </div>
+                <div class="rampRow">
+                    <UiDifficultyDot :value="null" />
+                    <span class="rampLabel">sin datos</span>
+                    <span class="rampFrom num">—</span>
+                    <span class="rampBig num">—</span>
+                    <span class="rampValue num">—</span>
+                </div>
+            </UiCard>
+        </section>
 
-            <UiLinkRow
-                to="/"
-                variant="dashed"
-            >
-                <template #lead>
+        <section>
+            <h2>Punto: troncal vs. optativa</h2>
+
+            <p class="note">
+                El color dice cuánto cuesta; la forma, si es obligatoria.
+                Relleno = troncal, anillo = optativa.
+            </p>
+
+            <UiCard>
+                <div class="dotRow">
                     <UiDifficultyDot
-                        :value="9"
+                        v-for="value in RAMP_SAMPLES"
+                        :key="`solid-${value}`"
+                        :value="value"
+                    />
+                </div>
+                <div class="dotRow">
+                    <UiDifficultyDot
+                        v-for="value in RAMP_SAMPLES"
+                        :key="`hollow-${value}`"
+                        :value="value"
                         hollow
                     />
-                </template>
-                Astronomía y astrofísica
-                <template #trail>
+                </div>
+            </UiCard>
+        </section>
+
+        <section>
+            <h2>Paleta de calificaciones</h2>
+
+            <p class="note">
+                Categórica, no una escala: «no presentado» no es menos que
+                «suspenso». Solo se usa en la barra apilada de la ficha.
+            </p>
+
+            <UiCard>
+                <div class="stack">
+                    <div
+                        v-for="(color, key) in GRADE_COLORS"
+                        :key="key"
+                        class="stackSlice"
+                        :style="{ background: color }"
+                    ></div>
+                </div>
+                <div class="legend">
                     <span
-                        class="num"
-                        :style="{ color: difficultyInk(9, true) }"
-                    >9%</span>
-                </template>
-            </UiLinkRow>
+                        v-for="(color, key) in GRADE_COLORS"
+                        :key="key"
+                        class="legendItem"
+                    >
+                        <span
+                            class="legendDot"
+                            :style="{ background: color }"
+                        ></span>
+                        {{ key }}
+                    </span>
+                </div>
+            </UiCard>
+        </section>
 
-            <UiLinkRow
-                to="/"
-                variant="plain"
-                selected
-                chevron
-            >
-                Jesús Gómez Gardeñes
-            </UiLinkRow>
+        <section>
+            <h2>Recuentos</h2>
 
-            <UiLinkRow
-                to="/"
-                variant="plain"
-                chevron
-            >
-                Luis Miguel García Vinuesa
-            </UiLinkRow>
+            <p class="note">Siempre gris. Una cantidad no es una dificultad.</p>
 
-        </div>
+            <UiCard>
+                <UiCountBar
+                    label="Gravitación y cosmología"
+                    :value="58"
+                    :max="58"
+                    display="58"
+                />
+                <UiCountBar
+                    label="Caos y sist. dinámicos"
+                    :value="56"
+                    :max="58"
+                    display="56"
+                />
+                <UiCountBar
+                    label="Astronomía y astrofísica"
+                    :value="47"
+                    :max="58"
+                    display="47"
+                />
+            </UiCard>
+        </section>
 
-    </section>
+        <section>
+            <h2>Tarjetas</h2>
 
-</main>
+            <div class="cards">
+                <UiCard>Troncal · sólida</UiCard>
+                <UiCard variant="dashed">Optativa · discontinua</UiCard>
+                <UiCard variant="structural">Estructural · contexto</UiCard>
+            </div>
+        </section>
 
+        <section>
+            <h2>Avisos</h2>
+
+            <div class="cards">
+                <UiCallout
+                    tone="hard"
+                    title="La troncal más dura del grado ahora mismo"
+                >
+                    1ª de 12 troncales de 1º por no superación — y la tendencia
+                    empeora.
+                </UiCallout>
+
+                <UiCallout tone="structural">
+                    6 troncales · aprueban <strong>94%</strong> de media · el
+                    curso más amable.
+                </UiCallout>
+
+                <UiCallout tone="attention">
+                    Menos de 10 alumnos: los porcentajes bailan mucho.
+                </UiCallout>
+            </div>
+        </section>
+
+        <section>
+            <h2>Indicadores</h2>
+
+            <div class="kpis">
+                <UiKpiCard
+                    label="No superan"
+                    value="61%"
+                    :delta="19"
+                    :higher-is-better="false"
+                    tone="difficulty"
+                    :difficulty-value="61"
+                    reference="vs. media de 3 cursos"
+                />
+                <UiKpiCard
+                    label="Aprueban"
+                    value="39%"
+                    :delta="-18"
+                    reference="vs. media de 3 cursos"
+                />
+                <UiKpiCard
+                    label="Convocatorias"
+                    value="1,57"
+                    :delta="null"
+                    reference="dato oficial"
+                />
+                <UiKpiCard
+                    label="Matriculados"
+                    value="139"
+                    :delta="0.2"
+                    delta-unit="pp"
+                    reference="media 3 cursos: 127"
+                />
+            </div>
+        </section>
+
+        <section>
+            <h2>Etiquetas y cabeceras</h2>
+
+            <UiCard>
+                <div class="inline">
+                    <UiPill>TRONCAL</UiPill>
+                    <UiPill>1º CURSO</UiPill>
+                    <UiPill tone="neutral">CÓD. 26907</UiPill>
+                    <UiPill tone="gold">OPTATIVA</UiPill>
+                </div>
+
+                <div class="spacer"></div>
+
+                <UiSectionHeader
+                    label="Troncales"
+                    :count="12"
+                    hint="% que no aprueba"
+                />
+
+                <div class="spacer"></div>
+
+                <UiSectionHeader label="Optativas" :count="21" tone="gold" />
+
+                <div class="spacer"></div>
+
+                <div class="inline">
+                    <UiStat value="21" label="optativas" tone="gold" />
+                    <UiStat value="528" label="matrículas al año" />
+                    <UiStat value="96%" label="aprueban de media" />
+                </div>
+            </UiCard>
+        </section>
+
+        <section>
+            <h2>Controles</h2>
+
+            <UiSearchField
+                v-model="search"
+                placeholder="Buscar entre 54 asignaturas…"
+            />
+
+            <div class="inline chips">
+                <UiChip
+                    v-for="option in ['todas', 'troncales', 'optativas']"
+                    :key="option"
+                    :active="filter === option"
+                    @click="filter = option"
+                >
+                    {{ option }}
+                </UiChip>
+            </div>
+
+            <p class="note">
+                Filtro activo: <strong>{{ filter }}</strong> · búsqueda:
+                <strong>{{ search || "—" }}</strong>
+            </p>
+
+            <UiSortHeader
+                :metrics="SORT_METRICS"
+                :active-key="sortKey"
+                @sort="sortKey = $event"
+            />
+        </section>
+
+        <section>
+            <h2>Filas</h2>
+
+            <div class="rows">
+                <UiLinkRow to="/">
+                    <template #lead>
+                        <UiDifficultyDot :value="53" />
+                    </template>
+                    Álgebra II
+                    <template #trail>
+                        <span
+                            class="num"
+                            :style="{ color: difficultyInk(53, true) }"
+                            >53%</span
+                        >
+                    </template>
+                </UiLinkRow>
+
+                <UiLinkRow to="/" variant="dashed">
+                    <template #lead>
+                        <UiDifficultyDot :value="9" hollow />
+                    </template>
+                    Astronomía y astrofísica
+                    <template #trail>
+                        <span
+                            class="num"
+                            :style="{ color: difficultyInk(9, true) }"
+                            >9%</span
+                        >
+                    </template>
+                </UiLinkRow>
+
+                <UiLinkRow to="/" variant="plain" selected chevron>
+                    Jesús Gómez Gardeñes
+                </UiLinkRow>
+
+                <UiLinkRow to="/" variant="plain" chevron>
+                    Luis Miguel García Vinuesa
+                </UiLinkRow>
+            </div>
+        </section>
+    </main>
 </template>
 
 <style scoped>
+.gallery {
+    max-width: var(--content-max);
 
-.gallery{
+    margin: 0 auto;
 
-    max-width:var(--content-max);
+    padding: 24px var(--gutter) 64px;
 
-    margin:0 auto;
+    display: flex;
 
-    padding:24px var(--gutter) 64px;
+    flex-direction: column;
 
-    display:flex;
-
-    flex-direction:column;
-
-    gap:26px;
-
+    gap: 26px;
 }
 
-.intro h1{
+.intro h1 {
+    margin: 0 0 4px;
 
-    margin:0 0 4px;
+    font-family: var(--font-serif);
 
-    font-family:var(--font-serif);
+    font-size: var(--text-h1);
 
-    font-size:var(--text-h1);
-
-    font-weight:700;
-
+    font-weight: 700;
 }
 
-.intro p{
+.intro p {
+    margin: 0;
 
-    margin:0;
+    font-size: var(--text-body-sm);
 
-    font-size:var(--text-body-sm);
-
-    color:var(--ink-muted);
-
+    color: var(--ink-muted);
 }
 
-code{
+code {
+    font-family: var(--font-mono);
 
-    font-family:var(--font-mono);
-
-    font-size:var(--text-num-sm);
-
+    font-size: var(--text-num-sm);
 }
 
-h2{
+h2 {
+    margin: 0 0 6px;
 
-    margin:0 0 6px;
+    font-family: var(--font-serif);
 
-    font-family:var(--font-serif);
+    font-size: var(--text-section);
 
-    font-size:var(--text-section);
-
-    font-weight:600;
-
+    font-weight: 600;
 }
 
-.note{
+.note {
+    margin: 0 0 10px;
 
-    margin:0 0 10px;
+    font-size: var(--text-body-xs);
 
-    font-size:var(--text-body-xs);
+    color: var(--ink-soft);
 
-    color:var(--ink-soft);
-
-    line-height:var(--leading-snug);
-
+    line-height: var(--leading-snug);
 }
 
-.rampRow{
+.rampRow {
+    display: flex;
 
-    display:flex;
+    align-items: center;
 
-    align-items:center;
+    gap: 9px;
 
-    gap:9px;
-
-    padding:5px 0;
-
+    padding: 5px 0;
 }
 
-.rampRow + .rampRow{
-
-    border-top:1px solid var(--line-inner);
-
+.rampRow + .rampRow {
+    border-top: 1px solid var(--line-inner);
 }
 
-.rampLabel{
+.rampLabel {
+    flex: 1;
 
-    flex:1;
-
-    font-size:var(--text-body-sm);
-
+    font-size: var(--text-body-sm);
 }
 
-.rampFrom{
+.rampFrom {
+    font-size: var(--text-num-sm);
 
-    font-size:var(--text-num-sm);
+    font-weight: 400;
 
-    font-weight:400;
+    color: var(--ink-faint);
 
-    color:var(--ink-faint);
+    width: 52px;
 
-    width:52px;
-
-    text-align:right;
-
+    text-align: right;
 }
 
-.rampBig{
+.rampBig {
+    font-size: var(--text-kpi);
 
-    font-size:var(--text-kpi);
+    width: 64px;
 
-    width:64px;
+    text-align: right;
 
-    text-align:right;
+    line-height: 1;
 
-    line-height:1;
-
-    color:var(--ink-faint);
-
+    color: var(--ink-faint);
 }
 
-.rampValue{
+.rampValue {
+    font-size: var(--text-num);
 
-    font-size:var(--text-num);
+    width: 42px;
 
-    width:42px;
+    text-align: right;
 
-    text-align:right;
-
-    color:var(--ink-faint);
-
+    color: var(--ink-faint);
 }
 
-.dotRow{
+.dotRow {
+    display: flex;
 
-    display:flex;
+    align-items: center;
 
-    align-items:center;
+    gap: 14px;
 
-    gap:14px;
-
-    padding:6px 0;
-
+    padding: 6px 0;
 }
 
-.stack{
+.stack {
+    display: flex;
 
-    display:flex;
+    height: 18px;
 
-    height:18px;
+    border-radius: 5px;
 
-    border-radius:5px;
-
-    overflow:hidden;
-
+    overflow: hidden;
 }
 
-.stackSlice{
-
-    flex:1;
-
+.stackSlice {
+    flex: 1;
 }
 
-.legend{
+.legend {
+    display: flex;
 
-    display:flex;
+    flex-wrap: wrap;
 
-    flex-wrap:wrap;
+    gap: 10px;
 
-    gap:10px;
-
-    margin-top:9px;
-
+    margin-top: 9px;
 }
 
-.legendItem{
+.legendItem {
+    display: inline-flex;
 
-    display:inline-flex;
+    align-items: center;
 
-    align-items:center;
+    gap: 5px;
 
-    gap:5px;
+    font-family: var(--font-mono);
 
-    font-family:var(--font-mono);
+    font-size: var(--text-eyebrow);
 
-    font-size:var(--text-eyebrow);
-
-    color:var(--ink-muted);
-
+    color: var(--ink-muted);
 }
 
-.legendDot{
+.legendDot {
+    width: 8px;
 
-    width:8px;
+    height: 8px;
 
-    height:8px;
-
-    border-radius:2px;
-
+    border-radius: 2px;
 }
 
 .cards,
-.rows{
+.rows {
+    display: flex;
 
-    display:flex;
+    flex-direction: column;
 
-    flex-direction:column;
-
-    gap:9px;
-
+    gap: 9px;
 }
 
-.kpis{
+.kpis {
+    display: grid;
 
-    display:grid;
+    grid-template-columns: 1fr 1fr;
 
-    grid-template-columns:1fr 1fr;
-
-    gap:var(--gap-card);
-
+    gap: var(--gap-card);
 }
 
-.inline{
+.inline {
+    display: flex;
 
-    display:flex;
+    flex-wrap: wrap;
 
-    flex-wrap:wrap;
+    align-items: center;
 
-    align-items:center;
-
-    gap:22px;
-
+    gap: 22px;
 }
 
-.inline.chips{
+.inline.chips {
+    gap: 6px;
 
-    gap:6px;
-
-    margin:10px 0;
-
+    margin: 10px 0;
 }
 
-.spacer{
-
-    height:14px;
-
+.spacer {
+    height: 14px;
 }
-
 </style>

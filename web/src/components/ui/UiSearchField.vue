@@ -1,5 +1,4 @@
 <script setup>
-
 /**
  * Buscador de las listas. Filtra en vivo mientras se escribe.
  *
@@ -12,7 +11,6 @@
  */
 
 defineProps({
-
     placeholder: {
         type: String,
         default: "Buscar…"
@@ -22,160 +20,134 @@ defineProps({
         type: String,
         default: "Buscar"
     }
-
 });
 
 const model = defineModel({ type: String, default: "" });
-
 </script>
 
 <template>
+    <label class="field">
+        <span class="visuallyHidden">{{ label }}</span>
 
-<label class="field">
+        <svg
+            class="icon"
+            width="14"
+            height="14"
+            viewBox="0 0 24 24"
+            fill="none"
+            aria-hidden="true"
+        >
+            <circle
+                cx="11"
+                cy="11"
+                r="7"
+                stroke="currentColor"
+                stroke-width="2"
+            />
+            <path
+                d="M20 20l-3.5-3.5"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+            />
+        </svg>
 
-    <span class="visuallyHidden">{{ label }}</span>
-
-    <svg
-        class="icon"
-        width="14"
-        height="14"
-        viewBox="0 0 24 24"
-        fill="none"
-        aria-hidden="true"
-    >
-        <circle
-            cx="11"
-            cy="11"
-            r="7"
-            stroke="currentColor"
-            stroke-width="2"
+        <input
+            v-model="model"
+            type="search"
+            class="input"
+            :placeholder="placeholder"
+            enterkeyhint="search"
+            autocomplete="off"
+            autocorrect="off"
+            autocapitalize="off"
+            spellcheck="false"
         />
-        <path
-            d="M20 20l-3.5-3.5"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-        />
-    </svg>
-
-    <input
-        v-model="model"
-        type="search"
-        class="input"
-        :placeholder="placeholder"
-        enterkeyhint="search"
-        autocomplete="off"
-        autocorrect="off"
-        autocapitalize="off"
-        spellcheck="false"
-    >
-
-</label>
-
+    </label>
 </template>
 
 <style scoped>
+.field {
+    display: flex;
 
-.field{
+    align-items: center;
 
-    display:flex;
-
-    align-items:center;
-
-    gap:8px;
+    gap: 8px;
 
     /* Altura táctil completa: es el control que más se usa de la pantalla. */
-    min-height:var(--touch-target);
+    min-height: var(--touch-target);
 
-    padding:9px 11px;
+    padding: 9px 11px;
 
-    background:var(--surface);
+    background: var(--surface);
 
-    border:1px solid var(--line-strong);
+    border: 1px solid var(--line-strong);
 
-    border-radius:var(--radius-control);
-
+    border-radius: var(--radius-control);
 }
 
-.field:focus-within{
-
-    border-color:var(--navy);
-
+.field:focus-within {
+    border-color: var(--navy);
 }
 
-.icon{
+.icon {
+    flex: none;
 
-    flex:none;
-
-    color:var(--ink-icon);
-
+    color: var(--ink-icon);
 }
 
-.input{
+.input {
+    flex: 1;
 
-    flex:1;
+    min-width: 0;
 
-    min-width:0;
+    border: none;
 
-    border:none;
+    outline: none;
 
-    outline:none;
+    background: none;
 
-    background:none;
+    padding: 0;
 
-    padding:0;
+    font-family: var(--font-sans);
 
-    font-family:var(--font-sans);
+    font-size: 13px;
 
-    font-size:13px;
-
-    color:var(--ink);
-
+    color: var(--ink);
 }
 
 /* Por debajo de 16px, iOS hace zoom al enfocar un campo y descoloca la
    pantalla entera. El texto se ve igual; lo que cambia es que no salta. */
-@supports (-webkit-touch-callout:none){
-
-    .input{
-
-        font-size:16px;
-
+@supports (-webkit-touch-callout: none) {
+    .input {
+        font-size: 16px;
     }
-
 }
 
-.input::placeholder{
-
-    color:var(--ink-placeholder);
-
+.input::placeholder {
+    color: var(--ink-placeholder);
 }
 
 /* La ✕ nativa de WebKit no hereda el color y se ve como un pegote azul. */
-.input::-webkit-search-cancel-button{
-
-    filter:grayscale(1) opacity(.5);
-
+.input::-webkit-search-cancel-button {
+    filter: grayscale(1) opacity(0.5);
 }
 
-.visuallyHidden{
+.visuallyHidden {
+    position: absolute;
 
-    position:absolute;
+    width: 1px;
 
-    width:1px;
+    height: 1px;
 
-    height:1px;
+    padding: 0;
 
-    padding:0;
+    margin: -1px;
 
-    margin:-1px;
+    overflow: hidden;
 
-    overflow:hidden;
+    clip-path: inset(50%);
 
-    clip-path:inset(50%);
-
-    white-space:nowrap;
-
+    white-space: nowrap;
 }
-
 </style>

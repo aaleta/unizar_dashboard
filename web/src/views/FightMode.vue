@@ -1,5 +1,4 @@
 <script setup>
-
 /**
  * Fight Mode. La broma de la casa, con los datos en serio.
  *
@@ -47,575 +46,478 @@ const swap = () => {
 
 /** La cifra de dificultad se pinta con la rampa; el resto, en tinta normal. */
 const valueColor = (duel, side) => {
-
     if (duel.key !== "noSuperacion") return "var(--ink)";
 
     // Celdas de 15,5px: por debajo de "texto grande", hace falta 4,5:1.
     return difficultyInk(side === 1 ? duel.first : duel.second, true);
-
 };
-
 </script>
 
 <template>
+    <div class="screen">
+        <header class="intro">
+            <p>
+                Mejor comparar asignaturas del mismo tipo: optativas con
+                optativas, troncales con troncales.
+            </p>
+        </header>
 
-<div class="screen">
+        <!-- Contendientes ------------------------------------------------- -->
+        <div class="fighters">
+            <label class="fighter">
+                <span class="fighterName">{{ first.name }}</span>
+                <span class="fighterMeta num">{{ first.label }}</span>
+                <span class="fighterPick">cambiar ▾</span>
+                <select
+                    v-model.number="firstCode"
+                    aria-label="Primera asignatura"
+                >
+                    <option
+                        v-for="option in options"
+                        :key="option.code"
+                        :value="option.code"
+                    >
+                        {{ option.name }}
+                    </option>
+                </select>
+            </label>
 
-    <header class="intro">
-        <p>
-            Mejor comparar asignaturas del mismo tipo: optativas con
-            optativas, troncales con troncales.
-        </p>
-    </header>
-
-    <!-- Contendientes ------------------------------------------------- -->
-    <div class="fighters">
-
-        <label class="fighter">
-            <span class="fighterName">{{ first.name }}</span>
-            <span class="fighterMeta num">{{ first.label }}</span>
-            <span class="fighterPick">cambiar ▾</span>
-            <select
-                v-model.number="firstCode"
-                aria-label="Primera asignatura"
+            <button
+                type="button"
+                class="medallion"
+                title="Intercambiar"
+                aria-label="Intercambiar las dos asignaturas"
+                @click="swap"
             >
-                <option
-                    v-for="option in options"
-                    :key="option.code"
-                    :value="option.code"
-                >{{ option.name }}</option>
-            </select>
-        </label>
+                VS
+            </button>
 
-        <button
-            type="button"
-            class="medallion"
-            title="Intercambiar"
-            aria-label="Intercambiar las dos asignaturas"
-            @click="swap"
-        >VS</button>
+            <label class="fighter">
+                <span class="fighterName">{{ second.name }}</span>
+                <span class="fighterMeta num">{{ second.label }}</span>
+                <span class="fighterPick">cambiar ▾</span>
+                <select
+                    v-model.number="secondCode"
+                    aria-label="Segunda asignatura"
+                >
+                    <option
+                        v-for="option in options"
+                        :key="option.code"
+                        :value="option.code"
+                    >
+                        {{ option.name }}
+                    </option>
+                </select>
+            </label>
+        </div>
 
-        <label class="fighter">
-            <span class="fighterName">{{ second.name }}</span>
-            <span class="fighterMeta num">{{ second.label }}</span>
-            <span class="fighterPick">cambiar ▾</span>
-            <select
-                v-model.number="secondCode"
-                aria-label="Segunda asignatura"
-            >
-                <option
-                    v-for="option in options"
-                    :key="option.code"
-                    :value="option.code"
-                >{{ option.name }}</option>
-            </select>
-        </label>
+        <!-- Veredicto ----------------------------------------------------- -->
+        <div v-if="verdict" class="verdict" :class="{ tie: verdict.tie }">
+            <span class="trophy" aria-hidden="true">{{
+                verdict.tie ? "=" : "★"
+            }}</span>
 
-    </div>
-
-    <!-- Veredicto ----------------------------------------------------- -->
-    <div
-        v-if="verdict"
-        class="verdict"
-        :class="{ tie: verdict.tie }"
-    >
-
-        <span
-            class="trophy"
-            aria-hidden="true"
-        >{{ verdict.tie ? "=" : "★" }}</span>
-
-        <div>
-            <div class="verdictText">
-                {{ verdict.text }}
-                <span
-                    v-if="verdict.score"
-                    class="num verdictScore"
-                >· {{ verdict.score }}</span>
+            <div>
+                <div class="verdictText">
+                    {{ verdict.text }}
+                    <span v-if="verdict.score" class="num verdictScore"
+                        >· {{ verdict.score }}</span
+                    >
+                </div>
+                <div class="verdictDetail">{{ verdict.detail }}</div>
             </div>
-            <div class="verdictDetail">{{ verdict.detail }}</div>
         </div>
 
+        <p v-else class="sameSubject">
+            Es la misma asignatura en los dos lados. Elige otra para que haya
+            combate.
+        </p>
+
+        <!-- Duelos -------------------------------------------------------- -->
+        <div class="duels">
+            <div class="duelRow heads">
+                <span class="head">{{ first.name }}</span>
+                <span></span>
+                <span class="head">{{ second.name }}</span>
+            </div>
+
+            <div v-for="duel in duels" :key="duel.key" class="duelRow">
+                <span class="cell" :class="{ won: duel.winner === 1 }">
+                    <span
+                        class="num cellValue"
+                        :style="{ color: valueColor(duel, 1) }"
+                        >{{ duel.format(duel.first) }}</span
+                    >
+                    <span v-if="duel.winner === 1" class="cellWin">gana</span>
+                </span>
+
+                <span class="duelLabel">{{ duel.label }}</span>
+
+                <span class="cell" :class="{ won: duel.winner === 2 }">
+                    <span
+                        class="num cellValue"
+                        :style="{ color: valueColor(duel, 2) }"
+                        >{{ duel.format(duel.second) }}</span
+                    >
+                    <span v-if="duel.winner === 2" class="cellWin">gana</span>
+                </span>
+            </div>
+        </div>
+
+        <p class="footnote">
+            Medias ponderadas de los últimos 3 cursos.
+            <template v-if="bothOptional">
+                Los matriculados solo se comparan entre optativas.
+            </template>
+            <template v-else>
+                Los matriculados solo se comparan cuando las dos son optativas:
+                la popularidad de una troncal no dice nada, la cursa todo el
+                mundo.
+            </template>
+        </p>
     </div>
-
-    <p
-        v-else
-        class="sameSubject"
-    >
-        Es la misma asignatura en los dos lados. Elige otra para que haya
-        combate.
-    </p>
-
-    <!-- Duelos -------------------------------------------------------- -->
-    <div class="duels">
-
-        <div class="duelRow heads">
-            <span class="head">{{ first.name }}</span>
-            <span></span>
-            <span class="head">{{ second.name }}</span>
-        </div>
-
-        <div
-            v-for="duel in duels"
-            :key="duel.key"
-            class="duelRow"
-        >
-
-            <span
-                class="cell"
-                :class="{ won: duel.winner === 1 }"
-            >
-                <span
-                    class="num cellValue"
-                    :style="{ color: valueColor(duel, 1) }"
-                >{{ duel.format(duel.first) }}</span>
-                <span
-                    v-if="duel.winner === 1"
-                    class="cellWin"
-                >gana</span>
-            </span>
-
-            <span class="duelLabel">{{ duel.label }}</span>
-
-            <span
-                class="cell"
-                :class="{ won: duel.winner === 2 }"
-            >
-                <span
-                    class="num cellValue"
-                    :style="{ color: valueColor(duel, 2) }"
-                >{{ duel.format(duel.second) }}</span>
-                <span
-                    v-if="duel.winner === 2"
-                    class="cellWin"
-                >gana</span>
-            </span>
-
-        </div>
-
-    </div>
-
-    <p class="footnote">
-        Medias ponderadas de los últimos 3 cursos.
-        <template v-if="bothOptional">
-            Los matriculados solo se comparan entre optativas.
-        </template>
-        <template v-else>
-            Los matriculados solo se comparan cuando las dos son optativas: la
-            popularidad de una troncal no dice nada, la cursa todo el mundo.
-        </template>
-    </p>
-
-</div>
-
 </template>
 
 <style scoped>
-
-.screen{
-
-    padding:16px var(--gutter) 8px;
-
+.screen {
+    padding: 16px var(--gutter) 8px;
 }
 
-.intro{
-
-    text-align:center;
-
+.intro {
+    text-align: center;
 }
 
-.intro p{
+.intro p {
+    margin: 5px 0 0;
 
-    margin:5px 0 0;
+    font-size: var(--text-body-sm);
 
-    font-size:var(--text-body-sm);
-
-    color:var(--ink-soft);
-
+    color: var(--ink-soft);
 }
 
 /* Contendientes -------------------------------------------------------- */
 
-.fighters{
+.fighters {
+    display: flex;
 
-    display:flex;
+    align-items: stretch;
 
-    align-items:stretch;
+    gap: 9px;
 
-    gap:9px;
-
-    margin-top:14px;
-
+    margin-top: 14px;
 }
 
-.fighter{
+.fighter {
+    position: relative;
 
-    position:relative;
+    flex: 1;
 
-    flex:1;
+    min-width: 0;
 
-    min-width:0;
+    padding: 13px 12px;
 
-    padding:13px 12px;
+    background: var(--surface);
 
-    background:var(--surface);
+    border: 1px solid var(--line);
 
-    border:1px solid var(--line);
+    border-radius: 13px;
 
-    border-radius:13px;
-
-    text-align:center;
-
+    text-align: center;
 }
 
 /* El <select> cubre toda la tarjeta y va invisible: el control es nativo
    —teclado, lector de pantalla y rueda del sistema gratis— pero lo que se ve
    es la tarjeta del diseño. */
-.fighter select{
+.fighter select {
+    position: absolute;
 
-    position:absolute;
+    inset: 0;
 
-    inset:0;
+    width: 100%;
 
-    width:100%;
+    height: 100%;
 
-    height:100%;
+    opacity: 0;
 
-    opacity:0;
-
-    cursor:pointer;
-
+    cursor: pointer;
 }
 
-.fighterName{
+.fighterName {
+    display: block;
 
-    display:block;
+    font-family: var(--font-serif);
 
-    font-family:var(--font-serif);
+    font-size: 14.5px;
 
-    font-size:14.5px;
+    font-weight: 600;
 
-    font-weight:600;
-
-    line-height:1.2;
-
+    line-height: 1.2;
 }
 
-.fighterMeta{
+.fighterMeta {
+    display: block;
 
-    display:block;
+    margin-top: 4px;
 
-    margin-top:4px;
+    font-size: var(--text-eyebrow-sm);
 
-    font-size:var(--text-eyebrow-sm);
+    font-weight: 400;
 
-    font-weight:400;
+    text-transform: uppercase;
 
-    text-transform:uppercase;
-
-    color:var(--ink-soft);
-
+    color: var(--ink-soft);
 }
 
-.fighterPick{
+.fighterPick {
+    display: block;
 
-    display:block;
+    margin-top: 9px;
 
-    margin-top:9px;
+    font-size: var(--text-num-sm);
 
-    font-size:var(--text-num-sm);
+    font-weight: 600;
 
-    font-weight:600;
-
-    color:var(--navy);
-
+    color: var(--navy);
 }
 
 /* El medallón VS: la única sombra fuerte de la web. Y sirve para algo —
    intercambia los lados— en vez de ser solo un adorno. */
-.medallion{
+.medallion {
+    flex: none;
 
-    flex:none;
+    align-self: center;
 
-    align-self:center;
+    width: 44px;
 
-    width:44px;
+    height: 44px;
 
-    height:44px;
+    border: none;
 
-    border:none;
+    border-radius: 50%;
 
-    border-radius:50%;
+    background: var(--navy);
 
-    background:var(--navy);
+    color: var(--gold);
 
-    color:var(--gold);
+    font-family: var(--font-serif);
 
-    font-family:var(--font-serif);
+    font-size: 15px;
 
-    font-size:15px;
+    font-weight: 700;
 
-    font-weight:700;
+    box-shadow: var(--shadow-medallion);
 
-    box-shadow:var(--shadow-medallion);
-
-    cursor:pointer;
-
+    cursor: pointer;
 }
 
-.medallion:active{
-
-    transform:scale(.94);
-
+.medallion:active {
+    transform: scale(0.94);
 }
 
 /* Veredicto ------------------------------------------------------------ */
 
-.verdict{
+.verdict {
+    display: flex;
 
-    display:flex;
+    align-items: center;
 
-    align-items:center;
+    gap: 11px;
 
-    gap:11px;
+    margin-top: 14px;
 
-    margin-top:14px;
+    padding: 12px 14px;
 
-    padding:12px 14px;
+    background: var(--gold-wash);
 
-    background:var(--gold-wash);
+    border: 1px solid var(--gold-line);
 
-    border:1px solid var(--gold-line);
-
-    border-radius:12px;
-
+    border-radius: 12px;
 }
 
-.verdict.tie{
+.verdict.tie {
+    background: var(--navy-wash);
 
-    background:var(--navy-wash);
-
-    border-color:var(--navy-wash-line);
-
+    border-color: var(--navy-wash-line);
 }
 
-.trophy{
+.trophy {
+    display: flex;
 
-    display:flex;
+    align-items: center;
 
-    align-items:center;
+    justify-content: center;
 
-    justify-content:center;
+    width: 34px;
 
-    width:34px;
+    height: 34px;
 
-    height:34px;
+    flex: none;
 
-    flex:none;
+    border-radius: 50%;
 
-    border-radius:50%;
-
-    background:var(--gold);
+    background: var(--gold);
 
     /* Navy sobre oro, no blanco: el blanco sobre oro se queda en 2,4:1. */
-    color:var(--navy);
+    color: var(--navy);
 
-    font-size:16px;
-
+    font-size: 16px;
 }
 
-.verdict.tie .trophy{
-
-    background:var(--navy);
-
+.verdict.tie .trophy {
+    background: var(--navy);
 }
 
-.verdictText{
+.verdictText {
+    font-size: 13px;
 
-    font-size:13px;
+    font-weight: 700;
 
-    font-weight:700;
+    line-height: 1.25;
 
-    line-height:1.25;
-
-    color:var(--gold-strong);
-
+    color: var(--gold-strong);
 }
 
-.verdict.tie .verdictText{
-
-    color:var(--navy);
-
+.verdict.tie .verdictText {
+    color: var(--navy);
 }
 
-.verdictScore{
-
-    font-size:var(--text-num);
-
+.verdictScore {
+    font-size: var(--text-num);
 }
 
-.verdictDetail{
+.verdictDetail {
+    margin-top: 2px;
 
-    margin-top:2px;
+    font-size: 10.5px;
 
-    font-size:10.5px;
+    line-height: 1.35;
 
-    line-height:1.35;
-
-    color:var(--gold-soft);
-
+    color: var(--gold-soft);
 }
 
-.verdict.tie .verdictDetail{
-
-    color:var(--navy-soft);
-
+.verdict.tie .verdictDetail {
+    color: var(--navy-soft);
 }
 
-.sameSubject{
+.sameSubject {
+    margin: 14px 0 0;
 
-    margin:14px 0 0;
+    padding: 12px 14px;
 
-    padding:12px 14px;
+    background: var(--navy-wash);
 
-    background:var(--navy-wash);
+    border: 1px solid var(--navy-wash-line);
 
-    border:1px solid var(--navy-wash-line);
+    border-radius: 12px;
 
-    border-radius:12px;
+    font-size: var(--text-body-xs);
 
-    font-size:var(--text-body-xs);
+    line-height: 1.45;
 
-    line-height:1.45;
-
-    color:var(--navy-soft);
-
+    color: var(--navy-soft);
 }
 
 /* Duelos --------------------------------------------------------------- */
 
-.duels{
-
-    margin-top:16px;
-
+.duels {
+    margin-top: 16px;
 }
 
-.duelRow{
+.duelRow {
+    display: grid;
 
-    display:grid;
+    grid-template-columns: 1fr 90px 1fr;
 
-    grid-template-columns:1fr 90px 1fr;
+    gap: 8px;
 
-    gap:8px;
-
-    align-items:center;
-
+    align-items: center;
 }
 
-.duelRow + .duelRow{
-
-    margin-top:9px;
-
+.duelRow + .duelRow {
+    margin-top: 9px;
 }
 
-.heads{
-
-    margin-bottom:10px;
-
+.heads {
+    margin-bottom: 10px;
 }
 
-.head{
+.head {
+    font-family: var(--font-mono);
 
-    font-family:var(--font-mono);
+    font-size: var(--text-eyebrow);
 
-    font-size:var(--text-eyebrow);
+    font-weight: 600;
 
-    font-weight:600;
+    color: var(--navy);
 
-    color:var(--navy);
+    text-align: center;
 
-    text-align:center;
+    white-space: nowrap;
 
-    white-space:nowrap;
+    overflow: hidden;
 
-    overflow:hidden;
-
-    text-overflow:ellipsis;
-
+    text-overflow: ellipsis;
 }
 
-.cell{
+.cell {
+    display: block;
 
-    display:block;
+    padding: 10px 6px;
 
-    padding:10px 6px;
+    background: var(--surface);
 
-    background:var(--surface);
+    border: 1px solid var(--line);
 
-    border:1px solid var(--line);
+    border-radius: 10px;
 
-    border-radius:10px;
-
-    text-align:center;
-
+    text-align: center;
 }
 
-.cell.won{
+.cell.won {
+    background: var(--gold-wash);
 
-    background:var(--gold-wash);
-
-    border:1.5px solid var(--gold);
-
+    border: 1.5px solid var(--gold);
 }
 
-.cellValue{
-
-    font-size:var(--text-metric);
-
+.cellValue {
+    font-size: var(--text-metric);
 }
 
-.cellWin{
+.cellWin {
+    display: block;
 
-    display:block;
+    margin-top: 1px;
 
-    margin-top:1px;
+    font-size: 8px;
 
-    font-size:8px;
+    font-weight: 600;
 
-    font-weight:600;
-
-    color:var(--gold-ink);
-
+    color: var(--gold-ink);
 }
 
-.duelLabel{
+.duelLabel {
+    font-size: 9.5px;
 
-    font-size:9.5px;
+    line-height: 1.25;
 
-    line-height:1.25;
+    text-align: center;
 
-    text-align:center;
-
-    color:var(--ink-muted);
-
+    color: var(--ink-muted);
 }
 
-.footnote{
+.footnote {
+    margin: 16px 0 0;
 
-    margin:16px 0 0;
+    padding-top: 12px;
 
-    padding-top:12px;
+    border-top: 1px solid var(--line-rule);
 
-    border-top:1px solid var(--line-rule);
+    font-family: var(--font-mono);
 
-    font-family:var(--font-mono);
+    font-size: var(--text-footnote);
 
-    font-size:var(--text-footnote);
+    line-height: 1.6;
 
-    line-height:1.6;
-
-    color:var(--ink-faint);
-
+    color: var(--ink-faint);
 }
-
 </style>

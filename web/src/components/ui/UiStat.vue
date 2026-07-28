@@ -1,5 +1,4 @@
 <script setup>
-
 /**
  * Una cifra con su rótulo: "21 / optativas", "267 / profesores".
  *
@@ -13,7 +12,6 @@
  */
 
 defineProps({
-
     // Cifra ya formateada: aquí no se calcula ni se redondea nada.
     value: {
         type: [String, Number],
@@ -30,72 +28,49 @@ defineProps({
         default: "ink",
         validator: value => ["ink", "navy", "gold"].includes(value)
     }
-
 });
-
 </script>
 
 <template>
+    <div class="stat">
+        <div class="value num" :class="tone">
+            {{ value }}
+        </div>
 
-<div class="stat">
-
-    <div
-        class="value num"
-        :class="tone"
-    >
-        {{ value }}
+        <div class="label">
+            {{ label }}
+        </div>
     </div>
-
-    <div class="label">
-        {{ label }}
-    </div>
-
-</div>
-
 </template>
 
 <style scoped>
-
-.stat{
-
-    min-width:0;
-
+.stat {
+    min-width: 0;
 }
 
-.value{
+.value {
+    font-size: 19px;
 
-    font-size:19px;
-
-    line-height:1.1;
-
+    line-height: 1.1;
 }
 
-.ink{
-
-    color:var(--ink);
-
+.ink {
+    color: var(--ink);
 }
 
-.navy{
-
-    color:var(--navy);
-
+.navy {
+    color: var(--navy);
 }
 
-.gold{
-
-    color:var(--gold-ink);
-
+.gold {
+    color: var(--gold-ink);
 }
 
-.label{
+.label {
+    margin-top: 2px;
 
-    margin-top:2px;
+    font-size: var(--text-eyebrow);
 
-    font-size:var(--text-eyebrow);
-
-    color:var(--ink-soft);
-
+    color: var(--ink-soft);
 }
-
 </style>

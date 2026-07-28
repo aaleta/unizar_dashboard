@@ -1,5 +1,4 @@
 <script setup>
-
 /**
  * Etiqueta de metadato: TRONCAL, 1º CURSO, CÓD. 26907, ÷ matriculados.
  *
@@ -11,76 +10,58 @@
  */
 
 defineProps({
-
     tone: {
         type: String,
         default: "navy",
         validator: value => ["navy", "neutral", "gold"].includes(value)
     }
-
 });
-
 </script>
 
 <template>
-
-<span
-    class="pill"
-    :class="tone"
->
-    <slot />
-</span>
-
+    <span class="pill" :class="tone">
+        <slot />
+    </span>
 </template>
 
 <style scoped>
+.pill {
+    display: inline-flex;
 
-.pill{
+    align-items: center;
 
-    display:inline-flex;
+    padding: 3px 8px;
 
-    align-items:center;
+    border-radius: var(--radius-pill);
 
-    padding:3px 8px;
+    border: 1px solid;
 
-    border-radius:var(--radius-pill);
+    font-family: var(--font-mono);
 
-    border:1px solid;
+    font-size: var(--text-eyebrow);
 
-    font-family:var(--font-mono);
+    font-weight: 600;
 
-    font-size:var(--text-eyebrow);
+    line-height: 1.5;
 
-    font-weight:600;
-
-    line-height:1.5;
-
-    white-space:nowrap;
-
+    white-space: nowrap;
 }
 
-.navy{
+.navy {
+    border-color: var(--navy-line);
 
-    border-color:var(--navy-line);
-
-    color:var(--navy);
-
+    color: var(--navy);
 }
 
-.neutral{
+.neutral {
+    border-color: var(--line-strong);
 
-    border-color:var(--line-strong);
-
-    color:var(--ink-soft);
-
+    color: var(--ink-soft);
 }
 
-.gold{
+.gold {
+    border-color: var(--gold);
 
-    border-color:var(--gold);
-
-    color:var(--gold-ink);
-
+    color: var(--gold-ink);
 }
-
 </style>

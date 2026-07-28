@@ -1,5 +1,4 @@
 <script setup>
-
 import { ref, computed, watch, onMounted, onBeforeUnmount } from "vue";
 import { Network } from "vis-network";
 import "vis-network/styles/vis-network.css";
@@ -7,7 +6,6 @@ import "vis-network/styles/vis-network.css";
 import cache from "@/utils/NodesLinks";
 
 const props = defineProps({
-
     year: String,
 
     // Peso mínimo de colaboración para dibujar una arista.
@@ -15,7 +13,6 @@ const props = defineProps({
         type: Number,
         default: 0
     }
-
 });
 
 const networkContainer = ref(null);
@@ -28,24 +25,18 @@ let network = null;
  * se quedan sin ninguna.
  */
 const graph = computed(() => {
-
     const data = cache[props.year];
 
     if (!data) return { nodes: [], edges: [] };
 
-    const edges = data.edges.filter(
-        edge => edge.value >= props.minWeight
-    );
+    const edges = data.edges.filter(edge => edge.value >= props.minWeight);
 
-    const connected = new Set(
-        edges.flatMap(edge => [edge.from, edge.to])
-    );
+    const connected = new Set(edges.flatMap(edge => [edge.from, edge.to]));
 
     return {
         nodes: data.nodes.filter(node => connected.has(node.id)),
         edges
     };
-
 });
 
 const stats = computed(() => ({
@@ -54,11 +45,9 @@ const stats = computed(() => ({
 }));
 
 const options = {
-
     autoResize: true,
 
     nodes: {
-
         shape: "dot",
 
         scaling: {
@@ -82,11 +71,9 @@ const options = {
         },
 
         borderWidth: 2
-
     },
 
     edges: {
-
         // El grosor sale de edge.value = peso de colaboración.
         scaling: {
             min: 1,
@@ -101,7 +88,6 @@ const options = {
 
         // Las curvas cuestan muy caro con miles de aristas.
         smooth: false
-
     },
 
     interaction: {
@@ -113,7 +99,6 @@ const options = {
     },
 
     physics: {
-
         stabilization: {
             enabled: true,
             iterations: 200
@@ -124,29 +109,19 @@ const options = {
             springLength: 180,
             springConstant: 0.03
         }
-
     }
-
 };
 
 const drawGraph = () => {
-
     if (!networkContainer.value) return;
 
     if (!network) {
-
-        network = new Network(
-            networkContainer.value,
-            graph.value,
-            options
-        );
+        network = new Network(networkContainer.value, graph.value, options);
 
         return;
-
     }
 
     network.setData(graph.value);
-
 };
 
 onMounted(drawGraph);
@@ -154,209 +129,172 @@ onMounted(drawGraph);
 watch(graph, drawGraph);
 
 onBeforeUnmount(() => {
-
     network?.destroy();
     network = null;
-
 });
-
 </script>
 
 <template>
+    <div class="graph">
+        <div class="legend">
+            <div class="legendItem">
+                <span class="legendDot"></span>
+                <span>
+                    Tamaño del nodo = nº de asignaturas distintas que imparte
+                </span>
+            </div>
 
-<div class="graph">
+            <div class="legendItem">
+                <span class="legendLines">
+                    <span class="thin"></span>
+                    <span class="thick"></span>
+                </span>
+                <span> Grosor del enlace = peso de la colaboración </span>
+            </div>
 
-    <div class="legend">
-
-        <div class="legendItem">
-            <span class="legendDot"></span>
-            <span>
-                Tamaño del nodo = nº de asignaturas distintas que imparte
-            </span>
+            <div class="legendCount">
+                {{ stats.professors }} profesores ·
+                {{ stats.links }} colaboraciones
+            </div>
         </div>
 
-        <div class="legendItem">
-            <span class="legendLines">
-                <span class="thin"></span>
-                <span class="thick"></span>
-            </span>
-            <span>
-                Grosor del enlace = peso de la colaboración
-            </span>
-        </div>
+        <div
+            v-show="stats.professors"
+            ref="networkContainer"
+            class="network"
+        ></div>
 
-        <div class="legendCount">
-            {{ stats.professors }} profesores · {{ stats.links }} colaboraciones
-        </div>
-
+        <p v-if="!stats.professors" class="empty">
+            Ninguna colaboración supera el peso mínimo seleccionado. Baja el
+            filtro para ver más.
+        </p>
     </div>
-
-    <div
-        v-show="stats.professors"
-        ref="networkContainer"
-        class="network"
-    ></div>
-
-    <p
-        v-if="!stats.professors"
-        class="empty"
-    >
-        Ninguna colaboración supera el peso mínimo seleccionado.
-        Baja el filtro para ver más.
-    </p>
-
-</div>
-
 </template>
 
 <style scoped>
+.graph {
+    display: flex;
 
-.graph{
+    flex-direction: column;
 
-    display:flex;
+    gap: 14px;
 
-    flex-direction:column;
-
-    gap:14px;
-
-    width:100%;
-
+    width: 100%;
 }
 
-.legend{
+.legend {
+    display: flex;
 
-    display:flex;
+    flex-wrap: wrap;
 
-    flex-wrap:wrap;
+    align-items: center;
 
-    align-items:center;
+    gap: 22px;
 
-    gap:22px;
+    padding: 14px 18px;
 
-    padding:14px 18px;
+    background: #1e293b;
 
-    background:#1e293b;
+    border: 1px solid rgba(255, 255, 255, 0.08);
 
-    border:1px solid rgba(255,255,255,.08);
+    border-radius: 14px;
 
-    border-radius:14px;
+    color: #94a3b8;
 
-    color:#94a3b8;
-
-    font-size:.82rem;
-
+    font-size: 0.82rem;
 }
 
-.legendItem{
+.legendItem {
+    display: flex;
 
-    display:flex;
+    align-items: center;
 
-    align-items:center;
-
-    gap:10px;
-
+    gap: 10px;
 }
 
-.legendDot{
+.legendDot {
+    width: 14px;
 
-    width:14px;
+    height: 14px;
 
-    height:14px;
+    border-radius: 50%;
 
-    border-radius:50%;
+    background: #3b82f6;
 
-    background:#3b82f6;
+    border: 2px solid #60a5fa;
 
-    border:2px solid #60a5fa;
-
-    flex-shrink:0;
-
+    flex-shrink: 0;
 }
 
-.legendLines{
+.legendLines {
+    display: flex;
 
-    display:flex;
+    flex-direction: column;
 
-    flex-direction:column;
+    gap: 4px;
 
-    gap:4px;
+    width: 26px;
 
-    width:26px;
-
-    flex-shrink:0;
-
+    flex-shrink: 0;
 }
 
-.legendLines span{
+.legendLines span {
+    display: block;
 
-    display:block;
+    background: #475569;
 
-    background:#475569;
-
-    border-radius:2px;
-
+    border-radius: 2px;
 }
 
-.legendLines .thin{
-
-    height:1px;
-
+.legendLines .thin {
+    height: 1px;
 }
 
-.legendLines .thick{
-
-    height:5px;
-
+.legendLines .thick {
+    height: 5px;
 }
 
-.legendCount{
+.legendCount {
+    margin-left: auto;
 
-    margin-left:auto;
+    color: #cbd5e1;
 
-    color:#cbd5e1;
+    font-weight: 600;
 
-    font-weight:600;
-
-    font-variant-numeric:tabular-nums;
-
+    font-variant-numeric: tabular-nums;
 }
 
-.network{
+.network {
+    width: 100%;
 
-    width:100%;
+    height: 70vh;
 
-    height:70vh;
+    min-height: 460px;
 
-    min-height:460px;
+    background: #0b1220;
 
-    background:#0b1220;
+    border: 1px solid rgba(255, 255, 255, 0.08);
 
-    border:1px solid rgba(255,255,255,.08);
-
-    border-radius:16px;
-
+    border-radius: 16px;
 }
 
-.empty{
+.empty {
+    display: flex;
 
-    display:flex;
+    align-items: center;
 
-    align-items:center;
+    justify-content: center;
 
-    justify-content:center;
+    min-height: 300px;
 
-    min-height:300px;
+    margin: 0;
 
-    margin:0;
+    color: #94a3b8;
 
-    color:#94a3b8;
+    font-style: italic;
 
-    font-style:italic;
+    border: 1px dashed rgba(255, 255, 255, 0.12);
 
-    border:1px dashed rgba(255,255,255,.12);
-
-    border-radius:16px;
-
+    border-radius: 16px;
 }
-
 </style>

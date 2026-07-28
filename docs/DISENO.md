@@ -205,24 +205,22 @@ Lo que hay que saber antes de tocarlo:
 
 ## 8. Convenciones de código
 
-Si se generan ficheros, que se parezcan a los que ya hay.
+**El formato lo decide Prettier, no la mano.** `npm run format` deja el árbol
+igual que está: los 62 ficheros de `src/` ya pasan `prettier --check`. No hay
+que memorizar nada de lo que sigue; se escribe y se formatea.
+
+Lo que sale de ahí, por si hay que leerlo sin la herramienta delante:
 
 - **Indentación de 4 espacios**, comillas dobles, punto y coma, sin coma final
-  y flechas sin paréntesis en el argumento único (`event => …`). Los 58
-  ficheros de `src/` lo hacen así, y `.prettierrc.json` y `.editorconfig` ya
-  lo dicen: son la descripción del estilo, no una herramienta que se pase.
-- Líneas de **80 columnas**. Se cumple en el 99% del código; las excepciones
-  son tablas de datos y `unicode-range` de las fuentes, donde partir la línea
-  se lee peor.
-- En CSS, **una propiedad por línea con una línea en blanco entre medias**, y
-  sin espacio tras los dos puntos (`display:inline-flex;`). Es una convención
-  a mano, deliberada.
-- **No pasar `npm run format`.** Ni con la configuración alineada: Prettier
-  borra la línea en blanco que va tras cada `{`, y en CSS mete un espacio tras
-  los dos puntos. Ninguna de las dos cosas se puede desactivar. Reescribiría
-  una quinta parte del JavaScript y la totalidad del CSS. La configuración
-  está para que un editor sepa cómo escribir código nuevo, no para pasarla
-  sobre el que ya está.
+  y flechas sin paréntesis en el argumento único (`event => …`). Está en
+  `.prettierrc.json`.
+- Líneas de **80 columnas**, con `--content-max` de excepción evidente: lo que
+  no cabe, Prettier lo parte.
+- En CSS, **una propiedad por línea con una línea en blanco entre medias** y
+  espacio tras los dos puntos (`display: inline-flex;`). Las líneas en blanco
+  entre propiedades sí se conservan; la que iba tras la llave de apertura, no.
+- Un comentario largo **al final de una declaración** hace que Prettier parta
+  la declaración en pedazos. Si no cabe en la línea, va encima.
 - Orden en un `.vue`: `<script setup>`, `<template>`, `<style scoped>`.
 - Los comentarios explican **por qué**, no qué. Van en español y en prosa. Un
   comentario que narra la historia del proyecto ("antes esto era…", "el

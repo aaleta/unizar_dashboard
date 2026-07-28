@@ -1,5 +1,4 @@
 <script setup>
-
 /**
  * La rejilla semanal de clases. Lunes a viernes en columnas, las horas en
  * vertical, cada clase colocada al minuto (hay teorías de hora y media y de
@@ -21,14 +20,12 @@ import { computed } from "vue";
 import { WEEKDAYS } from "@/composables/useSchedule";
 
 const props = defineProps({
-
     // Eventos de clase ya filtrados por semestre y grupo:
     // { code, name, tipo, day (1-5), start, end, startMin, endMin }
     events: {
         type: Array,
         required: true
     }
-
 });
 
 /** Altura de una hora en píxeles. */
@@ -47,7 +44,6 @@ const lastHour = computed(() =>
 );
 
 const hours = computed(() => {
-
     const list = [];
 
     for (let hour = firstHour.value; hour <= lastHour.value; hour++) {
@@ -55,7 +51,6 @@ const hours = computed(() => {
     }
 
     return list;
-
 });
 
 const trackHeight = computed(() => (lastHour.value - firstHour.value) * HOUR);
@@ -67,7 +62,6 @@ const trackHeight = computed(() => (lastHour.value - firstHour.value) * HOUR);
  * ancho entre las subcolumnas que hayan hecho falta.
  */
 const placeDay = events => {
-
     const sorted = [...events].sort(
         (a, b) => a.startMin - b.startMin || a.endMin - b.endMin
     );
@@ -78,11 +72,9 @@ const placeDay = events => {
     let clusterEnd = -1;
 
     const closeCluster = () => {
-
         const columns = [];
 
         for (const event of cluster) {
-
             let col = columns.findIndex(end => end <= event.startMin);
 
             if (col === -1) {
@@ -92,7 +84,6 @@ const placeDay = events => {
 
             columns[col] = event.endMin;
             event.col = col;
-
         }
 
         for (const event of cluster) {
@@ -101,22 +92,18 @@ const placeDay = events => {
         }
 
         cluster = [];
-
     };
 
     for (const event of sorted) {
-
         if (cluster.length && event.startMin >= clusterEnd) closeCluster();
 
         cluster.push({ ...event });
         clusterEnd = Math.max(clusterEnd, event.endMin);
-
     }
 
     if (cluster.length) closeCluster();
 
     return placed;
-
 };
 
 const days = computed(() =>
@@ -137,283 +124,237 @@ const eventStyle = event => ({
 });
 
 const label = hour => `${String(hour).padStart(2, "0")}:00`;
-
 </script>
 
 <template>
+    <div
+        class="week"
+        role="img"
+        :aria-label="`Horario semanal con ${events.length} clases`"
+    >
+        <!-- Cabecera de días -->
+        <div class="head">
+            <span class="corner"></span>
 
-<div
-    class="week"
-    role="img"
-    :aria-label="`Horario semanal con ${events.length} clases`"
->
-
-    <!-- Cabecera de días -->
-    <div class="head">
-
-        <span class="corner"></span>
-
-        <span
-            v-for="day in days"
-            :key="day.name"
-            class="dayName"
-            :title="day.name"
-        >
-            {{ day.name.slice(0, 3) }}
-        </span>
-
-    </div>
-
-    <div class="body">
-
-        <!-- Regleta de horas -->
-        <div
-            class="gutter"
-            :style="{ height: `${trackHeight}px` }"
-        >
             <span
-                v-for="hour in hours.slice(0, -1)"
-                :key="hour"
-                class="hour num"
-                :style="{ top: `${(hour - firstHour) * HOUR}px` }"
+                v-for="day in days"
+                :key="day.name"
+                class="dayName"
+                :title="day.name"
             >
-                {{ label(hour) }}
+                {{ day.name.slice(0, 3) }}
             </span>
         </div>
 
-        <!-- Columnas de días -->
-        <div
-            v-for="day in days"
-            :key="day.name"
-            class="track"
-            :style="{ height: `${trackHeight}px` }"
-        >
-
-            <div
-                v-for="event in day.events"
-                :key="`${event.code}-${event.startMin}-${event.col}`"
-                class="event"
-                :class="{
-                    clash: clashes(event),
-                    optativa: event.tipo === 'optativa'
-                }"
-                :style="eventStyle(event)"
-                :title="`${event.name} · ${event.start}–${event.end}`"
-            >
-                <span class="eventName">{{ event.name }}</span>
-                <span class="eventTime num">{{ event.start }}</span>
+        <div class="body">
+            <!-- Regleta de horas -->
+            <div class="gutter" :style="{ height: `${trackHeight}px` }">
+                <span
+                    v-for="hour in hours.slice(0, -1)"
+                    :key="hour"
+                    class="hour num"
+                    :style="{ top: `${(hour - firstHour) * HOUR}px` }"
+                >
+                    {{ label(hour) }}
+                </span>
             </div>
 
+            <!-- Columnas de días -->
+            <div
+                v-for="day in days"
+                :key="day.name"
+                class="track"
+                :style="{ height: `${trackHeight}px` }"
+            >
+                <div
+                    v-for="event in day.events"
+                    :key="`${event.code}-${event.startMin}-${event.col}`"
+                    class="event"
+                    :class="{
+                        clash: clashes(event),
+                        optativa: event.tipo === 'optativa'
+                    }"
+                    :style="eventStyle(event)"
+                    :title="`${event.name} · ${event.start}–${event.end}`"
+                >
+                    <span class="eventName">{{ event.name }}</span>
+                    <span class="eventTime num">{{ event.start }}</span>
+                </div>
+            </div>
         </div>
-
     </div>
-
-</div>
-
 </template>
 
 <style scoped>
+.week {
+    background: var(--surface);
 
-.week{
+    border: 1px solid var(--line);
 
-    background:var(--surface);
+    border-radius: var(--radius-card);
 
-    border:1px solid var(--line);
+    box-shadow: var(--shadow-card);
 
-    border-radius:var(--radius-card);
-
-    box-shadow:var(--shadow-card);
-
-    overflow:hidden;
-
+    overflow: hidden;
 }
 
-.head{
+.head {
+    display: flex;
 
-    display:flex;
+    border-bottom: 1px solid var(--line-strong);
 
-    border-bottom:1px solid var(--line-strong);
-
-    background:var(--surface-sunken);
-
+    background: var(--surface-sunken);
 }
 
-.corner{
+.corner {
+    flex: none;
 
-    flex:none;
-
-    width:34px;
-
+    width: 34px;
 }
 
-.dayName{
+.dayName {
+    flex: 1;
 
-    flex:1;
+    min-width: 0;
 
-    min-width:0;
+    padding: 7px 0 6px;
 
-    padding:7px 0 6px;
+    text-align: center;
 
-    text-align:center;
+    font-family: var(--font-mono);
 
-    font-family:var(--font-mono);
+    font-size: var(--text-eyebrow);
 
-    font-size:var(--text-eyebrow);
+    font-weight: 600;
 
-    font-weight:600;
+    letter-spacing: 0.4px;
 
-    letter-spacing:.4px;
+    text-transform: uppercase;
 
-    text-transform:uppercase;
-
-    color:var(--ink-soft);
-
+    color: var(--ink-soft);
 }
 
-.body{
-
-    display:flex;
-
+.body {
+    display: flex;
 }
 
-.gutter{
+.gutter {
+    position: relative;
 
-    position:relative;
+    flex: none;
 
-    flex:none;
-
-    width:34px;
-
+    width: 34px;
 }
 
-.hour{
+.hour {
+    position: absolute;
 
-    position:absolute;
+    right: 4px;
 
-    right:4px;
+    transform: translateY(-45%);
 
-    transform:translateY(-45%);
+    font-size: 8px;
 
-    font-size:8px;
+    font-weight: 500;
 
-    font-weight:500;
-
-    color:var(--ink-faint);
-
+    color: var(--ink-faint);
 }
 
 /* La primera etiqueta pegada al borde superior no se trunca. */
-.hour:first-child{
-
-    transform:none;
-
+.hour:first-child {
+    transform: none;
 }
 
-.track{
+.track {
+    position: relative;
 
-    position:relative;
+    flex: 1;
 
-    flex:1;
+    min-width: 0;
 
-    min-width:0;
-
-    border-left:1px solid var(--line-inner);
+    border-left: 1px solid var(--line-inner);
 
     /* Una línea tenue por hora, sin un elemento por celda. */
-    background-image:linear-gradient(var(--line-inner) 1px,transparent 1px);
+    background-image: linear-gradient(var(--line-inner) 1px, transparent 1px);
 
-    background-size:100% 44px;
-
+    background-size: 100% 44px;
 }
 
-.event{
+.event {
+    position: absolute;
 
-    position:absolute;
+    display: flex;
 
-    display:flex;
+    flex-direction: column;
 
-    flex-direction:column;
+    gap: 1px;
 
-    gap:1px;
+    padding: 3px 4px;
 
-    padding:3px 4px;
+    box-sizing: border-box;
 
-    box-sizing:border-box;
+    overflow: hidden;
 
-    overflow:hidden;
+    border-radius: 5px;
 
-    border-radius:5px;
+    border: 1px solid var(--navy-wash-line);
 
-    border:1px solid var(--navy-wash-line);
+    border-left: 3px solid var(--navy);
 
-    border-left:3px solid var(--navy);
-
-    background:var(--navy-wash);
-
+    background: var(--navy-wash);
 }
 
-.event.optativa{
+.event.optativa {
+    border-style: dashed;
 
-    border-style:dashed;
+    border-left-style: solid;
 
-    border-left-style:solid;
+    border-color: var(--line-dashed);
 
-    border-color:var(--line-dashed);
+    border-left-color: var(--gold-ink);
 
-    border-left-color:var(--gold-ink);
-
-    background:var(--surface-alt);
-
+    background: var(--surface-alt);
 }
 
 /* El choque: mismo tono de aviso que el resto de la web, y los dos bloques
    visibles a la vez repartiéndose la columna. */
-.event.clash{
+.event.clash {
+    border-color: var(--warn-line);
 
-    border-color:var(--warn-line);
+    border-left-color: var(--warn-title);
 
-    border-left-color:var(--warn-title);
-
-    background:var(--warn-bg);
-
+    background: var(--warn-bg);
 }
 
-.eventName{
+.eventName {
+    font-size: 9.5px;
 
-    font-size:9.5px;
+    font-weight: 600;
 
-    font-weight:600;
+    line-height: 1.2;
 
-    line-height:1.2;
+    color: var(--ink);
 
-    color:var(--ink);
+    display: -webkit-box;
 
-    display:-webkit-box;
+    -webkit-box-orient: vertical;
 
-    -webkit-box-orient:vertical;
+    -webkit-line-clamp: 3;
 
-    -webkit-line-clamp:3;
-
-    overflow:hidden;
-
+    overflow: hidden;
 }
 
-.event.clash .eventName{
-
-    color:var(--warn-title);
-
+.event.clash .eventName {
+    color: var(--warn-title);
 }
 
-.eventTime{
+.eventTime {
+    margin-top: auto;
 
-    margin-top:auto;
+    font-size: 8px;
 
-    font-size:8px;
+    font-weight: 500;
 
-    font-weight:500;
-
-    color:var(--ink-soft);
-
+    color: var(--ink-soft);
 }
-
 </style>

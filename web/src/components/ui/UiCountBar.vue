@@ -1,5 +1,4 @@
 <script setup>
-
 /**
  * Barra de RECUENTO: matrículas, peso de colaboración, cuántos alumnos.
  *
@@ -12,7 +11,6 @@
 import { computed } from "vue";
 
 const props = defineProps({
-
     value: {
         type: Number,
         default: 0
@@ -41,134 +39,104 @@ const props = defineProps({
         type: String,
         default: null
     }
-
 });
 
 const pct = computed(() => {
-
     if (!props.max || props.value === null) return 0;
 
     return Math.max(0, Math.min(100, (props.value / props.max) * 100));
-
 });
-
 </script>
 
 <template>
+    <div class="row">
+        <span v-if="label" class="label">
+            {{ label }}
+        </span>
 
-<div class="row">
-
-    <span
-        v-if="label"
-        class="label"
-    >
-        {{ label }}
-    </span>
-
-    <div
-        class="track"
-        role="img"
-        :aria-label="label ? `${label}: ${display ?? value}` : String(display ?? value)"
-    >
         <div
-            class="fill"
-            :style="{ width: `${pct}%` }"
-        ></div>
+            class="track"
+            role="img"
+            :aria-label="
+                label
+                    ? `${label}: ${display ?? value}`
+                    : String(display ?? value)
+            "
+        >
+            <div class="fill" :style="{ width: `${pct}%` }"></div>
+        </div>
+
+        <span v-if="display !== null" class="value">
+            <span class="num">{{ display }}</span>
+            <span v-if="sub" class="sub">{{ sub }}</span>
+        </span>
     </div>
-
-    <span
-        v-if="display !== null"
-        class="value"
-    >
-        <span class="num">{{ display }}</span>
-        <span
-            v-if="sub"
-            class="sub"
-        >{{ sub }}</span>
-    </span>
-
-</div>
-
 </template>
 
 <style scoped>
+.row {
+    display: flex;
 
-.row{
+    align-items: center;
 
-    display:flex;
-
-    align-items:center;
-
-    gap:9px;
-
+    gap: 9px;
 }
 
-.label{
-
+.label {
     /* Ancho fijo para que todas las barras de la lista arranquen alineadas:
        una barra que empieza donde acaba el texto no se puede comparar. */
-    width:132px;
+    width: 132px;
 
-    flex:none;
+    flex: none;
 
-    font-size:var(--text-body-xs);
+    font-size: var(--text-body-xs);
 
-    color:var(--ink);
+    color: var(--ink);
 
-    white-space:nowrap;
+    white-space: nowrap;
 
-    overflow:hidden;
+    overflow: hidden;
 
-    text-overflow:ellipsis;
-
+    text-overflow: ellipsis;
 }
 
-.track{
+.track {
+    flex: 1;
 
-    flex:1;
+    height: 8px;
 
-    height:8px;
+    border-radius: 5px;
 
-    border-radius:5px;
+    background: var(--count-track);
 
-    background:var(--count-track);
-
-    overflow:hidden;
-
+    overflow: hidden;
 }
 
-.fill{
+.fill {
+    height: 100%;
 
-    height:100%;
-
-    background:var(--count-fill);
-
+    background: var(--count-fill);
 }
 
-.value{
+.value {
+    flex: none;
 
-    flex:none;
+    width: 46px;
 
-    width:46px;
+    text-align: right;
 
-    text-align:right;
+    font-size: var(--text-num-sm);
 
-    font-size:var(--text-num-sm);
+    font-weight: 500;
 
-    font-weight:500;
-
-    color:var(--ink-muted);
-
+    color: var(--ink-muted);
 }
 
-.sub{
+.sub {
+    display: block;
 
-    display:block;
+    font-size: 7.5px;
 
-    font-size:7.5px;
-
-    color:var(--ink-faint);
-
+    color: var(--ink-faint);
 }
-
 </style>

@@ -1,5 +1,4 @@
 <script setup>
-
 /**
  * Acerca de: la página humana.
  */
@@ -44,479 +43,408 @@ const avatar = person =>
 const HOW = [
     {
         title: "Datos abiertos.",
-        text: "Partimos de las calificaciones y las tasas oficiales que publica "
-            + "la Universidad de Zaragoza, más las notas de corte."
+        text:
+            "Partimos de las calificaciones y las tasas oficiales que publica " +
+            "la Universidad de Zaragoza, más las notas de corte."
     },
     {
         title: "Código abierto.",
-        text: "El código y los datos procesados son públicos: cualquiera puede "
-            + "revisar, corregir o reutilizar."
+        text:
+            "El código y los datos procesados son públicos: cualquiera puede " +
+            "revisar, corregir o reutilizar."
     }
 ];
-
 </script>
 
 <template>
-
-<div class="screen">
-
-    <header class="intro">
-
-        <!-- No es el título de la pantalla —ese va en la banda de arriba—,
+    <div class="screen">
+        <header class="intro">
+            <!-- No es el título de la pantalla —ese va en la banda de arriba—,
              es la frase con la que abre. Por eso no es un h1. -->
-        <p class="statement">Una herramienta hecha por estudiantes, para estudiantes.</p>
+            <p class="statement">
+                Una herramienta hecha por estudiantes, para estudiantes.
+            </p>
 
-        <p>
-            Elegir asignaturas se hacía a base de rumores de pasillo. Quisimos
-            cambiar los rumores por datos: los mismos números que publica la
-            Universidad, ordenados para que decidir el curso que viene sea un
-            poco más fácil.
-        </p>
+            <p>
+                Elegir asignaturas se hacía a base de rumores de pasillo.
+                Quisimos cambiar los rumores por datos: los mismos números que
+                publica la Universidad, ordenados para que decidir el curso que
+                viene sea un poco más fácil.
+            </p>
+        </header>
 
-    </header>
+        <!-- Quién lo hace --------------------------------------------------- -->
+        <section class="section">
+            <div class="sectionHead">
+                <h2>Quién lo hace</h2>
+                <div class="rule"></div>
+            </div>
 
-    <!-- Quién lo hace --------------------------------------------------- -->
-    <section class="section">
-
-        <div class="sectionHead">
-            <h2>Quién lo hace</h2>
-            <div class="rule"></div>
-        </div>
-
-        <div class="people">
-            <a
-                v-for="person in PEOPLE"
-                :key="person.handle"
-                class="person"
-                :href="person.url"
-                target="_blank"
-                rel="noopener noreferrer"
-            >
-                <img
-                    class="avatar"
-                    :src="avatar(person)"
-                    alt=""
-                    loading="lazy"
+            <div class="people">
+                <a
+                    v-for="person in PEOPLE"
+                    :key="person.handle"
+                    class="person"
+                    :href="person.url"
+                    target="_blank"
+                    rel="noopener noreferrer"
                 >
-                <span class="personBody">
-                    <span class="personName">
-                        {{ person.name }}
-                        <span class="personHandle num">@{{ person.handle }}</span>
+                    <img
+                        class="avatar"
+                        :src="avatar(person)"
+                        alt=""
+                        loading="lazy"
+                    />
+                    <span class="personBody">
+                        <span class="personName">
+                            {{ person.name }}
+                            <span class="personHandle num"
+                                >@{{ person.handle }}</span
+                            >
+                        </span>
+                        <span class="personRole">{{ person.role }}</span>
                     </span>
-                    <span class="personRole">{{ person.role }}</span>
-                </span>
-                <span class="personGo">GitHub →</span>
-            </a>
-        </div>
+                    <span class="personGo">GitHub →</span>
+                </a>
+            </div>
 
-        <p class="context">
-            Desarrollado como Prácticas Externas en el
-            <a
-                :href="BIFI"
-                target="_blank"
-                rel="noopener noreferrer"
-            >Instituto de Biocomputación y Física de Sistemas Complejos
-            (BIFI)</a>.
+            <p class="context">
+                Desarrollado como Prácticas Externas en el
+                <a :href="BIFI" target="_blank" rel="noopener noreferrer"
+                    >Instituto de Biocomputación y Física de Sistemas Complejos
+                    (BIFI)</a
+                >.
+            </p>
+        </section>
+
+        <!-- Cómo se hizo ---------------------------------------------------- -->
+        <section class="section">
+            <div class="sectionHead">
+                <h2>Cómo se hizo</h2>
+                <div class="rule"></div>
+            </div>
+
+            <ul class="how">
+                <li v-for="item in HOW" :key="item.title">
+                    <strong>{{ item.title }}</strong>
+                    {{ item.text }}
+                </li>
+            </ul>
+
+            <p class="more">
+                <RouterLink to="/metodologia">
+                    Los detalles, en Metodología →
+                </RouterLink>
+            </p>
+        </section>
+
+        <!-- Repositorio ----------------------------------------------------- -->
+        <a class="repo" :href="REPO" target="_blank" rel="noopener noreferrer">
+            <span class="repoTitle">Ver el proyecto en GitHub</span>
+            <span class="repoUrl num">github.com/aaleta/unizar_dashboard</span>
+        </a>
+
+        <!-- Descargo -------------------------------------------------------- -->
+        <UiCallout
+            tone="structural"
+            title="Esto no juzga a nadie"
+            class="disclaimer"
+        >
+            Los números describen resultados agregados de cursos pasados; no
+            miden la calidad de la docencia ni la valía de quien la imparte o la
+            cursa. Una asignatura difícil puede estar magníficamente dada, y una
+            asignatura fácil se puede suspender. Úsalo para organizarte, no para
+            etiquetar.
+        </UiCallout>
+
+        <p class="footnote">
+            Proyecto independiente · no es una web oficial de la Universidad de
+            Zaragoza.
         </p>
-
-    </section>
-
-    <!-- Cómo se hizo ---------------------------------------------------- -->
-    <section class="section">
-
-        <div class="sectionHead">
-            <h2>Cómo se hizo</h2>
-            <div class="rule"></div>
-        </div>
-
-        <ul class="how">
-            <li
-                v-for="item in HOW"
-                :key="item.title"
-            >
-                <strong>{{ item.title }}</strong>
-                {{ item.text }}
-            </li>
-        </ul>
-
-        <p class="more">
-            <RouterLink to="/metodologia">
-                Los detalles, en Metodología →
-            </RouterLink>
-        </p>
-
-    </section>
-
-    <!-- Repositorio ----------------------------------------------------- -->
-    <a
-        class="repo"
-        :href="REPO"
-        target="_blank"
-        rel="noopener noreferrer"
-    >
-        <span class="repoTitle">Ver el proyecto en GitHub</span>
-        <span class="repoUrl num">github.com/aaleta/unizar_dashboard</span>
-    </a>
-
-    <!-- Descargo -------------------------------------------------------- -->
-    <UiCallout
-        tone="structural"
-        title="Esto no juzga a nadie"
-        class="disclaimer"
-    >
-        Los números describen resultados agregados de cursos pasados; no miden
-        la calidad de la docencia ni la valía de quien la imparte o la cursa.
-        Una asignatura difícil puede estar magníficamente dada, y una
-        asignatura fácil se puede suspender. Úsalo para organizarte, no para
-        etiquetar.
-    </UiCallout>
-
-    <p class="footnote">
-        Proyecto independiente · no es una web oficial de la Universidad de
-        Zaragoza.
-    </p>
-
-</div>
-
+    </div>
 </template>
 
 <style scoped>
-
-.screen{
-
-    padding:18px var(--gutter) 8px;
-
+.screen {
+    padding: 18px var(--gutter) 8px;
 }
 
 /* Con `.intro` delante para ganar a `.intro p`, que ahora también la
    alcanzaría: la frase de apertura es un párrafo, pero no se lee como uno. */
-.intro .statement{
+.intro .statement {
+    margin: 0;
 
-    margin:0;
+    font-family: var(--font-serif);
 
-    font-family:var(--font-serif);
+    font-size: 22px;
 
-    font-size:22px;
+    font-weight: 700;
 
-    font-weight:700;
+    line-height: 1.22;
 
-    line-height:1.22;
-
-    text-wrap:pretty;
-
+    text-wrap: pretty;
 }
 
-.intro p{
+.intro p {
+    margin: 11px 0 0;
 
-    margin:11px 0 0;
+    font-size: var(--text-body);
 
-    font-size:var(--text-body);
+    line-height: 1.6;
 
-    line-height:1.6;
-
-    color:var(--ink-2);
-
+    color: var(--ink-2);
 }
 
-.section{
-
-    margin-top:20px;
-
+.section {
+    margin-top: 20px;
 }
 
-.sectionHead{
+.sectionHead {
+    display: flex;
 
-    display:flex;
+    align-items: center;
 
-    align-items:center;
+    gap: 8px;
 
-    gap:8px;
-
-    margin-bottom:12px;
-
+    margin-bottom: 12px;
 }
 
-h2{
+h2 {
+    margin: 0;
 
-    margin:0;
+    font-family: var(--font-serif);
 
-    font-family:var(--font-serif);
+    font-size: var(--text-section);
 
-    font-size:var(--text-section);
+    font-weight: 600;
 
-    font-weight:600;
-
-    color:var(--navy);
-
+    color: var(--navy);
 }
 
-.rule{
+.rule {
+    flex: 1;
 
-    flex:1;
+    height: 1px;
 
-    height:1px;
-
-    background:var(--line-tab);
-
+    background: var(--line-tab);
 }
 
 /* Personas -------------------------------------------------------------- */
 
-.people{
+.people {
+    display: flex;
 
-    display:flex;
+    flex-direction: column;
 
-    flex-direction:column;
-
-    gap:8px;
-
+    gap: 8px;
 }
 
-.person{
+.person {
+    display: flex;
 
-    display:flex;
+    align-items: center;
 
-    align-items:center;
+    gap: 12px;
 
-    gap:12px;
+    min-height: var(--touch-target);
 
-    min-height:var(--touch-target);
+    padding: 13px 14px;
 
-    padding:13px 14px;
+    background: var(--surface);
 
-    background:var(--surface);
+    border: 1px solid var(--line);
 
-    border:1px solid var(--line);
+    border-radius: 13px;
 
-    border-radius:13px;
-
-    color:var(--ink);
-
+    color: var(--ink);
 }
 
-.avatar{
+.avatar {
+    width: 42px;
 
-    width:42px;
+    height: 42px;
 
-    height:42px;
+    flex: none;
 
-    flex:none;
-
-    border-radius:50%;
+    border-radius: 50%;
 
     /* Se ve mientras carga la foto y si el perfil no tiene ninguna. */
-    background:var(--navy-wash);
+    background: var(--navy-wash);
 
-    object-fit:cover;
-
+    object-fit: cover;
 }
 
-.personBody{
+.personBody {
+    flex: 1;
 
-    flex:1;
-
-    min-width:0;
-
+    min-width: 0;
 }
 
-.personName{
+.personName {
+    display: block;
 
-    display:block;
+    font-size: 13.5px;
 
-    font-size:13.5px;
-
-    font-weight:700;
-
+    font-weight: 700;
 }
 
-.personHandle{
+.personHandle {
+    margin-left: 4px;
 
-    margin-left:4px;
+    font-size: var(--text-num-sm);
 
-    font-size:var(--text-num-sm);
+    font-weight: 400;
 
-    font-weight:400;
-
-    color:var(--ink-soft);
-
+    color: var(--ink-soft);
 }
 
-.personRole{
+.personRole {
+    display: block;
 
-    display:block;
+    margin-top: 1px;
 
-    margin-top:1px;
+    font-size: var(--text-body-xs);
 
-    font-size:var(--text-body-xs);
-
-    color:var(--ink-muted);
-
+    color: var(--ink-muted);
 }
 
-.personGo{
+.personGo {
+    flex: none;
 
-    flex:none;
+    font-size: var(--text-body-xs);
 
-    font-size:var(--text-body-xs);
+    font-weight: 600;
 
-    font-weight:600;
-
-    color:var(--navy);
-
+    color: var(--navy);
 }
 
-.context{
+.context {
+    margin: 12px 0 0;
 
-    margin:12px 0 0;
+    font-size: var(--text-body-xs);
 
-    font-size:var(--text-body-xs);
+    line-height: 1.55;
 
-    line-height:1.55;
-
-    color:var(--ink-muted);
-
+    color: var(--ink-muted);
 }
 
-.context a{
+.context a {
+    color: var(--navy);
 
-    color:var(--navy);
-
-    font-weight:600;
-
+    font-weight: 600;
 }
 
 /* Cómo se hizo ---------------------------------------------------------- */
 
-.how{
+.how {
+    display: flex;
 
-    display:flex;
+    flex-direction: column;
 
-    flex-direction:column;
+    gap: 8px;
 
-    gap:8px;
+    margin: 0;
 
-    margin:0;
+    padding: 0;
 
-    padding:0;
-
-    list-style:none;
-
+    list-style: none;
 }
 
-.how li{
+.how li {
+    padding: 12px 13px;
 
-    padding:12px 13px;
+    background: var(--surface);
 
-    background:var(--surface);
+    border: 1px solid var(--line);
 
-    border:1px solid var(--line);
+    border-radius: var(--radius-card);
 
-    border-radius:var(--radius-card);
+    font-size: var(--text-body-sm);
 
-    font-size:var(--text-body-sm);
+    line-height: 1.55;
 
-    line-height:1.55;
-
-    color:var(--ink-muted);
-
+    color: var(--ink-muted);
 }
 
-.how strong{
+.how strong {
+    display: block;
 
-    display:block;
+    font-family: var(--font-serif);
 
-    font-family:var(--font-serif);
+    font-size: var(--text-card-title);
 
-    font-size:var(--text-card-title);
-
-    color:var(--ink);
-
+    color: var(--ink);
 }
 
-.more{
-
-    margin:11px 0 0;
-
+.more {
+    margin: 11px 0 0;
 }
 
-.more a{
+.more a {
+    display: inline-flex;
 
-    display:inline-flex;
+    align-items: center;
 
-    align-items:center;
+    min-height: var(--touch-target);
 
-    min-height:var(--touch-target);
+    font-size: var(--text-body-sm);
 
-    font-size:var(--text-body-sm);
-
-    font-weight:600;
-
+    font-weight: 600;
 }
 
 /* Repositorio ----------------------------------------------------------- */
 
-.repo{
+.repo {
+    display: flex;
 
-    display:flex;
+    flex-direction: column;
 
-    flex-direction:column;
+    gap: 3px;
 
-    gap:3px;
+    margin-top: 20px;
 
-    margin-top:20px;
+    padding: 14px 15px;
 
-    padding:14px 15px;
+    background: var(--navy);
 
-    background:var(--navy);
+    border-radius: var(--radius-card-lg);
 
-    border-radius:var(--radius-card-lg);
-
-    color:var(--ink-on-navy);
-
+    color: var(--ink-on-navy);
 }
 
-.repoTitle{
+.repoTitle {
+    font-family: var(--font-serif);
 
-    font-family:var(--font-serif);
+    font-size: var(--text-section);
 
-    font-size:var(--text-section);
-
-    font-weight:600;
-
+    font-weight: 600;
 }
 
-.repoUrl{
+.repoUrl {
+    font-size: var(--text-num-sm);
 
-    font-size:var(--text-num-sm);
+    font-weight: 400;
 
-    font-weight:400;
-
-    color:var(--navy-faint);
-
+    color: var(--navy-faint);
 }
 
-.disclaimer{
-
-    margin-top:16px;
-
+.disclaimer {
+    margin-top: 16px;
 }
 
-.footnote{
+.footnote {
+    margin: 16px 0 0;
 
-    margin:16px 0 0;
+    padding-top: 12px;
 
-    padding-top:12px;
+    border-top: 1px solid var(--line-rule);
 
-    border-top:1px solid var(--line-rule);
+    font-family: var(--font-mono);
 
-    font-family:var(--font-mono);
+    font-size: var(--text-footnote);
 
-    font-size:var(--text-footnote);
+    line-height: 1.6;
 
-    line-height:1.6;
-
-    color:var(--ink-faint);
-
+    color: var(--ink-faint);
 }
-
 </style>

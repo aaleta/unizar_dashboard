@@ -25,7 +25,6 @@ import { allSubjects, subjectSummary, isSmallCohort } from "@/utils/metrics";
  * gente suspende.
  */
 export const SORTS = {
-
     noSuperacion: {
         key: "noSuperacion",
         label: "No superan",
@@ -50,18 +49,13 @@ export const SORTS = {
         higherIsFirst: false,
         text: true
     }
-
 };
 
 /** Sin acentos y en minúsculas: buscar "fisica" tiene que encontrar "Física". */
 const normalize = text =>
-    String(text)
-        .normalize("NFD")
-        .replace(/[̀-ͯ]/g, "")
-        .toLowerCase();
+    String(text).normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase();
 
 const describe = subject => {
-
     const summary = subjectSummary(subject.code);
 
     return {
@@ -74,7 +68,6 @@ const describe = subject => {
         smallCohort: isSmallCohort(Math.round(summary.enrolment)),
         search: normalize(`${summary.name} ${summary.code}`)
     };
-
 };
 
 /**
@@ -83,7 +76,6 @@ const describe = subject => {
  * @param options.descending  dirección inicial
  */
 export const useSubjectList = (options = {}) => {
-
     const rows = computed(() =>
         (unref(options.source) ?? allSubjects).map(describe)
     );
@@ -96,7 +88,6 @@ export const useSubjectList = (options = {}) => {
 
     /** Pulsar la métrica activa invierte; pulsar otra empieza por su extremo. */
     const sortBy = key => {
-
         if (sortKey.value === key) {
             descending.value = !descending.value;
             return;
@@ -104,7 +95,6 @@ export const useSubjectList = (options = {}) => {
 
         sortKey.value = key;
         descending.value = SORTS[key]?.higherIsFirst ?? true;
-
     };
 
     /**
@@ -122,35 +112,34 @@ export const useSubjectList = (options = {}) => {
         sortKey.value === key && descending.value === isDescending;
 
     const filtered = computed(() => {
-
         const needle = normalize(query.value.trim());
 
         return rows.value.filter(row => {
-
             if (needle && !row.search.includes(needle)) return false;
 
             if (tipo.value !== "todas" && row.tipo !== tipo.value) return false;
 
-            if (course.value !== "todos"
-                && !row.courses.includes(String(course.value))) {
+            if (
+                course.value !== "todos" &&
+                !row.courses.includes(String(course.value))
+            ) {
                 return false;
             }
 
             return true;
-
         });
-
     });
 
     const sorted = computed(() => {
-
         const definition = SORTS[sortKey.value] ?? SORTS.noSuperacion;
         const direction = descending.value ? 1 : -1;
 
         return [...filtered.value].sort((a, b) => {
-
             if (definition.text) {
-                return a.name.localeCompare(b.name, "es") * (descending.value ? -1 : 1);
+                return (
+                    a.name.localeCompare(b.name, "es") *
+                    (descending.value ? -1 : 1)
+                );
             }
 
             const left = a[definition.key];
@@ -164,9 +153,7 @@ export const useSubjectList = (options = {}) => {
             if (right === null) return -1;
 
             return (right - left) * direction;
-
         });
-
     });
 
     return {
@@ -183,5 +170,4 @@ export const useSubjectList = (options = {}) => {
         total: computed(() => rows.value.length),
         empty: computed(() => sorted.value.length === 0)
     };
-
 };

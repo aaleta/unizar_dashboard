@@ -1,5 +1,4 @@
 <script setup>
-
 /**
  * Portada. Abre con números, no con gráficas.
  *
@@ -46,8 +45,8 @@ const yearDifficulty = ["1", "2", "3", "4"].map(course => ({
     value: courseRate(course, "noSuperacion")
 }));
 
-const hardestYear = yearDifficulty.reduce(
-    (worst, year) => (year.value > worst.value ? year : worst)
+const hardestYear = yearDifficulty.reduce((worst, year) =>
+    year.value > worst.value ? year : worst
 ).course;
 
 /** Coma decimal: es una web en español y las notas se escriben con coma. */
@@ -56,8 +55,7 @@ const decimal = (value, digits = 2) =>
         ? "—"
         : value.toFixed(digits).replace(".", ",");
 
-const pct = value =>
-    value === null ? "—" : `${Math.round(value)}%`;
+const pct = value => (value === null ? "—" : `${Math.round(value)}%`);
 
 const chart = computed(() => ({
     labels: admission.map(row => String(row.anyo).slice(-2)),
@@ -81,7 +79,6 @@ const CHART_COLORS = ["var(--chart-line-1)", "var(--chart-line-2)"];
  * frase quedaría al revés.
  */
 const admissionNote = computed(() => {
-
     if (!cutoff.value || cutoff.value.delta === null) return null;
 
     const direction = cutoff.value.delta < 0 ? "bajó" : "subió";
@@ -97,503 +94,429 @@ const admissionNote = computed(() => {
         year: cutoff.value.year,
         isLowestInYears
     };
-
 });
-
 </script>
 
 <template>
-
-<div class="screen">
-
-    <div class="body">
-
-        <!-- Cuatro cifras -------------------------------------------- -->
-        <section class="kpis">
-
-            <UiKpiCard
-                label="Nota de corte"
-                :value="decimal(cutoff?.value, 3)"
-                :delta="cutoff?.delta ?? null"
-                delta-unit=""
-                :delta-threshold="0.05"
-                :reference="cutoff?.previousYear ? `vs. ${cutoff.previousYear}` : null"
-            />
-
-            <UiKpiCard
-                v-for="rate in rates"
-                :key="rate.key"
-                :label="rate.label"
-                :value="pct(rate.value)"
-                :delta="rate.delta"
-                :higher-is-better="rate.higherIsBetter"
-                :reference="`vs. los ${recentYears} cursos anteriores`"
-            />
-
-            <UiKpiCard
-                label="Convocatorias"
-                :value="decimal(sittings)"
-                :delta="null"
-                :reference="`media por troncal · ${sittingsYear ?? 'dato oficial'}`"
-            />
-
-        </section>
-
-        <!-- Notas de acceso ------------------------------------------ -->
-        <section class="panel">
-
-            <div class="panelHead">
-                <h2>Notas de acceso</h2>
-                <span class="num range">
-                    {{ admission[0].anyo }} – {{ admission[admission.length - 1].anyo }}
-                </span>
-            </div>
-
-            <LineChart
-                :labels="chart.labels"
-                :series="chart.series"
-                :colors="CHART_COLORS"
-                :format-value="value => decimal(value, 1)"
-            />
-
-            <p
-                v-if="admissionNote"
-                class="takeaway"
-            >
-                La nota de corte {{ admissionNote.direction }} a
-                <strong>{{ admissionNote.value }}</strong>
-                en {{ admissionNote.year }}<template v-if="admissionNote.isLowestInYears">
-                    — la más baja de toda la serie</template>.
-            </p>
-
-        </section>
-
-        <!-- La más dura ---------------------------------------------- -->
-        <RouterLink
-            v-if="hardest"
-            :to="`/asignatura/${hardest.code}`"
-            class="hardest"
-        >
-
-            <div class="hardestValue">
-                <span
-                    class="num"
-                    :style="{ color: difficultyInk(hardest.value) }"
-                >{{ pct(hardest.value) }}</span>
-                <span class="hardestCaption">no superan</span>
-            </div>
-
-            <div class="hardestBody">
-                <span class="eyebrow hardestEyebrow">La más dura ahora mismo</span>
-                <span class="hardestName">{{ hardest.name }}</span>
-                <span class="hardestMeta">
-                    Troncal de {{ hardest.course }}º ·
-                    media de {{ recentYears }} cursos.
-                    <span class="hardestGo">Ver ficha →</span>
-                </span>
-            </div>
-
-        </RouterLink>
-
-        <!-- Dificultad por curso -------------------------------------- -->
-        <section class="panel">
-
-            <h2>¿Qué curso cuesta más?</h2>
-
-            <p class="lead">
-                % que no supera las troncales de cada curso, de media.
-            </p>
-
-            <div class="yearBars">
-                <UiMeterRow
-                    v-for="year in yearDifficulty"
-                    :key="year.label"
-                    :label="year.label"
-                    :value="year.value"
-                    :label-width="26"
+    <div class="screen">
+        <div class="body">
+            <!-- Cuatro cifras -------------------------------------------- -->
+            <section class="kpis">
+                <UiKpiCard
+                    label="Nota de corte"
+                    :value="decimal(cutoff?.value, 3)"
+                    :delta="cutoff?.delta ?? null"
+                    delta-unit=""
+                    :delta-threshold="0.05"
+                    :reference="
+                        cutoff?.previousYear
+                            ? `vs. ${cutoff.previousYear}`
+                            : null
+                    "
                 />
-            </div>
 
-            <p class="yearNote">
-                Media ponderada de los últimos {{ recentYears }} cursos.
-                <RouterLink :to="`/grado/${hardestYear}`">
-                    Ver {{ hardestYear }}º →
-                </RouterLink>
-            </p>
+                <UiKpiCard
+                    v-for="rate in rates"
+                    :key="rate.key"
+                    :label="rate.label"
+                    :value="pct(rate.value)"
+                    :delta="rate.delta"
+                    :higher-is-better="rate.higherIsBetter"
+                    :reference="`vs. los ${recentYears} cursos anteriores`"
+                />
 
-        </section>
+                <UiKpiCard
+                    label="Convocatorias"
+                    :value="decimal(sittings)"
+                    :delta="null"
+                    :reference="`media por troncal · ${sittingsYear ?? 'dato oficial'}`"
+                />
+            </section>
 
-        <!-- Frescura ------------------------------------------------- -->
-        <section class="freshness">
+            <!-- Notas de acceso ------------------------------------------ -->
+            <section class="panel">
+                <div class="panelHead">
+                    <h2>Notas de acceso</h2>
+                    <span class="num range">
+                        {{ admission[0].anyo }} –
+                        {{ admission[admission.length - 1].anyo }}
+                    </span>
+                </div>
 
-            <p class="eyebrow">Actualización de los datos</p>
+                <LineChart
+                    :labels="chart.labels"
+                    :series="chart.series"
+                    :colors="CHART_COLORS"
+                    :format-value="value => decimal(value, 1)"
+                />
 
-            <ul class="sources">
-                <li
-                    v-for="source in DATA_SOURCES"
-                    :key="source.key"
-                >
-                    <span class="sourceLabel">{{ source.label }}</span>
-                    <span class="num sourceYear">{{ source.ultimo_curso }}</span>
-                </li>
-            </ul>
+                <p v-if="admissionNote" class="takeaway">
+                    La nota de corte {{ admissionNote.direction }} a
+                    <strong>{{ admissionNote.value }}</strong>
+                    en {{ admissionNote.year
+                    }}<template v-if="admissionNote.isLowestInYears">
+                        — la más baja de toda la serie</template
+                    >.
+                </p>
+            </section>
 
-            <p class="methodology">
-                <RouterLink to="/metodologia">
-                    Cómo se calcula cada indicador →
-                </RouterLink>
-            </p>
+            <!-- La más dura ---------------------------------------------- -->
+            <RouterLink
+                v-if="hardest"
+                :to="`/asignatura/${hardest.code}`"
+                class="hardest"
+            >
+                <div class="hardestValue">
+                    <span
+                        class="num"
+                        :style="{ color: difficultyInk(hardest.value) }"
+                        >{{ pct(hardest.value) }}</span
+                    >
+                    <span class="hardestCaption">no superan</span>
+                </div>
 
-        </section>
+                <div class="hardestBody">
+                    <span class="eyebrow hardestEyebrow"
+                        >La más dura ahora mismo</span
+                    >
+                    <span class="hardestName">{{ hardest.name }}</span>
+                    <span class="hardestMeta">
+                        Troncal de {{ hardest.course }}º · media de
+                        {{ recentYears }} cursos.
+                        <span class="hardestGo">Ver ficha →</span>
+                    </span>
+                </div>
+            </RouterLink>
 
+            <!-- Dificultad por curso -------------------------------------- -->
+            <section class="panel">
+                <h2>¿Qué curso cuesta más?</h2>
+
+                <p class="lead">
+                    % que no supera las troncales de cada curso, de media.
+                </p>
+
+                <div class="yearBars">
+                    <UiMeterRow
+                        v-for="year in yearDifficulty"
+                        :key="year.label"
+                        :label="year.label"
+                        :value="year.value"
+                        :label-width="26"
+                    />
+                </div>
+
+                <p class="yearNote">
+                    Media ponderada de los últimos {{ recentYears }} cursos.
+                    <RouterLink :to="`/grado/${hardestYear}`">
+                        Ver {{ hardestYear }}º →
+                    </RouterLink>
+                </p>
+            </section>
+
+            <!-- Frescura ------------------------------------------------- -->
+            <section class="freshness">
+                <p class="eyebrow">Actualización de los datos</p>
+
+                <ul class="sources">
+                    <li v-for="source in DATA_SOURCES" :key="source.key">
+                        <span class="sourceLabel">{{ source.label }}</span>
+                        <span class="num sourceYear">{{
+                            source.ultimo_curso
+                        }}</span>
+                    </li>
+                </ul>
+
+                <p class="methodology">
+                    <RouterLink to="/metodologia">
+                        Cómo se calcula cada indicador →
+                    </RouterLink>
+                </p>
+            </section>
+        </div>
     </div>
-
-</div>
-
 </template>
 
 <style scoped>
-
 /* Cuerpo -------------------------------------------------------------- */
 
-.body{
-
-    padding:16px var(--gutter) 8px;
-
+.body {
+    padding: 16px var(--gutter) 8px;
 }
 
-.kpis{
+.kpis {
+    display: grid;
 
-    display:grid;
+    grid-template-columns: 1fr 1fr;
 
-    grid-template-columns:1fr 1fr;
-
-    gap:var(--gap-card);
-
+    gap: var(--gap-card);
 }
 
-.panel{
+.panel {
+    margin-top: 16px;
 
-    margin-top:16px;
+    padding: 15px 15px 12px;
 
-    padding:15px 15px 12px;
+    background: var(--surface);
 
-    background:var(--surface);
+    border: 1px solid var(--line);
 
-    border:1px solid var(--line);
+    border-radius: var(--radius-card-lg);
 
-    border-radius:var(--radius-card-lg);
-
-    box-shadow:var(--shadow-card);
-
+    box-shadow: var(--shadow-card);
 }
 
-.panelHead{
+.panelHead {
+    display: flex;
 
-    display:flex;
+    align-items: baseline;
 
-    align-items:baseline;
+    justify-content: space-between;
 
-    justify-content:space-between;
-
-    gap:10px;
-
+    gap: 10px;
 }
 
-h2{
+h2 {
+    margin: 0;
 
-    margin:0;
+    font-family: var(--font-serif);
 
-    font-family:var(--font-serif);
+    font-size: 15px;
 
-    font-size:15px;
-
-    font-weight:600;
-
+    font-weight: 600;
 }
 
-.range{
+.range {
+    font-size: var(--text-footnote);
 
-    font-size:var(--text-footnote);
+    font-weight: 400;
 
-    font-weight:400;
-
-    color:var(--ink-faint);
-
+    color: var(--ink-faint);
 }
 
-.lead{
+.lead {
+    margin: 3px 0 13px;
 
-    margin:3px 0 13px;
+    font-size: 10.5px;
 
-    font-size:10.5px;
-
-    color:var(--ink-soft);
-
+    color: var(--ink-soft);
 }
 
-.takeaway{
+.takeaway {
+    margin: 10px 0 0;
 
-    margin:10px 0 0;
+    padding-top: 10px;
 
-    padding-top:10px;
+    border-top: 1px solid var(--line-inner);
 
-    border-top:1px solid var(--line-inner);
+    font-size: 10.5px;
 
-    font-size:10.5px;
+    line-height: 1.45;
 
-    line-height:1.45;
-
-    color:var(--ink-muted);
-
+    color: var(--ink-muted);
 }
 
-.takeaway strong{
-
-    color:var(--ink);
-
+.takeaway strong {
+    color: var(--ink);
 }
 
 /* La más dura --------------------------------------------------------- */
 
-.hardest{
+.hardest {
+    display: flex;
 
-    display:flex;
+    gap: 12px;
 
-    gap:12px;
+    margin-top: 16px;
 
-    margin-top:16px;
+    padding: 14px 15px;
 
-    padding:14px 15px;
+    background: var(--warn-bg);
 
-    background:var(--warn-bg);
+    border: 1px solid var(--warn-line);
 
-    border:1px solid var(--warn-line);
+    border-radius: var(--radius-card-lg);
 
-    border-radius:var(--radius-card-lg);
-
-    color:var(--ink);
-
+    color: var(--ink);
 }
 
 /* La cifra se centra contra el bloque de texto, que es más alto: alineada
    arriba se quedaba colgando junto al eyebrow. Se centra el CONTENIDO de la
    columna, no la columna, para que el filete que la separa siga recorriendo
    la tarjeta entera. */
-.hardestValue{
+.hardestValue {
+    display: flex;
 
-    display:flex;
+    flex-direction: column;
 
-    flex-direction:column;
+    justify-content: center;
 
-    justify-content:center;
+    flex: none;
 
-    flex:none;
+    width: 46px;
 
-    width:46px;
-
-    text-align:center;
-
+    text-align: center;
 }
 
-.hardestValue .num{
+.hardestValue .num {
+    font-size: 21px;
 
-    font-size:21px;
-
-    line-height:1;
-
+    line-height: 1;
 }
 
-.hardestCaption{
+.hardestCaption {
+    display: block;
 
-    display:block;
+    margin-top: 3px;
 
-    margin-top:3px;
+    font-size: 8px;
 
-    font-size:8px;
+    line-height: 1.2;
 
-    line-height:1.2;
-
-    color:var(--warn-caption);
-
+    color: var(--warn-caption);
 }
 
-.hardestBody{
+.hardestBody {
+    display: flex;
 
-    display:flex;
+    flex-direction: column;
 
-    flex-direction:column;
+    padding-left: 12px;
 
-    padding-left:12px;
-
-    border-left:1px solid var(--warn-line);
-
+    border-left: 1px solid var(--warn-line);
 }
 
-.hardestEyebrow{
+.hardestEyebrow {
+    font-size: 8px;
 
-    font-size:8px;
-
-    color:var(--delta-bad);
-
+    color: var(--delta-bad);
 }
 
-.hardestName{
+.hardestName {
+    margin-top: 2px;
 
-    margin-top:2px;
+    font-family: var(--font-serif);
 
-    font-family:var(--font-serif);
+    font-size: 16px;
 
-    font-size:16px;
+    font-weight: 600;
 
-    font-weight:600;
-
-    line-height:1.15;
-
+    line-height: 1.15;
 }
 
-.hardestMeta{
+.hardestMeta {
+    margin-top: 3px;
 
-    margin-top:3px;
+    font-size: 10.5px;
 
-    font-size:10.5px;
+    line-height: 1.4;
 
-    line-height:1.4;
-
-    color:var(--warn-body);
-
+    color: var(--warn-body);
 }
 
-.hardestGo{
+.hardestGo {
+    color: var(--warn-title);
 
-    color:var(--warn-title);
-
-    font-weight:600;
-
+    font-weight: 600;
 }
 
 /* Dificultad por curso ------------------------------------------------- */
 
-.yearBars{
+.yearBars {
+    display: flex;
 
-    display:flex;
+    flex-direction: column;
 
-    flex-direction:column;
-
-    gap:8px;
-
+    gap: 8px;
 }
 
-.yearNote{
+.yearNote {
+    margin: 10px 0 0;
 
-    margin:10px 0 0;
+    font-family: var(--font-mono);
 
-    font-family:var(--font-mono);
+    font-size: var(--text-num-sm);
 
-    font-size:var(--text-num-sm);
-
-    color:var(--ink-faint);
-
+    color: var(--ink-faint);
 }
 
-.yearNote a{
+.yearNote a {
+    color: var(--navy);
 
-    color:var(--navy);
-
-    font-weight:600;
-
+    font-weight: 600;
 }
 
 /* Frescura ------------------------------------------------------------ */
 
-.freshness{
-
-    margin-top:16px;
-
+.freshness {
+    margin-top: 16px;
 }
 
-.freshness .eyebrow{
+.freshness .eyebrow {
+    margin: 0 0 8px;
 
-    margin:0 0 8px;
-
-    font-size:var(--text-footnote);
-
+    font-size: var(--text-footnote);
 }
 
-.sources{
+.sources {
+    margin: 0;
 
-    margin:0;
+    padding: 0;
 
-    padding:0;
+    list-style: none;
 
-    list-style:none;
+    background: var(--surface);
 
-    background:var(--surface);
+    border: 1px solid var(--line);
 
-    border:1px solid var(--line);
+    border-radius: var(--radius-card);
 
-    border-radius:var(--radius-card);
-
-    overflow:hidden;
-
+    overflow: hidden;
 }
 
-.sources li{
+.sources li {
+    display: flex;
 
-    display:flex;
+    align-items: center;
 
-    align-items:center;
+    justify-content: space-between;
 
-    justify-content:space-between;
+    gap: 10px;
 
-    gap:10px;
-
-    padding:9px 13px;
-
+    padding: 9px 13px;
 }
 
-.sources li + li{
-
-    border-top:1px solid var(--line-inner);
-
+.sources li + li {
+    border-top: 1px solid var(--line-inner);
 }
 
-.sourceLabel{
+.sourceLabel {
+    font-size: var(--text-body-sm);
 
-    font-size:var(--text-body-sm);
-
-    color:var(--ink-2);
-
+    color: var(--ink-2);
 }
 
-.sourceYear{
+.sourceYear {
+    font-size: var(--text-num-sm);
 
-    font-size:var(--text-num-sm);
-
-    color:var(--ink);
-
+    color: var(--ink);
 }
 
-.methodology{
+.methodology {
+    margin: 11px 0 0;
 
-    margin:11px 0 0;
-
-    text-align:center;
-
+    text-align: center;
 }
 
-.methodology a{
+.methodology a {
+    display: inline-flex;
 
-    display:inline-flex;
+    align-items: center;
 
-    align-items:center;
+    min-height: var(--touch-target);
 
-    min-height:var(--touch-target);
+    font-size: 12px;
 
-    font-size:12px;
-
-    font-weight:600;
-
+    font-weight: 600;
 }
-
 </style>

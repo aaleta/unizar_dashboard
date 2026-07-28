@@ -1,5 +1,4 @@
 <script setup>
-
 /**
  * Cabecera de columna ordenable de la lista maestra de asignaturas.
  *
@@ -12,7 +11,6 @@
  */
 
 defineProps({
-
     // Rótulo fijo de la izquierda.
     label: {
         type: String,
@@ -34,147 +32,126 @@ defineProps({
         type: Boolean,
         default: true
     }
-
 });
 
 defineEmits(["sort"]);
-
 </script>
 
 <template>
+    <div class="header">
+        <span class="label">{{ label }}</span>
 
-<div class="header">
-
-    <span class="label">{{ label }}</span>
-
-    <div class="metrics">
-
-        <button
-            v-for="metric in metrics"
-            :key="metric.key"
-            type="button"
-            class="metric"
-            :class="{ active: metric.key === activeKey }"
-            :aria-sort="metric.key === activeKey
-                ? (descending ? 'descending' : 'ascending')
-                : 'none'"
-            @click="$emit('sort', metric.key)"
-        >
-            {{ metric.label }}
-            <span
-                v-if="metric.key === activeKey"
-                aria-hidden="true"
-            >{{ descending ? "↓" : "↑" }}</span>
-        </button>
-
+        <div class="metrics">
+            <button
+                v-for="metric in metrics"
+                :key="metric.key"
+                type="button"
+                class="metric"
+                :class="{ active: metric.key === activeKey }"
+                :aria-sort="
+                    metric.key === activeKey
+                        ? descending
+                            ? 'descending'
+                            : 'ascending'
+                        : 'none'
+                "
+                @click="$emit('sort', metric.key)"
+            >
+                {{ metric.label }}
+                <span v-if="metric.key === activeKey" aria-hidden="true">{{
+                    descending ? "↓" : "↑"
+                }}</span>
+            </button>
+        </div>
     </div>
-
-</div>
-
 </template>
 
 <style scoped>
+.header {
+    display: flex;
 
-.header{
+    align-items: center;
 
-    display:flex;
+    gap: 10px;
 
-    align-items:center;
+    position: sticky;
 
-    gap:10px;
+    top: 0;
 
-    position:sticky;
+    z-index: 2;
 
-    top:0;
+    padding: 8px var(--gutter);
 
-    z-index:2;
+    background: var(--surface-sunken);
 
-    padding:8px var(--gutter);
-
-    background:var(--surface-sunken);
-
-    border-bottom:1px solid var(--line-strong);
-
+    border-bottom: 1px solid var(--line-strong);
 }
 
 .label,
-.metric{
+.metric {
+    font-family: var(--font-mono);
 
-    font-family:var(--font-mono);
+    font-size: var(--text-eyebrow);
 
-    font-size:var(--text-eyebrow);
+    font-weight: 600;
 
-    font-weight:600;
+    letter-spacing: 0.4px;
 
-    letter-spacing:.4px;
-
-    text-transform:uppercase;
-
+    text-transform: uppercase;
 }
 
-.label{
+.label {
+    flex: 1;
 
-    flex:1;
-
-    min-width:0;
+    min-width: 0;
 
     /* Sobre el fondo hundido, más oscuro que el papel, los grises apagados se
        quedan cortos: aquí se usa la tinta secundaria, que sí cumple. */
-    color:var(--ink-2);
-
+    color: var(--ink-2);
 }
 
-.metrics{
+.metrics {
+    display: flex;
 
-    display:flex;
+    gap: 10px;
 
-    gap:10px;
-
-    flex:none;
-
+    flex: none;
 }
 
-.metric{
+.metric {
+    display: inline-flex;
 
-    display:inline-flex;
+    align-items: center;
 
-    align-items:center;
+    gap: 4px;
 
-    gap:4px;
+    position: relative;
 
-    position:relative;
+    padding: 0;
 
-    padding:0;
+    border: none;
 
-    border:none;
+    background: none;
 
-    background:none;
+    color: var(--ink-2);
 
-    color:var(--ink-2);
-
-    cursor:pointer;
-
+    cursor: pointer;
 }
 
 /* Como en los chips: el rótulo es pequeño, pero lo que responde al dedo no. */
-.metric::after{
+.metric::after {
+    content: "";
 
-    content:"";
+    position: absolute;
 
-    position:absolute;
+    inset: 50% -6px auto;
 
-    inset:50% -6px auto;
+    height: var(--touch-target);
 
-    height:var(--touch-target);
-
-    transform:translateY(-50%);
-
+    transform: translateY(-50%);
 }
 
-.metric.active{
-
-    color:var(--navy);
-
+.metric.active {
+    color: var(--navy);
 }
-
 </style>

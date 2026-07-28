@@ -1,5 +1,4 @@
 <script setup>
-
 /**
  * La superficie sobre la que se apoya casi todo.
  *
@@ -12,7 +11,6 @@
  */
 
 defineProps({
-
     variant: {
         type: String,
         default: "solid",
@@ -30,87 +28,65 @@ defineProps({
         type: [String, Object],
         default: "div"
     }
-
 });
-
 </script>
 
 <template>
-
-<component
-    :is="as"
-    class="card"
-    :class="[variant, { padded }]"
->
-    <slot />
-</component>
-
+    <component :is="as" class="card" :class="[variant, { padded }]">
+        <slot />
+    </component>
 </template>
 
 <style scoped>
+.card {
+    display: block;
 
-.card{
+    border-radius: var(--radius-card);
 
-    display:block;
+    box-shadow: var(--shadow-card);
 
-    border-radius:var(--radius-card);
-
-    box-shadow:var(--shadow-card);
-
-    min-width:0;
-
+    min-width: 0;
 }
 
-.card.padded{
-
-    padding:var(--pad-card);
-
+.card.padded {
+    padding: var(--pad-card);
 }
 
-.solid{
+.solid {
+    background: var(--surface);
 
-    background:var(--surface);
-
-    border:1px solid var(--line);
-
+    border: 1px solid var(--line);
 }
 
-.dashed{
+.dashed {
+    background: var(--surface-alt);
 
-    background:var(--surface-alt);
-
-    border:1px dashed var(--line-dashed);
+    border: 1px dashed var(--line-dashed);
 
     /* Sin sombra: lo discontinuo debe parecer más ligero, no igual. */
-    box-shadow:none;
-
+    box-shadow: none;
 }
 
-.structural{
+.structural {
+    background: var(--navy-wash);
 
-    background:var(--navy-wash);
+    border: 1px solid var(--navy-wash-line);
 
-    border:1px solid var(--navy-wash-line);
-
-    box-shadow:none;
-
+    box-shadow: none;
 }
 
 /* Cuando la tarjeta es un enlace, tiene que responder al dedo. */
-a.card{
+a.card {
+    color: inherit;
 
-    color:inherit;
-
-    transition:border-color .15s,transform .15s;
-
+    transition:
+        border-color 0.15s,
+        transform 0.15s;
 }
 
-a.card:active{
+a.card:active {
+    transform: scale(0.995);
 
-    transform:scale(.995);
-
-    border-color:var(--line-strong);
-
+    border-color: var(--line-strong);
 }
-
 </style>

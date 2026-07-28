@@ -1,5 +1,4 @@
 <script setup>
-
 /**
  * Vista de curso: la capa intermedia entre el mapa del grado y la ficha.
  *
@@ -61,8 +60,7 @@ const visibleOptional = computed(() =>
     showAllOptional.value ? optativas.value : optativas.value.slice(0, PREVIEW)
 );
 
-const pct = value =>
-    value === null ? "—" : `${Math.round(value)}%`;
+const pct = value => (value === null ? "—" : `${Math.round(value)}%`);
 
 const ordinal = course => `${course}º`;
 
@@ -78,367 +76,303 @@ const shortYear = academicYear =>
  * que las tarjetas no pueden: ¿este curso siempre fue así?
  */
 const difficultyHistory = computed(() =>
-    courseSeries(String(number.value), "noSuperacion")
-        .filter(point => point.value !== null)
+    courseSeries(String(number.value), "noSuperacion").filter(
+        point => point.value !== null
+    )
 );
 
 const historyChart = computed(() => ({
     labels: difficultyHistory.value.map(point => shortYear(point.year)),
-    series: [{
-        label: "No superan las troncales",
-        values: difficultyHistory.value.map(point => point.value)
-    }]
+    series: [
+        {
+            label: "No superan las troncales",
+            values: difficultyHistory.value.map(point => point.value)
+        }
+    ]
 }));
 
 const HISTORY_COLORS = ["var(--chart-line-2)"];
-
 </script>
 
 <template>
+    <div v-if="valid" class="screen">
+        <header class="intro">
+            <p class="lead">
+                Estadísticas del curso y acceso a la ficha de cada asignatura.
+            </p>
 
-<div
-    v-if="valid"
-    class="screen"
->
+            <div class="stats">
+                <UiStat :value="pct(avgPass)" label="aprueban de media" />
+                <UiStat :value="pct(avgNoShow)" label="no se presentan" />
+                <UiStat
+                    :value="troncales.length"
+                    label="troncales"
+                    tone="navy"
+                />
+                <UiStat
+                    v-if="optativas.length"
+                    :value="optativas.length"
+                    label="optativas"
+                    tone="gold"
+                />
+            </div>
 
-    <header class="intro">
+            <p class="footnote">
+                Medias ponderadas de las troncales · últimos
+                {{ recentYears }} cursos.
+            </p>
+        </header>
 
-        <p class="lead">
-            Estadísticas del curso y acceso a la ficha de cada asignatura.
-        </p>
+        <section class="section">
+            <h2>Dificultad de las troncales</h2>
 
-        <div class="stats">
-            <UiStat
-                :value="pct(avgPass)"
-                label="aprueban de media"
-            />
-            <UiStat
-                :value="pct(avgNoShow)"
-                label="no se presentan"
-            />
-            <UiStat
-                :value="troncales.length"
-                label="troncales"
-                tone="navy"
-            />
-            <UiStat
-                v-if="optativas.length"
-                :value="optativas.length"
-                label="optativas"
+            <div class="panel">
+                <UiMeterRow
+                    v-for="subject in troncales"
+                    :key="subject.code"
+                    :label="subject.name"
+                    :value="subject.noSuperacion"
+                />
+            </div>
+        </section>
+
+        <section v-if="difficultyHistory.length > 1" class="section">
+            <h2>Dificultad del curso</h2>
+
+            <div class="panel">
+                <LineChart
+                    :series="historyChart.series"
+                    :labels="historyChart.labels"
+                    :colors="HISTORY_COLORS"
+                    :y-min="0"
+                    :format-value="value => `${Math.round(value)}%`"
+                />
+                <p class="chartNote">
+                    % que no supera las troncales de {{ ordinal(number) }},
+                    media ponderada de cada curso académico.
+                </p>
+            </div>
+        </section>
+
+        <section class="section">
+            <UiSectionHeader label="Troncales" :count="troncales.length" />
+
+            <div class="cards">
+                <!-- Props explícitas: v-bind del objeto entero cuela campos
+                 sueltos como atributos del <a>. Ver la nota en Optatives.vue. -->
+                <UiSubjectCard
+                    v-for="subject in visibleCore"
+                    :key="subject.code"
+                    :code="subject.code"
+                    :name="subject.name"
+                    :no-superacion="subject.noSuperacion"
+                    :rendimiento="subject.rendimiento"
+                    :no-presentados="subject.noPresentados"
+                    :enrolment="subject.enrolment"
+                    :small-cohort="subject.smallCohort"
+                />
+
+                <button
+                    v-if="troncales.length > PREVIEW"
+                    type="button"
+                    class="more"
+                    @click="showAllCore = !showAllCore"
+                >
+                    {{
+                        showAllCore
+                            ? "− ver menos"
+                            : `＋ ${troncales.length - PREVIEW} troncales más`
+                    }}
+                </button>
+            </div>
+        </section>
+
+        <section v-if="optativas.length" class="section">
+            <UiSectionHeader
+                label="Optativas"
+                :count="optativas.length"
                 tone="gold"
             />
-        </div>
 
-        <p class="footnote">
-            Medias ponderadas de las troncales · últimos {{ recentYears }} cursos.
-        </p>
-
-    </header>
-
-    <section class="section">
-
-        <h2>Dificultad de las troncales</h2>
-
-        <div class="panel">
-            <UiMeterRow
-                v-for="subject in troncales"
-                :key="subject.code"
-                :label="subject.name"
-                :value="subject.noSuperacion"
-            />
-        </div>
-
-    </section>
-
-    <section
-        v-if="difficultyHistory.length > 1"
-        class="section"
-    >
-
-        <h2>Dificultad del curso</h2>
-
-        <div class="panel">
-            <LineChart
-                :series="historyChart.series"
-                :labels="historyChart.labels"
-                :colors="HISTORY_COLORS"
-                :y-min="0"
-                :format-value="value => `${Math.round(value)}%`"
-            />
-            <p class="chartNote">
-                % que no supera las troncales de {{ ordinal(number) }},
-                media ponderada de cada curso académico.
-            </p>
-        </div>
-
-    </section>
-
-    <section class="section">
-
-        <UiSectionHeader
-            label="Troncales"
-            :count="troncales.length"
-        />
-
-        <div class="cards">
-
-            <!-- Props explícitas: v-bind del objeto entero cuela campos
-                 sueltos como atributos del <a>. Ver la nota en Optatives.vue. -->
-            <UiSubjectCard
-                v-for="subject in visibleCore"
-                :key="subject.code"
-                :code="subject.code"
-                :name="subject.name"
-                :no-superacion="subject.noSuperacion"
-                :rendimiento="subject.rendimiento"
-                :no-presentados="subject.noPresentados"
-                :enrolment="subject.enrolment"
-                :small-cohort="subject.smallCohort"
-            />
-
-            <button
-                v-if="troncales.length > PREVIEW"
-                type="button"
-                class="more"
-                @click="showAllCore = !showAllCore"
-            >
-                {{ showAllCore
-                    ? "− ver menos"
-                    : `＋ ${troncales.length - PREVIEW} troncales más` }}
-            </button>
-
-        </div>
-
-    </section>
-
-    <section
-        v-if="optativas.length"
-        class="section"
-    >
-
-        <UiSectionHeader
-            label="Optativas"
-            :count="optativas.length"
-            tone="gold"
-        />
-
-        <!-- En 1º las optativas son las especiales (Biología, Geología,
+            <!-- En 1º las optativas son las especiales (Biología, Geología,
              Grafos), que no están en la bolsa: enlazar ahí a una lista donde
              no aparecen solo despistaría. -->
-        <p class="note">
-            <template v-if="alsoInCourses.length">
-                Muchas se ofertan también en
-                {{ alsoInCourses.map(ordinal).join(" y ") }}.
-            </template>
-            <template v-if="number === 1">
-                Optativas especiales de primero: se cursan fuera de la bolsa
-                de optativas de 3º y 4º.
-            </template>
-            <RouterLink
-                v-else
-                to="/optativas"
-            >Ver todas las optativas →</RouterLink>
-        </p>
+            <p class="note">
+                <template v-if="alsoInCourses.length">
+                    Muchas se ofertan también en
+                    {{ alsoInCourses.map(ordinal).join(" y ") }}.
+                </template>
+                <template v-if="number === 1">
+                    Optativas especiales de primero: se cursan fuera de la bolsa
+                    de optativas de 3º y 4º.
+                </template>
+                <RouterLink v-else to="/optativas"
+                    >Ver todas las optativas →</RouterLink
+                >
+            </p>
 
-        <div class="cards">
+            <div class="cards">
+                <UiSubjectCard
+                    v-for="subject in visibleOptional"
+                    :key="subject.code"
+                    :code="subject.code"
+                    :name="subject.name"
+                    :no-superacion="subject.noSuperacion"
+                    :rendimiento="subject.rendimiento"
+                    :no-presentados="subject.noPresentados"
+                    :enrolment="subject.enrolment"
+                    :small-cohort="subject.smallCohort"
+                    optative
+                />
 
-            <UiSubjectCard
-                v-for="subject in visibleOptional"
-                :key="subject.code"
-                :code="subject.code"
-                :name="subject.name"
-                :no-superacion="subject.noSuperacion"
-                :rendimiento="subject.rendimiento"
-                :no-presentados="subject.noPresentados"
-                :enrolment="subject.enrolment"
-                :small-cohort="subject.smallCohort"
-                optative
-            />
+                <button
+                    v-if="optativas.length > PREVIEW"
+                    type="button"
+                    class="more"
+                    @click="showAllOptional = !showAllOptional"
+                >
+                    {{
+                        showAllOptional
+                            ? "− ver menos"
+                            : `＋ ${optativas.length - PREVIEW} optativas más`
+                    }}
+                </button>
+            </div>
+        </section>
+    </div>
 
-            <button
-                v-if="optativas.length > PREVIEW"
-                type="button"
-                class="more"
-                @click="showAllOptional = !showAllOptional"
-            >
-                {{ showAllOptional
-                    ? "− ver menos"
-                    : `＋ ${optativas.length - PREVIEW} optativas más` }}
-            </button>
-
-        </div>
-
-    </section>
-
-</div>
-
-<div
-    v-else
-    class="screen"
->
-    <UiCallout
-        tone="structural"
-        title="Ese curso no existe"
-    >
-        El grado tiene cuatro cursos.
-        <RouterLink to="/grado">Volver al mapa del grado →</RouterLink>
-    </UiCallout>
-</div>
-
+    <div v-else class="screen">
+        <UiCallout tone="structural" title="Ese curso no existe">
+            El grado tiene cuatro cursos.
+            <RouterLink to="/grado">Volver al mapa del grado →</RouterLink>
+        </UiCallout>
+    </div>
 </template>
 
 <style scoped>
-
-.screen{
-
-    padding:16px var(--gutter) 8px;
-
+.screen {
+    padding: 16px var(--gutter) 8px;
 }
 
-.lead{
+.lead {
+    margin: 0 0 14px;
 
-    margin:0 0 14px;
+    font-size: var(--text-body-sm);
 
-    font-size:var(--text-body-sm);
-
-    color:var(--ink-soft);
-
+    color: var(--ink-soft);
 }
 
-.stats{
+.stats {
+    display: flex;
 
-    display:flex;
+    flex-wrap: wrap;
 
-    flex-wrap:wrap;
-
-    gap:22px;
-
+    gap: 22px;
 }
 
-.footnote{
+.footnote {
+    margin: 12px 0 0;
 
-    margin:12px 0 0;
+    font-family: var(--font-mono);
 
-    font-family:var(--font-mono);
+    font-size: var(--text-footnote);
 
-    font-size:var(--text-footnote);
+    line-height: 1.5;
 
-    line-height:1.5;
-
-    color:var(--ink-faint);
-
+    color: var(--ink-faint);
 }
 
-.section{
-
-    margin-top:18px;
-
+.section {
+    margin-top: 18px;
 }
 
-h2{
+h2 {
+    margin: 0 0 11px;
 
-    margin:0 0 11px;
+    font-family: var(--font-serif);
 
-    font-family:var(--font-serif);
+    font-size: var(--text-section);
 
-    font-size:var(--text-section);
-
-    font-weight:600;
-
+    font-weight: 600;
 }
 
-.panel{
+.panel {
+    display: flex;
 
-    display:flex;
+    flex-direction: column;
 
-    flex-direction:column;
+    gap: 9px;
 
-    gap:9px;
+    padding: 14px;
 
-    padding:14px;
+    background: var(--surface);
 
-    background:var(--surface);
+    border: 1px solid var(--line);
 
-    border:1px solid var(--line);
+    border-radius: 12px;
 
-    border-radius:12px;
-
-    box-shadow:var(--shadow-card);
-
+    box-shadow: var(--shadow-card);
 }
 
-.chartNote{
+.chartNote {
+    margin: 2px 0 0;
 
-    margin:2px 0 0;
+    font-family: var(--font-mono);
 
-    font-family:var(--font-mono);
+    font-size: var(--text-footnote);
 
-    font-size:var(--text-footnote);
+    line-height: 1.5;
 
-    line-height:1.5;
-
-    color:var(--ink-faint);
-
+    color: var(--ink-faint);
 }
 
-.note{
+.note {
+    margin: 6px 0 10px;
 
-    margin:6px 0 10px;
+    font-size: var(--text-num-sm);
 
-    font-size:var(--text-num-sm);
+    line-height: 1.5;
 
-    line-height:1.5;
-
-    color:var(--ink-soft);
-
+    color: var(--ink-soft);
 }
 
-.note a{
-
-    font-weight:600;
-
+.note a {
+    font-weight: 600;
 }
 
-.cards{
+.cards {
+    display: flex;
 
-    display:flex;
+    flex-direction: column;
 
-    flex-direction:column;
+    gap: 9px;
 
-    gap:9px;
-
-    margin-top:10px;
-
+    margin-top: 10px;
 }
 
-.more{
+.more {
+    display: flex;
 
-    display:flex;
+    align-items: center;
 
-    align-items:center;
+    min-height: var(--touch-target);
 
-    min-height:var(--touch-target);
+    padding: 2px;
 
-    padding:2px;
+    border: none;
 
-    border:none;
+    background: none;
 
-    background:none;
+    font-family: var(--font-mono);
 
-    font-family:var(--font-mono);
+    font-size: 10px;
 
-    font-size:10px;
+    color: var(--ink-faint);
 
-    color:var(--ink-faint);
-
-    cursor:pointer;
-
+    cursor: pointer;
 }
 
-.more:active{
-
-    color:var(--navy);
-
+.more:active {
+    color: var(--navy);
 }
-
 </style>

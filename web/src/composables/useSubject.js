@@ -51,14 +51,18 @@ const ORDINALS = {
  * cosas opuestas, y sin esto el color diría lo mismo en los dos casos.
  */
 export const SUBJECT_KPIS = [
-    { key: "noSuperacion", label: "No superan", higherIsBetter: false, ramp: true },
+    {
+        key: "noSuperacion",
+        label: "No superan",
+        higherIsBetter: false,
+        ramp: true
+    },
     { key: "rendimiento", label: "Aprueban", higherIsBetter: true },
     { key: "noPresentados", label: "No presentados", higherIsBetter: false },
     { key: "excelencia", label: "Sob. + MH", higherIsBetter: true }
 ];
 
 export const useSubject = (codeSource, yearSource) => {
-
     const code = computed(() => Number(read(codeSource)));
 
     const years = computed(() => subjectYears(code.value));
@@ -67,13 +71,11 @@ export const useSubject = (codeSource, yearSource) => {
 
     /** Si el año pedido no existe para esta asignatura, manda el más reciente. */
     const year = computed(() => {
-
         const wanted = read(yearSource);
 
         if (wanted && years.value.includes(wanted)) return wanted;
 
         return years.value[years.value.length - 1] ?? null;
-
     });
 
     const info = computed(() => subjectInfo(code.value));
@@ -82,9 +84,7 @@ export const useSubject = (codeSource, yearSource) => {
         year.value ? subjectRow(code.value, year.value) : null
     );
 
-    const enrolled = computed(() =>
-        row.value ? matriculados(row.value) : 0
-    );
+    const enrolled = computed(() => (row.value ? matriculados(row.value) : 0));
 
     /** Curso al que pertenece: el primero, si es optativa de 3º y 4º. */
     const course = computed(() =>
@@ -92,9 +92,7 @@ export const useSubject = (codeSource, yearSource) => {
     );
 
     const kpis = computed(() =>
-
         SUBJECT_KPIS.map(kpi => {
-
             const definition = METRICS[kpi.key];
 
             const value = row.value ? definition.compute(row.value) : null;
@@ -112,14 +110,13 @@ export const useSubject = (codeSource, yearSource) => {
                 // Delta contra la media de los cursos ANTERIORES al elegido,
                 // no contra la media global: comparar un año consigo mismo
                 // dentro de la media lo diluye.
-                delta: value !== null && reference !== null
-                    ? value - reference
-                    : null,
+                delta:
+                    value !== null && reference !== null
+                        ? value - reference
+                        : null,
                 hasReference: reference !== null
             };
-
         })
-
     );
 
     /**
@@ -128,7 +125,6 @@ export const useSubject = (codeSource, yearSource) => {
      * cursos— se cae al más reciente que sí, y se dice cuál es.
      */
     const sittings = computed(() => {
-
         const exact = averageSittings(code.value, year.value);
 
         if (exact !== null) {
@@ -139,12 +135,11 @@ export const useSubject = (codeSource, yearSource) => {
 
         return fallback
             ? {
-                value: fallback.media_convocatorias,
-                year: fallback.curso,
-                exact: false
-            }
+                  value: fallback.media_convocatorias,
+                  year: fallback.curso,
+                  exact: false
+              }
             : { value: null, year: null, exact: false };
-
     });
 
     const grades = computed(() =>
@@ -152,13 +147,13 @@ export const useSubject = (codeSource, yearSource) => {
     );
 
     const history = computed(() =>
-        subjectSeries(code.value, "noSuperacion")
-            .filter(point => point.value !== null)
+        subjectSeries(code.value, "noSuperacion").filter(
+            point => point.value !== null
+        )
     );
 
     /** Puesto por dificultad entre las troncales de su curso. */
     const ranking = computed(() => {
-
         if (!course.value || info.value?.tipo !== "troncal") return null;
 
         const ranked = coreSubjects(course.value)
@@ -174,16 +169,23 @@ export const useSubject = (codeSource, yearSource) => {
         return position === -1
             ? null
             : { position: position + 1, total: ranked.length };
-
     });
 
     /** La misma métrica, para el conjunto de troncales del curso y ese año. */
     const courseAverage = computed(() =>
         course.value && year.value
             ? {
-                rendimiento: courseRateForYear(course.value, "rendimiento", year.value),
-                noSuperacion: courseRateForYear(course.value, "noSuperacion", year.value)
-            }
+                  rendimiento: courseRateForYear(
+                      course.value,
+                      "rendimiento",
+                      year.value
+                  ),
+                  noSuperacion: courseRateForYear(
+                      course.value,
+                      "noSuperacion",
+                      year.value
+                  )
+              }
             : null
     );
 
@@ -193,13 +195,11 @@ export const useSubject = (codeSource, yearSource) => {
      * que no se ofertan todos los años: se coge la más reciente que exista.
      */
     const teaching = computed(() => {
-
         const entries = guias
             .filter(entry => Number(entry.id_asignatura) === code.value)
             .sort((a, b) => b.anyo_academico.localeCompare(a.anyo_academico));
 
         return entries[0] ?? null;
-
     });
 
     return {
@@ -224,5 +224,4 @@ export const useSubject = (codeSource, yearSource) => {
         teaching,
         recentYears: RECENT_YEARS
     };
-
 };

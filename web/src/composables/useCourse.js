@@ -33,7 +33,6 @@ const NAMES = {
 };
 
 const describe = subject => {
-
     const summary = subjectSummary(subject.code);
 
     return {
@@ -52,17 +51,14 @@ const describe = subject => {
 
 /** Sin datos al final: un hueco no es un 0 %. */
 const byDifficulty = (a, b) => {
-
     if (a.noSuperacion === null) return 1;
 
     if (b.noSuperacion === null) return -1;
 
     return b.noSuperacion - a.noSuperacion;
-
 };
 
 export const useCourse = source => {
-
     const number = computed(() => Number(read(source)));
 
     const valid = computed(() => Boolean(NAMES[number.value]));
@@ -80,7 +76,6 @@ export const useCourse = source => {
     );
 
     return {
-
         number,
 
         valid,
@@ -105,7 +100,6 @@ export const useCourse = source => {
         // de la sección, y es la clase de detalle que se escribe a mano y
         // envejece: aquí sale del catálogo.
         alsoInCourses: computed(() => {
-
             const others = new Set();
 
             optativas.value.forEach(subject =>
@@ -115,11 +109,8 @@ export const useCourse = source => {
             );
 
             return [...others].sort();
-
         }),
 
         recentYears: RECENT_YEARS
-
     };
-
 };

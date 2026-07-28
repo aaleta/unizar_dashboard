@@ -29,9 +29,23 @@ const normalize = name =>
  * no "Mar\u00eda De La Fuente".
  */
 const CONNECTORS = new Set([
-    "de", "del", "la", "las", "los", "el",
-    "y", "e", "i", "da", "do", "das", "dos",
-    "van", "von", "der", "di"
+    "de",
+    "del",
+    "la",
+    "las",
+    "los",
+    "el",
+    "y",
+    "e",
+    "i",
+    "da",
+    "do",
+    "das",
+    "dos",
+    "van",
+    "von",
+    "der",
+    "di"
 ]);
 
 /**
@@ -50,14 +64,13 @@ const titleCase = name =>
             index > 0 && CONNECTORS.has(word)
                 ? word
                 : word
-                    .split("-")
-                    .map(part => part.charAt(0).toUpperCase() + part.slice(1))
-                    .join("-")
+                      .split("-")
+                      .map(part => part.charAt(0).toUpperCase() + part.slice(1))
+                      .join("-")
         )
         .join(" ");
 
 const shortName = name => {
-
     const parts = name.split(" ");
 
     if (parts.length === 1) return name;
@@ -65,7 +78,6 @@ const shortName = name => {
     return parts
         .map((part, i) => (i === 0 ? part : `${part.charAt(0)}.`))
         .join(" ");
-
 };
 
 const pairKey = (a, b) => (a < b ? `${a}|${b}` : `${b}|${a}`);
@@ -82,20 +94,16 @@ const years = [...new Set(usableRows.map(row => row.anyo_academico))].sort();
  * @returns {{ nodes: Array, edges: Array }} formato de vis-network
  */
 const buildGraph = rows => {
-
     const professors = new Map();
     const weights = new Map();
 
     rows.forEach(row => {
-
         const teachers = row.profesores
             .filter(name => normalize(name) !== UNASSIGNED)
             .map(name => {
-
                 const id = normalize(name);
 
                 if (!professors.has(id)) {
-
                     professors.set(id, {
                         id,
                         label: shortName(titleCase(name)),
@@ -103,7 +111,6 @@ const buildGraph = rows => {
                         subjects: new Set(),
                         years: new Set()
                     });
-
                 }
 
                 const professor = professors.get(id);
@@ -112,7 +119,6 @@ const buildGraph = rows => {
                 professor.years.add(row.anyo_academico);
 
                 return id;
-
             });
 
         // Sin pareja no hay colaboración que pesar.
@@ -122,9 +128,7 @@ const buildGraph = rows => {
         const share = 1 / teachers.length;
 
         for (let i = 0; i < teachers.length; i++) {
-
             for (let j = i + 1; j < teachers.length; j++) {
-
                 const key = pairKey(teachers[i], teachers[j]);
 
                 const current = weights.get(key) ?? { weight: 0, shared: 0 };
@@ -133,11 +137,8 @@ const buildGraph = rows => {
                 current.shared += 1;
 
                 weights.set(key, current);
-
             }
-
         }
-
     });
 
     /**
@@ -163,7 +164,6 @@ const buildGraph = rows => {
     }));
 
     const edges = [...weights.entries()].map(([key, data]) => {
-
         const [from, to] = key.split("|");
 
         return {
@@ -176,21 +176,17 @@ const buildGraph = rows => {
                 `Peso de colaboración: ${data.weight.toFixed(2)}\n` +
                 `${data.shared} asignatura(s)-curso compartidas`
         };
-
     });
 
     return { nodes, edges };
-
 };
 
 const cache = {};
 
 years.forEach(year => {
-
     cache[year] = buildGraph(
         usableRows.filter(row => row.anyo_academico === year)
     );
-
 });
 
 // Vista agregada: todos los cursos académicos a la vez.

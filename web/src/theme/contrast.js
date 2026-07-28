@@ -16,7 +16,6 @@ const INK = "#23201b";
 const ON_DARK = "#ffffff";
 
 const luminance = color => {
-
     const channels = [1, 3, 5]
         .map(i => parseInt(color.substr(i, 2), 16) / 255)
         .map(value =>
@@ -24,15 +23,12 @@ const luminance = color => {
         );
 
     return 0.2126 * channels[0] + 0.7152 * channels[1] + 0.0722 * channels[2];
-
 };
 
 export const contrastRatio = (a, b) => {
-
     const [high, low] = [luminance(a), luminance(b)].sort((x, y) => y - x);
 
     return (high + 0.05) / (low + 0.05);
-
 };
 
 /**
@@ -46,12 +42,10 @@ export const contrastRatio = (a, b) => {
  * no se lee.
  */
 export const readableInk = (background, minimum = 4.5) => {
-
     const dark = contrastRatio(INK, background);
     const light = contrastRatio(ON_DARK, background);
 
     if (Math.max(dark, light) < minimum) return null;
 
     return dark >= light ? "var(--ink)" : "var(--ink-on-navy)";
-
 };

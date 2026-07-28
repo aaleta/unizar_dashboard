@@ -1,5 +1,4 @@
 <script setup>
-
 /**
  * Tarjeta de asignatura: la unidad que se repite en la vista de curso y en el
  * catálogo de optativas.
@@ -23,7 +22,6 @@ import { computed } from "vue";
 import { difficultyInk } from "@/theme/difficulty";
 
 const props = defineProps({
-
     code: {
         type: Number,
         required: true
@@ -86,19 +84,18 @@ const props = defineProps({
         type: Boolean,
         default: false
     }
-
 });
 
-const pct = value =>
-    value === null ? "—" : `${Math.round(value)}%`;
+const pct = value => (value === null ? "—" : `${Math.round(value)}%`);
 
 // El titular va a 15,5px. No llega a "texto grande" (18,66px en negrita),
 // así que necesita 4,5:1 y le toca el tono oscurecido de la rampa.
 const headline = computed(() => difficultyInk(props.noSuperacion, true));
 
-const metaLine = computed(() =>
-    props.meta
-        ?? (props.enrolment === null
+const metaLine = computed(
+    () =>
+        props.meta ??
+        (props.enrolment === null
             ? null
             : `${Math.round(props.enrolment)} matriculados`)
 );
@@ -108,264 +105,202 @@ const secondaryStat = computed(() =>
         ? { label: "Sob+MH", value: props.excelencia }
         : { label: "no pres.", value: props.noPresentados }
 );
-
 </script>
 
 <template>
-
-<RouterLink
-    :to="`/asignatura/${code}`"
-    class="card"
-    :class="{ optative }"
->
-
-    <div class="top">
-
-        <div class="identity">
-
-            <div class="name">
-                {{ name }}
-                <!-- El aviso va pegado al nombre y no solo en el pie: quien
+    <RouterLink :to="`/asignatura/${code}`" class="card" :class="{ optative }">
+        <div class="top">
+            <div class="identity">
+                <div class="name">
+                    {{ name }}
+                    <!-- El aviso va pegado al nombre y no solo en el pie: quien
                      ordena por "más fáciles" se encuentra estas arriba del
                      todo, y tiene que ver por qué antes de creerse el 0 %. -->
-                <span
-                    v-if="smallCohort"
-                    class="warn"
-                    title="Menos de 10 alumnos: los porcentajes bailan mucho"
-                >⚠</span>
+                    <span
+                        v-if="smallCohort"
+                        class="warn"
+                        title="Menos de 10 alumnos: los porcentajes bailan mucho"
+                        >⚠</span
+                    >
+                </div>
+
+                <div v-if="metaLine" class="meta">
+                    {{ metaLine }}
+                </div>
             </div>
 
-            <div
-                v-if="metaLine"
-                class="meta"
-            >
-                {{ metaLine }}
-            </div>
+            <div class="headline">
+                <div class="value num" :style="{ color: headline }">
+                    {{ pct(noSuperacion) }}
+                </div>
 
+                <div class="caption">no superan</div>
+            </div>
         </div>
 
-        <div class="headline">
-
-            <div
-                class="value num"
-                :style="{ color: headline }"
-            >
-                {{ pct(noSuperacion) }}
-            </div>
-
-            <div class="caption">no superan</div>
-
-        </div>
-
-    </div>
-
-    <!-- Con cohorte pequeña el pie NO enseña porcentajes: repetir "aprueban
+        <!-- Con cohorte pequeña el pie NO enseña porcentajes: repetir "aprueban
          el 100 %" debajo del aviso de que los porcentajes no valen sería
          contradecirse en dos líneas. -->
-    <div
-        v-if="smallCohort"
-        class="foot"
-    >
-        <span class="cohort">
-            Menos de 10 alumnos: los porcentajes bailan mucho.
-        </span>
-        <span class="go">Ver ficha →</span>
-    </div>
+        <div v-if="smallCohort" class="foot">
+            <span class="cohort">
+                Menos de 10 alumnos: los porcentajes bailan mucho.
+            </span>
+            <span class="go">Ver ficha →</span>
+        </div>
 
-    <div
-        v-else
-        class="foot"
-    >
+        <div v-else class="foot">
+            <span class="stat">
+                aprueban <strong class="num">{{ pct(rendimiento) }}</strong>
+            </span>
 
-        <span class="stat">
-            aprueban <strong class="num">{{ pct(rendimiento) }}</strong>
-        </span>
+            <span class="stat">
+                {{ secondaryStat.label }}
+                <strong class="num">{{ pct(secondaryStat.value) }}</strong>
+            </span>
 
-        <span class="stat">
-            {{ secondaryStat.label }}
-            <strong class="num">{{ pct(secondaryStat.value) }}</strong>
-        </span>
-
-        <span class="go">Ver ficha →</span>
-
-    </div>
-
-</RouterLink>
-
+            <span class="go">Ver ficha →</span>
+        </div>
+    </RouterLink>
 </template>
 
 <style scoped>
+.card {
+    display: block;
 
-.card{
+    padding: 13px 14px;
 
-    display:block;
+    background: var(--surface);
 
-    padding:13px 14px;
+    border: 1px solid var(--line);
 
-    background:var(--surface);
+    border-radius: 12px;
 
-    border:1px solid var(--line);
+    box-shadow: var(--shadow-card);
 
-    border-radius:12px;
-
-    box-shadow:var(--shadow-card);
-
-    color:var(--ink);
-
+    color: var(--ink);
 }
 
-.card:active{
-
-    border-color:var(--line-strong);
-
+.card:active {
+    border-color: var(--line-strong);
 }
 
-.card.optative{
+.card.optative {
+    background: var(--surface-alt);
 
-    background:var(--surface-alt);
+    border-style: dashed;
 
-    border-style:dashed;
+    border-color: var(--line-dashed);
 
-    border-color:var(--line-dashed);
-
-    box-shadow:none;
-
+    box-shadow: none;
 }
 
-.top{
+.top {
+    display: flex;
 
-    display:flex;
+    align-items: flex-start;
 
-    align-items:flex-start;
+    justify-content: space-between;
 
-    justify-content:space-between;
-
-    gap:10px;
-
+    gap: 10px;
 }
 
-.identity{
+.identity {
+    flex: 1;
 
-    flex:1;
-
-    min-width:0;
-
+    min-width: 0;
 }
 
-.name{
+.name {
+    font-family: var(--font-serif);
 
-    font-family:var(--font-serif);
+    font-size: 15px;
 
-    font-size:15px;
+    font-weight: 600;
 
-    font-weight:600;
-
-    line-height:1.2;
-
+    line-height: 1.2;
 }
 
-.warn{
+.warn {
+    color: var(--attention);
 
-    color:var(--attention);
-
-    font-size:12px;
-
+    font-size: 12px;
 }
 
-.meta{
+.meta {
+    margin-top: 3px;
 
-    margin-top:3px;
+    font-family: var(--font-mono);
 
-    font-family:var(--font-mono);
+    font-size: var(--text-eyebrow);
 
-    font-size:var(--text-eyebrow);
-
-    color:var(--ink-soft);
-
+    color: var(--ink-soft);
 }
 
-.headline{
+.headline {
+    flex: none;
 
-    flex:none;
-
-    text-align:right;
-
+    text-align: right;
 }
 
-.headline .value{
+.headline .value {
+    font-size: var(--text-metric);
 
-    font-size:var(--text-metric);
-
-    line-height:1;
-
+    line-height: 1;
 }
 
-.caption{
+.caption {
+    margin-top: 2px;
 
-    margin-top:2px;
+    font-size: 8px;
 
-    font-size:8px;
-
-    color:var(--ink-faint);
-
+    color: var(--ink-faint);
 }
 
-.cohort{
+.cohort {
+    flex: 1;
 
-    flex:1;
+    min-width: 0;
 
-    min-width:0;
+    font-size: 9.5px;
 
-    font-size:9.5px;
+    line-height: var(--leading-snug);
 
-    line-height:var(--leading-snug);
-
-    color:var(--attention-ink);
-
+    color: var(--attention-ink);
 }
 
-.foot{
+.foot {
+    display: flex;
 
-    display:flex;
+    align-items: center;
 
-    align-items:center;
+    gap: 16px;
 
-    gap:16px;
+    margin-top: 11px;
 
-    margin-top:11px;
+    padding-top: 10px;
 
-    padding-top:10px;
-
-    border-top:1px solid var(--line-inner);
-
+    border-top: 1px solid var(--line-inner);
 }
 
-.stat{
+.stat {
+    font-size: 10.5px;
 
-    font-size:10.5px;
-
-    color:var(--ink-muted);
-
+    color: var(--ink-muted);
 }
 
-.stat strong{
+.stat strong {
+    color: var(--ink);
 
-    color:var(--ink);
-
-    font-weight:600;
-
+    font-weight: 600;
 }
 
-.go{
+.go {
+    margin-left: auto;
 
-    margin-left:auto;
+    font-size: var(--text-body-xs);
 
-    font-size:var(--text-body-xs);
+    font-weight: 600;
 
-    font-weight:600;
-
-    color:var(--navy);
-
+    color: var(--navy);
 }
-
 </style>

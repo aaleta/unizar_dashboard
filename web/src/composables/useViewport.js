@@ -19,7 +19,6 @@ const DESKTOP = "(min-width: 900px)";
 const isDesktop = ref(false);
 
 if (typeof window !== "undefined" && window.matchMedia) {
-
     const query = window.matchMedia(DESKTOP);
 
     isDesktop.value = query.matches;
@@ -27,7 +26,6 @@ if (typeof window !== "undefined" && window.matchMedia) {
     query.addEventListener("change", event => {
         isDesktop.value = event.matches;
     });
-
 }
 
 export const useViewport = () => ({ isDesktop });

@@ -66,7 +66,6 @@ const rate = (numerator, denominator) =>
  * ------------------------------------------------------------------ */
 
 export const METRICS = {
-
     rendimiento: {
         key: "rendimiento",
         label: "Tasa de rendimiento",
@@ -93,8 +92,7 @@ export const METRICS = {
         key: "evaluacion",
         label: "Tasa de evaluación",
         shortLabel: "Evaluación",
-        definition:
-            "Alumnos que se presentan sobre el total de matriculados.",
+        definition: "Alumnos que se presentan sobre el total de matriculados.",
         base: "matriculados",
         higherIsBetter: true,
         compute: row => rate(presentados(row), matriculados(row))
@@ -128,8 +126,7 @@ export const METRICS = {
         key: "suspensos",
         label: "Suspensos sobre presentados",
         shortLabel: "Suspensos",
-        definition:
-            "Alumnos que suspenden sobre los que se presentan.",
+        definition: "Alumnos que suspenden sobre los que se presentan.",
         base: "presentados",
         higherIsBetter: false,
         compute: row => rate(suspensos(row), presentados(row))
@@ -145,7 +142,6 @@ export const METRICS = {
         higherIsBetter: true,
         compute: row => rate(excelentes(row), matriculados(row))
     }
-
 };
 
 export const metric = key => METRICS[key];
@@ -155,7 +151,6 @@ export const metric = key => METRICS[key];
  * ------------------------------------------------------------------ */
 
 export const BASES = {
-
     matriculados: {
         key: "matriculados",
         label: "Matriculados",
@@ -169,7 +164,6 @@ export const BASES = {
         caption: "% sobre los alumnos presentados",
         total: presentados
     }
-
 };
 
 /* ------------------------------------------------------------------ *
@@ -226,30 +220,24 @@ export const GRADE_CATEGORIES = [
  *          theme/gradePalette.js con la misma `key`.
  */
 export const distribution = (row, baseKey = "matriculados") => {
-
     if (!row) return [];
 
     const base = BASES[baseKey] ?? BASES.matriculados;
     const total = base.total(row);
 
-    return GRADE_CATEGORIES
-        .filter(category =>
-            baseKey === "matriculados" || !category.onlyOverMatriculados
-        )
-        .map(category => {
+    return GRADE_CATEGORIES.filter(
+        category => baseKey === "matriculados" || !category.onlyOverMatriculados
+    ).map(category => {
+        const count = category.count(row);
 
-            const count = category.count(row);
-
-            return {
-                key: category.key,
-                label: category.label,
-                short: category.short,
-                count,
-                pct: rate(count, total)
-            };
-
-        });
-
+        return {
+            key: category.key,
+            label: category.label,
+            short: category.short,
+            count,
+            pct: rate(count, total)
+        };
+    });
 };
 
 /* ------------------------------------------------------------------ *
@@ -259,13 +247,11 @@ export const distribution = (row, baseKey = "matriculados") => {
 const rowsByCode = new Map();
 
 notas.forEach(row => {
-
     const code = Number(row["Código"]);
 
     if (!rowsByCode.has(code)) rowsByCode.set(code, []);
 
     rowsByCode.get(code).push(row);
-
 });
 
 // Orden ascendente por curso académico: los últimos son los más recientes.
@@ -284,19 +270,16 @@ export const subjectYears = code =>
 
 /** Curso académico más reciente con datos, o null. */
 export const latestYear = code => {
-
     const years = subjectYears(code);
 
     return years.length ? years[years.length - 1] : null;
-
 };
 
 export const subjectRow = (code, year) =>
     subjectRows(code).find(row => row["Curso Académico"] === year) ?? null;
 
 /** Últimos N cursos de una lista ya ordenada ascendentemente. */
-export const lastYears = (rows, years = RECENT_YEARS) =>
-    rows.slice(-years);
+export const lastYears = (rows, years = RECENT_YEARS) => rows.slice(-years);
 
 /** Todos los cursos académicos presentes en el dataset, ascendente. */
 export const academicYears = [
@@ -318,7 +301,6 @@ export const academicYears = [
 const officialByCode = new Map();
 
 resultados.forEach(row => {
-
     const code = Number(row.code);
 
     if (!officialByCode.has(code)) officialByCode.set(code, []);
@@ -328,7 +310,6 @@ resultados.forEach(row => {
         // El origen guarda 2024; el resto de la web habla de "2024-2025".
         curso: `${row.anyo_academico}-${row.anyo_academico + 1}`
     });
-
 });
 
 officialByCode.forEach(rows =>
@@ -337,12 +318,13 @@ officialByCode.forEach(rows =>
 
 /** Cursos académicos cubiertos por los datos oficiales. */
 export const officialYears = [
-    ...new Set(resultados.map(row => `${row.anyo_academico}-${row.anyo_academico + 1}`))
+    ...new Set(
+        resultados.map(row => `${row.anyo_academico}-${row.anyo_academico + 1}`)
+    )
 ].sort();
 
 /** Fila oficial de una asignatura; sin año, la más reciente. */
 export const officialResult = (code, year = null) => {
-
     const rows = officialByCode.get(Number(code)) ?? [];
 
     if (!rows.length) return null;
@@ -350,7 +332,6 @@ export const officialResult = (code, year = null) => {
     if (!year) return rows[rows.length - 1];
 
     return rows.find(row => row.curso === year) ?? null;
-
 };
 
 /** Media de convocatorias consumidas: cuántos intentos cuesta la asignatura. */
@@ -370,15 +351,17 @@ export const averageSittings = (code, year = null) =>
  * @returns { curso, comparables, coinciden, difieren, diferenciaMaxima }
  */
 export const officialAgreement = (year, tolerance = 0.05) => {
-
     let comparables = 0;
     let coinciden = 0;
     let diferenciaMaxima = 0;
 
     resultados
-        .filter(official => `${official.anyo_academico}-${official.anyo_academico + 1}` === year)
+        .filter(
+            official =>
+                `${official.anyo_academico}-${official.anyo_academico + 1}` ===
+                year
+        )
         .forEach(official => {
-
             const row = subjectRow(official.code, year);
 
             if (!row || official.tasa_rendimiento === null) return;
@@ -394,7 +377,6 @@ export const officialAgreement = (year, tolerance = 0.05) => {
             if (delta <= tolerance) coinciden += 1;
 
             if (delta > diferenciaMaxima) diferenciaMaxima = delta;
-
         });
 
     return {
@@ -404,11 +386,11 @@ export const officialAgreement = (year, tolerance = 0.05) => {
         difieren: comparables - coinciden,
         diferenciaMaxima
     };
-
 };
 
 /** El curso oficial más reciente, que es el que se contrasta en metodología. */
-export const latestOfficialYear = officialYears[officialYears.length - 1] ?? null;
+export const latestOfficialYear =
+    officialYears[officialYears.length - 1] ?? null;
 
 /* ------------------------------------------------------------------ *
  * Agregación
@@ -419,14 +401,12 @@ export const latestOfficialYear = officialYears[officialYears.length - 1] ?? nul
  * (una asignatura de 100 alumnos pesa más que una de 5).
  */
 export const weightedRate = (rows, metricKey) => {
-
     const definition = METRICS[metricKey];
 
     let weighted = 0;
     let students = 0;
 
     rows.forEach(row => {
-
         const value = definition.compute(row);
 
         if (value === null) return;
@@ -435,11 +415,9 @@ export const weightedRate = (rows, metricKey) => {
 
         weighted += value * weight;
         students += weight;
-
     });
 
     return students ? weighted / students : null;
-
 };
 
 /** Métrica de una asignatura agregada sobre sus últimos N cursos. */
@@ -447,25 +425,26 @@ export const subjectRate = (code, metricKey, years = RECENT_YEARS) =>
     weightedRate(lastYears(subjectRows(code), years), metricKey);
 
 /** Misma métrica pero sobre los N cursos ANTERIORES al indicado (para deltas). */
-export const subjectRateBefore = (code, metricKey, year, years = RECENT_YEARS) => {
-
+export const subjectRateBefore = (
+    code,
+    metricKey,
+    year,
+    years = RECENT_YEARS
+) => {
     const previous = subjectRows(code).filter(
         row => row["Curso Académico"] < year
     );
 
     return weightedRate(lastYears(previous, years), metricKey);
-
 };
 
 /** Media de matriculados de una asignatura en sus últimos N cursos. */
 export const averageEnrolment = (code, years = RECENT_YEARS) => {
-
     const rows = lastYears(subjectRows(code), years);
 
     if (!rows.length) return 0;
 
     return rows.reduce((sum, row) => sum + matriculados(row), 0) / rows.length;
-
 };
 
 /** Serie temporal de una métrica: [{ year, value, matriculados }]. */
@@ -498,8 +477,9 @@ const subjectIndex = new Map(
             name: subject.nombre,
             tipo: subject.tipo,
             courses: subject.cursos.map(String),
-            enBolsa: subject.tipo === "optativa"
-                && subject.bolsa_optativas !== false,
+            enBolsa:
+                subject.tipo === "optativa" &&
+                subject.bolsa_optativas !== false,
             // Optativas de oferta bienal: el código de la asignatura con la
             // que se alternan, o null si se oferta todos los cursos.
             seAlternaCon: subject.se_alterna_con ?? null
@@ -512,17 +492,13 @@ export const subjectInfo = code => subjectIndex.get(Number(code)) ?? null;
 
 /** Nombre de la asignatura, con respaldo en las notas si no está catalogada. */
 export const subjectName = code => {
-
     const info = subjectInfo(code);
 
     if (info) return info.name;
 
     const rows = subjectRows(code);
 
-    return rows.length
-        ? rows[0]["Asignatura"].trim()
-        : `Asignatura ${code}`;
-
+    return rows.length ? rows[0]["Asignatura"].trim() : `Asignatura ${code}`;
 };
 
 /** Catálogo completo del grado: troncales y optativas, sin duplicados. */
@@ -533,7 +509,6 @@ export const allSubjects = [...subjectIndex.values()];
  * Todas las tasas son medias ponderadas de los últimos RECENT_YEARS cursos.
  */
 export const subjectSummary = code => {
-
     const info = subjectInfo(code);
     const rows = subjectRows(code);
     const recent = lastYears(rows);
@@ -556,19 +531,22 @@ export const subjectSummary = code => {
         // cohortes pequeñas donde los porcentajes no son fiables.
         recentStudents: recent.reduce((sum, row) => sum + matriculados(row), 0)
     };
-
 };
 
 /** Troncales de un curso. */
 export const coreSubjects = course =>
-    allSubjects.filter(subject =>
-        subject.tipo === "troncal" && subject.courses.includes(String(course))
+    allSubjects.filter(
+        subject =>
+            subject.tipo === "troncal" &&
+            subject.courses.includes(String(course))
     );
 
 /** Optativas de un curso, especiales incluidas. */
 export const optionalSubjectsOf = course =>
-    allSubjects.filter(subject =>
-        subject.tipo === "optativa" && subject.courses.includes(String(course))
+    allSubjects.filter(
+        subject =>
+            subject.tipo === "optativa" &&
+            subject.courses.includes(String(course))
     );
 
 /** Todas las optativas del grado, especiales de primero incluidas. */
@@ -605,13 +583,11 @@ export const courseRateForYear = (course, metricKey, year) =>
 
 /** Métrica agregada de un curso sobre sus últimos N cursos académicos. */
 export const courseRate = (course, metricKey, years = RECENT_YEARS) => {
-
     const rows = coreSubjects(course).flatMap(subject =>
         lastYears(subjectRows(subject.code), years)
     );
 
     return weightedRate(rows, metricKey);
-
 };
 
 /** Serie temporal de una métrica agregada de un curso. */
@@ -623,15 +599,11 @@ export const courseSeries = (course, metricKey) =>
 
 /** Métrica del grado restringida a una lista concreta de cursos académicos. */
 export const degreeRateForPeriod = (metricKey, years) => {
-
     const rows = allCoreSubjects.flatMap(subject =>
-        years
-            .map(year => subjectRow(subject.code, year))
-            .filter(Boolean)
+        years.map(year => subjectRow(subject.code, year)).filter(Boolean)
     );
 
     return weightedRate(rows, metricKey);
-
 };
 
 /** Cohorte demasiado pequeña para que los porcentajes signifiquen algo. */

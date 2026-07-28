@@ -1,5 +1,4 @@
 <script setup>
-
 /**
  * Cabecera de grupo dentro de una pantalla: "TRONCALES · 12" con su línea y,
  * a la derecha, el rótulo de la columna ("% que no aprueba").
@@ -13,7 +12,6 @@
  */
 
 defineProps({
-
     label: {
         type: String,
         required: true
@@ -36,101 +34,73 @@ defineProps({
         default: "navy",
         validator: value => ["navy", "gold", "muted"].includes(value)
     }
-
 });
-
 </script>
 
 <template>
+    <div class="header">
+        <span class="label" :class="tone">
+            {{ label }}<template v-if="count !== null"> · {{ count }}</template>
+        </span>
 
-<div class="header">
+        <div class="rule"></div>
 
-    <span
-        class="label"
-        :class="tone"
-    >
-        {{ label }}<template v-if="count !== null"> · {{ count }}</template>
-    </span>
-
-    <div class="rule"></div>
-
-    <span
-        v-if="hint"
-        class="hint"
-    >
-        {{ hint }}
-    </span>
-
-</div>
-
+        <span v-if="hint" class="hint">
+            {{ hint }}
+        </span>
+    </div>
 </template>
 
 <style scoped>
+.header {
+    display: flex;
 
-.header{
+    align-items: center;
 
-    display:flex;
-
-    align-items:center;
-
-    gap:7px;
-
+    gap: 7px;
 }
 
-.label{
+.label {
+    font-family: var(--font-mono);
 
-    font-family:var(--font-mono);
+    font-size: var(--text-eyebrow);
 
-    font-size:var(--text-eyebrow);
+    font-weight: 600;
 
-    font-weight:600;
+    letter-spacing: 0.5px;
 
-    letter-spacing:.5px;
+    text-transform: uppercase;
 
-    text-transform:uppercase;
-
-    white-space:nowrap;
-
+    white-space: nowrap;
 }
 
-.navy{
-
-    color:var(--navy);
-
+.navy {
+    color: var(--navy);
 }
 
-.gold{
-
-    color:var(--gold-ink);
-
+.gold {
+    color: var(--gold-ink);
 }
 
-.muted{
-
-    color:var(--ink-soft);
-
+.muted {
+    color: var(--ink-soft);
 }
 
-.rule{
+.rule {
+    flex: 1;
 
-    flex:1;
+    height: 1px;
 
-    height:1px;
-
-    background:var(--line);
-
+    background: var(--line);
 }
 
-.hint{
+.hint {
+    font-family: var(--font-mono);
 
-    font-family:var(--font-mono);
+    font-size: var(--text-footnote);
 
-    font-size:var(--text-footnote);
+    color: var(--ink-faint);
 
-    color:var(--ink-faint);
-
-    white-space:nowrap;
-
+    white-space: nowrap;
 }
-
 </style>

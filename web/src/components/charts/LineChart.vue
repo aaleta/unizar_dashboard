@@ -1,5 +1,4 @@
 <script setup>
-
 /**
  * Gráfica de líneas, en SVG a mano.
  *
@@ -20,7 +19,6 @@
 import { computed } from "vue";
 
 const props = defineProps({
-
     // [{ label, values: [n, n, …] }] — una entrada por línea.
     series: {
         type: Array,
@@ -60,7 +58,6 @@ const props = defineProps({
         type: Number,
         default: null
     }
-
 });
 
 const WIDTH = 300;
@@ -77,7 +74,6 @@ const flat = computed(() =>
  * margen del 8 % arriba y abajo para que las líneas no toquen los bordes.
  */
 const bounds = computed(() => {
-
     const min = Math.min(...flat.value);
     const max = Math.max(...flat.value);
     const margin = (max - min) * 0.08 || 1;
@@ -86,11 +82,9 @@ const bounds = computed(() => {
         min: props.yMin ?? min - margin,
         max: max + margin
     };
-
 });
 
 const x = index => {
-
     const count = props.labels.length;
 
     if (count <= 1) return PAD.left;
@@ -98,16 +92,13 @@ const x = index => {
     const span = WIDTH - PAD.left - PAD.right;
 
     return PAD.left + (index / (count - 1)) * span;
-
 };
 
 const y = value => {
-
     const { min, max } = bounds.value;
     const span = HEIGHT - PAD.top - PAD.bottom;
 
     return PAD.top + span - ((value - min) / (max - min)) * span;
-
 };
 
 const paths = computed(() =>
@@ -127,7 +118,6 @@ const paths = computed(() =>
 
 /** Tres marcas en el eje Y: abajo, en medio y arriba. */
 const yTicks = computed(() => {
-
     const { min, max } = bounds.value;
 
     return [max, (max + min) / 2, min].map(value => ({
@@ -135,7 +125,6 @@ const yTicks = computed(() => {
         y: y(value),
         text: props.formatValue(value)
     }));
-
 });
 
 /**
@@ -154,7 +143,6 @@ const yGrid = computed(() => yTicks.value.slice(0, -1));
  * que son las que sitúan la serie.
  */
 const xTicks = computed(() => {
-
     const count = props.labels.length;
 
     if (count <= props.maxTicks) {
@@ -167,198 +155,178 @@ const xTicks = computed(() => {
         const index = Math.round(i * step);
         return { label: props.labels[index], x: x(index) };
     });
-
 });
 
 const describe = computed(() =>
     props.series
         .map(item => {
             const values = item.values.filter(value => value !== null);
-            return `${item.label}: de ${props.formatValue(values[0])} `
-                + `a ${props.formatValue(values[values.length - 1])}`;
+            return (
+                `${item.label}: de ${props.formatValue(values[0])} ` +
+                `a ${props.formatValue(values[values.length - 1])}`
+            );
         })
         .join(". ")
 );
-
 </script>
 
 <template>
-
-<figure class="chart">
-
-    <figcaption class="legend">
-        <span
-            v-for="(item, index) in series"
-            :key="item.label"
-            class="legendItem"
-        >
+    <figure class="chart">
+        <figcaption class="legend">
             <span
-                class="swatch"
-                :style="{ background: colors[index] }"
-            ></span>
-            {{ item.label }}
-        </span>
-    </figcaption>
+                v-for="(item, index) in series"
+                :key="item.label"
+                class="legendItem"
+            >
+                <span
+                    class="swatch"
+                    :style="{ background: colors[index] }"
+                ></span>
+                {{ item.label }}
+            </span>
+        </figcaption>
 
-    <svg
-        :viewBox="`0 0 ${WIDTH} ${HEIGHT}`"
-        role="img"
-        :aria-label="describe"
-    >
+        <svg
+            :viewBox="`0 0 ${WIDTH} ${HEIGHT}`"
+            role="img"
+            :aria-label="describe"
+        >
+            <line
+                :x1="PAD.left"
+                :y1="PAD.top"
+                :x2="PAD.left"
+                :y2="HEIGHT - PAD.bottom"
+                class="axis"
+            />
+            <line
+                :x1="PAD.left"
+                :y1="HEIGHT - PAD.bottom"
+                :x2="WIDTH - PAD.right"
+                :y2="HEIGHT - PAD.bottom"
+                class="axis"
+            />
 
-        <line
-            :x1="PAD.left"
-            :y1="PAD.top"
-            :x2="PAD.left"
-            :y2="HEIGHT - PAD.bottom"
-            class="axis"
-        />
-        <line
-            :x1="PAD.left"
-            :y1="HEIGHT - PAD.bottom"
-            :x2="WIDTH - PAD.right"
-            :y2="HEIGHT - PAD.bottom"
-            class="axis"
-        />
+            <!-- Antes que las líneas: la rejilla va detrás del dato, no encima. -->
+            <line
+                v-for="tick in yGrid"
+                :key="`grid-${tick.value}`"
+                :x1="PAD.left"
+                :y1="tick.y"
+                :x2="WIDTH - PAD.right"
+                :y2="tick.y"
+                class="grid"
+            />
 
-        <!-- Antes que las líneas: la rejilla va detrás del dato, no encima. -->
-        <line
-            v-for="tick in yGrid"
-            :key="`grid-${tick.value}`"
-            :x1="PAD.left"
-            :y1="tick.y"
-            :x2="WIDTH - PAD.right"
-            :y2="tick.y"
-            class="grid"
-        />
+            <text
+                v-for="tick in yTicks"
+                :key="`y-${tick.value}`"
+                :x="PAD.left - 6"
+                :y="tick.y + 2.5"
+                text-anchor="end"
+                class="tick"
+            >
+                {{ tick.text }}
+            </text>
 
-        <text
-            v-for="tick in yTicks"
-            :key="`y-${tick.value}`"
-            :x="PAD.left - 6"
-            :y="tick.y + 2.5"
-            text-anchor="end"
-            class="tick"
-        >{{ tick.text }}</text>
+            <polyline
+                v-for="path in paths"
+                :key="path.label"
+                :points="path.points"
+                :stroke="path.color"
+                fill="none"
+                stroke-width="2.4"
+                stroke-linejoin="round"
+                stroke-linecap="round"
+            />
 
-        <polyline
-            v-for="path in paths"
-            :key="path.label"
-            :points="path.points"
-            :stroke="path.color"
-            fill="none"
-            stroke-width="2.4"
-            stroke-linejoin="round"
-            stroke-linecap="round"
-        />
+            <!-- Un punto en el último valor: es el que la gente busca. -->
+            <circle
+                v-for="path in paths"
+                :key="`dot-${path.label}`"
+                :cx="path.last.x"
+                :cy="path.last.y"
+                r="3"
+                :fill="path.color"
+            />
 
-        <!-- Un punto en el último valor: es el que la gente busca. -->
-        <circle
-            v-for="path in paths"
-            :key="`dot-${path.label}`"
-            :cx="path.last.x"
-            :cy="path.last.y"
-            r="3"
-            :fill="path.color"
-        />
-
-        <text
-            v-for="tick in xTicks"
-            :key="`x-${tick.label}`"
-            :x="tick.x"
-            :y="HEIGHT - PAD.bottom + 12"
-            text-anchor="middle"
-            class="tick"
-        >{{ tick.label }}</text>
-
-    </svg>
-
-</figure>
-
+            <text
+                v-for="tick in xTicks"
+                :key="`x-${tick.label}`"
+                :x="tick.x"
+                :y="HEIGHT - PAD.bottom + 12"
+                text-anchor="middle"
+                class="tick"
+            >
+                {{ tick.label }}
+            </text>
+        </svg>
+    </figure>
 </template>
 
 <style scoped>
-
-.chart{
-
-    margin:0;
-
+.chart {
+    margin: 0;
 }
 
-.legend{
+.legend {
+    display: flex;
 
-    display:flex;
+    flex-wrap: wrap;
 
-    flex-wrap:wrap;
+    gap: 14px;
 
-    gap:14px;
-
-    margin:9px 0 12px;
-
+    margin: 9px 0 12px;
 }
 
-.legendItem{
+.legendItem {
+    display: flex;
 
-    display:flex;
+    align-items: center;
 
-    align-items:center;
+    gap: 5px;
 
-    gap:5px;
+    font-size: var(--text-num-sm);
 
-    font-size:var(--text-num-sm);
-
-    color:var(--ink-muted);
-
+    color: var(--ink-muted);
 }
 
-.swatch{
+.swatch {
+    width: 14px;
 
-    width:14px;
+    height: 3px;
 
-    height:3px;
-
-    border-radius:2px;
-
+    border-radius: 2px;
 }
 
-svg{
+svg {
+    display: block;
 
-    display:block;
+    width: 100%;
 
-    width:100%;
-
-    height:auto;
-
+    height: auto;
 }
 
-.axis{
+.axis {
+    stroke: var(--line);
 
-    stroke:var(--line);
-
-    stroke-width:1;
-
+    stroke-width: 1;
 }
 
 /* Mismo color que el eje: lo que la separa es el trazo discontinuo, que a
    igualdad de tinta pesa la mitad. La guía orienta, no compite. */
-.grid{
+.grid {
+    stroke: var(--line);
 
-    stroke:var(--line);
+    stroke-width: 1;
 
-    stroke-width:1;
-
-    stroke-dasharray:2 4;
-
+    stroke-dasharray: 2 4;
 }
 
-.tick{
+.tick {
+    font-family: var(--font-mono);
 
-    font-family:var(--font-mono);
+    font-size: 7.5px;
 
-    font-size:7.5px;
-
-    fill:var(--ink-faint);
-
+    fill: var(--ink-faint);
 }
-
 </style>

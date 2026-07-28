@@ -29,7 +29,6 @@ export const pageHeader = override;
  *               datos que cambian, pasar la función).
  */
 export const usePageHeader = source => {
-
     watchEffect(() => {
         override.value = typeof source === "function" ? source() : source;
     });
@@ -37,5 +36,4 @@ export const usePageHeader = source => {
     onUnmounted(() => {
         override.value = null;
     });
-
 };

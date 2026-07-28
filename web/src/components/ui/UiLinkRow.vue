@@ -1,5 +1,4 @@
 <script setup>
-
 /**
  * Fila pulsable de una lista: asignatura, profesor, destino del menú "Más".
  *
@@ -14,7 +13,6 @@
  */
 
 defineProps({
-
     // RouterLink si navega; sin `to`, un <div> que no finge ser pulsable.
     to: {
         type: [String, Object],
@@ -37,136 +35,112 @@ defineProps({
         type: Boolean,
         default: false
     }
-
 });
-
 </script>
 
 <template>
-
-<component
-    :is="to ? 'RouterLink' : 'div'"
-    :to="to || undefined"
-    class="row"
-    :class="[variant, { selected, tappable: !!to }]"
->
-
-    <slot name="lead" />
-
-    <div class="main">
-        <slot />
-    </div>
-
-    <slot name="trail" />
-
-    <svg
-        v-if="chevron"
-        class="chevron"
-        width="7"
-        height="12"
-        viewBox="0 0 8 14"
-        aria-hidden="true"
+    <component
+        :is="to ? 'RouterLink' : 'div'"
+        :to="to || undefined"
+        class="row"
+        :class="[variant, { selected, tappable: !!to }]"
     >
-        <path
-            d="M1 1l6 6-6 6"
-            stroke="currentColor"
-            stroke-width="2"
-            fill="none"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-        />
-    </svg>
+        <slot name="lead" />
 
-</component>
+        <div class="main">
+            <slot />
+        </div>
 
+        <slot name="trail" />
+
+        <svg
+            v-if="chevron"
+            class="chevron"
+            width="7"
+            height="12"
+            viewBox="0 0 8 14"
+            aria-hidden="true"
+        >
+            <path
+                d="M1 1l6 6-6 6"
+                stroke="currentColor"
+                stroke-width="2"
+                fill="none"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+            />
+        </svg>
+    </component>
 </template>
 
 <style scoped>
+.row {
+    display: flex;
 
-.row{
+    align-items: center;
 
-    display:flex;
+    gap: 9px;
 
-    align-items:center;
+    min-height: var(--touch-target);
 
-    gap:9px;
+    padding: 7px 11px;
 
-    min-height:var(--touch-target);
+    border-radius: var(--radius-row);
 
-    padding:7px 11px;
+    color: var(--ink);
 
-    border-radius:var(--radius-row);
-
-    color:var(--ink);
-
-    text-decoration:none;
-
+    text-decoration: none;
 }
 
-.main{
+.main {
+    flex: 1;
 
-    flex:1;
+    min-width: 0;
 
-    min-width:0;
-
-    font-size:var(--text-body);
-
+    font-size: var(--text-body);
 }
 
-.solid{
+.solid {
+    background: var(--surface);
 
-    background:var(--surface);
-
-    border:1px solid var(--line);
-
+    border: 1px solid var(--line);
 }
 
-.dashed{
+.dashed {
+    background: transparent;
 
-    background:transparent;
-
-    border:1px dashed var(--line-dashed);
-
+    border: 1px dashed var(--line-dashed);
 }
 
-.plain{
+.plain {
+    background: none;
 
-    background:none;
-
-    border:1px solid transparent;
-
+    border: 1px solid transparent;
 }
 
-.tappable{
-
-    transition:background .15s,border-color .15s;
-
+.tappable {
+    transition:
+        background 0.15s,
+        border-color 0.15s;
 }
 
-.tappable:active{
-
-    background:var(--navy-wash);
-
+.tappable:active {
+    background: var(--navy-wash);
 }
 
-.selected{
+.selected {
+    background: var(--navy-wash);
 
-    background:var(--navy-wash);
-
-    border-color:var(--navy-wash-line);
+    border-color: var(--navy-wash-line);
 
     /* El borde izquierdo marca la fila abierta sin desplazar el contenido:
        se pinta por dentro, así la fila no cambia de tamaño al seleccionarse. */
-    box-shadow:inset 3px 0 0 var(--navy);
-
+    box-shadow: inset 3px 0 0 var(--navy);
 }
 
-.chevron{
+.chevron {
+    flex: none;
 
-    flex:none;
-
-    color:var(--ink-faint);
-
+    color: var(--ink-faint);
 }
-
 </style>

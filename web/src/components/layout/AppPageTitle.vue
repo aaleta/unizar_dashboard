@@ -1,5 +1,4 @@
 <script setup>
-
 /**
  * La banda de título: dice en qué pantalla estás, justo debajo de la marca.
  *
@@ -15,57 +14,43 @@
  */
 
 defineProps({
-
     title: {
         type: String,
         default: null
     }
-
 });
-
 </script>
 
 <template>
-
-<div
-    v-if="title"
-    class="band"
->
-    <h1 class="title">{{ title }}</h1>
-</div>
-
+    <div v-if="title" class="band">
+        <h1 class="title">{{ title }}</h1>
+    </div>
 </template>
 
 <style scoped>
-
 /* Sin relleno inferior: el hueco hasta el contenido lo pone el `padding-top`
    que cada pantalla ya tenía. Poner otro aquí los sumaría a los dos. */
-.band{
-
-    padding:18px var(--gutter) 0;
-
+.band {
+    padding: 18px var(--gutter) 0;
 }
 
-.title{
+.title {
+    max-width: var(--content-max);
 
-    max-width:var(--content-max);
+    margin: 0 auto;
 
-    margin:0 auto;
+    font-family: var(--font-serif);
 
-    font-family:var(--font-serif);
+    font-size: var(--text-h1-lg);
 
-    font-size:var(--text-h1-lg);
+    font-weight: 700;
 
-    font-weight:700;
+    line-height: 1.15;
 
-    line-height:1.15;
-
-    color:var(--ink);
+    color: var(--ink);
 
     /* Los títulos largos —el nombre de una asignatura— parten mejor por
        donde el sentido lo pide que por donde cae el ancho. */
-    text-wrap:pretty;
-
+    text-wrap: pretty;
 }
-
 </style>

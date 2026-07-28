@@ -19,10 +19,7 @@ import { subjectName } from "@/utils/metrics";
 const graph = cache[ALL_YEARS];
 
 const normalize = text =>
-    String(text)
-        .normalize("NFD")
-        .replace(/[̀-ͯ]/g, "")
-        .toLowerCase();
+    String(text).normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase();
 
 /**
  * Índice de colaboradores por persona. Se construye una vez al cargar el
@@ -32,9 +29,10 @@ const normalize = text =>
 const collaborators = new Map();
 
 graph.edges.forEach(edge => {
-
-    [[edge.from, edge.to], [edge.to, edge.from]].forEach(([self, other]) => {
-
+    [
+        [edge.from, edge.to],
+        [edge.to, edge.from]
+    ].forEach(([self, other]) => {
         if (!collaborators.has(self)) collaborators.set(self, []);
 
         collaborators.get(self).push({
@@ -42,9 +40,7 @@ graph.edges.forEach(edge => {
             weight: edge.weight,
             shared: edge.shared
         });
-
     });
-
 });
 
 collaborators.forEach(list => list.sort((a, b) => b.weight - a.weight));
@@ -65,7 +61,6 @@ const currentSubjects = new Map(
 
 const people = graph.nodes
     .map(node => {
-
         const edges = collaborators.get(node.id) ?? [];
 
         return {
@@ -82,23 +77,22 @@ const people = graph.nodes
             active: node.years.includes(latestYear),
             search: normalize(node.fullName)
         };
-
     })
     // Ordenados por peso acumulado: la misma magnitud que dimensiona las
     // barras de la ficha, para que la lista y la ficha cuenten lo mismo.
-    .sort((a, b) =>
-        b.totalWeight - a.totalWeight || b.nSubjects - a.nSubjects
-    );
+    .sort((a, b) => b.totalWeight - a.totalWeight || b.nSubjects - a.nSubjects);
 
 const peopleById = new Map(people.map(person => [person.id, person]));
 
-export const useProfessorNetwork = (querySource, selectedSource, activeOnlySource) => {
-
+export const useProfessorNetwork = (
+    querySource,
+    selectedSource,
+    activeOnlySource
+) => {
     const read = source =>
         typeof source === "function" ? source() : unref(source);
 
     const results = computed(() => {
-
         const needle = normalize(String(read(querySource) ?? "").trim());
 
         const pool = read(activeOnlySource)
@@ -108,12 +102,10 @@ export const useProfessorNetwork = (querySource, selectedSource, activeOnlySourc
         return needle
             ? pool.filter(person => person.search.includes(needle))
             : pool;
-
     });
 
     /** La ficha abierta: por defecto, la persona de mayor alcance. */
     const selected = computed(() => {
-
         const id = read(selectedSource) || results.value[0]?.id;
 
         const person = peopleById.get(id);
@@ -130,10 +122,12 @@ export const useProfessorNetwork = (querySource, selectedSource, activeOnlySourc
 
         return {
             ...person,
-            currentSubjectItems:
-                subjectItems.filter(subject => current.has(subject.code)),
-            pastSubjectItems:
-                subjectItems.filter(subject => !current.has(subject.code)),
+            currentSubjectItems: subjectItems.filter(subject =>
+                current.has(subject.code)
+            ),
+            pastSubjectItems: subjectItems.filter(
+                subject => !current.has(subject.code)
+            ),
             topCollaborators: (collaborators.get(person.id) ?? [])
                 .slice(0, 5)
                 .map(item => ({
@@ -143,11 +137,9 @@ export const useProfessorNetwork = (querySource, selectedSource, activeOnlySourc
                     shared: item.shared
                 }))
         };
-
     });
 
     return {
-
         results,
 
         selected,
@@ -158,7 +150,5 @@ export const useProfessorNetwork = (querySource, selectedSource, activeOnlySourc
             collaborations: graph.edges.length,
             years: availableYears.length
         }
-
     };
-
 };

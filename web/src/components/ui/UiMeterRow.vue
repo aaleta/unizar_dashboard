@@ -1,5 +1,4 @@
 <script setup>
-
 /**
  * Fila de barra horizontal: rótulo, barra y cifra.
  *
@@ -22,7 +21,6 @@ import { computed } from "vue";
 import { difficultyFill, difficultyInk } from "@/theme/difficulty";
 
 const props = defineProps({
-
     label: {
         type: String,
         required: true
@@ -62,7 +60,6 @@ const props = defineProps({
         type: Boolean,
         default: false
     }
-
 });
 
 const source = computed(() =>
@@ -85,110 +82,90 @@ const width = computed(() =>
     props.value === null ? 0 : Math.max(0, Math.min(100, props.value))
 );
 
-const text = computed(() =>
-    props.display ?? (props.value === null ? "—" : `${Math.round(props.value)}%`)
+const text = computed(
+    () =>
+        props.display ??
+        (props.value === null ? "—" : `${Math.round(props.value)}%`)
 );
-
 </script>
 
 <template>
+    <div class="row">
+        <span
+            class="label"
+            :class="{ muted }"
+            :style="{ width: `${labelWidth}px` }"
+        >
+            {{ label }}
+        </span>
 
-<div class="row">
+        <div class="track">
+            <div
+                class="fill"
+                :style="{ width: `${width}%`, background: fill }"
+            ></div>
+        </div>
 
-    <span
-        class="label"
-        :class="{ muted }"
-        :style="{ width: `${labelWidth}px` }"
-    >
-        {{ label }}
-    </span>
-
-    <div class="track">
-        <div
-            class="fill"
-            :style="{ width: `${width}%`, background: fill }"
-        ></div>
+        <span class="value num" :style="{ color: ink }">
+            {{ text }}
+        </span>
     </div>
-
-    <span
-        class="value num"
-        :style="{ color: ink }"
-    >
-        {{ text }}
-    </span>
-
-</div>
-
 </template>
 
 <style scoped>
+.row {
+    display: flex;
 
-.row{
+    align-items: center;
 
-    display:flex;
-
-    align-items:center;
-
-    gap:9px;
-
+    gap: 9px;
 }
 
-.label{
+.label {
+    flex: none;
 
-    flex:none;
+    font-size: var(--text-body-xs);
 
-    font-size:var(--text-body-xs);
+    color: var(--ink);
 
-    color:var(--ink);
+    white-space: nowrap;
 
-    white-space:nowrap;
+    overflow: hidden;
 
-    overflow:hidden;
-
-    text-overflow:ellipsis;
-
+    text-overflow: ellipsis;
 }
 
-.label.muted{
-
-    color:var(--ink-muted);
-
+.label.muted {
+    color: var(--ink-muted);
 }
 
-.track{
+.track {
+    flex: 1;
 
-    flex:1;
+    height: 9px;
 
-    height:9px;
+    border-radius: 5px;
 
-    border-radius:5px;
+    background: var(--count-track);
 
-    background:var(--count-track);
-
-    overflow:hidden;
-
+    overflow: hidden;
 }
 
-.fill{
-
-    height:100%;
+.fill {
+    height: 100%;
 
     /* Una barra a 0 % desaparece y parece un fallo de carga; 2px dicen
        "medido, y sale casi nada". */
-    min-width:2px;
-
+    min-width: 2px;
 }
 
-.value{
+.value {
+    flex: none;
 
-    flex:none;
+    width: 34px;
 
-    width:34px;
+    text-align: right;
 
-    text-align:right;
-
-    font-size:var(--text-num-sm);
-
+    font-size: var(--text-num-sm);
 }
-
 </style>

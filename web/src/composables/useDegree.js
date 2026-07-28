@@ -42,7 +42,6 @@ const PLAIN_LABELS = {
 };
 
 const rateKpi = key => {
-
     const value = degreeRateForPeriod(key, recentPeriod);
     const previous = degreeRateForPeriod(key, previousPeriod);
 
@@ -53,7 +52,6 @@ const rateKpi = key => {
         higherIsBetter: METRICS[key].higherIsBetter,
         delta: value !== null && previous !== null ? value - previous : null
     };
-
 };
 
 /** Serie de notas de acceso, ordenada y sin años incompletos. */
@@ -70,10 +68,8 @@ const passTrend = academicYears
     .filter(point => point.value !== null);
 
 export const useDegree = () => {
-
     /** La troncal con más no superación del grado ahora mismo. */
     const hardest = computed(() => {
-
         const ranked = allCoreSubjects
             .map(subject => ({
                 code: Number(subject.code),
@@ -93,12 +89,10 @@ export const useDegree = () => {
         const series = courseSeries(worst.course, "noSuperacion");
 
         return { ...worst, series };
-
     });
 
     /** Convocatorias medias del grado: media simple entre troncales. */
     const sittings = computed(() => {
-
         const values = allCoreSubjects
             .map(subject => averageSittings(subject.code))
             .filter(value => value !== null);
@@ -106,7 +100,6 @@ export const useDegree = () => {
         return values.length
             ? values.reduce((sum, value) => sum + value, 0) / values.length
             : null;
-
     });
 
     /**
@@ -116,7 +109,6 @@ export const useDegree = () => {
      * solo a "hasta X" en vez de afirmar un año que no es.
      */
     const sittingsYear = computed(() => {
-
         const years = new Set(
             allCoreSubjects
                 .map(subject => officialResult(subject.code))
@@ -129,11 +121,9 @@ export const useDegree = () => {
         const latest = [...years].sort().pop();
 
         return years.size === 1 ? `curso ${latest}` : `hasta ${latest}`;
-
     });
 
     const cutoff = computed(() => {
-
         const last = admission[admission.length - 1];
         const previous = admission[admission.length - 2];
 
@@ -145,11 +135,9 @@ export const useDegree = () => {
             delta: previous ? last.nota_corte - previous.nota_corte : null,
             previousYear: previous?.anyo ?? null
         };
-
     });
 
     return {
-
         cutoff,
 
         rates: computed(() => [
@@ -172,7 +160,5 @@ export const useDegree = () => {
         firstYear: academicYears[0],
 
         lastYear: academicYears[academicYears.length - 1]
-
     };
-
 };

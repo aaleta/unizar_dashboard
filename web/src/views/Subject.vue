@@ -1,5 +1,4 @@
 <script setup>
-
 /**
  * Ficha de asignatura: el final del camino mapa → curso → asignatura.
  *
@@ -77,26 +76,20 @@ usePageHeader(() => ({
 }));
 
 const pct = (value, decimals = 0) =>
-    value === null || value === undefined
-        ? "—"
-        : `${value.toFixed(decimals)}%`;
+    value === null || value === undefined ? "—" : `${value.toFixed(decimals)}%`;
 
 const isOptative = computed(() => info.value?.tipo === "optativa");
 
 /** Con quién se alterna, si es una optativa de oferta bienal. */
 const alternatesWith = computed(() => {
-
     const partner = info.value?.seAlternaCon;
 
-    return partner
-        ? { code: partner, name: subjectName(partner) }
-        : null;
-
+    return partner ? { code: partner, name: subjectName(partner) } : null;
 });
 
 /** El indicador que encabeza la ficha: cuánta gente no la supera. */
-const headline = computed(() =>
-    kpis.value.find(kpi => kpi.key === "noSuperacion")?.value ?? null
+const headline = computed(
+    () => kpis.value.find(kpi => kpi.key === "noSuperacion")?.value ?? null
 );
 
 /**
@@ -105,7 +98,6 @@ const headline = computed(() =>
  * decoración.
  */
 const verdict = computed(() => {
-
     if (!ranking.value || ranking.value.position > 3) return null;
 
     const { position, total } = ranking.value;
@@ -113,12 +105,12 @@ const verdict = computed(() => {
     const ordinal = position === 1 ? "1ª" : `${position}ª`;
 
     return {
-        title: position === 1
-            ? `La troncal más dura de ${courseName.value?.toLowerCase()}`
-            : `Entre las troncales más duras de ${courseName.value?.toLowerCase()}`,
+        title:
+            position === 1
+                ? `La troncal más dura de ${courseName.value?.toLowerCase()}`
+                : `Entre las troncales más duras de ${courseName.value?.toLowerCase()}`,
         detail: `${ordinal} de ${total} troncales de ${course.value}º por no superación.`
     };
-
 });
 
 const shortYear = academicYear =>
@@ -135,24 +127,26 @@ const shortYear = academicYear =>
  */
 const historyChart = computed(() => ({
     labels: history.value.map(point => shortYear(point.year)),
-    series: [{
-        label: "Suspensos + No presentados",
-        values: history.value.map(point => point.value)
-    }]
+    series: [
+        {
+            label: "Suspensos + No presentados",
+            values: history.value.map(point => point.value)
+        }
+    ]
 }));
 
 const HISTORY_COLORS = ["var(--chart-line-2)"];
 
 const historyNote = computed(() => {
-
     if (history.value.length < 2) return null;
 
     const first = history.value[0];
     const last = history.value[history.value.length - 1];
 
-    return `En ${first.year} no superaba el ${Math.round(first.value)}%; `
-        + `en ${last.year}, el ${Math.round(last.value)}%.`;
-
+    return (
+        `En ${first.year} no superaba el ${Math.round(first.value)}%; ` +
+        `en ${last.year}, el ${Math.round(last.value)}%.`
+    );
 });
 
 /** Total sobre el que se reparten las notas, para los porcentajes de la barra. */
@@ -161,7 +155,6 @@ const gradeTotal = computed(() =>
 );
 
 const comparison = computed(() => {
-
     if (!courseAverage.value || courseAverage.value.rendimiento === null) {
         return null;
     }
@@ -180,671 +173,564 @@ const comparison = computed(() => {
         // diferencia que merezca una frase.
         meaningful: Math.abs(gap) >= 3
     };
-
 });
-
 </script>
 
 <template>
+    <div v-if="exists" class="screen">
+        <!-- Identidad ------------------------------------------------------ -->
+        <header class="intro">
+            <div class="tags">
+                <UiPill>{{ isOptative ? "Optativa" : "Troncal" }}</UiPill>
+                <UiPill v-if="info">
+                    {{ info.courses.map(c => `${c}º`).join(" y ") }} curso
+                </UiPill>
+                <UiPill tone="neutral">Cód. {{ code }}</UiPill>
+            </div>
 
-<div
-    v-if="exists"
-    class="screen"
->
+            <UiCallout
+                v-if="verdict"
+                tone="hard"
+                :title="verdict.title"
+                class="verdict"
+            >
+                {{ verdict.detail }}
+            </UiCallout>
 
-    <!-- Identidad ------------------------------------------------------ -->
-    <header class="intro">
+            <UiCallout v-if="smallCohort" tone="attention" class="verdict">
+                Solo {{ enrolled }} matriculados en {{ year }}: los porcentajes
+                bailan mucho. Mejor mirar los recuentos absolutos.
+            </UiCallout>
 
-        <div class="tags">
-            <UiPill>{{ isOptative ? "Optativa" : "Troncal" }}</UiPill>
-            <UiPill v-if="info">
-                {{ info.courses.map(c => `${c}º`).join(" y ") }} curso
-            </UiPill>
-            <UiPill tone="neutral">Cód. {{ code }}</UiPill>
-        </div>
+            <UiCallout v-if="alternatesWith" tone="structural" class="verdict">
+                No se oferta todos los cursos: se alterna año a año con
+                <RouterLink :to="`/asignatura/${alternatesWith.code}`">{{
+                    alternatesWith.name
+                }}</RouterLink
+                >.
+            </UiCallout>
+        </header>
 
-        <UiCallout
-            v-if="verdict"
-            tone="hard"
-            :title="verdict.title"
-            class="verdict"
-        >
-            {{ verdict.detail }}
-        </UiCallout>
+        <!-- Indicadores ---------------------------------------------------- -->
+        <section class="section">
+            <div class="sectionHead">
+                <span class="eyebrow">Indicadores</span>
 
-        <UiCallout
-            v-if="smallCohort"
-            tone="attention"
-            class="verdict"
-        >
-            Solo {{ enrolled }} matriculados en {{ year }}: los porcentajes
-            bailan mucho. Mejor mirar los recuentos absolutos.
-        </UiCallout>
-
-        <UiCallout
-            v-if="alternatesWith"
-            tone="structural"
-            class="verdict"
-        >
-            No se oferta todos los cursos: se alterna año a año con
-            <RouterLink :to="`/asignatura/${alternatesWith.code}`">{{
-                alternatesWith.name
-            }}</RouterLink>.
-        </UiCallout>
-
-    </header>
-
-    <!-- Indicadores ---------------------------------------------------- -->
-    <section class="section">
-
-        <div class="sectionHead">
-
-            <span class="eyebrow">Indicadores</span>
-
-            <label class="yearPicker">
-                <span class="visuallyHidden">Curso académico</span>
-                <!-- Enlazado al año EFECTIVO, no al elegido a mano: mientras
+                <label class="yearPicker">
+                    <span class="visuallyHidden">Curso académico</span>
+                    <!-- Enlazado al año EFECTIVO, no al elegido a mano: mientras
                      no se toca, `selectedYear` está vacío y un v-model directo
                      dejaría el desplegable en blanco. -->
-                <select
-                    :value="year"
-                    @change="selectedYear = $event.target.value"
-                >
-                    <option
-                        v-for="option in [...years].reverse()"
-                        :key="option"
-                        :value="option"
+                    <select
+                        :value="year"
+                        @change="selectedYear = $event.target.value"
                     >
-                        {{ option }}
-                    </option>
-                </select>
-            </label>
-
-        </div>
-
-        <div class="kpis">
-
-            <UiKpiCard
-                v-for="kpi in kpis"
-                :key="kpi.key"
-                :label="kpi.label"
-                :value="pct(kpi.value)"
-                :delta="kpi.delta"
-                :higher-is-better="kpi.higherIsBetter"
-                :tone="kpi.ramp ? 'difficulty' : 'ink'"
-                :difficulty-value="kpi.value"
-                :reference="kpi.hasReference
-                    ? `vs. media de ${recentYears} cursos`
-                    : 'sin cursos anteriores'"
-            />
-
-            <UiKpiCard
-                label="Convocatorias"
-                :value="sittings.value === null
-                    ? '—'
-                    : sittings.value.toFixed(2).replace('.', ',')"
-                :delta="null"
-                :reference="sittings.value === null
-                    ? 'sin dato oficial'
-                    : (sittings.exact ? 'dato oficial' : `dato oficial de ${sittings.year}`)"
-            />
-
-            <UiKpiCard
-                label="Matriculados"
-                :value="String(enrolled)"
-                :delta="null"
-                :reference="`media ${recentYears} cursos: ${Math.round(averageEnrolment)}`"
-            />
-
-        </div>
-
-    </section>
-
-    <!-- Distribución de calificaciones --------------------------------- -->
-    <section
-        v-if="gradeTotal"
-        class="section"
-    >
-
-        <h2>Distribución de calificaciones</h2>
-
-        <p class="lead">{{ enrolled }} matriculados · curso {{ year }}</p>
-
-        <div class="stack">
-            <div
-                v-for="slice in grades"
-                :key="slice.key"
-                class="slice"
-                :style="{
-                    width: `${(slice.count / gradeTotal) * 100}%`,
-                    background: gradeColor(slice.key)
-                }"
-                :title="`${slice.label}: ${slice.count}`"
-            >
-                <span
-                    v-if="slice.count / gradeTotal > 0.12 && readableInk(gradeColor(slice.key))"
-                    class="sliceValue num"
-                    :style="{ color: readableInk(gradeColor(slice.key)) }"
-                >{{ slice.count }}</span>
+                        <option
+                            v-for="option in [...years].reverse()"
+                            :key="option"
+                            :value="option"
+                        >
+                            {{ option }}
+                        </option>
+                    </select>
+                </label>
             </div>
-        </div>
 
-        <div class="legend">
-            <div
-                v-for="slice in grades"
-                :key="slice.key"
-                class="legendItem"
-            >
-                <span
-                    class="swatch"
-                    :style="{ background: gradeColor(slice.key) }"
-                ></span>
-                <span class="legendLabel">{{ slice.label }}</span>
-                <span class="num legendCount">{{ slice.count }}</span>
+            <div class="kpis">
+                <UiKpiCard
+                    v-for="kpi in kpis"
+                    :key="kpi.key"
+                    :label="kpi.label"
+                    :value="pct(kpi.value)"
+                    :delta="kpi.delta"
+                    :higher-is-better="kpi.higherIsBetter"
+                    :tone="kpi.ramp ? 'difficulty' : 'ink'"
+                    :difficulty-value="kpi.value"
+                    :reference="
+                        kpi.hasReference
+                            ? `vs. media de ${recentYears} cursos`
+                            : 'sin cursos anteriores'
+                    "
+                />
+
+                <UiKpiCard
+                    label="Convocatorias"
+                    :value="
+                        sittings.value === null
+                            ? '—'
+                            : sittings.value.toFixed(2).replace('.', ',')
+                    "
+                    :delta="null"
+                    :reference="
+                        sittings.value === null
+                            ? 'sin dato oficial'
+                            : sittings.exact
+                              ? 'dato oficial'
+                              : `dato oficial de ${sittings.year}`
+                    "
+                />
+
+                <UiKpiCard
+                    label="Matriculados"
+                    :value="String(enrolled)"
+                    :delta="null"
+                    :reference="`media ${recentYears} cursos: ${Math.round(averageEnrolment)}`"
+                />
             </div>
-        </div>
+        </section>
 
-    </section>
+        <!-- Distribución de calificaciones --------------------------------- -->
+        <section v-if="gradeTotal" class="section">
+            <h2>Distribución de calificaciones</h2>
 
-    <!-- Frente al curso ------------------------------------------------ -->
-    <!-- Antes que la serie histórica: esta comparación depende del año
+            <p class="lead">{{ enrolled }} matriculados · curso {{ year }}</p>
+
+            <div class="stack">
+                <div
+                    v-for="slice in grades"
+                    :key="slice.key"
+                    class="slice"
+                    :style="{
+                        width: `${(slice.count / gradeTotal) * 100}%`,
+                        background: gradeColor(slice.key)
+                    }"
+                    :title="`${slice.label}: ${slice.count}`"
+                >
+                    <span
+                        v-if="
+                            slice.count / gradeTotal > 0.12 &&
+                            readableInk(gradeColor(slice.key))
+                        "
+                        class="sliceValue num"
+                        :style="{ color: readableInk(gradeColor(slice.key)) }"
+                        >{{ slice.count }}</span
+                    >
+                </div>
+            </div>
+
+            <div class="legend">
+                <div
+                    v-for="slice in grades"
+                    :key="slice.key"
+                    class="legendItem"
+                >
+                    <span
+                        class="swatch"
+                        :style="{ background: gradeColor(slice.key) }"
+                    ></span>
+                    <span class="legendLabel">{{ slice.label }}</span>
+                    <span class="num legendCount">{{ slice.count }}</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Frente al curso ------------------------------------------------ -->
+        <!-- Antes que la serie histórica: esta comparación depende del año
          elegido arriba y la serie no, así que lo que cambia con el selector
          queda junto a él. -->
-    <section
-        v-if="comparison"
-        class="section"
-    >
+        <section v-if="comparison" class="section">
+            <h2>Frente a las troncales de {{ course }}º</h2>
 
-        <h2>Frente a las troncales de {{ course }}º</h2>
+            <div class="panel">
+                <UiMeterRow
+                    :label="name"
+                    :value="comparison.mine"
+                    :difficulty-value="headline"
+                    :label-width="88"
+                />
 
-        <div class="panel">
+                <UiMeterRow
+                    :label="`Media de ${course}º`"
+                    :value="comparison.average"
+                    tone="neutral"
+                    :label-width="88"
+                    muted
+                />
 
-            <UiMeterRow
-                :label="name"
-                :value="comparison.mine"
-                :difficulty-value="headline"
-                :label-width="88"
-            />
+                <p class="takeaway">
+                    <template v-if="comparison.meaningful">
+                        Aprueban {{ Math.abs(Math.round(comparison.gap)) }} pp
+                        {{ comparison.gap < 0 ? "menos" : "más" }}
+                        que la media del curso.
+                    </template>
+                    <template v-else>
+                        Aprueban prácticamente lo mismo que la media del curso.
+                    </template>
+                    <template v-if="ranking && ranking.position === 1">
+                        Es la troncal de {{ course }}º con
+                        <strong>más no superación</strong>.
+                    </template>
+                </p>
+            </div>
+        </section>
 
-            <UiMeterRow
-                :label="`Media de ${course}º`"
-                :value="comparison.average"
-                tone="neutral"
-                :label-width="88"
-                muted
-            />
+        <!-- Serie histórica ------------------------------------------------ -->
+        <section v-if="history.length > 1" class="section">
+            <h2>Evolución de no aprobados</h2>
 
-            <p class="takeaway">
-                <template v-if="comparison.meaningful">
-                    Aprueban {{ Math.abs(Math.round(comparison.gap)) }} pp
-                    {{ comparison.gap < 0 ? "menos" : "más" }}
-                    que la media del curso.
-                </template>
-                <template v-else>
-                    Aprueban prácticamente lo mismo que la media del curso.
-                </template>
-                <template v-if="ranking && ranking.position === 1">
-                    Es la troncal de {{ course }}º con
-                    <strong>más no superación</strong>.
-                </template>
+            <p v-if="historyNote" class="lead">
+                {{ historyNote }}
             </p>
 
-        </div>
+            <LineChart
+                :series="historyChart.series"
+                :labels="historyChart.labels"
+                :colors="HISTORY_COLORS"
+                :y-min="0"
+                :format-value="value => `${Math.round(value)}%`"
+            />
+        </section>
 
-    </section>
+        <!-- Profesorado ---------------------------------------------------- -->
+        <section v-if="teaching" class="section">
+            <div class="sectionHead">
+                <h2>Profesorado y guía</h2>
+                <span class="num teachingYear">{{
+                    teaching.anyo_academico
+                }}</span>
+            </div>
 
-    <!-- Serie histórica ------------------------------------------------ -->
-    <section
-        v-if="history.length > 1"
-        class="section"
-    >
+            <ul class="teachers">
+                <li v-for="person in teaching.profesores" :key="person">
+                    <span class="teacherDot" aria-hidden="true"></span>
+                    {{ person }}
+                </li>
+            </ul>
 
-        <h2>Evolución de no aprobados</h2>
+            <div class="actions">
+                <a
+                    v-if="teaching.guia_docente_web"
+                    class="button primary"
+                    :href="teaching.guia_docente_web"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    Ver guía docente →
+                </a>
+                <a
+                    v-if="teaching.guia_docente_pdf"
+                    class="button"
+                    :href="teaching.guia_docente_pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    PDF
+                </a>
+            </div>
+        </section>
+    </div>
 
-        <p
-            v-if="historyNote"
-            class="lead"
-        >
-            {{ historyNote }}
-        </p>
-
-        <LineChart
-            :series="historyChart.series"
-            :labels="historyChart.labels"
-            :colors="HISTORY_COLORS"
-            :y-min="0"
-            :format-value="value => `${Math.round(value)}%`"
-        />
-
-    </section>
-
-    <!-- Profesorado ---------------------------------------------------- -->
-    <section
-        v-if="teaching"
-        class="section"
-    >
-
-        <div class="sectionHead">
-            <h2>Profesorado y guía</h2>
-            <span class="num teachingYear">{{ teaching.anyo_academico }}</span>
-        </div>
-
-        <ul class="teachers">
-            <li
-                v-for="person in teaching.profesores"
-                :key="person"
+    <div v-else class="screen">
+        <UiCallout tone="structural" title="No hay datos de esa asignatura">
+            El código {{ code }} no está en el catálogo del grado.
+            <RouterLink to="/asignaturas"
+                >Ver todas las asignaturas →</RouterLink
             >
-                <span
-                    class="teacherDot"
-                    aria-hidden="true"
-                ></span>
-                {{ person }}
-            </li>
-        </ul>
-
-        <div class="actions">
-            <a
-                v-if="teaching.guia_docente_web"
-                class="button primary"
-                :href="teaching.guia_docente_web"
-                target="_blank"
-                rel="noopener noreferrer"
-            >
-                Ver guía docente →
-            </a>
-            <a
-                v-if="teaching.guia_docente_pdf"
-                class="button"
-                :href="teaching.guia_docente_pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-            >
-                PDF
-            </a>
-        </div>
-
-    </section>
-
-</div>
-
-<div
-    v-else
-    class="screen"
->
-    <UiCallout
-        tone="structural"
-        title="No hay datos de esa asignatura"
-    >
-        El código {{ code }} no está en el catálogo del grado.
-        <RouterLink to="/asignaturas">Ver todas las asignaturas →</RouterLink>
-    </UiCallout>
-</div>
-
+        </UiCallout>
+    </div>
 </template>
 
 <style scoped>
-
-.screen{
-
-    padding:15px var(--gutter) 10px;
-
+.screen {
+    padding: 15px var(--gutter) 10px;
 }
 
 /* Identidad ---------------------------------------------------------- */
 
-.tags{
+.tags {
+    display: flex;
 
-    display:flex;
+    flex-wrap: wrap;
 
-    flex-wrap:wrap;
+    gap: 6px;
 
-    gap:6px;
-
-    margin-bottom:9px;
-
+    margin-bottom: 9px;
 }
 
-.verdict{
-
-    margin-top:11px;
-
+.verdict {
+    margin-top: 11px;
 }
 
 /* Secciones ---------------------------------------------------------- */
 
-.section{
-
-    margin-top:18px;
-
+.section {
+    margin-top: 18px;
 }
 
-.sectionHead{
+.sectionHead {
+    display: flex;
 
-    display:flex;
+    align-items: center;
 
-    align-items:center;
+    justify-content: space-between;
 
-    justify-content:space-between;
+    gap: 10px;
 
-    gap:10px;
-
-    margin-bottom:9px;
-
+    margin-bottom: 9px;
 }
 
-h2{
+h2 {
+    margin: 0;
 
-    margin:0;
+    font-family: var(--font-serif);
 
-    font-family:var(--font-serif);
+    font-size: var(--text-section);
 
-    font-size:var(--text-section);
-
-    font-weight:600;
-
+    font-weight: 600;
 }
 
-.section > h2{
-
-    margin-bottom:4px;
-
+.section > h2 {
+    margin-bottom: 4px;
 }
 
-.lead{
+.lead {
+    margin: 0 0 11px;
 
-    margin:0 0 11px;
+    font-size: 10.5px;
 
-    font-size:10.5px;
-
-    color:var(--ink-soft);
-
+    color: var(--ink-soft);
 }
 
-.panel{
+.panel {
+    padding: 14px;
 
-    padding:14px;
+    background: var(--surface);
 
-    background:var(--surface);
+    border: 1px solid var(--line);
 
-    border:1px solid var(--line);
+    border-radius: 12px;
 
-    border-radius:12px;
-
-    box-shadow:var(--shadow-card);
-
+    box-shadow: var(--shadow-card);
 }
 
-.panel > * + *{
-
-    margin-top:10px;
-
+.panel > * + * {
+    margin-top: 10px;
 }
 
 /* Selector de año ----------------------------------------------------- */
 
-.yearPicker select{
-
+.yearPicker select {
     /* Un <select> nativo y no un menú propio: se abre con el selector del
        sistema, funciona con teclado y con lector de pantalla sin escribir
        una línea, y en el móvil sale la rueda a la que la gente está hecha. */
-    min-height:var(--touch-target);
+    min-height: var(--touch-target);
 
-    padding:4px 9px;
+    padding: 4px 9px;
 
-    border:1px solid var(--navy-line-soft);
+    border: 1px solid var(--navy-line-soft);
 
-    border-radius:7px;
+    border-radius: 7px;
 
-    background:var(--surface);
+    background: var(--surface);
 
-    color:var(--navy);
+    color: var(--navy);
 
-    font-family:var(--font-mono);
+    font-family: var(--font-mono);
 
-    font-size:10px;
-
+    font-size: 10px;
 }
 
 /* Indicadores --------------------------------------------------------- */
 
-.kpis{
+.kpis {
+    display: grid;
 
-    display:grid;
+    grid-template-columns: 1fr 1fr;
 
-    grid-template-columns:1fr 1fr;
-
-    gap:var(--gap-card);
-
+    gap: var(--gap-card);
 }
 
 /* Distribución -------------------------------------------------------- */
 
-.stack{
+.stack {
+    display: flex;
 
-    display:flex;
+    height: 34px;
 
-    height:34px;
+    border: 1px solid var(--line);
 
-    border:1px solid var(--line);
+    border-radius: 8px;
 
-    border-radius:8px;
-
-    overflow:hidden;
-
+    overflow: hidden;
 }
 
-.slice{
+.slice {
+    display: flex;
 
-    display:flex;
+    align-items: center;
 
-    align-items:center;
+    justify-content: center;
 
-    justify-content:center;
-
-    min-width:2px;
-
+    min-width: 2px;
 }
 
-.sliceValue{
-
-    font-size:var(--text-num-sm);
-
+.sliceValue {
+    font-size: var(--text-num-sm);
 }
 
-.legend{
+.legend {
+    display: grid;
 
-    display:grid;
+    grid-template-columns: 1fr 1fr;
 
-    grid-template-columns:1fr 1fr;
+    gap: 6px 14px;
 
-    gap:6px 14px;
-
-    margin-top:12px;
-
+    margin-top: 12px;
 }
 
-.legendItem{
+.legendItem {
+    display: flex;
 
-    display:flex;
+    align-items: center;
 
-    align-items:center;
+    gap: 7px;
 
-    gap:7px;
+    font-size: var(--text-body-xs);
 
-    font-size:var(--text-body-xs);
-
-    color:var(--ink-2);
-
+    color: var(--ink-2);
 }
 
-.swatch{
+.swatch {
+    width: 8px;
 
-    width:8px;
+    height: 8px;
 
-    height:8px;
+    flex: none;
 
-    flex:none;
-
-    border-radius:2px;
-
+    border-radius: 2px;
 }
 
-.legendLabel{
+.legendLabel {
+    flex: 1;
 
-    flex:1;
+    min-width: 0;
 
-    min-width:0;
+    overflow: hidden;
 
-    overflow:hidden;
+    text-overflow: ellipsis;
 
-    text-overflow:ellipsis;
-
-    white-space:nowrap;
-
+    white-space: nowrap;
 }
 
-.legendCount{
+.legendCount {
+    font-weight: 500;
 
-    font-weight:500;
-
-    color:var(--ink-soft);
-
+    color: var(--ink-soft);
 }
 
-.takeaway{
+.takeaway {
+    margin: 0;
 
-    margin:0;
+    padding-top: 11px;
 
-    padding-top:11px;
+    border-top: 1px solid var(--line-inner);
 
-    border-top:1px solid var(--line-inner);
+    font-size: var(--text-body-xs);
 
-    font-size:var(--text-body-xs);
+    line-height: 1.5;
 
-    line-height:1.5;
-
-    color:var(--ink-muted);
-
+    color: var(--ink-muted);
 }
 
-.takeaway strong{
-
-    color:var(--warn-title);
-
+.takeaway strong {
+    color: var(--warn-title);
 }
 
 /* Profesorado --------------------------------------------------------- */
 
-.teachingYear{
+.teachingYear {
+    font-size: var(--text-eyebrow);
 
-    font-size:var(--text-eyebrow);
+    font-weight: 400;
 
-    font-weight:400;
-
-    color:var(--ink-faint);
-
+    color: var(--ink-faint);
 }
 
-.teachers{
+.teachers {
+    display: flex;
 
-    display:flex;
+    flex-direction: column;
 
-    flex-direction:column;
+    gap: 8px;
 
-    gap:8px;
+    margin: 0 0 13px;
 
-    margin:0 0 13px;
+    padding: 0;
 
-    padding:0;
-
-    list-style:none;
-
+    list-style: none;
 }
 
-.teachers li{
+.teachers li {
+    display: flex;
 
-    display:flex;
+    align-items: center;
 
-    align-items:center;
+    gap: 9px;
 
-    gap:9px;
-
-    font-size:var(--text-body);
-
+    font-size: var(--text-body);
 }
 
-.teacherDot{
+.teacherDot {
+    width: 6px;
 
-    width:6px;
+    height: 6px;
 
-    height:6px;
+    flex: none;
 
-    flex:none;
+    border-radius: 50%;
 
-    border-radius:50%;
-
-    background:var(--navy);
-
+    background: var(--navy);
 }
 
-.actions{
+.actions {
+    display: flex;
 
-    display:flex;
+    flex-wrap: wrap;
 
-    flex-wrap:wrap;
-
-    gap:10px;
-
+    gap: 10px;
 }
 
-.button{
+.button {
+    display: inline-flex;
 
-    display:inline-flex;
+    align-items: center;
 
-    align-items:center;
+    min-height: var(--touch-target);
 
-    min-height:var(--touch-target);
+    padding: 9px 14px;
 
-    padding:9px 14px;
+    border: 1px solid var(--navy-line-soft);
 
-    border:1px solid var(--navy-line-soft);
+    border-radius: var(--radius-control);
 
-    border-radius:var(--radius-control);
+    background: var(--surface);
 
-    background:var(--surface);
+    color: var(--navy);
 
-    color:var(--navy);
+    font-size: 12px;
 
-    font-size:12px;
-
-    font-weight:600;
-
+    font-weight: 600;
 }
 
-.button.primary{
+.button.primary {
+    background: var(--navy);
 
-    background:var(--navy);
+    border-color: var(--navy);
 
-    border-color:var(--navy);
-
-    color:var(--ink-on-navy);
-
+    color: var(--ink-on-navy);
 }
 
-.visuallyHidden{
+.visuallyHidden {
+    position: absolute;
 
-    position:absolute;
+    width: 1px;
 
-    width:1px;
+    height: 1px;
 
-    height:1px;
+    overflow: hidden;
 
-    overflow:hidden;
+    clip-path: inset(50%);
 
-    clip-path:inset(50%);
-
-    white-space:nowrap;
-
+    white-space: nowrap;
 }
-
 </style>
