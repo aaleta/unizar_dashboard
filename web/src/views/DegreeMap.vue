@@ -254,7 +254,7 @@ const pct = value =>
 
 .totals{
 
-    background:var(--navy);
+    background:var(--navy-surface);
 
     padding-bottom:12px;
 
@@ -289,7 +289,7 @@ const pct = value =>
 
     text-transform:uppercase;
 
-    color:var(--navy-faint);
+    color:var(--on-navy-meta);
 
 }
 

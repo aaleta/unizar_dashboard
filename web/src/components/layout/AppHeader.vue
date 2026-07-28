@@ -3,8 +3,9 @@
 /**
  * La banda navy de arriba, en dos versiones:
  *
- *   identidad → la marca. Tesela dorada con la "F" y el nombre del grado.
- *               Es para las pantallas raíz, a las que se llega por pestaña.
+ *   identidad → la marca. Logotipo de la Universidad en negativo, un filete
+ *               vertical y el nombre del grado. Es para las pantallas raíz,
+ *               a las que se llega por pestaña.
  *   interior  → chevron de vuelta, eyebrow con la ruta padre y título.
  *               Es para las pantallas a las que se llega desde otra.
  *
@@ -20,6 +21,9 @@
 import { useRouter } from "vue-router";
 
 import UiIcon from "@/components/ui/UiIcon.vue";
+
+// Pasa por Vite para que el fichero se versione y se cachee como el resto.
+import logoNegativo from "@/assets/logo-unizar-negativo.svg";
 
 const props = defineProps({
 
@@ -70,12 +74,20 @@ const goBack = () => {
 
         <template v-if="variant === 'identity'">
 
-            <span
-                class="mark"
-                aria-hidden="true"
-            >F</span>
+            <!-- El alt es información, no adorno: quien no ve el logotipo
+                 tiene que saber igualmente de qué universidad se trata. -->
+            <img
+                class="logo"
+                :src="logoNegativo"
+                alt="Universidad de Zaragoza"
+            >
 
-            <span class="brand">{{ title || "El Grado en Física" }}</span>
+            <span
+                class="divider"
+                aria-hidden="true"
+            ></span>
+
+            <span class="brand">{{ title || "Grado en Física" }}</span>
 
         </template>
 
@@ -122,13 +134,17 @@ const goBack = () => {
 
     z-index:10;
 
-    background:var(--navy);
+    background:var(--navy-surface);
 
     color:var(--ink-on-navy);
 
+    /* Filete de oro: cierra la banda por abajo y marca dónde acaba el cromo
+       institucional y empieza el contenido. */
+    border-bottom:2px solid var(--gold-rule);
+
     /* El relleno superior absorbe la muesca del móvil. En un navegador de
        escritorio env() vale 0 y no se nota. */
-    padding:calc(12px + env(safe-area-inset-top)) var(--gutter) 13px;
+    padding:calc(13px + env(safe-area-inset-top)) var(--gutter) 12px;
 
 }
 
@@ -141,7 +157,7 @@ const goBack = () => {
 
     align-items:center;
 
-    gap:9px;
+    gap:13px;
 
     max-width:var(--content-max);
 
@@ -149,31 +165,29 @@ const goBack = () => {
 
 }
 
-.mark{
+/* Alto fijo y ancho libre: el logotipo es vertical y lo que hay que fijar es
+   la línea de la banda, no la caja. */
+.logo{
 
-    display:flex;
+    height:28px;
 
-    align-items:center;
-
-    justify-content:center;
-
-    width:24px;
-
-    height:24px;
+    width:auto;
 
     flex:none;
 
-    border-radius:6px;
+}
 
-    background:var(--gold);
+/* Separa la marca de la Universidad del nombre del grado: son dos cosas
+   distintas y sin la línea se leen como un solo bloque. */
+.divider{
 
-    color:var(--navy);
+    width:1px;
 
-    font-family:var(--font-serif);
+    height:22px;
 
-    font-size:14px;
+    flex:none;
 
-    font-weight:700;
+    background:var(--on-navy-divider);
 
 }
 
@@ -184,6 +198,8 @@ const goBack = () => {
     font-size:17px;
 
     font-weight:600;
+
+    color:var(--ink-on-navy);
 
 }
 

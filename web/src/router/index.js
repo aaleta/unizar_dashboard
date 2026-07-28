@@ -30,7 +30,9 @@ const router = createRouter({
             component: HomeView,
             meta: {
                 header: "identity",
-                title: "Física · Unizar"
+
+                /* El logotipo ya dice la universidad; repetirla sobra. */
+                title: "Grado en Física"
             }
         },
 

@@ -280,7 +280,7 @@ const admissionNote = computed(() => {
 
     overflow:hidden;
 
-    background:var(--navy);
+    background:var(--navy-surface);
 
     padding-top:2px;
 

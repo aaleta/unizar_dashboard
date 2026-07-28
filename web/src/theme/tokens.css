@@ -35,6 +35,14 @@
 
     /* Azul corporativo de Unizar (PANTONE 653C). */
     --navy:#223d71;
+
+    /* El azul de las superficies grandes: cabecera, héroe de la portada y
+       banda de totales del mapa. Es más oscuro que el corporativo porque
+       encima va texto blanco y una mancha de ese tamaño necesita el
+       contraste (12,4:1 frente a 10,6:1). El navy de arriba sigue siendo la
+       tinta de la marca; este es solo el color de las manchas. */
+    --navy-surface:#1b3559;
+
     --navy-soft:#3a4667;          /* Navy legible sobre fondo claro */
     --navy-faint:#aeb9d1;         /* Subtítulos y eyebrows SOBRE el navy */
     --navy-line:#c3ccdd;          /* Bordes de píldora navy */
@@ -44,6 +52,9 @@
 
     /* Oro heráldico: decoración y ganador de Fight Mode. Nunca un dato. */
     --gold:#cba44c;
+    --gold-rule:#b08d3f;          /* Filete de 2px bajo la cabecera. Único
+                                     uso ESTRUCTURAL del oro: es una línea,
+                                     no una magnitud. */
     --gold-ink:#85662d;           /* Oro legible como texto */
     --gold-wash:#fbf5e7;
     --gold-line:#e7d3a2;          /* Borde del veredicto */
@@ -52,6 +63,9 @@
 
     /* Sobre superficies navy claras y oscuras */
     --on-navy-soft:#c4cee0;       /* Párrafo del héroe sobre navy */
+    --on-navy-divider:rgba(176,141,63,.6);  /* Filete vertical entre el
+                                     logotipo y el título de la cabecera */
+    --on-navy-meta:#b9c6dd;       /* Metadatos sobre navy-surface (7,2:1) */
     --navy-meta:#606e88;          /* Metadatos sobre navy-wash */
     --navy-avatar:#5d6d8c;        /* Avatar de hueco por rellenar */
 
@@ -71,7 +85,7 @@
      * Superficies
      * ---------------------------------------------------------------- */
 
-    --paper:#f4efe6;              /* Fondo de la aplicación */
+    --paper:#f8f5ee;              /* Fondo de la aplicación */
     --surface:#fff;               /* Tarjeta */
     --surface-alt:#fcfaf5;        /* Tarjeta de optativa */
     --surface-sunken:#ece5d7;     /* Cabecera de tabla ordenable */
