@@ -44,3 +44,6 @@ __screenshots__/
 # Python
 __pycache__/
 *.pyc
+
+.claude
+docs/presentacion.pdf
