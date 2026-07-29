@@ -38,3 +38,10 @@ En el ordenador basta con pulsar el icono de instalación que aparece en la barr
 ## Más información
 
 Para obtener más información, consulta los apartados **"Acerca de"** y **"Fuentes y metodología"**, disponibles dentro de la sección **"Más"** de la web.
+
+## Mejoras y actualizaciones
+
+Siempre es posible añadir nuevas funcionalidades y características al proyecto, así como corregir posibles errores o *bugs* que hayan pasado desapercibidos.
+
+Por ello, animamos a cualquier persona que detecte un error o tenga ideas para mejorar el proyecto a que las comunique a los creadores. Asimismo, dado que el código es *open source*, cualquiera puede contribuir directamente mediante un *pull request* incorporando nuevas funcionalidades o corrigiendo las existentes.
+
