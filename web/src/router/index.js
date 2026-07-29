@@ -118,7 +118,7 @@ const router = createRouter({
             component: () => import("@/views/Methodology.vue"),
             meta: {
                 title: "Fuentes y metodología",
-                eyebrow: "La letra pequeña"
+                eyebrow: "Info"
             }
         },
 
@@ -141,7 +141,7 @@ const router = createRouter({
             component: () => import("@/views/About.vue"),
             meta: {
                 title: "Acerca de",
-                eyebrow: "La letra pequeña",
+                eyebrow: "Info",
                 footer: { label: "Proyecto", detail: "independiente" }
             }
         },

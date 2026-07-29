@@ -283,7 +283,7 @@ const examClashLine = date =>
                         <div class="gapsHead">
                             <span class="gapDay">Día</span>
                             <span class="gapName">Asignatura</span>
-                            <span class="gapValue">Días de aire</span>
+                            <span class="gapValue">Días de estudio</span>
                         </div>
 
                         <div

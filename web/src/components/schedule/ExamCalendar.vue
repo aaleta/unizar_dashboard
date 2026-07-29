@@ -100,8 +100,8 @@ const WEEKDAY_LETTERS = ["L", "M", "X", "J", "V", "S", "D"];
                  lista de debajo ya lo dice asignatura por asignatura y la
                  leyenda sobra. -->
                 <p class="key">
-                    Navy = día con examen · rojo = dos asignaturas el mismo día
-                    · el domingo se apaga: nunca hay examen.
+                    azul = día con examen · rojo = dos asignaturas el mismo día
+                    · el domingo nunca hay examen.
                 </p>
             </div>
         </section>

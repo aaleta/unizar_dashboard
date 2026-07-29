@@ -212,7 +212,7 @@ const meta = row =>
             </section>
 
             <section class="section onlyWide">
-                <h2>Dónde cae más matrícula de honor</h2>
+                <h2>Excelencia</h2>
 
                 <p class="lead">% de sobresalientes y MH sobre matriculados.</p>
 

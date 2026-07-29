@@ -13,7 +13,7 @@
 export const GROUPS = [
     { key: "grado", label: "El grado" },
     { key: "herramientas", label: "Herramientas" },
-    { key: "letra-pequena", label: "La letra pequeña" }
+    { key: "letra-pequena", label: "Info" }
 ];
 
 /**
