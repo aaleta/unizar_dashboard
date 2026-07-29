@@ -45,10 +45,18 @@ let network = null;
 const themeColor = name =>
     getComputedStyle(document.documentElement).getPropertyValue(name).trim();
 
+let palette = null;
+
+const readPalette = () => ({
+    navy: themeColor("--navy"),
+    edge: themeColor("--navy-meta"),
+    gold: themeColor("--gold")
+});
+
 const options = () => {
-    const navy = themeColor("--navy");
-    const edge = themeColor("--navy-meta");
-    const paper = themeColor("--surface");
+    palette = readPalette();
+
+    const { navy, edge } = palette;
 
     return {
         autoResize: true,
@@ -72,15 +80,6 @@ const options = () => {
             },
 
             borderWidth: 0,
-
-            // El nodo elegido se marca con un anillo, no con otro color: el
-            // color ya dice otra cosa.
-            chosen: {
-                node: (values, id, selected) => {
-                    values.borderWidth = selected ? 2 : 0;
-                    values.borderColor = paper;
-                }
-            },
 
             opacity: 0.88
         },
@@ -261,6 +260,8 @@ const compose = () => {
     network.redraw();
 
     place();
+
+    if (props.selectedId) mark(props.selectedId);
 };
 
 /**
@@ -308,6 +309,8 @@ const draw = () => {
         return;
     }
 
+    marked = null;
+
     network.setOptions({ physics: true });
     network.setData(props.graph);
 
@@ -332,16 +335,59 @@ watch(
     () => draw()
 );
 
+/**
+ * El nodo elegido se marca dándole sus propias opciones, no a través de
+ * `chosen`: con el `chosen` global de vis-network la función no llega a
+ * llamarse, y un anillo que no se pinta no marca nada.
+ *
+ * Crece y se rodea de oro. El relleno sigue siendo navy —el tamaño del nodo es
+ * un dato y el color es estructura—; el oro aquí es cromo, dice "este es el
+ * que has tocado", no "este vale más".
+ */
+let marked = null;
+
+const mark = id => {
+    const nodes = network?.body?.data?.nodes;
+
+    if (!nodes || !palette) return;
+
+    if (marked && marked !== id) {
+        nodes.update({
+            id: marked,
+            borderWidth: 0,
+            color: { background: palette.navy, border: palette.navy }
+        });
+    }
+
+    if (id) {
+        nodes.update({
+            id,
+            borderWidth: 3,
+            color: {
+                background: palette.navy,
+                border: palette.gold,
+                highlight: { background: palette.navy, border: palette.gold }
+            }
+        });
+    }
+
+    marked = id;
+};
+
 watch(
     () => props.selectedId,
     id => {
         if (!network) return;
 
-        if (id && props.graph.nodes.some(node => node.id === id)) {
+        const known = id && props.graph.nodes.some(node => node.id === id);
+
+        if (known) {
             network.selectNodes([id]);
         } else {
             network.unselectAll();
         }
+
+        mark(known ? id : null);
     }
 );
 
@@ -414,6 +460,12 @@ const empty = computed(() => props.graph.nodes.length === 0);
     min-height: 440px;
 
     max-height: 900px;
+
+    /* Recortado: los rótulos van en absoluto y siguen al lienzo, así que al
+       alejar con la rueda acababan a miles de píxeles y estiraban la página
+       —que se desplazaba sin fin por una zona en blanco—. `clip` y no
+       `hidden` para no crear un contenedor de desplazamiento. */
+    overflow: clip;
 }
 
 .canvas {

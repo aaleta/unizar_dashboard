@@ -328,16 +328,28 @@ const valueColor = (duel, side) => {
 
 /* El medallón VS: la única sombra fuerte de la web. Y sirve para algo —
    intercambia los lados— en vez de ser solo un adorno. */
+/**
+ * El medallón es lo único de esta pantalla que puede sonar a combate, así que
+ * suena: canto de oro, un filete interior que lo separa del disco —como el
+ * borde de una moneda acuñada— y las dos letras bien plantadas. Sigue siendo
+ * el botón de intercambiar, no un adorno.
+ */
 .medallion {
     flex: none;
 
     align-self: center;
 
-    width: 44px;
+    display: flex;
 
-    height: 44px;
+    align-items: center;
 
-    border: none;
+    justify-content: center;
+
+    width: 46px;
+
+    height: 46px;
+
+    border: 2px solid var(--gold);
 
     border-radius: 50%;
 
@@ -347,17 +359,27 @@ const valueColor = (duel, side) => {
 
     font-family: var(--font-serif);
 
-    font-size: 15px;
+    font-size: 17px;
 
     font-weight: 700;
 
-    box-shadow: var(--shadow-medallion);
+    letter-spacing: 0.5px;
+
+    /* El filete interior deja el canto de oro despegado del disco. */
+    box-shadow:
+        var(--shadow-medallion),
+        inset 0 0 0 2px var(--navy-surface);
 
     cursor: pointer;
 }
 
+/* Al pasar por encima se ladea, como quien se prepara para el golpe. */
+.medallion:hover {
+    transform: rotate(-6deg) scale(1.05);
+}
+
 .medallion:active {
-    transform: scale(0.94);
+    transform: rotate(-6deg) scale(0.94);
 }
 
 /* Veredicto ------------------------------------------------------------ */
@@ -639,7 +661,13 @@ const valueColor = (duel, side) => {
 
         height: 64px;
 
-        font-size: 21px;
+        border-width: 3px;
+
+        font-size: 24px;
+
+        box-shadow:
+            var(--shadow-medallion),
+            inset 0 0 0 3px var(--navy-surface);
     }
 
     .verdict {
