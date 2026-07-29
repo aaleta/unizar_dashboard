@@ -25,7 +25,7 @@ Es posible "descargar", la web tanto desde el móvil como desde el ordenador. No
 *Para descargar:*
 
 En el móvil suele preguntar al entrar a la web, si no hay que darle a los tres puntos de arriba a la derecha de la pantalla y elegir "Instalar y crear acceso directo": 
-(.\ReadmeImages\Instalacion.png)
+![Instalación](./ReadmeImages/Instalacion.png)
 
 Después pregunta si se quiere instalar o crear acceso directo. La diferencia es que al instalar no se ve el header del navegador y con el acceso directo sí, de todas formas es prácticamente lo mismo, pero se recomienda instalar para verlo como aplicación.
 
