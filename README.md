@@ -121,25 +121,28 @@ La documentación completa está en `docs/`:
   color, tipografía, primitivas y reglas de accesibilidad. Léelo antes de tocar
   cualquier pantalla.
 
-## Mejoras y contribuciones
+## 🤝 Mejoras y contribuciones
 
-Siempre se pueden añadir funcionalidades nuevas o corregir errores que hayan
-pasado desapercibidos.
+Siempre se pueden añadir funcionalidades nuevas o corregir errores que hayan pasado desapercibidos.
 
-Si detectas un fallo o se te ocurre una mejora,
-[abre un issue](https://github.com/aaleta/unizar_dashboard/issues) o escríbenos.
-Y como el código es abierto, también puedes contribuir directamente con un
-*pull request*.
+*  **¿Has detectado un fallo?** [Abre un *issue*](https://github.com/aaleta/unizar_dashboard/issues) para que podamos revisarlo.
+*  **¿Tienes una idea de mejora?** Cuéntanosla en los *issues* o escríbenos directamente.
+*  **¿Quieres aportar código?** Al ser un proyecto de código abierto, puedes contribuir enviando un *pull request*.
+
+---
 
 ## Contacto
 
-Alberto Aleta
-Departamento de Física Teórica, Facultad de Ciencias, Universidad de Zaragoza
-Instituto de Biocomputación y Física de Sistemas Complejos, Universidad de Zaragoza
-[aaleta@unizar.es](mailto:aaleta@unizar.es)
+**Alberto Aleta**
+✉️ [aaleta@unizar.es](mailto:aaleta@unizar.es)
+
+* 🏛️ *Departamento de Física Teórica*, Facultad de Ciencias, Universidad de Zaragoza.
+* 🔬 *Instituto de Biocomputación y Física de Sistemas Complejos*, Universidad de Zaragoza.
+
+---
 
 ## Licencia
 
-[MIT](LICENSE). Los datos originales pertenecen a la Universidad de Zaragoza y
-se publican aquí tal y como ella los publica.
-</content>
+Este proyecto se distribuye bajo la Licencia **[MIT](LICENSE)**. 
+
+> **Nota sobre los datos:** Los datos originales pertenecen a la **Universidad de Zaragoza** y se publican en este repositorio exactamente tal y como la institución los hace públicos.
