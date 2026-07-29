@@ -47,6 +47,8 @@ fácil.
 Desarrollado como Prácticas Externas en el
 [Instituto de Biocomputación y Física de Sistemas Complejos (BIFI)](https://bifi.es/).
 
+---
+
 ## Fuente de los datos
 
 | Conjunto | Origen |
