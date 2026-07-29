@@ -129,7 +129,9 @@ const router = createRouter({
             meta: {
                 title: "Fight Mode",
                 eyebrow: "Herramientas",
-                source: "notas"
+                source: "notas",
+                // El duelo se centra a 980px; el titular, con él.
+                align: "center"
             }
         },
 

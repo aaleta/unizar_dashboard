@@ -19,6 +19,13 @@ import { weightedAverages } from "@/content/copy";
 import { allSubjects, subjectName } from "@/utils/metrics";
 import { difficultyInk } from "@/theme/difficulty";
 
+/**
+ * La balanza en equilibrio y la balanza vencida. Pasan por Vite para que se
+ * versionen y se cacheen como el resto de los assets.
+ */
+import scalesBalanced from "@/assets/scales-balanced.svg";
+import scalesTilted from "@/assets/scales-tilted.svg";
+
 /** Física computacional contra el TFG: un duelo con algo que mirar. */
 const DEFAULTS = [26918, 26931];
 
@@ -100,6 +107,12 @@ const valueColor = (duel, side) => {
                 </select>
             </label>
 
+            <!-- La balanza cuenta el veredicto: en equilibrio si empatan o
+             si es la misma asignatura, y vencida del lado que gana. El
+             fichero está dibujado cayendo a la derecha; para el otro lado se
+             refleja. Va como decoración —`alt` vacío— porque el resultado
+             está escrito debajo, y el botón conserva su etiqueta: lo que hace
+             al pulsarlo es intercambiar los dos lados. -->
             <button
                 type="button"
                 class="medallion"
@@ -107,7 +120,14 @@ const valueColor = (duel, side) => {
                 aria-label="Intercambiar las dos asignaturas"
                 @click="swap"
             >
-                VS
+                <img
+                    class="scales"
+                    :class="{ mirrored: verdict?.winner === 1 }"
+                    :src="
+                        verdict && !verdict.tie ? scalesTilted : scalesBalanced
+                    "
+                    alt=""
+                />
             </button>
 
             <label class="fighter">
@@ -330,8 +350,7 @@ const valueColor = (duel, side) => {
    intercambia los lados— en vez de ser solo un adorno. */
 /**
  * El medallón es lo único de esta pantalla que puede sonar a combate, así que
- * suena: canto de oro, un filete interior que lo separa del disco —como el
- * borde de una moneda acuñada— y las dos letras bien plantadas. Sigue siendo
+ * suena: una balanza acuñada en un disco navy, con canto de oro. Sigue siendo
  * el botón de intercambiar, no un adorno.
  */
 .medallion {
@@ -349,28 +368,32 @@ const valueColor = (duel, side) => {
 
     height: 46px;
 
+    padding: 0;
+
     border: 2px solid var(--gold);
 
     border-radius: 50%;
 
     background: var(--navy);
 
-    color: var(--gold);
+    overflow: hidden;
 
-    font-family: var(--font-serif);
-
-    font-size: 17px;
-
-    font-weight: 700;
-
-    letter-spacing: 0.5px;
-
-    /* El filete interior deja el canto de oro despegado del disco. */
-    box-shadow:
-        var(--shadow-medallion),
-        inset 0 0 0 2px var(--navy-surface);
+    box-shadow: var(--shadow-medallion);
 
     cursor: pointer;
+}
+
+.scales {
+    display: block;
+
+    width: 100%;
+
+    height: 100%;
+}
+
+/* El dibujo cae a la derecha; si gana la izquierda, se refleja. */
+.scales.mirrored {
+    transform: scaleX(-1);
 }
 
 /* Al pasar por encima se ladea, como quien se prepara para el golpe. */
@@ -662,12 +685,6 @@ const valueColor = (duel, side) => {
         height: 64px;
 
         border-width: 3px;
-
-        font-size: 24px;
-
-        box-shadow:
-            var(--shadow-medallion),
-            inset 0 0 0 3px var(--navy-surface);
     }
 
     .verdict {

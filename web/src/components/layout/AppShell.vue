@@ -48,6 +48,7 @@ const header = computed(() => ({
     title: pageHeader.value?.title ?? route.meta.title ?? null,
     eyebrow: pageHeader.value?.eyebrow ?? route.meta.eyebrow ?? null,
     breadcrumbs: pageHeader.value?.breadcrumbs ?? null,
+    align: route.meta.align ?? "start",
     source: pageHeader.value?.source ?? route.meta.source ?? null,
     footer: pageHeader.value?.footer ?? route.meta.footer ?? null
 }));
@@ -88,6 +89,7 @@ watch(
                     :title="header.title"
                     :eyebrow="header.eyebrow"
                     :breadcrumbs="header.breadcrumbs"
+                    :align="header.align"
                 />
                 <div class="content">
                     <slot />

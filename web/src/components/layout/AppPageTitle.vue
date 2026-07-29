@@ -38,13 +38,24 @@ defineProps({
     breadcrumbs: {
         type: Array,
         default: null
+    },
+
+    /**
+     * Las pantallas que no ocupan el ancho completo —Fight Mode se centra a
+     * 980px— quedan con el titular descolgado a la izquierda de su contenido.
+     * Ahí la banda se centra también.
+     */
+    align: {
+        type: String,
+        default: "start",
+        validator: value => ["start", "center"].includes(value)
     }
 });
 </script>
 
 <template>
     <div v-if="title" class="band">
-        <div class="inner">
+        <div class="inner" :class="align">
             <div class="heading">
                 <nav
                     v-if="breadcrumbs?.length"
@@ -155,6 +166,14 @@ defineProps({
 
     .heading {
         min-width: 0;
+    }
+
+    .inner.center {
+        justify-content: center;
+    }
+
+    .inner.center .heading {
+        text-align: center;
     }
 
     .crumbs,
