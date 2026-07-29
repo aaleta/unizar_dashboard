@@ -27,13 +27,14 @@ datos oficiales que publica la propia Universidad.
 
 ## Por qué existe
 
-Elegir asignaturas se hacía a base de rumores de pasillo: que tal optativa es
-imposible, que tal curso es el que de verdad cuesta. Los números para
-comprobarlo existen —la Universidad los publica— pero están repartidos en
+Hasta ahora elegir asignaturas se hacía a base de rumores de pasillo o acosando
+al tutor: que si una optativa es imposible, que si es muy fácil, 
+que si tal curso es el que de verdad cuesta, etc. Los números para
+comprobarlo siempre han existido (la Universidad los publica) pero están repartidos en
 hojas de cálculo, informes y páginas distintas, y nadie se pone a cruzarlos
 antes de matricularse.
 
-Esta web hace ese trabajo una vez y lo deja hecho: los mismos datos oficiales,
+Esta web hace ese trabajo: los mismos datos oficiales,
 ordenados y comparables, para que decidir el curso que viene sea un poco más
 fácil.
 
@@ -44,7 +45,8 @@ Dos decisiones marcan todo lo demás:
   la nomenclatura oficial de Unizar, y en **Fuentes y metodología** se explica
   con qué denominador.
 - **Esto no juzga a nadie.** Una tasa alta de no superación describe un
-  resultado, no la calidad de una asignatura ni la de quien la imparte.
+  resultado, no la calidad de una asignatura, ni la de quien la imparte,
+  ni la de quien la cursa.
 
 Desarrollado como Prácticas Externas en el
 [Instituto de Biocomputación y Física de Sistemas Complejos (BIFI)](https://bifi.es/).
@@ -75,7 +77,7 @@ Desarrollado como Prácticas Externas en el
 | Conjunto | Origen |
 |---|---|
 | Calificaciones | [estudios.unizar.es — resultados académicos](https://estudios.unizar.es/informe/resultados-academicos?estudio_id=20250124) |
-| Tasas oficiales | [Zaguán — datos abiertos de rendimiento](https://zaguan.unizar.es/collection/opendata-academico-rendimiento-asignatura-titulacion?ln=en) |
+| Tasas oficiales | [Zaguan — datos abiertos de rendimiento](https://zaguan.unizar.es/collection/opendata-academico-rendimiento-asignatura-titulacion?ln=en) |
 | Profesorado y guías docentes | [estudios.unizar.es](https://estudios.unizar.es/) |
 | Horarios y fechas de examen | [Publicación oficial del centro](http://155.210.84.118/publicacion/2627) |
 
@@ -88,12 +90,12 @@ y la fecha de actualización de cada conjunto se ve en la página de inicio.
 ## Móvil y escritorio
 
 La web funciona igual en el móvil y en el ordenador. Es **un único código base
-responsive**, no dos versiones de la aplicación: la mayoría de las pantallas
+responsive**, no dos versiones de la aplicación. La mayoría de las pantallas
 son la misma a distinto ancho.
 
 La única que cambia de verdad es la red de profesorado: en el móvil se recorre
-persona a persona, y en escritorio se dibuja el grafo completo de 267
-profesores, que en una pantalla de teléfono no se puede ni leer ni manejar.
+persona a persona, y en escritorio se dibuja el grafo completo de 
+profesores, que en una pantalla de teléfono no se puede ni leer ni manejar fácilmente.
 
 <p align="center">
   <img src="img/captura_movil.png" alt="La portada en un teléfono, con la barra de pestañas inferior" width="280">
@@ -115,7 +117,7 @@ pulsar los tres puntos de la esquina superior derecha del navegador y elegir
 
 Después se pregunta si se quiere instalar la aplicación o crear un acceso
 directo. La diferencia es que, instalada, no se ve la barra del navegador. Las
-dos opciones funcionan igual; se recomienda la instalación.
+dos opciones funcionan igual, aunque se recomienda la instalación.
 
 **En el ordenador** basta con pulsar el icono de instalación que aparece en la
 barra de direcciones.
@@ -154,7 +156,10 @@ Y como el código es abierto, también puedes contribuir directamente con un
 
 ## Contacto
 
-Alberto Aleta — [aaleta@unizar.es](mailto:aaleta@unizar.es)
+Alberto Aleta
+Departamento de Física Teórica, Facultad de Ciencias, Universidad de Zaragoza
+Instituto de Biocomputación y Física de Sistemas Complejos, Universidad de Zaragoza
+[aaleta@unizar.es](mailto:aaleta@unizar.es)
 
 ## Licencia
 
