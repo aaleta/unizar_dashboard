@@ -60,12 +60,6 @@ const options = computed(() =>
         .sort((a, b) => a.name.localeCompare(b.name, "es"))
 );
 
-const swap = () => {
-    const previous = firstCode.value;
-    firstCode.value = secondCode.value;
-    secondCode.value = previous;
-};
-
 /** La cifra de dificultad se pinta con la rampa; el resto, en tinta normal. */
 const valueColor = (duel, side) => {
     // La fila que no compite se lee como lo que es: un dato de contexto.
@@ -350,8 +344,7 @@ const valueColor = (duel, side) => {
    intercambia los lados— en vez de ser solo un adorno. */
 /**
  * El medallón es lo único de esta pantalla que puede sonar a combate, así que
- * suena: una balanza acuñada en un disco navy, con canto de oro. Sigue siendo
- * el botón de intercambiar, no un adorno.
+ * suena: una balanza acuñada en un disco navy, con canto de oro.
  */
 .medallion {
     flex: none;
@@ -364,9 +357,9 @@ const valueColor = (duel, side) => {
 
     justify-content: center;
 
-    width: 46px;
+    width: 54px;
 
-    height: 46px;
+    height: 54px;
 
     padding: 0;
 
@@ -379,8 +372,6 @@ const valueColor = (duel, side) => {
     overflow: hidden;
 
     box-shadow: var(--shadow-medallion);
-
-    cursor: pointer;
 }
 
 .scales {
@@ -394,15 +385,6 @@ const valueColor = (duel, side) => {
 /* El dibujo cae a la derecha; si gana la izquierda, se refleja. */
 .scales.mirrored {
     transform: scaleX(-1);
-}
-
-/* Al pasar por encima se ladea, como quien se prepara para el golpe. */
-.medallion:hover {
-    transform: rotate(-6deg) scale(1.05);
-}
-
-.medallion:active {
-    transform: rotate(-6deg) scale(0.94);
 }
 
 /* Veredicto ------------------------------------------------------------ */
@@ -659,12 +641,14 @@ const valueColor = (duel, side) => {
         margin-top: 22px;
     }
 
+    /* Las dos tarjetas se recogen un poco: lo que se compara son los nombres,
+       y con menos aire alrededor la balanza queda más cerca de los dos. */
     .fighter {
-        padding: 20px 18px;
+        padding: 16px 16px 14px;
     }
 
     .fighterName {
-        font-size: 24px;
+        font-size: 21px;
     }
 
     .fighterMeta {
@@ -680,9 +664,9 @@ const valueColor = (duel, side) => {
     }
 
     .medallion {
-        width: 64px;
+        width: 84px;
 
-        height: 64px;
+        height: 84px;
 
         border-width: 3px;
     }
