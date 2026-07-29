@@ -25,7 +25,7 @@ datos oficiales que publica la propia Universidad.
 
 ---
 
-## Por qué existe
+## Por qué
 
 Hasta ahora elegir asignaturas se hacía a base de rumores de pasillo o acosando
 al tutor: que si una optativa es imposible, que si es muy fácil, 
@@ -48,27 +48,6 @@ fácil.
 
 Desarrollado como Prácticas Externas en el
 [Instituto de Biocomputación y Física de Sistemas Complejos (BIFI)](https://bifi.es/).
-
-## Qué hay dentro
-
-| Pantalla | Qué responde |
-|---|---|
-| **Inicio** | Cómo va el grado en conjunto: nota de corte, aprobados, no presentados, reparto de calificaciones. |
-| **El Grado** | El mapa de los cuatro cursos, asignatura a asignatura y con su dificultad. |
-| **Ficha de asignatura** | Histórico de una asignatura: calificaciones, tasas, profesorado y guía docente. |
-| **Optativas** | La bolsa de optativas de 3.º y 4.º, comparadas entre sí. |
-| **Monta tu horario** | Horario semanal de clases y fechas de examen de cada convocatoria. |
-| **Profesorado** | Quién comparte asignatura con quién. En escritorio, la red completa. |
-| **Fight Mode** | Dos asignaturas cara a cara. |
-| **Fuentes y metodología** | De dónde sale cada dato y cómo se calcula cada indicador. |
-
-<p align="center">
-  <img src="img/captura_grado.png" alt="Estructura del grado: los cuatro cursos con sus asignaturas troncales ordenadas por porcentaje de no superación" width="820">
-</p>
-
-<p align="center">
-  <img src="img/captura_profesorado.png" alt="Red de profesorado: grafo de colaboraciones donde cada nodo es un profesor y cada arista una asignatura compartida" width="820">
-</p>
 
 ## Fuente de los datos
 
