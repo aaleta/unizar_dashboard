@@ -60,7 +60,7 @@ defineProps({
             >
         </span>
 
-        <div class="rule"></div>
+        <div class="divider"></div>
 
         <span v-if="hint" class="hint">
             {{ hint }}
@@ -108,7 +108,11 @@ defineProps({
     color: var(--ink-soft);
 }
 
-.rule {
+/* El filete que va entre el rótulo y la pista. NO se llama `rule`: ese es el
+   nombre de la variante, y la variante viaja como clase en la raíz — un
+   `.rule` aquí le pegaba también a la cabecera entera, que se quedaba en 1px
+   de alto y con el filete cruzándola de lado a lado por detrás del texto. */
+.divider {
     flex: 1;
 
     min-width: 8px;
@@ -183,7 +187,7 @@ defineProps({
     /* El punto separa dos cosas del mismo tamaño; aquí el recuento ya se
        distingue por la familia y el color. */
     .header.band .separator,
-    .header.band .rule {
+    .header.band .divider {
         display: none;
     }
 

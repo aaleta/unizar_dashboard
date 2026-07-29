@@ -274,8 +274,8 @@ const topWeight = computed(
                 <p class="listNote onlyWide">
                     {{ activeOnly ? totals.active : totals.professors }}
                     {{ activeOnly ? "en activo" : "en total" }}, ordenados por
-                    índice · la lista se desplaza; para ir a alguien concreto usa
-                    el buscador.
+                    índice · la lista se desplaza; para ir a alguien concreto
+                    usa el buscador.
                 </p>
 
                 <section class="panel histogram onlyWide">
