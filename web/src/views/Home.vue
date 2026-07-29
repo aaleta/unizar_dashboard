@@ -2,22 +2,30 @@
 /**
  * Portada. Abre con números, no con gráficas.
  *
- * Cuatro escalares dicen si el grado va bien antes de que nadie interprete un
- * eje; las gráficas vienen después, para quien quiera el porqué. El orden es
+ * Unos pocos escalares dicen si el grado va bien antes de que nadie interprete
+ * un eje; las gráficas vienen después, para quien quiera el porqué. El orden es
  * deliberado: cifras → cómo se entra → dónde duele → si mejora con los años →
  * de cuándo son los datos.
  *
  * La última sección es la que hace honesta a toda la web: cada fuente se
  * actualiza por su cuenta y decir "datos de 2024-2025" para las cuatro sería
  * mentira en tres de ellas.
+ *
+ * El escritorio no cuenta nada distinto: cuenta más a la vez. Cabe una quinta
+ * cifra (la excelencia) y dos paneles que en el móvil no llegaron a entrar —el
+ * reparto de calificaciones del grado y la tendencia curso a curso—, y las
+ * tres bandas se leen sin desplazar la página.
  */
 
 import { computed } from "vue";
 
 import { useDegree } from "@/composables/useDegree";
 import { DATA_SOURCES } from "@/utils/dataSources";
+import { decimal, pct, thousands } from "@/utils/format";
+import { weightedAverages } from "@/content/copy";
 import { difficultyInk } from "@/theme/difficulty";
-import { courseRate } from "@/utils/metrics";
+import { gradeColor } from "@/theme/gradePalette";
+import { allCoreSubjects, courseRate } from "@/utils/metrics";
 
 import LineChart from "@/components/charts/LineChart.vue";
 import UiKpiCard from "@/components/ui/UiKpiCard.vue";
@@ -26,9 +34,13 @@ import UiMeterRow from "@/components/ui/UiMeterRow.vue";
 const {
     cutoff,
     rates,
+    excellence,
     sittings,
     sittingsYear,
     admission,
+    passTrend,
+    gradeDistribution,
+    totalEnrolment,
     hardest,
     recentYears
 } = useDegree();
@@ -49,19 +61,13 @@ const hardestYear = yearDifficulty.reduce((worst, year) =>
     year.value > worst.value ? year : worst
 ).course;
 
-/** Coma decimal: es una web en español y las notas se escriben con coma. */
-const decimal = (value, digits = 2) =>
-    value === null || value === undefined
-        ? "—"
-        : value.toFixed(digits).replace(".", ",");
-
-const pct = value => (value === null ? "—" : `${Math.round(value)}%`);
+const coreCount = allCoreSubjects.length;
 
 const chart = computed(() => ({
     labels: admission.map(row => String(row.anyo).slice(-2)),
     series: [
         {
-            label: "Nota media",
+            label: "Nota media de admisión",
             values: admission.map(row => row.nota_media_admision)
         },
         {
@@ -73,34 +79,72 @@ const chart = computed(() => ({
 
 const CHART_COLORS = ["var(--chart-line-1)", "var(--chart-line-2)"];
 
+const TREND_COLORS = ["var(--chart-line-1)"];
+
+/** "2013-2014" → "13-14": con trece cursos, el año entero no cabe en el eje. */
+const shortYear = academicYear =>
+    academicYear
+        .split("-")
+        .map(part => part.slice(-2))
+        .join("-");
+
+const trend = computed(() => ({
+    labels: passTrend.map(point => shortYear(point.year)),
+    series: [
+        {
+            label: "Tasa de rendimiento",
+            values: passTrend.map(point => point.value)
+        }
+    ]
+}));
+
 /**
  * La frase de la gráfica. Se construye con los datos en vez de escribirse,
  * porque una nota de corte que baja este año puede subir el siguiente y la
  * frase quedaría al revés.
+ *
+ * "La más baja desde 2016" tampoco se escribe: se busca el último curso
+ * anterior que estuviera igual o más abajo. Si no hay ninguno, es la más baja
+ * de toda la serie.
  */
 const admissionNote = computed(() => {
     if (!cutoff.value || cutoff.value.delta === null) return null;
 
-    const direction = cutoff.value.delta < 0 ? "bajó" : "subió";
+    const dropped = cutoff.value.delta < 0;
 
-    const lowest = Math.min(...admission.map(row => row.nota_corte));
-
-    const isLowestInYears = cutoff.value.value === lowest;
+    const earlier = [...admission]
+        .slice(0, -1)
+        .reverse()
+        .find(row => row.nota_corte <= cutoff.value.value);
 
     return {
-        direction,
+        direction: dropped ? "bajó" : "subió",
         amount: decimal(Math.abs(cutoff.value.delta)),
         value: decimal(cutoff.value.value, 3),
         year: cutoff.value.year,
-        isLowestInYears
+        // El "más baja desde" solo tiene sentido si de verdad ha bajado: si ha
+        // subido, el curso anterior ya era más bajo y la frase sobraría.
+        lowestSince: dropped ? (earlier?.anyo ?? null) : undefined,
+        gap: dropped ? "por debajo" : "por encima"
     };
 });
 </script>
 
 <template>
     <div class="screen">
+        <!-- Metadatos de la banda de título. `defer` porque el destino lo pinta
+         la carcasa, que va antes en el árbol pero se inserta después. En el
+         móvil la banda los esconde: allí el titular ocupa el ancho entero. -->
+        <Teleport defer to="#pageActions">
+            <p class="pageMeta num">
+                {{ weightedAverages() }}<br />
+                {{ coreCount }} troncales ·
+                {{ thousands(totalEnrolment) }} matrículas
+            </p>
+        </Teleport>
+
         <div class="body">
-            <!-- Cuatro cifras -------------------------------------------- -->
+            <!-- Las cifras ---------------------------------------------- -->
             <section class="kpis">
                 <UiKpiCard
                     label="Nota de corte"
@@ -125,6 +169,16 @@ const admissionNote = computed(() => {
                     :reference="`vs. los ${recentYears} cursos anteriores`"
                 />
 
+                <!-- La quinta cifra solo cabe en escritorio. -->
+                <UiKpiCard
+                    class="onlyWide"
+                    :label="excellence.label"
+                    :value="pct(excellence.value)"
+                    :delta="excellence.delta"
+                    :higher-is-better="excellence.higherIsBetter"
+                    reference="sobresalientes y matrículas de honor"
+                />
+
                 <UiKpiCard
                     label="Convocatorias"
                     :value="decimal(sittings)"
@@ -133,106 +187,182 @@ const admissionNote = computed(() => {
                 />
             </section>
 
-            <!-- Notas de acceso ------------------------------------------ -->
-            <section class="panel">
-                <div class="panelHead">
-                    <h2>Notas de acceso</h2>
-                    <span class="num range">
-                        {{ admission[0].anyo }} –
-                        {{ admission[admission.length - 1].anyo }}
-                    </span>
-                </div>
+            <div class="band wide">
+                <!-- Notas de acceso -------------------------------------- -->
+                <section class="panel">
+                    <div class="panelHead">
+                        <h2>Notas de acceso</h2>
+                        <span class="num range">
+                            {{ admission[0].anyo }} –
+                            {{ admission[admission.length - 1].anyo }}
+                        </span>
+                    </div>
 
-                <LineChart
-                    :labels="chart.labels"
-                    :series="chart.series"
-                    :colors="CHART_COLORS"
-                    :format-value="value => decimal(value, 1)"
-                />
-
-                <p v-if="admissionNote" class="takeaway">
-                    La nota de corte {{ admissionNote.direction }} a
-                    <strong>{{ admissionNote.value }}</strong>
-                    en {{ admissionNote.year
-                    }}<template v-if="admissionNote.isLowestInYears">
-                        — la más baja de toda la serie</template
-                    >.
-                </p>
-            </section>
-
-            <!-- La más dura ---------------------------------------------- -->
-            <RouterLink
-                v-if="hardest"
-                :to="`/asignatura/${hardest.code}`"
-                class="hardest"
-            >
-                <div class="hardestValue">
-                    <span
-                        class="num"
-                        :style="{ color: difficultyInk(hardest.value) }"
-                        >{{ pct(hardest.value) }}</span
-                    >
-                    <span class="hardestCaption">no superan</span>
-                </div>
-
-                <div class="hardestBody">
-                    <span class="eyebrow hardestEyebrow"
-                        >La más dura ahora mismo</span
-                    >
-                    <span class="hardestName">{{ hardest.name }}</span>
-                    <span class="hardestMeta">
-                        Troncal de {{ hardest.course }}º · media de
-                        {{ recentYears }} cursos.
-                        <span class="hardestGo">Ver ficha →</span>
-                    </span>
-                </div>
-            </RouterLink>
-
-            <!-- Dificultad por curso -------------------------------------- -->
-            <section class="panel">
-                <h2>¿Qué curso cuesta más?</h2>
-
-                <p class="lead">
-                    % que no supera las troncales de cada curso, de media.
-                </p>
-
-                <div class="yearBars">
-                    <UiMeterRow
-                        v-for="year in yearDifficulty"
-                        :key="year.label"
-                        :label="year.label"
-                        :value="year.value"
-                        :label-width="26"
+                    <LineChart
+                        :labels="chart.labels"
+                        :series="chart.series"
+                        :colors="CHART_COLORS"
+                        :desktop-width="672"
+                        :desktop-height="216"
+                        :format-value="value => decimal(value, 1)"
                     />
+
+                    <p v-if="admissionNote" class="takeaway">
+                        La nota de corte {{ admissionNote.direction }} a
+                        <strong>{{ admissionNote.value }}</strong>
+                        en {{ admissionNote.year
+                        }}<template v-if="admissionNote.lowestSince">
+                            — la más baja desde
+                            {{ admissionNote.lowestSince }}</template
+                        ><template
+                            v-else-if="admissionNote.lowestSince === null"
+                        >
+                            — la más baja de toda la serie</template
+                        >, y {{ admissionNote.amount }} puntos
+                        {{ admissionNote.gap }} del año anterior.
+                    </p>
+                </section>
+
+                <div class="column">
+                    <!-- La más dura ------------------------------------- -->
+                    <RouterLink
+                        v-if="hardest"
+                        :to="`/asignatura/${hardest.code}`"
+                        class="hardest"
+                    >
+                        <div class="hardestValue">
+                            <span
+                                class="num"
+                                :style="{ color: difficultyInk(hardest.value) }"
+                                >{{ pct(hardest.value) }}</span
+                            >
+                            <span class="hardestCaption">no superan</span>
+                        </div>
+
+                        <div class="hardestBody">
+                            <span class="eyebrow hardestEyebrow"
+                                >La más dura ahora mismo</span
+                            >
+                            <span class="hardestName">{{ hardest.name }}</span>
+                            <span class="hardestMeta">
+                                Troncal de {{ hardest.course }}º · media de
+                                {{ recentYears }} cursos ·
+                                {{ thousands(hardest.students) }} matrículas.
+                                <span class="hardestGo">Ver ficha →</span>
+                            </span>
+                        </div>
+                    </RouterLink>
+
+                    <!-- Dificultad por curso ---------------------------- -->
+                    <section class="panel">
+                        <h2>¿Qué curso cuesta más?</h2>
+
+                        <p class="lead">
+                            % que no supera las troncales de cada curso, de
+                            media.
+                        </p>
+
+                        <div class="yearBars">
+                            <UiMeterRow
+                                v-for="year in yearDifficulty"
+                                :key="year.label"
+                                :label="year.label"
+                                :value="year.value"
+                                :label-width="26"
+                            />
+                        </div>
+
+                        <p class="yearNote">
+                            {{ weightedAverages() }}.
+                            <RouterLink :to="`/grado/${hardestYear}`">
+                                Ver {{ hardestYear }}º →
+                            </RouterLink>
+                        </p>
+                    </section>
                 </div>
+            </div>
 
-                <p class="yearNote">
-                    Media ponderada de los últimos {{ recentYears }} cursos.
-                    <RouterLink :to="`/grado/${hardestYear}`">
-                        Ver {{ hardestYear }}º →
-                    </RouterLink>
-                </p>
-            </section>
+            <div class="band trio">
+                <!-- Tendencia --------------------------------------------- -->
+                <section class="panel onlyWide">
+                    <h2>¿Mejora con los años?</h2>
 
-            <!-- Frescura ------------------------------------------------- -->
-            <section class="freshness">
-                <p class="eyebrow">Actualización de los datos</p>
+                    <p class="lead">
+                        Tasa de rendimiento del grado, curso a curso.
+                    </p>
 
-                <ul class="sources">
-                    <li v-for="source in DATA_SOURCES" :key="source.key">
-                        <span class="sourceLabel">{{ source.label }}</span>
-                        <span class="num sourceYear">{{
-                            source.ultimo_curso
-                        }}</span>
-                    </li>
-                </ul>
+                    <LineChart
+                        :labels="trend.labels"
+                        :series="trend.series"
+                        :colors="TREND_COLORS"
+                        :desktop-width="420"
+                        :desktop-height="152"
+                        :max-ticks="4"
+                        :y-min="0"
+                        :format-value="value => `${Math.round(value)}%`"
+                    />
+                </section>
 
-                <p class="methodology">
-                    <RouterLink to="/metodologia">
-                        Cómo se calcula cada indicador →
-                    </RouterLink>
-                </p>
-            </section>
+                <!-- Reparto de calificaciones ----------------------------- -->
+                <section class="panel onlyWide">
+                    <h2>Reparto de calificaciones</h2>
+
+                    <p class="lead">
+                        Troncales, {{ recentYears }} últimos cursos ·
+                        {{ thousands(totalEnrolment) }} matrículas.
+                    </p>
+
+                    <div class="stack">
+                        <div
+                            v-for="slice in gradeDistribution"
+                            :key="slice.key"
+                            class="slice"
+                            :style="{
+                                width: `${slice.pct}%`,
+                                background: gradeColor(slice.key)
+                            }"
+                            :title="`${slice.label}: ${thousands(slice.count)}`"
+                        ></div>
+                    </div>
+
+                    <div class="gradeLegend">
+                        <span
+                            v-for="slice in gradeDistribution"
+                            :key="slice.key"
+                            class="gradeItem"
+                        >
+                            <span
+                                class="swatch"
+                                :style="{ background: gradeColor(slice.key) }"
+                            ></span>
+                            <span class="gradeLabel">{{ slice.label }}</span>
+                            <span class="num gradeValue">
+                                {{ decimal(slice.pct, 1) }}%
+                            </span>
+                        </span>
+                    </div>
+                </section>
+
+                <!-- Frescura ---------------------------------------------- -->
+                <section class="freshness">
+                    <p class="eyebrow">Actualización de los datos</p>
+
+                    <ul class="sources">
+                        <li v-for="source in DATA_SOURCES" :key="source.key">
+                            <span class="sourceLabel">{{ source.short }}</span>
+                            <span class="num sourceYear">{{
+                                source.ultimo_curso
+                            }}</span>
+                        </li>
+                    </ul>
+
+                    <p class="methodology">
+                        <RouterLink to="/metodologia">
+                            Cómo se calcula cada indicador →
+                        </RouterLink>
+                    </p>
+                </section>
+            </div>
         </div>
     </div>
 </template>
@@ -250,6 +380,19 @@ const admissionNote = computed(() => {
     grid-template-columns: 1fr 1fr;
 
     gap: var(--gap-card);
+}
+
+/* Las bandas del escritorio no existen en el móvil: ahí los paneles se apilan
+   uno tras otro, que es lo que hace `display: contents`.
+   Ojo con el nombre de la clase: el CSS de una vista alcanza también la raíz de
+   los componentes que coloca, y llamar "row" a esto le cambiaba el display a
+   todas las UiMeterRow de la pantalla. */
+.band {
+    display: contents;
+}
+
+.onlyWide {
+    display: none;
 }
 
 .panel {
@@ -318,6 +461,22 @@ h2 {
 
 .takeaway strong {
     color: var(--ink);
+}
+
+/* Metadatos de la banda de título ------------------------------------- */
+
+.pageMeta {
+    margin: 0;
+
+    font-size: var(--text-num-sm);
+
+    font-weight: 400;
+
+    line-height: 1.6;
+
+    text-align: right;
+
+    color: var(--ink-soft);
 }
 
 /* La más dura --------------------------------------------------------- */
@@ -418,6 +577,9 @@ h2 {
     color: var(--warn-title);
 
     font-weight: 600;
+
+    /* Partido en dos líneas dejaba de leerse como un botón. */
+    white-space: nowrap;
 }
 
 /* Dificultad por curso ------------------------------------------------- */
@@ -444,6 +606,72 @@ h2 {
     color: var(--navy);
 
     font-weight: 600;
+}
+
+/* Reparto de calificaciones -------------------------------------------- */
+
+.stack {
+    display: flex;
+
+    height: 24px;
+
+    border-radius: 6px;
+
+    overflow: hidden;
+}
+
+.slice {
+    min-width: 2px;
+}
+
+.gradeLegend {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 7px;
+
+    margin-top: 14px;
+}
+
+.gradeItem {
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    font-size: var(--text-body-sm);
+
+    color: var(--ink-2);
+}
+
+.swatch {
+    width: 9px;
+
+    height: 9px;
+
+    flex: none;
+
+    border-radius: 2px;
+}
+
+.gradeLabel {
+    flex: 1;
+
+    min-width: 0;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+
+    white-space: nowrap;
+}
+
+.gradeValue {
+    flex: none;
+
+    font-size: var(--text-num);
 }
 
 /* Frescura ------------------------------------------------------------ */
@@ -518,5 +746,199 @@ h2 {
     font-size: 12px;
 
     font-weight: 600;
+}
+
+/* Escritorio ----------------------------------------------------------- *
+ * Dos escalones. El diseño está dibujado a 1440px y sus columnas son fijas
+ * (704, 452, 288); por debajo de 1200 no caben, así que hasta ahí la misma
+ * pantalla se ordena en dos columnas iguales, con la gráfica y la frescura a
+ * todo el ancho. Nada se oculta: solo cambia el reparto.
+ */
+
+@media (min-width: 900px) {
+    .body {
+        padding: 22px var(--gutter) 34px;
+    }
+
+    .kpis {
+        grid-template-columns: repeat(3, 1fr);
+
+        gap: 12px;
+
+        --kpi-value-size: 26px;
+    }
+
+    .onlyWide {
+        display: block;
+    }
+
+    .band {
+        display: grid;
+
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+
+        gap: 16px;
+
+        margin-top: 16px;
+
+        align-items: start;
+    }
+
+    /* La gráfica de acceso y la lista de frescura piden ancho antes que
+       compañía: una serie de dieciséis años a media columna deja de leerse. */
+    .band.wide > .panel:first-child,
+    .band.trio > .freshness {
+        grid-column: 1 / -1;
+    }
+
+    /* Sin la columna de la derecha, sus dos paneles son celdas hermanas. */
+    .column {
+        display: contents;
+    }
+
+    /* Dentro de la rejilla el hueco lo pone `gap`, no cada panel. */
+    .band .panel,
+    .band .hardest,
+    .band .freshness {
+        margin-top: 0;
+    }
+
+    .panel {
+        padding: 16px 17px 14px;
+    }
+
+    h2 {
+        font-size: 17px;
+    }
+
+    .lead {
+        margin: 4px 0 12px;
+
+        font-size: var(--text-body-sm);
+    }
+
+    .range {
+        font-size: var(--text-num-sm);
+    }
+
+    .takeaway {
+        font-size: 12px;
+
+        line-height: 1.5;
+    }
+
+    /* La tarjeta de la más dura crece con la columna: es la advertencia de la
+       pantalla y en el ancho del móvil se leía como una nota al pie. */
+    .hardest {
+        padding: 16px 17px;
+    }
+
+    .hardestValue {
+        width: 62px;
+    }
+
+    .hardestValue .num {
+        font-size: 27px;
+    }
+
+    .hardestCaption {
+        margin-top: 4px;
+
+        font-size: 9.5px;
+    }
+
+    .hardestBody {
+        padding-left: 14px;
+    }
+
+    .hardestEyebrow {
+        font-size: var(--text-eyebrow);
+    }
+
+    .hardestName {
+        margin-top: 3px;
+
+        font-size: 20px;
+    }
+
+    .hardestMeta {
+        margin-top: 4px;
+
+        font-size: var(--text-body-sm);
+
+        line-height: 1.45;
+    }
+
+    .yearBars {
+        gap: 10px;
+    }
+
+    .yearNote {
+        margin-top: 14px;
+
+        font-size: var(--text-num-sm);
+    }
+
+    .freshness .eyebrow {
+        margin-bottom: 9px;
+
+        font-size: 9.5px;
+    }
+
+    .sources li {
+        font-size: var(--text-body-sm);
+    }
+
+    .sourceYear {
+        font-size: 10.5px;
+    }
+
+    /* Sin el objetivo táctil de 44px: en escritorio el enlace se pulsa con un
+       ratón y esa altura dejaba un hueco raro al final de la columna. */
+    .methodology {
+        margin-top: 12px;
+
+        text-align: left;
+    }
+
+    .methodology a {
+        min-height: 0;
+    }
+}
+
+/* La rejilla del diseño, tal cual: cinco cifras arriba y las tres bandas. */
+@media (min-width: 1200px) {
+    .kpis {
+        grid-template-columns: repeat(5, 1fr);
+
+        /* La cifra manda más aquí que en ninguna otra pantalla. */
+        --kpi-value-size: 30px;
+    }
+
+    /* 704px es lo que necesita la serie de dieciséis años para que dos puntos
+       consecutivos no se toquen; lo que sobra se lo queda la columna de al
+       lado, que es texto y aguanta cualquier ancho. */
+    .band.wide {
+        grid-template-columns: 704px minmax(0, 1fr);
+    }
+
+    .band.trio {
+        grid-template-columns: 452px minmax(0, 1fr) 288px;
+    }
+
+    .band.wide > .panel:first-child,
+    .band.trio > .freshness {
+        grid-column: auto;
+    }
+
+    .column {
+        display: flex;
+
+        flex-direction: column;
+
+        gap: 16px;
+
+        min-width: 0;
+    }
 }
 </style>

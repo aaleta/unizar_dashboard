@@ -17,6 +17,8 @@
 import { computed, ref } from "vue";
 
 import { useSchedule } from "@/composables/useSchedule";
+import { useViewport } from "@/composables/useViewport";
+import { EMPTY, SEARCH } from "@/content/copy";
 
 import UiChip from "@/components/ui/UiChip.vue";
 import UiIcon from "@/components/ui/UiIcon.vue";
@@ -39,7 +41,15 @@ const {
 /** Cuántas filas se ven antes de tener que pedir el resto. */
 const PREVIEW = 8;
 
-const open = ref(selectedSubjects.value.length === 0);
+const { isDesktop } = useViewport();
+
+/**
+ * El catálogo se abre y se cierra igual en las dos pantallas; lo que cambia es
+ * el punto de partida. En escritorio arranca abierto —el selector es una
+ * columna permanente y cerrado dejaría un hueco— pero el botón sigue ahí, que
+ * es lo que dice que la lista se puede tocar.
+ */
+const open = ref(isDesktop.value || selectedSubjects.value.length === 0);
 const query = ref("");
 const course = ref("todos");
 const expanded = ref(false);
@@ -71,10 +81,6 @@ const results = computed(() => {
         return !needle || normalize(subject.name).includes(needle);
     });
 });
-
-const visible = computed(() =>
-    expanded.value ? results.value : results.value.slice(0, PREVIEW)
-);
 
 const meta = subject => {
     const semesters = semestersFor(subject.code);
@@ -178,8 +184,8 @@ const groupLabel = group => `Grupo ${group.split("-").pop()}`;
         <div v-if="open" class="chooser">
             <UiSearchField
                 v-model="query"
-                :placeholder="`Buscar entre ${catalogue.length} asignaturas…`"
-                label="Buscar asignatura"
+                :placeholder="SEARCH.subjects(catalogue.length)"
+                :label="SEARCH.subjectsLabel"
             />
 
             <div class="chips">
@@ -206,11 +212,11 @@ const groupLabel = group => `Grupo ${group.split("-").pop()}`;
             </div>
 
             <p v-if="!results.length" class="emptyState">
-                Ninguna asignatura coincide con la búsqueda.
+                {{ EMPTY.subjects }}
             </p>
 
-            <ul v-else class="rows">
-                <li v-for="subject in visible" :key="subject.code">
+            <ul v-else class="rows" :class="{ collapsed: !expanded }">
+                <li v-for="subject in results" :key="subject.code">
                     <!-- Las optativas que no están en la publicación de este curso
                      se ven pero no se marcan: que existan es información; que
                      entraran al horario sería mentira. -->
@@ -260,7 +266,7 @@ const groupLabel = group => `Grupo ${group.split("-").pop()}`;
                     </button>
                 </li>
 
-                <li v-if="results.length > PREVIEW">
+                <li v-if="results.length > PREVIEW" class="moreRow">
                     <button
                         type="button"
                         class="more"
@@ -687,5 +693,43 @@ li:last-child .row {
     font-size: var(--text-body);
 
     color: var(--ink-soft);
+}
+
+/* El recorte del móvil: PREVIEW + 1. */
+.rows.collapsed > li:nth-child(n + 9):not(.moreRow) {
+    display: none;
+}
+
+/* En escritorio el catálogo entero se desplaza dentro de su caja en vez de
+   pedir "＋ N más": la columna tiene sitio de sobra. */
+@media (min-width: 900px) {
+    .moreRow {
+        display: none;
+    }
+
+    /* Los seis filtros en una línea: partidos en dos, el de optativas se
+       quedaba solo en la segunda y parecía otra cosa. Se aprietan un poco en
+       vez de abreviarse, que "Opt." obliga a adivinar. */
+    .chips {
+        flex-wrap: nowrap;
+
+        gap: 5px;
+    }
+
+    .chips :deep(.chip) {
+        padding-left: 9px;
+
+        padding-right: 9px;
+    }
+
+    .rows {
+        max-height: 420px;
+
+        overflow-y: auto;
+    }
+
+    .rows.collapsed > li:nth-child(n + 9):not(.moreRow) {
+        display: block;
+    }
 }
 </style>

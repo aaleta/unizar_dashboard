@@ -2,7 +2,7 @@
 /**
  * Iconos de línea, en un solo sitio.
  *
- * Van dibujados a mano y no como fuente de iconos ni paquete de npm: son diez,
+ * Van dibujados a mano y no como fuente de iconos ni paquete de npm: son trece,
  * pesan unos cientos de bytes y así no se arrastra una dependencia entera —ni
  * su hoja de estilos, ni su licencia— para pintar una casa y tres puntos.
  *
@@ -70,6 +70,15 @@ const PATHS = {
         '<circle cx="12" cy="12" r="9" />' +
         '<path d="M12 11v5" stroke-linecap="round" />' +
         '<circle cx="12" cy="7.8" r="1.1" fill="currentColor" stroke="none" />',
+
+    // Tres nodos y sus enlaces: la red de colaboración. Los círculos van
+    // huecos, como los demás iconos de línea, para que a 17px no se
+    // emborronen en tres manchas.
+    network:
+        '<circle cx="6" cy="7" r="2.4" />' +
+        '<circle cx="18" cy="6" r="2.4" />' +
+        '<circle cx="12" cy="17" r="2.4" />' +
+        '<path d="M8.1 8.4l2.6 6.4M16.6 8.1l-3.3 7M8.4 6.4l7.2-.3" />',
 
     search:
         '<circle cx="11" cy="11" r="7" stroke-width="2" />' +

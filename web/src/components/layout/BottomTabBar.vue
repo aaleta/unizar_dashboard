@@ -8,14 +8,14 @@
  * merecen estar escondidas. Un menú que se despliega sobre lo que estabas
  * mirando no te hace perder el sitio.
  *
- * "El Grado" se queda activa también en la lista de asignaturas y en la ficha:
- * son la misma rama del árbol vista con más o menos zoom, y ver la pestaña
- * apagarse al abrir una asignatura da la sensación de haberte salido de la
- * sección.
+ * Cuáles son las tres y cómo se llaman está en content/navigation.js, con el
+ * resto de destinos: aquí solo se pintan.
  */
 
 import { computed } from "vue";
 import { useRoute } from "vue-router";
+
+import { isActive, TABS } from "@/content/navigation";
 
 import UiIcon from "@/components/ui/UiIcon.vue";
 
@@ -30,35 +30,12 @@ defineEmits(["toggle-sheet"]);
 
 const route = useRoute();
 
-const TABS = [
-    {
-        key: "inicio",
-        label: "Inicio",
-        icon: "home",
-        to: "/",
-        matches: path => path === "/"
-    },
-    {
-        key: "grado",
-        label: "El Grado",
-        icon: "layers",
-        to: "/grado",
-        matches: path =>
-            path.startsWith("/grado") ||
-            path.startsWith("/asignatura") ||
-            path.startsWith("/curso")
-    },
-    {
-        key: "optativas",
-        label: "Optativas",
-        icon: "bookmark",
-        to: "/optativas",
-        matches: path => path.startsWith("/optativas")
-    }
-];
-
+// Con el criterio ancho: "El Grado" se queda activa también en la lista de
+// asignaturas y en la ficha, que son la misma rama del árbol vista con más o
+// menos zoom. Ver la pestaña apagarse al abrir una asignatura da la sensación
+// de haberte salido de la sección.
 const activeKey = computed(
-    () => TABS.find(tab => tab.matches(route.path))?.key ?? null
+    () => TABS.find(tab => isActive(tab, route.path, true))?.key ?? null
 );
 </script>
 

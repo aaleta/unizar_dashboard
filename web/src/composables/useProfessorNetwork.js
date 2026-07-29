@@ -10,7 +10,7 @@
  * y los mismos números totales. Solo cambia por dónde se entra.
  */
 
-import { computed, unref } from "vue";
+import { computed, ref, unref, watch } from "vue";
 
 import cache, { ALL_YEARS, availableYears } from "@/utils/NodesLinks";
 
@@ -84,11 +84,87 @@ const people = graph.nodes
 
 const peopleById = new Map(people.map(person => [person.id, person]));
 
+/**
+ * Los tramos del índice de colaboración. Seis, porque con cinco el primero se
+ * come la mitad del claustro y con siete quedan tramos vacíos.
+ */
+const INDEX_BUCKETS = [
+    { from: 0, to: 1 },
+    { from: 1, to: 2 },
+    { from: 2, to: 4 },
+    { from: 4, to: 8 },
+    { from: 8, to: 16 },
+    { from: 16, to: Infinity }
+];
+
+const histogram = INDEX_BUCKETS.map(bucket => ({
+    label:
+        bucket.to === Infinity
+            ? `${bucket.from}+`
+            : `${bucket.from}–${bucket.to}`,
+    count: people.filter(
+        person =>
+            person.totalWeight >= bucket.from && person.totalWeight < bucket.to
+    ).length
+}));
+
 export const useProfessorNetwork = (
     querySource,
     selectedSource,
     activeOnlySource
 ) => {
+    /**
+     * El grafo tiene sus propios mandos, que no tocan la lista: el curso
+     * académico que se dibuja y el peso mínimo por debajo del cual una
+     * colaboración es ruido.
+     */
+    const year = ref(ALL_YEARS);
+
+    const minWeight = ref(0.5);
+
+    const aggregated = computed(() => year.value === ALL_YEARS);
+
+    // En un solo curso los pesos son pequeños (una asignatura de dos
+    // profesores vale 0,5), así que el umbral del agregado escondería casi
+    // todo.
+    watch(aggregated, isAggregated => {
+        minWeight.value = isAggregated ? 0.5 : 0;
+    });
+
+    /**
+     * El grafo que se dibuja: sin las colaboraciones por debajo del umbral y
+     * sin los profesores que se quedan sin ninguna. Con 2.003 aristas, sin
+     * filtrar es una madeja ilegible.
+     */
+    const visibleGraph = computed(() => {
+        const data = cache[year.value];
+
+        if (!data) return { nodes: [], edges: [] };
+
+        // Los chips de la lista mandan también sobre la madeja: mirar "en
+        // activo" en una columna y el claustro histórico en la otra sería
+        // enseñar dos cosas distintas como si fueran la misma.
+        const pool = read(activeOnlySource)
+            ? new Set(
+                  people
+                      .filter(person => person.active)
+                      .map(person => person.id)
+              )
+            : null;
+
+        const edges = data.edges.filter(
+            edge =>
+                edge.value >= minWeight.value &&
+                (!pool || (pool.has(edge.from) && pool.has(edge.to)))
+        );
+
+        const connected = new Set(edges.flatMap(edge => [edge.from, edge.to]));
+
+        return {
+            nodes: data.nodes.filter(node => connected.has(node.id)),
+            edges
+        };
+    });
     const read = source =>
         typeof source === "function" ? source() : unref(source);
 
@@ -143,6 +219,25 @@ export const useProfessorNetwork = (
         results,
 
         selected,
+
+        year,
+
+        minWeight,
+
+        aggregated,
+
+        years: [...availableYears].sort((a, b) => b.localeCompare(a)),
+
+        allYears: ALL_YEARS,
+
+        visibleGraph,
+
+        graphStats: computed(() => ({
+            professors: visibleGraph.value.nodes.length,
+            links: visibleGraph.value.edges.length
+        })),
+
+        histogram,
 
         totals: {
             professors: graph.nodes.length,

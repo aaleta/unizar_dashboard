@@ -16,7 +16,9 @@
  * quitar del todo.)
  */
 
-import { computed } from "vue";
+import { computed, ref } from "vue";
+
+import { useViewport } from "@/composables/useViewport";
 
 const props = defineProps({
     // [{ label, values: [n, n, …] }] — una entrada por línea.
@@ -57,12 +59,67 @@ const props = defineProps({
     yMin: {
         type: Number,
         default: null
+    },
+
+    /**
+     * El lienzo del viewBox, no el tamaño en pantalla: el SVG siempre se
+     * estira al ancho de su hueco. Lo que fija es la PROPORCIÓN y, con ella,
+     * cuánto aire queda entre las guías. Los valores por defecto son los del
+     * móvil, donde la gráfica ocupa una tarjeta de una columna.
+     *
+     * Ojo al cambiarlos: los tamaños de letra de los ejes están en unidades
+     * del viewBox, así que un lienzo más ancho encoge la letra en pantalla.
+     */
+    width: {
+        type: Number,
+        default: 300
+    },
+
+    height: {
+        type: Number,
+        default: 118
+    },
+
+    /**
+     * El lienzo de escritorio, donde el hueco es dos veces más ancho. No se
+     * puede resolver con una media query —el viewBox es un atributo, no un
+     * estilo—, así que el conmutador vive aquí y no en cada pantalla: una
+     * gráfica que sabe medirse ahorra un consumidor de useViewport por vista.
+     */
+    desktopWidth: {
+        type: Number,
+        default: null
+    },
+
+    desktopHeight: {
+        type: Number,
+        default: null
     }
 });
 
-const WIDTH = 300;
-const HEIGHT = 118;
-const PAD = { left: 30, right: 12, top: 8, bottom: 20 };
+const { isDesktop } = useViewport();
+
+/** ¿Estamos pintando en el lienzo ancho? */
+const wide = computed(() => isDesktop.value && props.desktopWidth !== null);
+
+const canvas = computed(() => ({
+    width: wide.value ? props.desktopWidth : props.width,
+    height: wide.value ? (props.desktopHeight ?? props.height) : props.height
+}));
+
+/**
+ * Márgenes y tamaño de las etiquetas, en unidades del viewBox. En el lienzo
+ * ancho el SVG se pinta casi a escala 1:1, así que las mismas cifras que en el
+ * móvil se verían la mitad de grandes; en el estrecho el navegador lo estira
+ * 1,6 veces y hay que compensar al revés.
+ */
+const pad = computed(() =>
+    wide.value
+        ? { left: 38, right: 16, top: 12, bottom: 26 }
+        : { left: 30, right: 12, top: 8, bottom: 20 }
+);
+
+const tickSize = computed(() => (wide.value ? 9.5 : 7.5));
 
 const flat = computed(() =>
     props.series.flatMap(item => item.values).filter(value => value !== null)
@@ -87,18 +144,18 @@ const bounds = computed(() => {
 const x = index => {
     const count = props.labels.length;
 
-    if (count <= 1) return PAD.left;
+    if (count <= 1) return pad.value.left;
 
-    const span = WIDTH - PAD.left - PAD.right;
+    const span = canvas.value.width - pad.value.left - pad.value.right;
 
-    return PAD.left + (index / (count - 1)) * span;
+    return pad.value.left + (index / (count - 1)) * span;
 };
 
 const y = value => {
     const { min, max } = bounds.value;
-    const span = HEIGHT - PAD.top - PAD.bottom;
+    const span = canvas.value.height - pad.value.top - pad.value.bottom;
 
-    return PAD.top + span - ((value - min) / (max - min)) * span;
+    return pad.value.top + span - ((value - min) / (max - min)) * span;
 };
 
 const paths = computed(() =>
@@ -129,8 +186,8 @@ const yTicks = computed(() => {
 
 /**
  * Guías horizontales, a la altura de cada marca del eje Y. Sin ellas hay que
- * estimar a ojo dónde cae un punto entre dos números del eje, y a 118px de
- * alto ese ojo se equivoca.
+ * estimar a ojo dónde cae un punto entre dos números del eje, y con un lienzo
+ * de este alto ese ojo se equivoca.
  *
  * La de abajo se cae: su altura es exactamente la del eje X, así que solo
  * serviría para ensuciar de puntos una línea que ya está pintada.
@@ -138,7 +195,8 @@ const yTicks = computed(() => {
 const yGrid = computed(() => yTicks.value.slice(0, -1));
 
 /**
- * Con dieciséis años no caben dieciséis etiquetas en 300px: se reparten
+ * Con dieciséis años no caben dieciséis etiquetas en el ancho del lienzo: se
+ * reparten
  * uniformemente las que quepan, siempre incluyendo la primera y la última,
  * que son las que sitúan la serie.
  */
@@ -155,6 +213,76 @@ const xTicks = computed(() => {
         const index = Math.round(i * step);
         return { label: props.labels[index], x: x(index) };
     });
+});
+
+/* ------------------------------------------------------------------ *
+ * Interacción
+ * ------------------------------------------------------------------ *
+ * En una gráfica de dieciséis años, la pregunta que no responde el dibujo es
+ * "¿cuánto exactamente?". Con ratón se puede contestar sin ensuciar el lienzo:
+ * al pasar por encima se marca el año y se dicen sus cifras. Sin ratón no hay
+ * nada que hacer —ni nada que perder—: los ejes siguen ahí.
+ */
+
+const svg = ref(null);
+
+const hovered = ref(null);
+
+const track = event => {
+    const box = svg.value?.getBoundingClientRect();
+
+    if (!box || !props.labels.length) return;
+
+    // De píxeles de pantalla a unidades del viewBox.
+    const units = ((event.clientX - box.left) / box.width) * canvas.value.width;
+
+    const span = canvas.value.width - pad.value.left - pad.value.right;
+
+    const step = props.labels.length > 1 ? span / (props.labels.length - 1) : 1;
+
+    const index = Math.round((units - pad.value.left) / step);
+
+    hovered.value = Math.min(Math.max(index, 0), props.labels.length - 1);
+};
+
+const readings = computed(() => {
+    if (hovered.value === null) return null;
+
+    const index = hovered.value;
+
+    const points = props.series
+        .map((item, order) => ({
+            label: item.label,
+            color: props.colors[order],
+            value: item.values[index]
+        }))
+        .filter(point => point.value !== null && point.value !== undefined);
+
+    if (!points.length) return null;
+
+    return {
+        index,
+        x: x(index),
+        label: props.labels[index],
+        points: points.map(point => ({
+            ...point,
+            y: y(point.value),
+            text: props.formatValue(point.value)
+        }))
+    };
+});
+
+/** Posición del globo en porcentaje del ancho, para que escale con el SVG. */
+const tooltipStyle = computed(() => {
+    if (!readings.value) return null;
+
+    const share = (readings.value.x / canvas.value.width) * 100;
+
+    return {
+        left: `${share}%`,
+        // Cerca de los bordes el globo se apoya en el lado que le queda libre.
+        transform: `translateX(${share > 80 ? -100 : share < 20 ? 0 : -50}%)`
+    };
 });
 
 const describe = computed(() =>
@@ -187,22 +315,26 @@ const describe = computed(() =>
         </figcaption>
 
         <svg
-            :viewBox="`0 0 ${WIDTH} ${HEIGHT}`"
+            ref="svg"
+            :viewBox="`0 0 ${canvas.width} ${canvas.height}`"
+            :style="{ '--tick-size': `${tickSize}px` }"
             role="img"
             :aria-label="describe"
+            @pointermove="track"
+            @pointerleave="hovered = null"
         >
             <line
-                :x1="PAD.left"
-                :y1="PAD.top"
-                :x2="PAD.left"
-                :y2="HEIGHT - PAD.bottom"
+                :x1="pad.left"
+                :y1="pad.top"
+                :x2="pad.left"
+                :y2="canvas.height - pad.bottom"
                 class="axis"
             />
             <line
-                :x1="PAD.left"
-                :y1="HEIGHT - PAD.bottom"
-                :x2="WIDTH - PAD.right"
-                :y2="HEIGHT - PAD.bottom"
+                :x1="pad.left"
+                :y1="canvas.height - pad.bottom"
+                :x2="canvas.width - pad.right"
+                :y2="canvas.height - pad.bottom"
                 class="axis"
             />
 
@@ -210,9 +342,9 @@ const describe = computed(() =>
             <line
                 v-for="tick in yGrid"
                 :key="`grid-${tick.value}`"
-                :x1="PAD.left"
+                :x1="pad.left"
                 :y1="tick.y"
-                :x2="WIDTH - PAD.right"
+                :x2="canvas.width - pad.right"
                 :y2="tick.y"
                 class="grid"
             />
@@ -220,7 +352,7 @@ const describe = computed(() =>
             <text
                 v-for="tick in yTicks"
                 :key="`y-${tick.value}`"
-                :x="PAD.left - 6"
+                :x="pad.left - 6"
                 :y="tick.y + 2.5"
                 text-anchor="end"
                 class="tick"
@@ -249,22 +381,66 @@ const describe = computed(() =>
                 :fill="path.color"
             />
 
+            <!-- La lectura del punto sobre el que está el ratón. -->
+            <template v-if="readings">
+                <line
+                    :x1="readings.x"
+                    :y1="pad.top"
+                    :x2="readings.x"
+                    :y2="canvas.height - pad.bottom"
+                    class="guide"
+                />
+
+                <circle
+                    v-for="point in readings.points"
+                    :key="`hover-${point.label}`"
+                    :cx="readings.x"
+                    :cy="point.y"
+                    r="4"
+                    fill="var(--surface)"
+                    :stroke="point.color"
+                    stroke-width="2.4"
+                />
+            </template>
+
             <text
                 v-for="tick in xTicks"
                 :key="`x-${tick.label}`"
                 :x="tick.x"
-                :y="HEIGHT - PAD.bottom + 12"
+                :y="canvas.height - pad.bottom + 12"
                 text-anchor="middle"
                 class="tick"
             >
                 {{ tick.label }}
             </text>
         </svg>
+        <div
+            v-if="readings"
+            class="tooltip num"
+            :style="tooltipStyle"
+            aria-hidden="true"
+        >
+            <span class="tooltipLabel">{{ readings.label }}</span>
+
+            <span
+                v-for="point in readings.points"
+                :key="`read-${point.label}`"
+                class="tooltipRow"
+            >
+                <span
+                    class="tooltipDot"
+                    :style="{ background: point.color }"
+                ></span>
+                {{ point.text }}
+            </span>
+        </div>
     </figure>
 </template>
 
 <style scoped>
 .chart {
+    position: relative;
+
     margin: 0;
 }
 
@@ -322,10 +498,72 @@ svg {
     stroke-dasharray: 2 4;
 }
 
+/* La guía del punto señalado: la misma tinta que la rejilla, entera en vez de
+   punteada, para que se distinga sin pesar más que el dato. */
+.guide {
+    stroke: var(--line-strong);
+
+    stroke-width: 1;
+}
+
+.tooltip {
+    position: absolute;
+
+    top: 0;
+
+    z-index: 1;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    padding: 5px 9px;
+
+    background: var(--surface);
+
+    border: 1px solid var(--line-strong);
+
+    border-radius: var(--radius-row);
+
+    box-shadow: var(--shadow-card);
+
+    font-size: var(--text-num-sm);
+
+    white-space: nowrap;
+
+    pointer-events: none;
+}
+
+.tooltipLabel {
+    font-weight: 400;
+
+    color: var(--ink-soft);
+}
+
+.tooltipRow {
+    display: flex;
+
+    align-items: center;
+
+    gap: 5px;
+
+    color: var(--ink);
+}
+
+.tooltipDot {
+    width: 8px;
+
+    height: 3px;
+
+    border-radius: 2px;
+}
+
 .tick {
     font-family: var(--font-mono);
 
-    font-size: 7.5px;
+    font-size: var(--tick-size);
 
     fill: var(--ink-soft);
 }

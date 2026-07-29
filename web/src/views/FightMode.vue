@@ -12,16 +12,31 @@
  */
 
 import { computed, ref } from "vue";
+import { useRoute } from "vue-router";
 
 import { useFight } from "@/composables/useFight";
+import { weightedAverages } from "@/content/copy";
 import { allSubjects, subjectName } from "@/utils/metrics";
 import { difficultyInk } from "@/theme/difficulty";
 
 /** Física computacional contra el TFG: un duelo con algo que mirar. */
 const DEFAULTS = [26918, 26931];
 
-const firstCode = ref(DEFAULTS[0]);
-const secondCode = ref(DEFAULTS[1]);
+/**
+ * La ficha de asignatura enlaza aquí con `?a=<código>`: "llevar a Fight Mode"
+ * tiene que traerse la asignatura, o el atajo obliga a buscarla otra vez.
+ */
+const route = useRoute();
+
+const requested = Number(route.query.a);
+
+const valid = allSubjects.some(subject => subject.code === requested);
+
+const firstCode = ref(valid ? requested : DEFAULTS[0]);
+
+const secondCode = ref(
+    valid && requested === DEFAULTS[1] ? DEFAULTS[0] : DEFAULTS[1]
+);
 
 const { first, second, duels, verdict, bothOptional } = useFight(
     () => firstCode.value,
@@ -46,6 +61,9 @@ const swap = () => {
 
 /** La cifra de dificultad se pinta con la rampa; el resto, en tinta normal. */
 const valueColor = (duel, side) => {
+    // La fila que no compite se lee como lo que es: un dato de contexto.
+    if (duel.competes === false) return "var(--ink-placeholder)";
+
     if (duel.key !== "noSuperacion") return "var(--ink)";
 
     // Celdas de 15,5px: por debajo de "texto grande", hace falta 4,5:1.
@@ -141,7 +159,12 @@ const valueColor = (duel, side) => {
                 <span class="head">{{ second.name }}</span>
             </div>
 
-            <div v-for="duel in duels" :key="duel.key" class="duelRow">
+            <div
+                v-for="duel in duels"
+                :key="duel.key"
+                class="duelRow"
+                :class="{ inert: duel.competes === false }"
+            >
                 <span class="cell" :class="{ won: duel.winner === 1 }">
                     <span
                         class="num cellValue"
@@ -151,7 +174,12 @@ const valueColor = (duel, side) => {
                     <span v-if="duel.winner === 1" class="cellWin">gana</span>
                 </span>
 
-                <span class="duelLabel">{{ duel.label }}</span>
+                <span class="duelLabel">
+                    {{ duel.label }}
+                    <span v-if="duel.note" class="num duelNote">{{
+                        duel.note
+                    }}</span>
+                </span>
 
                 <span class="cell" :class="{ won: duel.winner === 2 }">
                     <span
@@ -164,17 +192,35 @@ const valueColor = (duel, side) => {
             </div>
         </div>
 
-        <p class="footnote">
-            Medias ponderadas de los últimos 3 cursos.
-            <template v-if="bothOptional">
-                Los matriculados solo se comparan entre optativas.
-            </template>
-            <template v-else>
-                Los matriculados solo se comparan cuando las dos son optativas:
-                la popularidad de una troncal no dice nada, la cursa todo el
-                mundo.
-            </template>
-        </p>
+        <div class="foot">
+            <p class="footnote">
+                {{ weightedAverages() }}.
+                <template v-if="bothOptional">
+                    Los matriculados solo se comparan entre optativas.
+                </template>
+                <template v-else>
+                    Los matriculados solo se comparan cuando las dos son
+                    optativas: la popularidad de una troncal no dice nada, la
+                    cursa todo el mundo.
+                </template>
+            </p>
+
+            <div class="footLinks onlyWide">
+                <RouterLink
+                    :to="`/asignatura/${first.code}`"
+                    class="button footButton"
+                >
+                    Ver {{ first.name }} →
+                </RouterLink>
+
+                <RouterLink
+                    :to="`/asignatura/${second.code}`"
+                    class="button footButton"
+                >
+                    Ver {{ second.name }} →
+                </RouterLink>
+            </div>
+        </div>
     </div>
 </template>
 
@@ -519,5 +565,248 @@ const valueColor = (duel, side) => {
     line-height: 1.6;
 
     color: var(--ink-soft);
+}
+
+/* La fila que no compite solo aparece donde hay sitio para explicarla. */
+.duelRow.inert {
+    display: none;
+}
+
+.onlyWide {
+    display: none;
+}
+
+/* Escritorio ------------------------------------------------------------ *
+ * Centrado a 980px y no estirado a 1196: esto es un duelo cara a cara, y dos
+ * contendientes a metro y medio dejan de compararse.
+ */
+
+@media (min-width: 900px) {
+    .screen {
+        max-width: 980px;
+
+        margin: 0 auto;
+
+        padding: 26px var(--gutter) 34px;
+    }
+
+    .onlyWide {
+        display: block;
+    }
+
+    .intro {
+        max-width: 560px;
+
+        margin: 0 auto;
+
+        text-align: center;
+    }
+
+    .intro p {
+        font-size: var(--text-body);
+
+        line-height: 1.5;
+    }
+
+    .fighters {
+        gap: 16px;
+
+        margin-top: 22px;
+    }
+
+    .fighter {
+        padding: 20px 18px;
+    }
+
+    .fighterName {
+        font-size: 24px;
+    }
+
+    .fighterMeta {
+        margin-top: 7px;
+
+        font-size: var(--text-num-sm);
+    }
+
+    .fighterPick {
+        margin-top: 12px;
+
+        font-size: var(--text-num);
+    }
+
+    .medallion {
+        width: 64px;
+
+        height: 64px;
+
+        font-size: 21px;
+    }
+
+    .verdict {
+        gap: 14px;
+
+        margin-top: 18px;
+
+        padding: 16px 18px;
+    }
+
+    .trophy {
+        width: 42px;
+
+        height: 42px;
+
+        font-size: 20px;
+    }
+
+    .verdictText {
+        font-size: 15px;
+    }
+
+    .verdictDetail {
+        font-size: var(--text-body-sm);
+    }
+
+    .duels {
+        margin-top: 24px;
+    }
+
+    .duelRow {
+        grid-template-columns: 1fr 190px 1fr;
+
+        gap: 12px;
+    }
+
+    .duelRow + .duelRow {
+        margin-top: 12px;
+    }
+
+    .duelRow.inert {
+        display: grid;
+    }
+
+    .head {
+        font-size: var(--text-num-sm);
+    }
+
+    .cell {
+        padding: 14px 8px;
+    }
+
+    .cellValue {
+        font-size: 20px;
+    }
+
+    .cellWin {
+        margin-top: 2px;
+
+        font-size: 9.5px;
+    }
+
+    .duelLabel {
+        display: flex;
+
+        flex-direction: column;
+
+        align-items: center;
+
+        justify-content: center;
+
+        gap: 3px;
+
+        font-size: var(--text-body);
+    }
+
+    /* La fila de matriculados cuando las dos no son optativas: en gris y
+       discontinua, con el porqué debajo del rótulo. */
+    .inert .cell {
+        background: var(--surface-muted);
+
+        border: 1px dashed var(--line-strong);
+    }
+
+    .inert .duelLabel {
+        color: var(--ink-placeholder);
+    }
+
+    .duelNote {
+        font-size: var(--text-eyebrow);
+
+        font-weight: 400;
+
+        line-height: 1.3;
+
+        color: var(--ink-placeholder);
+    }
+
+    /* El pie, con los dos atajos a las fichas. */
+    .foot {
+        display: flex;
+
+        align-items: center;
+
+        gap: 12px;
+
+        margin-top: 24px;
+
+        padding-top: 14px;
+
+        border-top: 1px solid var(--line-rule);
+    }
+
+    .footnote {
+        flex: 1;
+
+        margin: 0;
+
+        padding-top: 0;
+
+        border-top: none;
+
+        font-size: var(--text-num-sm);
+
+        line-height: 1.7;
+    }
+
+    .footLinks {
+        display: flex;
+
+        flex: none;
+
+        gap: 8px;
+    }
+
+    .footButton {
+        display: inline-flex;
+
+        align-items: center;
+
+        max-width: 220px;
+
+        min-height: 38px;
+
+        padding: 0 14px;
+
+        border: 1px solid var(--navy-line-soft);
+
+        border-radius: var(--radius-control);
+
+        background: var(--surface);
+
+        font-size: var(--text-body);
+
+        font-weight: 600;
+
+        color: var(--navy);
+
+        white-space: nowrap;
+
+        overflow: hidden;
+
+        text-overflow: ellipsis;
+    }
+
+    .footButton:hover {
+        border-color: var(--navy);
+    }
 }
 </style>

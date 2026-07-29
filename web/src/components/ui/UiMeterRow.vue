@@ -90,11 +90,13 @@ const text = computed(
 </script>
 
 <template>
-    <div class="row">
+    <!-- El `title` es para el ratón: la cifra ya está a la derecha, pero con
+     el rótulo cortado por el ancho conviene poder leer de qué es. -->
+    <div class="row" :title="`${label}: ${text}`">
         <span
             class="label"
             :class="{ muted }"
-            :style="{ width: `${labelWidth}px` }"
+            :style="{ '--meter-label-default': `${labelWidth}px` }"
         >
             {{ label }}
         </span>
@@ -123,6 +125,11 @@ const text = computed(
 
 .label {
     flex: none;
+
+    /* El ancho lo fija quien la coloca con la prop, pero una pantalla puede
+       cambiarlo por CSS —en escritorio los nombres tienen más sitio— y para
+       eso no vale un estilo en línea: se gana con la variable. */
+    width: var(--meter-label-width, var(--meter-label-default));
 
     font-size: var(--text-body-xs);
 

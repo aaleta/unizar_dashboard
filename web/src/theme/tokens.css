@@ -67,6 +67,19 @@
     /* Filete vertical entre el logotipo y el título de la cabecera. */
     --on-navy-divider: rgba(176, 141, 63, 0.6);
 
+    /* Filete que separa bloques DENTRO de una mancha navy (la lateral de
+       escritorio). Blanco al 10 %: sobre el navy se lee como una línea, y
+       sobre el papel no existe. */
+    --on-navy-rule: rgba(255, 255, 255, 0.1);
+
+    /* Fondo de una entrada de la lateral al pasar por encima. */
+    --on-navy-hover: rgba(255, 255, 255, 0.06);
+
+    /* Entrada inactiva de la lateral: blanco apagado, 9,6:1 sobre el navy.
+       No es --navy-faint porque este es texto principal de un enlace y aquel
+       es de apoyo; con el mismo tono no se distingue la entrada del rótulo. */
+    --ink-on-navy-soft: #dfe3ec;
+
     --navy-meta: #606e88; /* Metadatos sobre navy-wash */
 
     /* ---------------------------------------------------------------- *
@@ -202,7 +215,18 @@
     /* Mínimo táctil. No es decorativo: por debajo de esto la gente falla. */
     --touch-target: 44px;
 
-    /* El mock está dibujado a 402px. En pantallas anchas el contenido se
-       contiene en lugar de estirarse hasta lo ilegible. */
+    /* El mock está dibujado a 402px. Por encima de 900px manda
+       --content-max-desktop; hasta ahí, el contenido se contiene en lugar de
+       estirarse hasta lo ilegible. */
     --content-max: 520px;
+
+    /* Escritorio: 1440px de marco − 244px de lateral, con 32px de margen a
+       cada lado del contenido. */
+    --content-max-desktop: 1196px;
+    --sidebar-width: 244px;
+
+    /* Anillo de foco SOBRE navy. El navy de style.css no se ve contra la
+       lateral, y quien navega con teclado tiene derecho a saber dónde está
+       también ahí. */
+    --focus-on-navy: #fff;
 }

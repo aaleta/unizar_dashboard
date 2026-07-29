@@ -13,6 +13,12 @@ import HomeView from "@/views/Home.vue";
  * de asignatura— los afina la propia vista con usePageHeader.
  *
  * Está aquí y no en cada vista para poder leer todos los títulos juntos.
+ *
+ * `meta.eyebrow` es el antetítulo de esa banda, y solo se ve en escritorio: la
+ * sección de la que cuelga la pantalla. `meta.source` dice qué fuente de datos
+ * la alimenta, y es lo que el pie de la lateral convierte en "de cuándo son
+ * estos datos"; una pantalla que no describe ninguna fuente trae su `footer`
+ * escrito.
  */
 const router = createRouter({
     history: createWebHashHistory(import.meta.env.BASE_URL),
@@ -23,7 +29,9 @@ const router = createRouter({
             name: "home",
             component: HomeView,
             meta: {
-                title: "Estadísticas globales del grado"
+                title: "Estadísticas globales del grado",
+                eyebrow: "Portada",
+                source: "notas"
             }
         },
 
@@ -32,7 +40,9 @@ const router = createRouter({
             name: "degree",
             component: () => import("@/views/DegreeMap.vue"),
             meta: {
-                title: "Estructura del grado"
+                title: "Estructura del grado",
+                eyebrow: "El grado",
+                source: "notas"
             }
         },
 
@@ -41,7 +51,9 @@ const router = createRouter({
             name: "course",
             component: () => import("@/views/Course.vue"),
             meta: {
-                title: "Vista de curso"
+                title: "Vista de curso",
+                eyebrow: "El grado",
+                source: "notas"
             }
         },
 
@@ -50,7 +62,9 @@ const router = createRouter({
             name: "subjects",
             component: () => import("@/views/Subjects.vue"),
             meta: {
-                title: "Todas las asignaturas"
+                title: "Todas las asignaturas",
+                eyebrow: "El grado",
+                source: "notas"
             }
         },
 
@@ -59,7 +73,9 @@ const router = createRouter({
             name: "subject",
             component: () => import("@/views/Subject.vue"),
             meta: {
-                title: "Ficha de asignatura"
+                title: "Ficha de asignatura",
+                eyebrow: "El grado",
+                source: "notas"
             }
         },
 
@@ -68,7 +84,9 @@ const router = createRouter({
             name: "optatives",
             component: () => import("@/views/Optatives.vue"),
             meta: {
-                title: "Optativas del grado"
+                title: "Optativas del grado",
+                eyebrow: "El grado",
+                source: "notas"
             }
         },
 
@@ -77,7 +95,9 @@ const router = createRouter({
             name: "faculty",
             component: () => import("@/views/Faculty.vue"),
             meta: {
-                title: "Profesorado"
+                title: "Profesorado",
+                eyebrow: "Herramientas",
+                source: "guias"
             }
         },
 
@@ -86,7 +106,9 @@ const router = createRouter({
             name: "schedule",
             component: () => import("@/views/Schedule.vue"),
             meta: {
-                title: "Monta tu horario"
+                title: "Monta tu horario",
+                eyebrow: "Herramientas",
+                source: "horarios"
             }
         },
 
@@ -95,7 +117,8 @@ const router = createRouter({
             name: "methodology",
             component: () => import("@/views/Methodology.vue"),
             meta: {
-                title: "Fuentes y metodología"
+                title: "Fuentes y metodología",
+                eyebrow: "La letra pequeña"
             }
         },
 
@@ -104,7 +127,9 @@ const router = createRouter({
             name: "fight",
             component: () => import("@/views/FightMode.vue"),
             meta: {
-                title: "Fight Mode"
+                title: "Fight Mode",
+                eyebrow: "Herramientas",
+                source: "notas"
             }
         },
 
@@ -113,7 +138,9 @@ const router = createRouter({
             name: "about",
             component: () => import("@/views/About.vue"),
             meta: {
-                title: "Acerca de"
+                title: "Acerca de",
+                eyebrow: "La letra pequeña",
+                footer: { label: "Proyecto", detail: "independiente" }
             }
         },
 

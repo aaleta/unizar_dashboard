@@ -3,7 +3,21 @@
  * Acerca de: la página humana.
  */
 
+import { ref, watch } from "vue";
+
+import { useViewport } from "@/composables/useViewport";
+import { loadProfessorCount } from "@/utils/counts";
+import { thousands } from "@/utils/format";
+import {
+    RECENT_YEARS,
+    academicYears,
+    allSubjects,
+    degreeEnrolment
+} from "@/utils/metrics";
+
 import UiCallout from "@/components/ui/UiCallout.vue";
+
+const { isDesktop } = useViewport();
 
 const REPO = "https://github.com/aaleta/unizar_dashboard";
 
@@ -40,6 +54,32 @@ const PEOPLE = [
 const avatar = person =>
     person.avatarUrl ?? `https://github.com/${person.handle}.png?size=96`;
 
+/**
+ * De cuántos datos hablamos. Es la pregunta que se hace quien llega a esta
+ * página, y hasta ahora no la respondía nadie. Las cuatro cifras son las
+ * mismas que calcula la portada.
+ */
+const inside = ref([
+    { label: "Asignaturas", value: String(allSubjects.length) },
+    { label: "Profesores", value: null },
+    { label: "Cursos académicos", value: String(academicYears.length) },
+    { label: "Matrículas analizadas", value: thousands(degreeEnrolment()) }
+]);
+
+/**
+ * El recuento de profesores solo se pide cuando el panel se va a ver: es un
+ * cuarto de mega de guías docentes, y en el móvil este panel no existe.
+ */
+watch(
+    isDesktop,
+    async wide => {
+        if (!wide || inside.value[1].value !== null) return;
+
+        inside.value[1].value = String(await loadProfessorCount());
+    },
+    { immediate: true }
+);
+
 const HOW = [
     {
         title: "Datos abiertos.",
@@ -58,109 +98,141 @@ const HOW = [
 
 <template>
     <div class="screen">
-        <header class="intro">
-            <!-- No es el título de la pantalla —ese va en la banda de arriba—,
+        <div class="column">
+            <header class="intro">
+                <!-- No es el título de la pantalla —ese va en la banda de arriba—,
              es la frase con la que abre. Por eso no es un h1. -->
-            <p class="statement">
-                Una herramienta hecha por estudiantes, para estudiantes.
-            </p>
+                <p class="statement">
+                    Una herramienta hecha por estudiantes, para estudiantes.
+                </p>
 
-            <p>
-                Elegir asignaturas se hacía a base de rumores de pasillo.
-                Quisimos cambiar los rumores por datos: los mismos números que
-                publica la Universidad, ordenados para que decidir el curso que
-                viene sea un poco más fácil.
-            </p>
-        </header>
+                <p>
+                    Elegir asignaturas se hacía a base de rumores de pasillo.
+                    Quisimos cambiar los rumores por datos: los mismos números
+                    que publica la Universidad, ordenados para que decidir el
+                    curso que viene sea un poco más fácil.
+                </p>
+            </header>
 
-        <!-- Quién lo hace --------------------------------------------------- -->
-        <section class="section">
-            <div class="sectionHead">
-                <h2>Quién lo hace</h2>
-                <div class="rule"></div>
-            </div>
+            <!-- Quién lo hace --------------------------------------------------- -->
+            <section class="section">
+                <div class="sectionHead">
+                    <h2>Quién lo hace</h2>
+                    <div class="rule"></div>
+                </div>
 
-            <div class="people">
-                <a
-                    v-for="person in PEOPLE"
-                    :key="person.handle"
-                    class="person"
-                    :href="person.url"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    <img
-                        class="avatar"
-                        :src="avatar(person)"
-                        alt=""
-                        loading="lazy"
-                    />
-                    <span class="personBody">
-                        <span class="personName">
-                            {{ person.name }}
-                            <span class="personHandle num"
-                                >@{{ person.handle }}</span
-                            >
+                <div class="people">
+                    <a
+                        v-for="person in PEOPLE"
+                        :key="person.handle"
+                        class="person"
+                        :href="person.url"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        <img
+                            class="avatar"
+                            :src="avatar(person)"
+                            alt=""
+                            loading="lazy"
+                        />
+                        <span class="personBody">
+                            <span class="personName">
+                                {{ person.name }}
+                                <span class="personHandle num"
+                                    >@{{ person.handle }}</span
+                                >
+                            </span>
+                            <span class="personRole">{{ person.role }}</span>
                         </span>
-                        <span class="personRole">{{ person.role }}</span>
-                    </span>
-                    <span class="personGo">GitHub →</span>
-                </a>
-            </div>
+                        <span class="personGo">GitHub →</span>
+                    </a>
+                </div>
 
-            <p class="context">
-                Desarrollado como Prácticas Externas en el
-                <a :href="BIFI" target="_blank" rel="noopener noreferrer"
-                    >Instituto de Biocomputación y Física de Sistemas Complejos
-                    (BIFI)</a
-                >.
+                <p class="context">
+                    Desarrollado como Prácticas Externas en el
+                    <a :href="BIFI" target="_blank" rel="noopener noreferrer"
+                        >Instituto de Biocomputación y Física de Sistemas
+                        Complejos (BIFI)</a
+                    >.
+                </p>
+            </section>
+
+            <!-- Cómo se hizo ---------------------------------------------------- -->
+            <section class="section">
+                <div class="sectionHead">
+                    <h2>Cómo se hizo</h2>
+                    <div class="rule"></div>
+                </div>
+
+                <ul class="how">
+                    <li v-for="item in HOW" :key="item.title">
+                        <strong>{{ item.title }}</strong>
+                        {{ item.text }}
+                    </li>
+                </ul>
+
+                <p class="more">
+                    <RouterLink to="/metodologia">
+                        Los detalles, en Metodología →
+                    </RouterLink>
+                </p>
+            </section>
+        </div>
+
+        <aside class="aside">
+            <!-- Repositorio ----------------------------------------------------- -->
+            <a
+                class="repo"
+                :href="REPO"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                <span class="repoTitle">Ver el proyecto en GitHub</span>
+                <span class="repoUrl num"
+                    >github.com/aaleta/unizar_dashboard</span
+                >
+            </a>
+
+            <!-- Descargo -------------------------------------------------------- -->
+            <UiCallout
+                tone="structural"
+                title="Esto no juzga a nadie"
+                class="disclaimer"
+            >
+                Los números describen resultados agregados de cursos pasados; no
+                miden la calidad de la docencia ni la valía de quien la imparte
+                o la cursa. Una asignatura difícil puede estar magníficamente
+                dada, y una asignatura fácil se puede suspender. Úsalo para
+                organizarte, no para etiquetar.
+            </UiCallout>
+
+            <!-- Lo que hay dentro ----------------------------------------------- -->
+            <section v-if="isDesktop" class="inside">
+                <p class="eyebrow insideTitle">Lo que hay dentro</p>
+
+                <div class="insideRows">
+                    <div
+                        v-for="item in inside"
+                        :key="item.label"
+                        class="insideRow"
+                    >
+                        {{ item.label }}
+                        <span class="num">{{ item.value ?? "—" }}</span>
+                    </div>
+                </div>
+
+                <p class="insideNote">
+                    Troncales, {{ RECENT_YEARS }} últimos cursos.
+                    <RouterLink to="/metodologia">Metodología →</RouterLink>
+                </p>
+            </section>
+
+            <p class="footnote">
+                Proyecto independiente · no es una web oficial de la Universidad
+                de Zaragoza.
             </p>
-        </section>
-
-        <!-- Cómo se hizo ---------------------------------------------------- -->
-        <section class="section">
-            <div class="sectionHead">
-                <h2>Cómo se hizo</h2>
-                <div class="rule"></div>
-            </div>
-
-            <ul class="how">
-                <li v-for="item in HOW" :key="item.title">
-                    <strong>{{ item.title }}</strong>
-                    {{ item.text }}
-                </li>
-            </ul>
-
-            <p class="more">
-                <RouterLink to="/metodologia">
-                    Los detalles, en Metodología →
-                </RouterLink>
-            </p>
-        </section>
-
-        <!-- Repositorio ----------------------------------------------------- -->
-        <a class="repo" :href="REPO" target="_blank" rel="noopener noreferrer">
-            <span class="repoTitle">Ver el proyecto en GitHub</span>
-            <span class="repoUrl num">github.com/aaleta/unizar_dashboard</span>
-        </a>
-
-        <!-- Descargo -------------------------------------------------------- -->
-        <UiCallout
-            tone="structural"
-            title="Esto no juzga a nadie"
-            class="disclaimer"
-        >
-            Los números describen resultados agregados de cursos pasados; no
-            miden la calidad de la docencia ni la valía de quien la imparte o la
-            cursa. Una asignatura difícil puede estar magníficamente dada, y una
-            asignatura fácil se puede suspender. Úsalo para organizarte, no para
-            etiquetar.
-        </UiCallout>
-
-        <p class="footnote">
-            Proyecto independiente · no es una web oficial de la Universidad de
-            Zaragoza.
-        </p>
+        </aside>
     </div>
 </template>
 
@@ -446,5 +518,183 @@ h2 {
     line-height: 1.6;
 
     color: var(--ink-soft);
+}
+
+/* Solo en escritorio ---------------------------------------------------- */
+
+.onlyWide {
+    display: none;
+}
+
+/* Escritorio ------------------------------------------------------------ *
+ * La prosa a la izquierda y, a la derecha, lo que no es prosa: el repositorio,
+ * el descargo y de cuántos datos hablamos.
+ */
+
+@media (min-width: 900px) {
+    .screen {
+        display: grid;
+
+        grid-template-columns: minmax(0, 1fr) 380px;
+
+        gap: 40px;
+
+        padding: 28px var(--gutter) 36px;
+    }
+
+    .column {
+        min-width: 0;
+    }
+
+    .aside {
+        display: flex;
+
+        flex-direction: column;
+
+        gap: 16px;
+
+        min-width: 0;
+    }
+
+    .onlyWide {
+        display: block;
+    }
+
+    /* La prosa se queda en 660px aunque la columna dé 700 y pico: una línea de
+       mil píxeles obliga a buscar dónde empezaba la siguiente. */
+    .statement,
+    .intro p,
+    .context {
+        max-width: 660px;
+    }
+
+    .statement {
+        font-size: 30px;
+
+        line-height: 1.2;
+    }
+
+    .intro p {
+        margin-top: 16px;
+
+        font-size: 14px;
+
+        line-height: 1.65;
+    }
+
+    .section {
+        margin-top: 32px;
+    }
+
+    h2 {
+        font-size: 18px;
+    }
+
+    /* Las tres personas, en fila y con la cara arriba: a este ancho, tres
+       filas de avatar y nombre dejaban la columna medio vacía. */
+    .people {
+        display: grid;
+
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+
+        gap: 12px;
+    }
+
+    .person {
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 12px;
+
+        padding: 16px;
+    }
+
+    .avatar {
+        width: 46px;
+
+        height: 46px;
+    }
+
+    .how {
+        display: grid;
+
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+
+        gap: 12px;
+    }
+
+    .how li {
+        margin: 0;
+    }
+
+    /* Lo que hay dentro ---------------------------------------------------- */
+
+    .inside {
+        padding: 16px 17px;
+
+        background: var(--surface);
+
+        border: 1px solid var(--line);
+
+        border-radius: var(--radius-card);
+    }
+
+    .insideTitle {
+        margin: 0;
+    }
+
+    .insideRows {
+        display: flex;
+
+        flex-direction: column;
+
+        gap: 9px;
+
+        margin-top: 11px;
+    }
+
+    .insideRow {
+        display: flex;
+
+        align-items: baseline;
+
+        justify-content: space-between;
+
+        gap: 10px;
+
+        font-size: var(--text-body);
+
+        color: var(--ink-2);
+    }
+
+    .insideRow .num {
+        color: var(--ink);
+    }
+
+    .insideNote {
+        margin: 12px 0 0;
+
+        font-family: var(--font-mono);
+
+        font-size: 9.5px;
+
+        line-height: 1.6;
+
+        color: var(--ink-soft);
+    }
+
+    .insideNote a {
+        font-weight: 600;
+    }
+
+    /* El descargo pega al fondo de la columna. */
+    .footnote {
+        margin: auto 0 0;
+
+        padding-top: 14px;
+
+        border-top: 1px solid var(--line-rule);
+    }
 }
 </style>

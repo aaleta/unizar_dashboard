@@ -20,6 +20,7 @@ import {
     coreSubjects,
     optionalSubjectsOf,
     subjectSummary,
+    courseEnrolment,
     courseRate,
     isSmallCohort,
     RECENT_YEARS
@@ -94,6 +95,22 @@ export const useCourse = source => {
 
         avgNoShow: computed(() =>
             valid.value ? courseRate(number.value, "noPresentados") : null
+        ),
+
+        // Cuánta gente pasa por el curso en un año, contando todas sus
+        // troncales: es el tamaño del curso, y da la medida de las tasas.
+        enrolment: computed(() =>
+            valid.value ? Math.round(courseEnrolment(number.value)) : 0
+        ),
+
+        // ¿Sus optativas son las de la bolsa de 3.º y 4.º, o las especiales de
+        // primero? Cambia el rótulo y lo que se puede enlazar.
+        poolOptatives: computed(() =>
+            valid.value
+                ? optionalSubjectsOf(number.value).some(
+                      subject => subject.enBolsa
+                  )
+                : false
         ),
 
         // ¿Estas optativas se ofertan también en otro curso? Lo dice la nota

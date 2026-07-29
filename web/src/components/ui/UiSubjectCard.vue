@@ -19,6 +19,8 @@
 
 import { computed } from "vue";
 
+import { COHORT } from "@/content/copy";
+import { pct } from "@/utils/format";
 import { difficultyInk } from "@/theme/difficulty";
 
 const props = defineProps({
@@ -83,10 +85,28 @@ const props = defineProps({
     smallCohort: {
         type: Boolean,
         default: false
+    },
+
+    /**
+     * Insignia corta junto al nombre ("BIENAL"). Es una propiedad de la
+     * asignatura, no una medida: va en oro y sin relleno.
+     */
+    badge: {
+        type: String,
+        default: null
+    },
+
+    /**
+     * En escritorio la tarjeta respira, pero no en todas las rejillas: a tres
+     * columnas cabe holgada y a cuatro hay que apretarla. Lo decide quien la
+     * coloca, que es quien sabe cuántas caben.
+     */
+    density: {
+        type: String,
+        default: "comfortable",
+        validator: value => ["comfortable", "compact"].includes(value)
     }
 });
-
-const pct = value => (value === null ? "—" : `${Math.round(value)}%`);
 
 // El titular va a 15,5px. No llega a "texto grande" (18,66px en negrita),
 // así que necesita 4,5:1 y le toca el tono oscurecido de la rampa.
@@ -97,7 +117,7 @@ const metaLine = computed(
         props.meta ??
         (props.enrolment === null
             ? null
-            : `${Math.round(props.enrolment)} matriculados`)
+            : `${Math.round(props.enrolment)} matriculados de media`)
 );
 
 const secondaryStat = computed(() =>
@@ -108,7 +128,11 @@ const secondaryStat = computed(() =>
 </script>
 
 <template>
-    <RouterLink :to="`/asignatura/${code}`" class="card" :class="{ optative }">
+    <RouterLink
+        :to="`/asignatura/${code}`"
+        class="card"
+        :class="[density, { optative }]"
+    >
         <div class="top">
             <div class="identity">
                 <div class="name">
@@ -119,9 +143,9 @@ const secondaryStat = computed(() =>
                     <span
                         v-if="smallCohort"
                         class="warn"
-                        title="Menos de 10 alumnos: los porcentajes bailan mucho"
+                        :title="COHORT.warning"
                         >⚠</span
-                    >
+                    ><span v-if="badge" class="badge">{{ badge }}</span>
                 </div>
 
                 <div v-if="metaLine" class="meta">
@@ -142,9 +166,7 @@ const secondaryStat = computed(() =>
          el 100 %" debajo del aviso de que los porcentajes no valen sería
          contradecirse en dos líneas. -->
         <div v-if="smallCohort" class="foot">
-            <span class="cohort">
-                Menos de 10 alumnos: los porcentajes bailan mucho.
-            </span>
+            <span class="cohort">{{ COHORT.sentence }}</span>
             <span class="go">Ver ficha →</span>
         </div>
 
@@ -302,5 +324,76 @@ const secondaryStat = computed(() =>
     font-weight: 600;
 
     color: var(--navy);
+}
+
+/* La insignia no es una cifra ni una tasa: es una propiedad del catálogo, así
+   que va en oro, sin relleno y pegada al nombre. */
+.badge {
+    display: inline-flex;
+
+    align-items: center;
+
+    margin-left: 6px;
+
+    padding: 1px 6px;
+
+    border: 1px solid var(--gold);
+
+    border-radius: var(--radius-pill);
+
+    font-family: var(--font-mono);
+
+    font-size: 8px;
+
+    font-weight: 600;
+
+    letter-spacing: 0.3px;
+
+    vertical-align: 2px;
+
+    color: var(--gold-ink);
+}
+
+/* En escritorio las tarjetas van en rejillas de tres o cuatro y tienen sitio
+   para respirar: el nombre sube a titular y la cifra al tamaño de una KPI
+   pequeña. A cuatro columnas se quedan como en el móvil, que es lo que cabe. */
+@media (min-width: 900px) {
+    .card.comfortable {
+        padding: 15px 16px;
+    }
+
+    .comfortable .name {
+        font-size: 16.5px;
+    }
+
+    .comfortable .meta {
+        margin-top: 4px;
+
+        font-size: 9.5px;
+    }
+
+    .comfortable .value {
+        font-size: 20px;
+    }
+
+    .comfortable .caption {
+        margin-top: 3px;
+
+        font-size: var(--text-eyebrow);
+    }
+
+    .comfortable .foot {
+        margin-top: 13px;
+
+        padding-top: 11px;
+
+        gap: 18px;
+    }
+
+    .comfortable .foot,
+    .comfortable .cohort,
+    .comfortable .go {
+        font-size: var(--text-body-sm);
+    }
 }
 </style>

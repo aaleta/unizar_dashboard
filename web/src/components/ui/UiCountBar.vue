@@ -49,7 +49,7 @@ const pct = computed(() => {
 </script>
 
 <template>
-    <div class="row">
+    <div class="row" :title="label ? `${label}: ${display ?? value}` : null">
         <span v-if="label" class="label">
             {{ label }}
         </span>
@@ -84,8 +84,9 @@ const pct = computed(() => {
 
 .label {
     /* Ancho fijo para que todas las barras de la lista arranquen alineadas:
-       una barra que empieza donde acaba el texto no se puede comparar. */
-    width: 132px;
+       una barra que empieza donde acaba el texto no se puede comparar. La
+       pantalla puede ensancharlo donde tenga sitio. */
+    width: var(--count-label-width, 132px);
 
     flex: none;
 

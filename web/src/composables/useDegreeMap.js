@@ -18,6 +18,7 @@
 import {
     coreSubjects,
     optionalSubjectsOf,
+    poolOptionalSubjects,
     subjectSummary,
     courseRate,
     allCoreSubjects,
@@ -52,6 +53,7 @@ const describe = subject => {
     return {
         code: summary.code,
         name: summary.name,
+        courses: summary.courses,
         noSuperacion: summary.noSuperacion,
         // Con menos de 10 matriculados el porcentaje es ruido, y la fila tiene
         // que decirlo allí donde se muestre. Se mide sobre la matrícula media,
@@ -73,8 +75,15 @@ const buildCourse = number => {
         // media que describe "cómo va el curso" sin depender de qué optativas
         // elija cada uno.
         avgPass: courseRate(number, "rendimiento"),
+        avgNoShow: courseRate(number, "noPresentados"),
         troncales,
-        optativas
+        optativas,
+        // ¿Sus optativas son las de la bolsa? En escritorio la bolsa se enseña
+        // una sola vez al pie, y no repetida bajo 3.º y 4.º: son casi las
+        // mismas veintiuna y verlas dos veces hace creer que hay cuarenta.
+        poolOptatives: optionalSubjectsOf(number).some(
+            subject => subject.enBolsa
+        )
     };
 };
 
@@ -95,8 +104,33 @@ const kindest = courses.reduce(
     null
 );
 
+/**
+ * La bolsa de optativas de 3.º y 4.º, con lo que hay que decir de ella: cuántas
+ * se ofertan en los dos cursos y hasta dónde llega la más dura. Las dos cifras
+ * se calculan porque las dos cambian con los datos.
+ */
+const poolSubjects = poolOptionalSubjects.map(describe).sort(byDifficulty);
+
+const pool = {
+    subjects: poolSubjects,
+    total: poolSubjects.length,
+    inBothCourses: poolSubjects.filter(
+        subject =>
+            subject.courses.includes("3") && subject.courses.includes("4")
+    ).length,
+    // Hacia arriba: decir "ninguna pasa del 8 %" con una al 8,5 % sería falso.
+    hardest: Math.ceil(
+        poolSubjects.reduce(
+            (worst, subject) => Math.max(worst, subject.noSuperacion ?? 0),
+            0
+        )
+    )
+};
+
 export const useDegreeMap = () => ({
     courses,
+
+    pool,
 
     kindestCourse: kindest?.number ?? null,
 

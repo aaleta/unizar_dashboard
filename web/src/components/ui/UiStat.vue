@@ -73,4 +73,20 @@ defineProps({
 
     color: var(--ink-soft);
 }
+
+/* En escritorio la tira de cifras es la entradilla de la pantalla y manda
+   sobre todo lo demás. */
+@media (min-width: 900px) {
+    .value {
+        font-size: 32px;
+
+        line-height: 1;
+    }
+
+    .label {
+        margin-top: 7px;
+
+        font-size: var(--text-body);
+    }
+}
 </style>

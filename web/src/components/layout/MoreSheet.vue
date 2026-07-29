@@ -6,6 +6,9 @@
  * cerrarla sigues donde estabas. Cuatro destinos secundarios no justifican una
  * página intermedia cuyo único contenido sea cuatro enlaces.
  *
+ * Cuáles son y cómo se llaman está en content/navigation.js, junto al resto de
+ * destinos de la web.
+ *
  * Es un diálogo modal de verdad, con lo que eso obliga:
  *   - Escape cierra.
  *   - El foco entra en la hoja y no se escapa a lo que hay debajo mientras
@@ -14,6 +17,8 @@
  */
 
 import { nextTick, ref, watch } from "vue";
+
+import { SHEET_DESTINATIONS } from "@/content/navigation";
 
 import UiIcon from "@/components/ui/UiIcon.vue";
 
@@ -25,39 +30,6 @@ const props = defineProps({
 });
 
 const emit = defineEmits(["close"]);
-
-const DESTINATIONS = [
-    {
-        to: "/horario",
-        title: "Monta tu horario",
-        subtitle: "Tus clases y exámenes, sin solapamientos.",
-        icon: "calendar"
-    },
-    {
-        to: "/profesorado",
-        title: "Profesorado",
-        subtitle: "Quién imparte qué y con quién.",
-        icon: "teachers"
-    },
-    {
-        to: "/fight",
-        title: "Fight Mode",
-        subtitle: "Enfrenta dos asignaturas.",
-        badge: "VS"
-    },
-    {
-        to: "/metodologia",
-        title: "Fuentes y metodología",
-        subtitle: "Qué mide cada tasa y sus fuentes.",
-        icon: "document"
-    },
-    {
-        to: "/acerca",
-        title: "Acerca de",
-        subtitle: "Quién lo hace, cómo y por qué.",
-        icon: "info"
-    }
-];
 
 const sheet = ref(null);
 
@@ -166,8 +138,8 @@ watch(
                 </div>
 
                 <RouterLink
-                    v-for="destination in DESTINATIONS"
-                    :key="destination.to"
+                    v-for="destination in SHEET_DESTINATIONS"
+                    :key="destination.key"
                     :to="destination.to"
                     class="row"
                     @click="follow"
@@ -180,7 +152,7 @@ watch(
                     </span>
 
                     <span class="text">
-                        <span class="title">{{ destination.title }}</span>
+                        <span class="title">{{ destination.label }}</span>
                         <span class="subtitle">{{ destination.subtitle }}</span>
                     </span>
 

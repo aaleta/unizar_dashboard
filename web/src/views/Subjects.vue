@@ -15,15 +15,21 @@
 
 import { computed, ref } from "vue";
 
-import { useSubjectList } from "@/composables/useSubjectList";
+import { SORTS, useSubjectList } from "@/composables/useSubjectList";
+import { useViewport } from "@/composables/useViewport";
+import { COHORT, EMPTY, SEARCH, weightedAverages } from "@/content/copy";
+import { pct } from "@/utils/format";
 import { difficultyFill, difficultyInk } from "@/theme/difficulty";
 
+import SubjectsTable from "@/components/subjects/SubjectsTable.vue";
 import UiChip from "@/components/ui/UiChip.vue";
 import UiSearchField from "@/components/ui/UiSearchField.vue";
 import UiSortHeader from "@/components/ui/UiSortHeader.vue";
 
 /** Cuántas filas se ven antes de tener que pedir el resto. */
 const PREVIEW = 12;
+
+const { isDesktop } = useViewport();
 
 const {
     query,
@@ -37,10 +43,15 @@ const {
     empty
 } = useSubjectList();
 
-const SORT_METRICS = [
-    { key: "noSuperacion", label: "No superan" },
-    { key: "enrolment", label: "Matr." }
-];
+/**
+ * Las dos métricas que caben en la cabecera del móvil. El rótulo sale de
+ * SORTS: la tabla de escritorio enseña estas mismas y no debería llamarlas de
+ * otra manera.
+ */
+const SORT_METRICS = [SORTS.noSuperacion, SORTS.enrolment].map(sort => ({
+    key: sort.key,
+    label: sort.short ?? sort.label
+}));
 
 const TIPOS = [
     { value: "todas", label: "Todas" },
@@ -48,13 +59,16 @@ const TIPOS = [
     { value: "optativa", label: "Optativas" }
 ];
 
+/** El filtro de curso, como grupo de botones: cinco opciones a la vista. */
+const COURSES = ["todos", 1, 2, 3, 4];
+
+const courseLabel = value => (value === "todos" ? "Todos" : `${value}º`);
+
 const expanded = ref(false);
 
 const visible = computed(() =>
     expanded.value ? results.value : results.value.slice(0, PREVIEW)
 );
-
-const pct = value => (value === null ? "—" : `${Math.round(value)}%`);
 
 /**
  * La línea de metadatos cambia con el orden: si se ordena por matriculados, lo
@@ -75,11 +89,17 @@ const meta = row =>
 <template>
     <div class="screen">
         <div class="controls">
-            <UiSearchField
-                v-model="query"
-                :placeholder="`Buscar entre ${total} asignaturas…`"
-                label="Buscar asignatura"
-            />
+            <!-- El buscador es el mismo objeto en las dos pantallas: en el
+             móvil abre los filtros y en escritorio se va a la banda de
+             título, que es donde el diseño pone los controles. -->
+            <Teleport defer to="#pageActions" :disabled="!isDesktop">
+                <UiSearchField
+                    v-model="query"
+                    class="search"
+                    :placeholder="SEARCH.subjects(total)"
+                    :label="SEARCH.subjectsLabel"
+                />
+            </Teleport>
 
             <div class="chips">
                 <UiChip
@@ -90,8 +110,16 @@ const meta = row =>
                 >
                     {{ option.label }}
                 </UiChip>
+            </div>
 
-                <label class="courseChip">
+            <span class="onlyWide divider" aria-hidden="true"></span>
+
+            <div class="courses">
+                <span class="eyebrow onlyWide courseLabel">Curso</span>
+
+                <!-- Cinco botones no caben en 402px; el desplegable nativo sí,
+                 y se abre con la rueda del sistema. -->
+                <label v-if="!isDesktop" class="courseChip">
                     <span class="visuallyHidden">Filtrar por curso</span>
                     <select
                         v-model="course"
@@ -103,21 +131,55 @@ const meta = row =>
                         </option>
                     </select>
                 </label>
+
+                <div v-else class="courseButtons">
+                    <button
+                        v-for="option in COURSES"
+                        :key="option"
+                        type="button"
+                        class="courseButton"
+                        :class="{
+                            active: course === option,
+                            num: option !== 'todos'
+                        }"
+                        :aria-pressed="course === option"
+                        @click="course = option"
+                    >
+                        {{ courseLabel(option) }}
+                    </button>
+                </div>
             </div>
+
+            <span class="onlyWide num count">
+                {{ results.length }} de {{ total }} · {{ weightedAverages() }}
+            </span>
         </div>
 
+        <template v-if="isDesktop">
+            <p v-if="empty" class="emptyState">{{ EMPTY.subjects }}</p>
+
+            <SubjectsTable
+                v-else
+                :rows="results"
+                :sort-key="sortKey"
+                :descending="descending"
+                @sort="sortBy"
+            />
+        </template>
+
         <UiSortHeader
+            v-if="!isDesktop"
             :metrics="SORT_METRICS"
             :active-key="sortKey"
             :descending="descending"
             @sort="sortBy"
         />
 
-        <p v-if="empty" class="emptyState">
-            Ninguna asignatura coincide con la búsqueda.
+        <p v-if="!isDesktop && empty" class="emptyState">
+            {{ EMPTY.subjects }}
         </p>
 
-        <ul v-else class="rows">
+        <ul v-else-if="!isDesktop" class="rows">
             <li v-for="row in visible" :key="row.code">
                 <RouterLink :to="`/asignatura/${row.code}`" class="row">
                     <span
@@ -144,7 +206,7 @@ const meta = row =>
                             <span
                                 v-if="row.smallCohort"
                                 class="warn"
-                                title="Menos de 10 alumnos: los porcentajes bailan mucho"
+                                :title="COHORT.warning"
                                 >⚠</span
                             >
                         </span>
@@ -177,17 +239,32 @@ const meta = row =>
             </li>
         </ul>
 
-        <p class="footnote">
-            Medias ponderadas de los últimos 3 cursos · ⚠ = menos de 10 alumnos.
-        </p>
+        <p class="footnote">{{ weightedAverages() }} · {{ COHORT.legend }}.</p>
     </div>
 </template>
 
 <style scoped>
+/* Buscador arriba, ocupando su línea, y debajo los dos filtros en la misma:
+   el de tipo y el de curso son la misma pregunta partida en dos y separarlos
+   en dos filas los hacía parecer cosas distintas. */
 .controls {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    align-items: center;
+
+    row-gap: 9px;
+
+    column-gap: 6px;
+
     padding: 13px var(--gutter) 11px;
 
     border-bottom: 1px solid var(--line-rule);
+}
+
+.controls > .search {
+    flex-basis: 100%;
 }
 
 .chips {
@@ -196,8 +273,6 @@ const meta = row =>
     flex-wrap: wrap;
 
     gap: 6px;
-
-    margin-top: 9px;
 }
 
 /* El filtro de curso es un <select> disfrazado de chip: cinco opciones no
@@ -389,5 +464,201 @@ const meta = row =>
     clip-path: inset(50%);
 
     white-space: nowrap;
+}
+
+/* Solo en escritorio ---------------------------------------------------- */
+
+.onlyWide {
+    display: none;
+}
+
+/* Escritorio ------------------------------------------------------------ *
+ * La lista se convierte en tabla y los filtros salen de la columna para
+ * ocupar su propia banda, con el recuento a la derecha.
+ */
+
+@media (min-width: 900px) {
+    .screen {
+        padding: 0 var(--gutter) 30px;
+    }
+
+    /* El buscador vive en la banda de título, no aquí. */
+    .search {
+        width: 340px;
+    }
+
+    .controls {
+        display: flex;
+
+        align-items: center;
+
+        gap: 22px;
+
+        /* A sangre de la columna: es una banda de la pantalla, no un bloque
+           del contenido. */
+        margin: 0 calc(-1 * var(--gutter));
+
+        padding: 14px var(--gutter) 13px;
+
+        border-bottom: 1px solid var(--line-rule);
+    }
+
+    .chips {
+        flex-wrap: nowrap;
+
+        gap: 7px;
+    }
+
+    .onlyWide {
+        display: block;
+    }
+
+    .divider {
+        width: 1px;
+
+        height: 22px;
+
+        background: var(--line);
+    }
+
+    .courses {
+        display: flex;
+
+        align-items: center;
+
+        gap: 9px;
+    }
+
+    .courseLabel {
+        font-size: var(--text-eyebrow);
+    }
+
+    .courseButtons {
+        display: flex;
+
+        gap: 6px;
+    }
+
+    .courseButton {
+        min-width: 36px;
+
+        padding: 7px 10px;
+
+        border: 1px solid var(--line-chip);
+
+        border-radius: var(--radius-pill);
+
+        background: var(--surface);
+
+        color: var(--ink-3);
+
+        font-family: var(--font-sans);
+
+        font-size: 12px;
+
+        font-weight: 600;
+
+        cursor: pointer;
+    }
+
+    .courseButton.num {
+        font-family: var(--font-mono);
+    }
+
+    .courseButton:hover {
+        border-color: var(--line-strong);
+    }
+
+    .courseButton.active {
+        background: var(--navy);
+
+        border-color: var(--navy);
+
+        color: var(--ink-on-navy);
+    }
+
+    .count {
+        margin-left: auto;
+
+        font-size: var(--text-num-sm);
+
+        font-weight: 400;
+
+        color: var(--ink-soft);
+    }
+
+    .table {
+        margin-top: 18px;
+    }
+
+    .emptyState {
+        padding: 40px var(--gutter);
+    }
+
+    .hideWide {
+        display: none;
+    }
+
+    /* La leyenda ---------------------------------------------------------- */
+
+    .legend {
+        display: flex;
+
+        align-items: center;
+
+        gap: 24px;
+
+        margin-top: 16px;
+
+        padding-top: 14px;
+
+        border-top: 1px solid var(--line-rule);
+    }
+
+    .legendItem {
+        display: flex;
+
+        align-items: center;
+
+        gap: 7px;
+
+        font-family: var(--font-mono);
+
+        font-size: var(--text-num-sm);
+
+        color: var(--ink-muted);
+    }
+
+    .legendDot {
+        width: 9px;
+
+        height: 9px;
+
+        border-radius: 50%;
+
+        background: var(--ink-icon);
+    }
+
+    .legendDot.hollow {
+        background: transparent;
+
+        border: 2px solid var(--ink-icon);
+
+        box-sizing: border-box;
+    }
+
+    .legendWarn {
+        color: var(--attention);
+    }
+
+    .legendNote {
+        margin-left: auto;
+
+        font-family: var(--font-mono);
+
+        font-size: var(--text-num-sm);
+
+        color: var(--ink-soft);
+    }
 }
 </style>

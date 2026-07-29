@@ -17,6 +17,8 @@ import {
     RECENT_YEARS,
     METRICS,
     academicYears,
+    degreeDistribution,
+    degreeEnrolment,
     degreeRateForPeriod,
     allCoreSubjects,
     averageSittings,
@@ -24,6 +26,7 @@ import {
     subjectRate,
     subjectName,
     subjectInfo,
+    subjectSummary,
     courseSeries
 } from "@/utils/metrics";
 
@@ -75,7 +78,10 @@ export const useDegree = () => {
                 code: Number(subject.code),
                 name: subjectName(subject.code),
                 course: subjectInfo(subject.code)?.courses[0] ?? null,
-                value: subjectRate(subject.code, "noSuperacion")
+                value: subjectRate(subject.code, "noSuperacion"),
+                // Matrículas del periodo, no la media de un año: dice cuántos
+                // datos hay detrás del porcentaje.
+                students: subjectSummary(subject.code).recentStudents
             }))
             .filter(item => item.value !== null)
             .sort((a, b) => b.value - a.value);
@@ -144,6 +150,18 @@ export const useDegree = () => {
             rateKpi("rendimiento"),
             rateKpi("noPresentados")
         ]),
+
+        /**
+         * La quinta cifra, la que en el móvil no cabe: cuánta gente saca
+         * sobresaliente o matrícula. Va aparte de `rates` para que añadirla en
+         * escritorio no meta un KPI de más en la portada del móvil.
+         */
+        excellence: computed(() => rateKpi("excelencia")),
+
+        /** Reparto de calificaciones del grado y matrículas que hay detrás. */
+        gradeDistribution: computed(() => degreeDistribution(recentPeriod)),
+
+        totalEnrolment: computed(() => degreeEnrolment(recentPeriod)),
 
         sittings,
 

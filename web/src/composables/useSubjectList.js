@@ -23,6 +23,10 @@ import { allSubjects, subjectSummary, isSmallCohort } from "@/utils/metrics";
  * `higherIsFirst` dice qué extremo va arriba cuando el orden es "descendente",
  * y no siempre es el número más alto: en "más fáciles" arriba va la que MENOS
  * gente suspende.
+ *
+ * `short` es el rótulo cuando la columna mide 56px. Vive aquí y no en cada
+ * pantalla para que la tabla de escritorio y la cabecera del móvil no acaben
+ * llamando de dos maneras a la misma métrica.
  */
 export const SORTS = {
     noSuperacion: {
@@ -31,15 +35,23 @@ export const SORTS = {
         higherIsFirst: true
     },
 
+    rendimiento: {
+        key: "rendimiento",
+        label: "Aprueban",
+        higherIsFirst: true
+    },
+
     enrolment: {
         key: "enrolment",
         label: "Matriculados",
+        short: "Matr.",
         higherIsFirst: true
     },
 
     excelencia: {
         key: "excelencia",
         label: "Sob. + MH",
+        short: "Sob+MH",
         higherIsFirst: true
     },
 

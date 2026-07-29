@@ -513,6 +513,82 @@ export const useSchedule = () => {
         }));
     });
 
+    /** Meses en corto, para la tabla de días de aire. */
+    const SHORT_MONTHS = [
+        "ene",
+        "feb",
+        "mar",
+        "abr",
+        "may",
+        "jun",
+        "jul",
+        "ago",
+        "sep",
+        "oct",
+        "nov",
+        "dic"
+    ];
+
+    /**
+     * Cuántos días libres quedan entre examen y examen. El calendario responde
+     * "¿me queda hueco?" por la forma del mes; esto lo dice con un número, que
+     * es lo que se pregunta de verdad cuando se está planificando.
+     */
+    const examGaps = computed(() => {
+        const days = [...examDays.value].sort(
+            (a, b) =>
+                new Date(a.year, a.month - 1, a.day) -
+                new Date(b.year, b.month - 1, b.day)
+        );
+
+        return days.map((date, index) => {
+            const previous = days[index - 1];
+
+            const gap = previous
+                ? Math.round(
+                      (new Date(date.year, date.month - 1, date.day) -
+                          new Date(
+                              previous.year,
+                              previous.month - 1,
+                              previous.day
+                          )) /
+                          86400000
+                  ) - 1
+                : null;
+
+            return {
+                key: date.key,
+                label: `${date.day} ${SHORT_MONTHS[date.month - 1]}`,
+                weekday: date.weekday,
+                names: date.exams.map(exam => exam.name).join(" y "),
+                clash: date.clash,
+                // null = es el primero y no hay nada antes.
+                gap
+            };
+        });
+    });
+
+    /** El primero, el último y el hueco más corto: el resumen de la tanda. */
+    const examSpan = computed(() => {
+        const gaps = examGaps.value;
+
+        if (gaps.length < 2) return null;
+
+        const withGap = gaps.filter(entry => entry.gap !== null);
+
+        const tightest = withGap.reduce((worst, entry) =>
+            entry.gap < worst.gap ? entry : worst
+        );
+
+        const total = withGap.reduce((sum, entry) => sum + entry.gap + 1, 0);
+
+        return {
+            days: total,
+            tightest: tightest.gap,
+            between: `${gaps[gaps.indexOf(tightest) - 1].label} y ${tightest.label}`
+        };
+    });
+
     /**
      * Cuadrícula mensual de un mes concreto, de lunes a domingo, con los
      * exámenes de cada día ya colgados de su celda. `null` son los huecos
@@ -654,6 +730,8 @@ export const useSchedule = () => {
         examEvents,
         examDays,
         examPeriods,
-        examClashes
+        examClashes,
+        examGaps,
+        examSpan
     };
 };

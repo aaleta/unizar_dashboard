@@ -14,6 +14,7 @@
 
 import { computed, unref } from "vue";
 
+import { pct } from "@/utils/format";
 import {
     METRICS,
     RECENT_YEARS,
@@ -25,8 +26,6 @@ import {
 
 const read = source =>
     typeof source === "function" ? source() : unref(source);
-
-const pct = value => (value === null ? "—" : `${Math.round(value)}%`);
 
 const describe = code => {
     const info = subjectInfo(code);
@@ -68,23 +67,31 @@ export const useFight = (firstSource, secondSource) => {
             rate("excelencia", "Excelencia (Sob+MH)")
         ];
 
-        if (bothOptional.value) {
-            list.push({
-                key: "matriculados",
-                label: "Matriculados",
-                first: averageEnrolment(first.value.code),
-                second: averageEnrolment(second.value.code),
-                higherIsBetter: true,
-                format: value =>
-                    value === null ? "—" : String(Math.round(value))
-            });
-        }
+        /**
+         * Los matriculados solo compiten entre optativas: la popularidad de una
+         * troncal no dice nada, la cursa todo el mundo. La fila se enseña
+         * igualmente —en escritorio, donde hay sitio— para que se vea que el
+         * dato existe y por qué no puntúa.
+         */
+        list.push({
+            key: "matriculados",
+            label: "Matriculados",
+            first: averageEnrolment(first.value.code),
+            second: averageEnrolment(second.value.code),
+            higherIsBetter: true,
+            competes: bothOptional.value,
+            note: bothOptional.value ? null : "solo se compara entre optativas",
+            format: value => (value === null ? "—" : String(Math.round(value)))
+        });
 
         return list.map(duel => ({
+            competes: true,
+            note: null,
             ...duel,
             // 0 = empate o sin datos. No se inventa un ganador cuando falta
             // una de las dos cifras.
             winner:
+                duel.competes === false ||
                 duel.first === null ||
                 duel.second === null ||
                 duel.first === duel.second

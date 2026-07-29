@@ -20,15 +20,57 @@
 import { ref } from "vue";
 
 import { useDegreeMap } from "@/composables/useDegreeMap";
-import { difficultyFill, difficultyInk } from "@/theme/difficulty";
+import { useViewport } from "@/composables/useViewport";
+import { COHORT } from "@/content/copy";
+import { pct } from "@/utils/format";
+import { RECENT_YEARS } from "@/utils/metrics";
+import {
+    difficultyFill,
+    difficultyInk,
+    difficultyRamp
+} from "@/theme/difficulty";
 
 import UiIcon from "@/components/ui/UiIcon.vue";
 import UiSectionHeader from "@/components/ui/UiSectionHeader.vue";
 
-/** Cuántas asignaturas se ven antes de tener que pedir el resto. */
+/**
+ * Cuántas asignaturas se ven antes de tener que pedir el resto. Es un límite
+ * del móvil: en escritorio caben las treinta troncales a la vez y el "＋ N más"
+ * sobra, así que el recorte lo hace el CSS y no una rebanada en JavaScript.
+ * Ojo: el número está también en el selector `nth-child` de la hoja de abajo.
+ */
 const PREVIEW = 4;
 
-const { courses, totals } = useDegreeMap();
+const { courses, pool, kindestCourse, totals } = useDegreeMap();
+
+const { isDesktop } = useViewport();
+
+const recentYears = RECENT_YEARS;
+
+/**
+ * El salto a la bolsa es un desplazamiento dentro de la misma pantalla, no una
+ * ruta: con el enrutado por hash, un ancla "#bolsa" se leería como una URL y
+ * acabaría en la portada.
+ */
+const poolBand = ref(null);
+
+const scrollToPool = () => poolBand.value?.scrollIntoView({ block: "start" });
+
+/**
+ * La escala, de más fácil a más dura, para explicarla al pie. Con 54 puntos de
+ * color en la misma pantalla hay que decir qué significa cada tono.
+ */
+const rampLegend = [...difficultyRamp].reverse().map((band, index, bands) => ({
+    label: band.label,
+    fill: band.fill,
+    range: index ? `${band.from}%` : `<${bands[1].from}%`
+}));
+
+/** Cuánto mejor aprueba el curso más amable que primero. */
+const kindestGap = Math.round(
+    (courses.find(course => course.number === kindestCourse)?.avgPass ?? 0) -
+        (courses[0].avgPass ?? 0)
+);
 
 // Qué grupos ha desplegado el usuario. La clave es "3-optativas" y similares.
 const expanded = ref(new Set());
@@ -45,16 +87,18 @@ const toggle = key => {
     // Un Set nuevo, no el mismo mutado: Vue compara por referencia.
     expanded.value = next;
 };
-
-const shown = (list, key) =>
-    expanded.value.has(key) ? list : list.slice(0, PREVIEW);
-
-/** Redondeo a entero: "aprueban 76,6 % de media" es precisión fingida. */
-const pct = value => (value === null ? "—" : `${Math.round(value)}%`);
 </script>
 
 <template>
     <div class="screen">
+        <Teleport defer to="#pageActions">
+            <p class="pageMeta num">
+                {{ totals.courses }} cursos · {{ totals.troncales }} troncales ·
+                {{ totals.optativas }} optativas<br />
+                % que no aprueba, media de {{ recentYears }} cursos
+            </p>
+        </Teleport>
+
         <div class="spine">
             <div class="line" aria-hidden="true"></div>
 
@@ -63,13 +107,25 @@ const pct = value => (value === null ? "—" : `${Math.round(value)}%`);
                 :key="course.number"
                 class="course"
             >
-                <RouterLink
-                    :to="`/grado/${course.number}`"
-                    class="node"
-                    :aria-label="`Ver ${course.name}`"
-                >
-                    {{ course.number }}
-                </RouterLink>
+                <div class="nodeRow">
+                    <RouterLink
+                        :to="`/grado/${course.number}`"
+                        class="node"
+                        :aria-label="`Ver ${course.name}`"
+                    >
+                        {{ course.number }}
+                    </RouterLink>
+
+                    <!-- El tramo horizontal de la espina, que en escritorio
+                     sustituye a la línea vertical. Se estira hasta meterse en
+                     el hueco de la rejilla para llegar al nodo siguiente; el
+                     último curso no lleva, que ahí acaba la carrera. -->
+                    <div
+                        v-if="course.number < courses.length"
+                        class="rail"
+                        aria-hidden="true"
+                    ></div>
+                </div>
 
                 <div class="heading">
                     <h2>
@@ -87,7 +143,10 @@ const pct = value => (value === null ? "—" : `${Math.round(value)}%`);
                     </h2>
 
                     <span class="caption">
-                        aprueban {{ pct(course.avgPass) }} de media
+                        <span>aprueban {{ pct(course.avgPass) }} de media</span
+                        ><span class="onlyWide">
+                            · no se presentan {{ pct(course.avgNoShow) }}</span
+                        >
                     </span>
                 </div>
 
@@ -98,14 +157,11 @@ const pct = value => (value === null ? "—" : `${Math.round(value)}%`);
                     class="group"
                 />
 
-                <ul class="rows">
-                    <li
-                        v-for="subject in shown(
-                            course.troncales,
-                            `${course.number}-t`
-                        )"
-                        :key="subject.code"
-                    >
+                <ul
+                    class="rows"
+                    :class="{ collapsed: !expanded.has(`${course.number}-t`) }"
+                >
+                    <li v-for="subject in course.troncales" :key="subject.code">
                         <RouterLink
                             :to="`/asignatura/${subject.code}`"
                             class="row"
@@ -122,7 +178,7 @@ const pct = value => (value === null ? "—" : `${Math.round(value)}%`);
                             <span
                                 v-if="subject.smallCohort"
                                 class="warn"
-                                title="Menos de 10 matriculados: el porcentaje baila mucho"
+                                :title="COHORT.warning"
                                 >⚠</span
                             >
                             <span
@@ -144,7 +200,10 @@ const pct = value => (value === null ? "—" : `${Math.round(value)}%`);
                         </RouterLink>
                     </li>
 
-                    <li v-if="course.troncales.length > PREVIEW">
+                    <li
+                        v-if="course.troncales.length > PREVIEW"
+                        class="moreRow"
+                    >
                         <button
                             type="button"
                             class="more"
@@ -159,21 +218,33 @@ const pct = value => (value === null ? "—" : `${Math.round(value)}%`);
                     </li>
                 </ul>
 
-                <template v-if="course.optativas.length">
+                <!-- Las optativas de la bolsa no se repiten bajo 3.º y 4.º en
+                 escritorio: van juntas en su banda, al pie. -->
+                <div
+                    v-if="course.optativas.length"
+                    class="optatives"
+                    :class="{ hideWide: course.poolOptatives }"
+                >
                     <UiSectionHeader
-                        label="Optativas"
+                        :label="
+                            course.poolOptatives
+                                ? 'Optativas'
+                                : 'Optativas especiales'
+                        "
                         :count="course.optativas.length"
                         hint="% que no aprueba"
                         tone="gold"
                         class="group"
                     />
 
-                    <ul class="rows">
+                    <ul
+                        class="rows"
+                        :class="{
+                            collapsed: !expanded.has(`${course.number}-o`)
+                        }"
+                    >
                         <li
-                            v-for="subject in shown(
-                                course.optativas,
-                                `${course.number}-o`
-                            )"
+                            v-for="subject in course.optativas"
                             :key="subject.code"
                         >
                             <RouterLink
@@ -192,7 +263,7 @@ const pct = value => (value === null ? "—" : `${Math.round(value)}%`);
                                 <span
                                     v-if="subject.smallCohort"
                                     class="warn"
-                                    title="Menos de 10 matriculados: el porcentaje baila mucho"
+                                    :title="COHORT.warning"
                                     >⚠</span
                                 >
                                 <span
@@ -214,7 +285,10 @@ const pct = value => (value === null ? "—" : `${Math.round(value)}%`);
                             </RouterLink>
                         </li>
 
-                        <li v-if="course.optativas.length > PREVIEW">
+                        <li
+                            v-if="course.optativas.length > PREVIEW"
+                            class="moreRow"
+                        >
                             <button
                                 type="button"
                                 class="more"
@@ -228,14 +302,129 @@ const pct = value => (value === null ? "—" : `${Math.round(value)}%`);
                             </button>
                         </li>
                     </ul>
-                </template>
+                </div>
+
+                <!-- Lo que hay que saber de cada columna cuando se leen las
+                 cuatro a la vez. En el móvil los cursos se leen de uno en uno
+                 y estas notas sobran. -->
+                <p
+                    v-if="!course.poolOptatives && course.optativas.length"
+                    class="note onlyWide"
+                >
+                    Se cursan fuera de la bolsa de 3º y 4º.
+                </p>
+
+                <p v-else-if="!course.optativas.length" class="note onlyWide">
+                    {{ course.name }} no tiene optativas: sus
+                    {{ course.troncales.length }} troncales ocupan el curso
+                    entero.
+                </p>
+
+                <p
+                    v-else-if="course.number === 3"
+                    class="note callout onlyWide"
+                >
+                    Más <strong>{{ pool.total }} optativas</strong> de la bolsa,
+                    que se comparten con 4º.
+                    <button type="button" class="jump" @click="scrollToPool">
+                        Ver abajo ↓
+                    </button>
+                </p>
+
+                <p
+                    v-else-if="course.number === kindestCourse"
+                    class="note callout onlyWide"
+                >
+                    {{ course.name }} es el curso más amable del grado: aprueban
+                    <strong class="num">{{ kindestGap }}</strong> puntos más que
+                    en 1º.
+                </p>
             </section>
         </div>
 
-        <RouterLink to="/asignaturas" class="asList">
-            Ver las {{ totals.troncales + totals.optativas }} asignaturas como
-            lista →
-        </RouterLink>
+        <!-- La bolsa, una sola vez y a todo el ancho. -->
+        <section id="bolsa" ref="poolBand" class="pool onlyWide">
+            <div class="poolHead">
+                <h2>
+                    La bolsa de optativas
+                    <span class="num poolCount">{{ pool.total }}</span>
+                </h2>
+
+                <span class="num poolMeta">
+                    se eligen en 3º y 4º · {{ pool.inBothCourses }} de las
+                    {{ pool.total }} se ofertan en los dos cursos
+                </span>
+            </div>
+
+            <p class="poolLead">
+                Van juntas y no repetidas bajo cada curso: son casi las mismas
+                asignaturas en 3º y en 4º, y verlas dos veces haría creer que
+                hay cuarenta. Ninguna pasa del {{ pool.hardest }}% de no
+                superación — la dificultad del grado está en las troncales.
+            </p>
+
+            <div class="poolGrid">
+                <RouterLink
+                    v-for="subject in pool.subjects"
+                    :key="subject.code"
+                    :to="`/asignatura/${subject.code}`"
+                    class="row optative"
+                >
+                    <span
+                        class="dot hollow"
+                        :style="{
+                            borderColor: difficultyFill(subject.noSuperacion)
+                        }"
+                    ></span>
+                    <span class="name">{{ subject.name }}</span>
+                    <span
+                        v-if="subject.smallCohort"
+                        class="warn"
+                        :title="COHORT.warning"
+                        >⚠</span
+                    >
+                    <span
+                        class="value num"
+                        :style="{
+                            color: difficultyInk(subject.noSuperacion, true)
+                        }"
+                        >{{ pct(subject.noSuperacion) }}</span
+                    >
+                </RouterLink>
+            </div>
+        </section>
+
+        <!-- Con 54 puntos de color a la vez hay que explicar la escala en la
+         propia pantalla; en el móvil se ven de cuatro en cuatro y no hace
+         falta. -->
+        <div class="legend onlyWide">
+            <span class="eyebrow legendTitle">% que no aprueba</span>
+
+            <div class="bands">
+                <span
+                    v-for="band in rampLegend"
+                    :key="band.label"
+                    class="legendItem"
+                >
+                    <span class="dot" :style="{ background: band.fill }"></span>
+                    {{ band.label }} {{ band.range }}
+                </span>
+            </div>
+
+            <span class="legendItem optativeKey">
+                <span class="dot hollow"></span>
+                anillo = optativa
+            </span>
+        </div>
+
+        <!-- El mismo enlace en los dos sitios: en el móvil cierra la pantalla y
+         en escritorio es el botón de la banda de título. -->
+        <Teleport defer to="#pageActions" :disabled="!isDesktop">
+            <RouterLink to="/asignaturas" class="asList">
+                Ver las {{ totals.troncales + totals.optativas }} asignaturas
+                como lista →
+            </RouterLink>
+        </Teleport>
     </div>
 </template>
 
@@ -511,5 +700,385 @@ const pct = value => (value === null ? "—" : `${Math.round(value)}%`);
     font-size: var(--text-body-sm);
 
     font-weight: 600;
+}
+
+/* En el móvil los metadatos de la banda de título no se pintan: la banda es
+   una línea y el destino del teleport está oculto. */
+.pageMeta {
+    display: none;
+}
+
+/* Solo en escritorio, y al revés: lo que el móvil no enseña. ---------- */
+
+.onlyWide {
+    display: none;
+}
+
+/* El recorte del móvil. El 5 es PREVIEW + 1: si allí cambia, aquí también.
+   Se hace con CSS y no rebanando la lista para que el escritorio pueda
+   enseñarlas todas sin un segundo camino en el JavaScript. */
+.rows.collapsed > li:nth-child(n + 5):not(.moreRow) {
+    display: none;
+}
+
+/* Escritorio ---------------------------------------------------------- *
+ * La espina se gira 90 grados: los cuatro cursos en paralelo, cada uno con su
+ * tramo de línea hasta el siguiente. Las treinta troncales se ven a la vez, y
+ * la bolsa de optativas baja a una banda propia al pie.
+ */
+
+@media (min-width: 900px) {
+    .screen {
+        padding-bottom: 34px;
+    }
+
+    /* Cuatro columnas necesitan 1200px para que los nombres no se corten; por
+       debajo, dos y dos. Es el mismo escalón que la portada. */
+    .spine {
+        display: grid;
+
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+
+        gap: 16px 16px;
+
+        align-items: start;
+
+        padding: 24px var(--gutter) 0;
+    }
+
+    /* La línea deja de ser vertical: ahora la dibuja cada cabecera. */
+    .line {
+        display: none;
+    }
+
+    .course {
+        padding-left: 0;
+    }
+
+    .course + .course {
+        margin-top: 0;
+    }
+
+    .nodeRow {
+        display: flex;
+
+        align-items: center;
+    }
+
+    /* `relative` y no `static`: el nodo lleva un ::after de 44px para el dedo,
+       y sin posicionar se lo queda `.course` como contenedor — un cuadrado
+       invisible en mitad de la columna que se tragaba los clics de dos filas. */
+    .node {
+        position: relative;
+
+        width: 30px;
+
+        height: 30px;
+
+        font-size: 14px;
+    }
+
+    /* Se mete en el hueco de la rejilla para llegar hasta el nodo siguiente.
+       Por delante del texto no: en el prototipo se probó y tachaba los
+       títulos. */
+    /* En dos columnas, el tramo de la derecha no lleva a ninguna parte. */
+    .course:nth-of-type(2n) .rail {
+        display: none;
+    }
+
+    .rail {
+        flex: 1;
+
+        height: 2px;
+
+        margin-right: -16px;
+
+        background: var(--line-spine);
+    }
+
+    .heading {
+        display: block;
+
+        margin-top: 13px;
+
+        min-height: 0;
+    }
+
+    .heading h2 {
+        font-size: 20px;
+    }
+
+    .caption {
+        display: block;
+
+        margin-top: 5px;
+
+        font-size: var(--text-num-sm);
+    }
+
+    .caption .onlyWide {
+        display: inline;
+    }
+
+    .group {
+        margin: 18px 0 9px;
+    }
+
+    .rows {
+        gap: 5px;
+    }
+
+    /* El nombre no parte la fila en dos: con cuatro columnas, una asignatura
+       de tres líneas descuadra la comparación entre cursos. */
+    .name {
+        overflow: hidden;
+
+        text-overflow: ellipsis;
+
+        white-space: nowrap;
+    }
+
+    /* Aquí no hay nada plegado: caben las treinta. */
+    .rows.collapsed > li:nth-child(n + 5):not(.moreRow) {
+        display: block;
+    }
+
+    .moreRow,
+    .rowChevron,
+    .hideWide {
+        display: none;
+    }
+
+    .onlyWide {
+        display: block;
+    }
+
+    .note {
+        margin: 9px 0 0;
+
+        font-family: var(--font-mono);
+
+        font-size: 9.5px;
+
+        line-height: 1.5;
+
+        color: var(--ink-soft);
+    }
+
+    /* Lo que no es una nota al pie sino un aviso con destino: sale del gris y
+       se apoya en el lavado navy. */
+    .note.callout {
+        margin-top: 12px;
+
+        padding: 11px 12px;
+
+        background: var(--navy-wash);
+
+        border: 1px solid var(--navy-wash-line);
+
+        border-radius: var(--radius-control);
+
+        font-family: var(--font-sans);
+
+        font-size: var(--text-body-sm);
+
+        color: var(--ink-2);
+    }
+
+    .jump {
+        padding: 0;
+
+        border: none;
+
+        background: none;
+
+        font-family: inherit;
+
+        font-size: inherit;
+
+        font-weight: 600;
+
+        color: var(--navy);
+
+        cursor: pointer;
+    }
+
+    /* La bolsa ---------------------------------------------------------- */
+
+    .pool {
+        margin: 30px var(--gutter) 0;
+
+        padding-top: 22px;
+
+        border-top: 1px solid var(--line-strong);
+    }
+
+    .poolHead {
+        display: flex;
+
+        align-items: baseline;
+
+        justify-content: space-between;
+
+        gap: 20px;
+    }
+
+    .poolHead h2 {
+        margin: 0;
+
+        font-family: var(--font-serif);
+
+        font-size: 21px;
+
+        font-weight: 600;
+    }
+
+    .poolCount {
+        font-size: 15px;
+
+        color: var(--gold-ink);
+    }
+
+    .poolMeta {
+        font-size: var(--text-num-sm);
+
+        font-weight: 400;
+
+        color: var(--ink-soft);
+    }
+
+    /* La prosa se contiene aunque haya 1196px: una línea de 1.100px no se
+       lee. */
+    .poolLead {
+        max-width: 840px;
+
+        margin: 8px 0 16px;
+
+        font-size: var(--text-body);
+
+        line-height: 1.55;
+
+        color: var(--ink-muted);
+    }
+
+    .poolGrid {
+        display: grid;
+
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+
+        gap: 6px 16px;
+    }
+
+    /* La leyenda de la rampa --------------------------------------------- */
+
+    .legend {
+        display: flex;
+
+        align-items: center;
+
+        gap: 24px;
+
+        margin: 26px var(--gutter) 0;
+
+        padding-top: 16px;
+
+        border-top: 1px solid var(--line-rule);
+    }
+
+    .legendTitle {
+        font-size: 9.5px;
+    }
+
+    .bands {
+        display: flex;
+
+        flex-wrap: wrap;
+
+        align-items: center;
+
+        gap: 8px 18px;
+    }
+
+    .legendItem {
+        display: flex;
+
+        align-items: center;
+
+        gap: 7px;
+
+        font-family: var(--font-mono);
+
+        font-size: var(--text-num-sm);
+
+        color: var(--ink-muted);
+    }
+
+    .legend .dot {
+        width: 9px;
+
+        height: 9px;
+    }
+
+    .legend .dot.hollow {
+        border-color: var(--ink-icon);
+    }
+
+    .optativeKey {
+        margin-left: auto;
+    }
+
+    /* El enlace a la lista se va a la banda de título: allí es un botón. */
+    .asList {
+        min-height: 38px;
+
+        padding: 0 14px;
+
+        border: 1px solid var(--navy-line-soft);
+
+        border-radius: var(--radius-control);
+
+        background: var(--surface);
+
+        font-size: var(--text-body);
+
+        white-space: nowrap;
+    }
+
+    /* Metadatos de la banda de título. */
+    .pageMeta {
+        display: block;
+
+        margin: 0;
+
+        font-size: var(--text-num-sm);
+
+        font-weight: 400;
+
+        line-height: 1.6;
+
+        text-align: right;
+
+        color: var(--ink-soft);
+    }
+}
+
+/* La rejilla del diseño: los cuatro cursos en paralelo, la bolsa a tres. */
+@media (min-width: 1200px) {
+    .spine {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .course:nth-of-type(2n) .rail {
+        display: block;
+    }
+
+    /* La espina acaba en el cuarto nodo: ahí se termina la carrera. */
+    .course:last-of-type .rail {
+        display: none;
+    }
+
+    .poolGrid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
 }
 </style>

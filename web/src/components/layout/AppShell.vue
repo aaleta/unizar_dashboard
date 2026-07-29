@@ -1,7 +1,15 @@
 <script setup>
 /**
- * La carcasa: marca arriba, banda de título debajo, contenido en medio y
- * pestañas abajo. Ese orden es el mismo en las once pantallas.
+ * La carcasa. Dos formas de la misma aplicación, no dos aplicaciones:
+ *
+ *   móvil       marca arriba, banda de título, contenido y pestañas abajo
+ *   escritorio  lateral fija a la izquierda y, a su derecha, la misma banda
+ *               de título y el mismo contenido
+ *
+ * Lo que cambia es la navegación —una barra de cuatro pestañas no tiene
+ * sentido en 1440px, y una lateral de 244px no cabe en 402— y el ancho útil.
+ * El contenido de las once pantallas es el mismo objeto en los dos casos: lo
+ * reparte el CSS de cada vista, no una segunda copia de nada.
  *
  * El título de cada pantalla sale de `meta` en el router, no de la propia
  * vista. Así la lista entera de títulos se lee de un vistazo en un solo
@@ -9,12 +17,8 @@
  *
  * El desplazamiento es el del documento, no el de un contenedor interno: es lo
  * que permite que la barra de direcciones del móvil se recoja al bajar. Un
- * `overflow:auto` interno la deja fija y roba 60px de pantalla para siempre.
- *
- * Nota del rediseño: por ahora la barra de pestañas se usa en cualquier ancho.
- * El escritorio tendrá su propia navegación cuando le toque; hasta entonces el
- * contenido se limita a --content-max y se centra, para que en un portátil se
- * vea contenido y no una columna estirada.
+ * `overflow:auto` interno la deja fija y roba 60px de pantalla para siempre, y
+ * en escritorio dejaría además sin efecto la cabecera pegajosa de la tabla.
  */
 
 import { computed, ref, watch } from "vue";
@@ -22,22 +26,31 @@ import { useRoute } from "vue-router";
 
 import { pageHeader } from "@/composables/usePageHeader";
 import { navigationLoading } from "@/composables/useNavigationProgress";
+import { useViewport } from "@/composables/useViewport";
 
 import AppHeader from "./AppHeader.vue";
 import AppPageTitle from "./AppPageTitle.vue";
+import AppSidebar from "./AppSidebar.vue";
 import BottomTabBar from "./BottomTabBar.vue";
 import MoreSheet from "./MoreSheet.vue";
 
 const route = useRoute();
 
+const { isDesktop } = useViewport();
+
 /**
- * El `meta` de la ruta manda salvo que la pantalla afine su título con
+ * El `meta` de la ruta manda salvo que la pantalla afine su cabecera con
  * usePageHeader: hay títulos que no se saben hasta tener los datos delante,
- * como el nombre de la asignatura de una ficha.
+ * como el nombre de la asignatura de una ficha, y migas que dependen de a qué
+ * curso pertenece.
  */
-const title = computed(
-    () => pageHeader.value?.title ?? route.meta.title ?? null
-);
+const header = computed(() => ({
+    title: pageHeader.value?.title ?? route.meta.title ?? null,
+    eyebrow: pageHeader.value?.eyebrow ?? route.meta.eyebrow ?? null,
+    breadcrumbs: pageHeader.value?.breadcrumbs ?? null,
+    source: pageHeader.value?.source ?? route.meta.source ?? null,
+    footer: pageHeader.value?.footer ?? route.meta.footer ?? null
+}));
 
 const sheetOpen = ref(false);
 
@@ -52,27 +65,44 @@ watch(
 </script>
 
 <template>
-    <div class="shell">
-        <AppHeader />
-
-        <!-- Barra de carga: solo aparece si la pantalla tarda. `aria-hidden` a
-         propósito — el cambio de página ya se anuncia solo, y un "cargando"
-         hablado en cada toque sería ruido. -->
-        <div v-if="navigationLoading" class="progress" aria-hidden="true"></div>
-
-        <main class="body">
-            <AppPageTitle :title="title" />
-            <div class="content">
-                <slot />
-            </div>
-        </main>
-
-        <BottomTabBar
-            :sheet-open="sheetOpen"
-            @toggle-sheet="sheetOpen = !sheetOpen"
+    <div class="shell" :class="{ desktop: isDesktop }">
+        <AppSidebar
+            v-if="isDesktop"
+            :source="header.source"
+            :footer="header.footer"
         />
+        <AppHeader v-else />
 
-        <MoreSheet :open="sheetOpen" @close="sheetOpen = false" />
+        <div class="column">
+            <!-- Barra de carga: solo aparece si la pantalla tarda. `aria-hidden`
+             a propósito — el cambio de página ya se anuncia solo, y un
+             "cargando" hablado en cada toque sería ruido. -->
+            <div
+                v-if="navigationLoading"
+                class="progress"
+                aria-hidden="true"
+            ></div>
+
+            <main class="body">
+                <AppPageTitle
+                    :title="header.title"
+                    :eyebrow="header.eyebrow"
+                    :breadcrumbs="header.breadcrumbs"
+                />
+                <div class="content">
+                    <slot />
+                </div>
+            </main>
+        </div>
+
+        <template v-if="!isDesktop">
+            <BottomTabBar
+                :sheet-open="sheetOpen"
+                @toggle-sheet="sheetOpen = !sheetOpen"
+            />
+
+            <MoreSheet :open="sheetOpen" @close="sheetOpen = false" />
+        </template>
     </div>
 </template>
 
@@ -83,6 +113,16 @@ watch(
     flex-direction: column;
 
     min-height: 100dvh;
+}
+
+.column {
+    display: flex;
+
+    flex-direction: column;
+
+    flex: 1;
+
+    min-width: 0;
 }
 
 /* Pegada bajo la cabecera, que es sticky: la barra tiene que verse aunque se
@@ -139,5 +179,25 @@ watch(
     max-width: var(--content-max);
 
     margin: 0 auto;
+}
+
+/**
+ * Escritorio.
+ *
+ * Dos variables y ya está colocada la rejilla entera: --content-max deja de
+ * valer 520px y --gutter pasa de 16 a 32, que es el margen del diseño. Como
+ * las once vistas ya pintan su relleno horizontal con --gutter y su ancho con
+ * --content-max, ninguna necesita saber que existe el escritorio para caer
+ * donde toca.
+ */
+.shell.desktop {
+    flex-direction: row;
+
+    --content-max: var(--content-max-desktop);
+    --gutter: 32px;
+}
+
+.shell.desktop .body {
+    padding-bottom: 34px;
 }
 </style>

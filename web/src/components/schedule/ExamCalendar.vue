@@ -95,6 +95,14 @@ const WEEKDAY_LETTERS = ["L", "M", "X", "J", "V", "S", "D"];
                         </span>
                     </li>
                 </ul>
+
+                <!-- Qué significa cada color de la cuadrícula. En el móvil la
+                 lista de debajo ya lo dice asignatura por asignatura y la
+                 leyenda sobra. -->
+                <p class="key">
+                    Navy = día con examen · rojo = dos asignaturas el mismo día
+                    · el domingo se apaga: nunca hay examen.
+                </p>
             </div>
         </section>
     </div>
@@ -315,5 +323,29 @@ const WEEKDAY_LETTERS = ["L", "M", "X", "J", "V", "S", "D"];
 .legendRow.clash .legendDay,
 .legendRow.clash .legendNames {
     color: var(--warn-title);
+}
+
+.key {
+    display: none;
+}
+
+@media (min-width: 900px) {
+    .key {
+        display: block;
+
+        margin: 12px 0 0;
+
+        padding-top: 10px;
+
+        border-top: 1px solid var(--line-inner);
+
+        font-family: var(--font-mono);
+
+        font-size: 9.5px;
+
+        line-height: 1.6;
+
+        color: var(--ink-soft);
+    }
 }
 </style>

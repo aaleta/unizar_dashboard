@@ -20,6 +20,7 @@ import UiCallout from "@/components/ui/UiCallout.vue";
 import UiChip from "@/components/ui/UiChip.vue";
 import UiCountBar from "@/components/ui/UiCountBar.vue";
 import UiDifficultyDot from "@/components/ui/UiDifficultyDot.vue";
+import UiIcon from "@/components/ui/UiIcon.vue";
 import UiKpiCard from "@/components/ui/UiKpiCard.vue";
 import UiLinkRow from "@/components/ui/UiLinkRow.vue";
 import UiPill from "@/components/ui/UiPill.vue";
@@ -30,6 +31,23 @@ import UiStat from "@/components/ui/UiStat.vue";
 
 import { difficultyRamp, difficultyInk } from "@/theme/difficulty";
 import { GRADE_COLORS } from "@/theme/gradePalette";
+
+/** Todos los iconos del sistema, para verlos al mismo tamaño y en fila. */
+const ICONS = [
+    "home",
+    "layers",
+    "bookmark",
+    "dots",
+    "chevronLeft",
+    "chevronRight",
+    "close",
+    "calendar",
+    "teachers",
+    "document",
+    "info",
+    "search",
+    "network"
+];
 
 /** Un valor dentro de cada tramo, para verlos todos a la vez. */
 const RAMP_SAMPLES = [61, 38, 27, 18, 11, null];
@@ -360,10 +378,51 @@ const sortKey = ref("noSuperacion");
                 </UiLinkRow>
             </div>
         </section>
+
+        <section>
+            <h2>Iconos</h2>
+
+            <UiCard>
+                <div class="icons">
+                    <span v-for="name in ICONS" :key="name" class="icon">
+                        <UiIcon :name="name" :size="22" />
+                        <span class="iconName">{{ name }}</span>
+                    </span>
+                </div>
+            </UiCard>
+        </section>
     </div>
 </template>
 
 <style scoped>
+.icons {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 16px 22px;
+}
+
+.icon {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 5px;
+
+    color: var(--navy);
+}
+
+.iconName {
+    font-family: var(--font-mono);
+
+    font-size: var(--text-footnote);
+
+    color: var(--ink-soft);
+}
+
 .gallery {
     max-width: var(--content-max);
 

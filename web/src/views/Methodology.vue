@@ -24,6 +24,7 @@ import {
     latestOfficialYear
 } from "@/utils/metrics";
 
+import { usePageHeader } from "@/composables/usePageHeader";
 import { DATA_SOURCES } from "@/utils/dataSources";
 
 import UiPill from "@/components/ui/UiPill.vue";
@@ -40,6 +41,12 @@ const agreement = officialAgreement(latestOfficialYear);
 const firstYear = academicYears[0];
 
 const lastYear = academicYears[academicYears.length - 1];
+
+// A esta pantalla no la describe una fuente sino todas, así que el pie de la
+// lateral dice el periodo que abarcan los datos.
+usePageHeader(() => ({
+    footer: { label: `Datos de ${firstYear}`, detail: `a ${lastYear}` }
+}));
 
 /** Los tres recuentos de los que sale todo lo demás. */
 const COUNTS = [
@@ -61,6 +68,30 @@ const COUNTS = [
     }
 ];
 
+/** El índice de la derecha. Los ids son los de las tres secciones. */
+const INDEX = [
+    { id: "calculo", label: "Cómo se calcula" },
+    { id: "fuentes", label: "Fuentes" },
+    { id: "limitaciones", label: "Limitaciones" }
+];
+
+/**
+ * Un ancla "#calculo" no vale: con el enrutado por hash, el navegador la lee
+ * como una ruta y acaba en la portada. El enlace se queda —es lo que un índice
+ * es— y el salto lo hace el script.
+ */
+const jumpTo = id => {
+    document.getElementById(id)?.scrollIntoView({ block: "start" });
+};
+
+/** Las cuatro cifras del panel de resumen, todas calculadas. */
+const GLANCE = [
+    { label: "Cursos con datos", value: academicYears.length },
+    { label: "Periodo agregado", value: `${RECENT_YEARS} cursos` },
+    { label: "Umbral de cohorte", value: `${MIN_COHORT} alumnos` },
+    { label: "Fuentes distintas", value: DATA_SOURCES.length }
+];
+
 const LIMITS = [
     { glyph: "⚠", key: "cohortes" },
     { glyph: "≠", key: "noPre" },
@@ -74,219 +105,282 @@ const LIMITS = [
 
 <template>
     <div class="screen">
-        <header class="intro">
-            <p class="lead">
-                Qué significa cada indicador, de dónde salen los datos y qué
-                limitaciones tienen. Si una cifra de esta web no cuadra con otra
-                que hayas visto, la explicación suele estar aquí.
-            </p>
-        </header>
+        <div class="column">
+            <header class="intro">
+                <p class="lead">
+                    Qué significa cada indicador, de dónde salen los datos y qué
+                    limitaciones tienen. Si una cifra de esta web no cuadra con
+                    otra que hayas visto, la explicación suele estar aquí.
+                </p>
+            </header>
 
-        <!-- Cómo se calcula ------------------------------------------------ -->
-        <section class="section">
-            <h2>Cómo se calcula</h2>
+            <!-- Cómo se calcula ------------------------------------------------ -->
+            <section id="calculo" class="section">
+                <h2>Cómo se calcula</h2>
 
-            <p class="note">
-                Todos los indicadores parten de tres recuentos por asignatura y
-                curso académico:
-            </p>
+                <p class="note">
+                    Todos los indicadores parten de tres recuentos por
+                    asignatura y curso académico:
+                </p>
 
-            <ol class="counts">
-                <li v-for="(count, index) in COUNTS" :key="count.label">
-                    <span class="countNumber num" aria-hidden="true">{{
-                        index + 1
-                    }}</span>
-                    <span class="countBody">
-                        <strong>{{ count.label }}</strong>
-                        {{ count.text }}
-                    </span>
-                </li>
-            </ol>
+                <ol class="counts">
+                    <li v-for="(count, index) in COUNTS" :key="count.label">
+                        <span class="countNumber num" aria-hidden="true">{{
+                            index + 1
+                        }}</span>
+                        <span class="countBody">
+                            <strong>{{ count.label }}</strong>
+                            {{ count.text }}
+                        </span>
+                    </li>
+                </ol>
 
-            <p class="note">
-                A partir de ahí, cada tasa usa un denominador distinto. Es el
-                punto donde más fácil resulta comparar peras con manzanas, así
-                que en toda la web se indica siempre cuál se está usando:
-            </p>
+                <p class="note">
+                    A partir de ahí, cada tasa usa un denominador distinto. Es
+                    el punto donde más fácil resulta comparar peras con
+                    manzanas, así que en toda la web se indica siempre cuál se
+                    está usando:
+                </p>
 
-            <ul class="indicators">
-                <li v-for="metric in metrics" :key="metric.key">
-                    <div class="indicatorHead">
-                        <h3>{{ metric.label }}</h3>
-                        <UiPill
-                            >÷
-                            {{ BASES[metric.base].label.toLowerCase() }}</UiPill
+                <!-- En escritorio esta lista es la tabla ancha de siempre; en el
+             móvil, siete tarjetas apiladas. El mismo marcado. -->
+                <ul class="indicators">
+                    <li class="tableHead onlyWide" aria-hidden="true">
+                        <span class="headName">Indicador</span>
+                        <span class="headBase">Denominador</span>
+                        <span class="headText">Qué mide</span>
+                    </li>
+
+                    <li v-for="metric in metrics" :key="metric.key">
+                        <div class="indicatorHead">
+                            <h3>{{ metric.label }}</h3>
+                            <span class="indicatorBase">
+                                <UiPill
+                                    >÷
+                                    {{
+                                        BASES[metric.base].label.toLowerCase()
+                                    }}</UiPill
+                                >
+                            </span>
+                        </div>
+                        <p>{{ metric.definition }}</p>
+                    </li>
+                </ul>
+
+                <p class="note">
+                    Las tres primeras son la nomenclatura oficial de la
+                    Universidad de Zaragoza, de modo que los valores de esta web
+                    se pueden contrastar directamente con los informes de
+                    calidad del grado. La
+                    <strong>tasa de no superación</strong> es simplemente 100 −
+                    tasa de rendimiento.
+                </p>
+
+                <p class="note">
+                    Cuando se agregan varias asignaturas o varios cursos, la
+                    media siempre está
+                    <strong>ponderada por número de matriculados</strong>: una
+                    asignatura de 120 alumnos pesa más que una de 6. Salvo que
+                    se indique otra cosa, el periodo agregado son los últimos
+                    {{ RECENT_YEARS }} cursos académicos con datos.
+                </p>
+            </section>
+
+            <!-- Fuentes -------------------------------------------------------- -->
+            <section id="fuentes" class="section">
+                <h2>Fuentes</h2>
+
+                <ul class="sources">
+                    <li v-for="source in DATA_SOURCES" :key="source.key">
+                        <h3>{{ source.label }}</h3>
+                        <p>{{ source.description }}</p>
+                        <div class="sourceMeta">
+                            <span class="num"
+                                >Último: {{ source.ultimo_curso }}</span
+                            >
+                            <span v-if="source.actualizado" class="num"
+                                >Publicado: {{ source.actualizado }}</span
+                            >
+                        </div>
+                        <a
+                            :href="source.fuente"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            >Fuente →</a
                         >
-                    </div>
-                    <p>{{ metric.definition }}</p>
-                </li>
-            </ul>
+                    </li>
+                </ul>
+            </section>
 
-            <p class="note">
-                Las tres primeras son la nomenclatura oficial de la Universidad
-                de Zaragoza, de modo que los valores de esta web se pueden
-                contrastar directamente con los informes de calidad del grado.
-                La <strong>tasa de no superación</strong> es simplemente 100 −
-                tasa de rendimiento.
-            </p>
+            <!-- Limitaciones --------------------------------------------------- -->
+            <section id="limitaciones" class="section">
+                <h2>Limitaciones</h2>
 
-            <p class="note">
-                Cuando se agregan varias asignaturas o varios cursos, la media
-                siempre está
-                <strong>ponderada por número de matriculados</strong>: una
-                asignatura de 120 alumnos pesa más que una de 6. Salvo que se
-                indique otra cosa, el periodo agregado son los últimos
-                {{ RECENT_YEARS }} cursos académicos con datos.
-            </p>
-        </section>
+                <ul class="caveats">
+                    <li>
+                        <span class="glyph" aria-hidden="true">{{
+                            LIMITS[0].glyph
+                        }}</span>
+                        <div>
+                            <strong>Cohortes pequeñas.</strong>
+                            Algunas optativas tienen menos de {{ MIN_COHORT }}
+                            matriculados. Ahí un solo alumno mueve el porcentaje
+                            más de diez puntos, así que esas asignaturas se
+                            marcan con ⚠ y conviene mirar los recuentos
+                            absolutos en lugar de las tasas.
+                        </div>
+                    </li>
 
-        <!-- Fuentes -------------------------------------------------------- -->
-        <section class="section">
-            <h2>Fuentes</h2>
+                    <li>
+                        <span class="glyph" aria-hidden="true">{{
+                            LIMITS[1].glyph
+                        }}</span>
+                        <div>
+                            <strong>No presentarse no es suspender.</strong>
+                            La tasa de no superación mete en el mismo saco a
+                            quien suspende y a quien ni se presenta. Son
+                            situaciones distintas: en los últimos cursos del
+                            grado es habitual matricularse y dejar la asignatura
+                            para más adelante. Por eso cada asignatura muestra
+                            también el porcentaje de no presentados por
+                            separado.
+                        </div>
+                    </li>
 
-            <ul class="sources">
-                <li v-for="source in DATA_SOURCES" :key="source.key">
-                    <h3>{{ source.label }}</h3>
-                    <p>{{ source.description }}</p>
-                    <div class="sourceMeta">
-                        <span class="num"
-                            >Último: {{ source.ultimo_curso }}</span
-                        >
-                        <span v-if="source.actualizado" class="num"
-                            >Publicado: {{ source.actualizado }}</span
-                        >
-                    </div>
+                    <li>
+                        <span class="glyph" aria-hidden="true">{{
+                            LIMITS[2].glyph
+                        }}</span>
+                        <div>
+                            <strong>Los cursos de la pandemia.</strong>
+                            Los datos abarcan de {{ firstYear }} a
+                            {{ lastYear }}, e incluyen los cursos afectados por
+                            la COVID-19, con evaluación excepcional. Las series
+                            temporales presentan ahí anomalías que no responden
+                            a cambios reales de dificultad.
+                        </div>
+                    </li>
+
+                    <li>
+                        <span class="glyph" aria-hidden="true">{{
+                            LIMITS[3].glyph
+                        }}</span>
+                        <div>
+                            <strong>Cambios de plan y de nombre.</strong>
+                            Las asignaturas se identifican por su código. Si una
+                            cambia de nombre o de plan, su serie histórica puede
+                            partirse o mezclarse con la de la asignatura que la
+                            sustituye.
+                        </div>
+                    </li>
+
+                    <li>
+                        <span class="glyph" aria-hidden="true">{{
+                            LIMITS[4].glyph
+                        }}</span>
+                        <div>
+                            <strong
+                                >Las tasas oficiales no cubren todas las
+                                asignaturas todos los años.</strong
+                            >
+                            Los datos abiertos de rendimiento van de
+                            {{ officialYears[0] }} a {{ latestOfficialYear }},
+                            pero una optativa que no se oferta un curso no
+                            aparece ese año. La media de convocatorias
+                            consumidas procede de ahí: cuando falta, se indica
+                            el curso del que sí hay dato.
+                        </div>
+                    </li>
+
+                    <li>
+                        <span class="glyph" aria-hidden="true">{{
+                            LIMITS[5].glyph
+                        }}</span>
+                        <div>
+                            <strong>Las dos fuentes no siempre cuadran.</strong>
+                            Todos los porcentajes de esta web se calculan a
+                            partir del reparto de calificaciones, nunca
+                            mezclando fuentes. Al contrastarlos con los datos
+                            abiertos del curso
+                            {{ agreement.curso }}, {{ agreement.coinciden }} de
+                            {{ agreement.comparables }} asignaturas coinciden
+                            hasta el último decimal, pero en
+                            {{ agreement.difieren }} el número de alumnos
+                            difiere en uno o dos, con diferencias de hasta
+                            {{ Math.round(agreement.diferenciaMaxima) }} puntos
+                            en asignaturas pequeñas. No es cosa de un curso
+                            suelto: el desacuerdo aparece en los doce. Alguna
+                            fila oficial es incluso incoherente consigo misma
+                            (declara un 100 % de rendimiento con 16 alumnos
+                            superados de 17). Se ha optado por una sola fuente
+                            para las tasas —el reparto de calificaciones, que sí
+                            es internamente consistente— y usar los datos
+                            oficiales únicamente para la media de convocatorias,
+                            que no puede deducirse de las notas.
+                        </div>
+                    </li>
+
+                    <li>
+                        <span class="glyph" aria-hidden="true">{{
+                            LIMITS[6].glyph
+                        }}</span>
+                        <div>
+                            <strong>Esto no evalúa a nadie.</strong>
+                            Los indicadores describen resultados académicos
+                            agregados. No miden la calidad de la docencia ni el
+                            desempeño del profesorado: una asignatura difícil
+                            puede estar excelentemente impartida. Tampoco miden
+                            la valía del alumnado: una asignatura fácil también
+                            puede suspenderse.
+                        </div>
+                    </li>
+                </ul>
+            </section>
+        </div>
+
+        <!-- El índice y el resumen. Solo en escritorio: en el móvil, una
+         columna de 300px al lado no existe, y el índice de una página que se
+         recorre con el pulgar sobra. -->
+        <aside class="aside onlyWide">
+            <div class="asideInner">
+                <p class="eyebrow asideTitle">En esta página</p>
+
+                <nav class="index">
                     <a
-                        :href="source.fuente"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        >Fuente →</a
+                        v-for="item in INDEX"
+                        :key="item.id"
+                        :href="`#${item.id}`"
+                        @click.prevent="jumpTo(item.id)"
                     >
-                </li>
-            </ul>
-        </section>
+                        {{ item.label }}
+                    </a>
+                </nav>
 
-        <!-- Limitaciones --------------------------------------------------- -->
-        <section class="section">
-            <h2>Limitaciones</h2>
+                <div class="glance">
+                    <p class="eyebrow glanceTitle">De un vistazo</p>
 
-            <ul class="caveats">
-                <li>
-                    <span class="glyph" aria-hidden="true">{{
-                        LIMITS[0].glyph
-                    }}</span>
-                    <div>
-                        <strong>Cohortes pequeñas.</strong>
-                        Algunas optativas tienen menos de {{ MIN_COHORT }}
-                        matriculados. Ahí un solo alumno mueve el porcentaje más
-                        de diez puntos, así que esas asignaturas se marcan con ⚠
-                        y conviene mirar los recuentos absolutos en lugar de las
-                        tasas.
-                    </div>
-                </li>
-
-                <li>
-                    <span class="glyph" aria-hidden="true">{{
-                        LIMITS[1].glyph
-                    }}</span>
-                    <div>
-                        <strong>No presentarse no es suspender.</strong>
-                        La tasa de no superación mete en el mismo saco a quien
-                        suspende y a quien ni se presenta. Son situaciones
-                        distintas: en los últimos cursos del grado es habitual
-                        matricularse y dejar la asignatura para más adelante.
-                        Por eso cada asignatura muestra también el porcentaje de
-                        no presentados por separado.
-                    </div>
-                </li>
-
-                <li>
-                    <span class="glyph" aria-hidden="true">{{
-                        LIMITS[2].glyph
-                    }}</span>
-                    <div>
-                        <strong>Los cursos de la pandemia.</strong>
-                        Los datos abarcan de {{ firstYear }} a {{ lastYear }}, e
-                        incluyen los cursos afectados por la COVID-19, con
-                        evaluación excepcional. Las series temporales presentan
-                        ahí anomalías que no responden a cambios reales de
-                        dificultad.
-                    </div>
-                </li>
-
-                <li>
-                    <span class="glyph" aria-hidden="true">{{
-                        LIMITS[3].glyph
-                    }}</span>
-                    <div>
-                        <strong>Cambios de plan y de nombre.</strong>
-                        Las asignaturas se identifican por su código. Si una
-                        cambia de nombre o de plan, su serie histórica puede
-                        partirse o mezclarse con la de la asignatura que la
-                        sustituye.
-                    </div>
-                </li>
-
-                <li>
-                    <span class="glyph" aria-hidden="true">{{
-                        LIMITS[4].glyph
-                    }}</span>
-                    <div>
-                        <strong
-                            >Las tasas oficiales no cubren todas las asignaturas
-                            todos los años.</strong
+                    <div class="glanceRows">
+                        <div
+                            v-for="item in GLANCE"
+                            :key="item.label"
+                            class="glanceRow"
                         >
-                        Los datos abiertos de rendimiento van de
-                        {{ officialYears[0] }} a {{ latestOfficialYear }}, pero
-                        una optativa que no se oferta un curso no aparece ese
-                        año. La media de convocatorias consumidas procede de
-                        ahí: cuando falta, se indica el curso del que sí hay
-                        dato.
+                            {{ item.label }}
+                            <span class="num">{{ item.value }}</span>
+                        </div>
                     </div>
-                </li>
 
-                <li>
-                    <span class="glyph" aria-hidden="true">{{
-                        LIMITS[5].glyph
-                    }}</span>
-                    <div>
-                        <strong>Las dos fuentes no siempre cuadran.</strong>
-                        Todos los porcentajes de esta web se calculan a partir
-                        del reparto de calificaciones, nunca mezclando fuentes.
-                        Al contrastarlos con los datos abiertos del curso
-                        {{ agreement.curso }}, {{ agreement.coinciden }} de
-                        {{ agreement.comparables }} asignaturas coinciden hasta
-                        el último decimal, pero en {{ agreement.difieren }} el
-                        número de alumnos difiere en uno o dos, con diferencias
-                        de hasta
-                        {{ Math.round(agreement.diferenciaMaxima) }} puntos en
-                        asignaturas pequeñas. No es cosa de un curso suelto: el
-                        desacuerdo aparece en los doce. Alguna fila oficial es
-                        incluso incoherente consigo misma (declara un 100 % de
-                        rendimiento con 16 alumnos superados de 17). Se ha
-                        optado por una sola fuente para las tasas —el reparto de
-                        calificaciones, que sí es internamente consistente— y
-                        usar los datos oficiales únicamente para la media de
-                        convocatorias, que no puede deducirse de las notas.
-                    </div>
-                </li>
+                    <p class="glanceNote">
+                        Todas las medias están ponderadas por matriculados.
+                    </p>
+                </div>
 
-                <li>
-                    <span class="glyph" aria-hidden="true">{{
-                        LIMITS[6].glyph
-                    }}</span>
-                    <div>
-                        <strong>Esto no evalúa a nadie.</strong>
-                        Los indicadores describen resultados académicos
-                        agregados. No miden la calidad de la docencia ni el
-                        desempeño del profesorado: una asignatura difícil puede
-                        estar excelentemente impartida. Tampoco miden la valía
-                        del alumnado: una asignatura fácil también puede
-                        suspenderse.
-                    </div>
-                </li>
-            </ul>
-        </section>
+                <p class="asideFoot">
+                    ¿Falta algo o hay un error? El código y los datos son
+                    públicos: <RouterLink to="/acerca">Acerca de →</RouterLink>
+                </p>
+            </div>
+        </aside>
     </div>
 </template>
 
@@ -570,5 +664,350 @@ h3 {
     color: var(--navy);
 
     font-size: 13px;
+}
+
+/* Solo en escritorio ---------------------------------------------------- */
+
+.onlyWide {
+    display: none;
+}
+
+/* Escritorio ------------------------------------------------------------ *
+ * La misma página, con dos cosas que en el móvil no caben: un índice que
+ * acompaña al desplazarse y la tabla ancha de indicadores, que allí hubo que
+ * romper en tarjetas.
+ */
+
+@media (min-width: 900px) {
+    .screen {
+        display: grid;
+
+        grid-template-columns: minmax(0, 1fr) 300px;
+
+        gap: 40px;
+
+        padding: 24px var(--gutter) 34px;
+    }
+
+    .column {
+        min-width: 0;
+    }
+
+    .onlyWide {
+        display: block;
+    }
+
+    /* La prosa no pasa de 760px aunque la columna dé para más: una línea de
+       mil píxeles se pierde al volver al principio. */
+    .lead {
+        max-width: 760px;
+
+        font-size: 14px;
+
+        line-height: 1.6;
+    }
+
+    .section {
+        margin-top: 30px;
+    }
+
+    h2 {
+        margin-bottom: 8px;
+
+        font-size: 21px;
+    }
+
+    .note {
+        max-width: 760px;
+
+        font-size: var(--text-body);
+    }
+
+    /* Los tres recuentos, en fila. */
+    .counts {
+        display: grid;
+
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+
+        gap: 12px;
+    }
+
+    .counts li {
+        margin: 0;
+    }
+
+    /* La tabla de indicadores ------------------------------------------- */
+
+    .indicators {
+        background: var(--surface);
+
+        border: 1px solid var(--line);
+
+        border-radius: var(--radius-card-lg);
+
+        box-shadow: var(--shadow-card);
+
+        /* `clip` y no `hidden`, por lo mismo que en la lista maestra. */
+        overflow: clip;
+    }
+
+    .indicators li {
+        display: flex;
+
+        align-items: flex-start;
+
+        gap: 16px;
+
+        margin: 0;
+
+        padding: 13px 16px;
+
+        background: none;
+
+        border: none;
+
+        border-bottom: 1px solid var(--line-inner);
+
+        border-radius: 0;
+
+        box-shadow: none;
+    }
+
+    .indicators li:last-child {
+        border-bottom: none;
+    }
+
+    .tableHead {
+        background: var(--surface-sunken) !important;
+
+        border-bottom: 1px solid var(--line-strong) !important;
+
+        padding: 10px 16px !important;
+
+        font-family: var(--font-mono);
+
+        font-size: 9.5px;
+
+        font-weight: 600;
+
+        letter-spacing: 0.4px;
+
+        text-transform: uppercase;
+
+        /* Sobre el fondo hundido los grises apagados no llegan a 4,5:1. */
+        color: var(--ink-2);
+    }
+
+    .headName {
+        width: 210px;
+
+        flex: none;
+    }
+
+    .headBase {
+        width: 132px;
+
+        flex: none;
+    }
+
+    .headText {
+        flex: 1;
+
+        min-width: 0;
+    }
+
+    /* Las tres celdas de cada fila salen del mismo marcado que en el móvil:
+       `contents` disuelve la cabecera y deja el nombre y la píldora como
+       hermanos de la definición. */
+    .indicatorHead {
+        display: contents;
+    }
+
+    h3 {
+        width: 210px;
+
+        flex: none;
+
+        margin: 0;
+
+        font-size: 14.5px;
+    }
+
+    .indicatorBase {
+        width: 132px;
+
+        flex: none;
+    }
+
+    .indicators p {
+        flex: 1;
+
+        min-width: 0;
+
+        margin: 0;
+
+        font-size: var(--text-body);
+    }
+
+    /* Fuentes y limitaciones, de dos en dos ------------------------------ */
+
+    .sources,
+    .caveats {
+        display: grid;
+
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+
+        gap: 12px;
+    }
+
+    .sources li,
+    .caveats li {
+        margin: 0;
+    }
+
+    /* La última limitación —"esto no evalúa a nadie"— es la que cierra la
+       página: va a todo el ancho. */
+    .caveats li:last-child {
+        grid-column: 1 / -1;
+    }
+
+    .glyph {
+        display: flex;
+
+        align-items: center;
+
+        justify-content: center;
+
+        width: 30px;
+
+        height: 30px;
+
+        border-radius: 8px;
+
+        background: var(--navy-wash);
+
+        color: var(--navy);
+    }
+
+    /* El índice ---------------------------------------------------------- */
+
+    /* Sin `align-items: start` en la rejilla: la columna del índice tiene que
+       ser tan alta como la página para que lo pegajoso tenga por dónde
+       viajar. */
+    .aside {
+        min-width: 0;
+    }
+
+    .asideInner {
+        position: sticky;
+
+        top: 16px;
+    }
+
+    .asideTitle {
+        margin: 0;
+
+        padding-bottom: 9px;
+
+        border-bottom: 1px solid var(--line-rule);
+    }
+
+    .index {
+        display: flex;
+
+        flex-direction: column;
+
+        margin-top: 4px;
+    }
+
+    .index a {
+        display: flex;
+
+        align-items: center;
+
+        min-height: 38px;
+
+        font-size: 13px;
+
+        color: var(--navy);
+    }
+
+    .index a:hover {
+        text-decoration: underline;
+
+        text-underline-offset: 2px;
+    }
+
+    .glance {
+        margin-top: 20px;
+
+        padding: 15px 16px;
+
+        background: var(--navy-wash);
+
+        border: 1px solid var(--navy-wash-line);
+
+        border-radius: var(--radius-card);
+    }
+
+    .glanceTitle {
+        margin: 0;
+
+        color: var(--navy);
+    }
+
+    .glanceRows {
+        display: flex;
+
+        flex-direction: column;
+
+        gap: 9px;
+
+        margin-top: 11px;
+    }
+
+    .glanceRow {
+        display: flex;
+
+        align-items: baseline;
+
+        justify-content: space-between;
+
+        gap: 10px;
+
+        font-size: var(--text-body);
+
+        color: var(--navy-soft);
+    }
+
+    .glanceRow .num {
+        color: var(--navy);
+    }
+
+    .glanceNote {
+        margin: 12px 0 0;
+
+        font-family: var(--font-mono);
+
+        font-size: 9.5px;
+
+        line-height: 1.6;
+
+        color: var(--navy-meta);
+    }
+
+    .asideFoot {
+        margin: 16px 0 0;
+
+        font-size: var(--text-body-sm);
+
+        line-height: 1.55;
+
+        color: var(--ink-muted);
+    }
+
+    .asideFoot a {
+        font-weight: 600;
+    }
 }
 </style>

@@ -1,10 +1,21 @@
 /**
- * Deja que una pantalla afine su propio título.
+ * Deja que una pantalla afine su propia cabecera.
  *
  * Lo normal es que el título salga del `meta` de la ruta, que es donde se
  * leen todos juntos. Pero hay dos que no se saben hasta cargar los datos: la
  * ficha de asignatura se titula con el nombre de la asignatura, y ese nombre
  * no está en la ruta, está en el catálogo.
+ *
+ * Lo que puede traer el objeto:
+ *
+ *   title        el h1 de la pantalla
+ *   eyebrow      el antetítulo de la banda (la sección a la que pertenece)
+ *   breadcrumbs  [{ label, to }] — los antecesores, cuando la pantalla cuelga
+ *                de otra (la ficha de asignatura, de su curso)
+ *   source       clave de DATA_SOURCES cuya vigencia describe estos datos
+ *
+ * Los tres últimos solo se pintan en escritorio: en el móvil la banda de
+ * título es una línea y no hay sitio. Ninguna vista está obligada a darlos.
  *
  * Se guarda en un ref de módulo, no en un provide/inject, porque hay un solo
  * AppShell y una sola pantalla activa a la vez: montar una infraestructura de
@@ -25,8 +36,8 @@ export const pageHeader = override;
  * Llamar SIEMPRE desde el setup del componente: registra un onUnmounted y
  * fuera del setup no habría instancia a la que colgarlo.
  *
- * @param source objeto { title } o función que lo devuelva (si depende de
- *               datos que cambian, pasar la función).
+ * @param source objeto con los campos de arriba, o función que lo devuelva
+ *               (si depende de datos que cambian, pasar la función).
  */
 export const usePageHeader = source => {
     watchEffect(() => {

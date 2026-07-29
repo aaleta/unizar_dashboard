@@ -527,6 +527,10 @@ export const subjectSummary = code => {
         excelencia: subjectRate(code, "excelencia"),
         latestYear: latestYear(code),
         yearsWithData: rows.length,
+        // Optativa de oferta bienal: el código de la que se alterna con ella.
+        // Es catálogo, no cálculo, pero quien pinta una lista lo necesita al
+        // lado del resto sin tener que pedir la ficha entera.
+        alternatesWith: info?.seAlternaCon ?? null,
         // Matriculados agregados del periodo reciente: base para avisar de
         // cohortes pequeñas donde los porcentajes no son fiables.
         recentStudents: recent.reduce((sum, row) => sum + matriculados(row), 0)
@@ -597,13 +601,62 @@ export const courseSeries = (course, metricKey) =>
         value: courseRateForYear(course, metricKey, year)
     }));
 
-/** Métrica del grado restringida a una lista concreta de cursos académicos. */
-export const degreeRateForPeriod = (metricKey, years) => {
-    const rows = allCoreSubjects.flatMap(subject =>
+/**
+ * Filas de todas las troncales del grado en una lista de cursos académicos.
+ * Es la base de los agregados del grado: las optativas quedan fuera porque no
+ * las cursa todo el mundo y mezclarlas haría que el reparto de notas del grado
+ * dependiera de cuánta gente eligió qué.
+ */
+const degreeRows = years =>
+    allCoreSubjects.flatMap(subject =>
         years.map(year => subjectRow(subject.code, year)).filter(Boolean)
     );
 
-    return weightedRate(rows, metricKey);
+/** Métrica del grado restringida a una lista concreta de cursos académicos. */
+export const degreeRateForPeriod = (metricKey, years) =>
+    weightedRate(degreeRows(years), metricKey);
+
+/** Matrículas del grado en ese periodo: cuántos datos hay detrás de las tasas. */
+export const degreeEnrolment = (years = academicYears.slice(-RECENT_YEARS)) =>
+    degreeRows(years).reduce((sum, row) => sum + matriculados(row), 0);
+
+/**
+ * Reparto de calificaciones del grado entero, agregando las filas antes de
+ * calcular los porcentajes. Promediar los repartos de cada asignatura daría
+ * otro número: una asignatura de 12 alumnos pesaría lo mismo que una de 300.
+ */
+export const degreeDistribution = (
+    years = academicYears.slice(-RECENT_YEARS)
+) => {
+    const rows = degreeRows(years);
+    const total = rows.reduce((sum, row) => sum + matriculados(row), 0);
+
+    return GRADE_CATEGORIES.map(category => {
+        const count = rows.reduce((sum, row) => sum + category.count(row), 0);
+
+        return {
+            key: category.key,
+            label: category.label,
+            short: category.short,
+            count,
+            pct: rate(count, total)
+        };
+    });
+};
+
+/**
+ * Matrículas de un curso en un curso académico medio: el total del periodo
+ * dividido entre los años que lo componen. Dicho de otra forma, cuánta gente
+ * pasa por 1º cada año contando todas sus troncales.
+ */
+export const courseEnrolment = (course, years = RECENT_YEARS) => {
+    const rows = coreSubjects(course).flatMap(subject =>
+        lastYears(subjectRows(subject.code), years)
+    );
+
+    if (!rows.length) return 0;
+
+    return rows.reduce((sum, row) => sum + matriculados(row), 0) / years;
 };
 
 /** Cohorte demasiado pequeña para que los porcentajes signifiquen algo. */

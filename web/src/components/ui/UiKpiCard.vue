@@ -171,6 +171,42 @@ const valueColor = computed(() =>
     line-height: 1;
 }
 
+/**
+ * En escritorio la tarjeta respira y la cifra crece. Cuánto lo decide quien la
+ * coloca con --kpi-value-size, porque no es igual en las dos pantallas que la
+ * usan: en la portada son cinco cifras y mandan ellas (30px); en la ficha de
+ * asignatura son seis y comparten sitio con el resto (28px).
+ */
+@media (min-width: 900px) {
+    .kpi {
+        padding: 14px 15px 12px;
+    }
+
+    .label {
+        font-size: var(--text-eyebrow);
+    }
+
+    .line {
+        gap: 7px;
+
+        margin-top: 8px;
+    }
+
+    .value {
+        font-size: var(--kpi-value-size, 28px);
+    }
+
+    .delta {
+        font-size: var(--text-num);
+    }
+
+    .reference {
+        margin-top: 7px;
+
+        font-size: 9.5px;
+    }
+}
+
 .delta {
     font-size: var(--text-num-sm);
 

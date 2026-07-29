@@ -18,6 +18,7 @@
 import { computed } from "vue";
 
 import { WEEKDAYS } from "@/composables/useSchedule";
+import { useViewport } from "@/composables/useViewport";
 
 const props = defineProps({
     // Eventos de clase ya filtrados por semestre y grupo:
@@ -29,7 +30,17 @@ const props = defineProps({
 });
 
 /** Altura de una hora en píxeles. */
-const HOUR = 44;
+/**
+ * Alto de una hora. En escritorio sube a 46px y la rejilla enseña la jornada
+ * entera (08:00–20:00) aunque el semestre no la llene: comparar dos semanas
+ * con ejes distintos no se puede, y a este ancho el hueco no molesta.
+ *
+ * Va en JavaScript y no en CSS porque las posiciones de los bloques se
+ * calculan aquí; una media query no llega a un `style` en línea.
+ */
+const { isDesktop } = useViewport();
+
+const HOUR = computed(() => (isDesktop.value ? 46 : 44));
 
 /**
  * Rango horario visible. De 8 a 20 siempre —una rejilla que cambia de alto al
@@ -53,7 +64,9 @@ const hours = computed(() => {
     return list;
 });
 
-const trackHeight = computed(() => (lastHour.value - firstHour.value) * HOUR);
+const trackHeight = computed(
+    () => (lastHour.value - firstHour.value) * HOUR.value
+);
 
 /**
  * Coloca los eventos de un día. Los solapados se reparten la anchura: cada
@@ -117,8 +130,8 @@ const days = computed(() =>
 const clashes = event => event.cols > 1;
 
 const eventStyle = event => ({
-    top: `${((event.startMin - firstHour.value * 60) / 60) * HOUR}px`,
-    height: `${((event.endMin - event.startMin) / 60) * HOUR - 2}px`,
+    top: `${((event.startMin - firstHour.value * 60) / 60) * HOUR.value}px`,
+    height: `${((event.endMin - event.startMin) / 60) * HOUR.value - 2}px`,
     left: `calc(${(event.col / event.cols) * 100}% + 1px)`,
     width: `calc(${100 / event.cols}% - 2px)`
 });
@@ -358,5 +371,13 @@ const label = hour => `${String(hour).padStart(2, "0")}:00`;
     font-weight: 500;
 
     color: var(--ink-soft);
+}
+
+/* En escritorio la hora mide 46px: la misma rejilla, con las cajas de una hora
+   lo bastante altas para que quepan nombre y aula sin apretarse. */
+@media (min-width: 900px) {
+    .track {
+        background-size: 100% 46px;
+    }
 }
 </style>
