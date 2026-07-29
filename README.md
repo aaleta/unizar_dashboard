@@ -4,35 +4,37 @@ Estadísticas del Grado en Física de la Universidad de Zaragoza.
 
 ## Fuente de los datos
 
-- **Notas**: https://estudios.unizar.es/informe/resultados-academicos?estudio_id=20250124
-- **Resultados**: https://zaguan.unizar.es/collection/opendata-academico-rendimiento-asignatura-titulacion?ln=en
-- **Profesores y guías docentes**: https://estudios.unizar.es/
-- **Horarios y fechas de exámen**: http://155.210.84.118/publicacion/2627
+* **Notas**: https://estudios.unizar.es/informe/resultados-academicos?estudio_id=20250124
+* **Resultados**: https://zaguan.unizar.es/collection/opendata-academico-rendimiento-asignatura-titulacion?ln=en
+* **Profesores y guías docentes**: https://estudios.unizar.es/
+* **Horarios y fechas de examen**: http://155.210.84.118/publicacion/2627
 
-Se puede acceder a esta información dentro de la web, en "Fuentes y metodología"
+Se puede acceder a esta información desde la propia web, en el apartado **"Fuentes y metodología"**.
 
-Importante: `notas.xlsx` va algo desactualizado: la web solo deja seleccionar los cursos para
-los que hay datos. La fecha de actualización para cada uno de los datos se puede ver en la página de inicio.
-
+**Importante:** `notas.xlsx` está algo desactualizado. La web solo permite seleccionar los cursos para los que existen datos. La fecha de actualización de cada conjunto de datos puede consultarse en la página de inicio.
 
 ## Móvil-Desktop
-La web está disponible tanto para móvil como para escritorio (ordenador), hay funciones que dependen del modo en el que use (la red de profesores solo es visible en modo escritorio, a parte de eso lo demás es a nivel visual).
-Es **un solo código base responsive**, no dos versiones.
 
-## Descarga:
-Es posible "descargar", la web tanto desde el móvil como desde el ordenador. No es una descarga al uso, si no que se crea un acceso directo y visualmente es como una aplicación, pero en realidad se conecta igual que si utilizas el navegador.
+La web está disponible tanto para dispositivos móviles como para ordenadores. Algunas funciones dependen del dispositivo desde el que se acceda (por ejemplo, la red de profesores solo está disponible en modo escritorio). Aparte de eso, las diferencias son únicamente visuales.
 
-*Para descargar:*
+Se trata de **un único código base responsive**, no de dos versiones diferentes de la aplicación.
 
-En el móvil suele preguntar al entrar a la web, si no hay que darle a los tres puntos de arriba a la derecha de la pantalla y elegir "Instalar y crear acceso directo":
+## Descarga
+
+Es posible "descargar" la web tanto desde el móvil como desde el ordenador. No se trata de una descarga tradicional, sino de la creación de un acceso directo que hace que la web se comporte visualmente como una aplicación, aunque sigue funcionando a través del navegador.
+
+*Para descargarla:*
+
+En el móvil normalmente aparece un mensaje al acceder por primera vez. Si no aparece, hay que pulsar los tres puntos situados en la esquina superior derecha del navegador y seleccionar **"Instalar y crear acceso directo"**.
 
 <p align="center">
   <img src="ReadmeImages/Instalacion.png" alt="Instalación de la aplicación" width="200">
 </p>
 
-Después pregunta si se quiere instalar o crear acceso directo. La diferencia es que al instalar no se ve el header del navegador y con el acceso directo sí, de todas formas es prácticamente lo mismo, pero se recomienda instalar para verlo como aplicación.
+Después se preguntará si se desea instalar la aplicación o crear un acceso directo. La diferencia es que, al instalarla, no se muestra la barra del navegador, mientras que con el acceso directo sí. En cualquier caso, ambas opciones funcionan prácticamente igual, aunque se recomienda la instalación para obtener una experiencia más similar a la de una aplicación.
 
-En el ordenador hay que darle al icono que aparece en la barra de búsqueda de la url.
+En el ordenador basta con pulsar el icono de instalación que aparece en la barra de direcciones del navegador.
 
-## Más Info
-Para más información, visita "Acerca de" y "Fuentes y metodología" en el apartado "Más", dentro de la web.
+## Más información
+
+Para obtener más información, consulta los apartados **"Acerca de"** y **"Fuentes y metodología"**, disponibles dentro de la sección **"Más"** de la web.
