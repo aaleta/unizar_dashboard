@@ -38,8 +38,6 @@ Esta web hace ese trabajo: los mismos datos oficiales,
 ordenados y comparables, para que decidir el curso que viene sea un poco más
 fácil.
 
-Dos decisiones marcan todo lo demás:
-
 - **Los datos son los que son.** No se redondea, no se estima y no se "mejora"
   ninguna cifra al pintarla. Cada indicador se calcula en un único sitio y con
   la nomenclatura oficial de Unizar, y en **Fuentes y metodología** se explica
