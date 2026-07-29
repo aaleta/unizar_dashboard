@@ -64,19 +64,7 @@ Todo esto está también dentro de la web, en **"Fuentes y metodología"**.
 mismo día. La web solo deja seleccionar los cursos para los que existen datos,
 y la fecha de actualización de cada conjunto se ve en la página de inicio.
 
-## Móvil y escritorio
-
-La web funciona igual en el móvil y en el ordenador. Es **un único código base
-responsive**, no dos versiones de la aplicación. La mayoría de las pantallas
-son la misma a distinto ancho.
-
-La única que cambia de verdad es la red de profesorado: en el móvil se recorre
-persona a persona, y en escritorio se dibuja el grafo completo de 
-profesores, que en una pantalla de teléfono no se puede ni leer ni manejar fácilmente.
-
-<p align="center">
-  <img src="img/captura_movil.png" alt="La portada en un teléfono, con la barra de pestañas inferior" width="280">
-</p>
+---
 
 ## Instalarla como aplicación
 
@@ -98,6 +86,8 @@ dos opciones funcionan igual, aunque se recomienda la instalación.
 
 **En el ordenador** basta con pulsar el icono de instalación que aparece en la
 barra de direcciones.
+
+---
 
 ## Para desarrolladores
 
@@ -121,7 +111,9 @@ La documentación completa está en `docs/`:
   color, tipografía, primitivas y reglas de accesibilidad. Léelo antes de tocar
   cualquier pantalla.
 
-## 🤝 Mejoras y contribuciones
+---
+
+## Mejoras y contribuciones
 
 Siempre se pueden añadir funcionalidades nuevas o corregir errores que hayan pasado desapercibidos.
 
