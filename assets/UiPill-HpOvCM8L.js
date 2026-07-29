@@ -1,0 +1,1 @@
+import{D as e,d as t,it as n,t as r,w as i}from"./_plugin-vue_export-helper-CmkoNBm6.js";var a=r({__name:`UiPill`,props:{tone:{type:String,default:`navy`,validator:e=>[`navy`,`neutral`,`gold`].includes(e)}},setup(r){return(a,o)=>(i(),t(`span`,{class:n([`pill`,r.tone])},[e(a.$slots,`default`,{},void 0,!0)],2))}},[[`__scopeId`,`data-v-8c86293c`]]);export{a as t};
