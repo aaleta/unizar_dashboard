@@ -13,10 +13,8 @@ datos oficiales que publica la propia Universidad.
 
 ## Índice
 
-- [Por qué existe](#por-qué-existe)
-- [Qué hay dentro](#qué-hay-dentro)
+- [Por qué](#por-qué)
 - [Fuente de los datos](#fuente-de-los-datos)
-- [Móvil y escritorio](#móvil-y-escritorio)
 - [Instalarla como aplicación](#instalarla-como-aplicación)
 - [Para desarrolladores](#para-desarrolladores)
 - [Mejoras y contribuciones](#mejoras-y-contribuciones)
