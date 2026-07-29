@@ -285,10 +285,10 @@ const admissionNote = computed(() => {
             <div class="band trio">
                 <!-- Tendencia --------------------------------------------- -->
                 <section class="panel onlyWide">
-                    <h2>¿Mejora con los años?</h2>
+                    <h2>Evolución a lo largo de los años</h2>
 
                     <p class="lead">
-                        Tasa de rendimiento del grado, curso a curso.
+                        Tasa de rendimiento del grado.
                     </p>
 
                     <LineChart
