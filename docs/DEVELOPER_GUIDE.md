@@ -13,8 +13,9 @@ For the visual rules — colour, typography, primitives, accessibility — see
 - [6. The data pipeline](#6-the-data-pipeline)
 - [7. Updating the data](#7-updating-the-data)
 - [8. Build and deploy](#8-build-and-deploy)
-- [9. Quality checks](#9-quality-checks)
-- [10. Common pitfalls](#10-common-pitfalls)
+- [9. Link previews](#9-link-previews)
+- [10. Quality checks](#10-quality-checks)
+- [11. Common pitfalls](#11-common-pitfalls)
 
 ---
 
@@ -53,7 +54,7 @@ scripts/
   updater.py       The whole pipeline: converters + scrapers
   pyproject.toml   Python dependencies (managed with uv)
 web/
-  index.html       Entry point: favicons, manifest, theme-color
+  index.html       Entry point: favicons, manifest, theme-color, Open Graph
   src/
     main.js        App bootstrap
     router/        Routes, screen titles, redirects for old URLs
@@ -62,8 +63,8 @@ web/
     composables/   Per-screen data logic (useSubject, useSchedule, …)
     utils/         metrics.js is the single source of truth for every rate
     theme/         Tokens, typography, fonts, difficulty ramp, palettes
-  public/          Icons and manifest, copied verbatim
-docs/              This guide, DESIGN.md, the project presentation
+  public/          Icons, manifest and og-image.png, copied verbatim
+docs/              This guide, DESIGN.md, og-card.html, the presentation
 img/               Logos and README screenshots (not used by the app)
 ```
 
@@ -268,7 +269,46 @@ it.
 
 ---
 
-## 9. Quality checks
+## 9. Link previews
+
+The Open Graph tags that make WhatsApp, Telegram, Slack and the rest render a
+card live in `web/index.html`, not in any view. Whoever reads them is a crawler
+that downloads the document and executes nothing, so a tag added by Vue on
+mount arrives far too late.
+
+For the same reason there is **one card for the whole site**. Routes live after
+the `#`, browsers never send a fragment to the server, so a crawler handed
+`.../#/asignatura/26903` fetches exactly the same `index.html` as everyone
+else. Per-screen previews are not possible while routing is hash-based
+(see §5).
+
+Two things are easy to get wrong:
+
+- **Absolute URLs, with the domain.** `og:image` and `og:url` must be full
+  `https://…` URLs. A relative path resolves fine in a browser and not at all
+  in a crawler.
+- **Keep the image modest.** `web/public/og-image.png` is 1200×630 and about
+  100 kB. WhatsApp renders a big card below roughly 300 kB and silently falls
+  back to a thumbnail above it.
+
+The image is not hand-edited: it is rendered from `docs/og-card.html`, which
+uses the site's own fonts and tokens. To regenerate it, from the repo root:
+
+```sh
+python3 -m http.server 8899
+google-chrome --headless --window-size=1200,630 \
+  --screenshot=web/public/og-image.png \
+  http://localhost:8899/docs/og-card.html
+```
+
+Previews are cached hard by the messaging apps. After a change, validate with
+[Facebook's sharing debugger](https://developers.facebook.com/tools/debug/)
+(its "Scrape Again" also clears WhatsApp's copy) and expect existing chats to
+keep the old card for a while.
+
+---
+
+## 10. Quality checks
 
 ```sh
 npm run lint      # oxlint, then eslint, both with --fix
@@ -285,7 +325,7 @@ affected screens after a change to the theme.
 
 ---
 
-## 10. Common pitfalls
+## 11. Common pitfalls
 
 - **Opening `http://localhost:5173/` instead of the base path.** Blank page.
   Use the URL Vite prints.

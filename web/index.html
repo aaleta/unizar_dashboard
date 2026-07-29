@@ -18,6 +18,39 @@
     <meta name="theme-color" content="#1b3559">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard Unizar</title>
+    <meta name="description" content="Estadísticas del Grado en Física de la Universidad de Zaragoza: dificultad de cada asignatura, notas de corte, horarios y profesorado, con los datos oficiales.">
+
+    <!-- La tarjeta que enseñan WhatsApp, Telegram, Slack y compañía al pegar
+         el enlace. Va aquí, en el HTML estático, y no en una vista: quien la
+         lee es un rastreador que descarga el documento y no ejecuta nada, así
+         que cualquier etiqueta que pusiera Vue al montar llegaría tarde.
+
+         Por el mismo motivo la tarjeta es una sola para toda la web: como las
+         rutas van tras la almohadilla, el rastreador nunca llega a saber qué
+         pantalla se ha compartido —el navegador no manda el fragmento— y
+         siempre pide este mismo index.html.
+
+         Las URL son absolutas y con dominio a propósito: una ruta relativa
+         funciona en el navegador pero no la resuelve ningún rastreador.
+         La imagen se genera desde docs/og-card.html; el recorte de 1200x630 y
+         los 100 kB largos son los que WhatsApp enseña grandes en vez de como
+         miniatura. -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Dashboard del Grado en Física">
+    <meta property="og:locale" content="es_ES">
+    <meta property="og:url" content="https://aaleta.github.io/unizar_dashboard/">
+    <meta property="og:title" content="Dashboard del Grado en Física · Unizar">
+    <meta property="og:description" content="Dificultad de cada asignatura, notas de corte, horarios y profesorado — con los datos oficiales de la Universidad de Zaragoza.">
+    <meta property="og:image" content="https://aaleta.github.io/unizar_dashboard/og-image.png">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Sello de la Facultad de Ciencias junto al título «Dashboard del Grado en Física», sobre fondo azul.">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Dashboard del Grado en Física · Unizar">
+    <meta name="twitter:description" content="Dificultad de cada asignatura, notas de corte, horarios y profesorado — con los datos oficiales de la Universidad de Zaragoza.">
+    <meta name="twitter:image" content="https://aaleta.github.io/unizar_dashboard/og-image.png">
   </head>
   <body>
     <div id="app"></div>

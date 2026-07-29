@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Tarjeta de compartición</title>
+<!--
+  Fuente de web/public/og-image.png: la tarjeta que enseñan WhatsApp,
+  Telegram y compañía cuando alguien comparte el enlace. Se edita aquí y se
+  vuelve a exportar; no se retoca el PNG a mano.
+
+  Para regenerarla, desde la raíz del repositorio:
+
+    python3 -m http.server 8899
+    google-chrome --headless --window-size=1200,630
+        --screenshot=web/public/og-image.png
+        http://localhost:8899/docs/og-card.html
+
+  (las tres últimas líneas son un solo comando)
+
+  1200x630 es la proporción que esperan todas: por debajo de 300 kB para que
+  WhatsApp la enseñe grande y no como miniatura.
+-->
+<style>
+@font-face { font-family: Spectral; src: url(../web/src/assets/fonts/spectral-700-latin.woff2) format("woff2"); font-weight: 700; }
+@font-face { font-family: Spectral; src: url(../web/src/assets/fonts/spectral-600-latin.woff2) format("woff2"); font-weight: 600; }
+@font-face { font-family: "Public Sans"; src: url(../web/src/assets/fonts/public-sans-var-latin.woff2) format("woff2"); font-weight: 100 900; }
+@font-face { font-family: "IBM Plex Mono"; src: url(../web/src/assets/fonts/ibm-plex-mono-500-latin.woff2) format("woff2"); font-weight: 500; }
+@font-face { font-family: "IBM Plex Mono"; src: url(../web/src/assets/fonts/ibm-plex-mono-600-latin.woff2) format("woff2"); font-weight: 600; }
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  width: 1200px; height: 630px;
+  background: #1b3559;
+  display: flex; flex-direction: column;
+  overflow: hidden;
+}
+
+/* El filete de oro de la cabecera de la aplicación, arriba del todo. */
+.goldRule { height: 6px; background: #cba44c; flex: none; }
+
+.body {
+  flex: 1;
+  display: flex; align-items: center; gap: 64px;
+  padding: 0 86px;
+}
+
+.seal { width: 232px; height: 232px; flex: none; }
+
+.text { flex: 1; }
+
+.eyebrow {
+  font-family: "IBM Plex Mono"; font-weight: 600;
+  font-size: 22px; letter-spacing: 3.2px; text-transform: uppercase;
+  color: #cba44c;
+  margin-bottom: 22px;
+}
+
+h1 {
+  font-family: Spectral; font-weight: 700;
+  font-size: 74px; line-height: 1.06; letter-spacing: -0.5px;
+  color: #ffffff;
+}
+
+.lead {
+  font-family: "Public Sans"; font-weight: 400;
+  font-size: 27px; line-height: 1.45;
+  color: #c3cede;
+  margin-top: 26px;
+  max-width: 700px;
+}
+
+.footer {
+  flex: none;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 26px 86px 34px;
+  border-top: 1px solid rgba(255,255,255,0.16);
+  margin: 0 86px;
+  padding-left: 0; padding-right: 0;
+}
+
+.url {
+  font-family: "IBM Plex Mono"; font-weight: 500;
+  font-size: 23px; color: #ffffff;
+}
+
+.tag {
+  font-family: "IBM Plex Mono"; font-weight: 500;
+  font-size: 21px; color: #9fb0c6;
+}
+</style>
+</head>
+<body>
+  <div class="goldRule"></div>
+
+  <div class="body">
+    <img class="seal" src="../img/logo_vectorial_white.svg" alt="">
+    <div class="text">
+      <div class="eyebrow">Universidad de Zaragoza</div>
+      <h1>Dashboard del<br>Grado en Física</h1>
+      <p class="lead">
+        Dificultad de cada asignatura, notas de corte, horarios y
+        profesorado — con los datos oficiales de la Universidad.
+      </p>
+    </div>
+  </div>
+
+  <div class="footer">
+    <span class="url">aaleta.github.io/unizar_dashboard</span>
+    <span class="tag">Datos abiertos · Código abierto</span>
+  </div>
+</body>
+</html>
