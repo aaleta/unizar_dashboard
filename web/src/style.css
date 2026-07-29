@@ -4,10 +4,7 @@
  * El orden importa: tokens y tipografía se importan antes que nada para que
  * las variables existan cuando se usen aquí abajo.
  *
- * OJO — rediseño en curso: el tema pasa de oscuro a papel cálido, pero las
- * vistas de escritorio aún no migradas siguen pintando sus colores oscuros a
- * pelo y se ven mal a partir de aquí. Es la consecuencia asumida de rehacer
- * primero el móvil (ver MOBILE_REDESIGN_PLAN.md), no un fallo suelto.
+ * El contrato de color y el resto del tema están en docs/DESIGN.md.
  */
 
 @import "./theme/fonts.css";

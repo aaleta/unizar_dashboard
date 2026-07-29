@@ -1,44 +1,25 @@
-# .
+# web/
 
-This template should help get you started developing with Vue 3 in Vite.
-
-## Recommended IDE Setup
-
-[VS Code](https://code.visualstudio.com/) + [Vue (Official)](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
-
-## Recommended Browser Setup
-
-- Chromium-based browsers (Chrome, Edge, Brave, etc.):
-  - [Vue.js devtools](https://chromewebstore.google.com/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd)
-  - [Turn on Custom Object Formatter in Chrome DevTools](http://bit.ly/object-formatters)
-- Firefox:
-  - [Vue.js devtools](https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/)
-  - [Turn on Custom Object Formatter in Firefox DevTools](https://fxdx.dev/firefox-devtools-custom-object-formatters/)
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vite.dev/config/).
-
-## Project Setup
+The Vue 3 + Vite application.
 
 ```sh
 npm install
+npm run dev      # dev server (open the URL Vite prints — it includes /unizar_dashboard/)
+npm run build    # production build → dist/
+npm run preview  # serve the build locally
+npm run lint     # oxlint + eslint
+npm run format   # prettier
+npm run deploy   # publish dist/ to the gh-pages branch (build first)
 ```
 
-### Compile and Hot-Reload for Development
+Everything else — project layout, data pipeline, deployment notes, pitfalls —
+is in [`../docs/DEVELOPER_GUIDE.md`](../docs/DEVELOPER_GUIDE.md). The visual
+rules are in [`../docs/DESIGN.md`](../docs/DESIGN.md).
 
-```sh
-npm run dev
-```
+### Recommended editor setup
 
-### Compile and Minify for Production
-
-```sh
-npm run build
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
-```
+[VS Code](https://code.visualstudio.com/) with
+[Vue (Official)](https://marketplace.visualstudio.com/items?itemName=Vue.volar),
+Vetur disabled. The Vue DevTools browser extension is useful but not required:
+the Vite plugin is already enabled in development.
+</content>
