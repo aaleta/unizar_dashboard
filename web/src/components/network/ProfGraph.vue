@@ -41,6 +41,15 @@ const container = ref(null);
 
 let network = null;
 
+/** La escala a la que cabe el grafo entero: el punto de partida del zoom. */
+let fittedScale = null;
+
+/** Quien ha pedido que las cosas no se muevan no quiere que la vista viaje. */
+const stillness = () =>
+    window.matchMedia?.("(prefers-reduced-motion: reduce)").matches ?? false;
+
+const travel = duration => (stillness() ? false : { duration });
+
 /** Ni el navy ni el gris se escriben aquí: se leen del tema. */
 const themeColor = name =>
     getComputedStyle(document.documentElement).getPropertyValue(name).trim();
@@ -198,6 +207,8 @@ const compose = () => {
 
         network.redraw();
 
+        fittedScale = network.getScale();
+
         return;
     }
 
@@ -258,6 +269,8 @@ const compose = () => {
     // `fit` solo apunta la vista nueva; el repintado va aparte y explícito,
     // que si no queda al albur del siguiente fotograma.
     network.redraw();
+
+    fittedScale = network.getScale();
 
     place();
 
@@ -374,6 +387,31 @@ const mark = id => {
     marked = id;
 };
 
+/**
+ * Al elegir a alguien, la vista se acerca a su nodo. En una madeja de 152
+ * puntos, marcar el elegido no basta: hay que ir a buscarlo. Se vuelve a ver
+ * todo con la rueda o con el botón del panel.
+ */
+const focusOn = id => {
+    network.focus(id, {
+        // Poco más del doble de lo que cabe entero: se ve a quién toca y con
+        // quién comparte, sin perder de vista dónde está dentro de la red.
+        scale: Math.min(Math.max((fittedScale ?? 0.3) * 2.6, 0.7), 1.6),
+        animation: travel(520)
+    });
+};
+
+const showAll = () => {
+    if (!network) return;
+
+    // La escala de encaje no se vuelve a medir aquí: la mediría a mitad del
+    // viaje, que es justo el zoom del que venimos. La sabe compose(), que es
+    // quien recoloca el grafo cuando cambia lo que hay dentro.
+    network.fit({ animation: travel(420) });
+};
+
+defineExpose({ showAll });
+
 watch(
     () => props.selectedId,
     id => {
@@ -383,8 +421,14 @@ watch(
 
         if (known) {
             network.selectNodes([id]);
+            focusOn(id);
         } else {
             network.unselectAll();
+
+            // Si el elegido no está en la madeja —su colaboración no llega al
+            // peso mínimo—, se vuelve a la vista entera en vez de dejar el
+            // zoom colgado sobre otra persona.
+            network.fit({ animation: travel(420) });
         }
 
         mark(known ? id : null);

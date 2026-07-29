@@ -46,6 +46,9 @@ const { isDesktop } = useViewport();
 const query = ref("");
 const selectedId = ref("");
 
+/** Para poder pedirle al grafo que vuelva a encuadrarlo todo. */
+const graph = ref(null);
+
 /**
  * En el móvil se arranca con el claustro ACTIVO —quien aparece en la última
  * guía docente publicada—: la pregunta habitual es "¿con quién voy a dar
@@ -179,9 +182,18 @@ const topWeight = computed(
                         {{ thousands(graphStats.professors) }} profesores ·
                         {{ thousands(graphStats.links) }} colaboraciones
                     </span>
+
+                    <button
+                        type="button"
+                        class="showAll"
+                        @click="graph?.showAll()"
+                    >
+                        ver todo
+                    </button>
                 </div>
 
                 <FullGraph
+                    ref="graph"
                     :graph="visibleGraph"
                     :selected-id="selectedId"
                     @select="selectedId = $event"
@@ -807,6 +819,29 @@ h2 {
 
     .legendLines .thick {
         height: 4px;
+    }
+
+    /* Después de acercarse a alguien, la vuelta atrás a un clic. */
+    .showAll {
+        padding: 3px 9px;
+
+        border: 1px solid var(--navy-line-soft);
+
+        border-radius: var(--radius-pill);
+
+        background: var(--surface);
+
+        font-family: var(--font-mono);
+
+        font-size: var(--text-num-sm);
+
+        color: var(--navy);
+
+        cursor: pointer;
+    }
+
+    .showAll:hover {
+        border-color: var(--navy);
     }
 
     .legendCount {
