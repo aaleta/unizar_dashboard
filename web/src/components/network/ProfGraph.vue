@@ -248,7 +248,8 @@ const compose = () => {
         },
         rest: {
             x: main.left,
-            y: top - gap * 0.1,
+            // Por encima de la banda, no encima de sus nodos.
+            y: top - gap * 0.42,
             text: `${rest.length} grupos sueltos, sin conexión con el principal`
         }
     };
@@ -390,22 +391,35 @@ const empty = computed(() => props.graph.nodes.length === 0);
     width: 100%;
 
     /* Crece con la columna de al lado: el panel tiene que acabar donde acaba
-       el histograma, no antes. */
+       el histograma, no antes. `min-height: 0` es lo que deja que encoja: sin
+       él, un hijo de flex no baja de su contenido. */
     flex: 1;
+
+    min-height: 0;
 }
 
+/**
+ * El lienzo va ABSOLUTO dentro de esta caja, y no al 100 % de alto.
+ *
+ * vis-network mide el contenedor y ajusta el canvas a lo que mide; si el
+ * contenedor mide, a su vez, lo que ocupa el canvas, cada medición lo hace un
+ * poco más alto y la página crece sin parar. En absoluto, el lienzo toma su
+ * tamaño de la caja y no puede devolvérselo.
+ */
 .canvasWrap {
     position: relative;
 
     flex: 1;
+
+    min-height: 440px;
+
+    max-height: 900px;
 }
 
 .canvas {
-    width: 100%;
+    position: absolute;
 
-    height: 100%;
-
-    min-height: 440px;
+    inset: 0;
 
     background: var(--surface);
 

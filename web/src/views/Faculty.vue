@@ -744,6 +744,9 @@ h2 {
         flex-direction: column;
 
         min-width: 0;
+
+        /* Para que el lienzo pueda encoger con la columna. */
+        min-height: 0;
     }
 
     .graphLegend {
