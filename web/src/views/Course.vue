@@ -189,12 +189,14 @@ const historyNote = computed(() => {
                 </div>
 
                 <div class="panel">
+                    <!-- Sin `label-width`: en el móvil vale el ancho por
+                     defecto de la primitiva y en escritorio manda el
+                     --meter-label-width que pone .panel aquí abajo. -->
                     <UiMeterRow
                         v-for="subject in troncales"
                         :key="subject.code"
                         :label="subject.name"
                         :value="subject.noSuperacion"
-                        :label-width="labelWidth"
                     />
                 </div>
             </section>

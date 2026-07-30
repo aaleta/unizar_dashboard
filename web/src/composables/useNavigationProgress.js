@@ -21,7 +21,10 @@ const loading = ref(false);
 let timer = null;
 
 export const useNavigationProgress = router => {
-    router.beforeEach((to, from, next) => {
+    // Sin `next`: un guardia que no devuelve nada deja pasar la navegación, y
+    // la retrollamada está desaconsejada desde Vue Router 4 —avisaba por
+    // consola en cada cambio de pantalla.
+    router.beforeEach((to, from) => {
         // La primera carga ya enseña el HTML de arranque: no hace falta barra.
         if (from.name !== undefined) {
             clearTimeout(timer);
@@ -30,8 +33,6 @@ export const useNavigationProgress = router => {
                 loading.value = true;
             }, DELAY);
         }
-
-        next();
     });
 
     const stop = () => {
