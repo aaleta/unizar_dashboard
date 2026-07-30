@@ -29,6 +29,19 @@ import { onUnmounted, ref, watchEffect } from "vue";
 
 const override = ref(null);
 
+/**
+ * Quién escribió lo que hay ahora mismo en `override`.
+ *
+ * Hace falta porque Vue desmonta la pantalla vieja ANTES de montar la nueva,
+ * pero ejecuta su `onUnmounted` DESPUÉS (va a la cola de efectos posteriores al
+ * render). Sin esta comprobación, ir de una pantalla con cabecera propia a otra
+ * también con cabecera propia —del curso a la ficha de asignatura— dejaba este
+ * orden: la ficha escribe su título y acto seguido la limpieza del curso lo
+ * borra. El resultado era una ficha sin titular, sin migas y sin la banda
+ * entera, y con ella los destinos de los Teleport (#pageActions, #pageBadges).
+ */
+let owner = null;
+
 /** Lo lee AppShell. Vale null cuando manda el `meta` de la ruta. */
 export const pageHeader = override;
 
@@ -40,11 +53,20 @@ export const pageHeader = override;
  *               (si depende de datos que cambian, pasar la función).
  */
 export const usePageHeader = source => {
+    /** Identidad de esta pantalla; basta con que sea única. */
+    const token = {};
+
     watchEffect(() => {
+        owner = token;
         override.value = typeof source === "function" ? source() : source;
     });
 
     onUnmounted(() => {
+        // Solo borra quien sigue siendo el dueño: si otra pantalla ya escribió
+        // la suya, esta limpieza llega tarde y no le toca nada.
+        if (owner !== token) return;
+
+        owner = null;
         override.value = null;
     });
 };
