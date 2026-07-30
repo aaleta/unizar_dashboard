@@ -64,6 +64,7 @@ const {
     sittings,
     grades,
     history,
+    recentNoSuperacion,
     ranking,
     courseAverage,
     teaching,
@@ -121,7 +122,11 @@ const verdict = computed(() => {
             position === 1
                 ? `La troncal más dura de ${courseName.value?.toLowerCase()}`
                 : `Entre las troncales más duras de ${courseName.value?.toLowerCase()}`,
-        detail: `${ordinal} de ${total} troncales de ${course.value}º por no superación.`
+        // Con el periodo escrito: el puesto se calcula sobre el trienio, como
+        // el orden de las listas, y no sobre el curso elegido en el selector.
+        // Sin decirlo, un 3º puesto encima de la cifra de un año en el que va
+        // 2ª se lee como una contradicción.
+        detail: `${ordinal} de ${total} troncales de ${course.value}º por no superación en los últimos ${recentYears} cursos.`
     };
 });
 
@@ -350,6 +355,21 @@ const comparison = computed(() => {
                     :reference="`media ${recentYears} cursos: ${Math.round(averageEnrolment)}`"
                 />
             </div>
+
+            <!-- Esta ficha es la única pantalla que habla de UN curso
+             académico; el mapa del grado y las listas hablan del trienio. Las
+             dos cifras son correctas y no coinciden, así que se enseñan
+             juntas en vez de dejar que parezca un descuadre. -->
+            <p class="kpiNote">
+                Indicadores del curso {{ year }}.
+                <template v-if="recentNoSuperacion !== null">
+                    En el mapa del grado y en las listas esta asignatura sale
+                    con
+                    <strong class="num">{{ pct(recentNoSuperacion) }}</strong>
+                    de no superación: la media ponderada de los últimos
+                    {{ recentYears }} cursos.
+                </template>
+            </p>
         </section>
 
         <div class="pair">
@@ -679,6 +699,26 @@ h2 {
     gap: var(--gap-card);
 }
 
+/* El pie que reconcilia esta ficha con las listas: mismo tratamiento que la
+   nota metodológica de la vista de curso. */
+.kpiNote {
+    margin: 11px 0 0;
+
+    font-family: var(--font-mono);
+
+    font-size: var(--text-footnote);
+
+    line-height: 1.55;
+
+    color: var(--ink-soft);
+}
+
+.kpiNote strong {
+    font-weight: 500;
+
+    color: var(--ink-muted);
+}
+
 /* Distribución -------------------------------------------------------- */
 
 .stack {
@@ -929,6 +969,12 @@ h2 {
         gap: 12px;
 
         --kpi-value-size: 26px;
+    }
+
+    .kpiNote {
+        margin-top: 12px;
+
+        font-size: var(--text-num-sm);
     }
 
     .pair {

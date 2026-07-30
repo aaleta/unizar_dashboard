@@ -152,6 +152,20 @@ export const useSubject = (codeSource, yearSource) => {
         )
     );
 
+    /**
+     * La no superación tal y como la enseñan las listas: media ponderada de los
+     * últimos RECENT_YEARS cursos, y no la del año elegido arriba.
+     *
+     * La ficha es la única pantalla que habla de UN curso académico; el mapa
+     * del grado, la vista de curso y las tablas hablan del periodo. Son dos
+     * cifras distintas de la misma asignatura (Álgebra II: 51 % en 2025-2026,
+     * 54 % en el trienio) y sin enseñar las dos aquí, la diferencia parece un
+     * error de cálculo.
+     */
+    const recentNoSuperacion = computed(() =>
+        subjectRate(code.value, "noSuperacion")
+    );
+
     /** Puesto por dificultad entre las troncales de su curso. */
     const ranking = computed(() => {
         if (!course.value || info.value?.tipo !== "troncal") return null;
@@ -219,6 +233,7 @@ export const useSubject = (codeSource, yearSource) => {
         sittings,
         grades,
         history,
+        recentNoSuperacion,
         ranking,
         courseAverage,
         teaching,
