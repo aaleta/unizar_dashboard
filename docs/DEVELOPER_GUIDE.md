@@ -188,6 +188,16 @@ The converters **fail loudly on purpose**: a CSV with missing columns, or one
 whose contents disagree with the academic year in its filename, raises instead
 of producing a silently incomplete JSON.
 
+### Two subjects can share a code
+
+`actualizar_horario()` keeps the centre's own title in `Asignatura`, and that
+is not decoration. A subject taught in two languages is published **twice under
+the same code and the same group** — `26937 Gravitación y cosmología` and
+`26937 Gravitation and cosmology` are both `447-3-6`, the second one arriving
+with a negative internal id — and the title is the only thing that tells them
+apart. `useSchedule.js` builds the language selector from it; drop the title
+and the timetable paints both versions at once, which is a week nobody has.
+
 `escribir_frescura()` runs last and must: it derives each dataset's vintage
 from the files the earlier steps just wrote. That tiny JSON is what the home
 page and the desktop sidebar read to state how current each source is — it is

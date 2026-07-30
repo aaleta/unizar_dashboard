@@ -133,8 +133,14 @@ const theoryEvents = (() => {
 
         seen.add(key);
 
+        const space = raw.Asignatura.indexOf(" ");
+
         events.push({
-            code: raw.Asignatura.split(" ")[0],
+            code: raw.Asignatura.slice(0, space),
+            // El título tal y como lo publica el centro. Normalmente sobra —el
+            // nombre sale del catálogo— pero es lo único que separa las dos
+            // versiones de una asignatura bilingüe.
+            version: raw.Asignatura.slice(space + 1),
             group: raw["Curso-Grupo"],
             semester: raw.Semestre,
             day: raw.Dia,
@@ -162,6 +168,57 @@ const groupsByCode = (() => {
         Array.from(map, ([code, groups]) => [code, Array.from(groups).sort()])
     );
 })();
+
+/* ------------------------------------------------------------------ *
+ * Versiones: Gravitación y cosmología se imparte en español y en inglés, y el
+ * centro las publica como la misma asignatura —mismo código, mismo grupo,
+ * mismo aula— con el título en cada idioma. Sin separarlas, la rejilla pintaba
+ * las clases de las dos a la vez, que es un horario que nadie tiene.
+ *
+ * No es lo mismo que el grupo: el grupo es de mañana o de tarde y se cambia en
+ * bloque, el idioma se elige una vez y no acompaña al resto de la matrícula.
+ * ------------------------------------------------------------------ */
+
+/** code → títulos publicados, el del catálogo primero. */
+const versionsByCode = (() => {
+    const map = new Map();
+
+    for (const event of theoryEvents) {
+        if (!map.has(event.code)) map.set(event.code, new Set());
+
+        map.get(event.code).add(event.version);
+    }
+
+    return new Map(
+        Array.from(map, ([code, versions]) => {
+            const name = catalogueByCode.get(code)?.name;
+
+            return [
+                code,
+                Array.from(versions).sort(
+                    (a, b) =>
+                        (a === name ? 0 : 1) - (b === name ? 0 : 1) ||
+                        a.localeCompare(b, "es")
+                )
+            ];
+        })
+    );
+})();
+
+/**
+ * Cómo se llama a cada versión en el selector. Con dos versiones y una que es
+ * la del catálogo, la otra es la que se da en inglés y así se dice. Cualquier
+ * otro reparto —tres versiones, ninguna reconocible— cae al título publicado,
+ * que informa aunque sea largo, en vez de inventarse un idioma.
+ */
+export const versionLabel = (code, version) => {
+    const versions = versionsByCode.get(code) ?? [];
+    const name = catalogueByCode.get(code)?.name;
+
+    if (versions.length !== 2 || !versions.includes(name)) return version;
+
+    return version === name ? "Español" : "Inglés";
+};
 
 /* ------------------------------------------------------------------ *
  * Exámenes, aplanados una vez: { code, name, convocatoria, fecha }
@@ -276,8 +333,21 @@ const convocatoriaSpans = (() => {
 
 const selectedCodes = ref([]);
 const groupChoice = ref({});
+const versionChoice = ref({});
 const semester = ref("S1");
 const convocatoria = ref("all");
+
+/**
+ * Se queda con lo elegido que siga existiendo en esta publicación. Un grupo o
+ * una versión que ya no se ofertan no dejan pasar ninguna clase, así que la
+ * asignatura desaparecería de la rejilla sin decir por qué.
+ */
+const pruneChoices = (saved, options) =>
+    Object.fromEntries(
+        Object.entries(saved ?? {}).filter(([code, choice]) =>
+            (options.get(code) ?? []).includes(choice)
+        )
+    );
 
 const restore = () => {
     try {
@@ -290,7 +360,8 @@ const restore = () => {
         selectedCodes.value = (saved.codes ?? []).filter(
             code => catalogueByCode.get(code)?.available
         );
-        groupChoice.value = saved.groups ?? {};
+        groupChoice.value = pruneChoices(saved.groups, groupsByCode);
+        versionChoice.value = pruneChoices(saved.versions, versionsByCode);
 
         if (saved.semester === "S1" || saved.semester === "S2") {
             semester.value = saved.semester;
@@ -303,7 +374,7 @@ const restore = () => {
 restore();
 
 watch(
-    [selectedCodes, groupChoice, semester],
+    [selectedCodes, groupChoice, versionChoice, semester],
     () => {
         try {
             localStorage.setItem(
@@ -311,6 +382,7 @@ watch(
                 JSON.stringify({
                     codes: selectedCodes.value,
                     groups: groupChoice.value,
+                    versions: versionChoice.value,
                     semester: semester.value
                 })
             );
@@ -340,6 +412,10 @@ export const useSchedule = () => {
             delete groups[code];
             groupChoice.value = groups;
 
+            const versions = { ...versionChoice.value };
+            delete versions[code];
+            versionChoice.value = versions;
+
             return;
         }
 
@@ -352,18 +428,47 @@ export const useSchedule = () => {
         if (available.length) {
             groupChoice.value = { ...groupChoice.value, [code]: available[0] };
         }
+
+        // La primera versión es la del catálogo: quien no toque nada se queda
+        // con la asignatura en español, que es como se ofertó siempre.
+        const versions = versionsByCode.get(code) ?? [];
+
+        if (versions.length) {
+            versionChoice.value = {
+                ...versionChoice.value,
+                [code]: versions[0]
+            };
+        }
     };
 
     const clear = () => {
         selectedCodes.value = [];
         groupChoice.value = {};
+        versionChoice.value = {};
     };
 
     const setGroup = (code, group) => {
         groupChoice.value = { ...groupChoice.value, [code]: group };
     };
 
+    const setVersion = (code, version) => {
+        versionChoice.value = { ...versionChoice.value, [code]: version };
+    };
+
     const groupsFor = code => groupsByCode.get(code) ?? [];
+
+    const versionsFor = code => versionsByCode.get(code) ?? [];
+
+    /**
+     * Lo elegido de verdad. Sin elección guardada se cae a la primera opción
+     * —el primer grupo, la versión del catálogo—, que es lo que ya pintaba la
+     * rejilla: preguntar por el valor crudo dejaba el selector en blanco
+     * enseñando una elección que no era la que se estaba viendo.
+     */
+    const groupFor = code => groupChoice.value[code] ?? groupsFor(code)[0];
+
+    const versionFor = code =>
+        versionChoice.value[code] ?? versionsFor(code)[0];
 
     /** En qué semestres tiene teoría una asignatura: ["S1"], ["S1","S2"]… */
     const semestersFor = code => {
@@ -407,11 +512,11 @@ export const useSchedule = () => {
                 event =>
                     isSelected(event.code) &&
                     event.semester === semester.value &&
-                    // Sin elección guardada se cae al primer grupo: dejar pasar
-                    // todos pintaría la misma clase una vez por grupo.
-                    event.group ===
-                        (groupChoice.value[event.code] ??
-                            groupsByCode.get(event.code)?.[0])
+                    // Dejar pasar todos los grupos pintaría la misma clase una
+                    // vez por grupo; todas las versiones, el horario de las dos
+                    // asignaturas bilingües a la vez.
+                    event.group === groupFor(event.code) &&
+                    event.version === versionFor(event.code)
             )
             .map(event => ({
                 ...event,
@@ -715,9 +820,12 @@ export const useSchedule = () => {
         isSelected,
         toggle,
         clear,
-        groupChoice,
         groupsFor,
+        groupFor,
         setGroup,
+        versionsFor,
+        versionFor,
+        setVersion,
         semestersFor,
         rotateGroups,
 

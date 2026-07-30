@@ -590,7 +590,8 @@ def descargar_horario(curso, grupo, semestre):
     # Pausa entre peticiones para no martillear el servidor del centro.
     time.sleep(1)
 
-    return respuesta.json()
+    # La respuesta envuelve las clases en {"status", "message", "data"}.
+    return respuesta.json()["data"]
 
 
 def actualizar_horario():
@@ -614,35 +615,40 @@ def actualizar_horario():
     eventos = []
     vistos = set()
 
+    # "Asignatura" no es decorativo: una asignatura que se imparte en dos
+    # idiomas viene dos veces, con el mismo código y el mismo grupo pero con
+    # su título en cada idioma ("26937 Gravitación y cosmología" y
+    # "26937 Gravitation and cosmology", ambas en 447-3-6, la segunda con
+    # código interno negativo). El título es lo único que las distingue, y la
+    # web monta con él el selector de versión.
     for bloque in bloques:
-        for serie in bloque:
-            for clase in serie.get("data", []):
+        for clase in bloque:
 
-                try:
-                    evento = {
-                        "Asignatura": clase["title"],
-                        "TipoActividad": clase["actividad"],
-                        "Curso-Grupo": "-".join(clase["subgrupo"].split("-")[:3]),
-                        "Semestre": clase["periodo_de_clases"],
-                        "HoraIni": clase["h_ini"],
-                        "HoraFin": clase["h_fin"],
-                        "Dia": clase["wday"],
-                    }
-                except KeyError:
-                    # Filas decorativas de la tabla (cabeceras, huecos) que no
-                    # describen una clase.
-                    continue
+            try:
+                evento = {
+                    "Asignatura": clase["title"],
+                    "TipoActividad": clase["actividad"],
+                    "Curso-Grupo": "-".join(clase["subgrupo"].split("-")[:3]),
+                    "Semestre": clase["periodo_de_clases"],
+                    "HoraIni": clase["h_ini"],
+                    "HoraFin": clase["h_fin"],
+                    "Dia": clase["wday"],
+                }
+            except KeyError:
+                # Filas decorativas de la tabla (cabeceras, huecos) que no
+                # describen una clase.
+                continue
 
-                # El servidor repite series entre peticiones (el mismo
-                # laboratorio aparece al pedir cada grupo): sin esto el JSON
-                # sale con filas duplicadas y la web pintaría la clase dos veces.
-                clave = json.dumps(evento, sort_keys=True, ensure_ascii=False)
+            # El servidor repite series entre peticiones (el mismo
+            # laboratorio aparece al pedir cada grupo): sin esto el JSON
+            # sale con filas duplicadas y la web pintaría la clase dos veces.
+            clave = json.dumps(evento, sort_keys=True, ensure_ascii=False)
 
-                if clave in vistos:
-                    continue
+            if clave in vistos:
+                continue
 
-                vistos.add(clave)
-                eventos.append(evento)
+            vistos.add(clave)
+            eventos.append(evento)
 
     with open("../data/json/processed/horarios.json", "w", encoding="utf-8") as f:
         json.dump(eventos, f, indent=4, ensure_ascii=False)

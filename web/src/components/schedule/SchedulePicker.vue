@@ -11,12 +11,13 @@
  *
  * Si la asignatura tiene más de un grupo de teoría, al marcarla aparecen sus
  * grupos como chips: el horario depende del grupo y callárselo pintaría el
- * horario de otro.
+ * horario de otro. Lo mismo con las asignaturas que se dan en dos idiomas: no
+ * son el mismo horario, así que se elige.
  */
 
 import { computed, ref } from "vue";
 
-import { useSchedule } from "@/composables/useSchedule";
+import { useSchedule, versionLabel } from "@/composables/useSchedule";
 import { useViewport } from "@/composables/useViewport";
 import { EMPTY, SEARCH } from "@/content/copy";
 
@@ -31,9 +32,12 @@ const {
     isSelected,
     toggle,
     clear,
-    groupChoice,
     groupsFor,
+    groupFor,
     setGroup,
+    versionsFor,
+    versionFor,
+    setVersion,
     semestersFor,
     rotateGroups
 } = useSchedule();
@@ -140,7 +144,7 @@ const groupLabel = group => `Grupo ${group.split("-").pop()}`;
                 <select
                     v-if="groupsFor(subject.code).length > 1"
                     class="group num"
-                    :value="groupChoice[subject.code]"
+                    :value="groupFor(subject.code)"
                     :aria-label="`Grupo de ${subject.name}`"
                     @change="setGroup(subject.code, $event.target.value)"
                 >
@@ -150,6 +154,24 @@ const groupLabel = group => `Grupo ${group.split("-").pop()}`;
                         :value="group"
                     >
                         {{ groupLabel(group) }}
+                    </option>
+                </select>
+
+                <!-- Las dos versiones de una asignatura bilingüe van en el
+                 mismo grupo, así que el idioma se elige aparte. -->
+                <select
+                    v-if="versionsFor(subject.code).length > 1"
+                    class="group lang"
+                    :value="versionFor(subject.code)"
+                    :aria-label="`Idioma de ${subject.name}`"
+                    @change="setVersion(subject.code, $event.target.value)"
+                >
+                    <option
+                        v-for="version in versionsFor(subject.code)"
+                        :key="version"
+                        :value="version"
+                    >
+                        {{ versionLabel(subject.code, version) }}
                     </option>
                 </select>
 
@@ -399,6 +421,14 @@ const groupLabel = group => `Grupo ${group.split("-").pop()}`;
     color: var(--navy);
 
     font-size: var(--text-num-sm);
+}
+
+/* El idioma es una palabra, no una cifra: va en la fuente de texto y un punto
+   más grande, que "Español" a 10px de mono no se lee. */
+.group.lang {
+    font-family: var(--font-sans);
+
+    font-size: var(--text-body-sm);
 }
 
 .remove {
