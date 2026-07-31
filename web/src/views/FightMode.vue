@@ -7,8 +7,10 @@
  * medallón VS, los nombres de las columnas— y las cifras de dificultad siguen
  * subiendo por la rampa, igual que en cualquier otra pantalla.
  *
- * Que sea un juego no autoriza a mentir: si falta un dato el duelo queda en
- * empate en vez de inventarse un ganador.
+ * Que sea un juego no autoriza a mentir: si falta un dato, o si las dos cifras
+ * se escriben igual, el duelo queda en empate en vez de inventarse un ganador.
+ * El empate se pinta en navy y en los dos lados, porque no hay ganador que
+ * marcar.
  */
 
 import { computed, ref } from "vue";
@@ -105,15 +107,8 @@ const valueColor = (duel, side) => {
              si es la misma asignatura, y vencida del lado que gana. El
              fichero está dibujado cayendo a la derecha; para el otro lado se
              refleja. Va como decoración —`alt` vacío— porque el resultado
-             está escrito debajo, y el botón conserva su etiqueta: lo que hace
-             al pulsarlo es intercambiar los dos lados. -->
-            <button
-                type="button"
-                class="medallion"
-                title="Intercambiar"
-                aria-label="Intercambiar las dos asignaturas"
-                @click="swap"
-            >
+             está escrito debajo con todas las letras. -->
+            <div class="medallion">
                 <img
                     class="scales"
                     :class="{ mirrored: verdict?.winner === 1 }"
@@ -122,7 +117,7 @@ const valueColor = (duel, side) => {
                     "
                     alt=""
                 />
-            </button>
+            </div>
 
             <label class="fighter">
                 <span class="fighterName">{{ second.name }}</span>
@@ -179,13 +174,17 @@ const valueColor = (duel, side) => {
                 class="duelRow"
                 :class="{ inert: duel.competes === false }"
             >
-                <span class="cell" :class="{ won: duel.winner === 1 }">
+                <span
+                    class="cell"
+                    :class="{ won: duel.winner === 1, tied: duel.tie }"
+                >
                     <span
                         class="num cellValue"
                         :style="{ color: valueColor(duel, 1) }"
                         >{{ duel.format(duel.first) }}</span
                     >
                     <span v-if="duel.winner === 1" class="cellWin">gana</span>
+                    <span v-else-if="duel.tie" class="cellTie">empate</span>
                 </span>
 
                 <span class="duelLabel">
@@ -195,20 +194,25 @@ const valueColor = (duel, side) => {
                     }}</span>
                 </span>
 
-                <span class="cell" :class="{ won: duel.winner === 2 }">
+                <span
+                    class="cell"
+                    :class="{ won: duel.winner === 2, tied: duel.tie }"
+                >
                     <span
                         class="num cellValue"
                         :style="{ color: valueColor(duel, 2) }"
                         >{{ duel.format(duel.second) }}</span
                     >
                     <span v-if="duel.winner === 2" class="cellWin">gana</span>
+                    <span v-else-if="duel.tie" class="cellTie">empate</span>
                 </span>
             </div>
         </div>
 
         <div class="foot">
             <p class="footnote">
-                {{ weightedAverages() }}.
+                {{ weightedAverages() }}. Cada duelo se decide con las cifras
+                tal y como se muestran: si las dos se escriben igual, es empate.
                 <template v-if="bothOptional">
                     Los matriculados solo se comparan entre optativas.
                 </template>
@@ -340,11 +344,10 @@ const valueColor = (duel, side) => {
     color: var(--navy);
 }
 
-/* El medallón VS: la única sombra fuerte de la web. Y sirve para algo —
-   intercambia los lados— en vez de ser solo un adorno. */
 /**
  * El medallón es lo único de esta pantalla que puede sonar a combate, así que
- * suena: una balanza acuñada en un disco navy, con canto de oro.
+ * suena: una balanza acuñada en un disco navy, con canto de oro. Es la única
+ * sombra fuerte de la web.
  */
 .medallion {
     flex: none;
@@ -360,8 +363,6 @@ const valueColor = (duel, side) => {
     width: 54px;
 
     height: 54px;
-
-    padding: 0;
 
     border: 2px solid var(--gold);
 
@@ -552,6 +553,14 @@ const valueColor = (duel, side) => {
     border: 1.5px solid var(--gold);
 }
 
+/* El empate se marca en navy y en los dos lados a la vez: el oro es del
+   ganador y aquí no hay ninguno. */
+.cell.tied {
+    background: var(--navy-wash);
+
+    border-color: var(--navy-wash-line);
+}
+
 .cellValue {
     font-size: var(--text-metric);
 }
@@ -566,6 +575,18 @@ const valueColor = (duel, side) => {
     font-weight: 600;
 
     color: var(--gold-ink);
+}
+
+.cellTie {
+    display: block;
+
+    margin-top: 1px;
+
+    font-size: 8px;
+
+    font-weight: 600;
+
+    color: var(--navy-soft);
 }
 
 .duelLabel {
@@ -725,7 +746,8 @@ const valueColor = (duel, side) => {
         font-size: 20px;
     }
 
-    .cellWin {
+    .cellWin,
+    .cellTie {
         margin-top: 2px;
 
         font-size: 9.5px;
